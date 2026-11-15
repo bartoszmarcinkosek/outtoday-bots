@@ -67,7 +67,7 @@ def main() -> int:
         for r in data.get("approve", []):
             rows = db.get("events", {"select": "id,title,status,gaps", "title": f"ilike.{r['title']}", "start_date": f"eq.{r['start_date']}"})
             # "set": poprawki pól sprawdzone na oficjalnej stronie (np. venue "Various venues across Sharjah").
-            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("venue", "price_text", "is_free", "start_time", "end_time")}
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("venue", "price_text", "is_free", "start_time", "end_time", "description", "official_url")}
             for row in rows:
                 if row["status"] != "approved" or fix:
                     upd = {"status": "approved", "verified_at": now, "updated_at": now, **fix}
