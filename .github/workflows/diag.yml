@@ -1,0 +1,12 @@
+name: Diag
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests && python bot/diag.py
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
