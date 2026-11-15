@@ -1,0 +1,35 @@
+name: Daily e-mail
+
+on:
+  schedule:
+    - cron: "47 3 * * *"   # 07:47 czasu UAE
+  workflow_dispatch:
+    inputs:
+      always:
+        description: "Wyślij nawet, gdy nie ma nic do sprawdzenia"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: E-mail
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          MAIL_USER: ${{ secrets.MAIL_USER }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          IN_ALWAYS: ${{ inputs.always }}
+        run: |
+          if [ "$IN_ALWAYS" = "true" ]; then python bot/digest.py --always; else python bot/digest.py; fi

@@ -1,0 +1,32 @@
+name: Deploy review function
+
+on:
+  push:
+    branches: [main]
+    paths: ["supabase/functions/**", "supabase/config.toml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      PROJECT_REF: ibpuispeimyyqiailjfy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - name: Sekrety funkcji
+        env:
+          OT_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          supabase secrets set --project-ref "$PROJECT_REF" \
+            OT_SECRET_KEY="$OT_SECRET_KEY" \
+            OT_ALLOWED_ORIGINS="https://bartoszmarcinkosek.github.io"
+      - name: Wgranie funkcji
+        run: supabase functions deploy review --project-ref "$PROJECT_REF" --no-verify-jwt --use-api

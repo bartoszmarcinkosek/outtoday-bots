@@ -1,0 +1,3 @@
+# Ustawienia funkcji Supabase dla OutToday
+[functions.review]
+verify_jwt = false

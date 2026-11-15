@@ -1,0 +1,257 @@
+"""OutToday: codzienny e-mail do sprawdzenia wpisów.
+
+Sekcje:
+1. Gotowe do zatwierdzenia (bez braków)
+2. Do uzupełnienia (brakuje godziny, ceny albo miejsca)
+3. Zmiany wykryte przez bota w zatwierdzonych wpisach
+
+Każdy przycisk prowadzi do strony outtoday-web/review.html z podpisanym tokenem.
+Strona dopiero po kliknięciu "Potwierdź" zmienia coś w bazie.
+
+Uruchomienie: python bot/digest.py            (wysyła e-mail, jeśli są MAIL_*)
+              python bot/digest.py --preview  (tylko zapisuje out/digest.html)
+"""
+
+from __future__ import annotations
+
+import argparse
+import base64
+import datetime as dt
+import hashlib
+import hmac
+import html
+import json
+import os
+import smtplib
+import sys
+import time
+from email.message import EmailMessage
+
+import requests
+
+UAE_TZ = dt.timezone(dt.timedelta(hours=4))
+REVIEW_PAGE = os.environ.get("REVIEW_PAGE", "https://bartoszmarcinkosek.github.io/outtoday-web/review.html")
+TOKEN_DAYS = 14
+MAX_ROWS = 80
+
+MONTHS_PL = ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru"]
+DAYS_PL = ["pon", "wt", "śr", "czw", "pt", "sob", "niedz"]
+GAP_PL = {"start_time": "godzina", "price": "cena", "venue": "miejsce", "date": "data"}
+FIELD_PL = {"price_text": "Cena", "start_time": "Godzina", "venue": "Miejsce"}
+
+
+# ---------------------------------------------------------------- tokeny (zgodne z supabase/functions/review/lib.ts)
+
+
+def b64url(b: bytes) -> str:
+    return base64.urlsafe_b64encode(b).decode().rstrip("=")
+
+
+def review_secret(key: str) -> str:
+    return b64url(hmac.new(key.encode(), b"outtoday-review-v1", hashlib.sha256).digest())
+
+
+def make_token(key: str, kind: str, row_id: str, days: int = TOKEN_DAYS, now: float | None = None) -> str:
+    exp = int((now or time.time()) + days * 86400)
+    body = b64url(json.dumps({"k": kind, "id": row_id, "exp": exp}, separators=(",", ":")).encode())
+    sig = b64url(hmac.new(review_secret(key).encode(), body.encode(), hashlib.sha256).digest())
+    return f"{body}.{sig}"
+
+
+def link(token: str, action: str) -> str:
+    return f"{REVIEW_PAGE}?a={action}&t={token}"
+
+
+# ---------------------------------------------------------------- dane
+
+
+class DB:
+    def __init__(self, url: str, key: str):
+        self.base = url.rstrip("/") + "/rest/v1"
+        self.h = {"apikey": key}
+        if not key.startswith("sb_"):
+            self.h["Authorization"] = f"Bearer {key}"
+
+    def get(self, table: str, params: dict) -> list:
+        r = requests.get(f"{self.base}/{table}", headers=self.h, params=params, timeout=30)
+        r.raise_for_status()
+        return r.json()
+
+
+def load(db: DB) -> dict:
+    today = dt.datetime.now(UAE_TZ).date().isoformat()
+    cols = "id,title,start_date,end_date,start_time,venue,city,price_text,is_free,url,official_url,source_name,gaps,created_at"
+    pending = db.get("events", {"select": cols, "status": "eq.pending", "order": "start_date.asc", "limit": "1000"})
+    pending = [e for e in pending if (e.get("end_date") or e["start_date"]) >= today]
+    changes = db.get("bot_changes", {"select": "*", "handled": "eq.false", "order": "created_at.asc", "limit": "500"})
+    titles = {}
+    ids = sorted({c["row_id"] for c in changes})
+    for i in range(0, len(ids), 50):
+        chunk = ids[i:i + 50]
+        for e in db.get("events", {"select": "id,title,start_date,official_url,url", "id": f"in.({','.join(chunk)})"}):
+            titles[e["id"]] = e
+    return {"pending": pending, "changes": changes, "events_by_id": titles}
+
+
+# ---------------------------------------------------------------- HTML
+
+C = {"bg": "#f4f6fb", "card": "#ffffff", "text": "#14213d", "muted": "#5b6b88", "line": "#e3e8f2",
+     "ok": "#1f9d55", "no": "#c0392b", "edit": "#2f6fde", "warn": "#b7791f"}
+
+
+def plural(n: int, one: str, few: str, many: str) -> str:
+    if n == 1:
+        return one
+    if n % 10 in (2, 3, 4) and n % 100 not in (12, 13, 14):
+        return few
+    return many
+
+
+def fmt_date(e: dict) -> str:
+    def one(s: str) -> str:
+        d = dt.date.fromisoformat(s)
+        return f"{DAYS_PL[d.weekday()]} {d.day} {MONTHS_PL[d.month - 1]}"
+    out = one(e["start_date"])
+    if e.get("end_date") and e["end_date"] != e["start_date"]:
+        out += f" – {one(e['end_date'])}"
+    if e.get("start_time"):
+        out += f", {e['start_time'][:5]}"
+    return out
+
+
+def btn(href: str, label: str, color: str) -> str:
+    return (f'<a href="{html.escape(href)}" style="display:inline-block;margin:2px 4px 2px 0;padding:7px 11px;'
+            f'border-radius:6px;background:{color};color:#fff;text-decoration:none;font-size:13px;font-weight:600">{label}</a>')
+
+
+def title_link(e: dict) -> str:
+    href = e.get("official_url") or e.get("url")
+    t = html.escape(e.get("title") or "?")
+    if href:
+        return f'<a href="{html.escape(href)}" style="color:{C["edit"]};font-weight:700;text-decoration:underline">{t}</a>'
+    return f"<b>{t}</b>"
+
+
+def event_row(e: dict, key: str) -> str:
+    tok = make_token(key, "ev", e["id"])
+    gaps = [GAP_PL.get(g, g) for g in (e.get("gaps") or [])]
+    price = "Free" if e.get("is_free") else (e.get("price_text") or "")
+    lines = [
+        title_link(e),
+        f'<span style="color:{C["text"]}">{html.escape(fmt_date(e))}</span>',
+        html.escape(", ".join(x for x in [e.get("venue") or "", "" if (e.get("city") or "") in (e.get("venue") or "") else e.get("city") or ""] if x)) or f'<i style="color:{C["warn"]}">brak miejsca</i>',
+    ]
+    if price:
+        lines.append(html.escape(price))
+    if gaps:
+        lines.append(f'<span style="color:{C["warn"]};font-weight:600">Brakuje: {html.escape(", ".join(gaps))}</span>')
+    lines.append(f'<span style="color:{C["muted"]};font-size:12px">Źródło: {html.escape(e.get("source_name") or "")}</span>')
+    buttons = btn(link(tok, "approve"), "✓ Zatwierdź", C["ok"]) + btn(link(tok, "reject"), "✕ Odrzuć", C["no"]) + btn(link(tok, "edit"), "✎ Uzupełnij", C["edit"])
+    return (f'<tr><td style="padding:12px 14px;border-bottom:1px solid {C["line"]};font-size:14px;line-height:1.5">'
+            + "<br>".join(lines) + f'<div style="margin-top:8px">{buttons}</div></td></tr>')
+
+
+def change_row(c: dict, ev: dict | None, key: str) -> str:
+    tok = make_token(key, "ch", c["id"])
+    t = title_link(ev) if ev else "<b>(wpis usunięty)</b>"
+    when = html.escape(fmt_date(ev)) if ev else ""
+    field = FIELD_PL.get(c["field"], c["field"])
+    src = f' · <a href="{html.escape(c["source_url"])}" style="color:{C["muted"]}">strona źródłowa</a>' if c.get("source_url") else ""
+    ev_txt = f'<br><span style="color:{C["muted"]};font-size:12px">Cytat: „{html.escape(c["evidence"])}”</span>' if c.get("evidence") else ""
+    buttons = btn(link(tok, "accept"), "✓ Przyjmij zmianę", C["ok"]) + btn(link(tok, "ignore"), "Zostaw jak jest", C["muted"])
+    return (f'<tr><td style="padding:12px 14px;border-bottom:1px solid {C["line"]};font-size:14px;line-height:1.5">'
+            f'{t}<br>{when}<br><b>{field}:</b> {html.escape(c.get("old_value") or "–")} → <b>{html.escape(c.get("new_value") or "–")}</b>{src}{ev_txt}'
+            f'<div style="margin-top:8px">{buttons}</div></td></tr>')
+
+
+def section(title: str, note: str, rows: list[str], extra: int) -> str:
+    if not rows:
+        return ""
+    more = f'<tr><td style="padding:10px 14px;color:{C["muted"]};font-size:13px">…i {extra} więcej (pojawią się w kolejnych e-mailach)</td></tr>' if extra > 0 else ""
+    return (f'<h2 style="font-size:17px;color:{C["text"]};margin:26px 0 4px">{title}</h2>'
+            f'<div style="color:{C["muted"]};font-size:13px;margin-bottom:8px">{note}</div>'
+            f'<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:{C["card"]};border:1px solid {C["line"]};border-radius:10px;border-collapse:separate">'
+            + "".join(rows) + more + "</table>")
+
+
+def build(data: dict, key: str) -> tuple[str, str, str, int]:
+    ready = [e for e in data["pending"] if not e.get("gaps")]
+    gaps = [e for e in data["pending"] if e.get("gaps")]
+    changes = data["changes"]
+    total = len(ready) + len(gaps) + len(changes)
+    today = dt.datetime.now(UAE_TZ).date()
+
+    budget = MAX_ROWS
+    def take(items):
+        nonlocal budget
+        shown = items[:max(budget, 0)]
+        budget -= len(shown)
+        return shown, len(items) - len(shown)
+
+    r_shown, r_more = take(ready)
+    g_shown, g_more = take(gaps)
+    c_shown, c_more = take(changes)
+
+    body = (
+        f'<div style="background:{C["bg"]};padding:18px 10px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:{C["text"]}">'
+        f'<div style="max-width:640px;margin:0 auto">'
+        f'<h1 style="font-size:20px;margin:0 0 4px">OutToday · {today.day} {MONTHS_PL[today.month - 1]}</h1>'
+        f'<div style="color:{C["muted"]};font-size:14px">{len(ready)} gotowe · {len(gaps)} do uzupełnienia · {len(changes)} {plural(len(changes), "zmiana", "zmiany", "zmian")}. '
+        f'Tytuł otwiera stronę źródłową. Przyciski otwierają stronę z potwierdzeniem.</div>'
+        + section("1. Gotowe do zatwierdzenia", "Wszystkie pola są potwierdzone cytatem ze strony.", [event_row(e, key) for e in r_shown], r_more)
+        + section("2. Do uzupełnienia", "Strona nie podaje wszystkiego. Uzupełnij albo zatwierdź tak, jak jest.", [event_row(e, key) for e in g_shown], g_more)
+        + section("3. Zmiany w zatwierdzonych wpisach", "Bot znalazł na stronie inną wartość niż w apce. Nic nie zostało zmienione.",
+                  [change_row(c, data["events_by_id"].get(c["row_id"]), key) for c in c_shown], c_more)
+        + f'<p style="color:{C["muted"]};font-size:12px;margin-top:24px">Linki są ważne {TOKEN_DAYS} dni. '
+          f'Nie przekazuj tego e-maila dalej: przyciski działają bez logowania.</p></div></div>'
+    )
+    subject = f"OutToday: {len(ready) + len(gaps)} do sprawdzenia" + (f", {len(changes)} {plural(len(changes), 'zmiana', 'zmiany', 'zmian')}" if changes else "") + f" · {today.day} {MONTHS_PL[today.month - 1]}"
+    text = (f"OutToday {today.isoformat()}: {len(ready)} gotowe, {len(gaps)} do uzupełnienia, {len(changes)} zmian. "
+            "Otwórz ten e-mail w widoku HTML, żeby zobaczyć przyciski.")
+    return subject, body, text, total
+
+
+def send(subject: str, html_body: str, text: str) -> None:
+    user, pwd = os.environ["MAIL_USER"].strip(), os.environ["MAIL_PASSWORD"].replace(" ", "").strip()
+    to = [a.strip() for a in os.environ["MAIL_TO"].split(",") if a.strip()]
+    msg = EmailMessage()
+    msg["Subject"], msg["From"], msg["To"] = subject, f"OutToday bot <{user}>", ", ".join(to)
+    msg.set_content(text)
+    msg.add_alternative(html_body, subtype="html")
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as s:
+        s.login(user, pwd)
+        s.send_message(msg)
+    print(f"Wysłano e-mail do {len(to)} odbiorców.")
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--preview", action="store_true", help="nie wysyłaj, zapisz out/digest.html")
+    ap.add_argument("--always", action="store_true", help="wyślij nawet, gdy nie ma nic do sprawdzenia")
+    args = ap.parse_args()
+
+    url, key = os.environ.get("SUPABASE_URL", "").strip(), os.environ.get("SUPABASE_SECRET_KEY", "").strip()
+    if not url or not key:
+        print("Brak SUPABASE_URL / SUPABASE_SECRET_KEY")
+        return 1
+    data = load(DB(url, key))
+    subject, body, text, total = build(data, key)
+    os.makedirs("out", exist_ok=True)
+    print(f"{subject} (pozycji: {total})")
+    if args.preview:
+        with open("out/digest.html", "w", encoding="utf-8") as f:
+            f.write(body)
+        print("Zapisano out/digest.html (podgląd, bez wysyłki)")
+        return 0
+    if total == 0 and not args.always:
+        print("Nic do sprawdzenia, e-mail nie jest wysyłany.")
+        return 0
+    if not all(os.environ.get(k) for k in ("MAIL_USER", "MAIL_PASSWORD", "MAIL_TO")):
+        print("Brak MAIL_USER / MAIL_PASSWORD / MAIL_TO: e-mail nie wysłany")
+        return 1
+    send(subject, body, text)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
