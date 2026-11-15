@@ -78,7 +78,8 @@ def find_official_url(client, table: str, row: dict, usage: dict) -> tuple[str |
     prompt = (
         f"Find the OFFICIAL web page for this UAE listing: {what}.\n"
         "Official means the venue's, hotel's, restaurant's or operator's own website (including the hotel brand site, "
-        "e.g. marriott.com, hilton.com, jumeirah.com), ideally the exact page for this offer or venue.\n"
+        "e.g. marriott.com, hilton.com, jumeirah.com). Prefer the exact page that describes THIS offer (e.g. the day pass, "
+        "brunch or ladies' night page) over the hotel home page. Use the search snippets to confirm the page mentions the offer.\n"
         "Never return listing portals, review sites, ticket resellers, social media or news articles.\n"
         "If you cannot find an official page with confidence, return none.\n"
         "Answer with ONE line of JSON only: {\"url\": \"https://...\" or null, \"why\": \"short reason\"}"
@@ -118,12 +119,32 @@ def find_official_url(client, table: str, row: dict, usage: dict) -> tuple[str |
 # ---------------------------------------------------------------- krok B: sprawdzenie na stronie
 
 
-def check_facts(raw: dict, page_norm: str) -> dict:
+OFFER_STOP = {"at", "the", "and", "with", "for", "of", "in", "on", "by", "a", "an", "&", "abu", "dhabi", "dubai",
+              "resort", "hotel", "spa", "club", "beach", "island"}
+
+
+def offer_words(table: str, row: dict) -> set[str]:
+    """Słowa opisujące samą ofertę (np. 'day pass', 'ladies'), bez nazwy hotelu."""
+    if table != "deals":
+        return set()
+    title = R._tokens(row.get("title") or "")
+    venue = set(R._tokens(row.get("venue") or ""))
+    words = {t for t in title if t not in venue and t not in OFFER_STOP and len(t) > 2}
+    return words
+
+
+def check_facts(raw: dict, page_norm: str, table: str = "", row: dict | None = None) -> dict:
     """Zostawia tylko pola potwierdzone cytatem ze strony."""
     ev = raw.get("evidence") or {}
     out: dict = {"evidence": {}}
     if not raw.get("found") or not R.quote_on_page(ev.get("item"), page_norm):
         return {"found": False}
+    # cytat o pozycji musi dotyczyć tej oferty (np. zawierać "day pass"), a nie innej oferty tego hotelu
+    words = offer_words(table, row or {})
+    if words:
+        quote_words = set(R._tokens(ev.get("item") or "")) | set(R._tokens(ev.get("price") or ""))
+        if len(words & quote_words) < max(1, (len(words) + 1) // 2):
+            return {"found": False}
     out["found"] = True
     pq = ev.get("price")
     if raw.get("price_text") and R.quote_on_page(pq, page_norm) and (
@@ -314,7 +335,7 @@ def main() -> int:
                         continue
 
                 raw = ask_facts(client, table, row, text, page["final_url"], usage)
-                facts = check_facts(raw, R.norm(text))
+                facts = check_facts(raw, R.norm(text), table, row)
                 if not facts.get("found"):
                     rep["result"] += "strona nie opisuje tej pozycji (sprawdź ręcznie)"
                 else:
