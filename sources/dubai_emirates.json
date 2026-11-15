@@ -65,7 +65,12 @@
         "https://alserkal.online/events"
       ],
       "default_venue": "Alserkal Avenue, Al Quoz",
-      "trusted": true
+      "trusted": true,
+      "free_entry": {
+        "quote": "Entry is free, and pets are welcome.",
+        "url": "https://alserkal.online/words/contemporary-art-in-dubai-at-alserkal-avenue",
+        "scope": "exhibitions"
+      }
     },
     {
       "id": "jameel_arts",
@@ -76,7 +81,12 @@
         "https://jameelartscentre.org/whats-on/"
       ],
       "default_venue": "Jameel Arts Centre, Jaddaf Waterfront",
-      "trusted": true
+      "trusted": true,
+      "free_entry": {
+        "quote": "Jameel Arts Centre is open-access and free for all.",
+        "url": "https://jameelartscentre.org/visit/",
+        "scope": "all"
+      }
     },
     {
       "id": "global_village",
@@ -98,7 +108,7 @@
         "https://www.sharjahart.org/"
       ],
       "default_venue": null,
-      "trusted": false
+      "trusted": true
     },
     {
       "id": "sharjah_museums",
@@ -109,7 +119,7 @@
         "https://www.sharjahmuseums.ae/"
       ],
       "default_venue": null,
-      "trusted": false
+      "trusted": true
     },
     {
       "id": "al_majaz",
@@ -143,7 +153,7 @@
         "https://www.rakart.ae/"
       ],
       "default_venue": "Al Jazeera Al Hamra Heritage Village",
-      "trusted": false
+      "trusted": true
     },
     {
       "id": "al_marjan",
@@ -154,7 +164,7 @@
         "https://marjan.ae/lifestyle/community-and-culture"
       ],
       "default_venue": null,
-      "trusted": false
+      "trusted": true
     },
     {
       "id": "jebel_jais",
@@ -165,7 +175,7 @@
         "https://visitjebeljais.com/events"
       ],
       "default_venue": null,
-      "trusted": false
+      "trusted": true
     },
     {
       "id": "visit_ajman",

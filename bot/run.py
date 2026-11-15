@@ -433,6 +433,12 @@ def clean_output(out) -> dict:
 # ---------------------------------------------------------------- kontrola faktów
 
 
+# Miejsca za granicą, które pojawiają się na stronach partnerów z ZEA (wystawy wyjazdowe, Biennale itp.).
+ABROAD = re.compile(r"\b(irish museum|imma|dublin|ireland|london|paris|new york|venice|venezia|berlin|tokyo|beirut|cairo|"
+                    r"riyadh|jeddah|doha|kuwait|muscat|bahrain|manama|amman|istanbul|mumbai|delhi|karachi|lahore|"
+                    r"united kingdom|france|germany|italy|usa|india|pakistan|saudi arabia|qatar|oman|egypt|lebanon|jordan)\b")
+
+
 def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, page_url: str) -> tuple[dict | None, str]:
     """Zwraca (wpis, powód_odrzucenia). Każde pole bez potwierdzenia na stronie jest kasowane."""
     ev = raw.get("evidence") or {}
@@ -443,6 +449,8 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
         return None, "tylko dla szkół"
     if re.search(r"\b(summit|conference|congress|forum|symposium for professionals|trade show|b2b)\b", norm(title)) and "symposium o" not in norm(title):
         return None, "wydarzenie branżowe (konferencja/szczyt)"
+    if ABROAD.search(norm(f"{raw.get('venue') or ''} {raw.get('area') or ''}")):
+        return None, "poza ZEA (miejsce za granicą)"
     if not (quote_on_page(title, page_norm) or quote_on_page(ev.get("title"), page_norm)):
         return None, "tytułu nie ma na stronie (AI wymyśliło?)"
 
@@ -511,6 +519,10 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     elif pmin is not None and quote_on_page(pq, page_norm) and number_in_quote(pmin, pq):
         item.update(is_free=False, price_text=clean_price(raw.get("price_text") or f"AED {pmin:g}"), price_min_aed=pmin)
         item["evidence"]["price"] = pq
+    elif free_entry_applies(source, item.get("start_date"), item.get("end_date")):
+        fe = source["free_entry"]
+        item.update(is_free=True, price_text="Free entry", price_min_aed=0)
+        item["evidence"]["price"] = f"{fe['quote']} ({fe['url']})"
     else:
         item.update(is_free=False, price_text=None, price_min_aed=None)
         item["gaps"].append("price")
@@ -525,6 +537,17 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     if end and end < today_uae():
         return None, "event już minął"
     return item, ""
+
+
+def free_entry_applies(source: dict, sd, ed) -> bool:
+    """Źródło ma na oficjalnej stronie 'wstęp wolny' (cytat + adres w sources/*.json).
+    scope 'all' = każdy wpis bez ceny, 'exhibitions' = tylko wpisy z zakresem dat (wystawy w galeriach)."""
+    fe = source.get("free_entry")
+    if not fe:
+        return False
+    if fe.get("scope") == "all":
+        return True
+    return bool(sd and ed and str(ed) > str(sd))
 
 
 def clean_price(t: str) -> str:
@@ -614,11 +637,12 @@ def auto_ok(item: dict, source: dict) -> bool:
     Wystawy (zakres dat) mogą nie mieć godziny."""
     if not source.get("trusted"):
         return False
-    gaps = set(item.get("gaps") or [])
+    # Brak ceny nie jest błędem: apka pokazuje wtedy "check the official page". Data i miejsce muszą być pewne.
+    gaps = set(item.get("gaps") or []) - {"price"}
     if not gaps:
         return True
     sd, ed = item.get("start_date"), item.get("end_date")
-    return gaps == {"start_time"} and bool(ed and sd and ed > sd)
+    return gaps == {"start_time"} and bool(ed and sd and str(ed) > str(sd))
 
 
 def to_row(item: dict, source: dict, key: str, now_iso: str) -> dict:
@@ -916,11 +940,22 @@ def auto_approve_pending(db: "DB", sources: list[dict], now_iso: str) -> int:
     for r in rows:
         src = by_name.get(r.get("source_name") or "")
         item = {"gaps": r.get("gaps") or [], "start_date": r["start_date"], "end_date": r.get("end_date")}
-        if src and auto_ok(item, src):
-            ev = r.get("evidence") or {}
+        if not src:
+            continue
+        upd: dict = {}
+        ev = r.get("evidence") or {}
+        if "price" in item["gaps"] and free_entry_applies(src, r["start_date"], r.get("end_date")):
+            fe = src["free_entry"]
+            item["gaps"] = [g for g in item["gaps"] if g != "price"]
+            ev["price"] = f"{fe['quote']} ({fe['url']})"
+            upd.update(price_text="Free entry", is_free=True, price_min_aed=0, gaps=item["gaps"], evidence=ev)
+        if auto_ok(item, src):
             ev["auto"] = True
-            db.update("events", {"id": r["id"]}, {"status": "approved", "verified_at": now_iso, "updated_at": now_iso, "evidence": ev})
+            upd.update(status="approved", verified_at=now_iso, evidence=ev)
             n += 1
+        if upd:
+            upd["updated_at"] = now_iso
+            db.update("events", {"id": r["id"]}, upd)
     if n:
         print(f"Zatwierdzone automatycznie spośród czekających: {n}")
     return n
