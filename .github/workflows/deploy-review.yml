@@ -30,3 +30,14 @@ jobs:
             OT_ALLOWED_ORIGINS="https://bartoszmarcinkosek.github.io"
       - name: Wgranie funkcji
         run: supabase functions deploy review --yes --project-ref "$PROJECT_REF" --no-verify-jwt --use-api
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test funkcji
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          pip install requests
+          sleep 10
+          python bot/digest.py --selftest

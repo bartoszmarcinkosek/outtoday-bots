@@ -224,9 +224,30 @@ def send(subject: str, html_body: str, text: str) -> None:
     print(f"Wysłano e-mail do {len(to)} odbiorców.")
 
 
+def selftest(db: DB, url: str, key: str) -> int:
+    """Sprawdza funkcję review: zły token = 401, dobry token = odczyt wpisu (bez zmian w bazie)."""
+    fn = url.rstrip("/") + "/functions/v1/review"
+    origin = "https://bartoszmarcinkosek.github.io"
+    r = requests.options(fn, headers={"Origin": origin, "Access-Control-Request-Method": "POST"}, timeout=30)
+    print("CORS:", r.status_code, r.headers.get("access-control-allow-origin"))
+    r = requests.post(fn, json={"token": "x.y", "action": "approve"}, headers={"Origin": origin}, timeout=30)
+    print("zły token:", r.status_code, r.text[:80])
+    ok = r.status_code == 401
+    rows = db.get("events", {"select": "id,title,status", "status": "eq.pending", "limit": "1"})
+    if rows:
+        tok = make_token(key, "ev", rows[0]["id"])
+        r = requests.post(fn, json={"token": tok, "action": "get"}, headers={"Origin": origin}, timeout=30)
+        got = r.json().get("event", {}) if r.ok else {}
+        print("dobry token:", r.status_code, "tytuł się zgadza" if got.get("title") == rows[0]["title"] else r.text[:120])
+        ok = ok and r.status_code == 200 and got.get("title") == rows[0]["title"]
+    print("SELFTEST", "OK" if ok else "BŁĄD")
+    return 0 if ok else 1
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--preview", action="store_true", help="nie wysyłaj, zapisz out/digest.html")
+    ap.add_argument("--selftest", action="store_true", help="sprawdź funkcję review, nic nie zmieniaj")
     ap.add_argument("--always", action="store_true", help="wyślij nawet, gdy nie ma nic do sprawdzenia")
     args = ap.parse_args()
 
@@ -234,6 +255,8 @@ def main() -> int:
     if not url or not key:
         print("Brak SUPABASE_URL / SUPABASE_SECRET_KEY")
         return 1
+    if args.selftest:
+        return selftest(DB(url, key), url, key)
     data = load(DB(url, key))
     subject, body, text, total = build(data, key)
     os.makedirs("out", exist_ok=True)
