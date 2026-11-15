@@ -1,0 +1,72 @@
+name: Events bot
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Próba: nic nie zapisuje w bazie, tylko raport"
+        type: boolean
+        default: true
+      only:
+        description: "Tylko te źródła (id po przecinku, puste = wszystkie)"
+        type: string
+        default: ""
+      max_items:
+        description: "Limit wpisów"
+        type: number
+        default: 50
+      force:
+        description: "Sprawdź strony nawet bez zmian"
+        type: boolean
+        default: false
+  # Codzienne uruchomienie włączymy po udanej próbie:
+  # schedule:
+  #   - cron: "17 1 * * *"   # 05:17 czasu UAE
+
+permissions:
+  contents: read
+
+concurrency:
+  group: events-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalacja
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Bot
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          IN_DRY: ${{ inputs.dry_run }}
+          IN_FORCE: ${{ inputs.force }}
+          IN_ONLY: ${{ inputs.only }}
+          IN_MAX: ${{ inputs.max_items || 50 }}
+        run: |
+          ARGS=(--max-items "$IN_MAX")
+          if [ "$IN_DRY" != "false" ]; then ARGS+=(--dry-run); fi
+          if [ "$IN_FORCE" = "true" ]; then ARGS+=(--force); fi
+          if [ -n "$IN_ONLY" ]; then ARGS+=(--only "$IN_ONLY"); fi
+          python bot/run.py "${ARGS[@]}"
+
+      - name: Raport do pobrania
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raport
+          path: out/
+          if-no-files-found: ignore

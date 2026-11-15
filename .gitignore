@@ -1,0 +1,10 @@
+# klucze i pliki lokalne: nigdy do repozytorium
+.env
+*.env
+secrets*
+out/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
