@@ -926,10 +926,38 @@ def auto_approve_pending(db: "DB", sources: list[dict], now_iso: str) -> int:
     return n
 
 
+TICKET_SEARCH_DOMAINS = ["platinumlist.net", "district.ae", "livenation.me", "ticketmaster.ae", "coca-cola-arena.com",
+                         "dubaiopera.com", "q-tickets.com", "800tickets.com", "ticketsmarche.com"]
+
+
+def search_ticket_page(client, item: dict, src: dict, usage: dict) -> list[str]:
+    """Strona eventu nie linkuje sprzedawcy biletów wprost: szukamy go (tylko domeny sprzedawców, ok. 0,01 USD)."""
+    when = item["start_date"].isoformat() if item.get("start_date") else ""
+    prompt = (f"Find the ticket sale page for this exact event: {item['title']}, {when}, at {item.get('venue') or src['name']}, UAE. "
+              "Answer with ONE line of JSON only: {\"url\": \"https://...\" or null}")
+    try:
+        resp = client.messages.create(
+            model=MODEL, max_tokens=800,
+            tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 2, "allowed_domains": TICKET_SEARCH_DOMAINS}],
+            messages=[{"role": "user", "content": prompt}],
+        )
+    except Exception as e:
+        print(f"   [szukanie biletów] {e}")
+        return []
+    usage["input"] += resp.usage.input_tokens
+    usage["output"] += resp.usage.output_tokens
+    usage["calls"] += 1
+    text = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
+    m = re.search(r"https?://[^\s\"'<>]+", text)
+    if not m:
+        return []
+    url = m.group(0).rstrip(".,)")
+    return [url] if any(d in urlparse(url).netloc.lower() for d in TICKET_SEARCH_DOMAINS) else []
+
+
 def enrich_from_tickets(br: "Browser", client, item: dict, src: dict, usage: dict, links: list) -> dict:
     """Brakuje godziny albo ceny? Sprawdź oficjalnego sprzedawcę biletów podlinkowanego na stronie eventu."""
-    tl = ticket_links(links)
-    ext = sorted({urlparse(h).netloc for _, h in links if h and h.startswith("http")})
+    tl = ticket_links(links) or search_ticket_page(client, item, src, usage)
     print(f"   bilety dla '{item['title'][:40]}': {tl[:2]}")
     for url in tl:
         ok, _ = robots_allows(url)
