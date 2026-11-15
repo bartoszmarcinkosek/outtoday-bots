@@ -105,19 +105,36 @@ def parse_time(s) -> str | None:
 # ---------------------------------------------------------------- pobieranie
 
 
-def robots_allows(url: str) -> tuple[bool, str]:
-    p = urlparse(url)
-    robots_url = f"{p.scheme}://{p.netloc}/robots.txt"
+_ROBOTS_CACHE: dict[str, tuple[int, str]] = {}
+_BROWSER = None  # ustawiane w main(); robots.txt czytamy przez przeglądarkę, gdy zwykłe pobieranie ma problem z certyfikatem
+
+
+def _get_robots(robots_url: str) -> tuple[int, str]:
+    if robots_url in _ROBOTS_CACHE:
+        return _ROBOTS_CACHE[robots_url]
     try:
         r = requests.get(robots_url, headers={"User-Agent": USER_AGENT}, timeout=20)
-    except requests.RequestException as e:
-        return False, f"robots.txt nie odpowiada ({type(e).__name__}), dziś pomijam"
-    if r.status_code >= 500 or r.status_code == 429:
-        return False, f"robots.txt błąd serwera ({r.status_code}), dziś pomijam"
-    if r.status_code >= 400:
-        return True, f"brak robots.txt ({r.status_code})"
+        res = (r.status_code, r.text)
+    except requests.exceptions.SSLError:
+        res = _BROWSER.fetch_raw(robots_url) if _BROWSER else (-1, "")
+    except requests.RequestException:
+        res = (-1, "")
+    _ROBOTS_CACHE[robots_url] = res
+    return res
+
+
+def robots_allows(url: str) -> tuple[bool, str]:
+    """Zasady RFC 9309: brak pliku (4xx) = wolno; błąd serwera lub brak odpowiedzi = dziś nie wchodzimy."""
+    p = urlparse(url)
+    status, body = _get_robots(f"{p.scheme}://{p.netloc}/robots.txt")
+    if status == -1:
+        return False, "robots.txt nie odpowiada, dziś pomijam"
+    if status >= 500 or status == 429:
+        return False, f"robots.txt błąd serwera ({status}), dziś pomijam"
+    if status >= 400:
+        return True, f"brak robots.txt ({status})"
     rp = urllib.robotparser.RobotFileParser()
-    rp.parse(r.text.splitlines())
+    rp.parse(body.splitlines())
     ok = rp.can_fetch(ROBOTS_AGENT, url)
     return ok, "robots.txt pozwala" if ok else "robots.txt ZABRANIA"
 
@@ -144,6 +161,26 @@ class Browser:
             self._browser.close()
         if self._pw:
             self._pw.stop()
+
+    def fetch_raw(self, url: str) -> tuple[int, str]:
+        """Surowy tekst pliku (np. robots.txt) przez przeglądarkę."""
+        if not self._browser:
+            return (-1, "")
+        ctx = self._browser.new_context(user_agent=USER_AGENT)
+        try:
+            page = ctx.new_page()
+            resp = page.goto(url, wait_until="domcontentloaded", timeout=30_000)
+            if not resp:
+                return (-1, "")
+            try:
+                body = resp.text()
+            except Exception:
+                body = page.inner_text("body")
+            return (resp.status, body)
+        except Exception:
+            return (-1, "")
+        finally:
+            ctx.close()
 
     def fetch(self, url: str) -> dict:
         if self._browser:
@@ -637,7 +674,9 @@ def main() -> int:
                 print(f"[uwaga] nie mogę odczytać events ({e})")
         print(f"W bazie {len(existing)} eventów do porównania")
 
+    global _BROWSER
     with Browser() as br:
+        _BROWSER = br
         for src in sources:
             if len(accepted) >= args.max_items:
                 break
