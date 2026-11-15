@@ -47,7 +47,7 @@
       "city": "Dubai",
       "single_venue": false,
       "urls": [
-        "https://www.expocitydubai.com/en/"
+        "https://www.expocitydubai.com/en/things-to-do/events-and-workshops/"
       ],
       "default_venue": "Expo City Dubai"
     },
@@ -57,7 +57,7 @@
       "city": "Dubai",
       "single_venue": true,
       "urls": [
-        "https://museumofthefuture.ae/en"
+        "https://museumofthefuture.ae/en/programs"
       ],
       "default_venue": "Museum of the Future, Sheikh Zayed Road"
     },
@@ -67,7 +67,7 @@
       "city": "Dubai",
       "single_venue": false,
       "urls": [
-        "https://alserkal.online/"
+        "https://alserkal.online/events"
       ],
       "default_venue": "Alserkal Avenue, Al Quoz"
     },
@@ -77,19 +77,9 @@
       "city": "Dubai",
       "single_venue": true,
       "urls": [
-        "https://jameelartscentre.org/"
+        "https://jameelartscentre.org/whats-on/"
       ],
       "default_venue": "Jameel Arts Centre, Jaddaf Waterfront"
-    },
-    {
-      "id": "dubai_culture",
-      "name": "Dubai Culture",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://dubaiculture.gov.ae/en"
-      ],
-      "default_venue": null
     },
     {
       "id": "global_village",
@@ -130,16 +120,6 @@
         "https://www.almajazamphitheatre.ae/"
       ],
       "default_venue": "Al Majaz Amphitheatre, Al Majaz Waterfront"
-    },
-    {
-      "id": "rak_al_hamra",
-      "name": "Al Hamra Ras Al Khaimah",
-      "city": "Ras Al Khaimah",
-      "single_venue": false,
-      "urls": [
-        "https://www.alhamra.ae/"
-      ],
-      "default_venue": null
     }
   ]
 }

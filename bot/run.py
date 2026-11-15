@@ -315,7 +315,7 @@ ABSOLUTE RULES
 
 ENTRY RULE (apply before saving)
 Save only things that are a real reason to go out at a specific time: concerts, shows, performances, talks, screenings, workshops, festivals, exhibitions with dates, sports events, markets with dates.
-Put into "rejected" (with reason): permanent collections or regular opening hours with no dates, generic infrastructure (paths, promenades, bridges, parks as such), online-only events, members-only or private events, school-only performances (school matinees for school groups), job ads, news articles, newsletters, shop products, gift cards, memberships, past events.
+Put into "rejected" (with reason): permanent collections or regular opening hours with no dates, generic infrastructure (paths, promenades, bridges, parks as such), events outside the UAE (e.g. a partner museum abroad), news articles and press releases about programmes, open calls / competitions / applications, trade-only or B2B shows, summits and conferences for professionals (keep consumer shows open to the public), online-only events, members-only or private events, school-only performances (school matinees for school groups), job ads, news articles, newsletters, shop products, gift cards, memberships, past events.
 """
 
 
@@ -449,6 +449,10 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     vq = ev.get("venue")
     default_venue = source.get("default_venue")
     if venue and quote_on_page(vq, page_norm):
+        # sala w obiekcie (np. "Main Auditorium") -> "Main Auditorium, Dubai Opera, Downtown Dubai"
+        if source.get("single_venue") and default_venue and not titles_match(venue, default_venue) \
+                and not set(_tokens(default_venue.split(",")[0])) <= set(_tokens(venue)):
+            venue = f"{venue}, {default_venue}"
         item["venue"] = venue
         item["evidence"]["venue"] = vq
     elif default_venue and (source.get("single_venue") or (venue and norm(venue) == norm(default_venue))):
@@ -465,7 +469,7 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
         item.update(is_free=True, price_text="Free", price_min_aed=0)
         item["evidence"]["price"] = pq
     elif pmin is not None and quote_on_page(pq, page_norm) and number_in_quote(pmin, pq):
-        item.update(is_free=False, price_text=(raw.get("price_text") or f"AED {pmin:g}").strip(), price_min_aed=pmin)
+        item.update(is_free=False, price_text=clean_price(raw.get("price_text") or f"AED {pmin:g}"), price_min_aed=pmin)
         item["evidence"]["price"] = pq
     else:
         item.update(is_free=False, price_text=None, price_min_aed=None)
@@ -481,6 +485,14 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     if end and end < today_uae():
         return None, "event już minął"
     return item, ""
+
+
+def clean_price(t: str) -> str:
+    """Nowy symbol dirhama bywa ikoną fontu (widać np. 'ê 60'). Zamieniamy na AED."""
+    t = re.sub(r"\s+", " ", t.replace("\u20c3", "AED ")).strip()
+    t = re.sub(r"(?<![A-Za-z])[êÊ\ue000-\uf8ff]\s*(?=\d)", "AED ", t)
+    t = re.sub(r"AED(?=\d)", "AED ", t)
+    return t.replace("  ", " ").replace(" • ", " · ").strip()
 
 
 def date_matches_quote(sd: dt.date, ed: dt.date | None, quote: str) -> bool:
