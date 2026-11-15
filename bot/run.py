@@ -216,6 +216,25 @@ class Browser:
         return {"status": r.status_code, "text": soup.get_text("\n", strip=True), "links": links, "final_url": r.url}
 
 
+AGGREGATORS = ("platinumlist", "feverup", "yallaabudhabi", "whatson.ae", "timeoutdubai", "wow-rak", "koobit",
+               "facebook.com", "instagram.com", "twitter.com", "x.com", "youtube.com", "tiktok.com", "linkedin.com",
+               "google.", "apple.com", "wa.me", "whatsapp")
+
+
+def external_links(links: list, base: str) -> list[tuple[str, str]]:
+    """Linki do stron organizatorów (inne domeny), bez portali i mediów społecznościowych."""
+    seen, out = set(), []
+    for label, href in links:
+        if not href or not href.startswith("http") or same_site(href, base):
+            continue
+        host = urlparse(href).netloc.lower()
+        if any(a in host for a in AGGREGATORS) or href in seen:
+            continue
+        seen.add(href)
+        out.append((re.sub(r"\s+", " ", label or "").strip(), href.split("#")[0]))
+    return out[:150]
+
+
 def same_site(a: str, b: str) -> bool:
     ha, hb = urlparse(a).netloc.lower(), urlparse(b).netloc.lower()
     strip = lambda h: h[4:] if h.startswith("www.") else h
@@ -257,6 +276,7 @@ ITEM_SCHEMA = {
         "registration_required": {"type": "boolean"},
         "description": {"type": ["string", "null"], "description": "One or two short sentences in your own words, only facts from the page."},
         "detail_url": {"type": ["string", "null"], "description": "URL of this event's own page, copied from the LINKS list. Null if none."},
+        "organiser_url": {"type": ["string", "null"], "description": "Only for tourism-board sources: the organiser's own website or ticket page for this event, copied exactly from the EXTERNAL LINKS list. Null if none."},
         "evidence": {
             "type": "object",
             "description": "Exact verbatim snippets copied from PAGE TEXT that prove each field. Copy, do not paraphrase. Null when the field is null.",
@@ -273,7 +293,7 @@ ITEM_SCHEMA = {
     "required": [
         "title", "category", "start_date", "end_date", "start_time", "end_time", "venue", "city",
         "price_text", "price_min_aed", "is_free", "kid_friendly", "registration_required", "time_kind", "doors_time",
-        "description", "detail_url", "evidence",
+        "description", "detail_url", "organiser_url", "evidence",
     ],
 }
 
@@ -319,8 +339,10 @@ Put into "rejected" (with reason): permanent collections or regular opening hour
 """
 
 
-def call_model(client, text: str, links: list[tuple[str, str]], source: dict, page_url: str, focus: str | None, usage: dict) -> dict:
+def call_model(client, text: str, links: list[tuple[str, str]], source: dict, page_url: str, focus: str | None, usage: dict,
+               ext_links: list[tuple[str, str]] | None = None) -> dict:
     links_txt = "\n".join(f"[{label}] {href}" for label, href in links)
+    ext_txt = "\n".join(f"[{label}] {href}" for label, href in (ext_links or []))
     rules = RULES.format(
         today=today_uae().isoformat(),
         default_venue=source.get("default_venue") or "none",
@@ -335,6 +357,7 @@ def call_model(client, text: str, links: list[tuple[str, str]], source: dict, pa
         f"SOURCE: {source['name']}\nPAGE URL: {page_url}\n\n{task}\n\n"
         f"=== PAGE TEXT ===\n{text[:MAX_TEXT]}\n=== END PAGE TEXT ===\n\n"
         f"=== LINKS ===\n{links_txt}\n=== END LINKS ==="
+        + (f"\n\n=== EXTERNAL LINKS (organisers) ===\n{ext_txt}\n=== END EXTERNAL LINKS ===" if ext_txt else "")
     )
     for attempt in range(3):
         try:
@@ -579,8 +602,8 @@ def to_row(item: dict, source: dict, key: str, now_iso: str) -> dict:
         "is_free": item.get("is_free", False),
         "kid_friendly": item.get("kid_friendly", False),
         "registration_required": item.get("registration_required", False),
-        "url": item.get("detail_url") or item["evidence"]["page"],
-        "official_url": item.get("detail_url") or item["evidence"]["page"],
+        "url": item.get("organiser_url") or item.get("detail_url") or item["evidence"]["page"],
+        "official_url": item.get("organiser_url") or item.get("detail_url") or item["evidence"]["page"],
         "source_name": source["name"],
         "source_url": item["evidence"]["page"],
         "status": "pending",
@@ -730,7 +753,9 @@ def main() -> int:
                     links = clean_links(page["links"], page["final_url"])
                     link_urls = {u for _, u in links}
                     page_norm = norm(text)
-                    out = call_model(client, text, links, src, page["final_url"], None, usage)
+                    ext = external_links(page["links"], page["final_url"]) if src.get("gov_tourism") else None
+                    ext_urls = {u for _, u in (ext or [])}
+                    out = call_model(client, text, links, src, page["final_url"], None, usage, ext)
                     for rj in out.get("rejected", []):
                         report.append({"source": src["name"], "title": rj.get("title"), "action": f"odrzucone: {rj.get('reason')}"})
 
@@ -741,6 +766,8 @@ def main() -> int:
                     for raw in out.get("events", []):
                         log["found"] += 1
                         item, why = check_item(raw, page_norm, link_urls, src, page["final_url"])
+                        if item and raw.get("organiser_url") in ext_urls:
+                            item["organiser_url"] = raw["organiser_url"]
                         if not item:
                             report.append({"source": src["name"], "title": raw.get("title"), "action": f"odrzucone: {why}"})
                             continue
@@ -842,7 +869,9 @@ def enrich_from_detail(br: Browser, client, item: dict, src: dict, usage: dict) 
     if page["status"] >= 400 or not page["text"]:
         return [item]
     links = clean_links(page["links"], page["final_url"])
-    out = call_model(client, page["text"], links, src, page["final_url"], item["title"], usage)
+    ext = external_links(page["links"], page["final_url"]) if src.get("gov_tourism") else None
+    ext_urls = {u for _, u in (ext or [])}
+    out = call_model(client, page["text"], links, src, page["final_url"], item["title"], usage, ext)
     page_norm = norm(page["text"])
     results = []
     for raw in out.get("events", []):
@@ -865,6 +894,8 @@ def enrich_from_detail(br: Browser, client, item: dict, src: dict, usage: dict) 
                 merged["evidence"][evk + "_page"] = page["final_url"]
             if gap in item["gaps"] and gap in d["gaps"]:
                 merged["gaps"].append(gap)
+        if raw.get("organiser_url") in ext_urls:
+            merged["organiser_url"] = raw["organiser_url"]
         if d.get("description") and not merged.get("description"):
             merged["description"] = d["description"]
         results.append(merged)
@@ -884,7 +915,7 @@ def row_for_report(src: dict, it: dict, action: str) -> dict:
         "price": it.get("price_text"),
         "free": "tak" if it.get("is_free") else "",
         "gaps": ", ".join(it.get("gaps", [])),
-        "link": it.get("detail_url") or ev.get("page"),
+        "link": it.get("organiser_url") or it.get("detail_url") or ev.get("page"),
         "evidence_date": ev.get("date"),
         "evidence_price": ev.get("price"),
         "action": action,

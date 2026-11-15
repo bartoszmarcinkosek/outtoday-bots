@@ -1,5 +1,5 @@
 {
-  "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Sprawdzone próbą 15.11.2026. Pominięte: DWTC (głównie targi branżowe), Dubai Culture (strona główna to wiadomości), Al Hamra RAK (brak eventów). Madinat Theatre, Sharjah Museums i Al Majaz nie odpowiadały na robots.txt; bot próbuje je co raz i pomija, dopóki nie odpowiedzą.",
+  "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Sprawdzone próbą 15.11.2026. Pominięte: DWTC (głównie targi branżowe), Dubai Culture (strona główna to wiadomości), Al Hamra RAK (brak eventów). Madinat Theatre, Sharjah Museums i Al Majaz nie odpowiadały na robots.txt; bot próbuje je co raz i pomija, dopóki nie odpowiedzą. gov_tourism = rządowy urząd turystyki: wolno go używać, ale link w apce prowadzi do organizatora, jeśli urząd go podaje.",
   "sources": [
     {
       "id": "coca_cola_arena",
@@ -110,6 +110,58 @@
         "https://www.almajazamphitheatre.ae/"
       ],
       "default_venue": "Al Majaz Amphitheatre, Al Majaz Waterfront"
+    },
+    {
+      "id": "visit_rak",
+      "name": "Visit Ras Al Khaimah",
+      "city": "Ras Al Khaimah",
+      "single_venue": false,
+      "gov_tourism": true,
+      "urls": [
+        "https://visitrasalkhaimah.com/events/"
+      ],
+      "default_venue": null
+    },
+    {
+      "id": "rak_art",
+      "name": "Ras Al Khaimah Art",
+      "city": "Ras Al Khaimah",
+      "single_venue": false,
+      "urls": [
+        "https://www.rakart.ae/"
+      ],
+      "default_venue": "Al Jazeera Al Hamra Heritage Village"
+    },
+    {
+      "id": "al_marjan",
+      "name": "Al Marjan Island",
+      "city": "Ras Al Khaimah",
+      "single_venue": false,
+      "urls": [
+        "https://marjan.ae/lifestyle/community-and-culture"
+      ],
+      "default_venue": null
+    },
+    {
+      "id": "jebel_jais",
+      "name": "Jebel Jais",
+      "city": "Ras Al Khaimah",
+      "single_venue": false,
+      "urls": [
+        "https://visitjebeljais.com/"
+      ],
+      "default_venue": null
+    },
+    {
+      "id": "visit_ajman",
+      "name": "Visit Ajman",
+      "city": "Ajman",
+      "single_venue": false,
+      "gov_tourism": true,
+      "urls": [
+        "https://visit-ajman.ae/en/activities/upcoming-events"
+      ],
+      "default_venue": null
     }
   ]
 }
