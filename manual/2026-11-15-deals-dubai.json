@@ -1,0 +1,176 @@
+{
+ "deals": [
+  {
+   "title": "The Saffron Brunch",
+   "deal_type": "brunch",
+   "venue": "Saffron, Atlantis The Palm",
+   "area": "Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.atlantis.com/dubai/atlantis-the-palm/dining/saffron",
+   "days_of_week": [
+    6
+   ],
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "price_text": "AED 525 alcoholic · AED 575 sparkling · AED 775 champagne package",
+   "details": "Party brunch with DJs, live performances and the full Saffron buffet. 21+, ID required.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "International Night at Saffron",
+   "deal_type": "dinner",
+   "venue": "Saffron, Atlantis The Palm",
+   "area": "Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.atlantis.com/dubai/atlantis-the-palm/dining/saffron",
+   "days_of_week": [
+    0,
+    1,
+    3,
+    4
+   ],
+   "start_time": "18:00",
+   "end_time": "22:00",
+   "price_text": "AED 265",
+   "details": "Global buffet: Italian pastas, Indian curries, Middle Eastern grills and more.",
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Arabic Night at Saffron",
+   "deal_type": "dinner",
+   "venue": "Saffron, Atlantis The Palm",
+   "area": "Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.atlantis.com/dubai/atlantis-the-palm/dining/saffron",
+   "days_of_week": [
+    5
+   ],
+   "start_time": "18:00",
+   "end_time": "22:00",
+   "price_text": "AED 285",
+   "details": "Buffet of mezze, rice dishes, grills and Arabic sweets.",
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Bubbalicious Brunch",
+   "deal_type": "brunch",
+   "venue": "The Westin Dubai Mina Seyahi Beach Resort & Marina",
+   "area": "Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-gb/hotels/hotel-information/restaurant/details/dxbmb-the-westin-dubai-mina-seyahi-beach-resort-and-marina/6624410/",
+   "days_of_week": [
+    6
+   ],
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "price_text": "AED 450 soft · AED 550 sparkling · AED 695 bubbly · kids 6–12 AED 300 · under 6 free",
+   "details": "Buffet brunch across three restaurants with live cooking stations, live music and kids' entertainment.",
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Tropical Brunch",
+   "deal_type": "brunch",
+   "venue": "Zero Gravity",
+   "area": "Skydive Dubai, Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.0-gravity.ae/tropical-brunch-every-saturday",
+   "days_of_week": [
+    6
+   ],
+   "start_time": "13:00",
+   "end_time": "17:00",
+   "price_text": "Ladies AED 349 · guys AED 399",
+   "details": "All-day pool and beach access plus unlimited food and drinks 1–5pm. 21+.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Salut! Friday Brunch",
+   "deal_type": "brunch",
+   "venue": "Zero Gravity",
+   "area": "Skydive Dubai, Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.0-gravity.ae/salut-friday-brunch",
+   "days_of_week": [
+    5
+   ],
+   "start_time": "13:00",
+   "end_time": "17:00",
+   "price_text": "Ladies AED 299 · guys AED 349 · cabin crew and teachers AED 199",
+   "details": "Unlimited drinks and bites 1–5pm with all-day pool and beach access. 21+.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Ladies Day Tuesday",
+   "deal_type": "day_pass",
+   "venue": "Zero Gravity",
+   "area": "Skydive Dubai, Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.0-gravity.ae/ladies-day-tuesday",
+   "days_of_week": [
+    2
+   ],
+   "price_text": "Ladies free · guys AED 200 (AED 100 redeemable)",
+   "details": "Free pool and beach access for ladies, with a welcome drink. 21+.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Melodic Monday",
+   "deal_type": "day_pass",
+   "venue": "Zero Gravity",
+   "area": "Skydive Dubai, Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.0-gravity.ae/monday-event",
+   "days_of_week": [
+    1
+   ],
+   "price_text": "Ladies free · guys AED 200 (AED 100 redeemable)",
+   "details": "All-day pool and beach access, free for ladies. 21+.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Mermaids Ladies Day Thursday",
+   "deal_type": "day_pass",
+   "venue": "Zero Gravity",
+   "area": "Skydive Dubai, Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.0-gravity.ae/mermaids-ladies-day-thursday",
+   "days_of_week": [
+    4
+   ],
+   "start_time": "13:00",
+   "end_time": "17:00",
+   "price_text": "Ladies AED 149 · guys AED 200 (AED 100 redeemable)",
+   "details": "Pool and beach access plus unlimited wine 1–5pm. 21+.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Tipsy Tuesdays",
+   "deal_type": "ladies_night",
+   "ladies_only": true,
+   "venue": "Lock, Stock & Barrel",
+   "city": "Dubai",
+   "official_url": "https://lsbdubai.com/tipsy-tuesdays/",
+   "days_of_week": [
+    2
+   ],
+   "start_time": "18:00",
+   "end_time": "01:00",
+   "price_text": "Ladies: 3 free drinks",
+   "details": "Party bar with live music. Check which LSB venue on the official page.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  }
+ ]
+}
