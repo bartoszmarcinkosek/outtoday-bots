@@ -145,7 +145,12 @@ def event_row(e: dict, key: str) -> str:
         lines.append(html.escape(price))
     if gaps:
         lines.append(f'<span style="color:{C["warn"]};font-weight:600">Brakuje: {html.escape(", ".join(gaps))}</span>')
-    lines.append(f'<span style="color:{C["muted"]};font-size:12px">Źródło: {html.escape(e.get("source_name") or "")}</span>')
+    waiting = ""
+    if e.get("created_at"):
+        days = (dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(e["created_at"].replace("Z", "+00:00"))).days
+        if days >= 1:
+            waiting = f' · <b style="color:{C["warn"]}">czeka {days} {plural(days, "dzień", "dni", "dni")}</b>'
+    lines.append(f'<span style="color:{C["muted"]};font-size:12px">Źródło: {html.escape(e.get("source_name") or "")}{waiting}</span>')
     buttons = btn(link(tok, "approve"), "✓ Zatwierdź", C["ok"]) + btn(link(tok, "reject"), "✕ Odrzuć", C["no"]) + btn(link(tok, "edit"), "✎ Uzupełnij", C["edit"])
     return (f'<tr><td style="padding:12px 14px;border-bottom:1px solid {C["line"]};font-size:14px;line-height:1.5">'
             + "<br>".join(lines) + f'<div style="margin-top:8px">{buttons}</div></td></tr>')
