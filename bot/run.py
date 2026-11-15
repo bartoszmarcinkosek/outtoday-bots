@@ -315,8 +315,39 @@ def call_model(client, text: str, links: list[tuple[str, str]], source: dict, pa
     usage["calls"] += 1
     for block in resp.content:
         if block.type == "tool_use":
-            return block.input
+            return clean_output(block.input)
     return {"events": [], "rejected": []}
+
+
+def _as_list(v) -> list:
+    if isinstance(v, str):
+        try:
+            v = json.loads(v)
+        except ValueError:
+            return []
+    return v if isinstance(v, list) else []
+
+
+def clean_output(out) -> dict:
+    """AI czasem zwraca listę jako tekst JSON. Naprawiamy to i odrzucamy śmieci."""
+    if not isinstance(out, dict):
+        return {"events": [], "rejected": []}
+    events = []
+    for e in _as_list(out.get("events")):
+        if isinstance(e, str):
+            try:
+                e = json.loads(e)
+            except ValueError:
+                continue
+        if isinstance(e, dict):
+            if isinstance(e.get("evidence"), str):
+                try:
+                    e["evidence"] = json.loads(e["evidence"])
+                except ValueError:
+                    e["evidence"] = {}
+            events.append(e)
+    rejected = [r for r in _as_list(out.get("rejected")) if isinstance(r, dict)]
+    return {"events": events, "rejected": rejected}
 
 
 # ---------------------------------------------------------------- kontrola faktów
@@ -546,16 +577,19 @@ def main() -> int:
 
     existing = []
     if db:
+        since = (today_uae() - dt.timedelta(days=120)).isoformat()
+        cols = "id,title,start_date,start_time,venue,price_text,price_min_aed,status"
         try:
-            existing = db.get("events", {
-                "select": "id,title,start_date,start_time,venue,price_text,price_min_aed,status,bot_key",
-                "start_date": f"gte.{(today_uae() - dt.timedelta(days=120)).isoformat()}",
-                "limit": "5000",
-            })
-        except Exception as e:
-            print(f"[uwaga] nie mogę odczytać events ({e}). Czy uruchomiono sql/12_bots.sql?")
+            existing = db.get("events", {"select": cols + ",bot_key", "start_date": f"gte.{since}", "limit": "5000"})
+        except Exception:
             if not args.dry_run:
+                print("Brak kolumny bot_key: najpierw uruchom sql/12_bots.sql w Supabase")
                 return 1
+            try:
+                existing = db.get("events", {"select": cols, "start_date": f"gte.{since}", "limit": "5000"})
+            except Exception as e:
+                print(f"[uwaga] nie mogę odczytać events ({e})")
+        print(f"W bazie {len(existing)} eventów do porównania")
 
     with Browser() as br:
         for src in sources:
@@ -564,66 +598,70 @@ def main() -> int:
             for url in src["urls"]:
                 log = {"source": src["name"], "url": url, "status": "", "found": 0, "kept": 0}
                 source_log.append(log)
-                ok, why = robots_allows(url)
-                if not ok:
-                    log["status"] = why
-                    print(f"- {src['name']}: {why}, pomijam")
-                    continue
                 try:
-                    page = br.fetch(url)
-                except Exception as e:
-                    log["status"] = f"błąd pobierania: {type(e).__name__}"
-                    print(f"- {src['name']}: {log['status']} {e}")
-                    continue
-                text = page["text"] or ""
-                log["status"] = f"HTTP {page['status']}, {len(text)} znaków"
-                print(f"- {src['name']}: {log['status']}")
-                if page["status"] >= 400 or len(text) < 200:
-                    log["status"] += " (pusta lub błąd)"
-                    continue
-
-                h = hashlib.sha256(norm(text).encode()).hexdigest()
-                if db and not args.force:
+                    ok, why = robots_allows(url)
+                    if not ok:
+                        log["status"] = why
+                        print(f"- {src['name']}: {why}, pomijam")
+                        continue
                     try:
-                        prev = db.get("bot_pages", {"select": "content_hash", "url": f"eq.{url}"})
-                    except Exception:
-                        prev = []
-                    if prev and prev[0]["content_hash"] == h:
-                        log["status"] += ", bez zmian od ostatniego razu (pomijam AI)"
-                        print("   bez zmian, pomijam")
+                        page = br.fetch(url)
+                    except Exception as e:
+                        log["status"] = f"błąd pobierania: {type(e).__name__}"
+                        print(f"- {src['name']}: {log['status']} {e}")
+                        continue
+                    text = page["text"] or ""
+                    log["status"] = f"HTTP {page['status']}, {len(text)} znaków"
+                    print(f"- {src['name']}: {log['status']}")
+                    if page["status"] >= 400 or len(text) < 200:
+                        log["status"] += " (pusta lub błąd)"
                         continue
 
-                links = clean_links(page["links"], page["final_url"])
-                link_urls = {u for _, u in links}
-                page_norm = norm(text)
-                out = call_model(client, text, links, src, page["final_url"], None, usage)
-                for rj in out.get("rejected", []):
-                    report.append({"source": src["name"], "title": rj.get("title"), "action": f"odrzucone: {rj.get('reason')}"})
-
-                details_used = 0
-                for raw in out.get("events", []):
-                    log["found"] += 1
-                    item, why = check_item(raw, page_norm, link_urls, src, page["final_url"])
-                    if not item:
-                        report.append({"source": src["name"], "title": raw.get("title"), "action": f"odrzucone: {why}"})
-                        continue
-                    items = [item]
-                    # brakuje czegoś? zajrzyj na podstronę eventu
-                    if item["gaps"] and item["detail_url"] and details_used < args.max_details:
-                        details_used += 1
-                        time.sleep(PAUSE_SECONDS)
-                        items = enrich_from_detail(br, client, item, src, usage)
-                    for it in items:
-                        if len(accepted) >= args.max_items:
-                            break
-                        if not it.get("start_date"):
-                            report.append(row_for_report(src, it, "do uzupełnienia ręcznie: brak daty (nie trafia do bazy)"))
+                    h = hashlib.sha256(norm(text).encode()).hexdigest()
+                    if db and not args.force:
+                        try:
+                            prev = db.get("bot_pages", {"select": "content_hash", "url": f"eq.{url}"})
+                        except Exception:
+                            prev = []
+                        if prev and prev[0]["content_hash"] == h:
+                            log["status"] += ", bez zmian od ostatniego razu (pomijam AI)"
+                            print("   bez zmian, pomijam")
                             continue
-                        accepted.append((src, it))
-                        log["kept"] += 1
 
-                if db and not args.dry_run:
-                    db.upsert("bot_pages", {"url": url, "content_hash": h, "last_fetched_at": now_iso, "last_status": log["status"]}, "url")
+                    links = clean_links(page["links"], page["final_url"])
+                    link_urls = {u for _, u in links}
+                    page_norm = norm(text)
+                    out = call_model(client, text, links, src, page["final_url"], None, usage)
+                    for rj in out.get("rejected", []):
+                        report.append({"source": src["name"], "title": rj.get("title"), "action": f"odrzucone: {rj.get('reason')}"})
+
+                    details_used = 0
+                    for raw in out.get("events", []):
+                        log["found"] += 1
+                        item, why = check_item(raw, page_norm, link_urls, src, page["final_url"])
+                        if not item:
+                            report.append({"source": src["name"], "title": raw.get("title"), "action": f"odrzucone: {why}"})
+                            continue
+                        items = [item]
+                        # brakuje czegoś? zajrzyj na podstronę eventu
+                        if item["gaps"] and item["detail_url"] and details_used < args.max_details:
+                            details_used += 1
+                            time.sleep(PAUSE_SECONDS)
+                            items = enrich_from_detail(br, client, item, src, usage)
+                        for it in items:
+                            if len(accepted) >= args.max_items:
+                                break
+                            if not it.get("start_date"):
+                                report.append(row_for_report(src, it, "do uzupełnienia ręcznie: brak daty (nie trafia do bazy)"))
+                                continue
+                            accepted.append((src, it))
+                            log["kept"] += 1
+
+                    if db and not args.dry_run:
+                        db.upsert("bot_pages", {"url": url, "content_hash": h, "last_fetched_at": now_iso, "last_status": log["status"]}, "url")
+                except Exception as e:
+                    log["status"] += f" | BŁĄD: {type(e).__name__}: {str(e)[:150]}"
+                    print(f"   błąd: {e}")
                 time.sleep(PAUSE_SECONDS)
 
     # zapis do bazy
