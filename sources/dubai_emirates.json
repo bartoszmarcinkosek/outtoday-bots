@@ -1,0 +1,145 @@
+{
+  "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Kandydaci do sprawdzenia próbą bota (robots.txt, czy strona pokazuje eventy).",
+  "sources": [
+    {
+      "id": "coca_cola_arena",
+      "name": "Coca-Cola Arena",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://www.coca-cola-arena.com/events"
+      ],
+      "default_venue": "Coca-Cola Arena, City Walk"
+    },
+    {
+      "id": "dubai_opera",
+      "name": "Dubai Opera",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://www.dubaiopera.com/"
+      ],
+      "default_venue": "Dubai Opera, Downtown Dubai"
+    },
+    {
+      "id": "madinat_theatre",
+      "name": "Madinat Theatre",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://www.madinattheatre.com/"
+      ],
+      "default_venue": "Madinat Theatre, Madinat Jumeirah"
+    },
+    {
+      "id": "dwtc",
+      "name": "Dubai World Trade Centre",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://www.dwtc.com/en/events/"
+      ],
+      "default_venue": "Dubai World Trade Centre"
+    },
+    {
+      "id": "expo_city",
+      "name": "Expo City Dubai",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://www.expocitydubai.com/en/"
+      ],
+      "default_venue": "Expo City Dubai"
+    },
+    {
+      "id": "museum_future",
+      "name": "Museum of the Future",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://museumofthefuture.ae/en"
+      ],
+      "default_venue": "Museum of the Future, Sheikh Zayed Road"
+    },
+    {
+      "id": "alserkal",
+      "name": "Alserkal Avenue",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://alserkal.online/"
+      ],
+      "default_venue": "Alserkal Avenue, Al Quoz"
+    },
+    {
+      "id": "jameel_arts",
+      "name": "Jameel Arts Centre",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://jameelartscentre.org/"
+      ],
+      "default_venue": "Jameel Arts Centre, Jaddaf Waterfront"
+    },
+    {
+      "id": "dubai_culture",
+      "name": "Dubai Culture",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://dubaiculture.gov.ae/en"
+      ],
+      "default_venue": null
+    },
+    {
+      "id": "global_village",
+      "name": "Global Village",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://www.globalvillage.ae/en"
+      ],
+      "default_venue": "Global Village, Dubailand"
+    },
+    {
+      "id": "sharjah_art",
+      "name": "Sharjah Art Foundation",
+      "city": "Sharjah",
+      "single_venue": false,
+      "urls": [
+        "https://www.sharjahart.org/"
+      ],
+      "default_venue": null
+    },
+    {
+      "id": "sharjah_museums",
+      "name": "Sharjah Museums Authority",
+      "city": "Sharjah",
+      "single_venue": false,
+      "urls": [
+        "https://www.sharjahmuseums.ae/"
+      ],
+      "default_venue": null
+    },
+    {
+      "id": "al_majaz",
+      "name": "Al Majaz Amphitheatre",
+      "city": "Sharjah",
+      "single_venue": true,
+      "urls": [
+        "https://www.almajazamphitheatre.ae/"
+      ],
+      "default_venue": "Al Majaz Amphitheatre, Al Majaz Waterfront"
+    },
+    {
+      "id": "rak_al_hamra",
+      "name": "Al Hamra Ras Al Khaimah",
+      "city": "Ras Al Khaimah",
+      "single_venue": false,
+      "urls": [
+        "https://www.alhamra.ae/"
+      ],
+      "default_venue": null
+    }
+  ]
+}

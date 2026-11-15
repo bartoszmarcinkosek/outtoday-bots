@@ -722,9 +722,9 @@ def main() -> int:
                     for rj in out.get("rejected", []):
                         report.append({"source": src["name"], "title": rj.get("title"), "action": f"odrzucone: {rj.get('reason')}"})
 
-                    if not out.get("events"):
+                    if len(out.get("events", [])) < 3:
                         hints = [f"{l} -> {u}" for l, u in links if re.search(r"what.?s on|event|calendar|programme|program|performances|exhibitions", (l + " " + u).lower())]
-                        log["status"] += " | brak eventów; możliwe strony: " + "; ".join(hints[:6])
+                        log["status"] += " | mało eventów; możliwe strony: " + "; ".join(hints[:6])
                     details_used = 0
                     for raw in out.get("events", []):
                         log["found"] += 1
