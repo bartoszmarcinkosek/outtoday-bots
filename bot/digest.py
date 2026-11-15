@@ -97,7 +97,22 @@ def load(db: DB) -> dict:
                 e["_table"] = table
                 e.setdefault("title", e.get("name"))
                 titles[e["id"]] = e
-    return {"pending": pending, "changes": changes, "events_by_id": titles}
+    sample, auto_changes = [], []
+    if dt.datetime.now(UAE_TZ).weekday() == 0 or os.environ.get("FORCE_SAMPLE"):  # poniedziałek: kontrola bota
+        week = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=7)).isoformat()
+        auto = db.get("events", {"select": cols, "status": "eq.approved", "evidence->>auto": "eq.true",
+                                 "verified_at": f"gte.{week}", "limit": "500"})
+        import random
+        sample = random.sample(auto, min(10, len(auto)))
+        auto_changes = db.get("bot_changes", {"select": "*", "evidence": "like.[auto]*", "created_at": f"gte.{week}", "limit": "200"})
+        for table in ("places", "deals"):
+            ids = sorted({c["row_id"] for c in auto_changes if c["table_name"] == table and c["row_id"] not in titles})
+            for i in range(0, len(ids), 50):
+                for e in db.get(table, {"select": sel[table], "id": f"in.({','.join(ids[i:i + 50])})"}):
+                    e["_table"] = table
+                    e.setdefault("title", e.get("name"))
+                    titles[e["id"]] = e
+    return {"pending": pending, "changes": changes, "events_by_id": titles, "sample": sample, "auto_changes": auto_changes}
 
 
 # ---------------------------------------------------------------- HTML
@@ -183,6 +198,25 @@ def change_row(c: dict, ev: dict | None, key: str) -> str:
             f'<div style="margin-top:8px">{buttons}</div></td></tr>')
 
 
+def sample_row(e: dict, key: str) -> str:
+    tok = make_token(key, "ev", e["id"])
+    price = "Free" if e.get("is_free") else (e.get("price_text") or "")
+    lines = [title_link(e), html.escape(fmt_date(e)), html.escape(e.get("venue") or ""), html.escape(price),
+             f'<span style="color:{C["muted"]};font-size:12px">Źródło: {html.escape(e.get("source_name") or "")}</span>']
+    buttons = btn(link(tok, "reject"), "✕ Wycofaj z apki", C["no"]) + btn(link(tok, "edit"), "✎ Popraw", C["edit"])
+    return (f'<tr><td style="padding:12px 14px;border-bottom:1px solid {C["line"]};font-size:14px;line-height:1.5">'
+            + "<br>".join(x for x in lines if x) + f'<div style="margin-top:8px">{buttons}</div></td></tr>')
+
+
+def auto_change_row(c: dict, ev: dict | None) -> str:
+    name = html.escape((ev or {}).get("title") or "?")
+    field = FIELD_PL.get(c["field"], c["field"])
+    return (f'<tr><td style="padding:9px 14px;border-bottom:1px solid {C["line"]};font-size:13px;line-height:1.45">'
+            f'<b>{name}</b> · {field}: {html.escape(c.get("new_value") or "")}'
+            + (f' · <a href="{html.escape(c["source_url"])}" style="color:{C["muted"]}">źródło</a>' if c.get("source_url") else "")
+            + "</td></tr>")
+
+
 def section(title: str, note: str, rows: list[str], extra: int) -> str:
     if not rows:
         return ""
@@ -197,7 +231,7 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
     ready = [e for e in data["pending"] if not e.get("gaps")]
     gaps = [e for e in data["pending"] if e.get("gaps")]
     changes = data["changes"]
-    total = len(ready) + len(gaps) + len(changes)
+    total = len(ready) + len(gaps) + len(changes) + len(data.get("sample", []))
     today = dt.datetime.now(UAE_TZ).date()
 
     budget = MAX_ROWS
@@ -221,6 +255,11 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
         + section("2. Do uzupełnienia", "Strona nie podaje wszystkiego. Uzupełnij albo zatwierdź tak, jak jest.", [event_row(e, key) for e in g_shown], g_more)
         + section("3. Zmiany i propozycje", "Bot znalazł na stronie oficjalnej inną wartość niż w apce albo proponuje stronę oficjalną. Nic nie zostało zmienione.",
                   [change_row(c, data["events_by_id"].get(c["row_id"]), key) for c in c_shown], c_more)
+        + section("4. Kontrola: losowe wpisy zatwierdzone przez bota", "Raz w tygodniu. Jeśli coś jest źle, wycofaj i daj znać, poprawimy bota.",
+                  [sample_row(e, key) for e in data.get("sample", [])], 0)
+        + section("5. Uzupełnione automatycznie w tym tygodniu", "Telefony i godziny z oficjalnych stron, potwierdzone cytatem.",
+                  [auto_change_row(c, data["events_by_id"].get(c["row_id"])) for c in data.get("auto_changes", [])[:40]],
+                  max(0, len(data.get("auto_changes", [])) - 40))
         + f'<p style="color:{C["muted"]};font-size:12px;margin-top:24px">Linki są ważne {TOKEN_DAYS} dni. '
           f'Nie przekazuj tego e-maila dalej: przyciski działają bez logowania.</p></div></div>'
     )

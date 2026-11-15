@@ -1,5 +1,5 @@
 {
-  "_info": "Oficjalne strony miejsc w Abu Dhabi. Tylko strony organizatorów, żadnych portali zbierających info. default_venue = miejsce, jeśli strona dotyczy jednego obiektu. single_venue = true tylko dla stron jednego obiektu (wtedy brak miejsca na stronie = to miejsce).",
+  "_info": "Oficjalne strony miejsc w Abu Dhabi. Tylko strony organizatorów, żadnych portali zbierających info. default_venue = miejsce, jeśli strona dotyczy jednego obiektu. single_venue = true tylko dla stron jednego obiektu (wtedy brak miejsca na stronie = to miejsce). trusted = oficjalna strona samego miejsca/organizatora: kompletne wpisy z cytatami bot zatwierdza sam.",
   "sources": [
     {
       "id": "louvre_ad",
@@ -9,7 +9,8 @@
         "https://www.louvreabudhabi.ae/en/whats-on"
       ],
       "default_venue": "Louvre Abu Dhabi, Saadiyat Island",
-      "single_venue": true
+      "single_venue": true,
+      "trusted": true
     },
     {
       "id": "etihad_arena",
@@ -19,7 +20,8 @@
         "https://www.etihadarena.ae/en/events"
       ],
       "default_venue": "Etihad Arena, Yas Island",
-      "single_venue": true
+      "single_venue": true,
+      "trusted": true
     },
     {
       "id": "cultural_foundation",
@@ -29,7 +31,8 @@
         "https://culturalfoundation.ae/en/calendar"
       ],
       "default_venue": "Cultural Foundation, Al Hosn",
-      "single_venue": false
+      "single_venue": false,
+      "trusted": false
     },
     {
       "id": "manarat",
@@ -39,7 +42,8 @@
         "https://manaratalsaadiyat.ae/en/seeanddo/weeklyschedule/"
       ],
       "default_venue": "Manarat Al Saadiyat, Saadiyat Island",
-      "single_venue": false
+      "single_venue": false,
+      "trusted": false
     },
     {
       "id": "nyuad_arts",
@@ -49,7 +53,8 @@
         "https://www.nyuad-artscenter.org/en_US/events/"
       ],
       "default_venue": "The Arts Center at NYU Abu Dhabi, Saadiyat Island",
-      "single_venue": true
+      "single_venue": true,
+      "trusted": true
     },
     {
       "id": "warehouse421",
@@ -59,7 +64,8 @@
         "https://www.warehouse421.ae/en/programmes"
       ],
       "default_venue": "Warehouse421, Mina Zayed",
-      "single_venue": true
+      "single_venue": true,
+      "trusted": true
     },
     {
       "id": "yas_island",
@@ -69,7 +75,8 @@
         "https://www.yasisland.com/en/events"
       ],
       "default_venue": null,
-      "single_venue": false
+      "single_venue": false,
+      "trusted": false
     }
   ]
 }

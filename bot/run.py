@@ -586,6 +586,18 @@ class DB:
             raise RuntimeError(f"upsert {table}: {r.status_code} {r.text[:300]}")
 
 
+def auto_ok(item: dict, source: dict) -> bool:
+    """Bot sam zatwierdza tylko pewne wpisy: oficjalna strona miejsca + data, miejsce i cena potwierdzone cytatem.
+    Wystawy (zakres dat) mogą nie mieć godziny."""
+    if not source.get("trusted"):
+        return False
+    gaps = set(item.get("gaps") or [])
+    if not gaps:
+        return True
+    sd, ed = item.get("start_date"), item.get("end_date")
+    return gaps == {"start_time"} and bool(ed and sd and ed > sd)
+
+
 def to_row(item: dict, source: dict, key: str, now_iso: str) -> dict:
     return {
         "title": item["title"],
@@ -606,9 +618,10 @@ def to_row(item: dict, source: dict, key: str, now_iso: str) -> dict:
         "official_url": item.get("organiser_url") or item.get("detail_url") or item["evidence"]["page"],
         "source_name": source["name"],
         "source_url": item["evidence"]["page"],
-        "status": "pending",
+        "status": "approved" if auto_ok(item, source) else "pending",
+        "verified_at": now_iso if auto_ok(item, source) else None,
         "bot_key": key,
-        "evidence": item["evidence"],
+        "evidence": {**item["evidence"], **({"auto": True} if auto_ok(item, source) else {})},
         "gaps": item["gaps"],
         "last_seen_at": now_iso,
     }
@@ -685,6 +698,7 @@ def main() -> int:
     for path in sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "sources", "*.json"))):
         with open(path, encoding="utf-8") as f:
             sources += json.load(f)["sources"]
+    sources_all = list(sources)
     only = {s.strip() for s in args.only.split(",") if s.strip()}
     if only:
         sources = [s for s in sources if s["id"] in only]
@@ -809,7 +823,7 @@ def main() -> int:
             (e for e in existing if e["start_date"] == it["start_date"].isoformat() and titles_match(e["title"], it["title"])), None
         )
         if not match:
-            action = "nowy (pending)"
+            action = "nowy, zatwierdzony automatycznie" if auto_ok(it, src) else "nowy (pending)"
             if db and not args.dry_run:
                 db.insert("events", to_row(it, src, key, now_iso))
                 counts["new"] += 1
@@ -850,11 +864,32 @@ def main() -> int:
             counts["seen"] += 1
         report.append(row_for_report(src, it, action))
 
+    if db and not args.dry_run:
+        counts["auto_old"] = auto_approve_pending(db, sources_all, now_iso)
     write_report(report, source_log, usage, counts, args.dry_run)
     if db and not args.dry_run:
         db.insert("bot_runs", {"dry_run": False, "finished_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                                "summary": {"usage": usage, "counts": counts, "sources": source_log}})
     return 0
+
+
+def auto_approve_pending(db: "DB", sources: list[dict], now_iso: str) -> int:
+    """Wpisy z bota, które czekają, a spełniają zasadę automatycznego zatwierdzenia (np. sprzed wprowadzenia tej zasady)."""
+    by_name = {s["name"]: s for s in sources}
+    rows = db.get("events", {"select": "id,source_name,start_date,end_date,gaps,evidence",
+                             "status": "eq.pending", "bot_key": "not.is.null", "limit": "2000"})
+    n = 0
+    for r in rows:
+        src = by_name.get(r.get("source_name") or "")
+        item = {"gaps": r.get("gaps") or [], "start_date": r["start_date"], "end_date": r.get("end_date")}
+        if src and auto_ok(item, src):
+            ev = r.get("evidence") or {}
+            ev["auto"] = True
+            db.update("events", {"id": r["id"]}, {"status": "approved", "verified_at": now_iso, "updated_at": now_iso, "evidence": ev})
+            n += 1
+    if n:
+        print(f"Zatwierdzone automatycznie spośród czekających: {n}")
+    return n
 
 
 def enrich_from_detail(br: Browser, client, item: dict, src: dict, usage: dict) -> list[dict]:
@@ -938,7 +973,8 @@ def write_report(report, source_log, usage, counts, dry_run) -> None:
         "",
         f"Wywołania AI: {usage['calls']}, tokeny: {usage['input']} wejście / {usage['output']} wyjście",
         f"Wpisy: {len(kept)} przyjęte, {len(report) - len(kept)} odrzucone. "
-        + ("" if dry_run else f"Nowe w bazie: {counts['new']}, już były: {counts['seen']}, zmiany do sprawdzenia: {counts['changes']}"),
+        + ("" if dry_run else f"Nowe w bazie: {counts['new']}, już były: {counts['seen']}, zmiany do sprawdzenia: {counts['changes']}, "
+                              f"zatwierdzone automatycznie spośród czekających: {counts.get('auto_old', 0)}"),
         "",
         "## Źródła",
         "| Źródło | Status | Znalezione | Przyjęte |",

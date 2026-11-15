@@ -158,7 +158,9 @@ def check_facts(raw: dict, page_norm: str, table: str = "", row: dict | None = N
         out["price_number"] = raw.get("price_number")
         out["evidence"]["price"] = pq
     hq = ev.get("hours")
-    if raw.get("hours_text") and R.quote_on_page(hq, page_norm):
+    # godziny "na dziś" (np. "OPEN TODAY: 10 AM - 7 PM") zmieniają się codziennie: nie bierzemy ich
+    today_only = re.search(r"\btoday\b|\btonight\b|\bnow open\b", R.norm((raw.get("hours_text") or "") + " " + (hq or "")))
+    if raw.get("hours_text") and not today_only and len(raw["hours_text"]) <= 200 and R.quote_on_page(hq, page_norm):
         out["hours_text"] = raw["hours_text"].strip()
         out["evidence"]["hours"] = hq
     dq = ev.get("days")
@@ -366,14 +368,26 @@ def main() -> int:
                     diffs = diffs_for(table, row, facts)
                     rep["result"] += ("ZMIANY: " + "; ".join(f"{f}: {o} -> {n}" for f, o, n, _ in diffs)) if diffs else "zgodne ze stroną"
                     if not args.dry_run:
+                        # Pewne uzupełnienia wpisujemy od razu: strona była już w bazie jako oficjalna,
+                        # pole było puste, a to telefon albo godziny otwarcia potwierdzone cytatem.
+                        trusted_page = bool(row.get("official_url"))
+                        auto_upd = {}
                         for f, o, n, q in diffs:
                             key = (table, row["id"], f, n)
                             if key in already:
                                 continue
+                            auto = trusted_page and o in (None, "") and f in ("phone", "hours_text")
+                            if auto:
+                                auto_upd[f] = n
                             db.insert("bot_changes", {"table_name": table, "row_id": row["id"], "field": f,
                                                       "old_value": None if o is None else str(o), "new_value": str(n),
-                                                      "evidence": q, "source_url": page["final_url"]})
+                                                      "evidence": ("[auto] " if auto else "") + (q or ""), "source_url": page["final_url"],
+                                                      "handled": auto})
                             already.add(key)
+                        if auto_upd:
+                            auto_upd["updated_at"] = now_iso
+                            db.update(table, {"id": row["id"]}, auto_upd)
+                            rep["result"] += " [wpisane automatycznie: " + ", ".join(k for k in auto_upd if k != "updated_at") + "]"
                 if not args.dry_run:
                     db.upsert("bot_pages", {"url": page_key, "content_hash": h, "last_fetched_at": now_iso, "last_status": rep["result"][:200]}, "url")
                 time.sleep(R.PAUSE_SECONDS)

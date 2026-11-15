@@ -1,5 +1,5 @@
 {
-  "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Sprawdzone próbą 15.11.2026. Pominięte: DWTC (głównie targi branżowe), Dubai Culture (strona główna to wiadomości), Al Hamra RAK (brak eventów). Madinat Theatre, Sharjah Museums i Al Majaz nie odpowiadały na robots.txt; bot próbuje je co raz i pomija, dopóki nie odpowiedzą. gov_tourism = rządowy urząd turystyki: wolno go używać, ale link w apce prowadzi do organizatora, jeśli urząd go podaje.",
+  "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Sprawdzone próbą 15.11.2026. Pominięte: DWTC (głównie targi branżowe), Dubai Culture (strona główna to wiadomości), Al Hamra RAK (brak eventów). Madinat Theatre, Sharjah Museums i Al Majaz nie odpowiadały na robots.txt; bot próbuje je co raz i pomija, dopóki nie odpowiedzą. gov_tourism = rządowy urząd turystyki: wolno go używać, ale link w apce prowadzi do organizatora, jeśli urząd go podaje. trusted = oficjalna strona samego miejsca/organizatora: kompletne wpisy z cytatami bot zatwierdza sam.",
   "sources": [
     {
       "id": "coca_cola_arena",
@@ -9,7 +9,8 @@
       "urls": [
         "https://www.coca-cola-arena.com/events"
       ],
-      "default_venue": "Coca-Cola Arena, City Walk"
+      "default_venue": "Coca-Cola Arena, City Walk",
+      "trusted": true
     },
     {
       "id": "dubai_opera",
@@ -19,7 +20,8 @@
       "urls": [
         "https://www.dubaiopera.com/"
       ],
-      "default_venue": "Dubai Opera, Downtown Dubai"
+      "default_venue": "Dubai Opera, Downtown Dubai",
+      "trusted": true
     },
     {
       "id": "madinat_theatre",
@@ -29,7 +31,8 @@
       "urls": [
         "https://www.madinattheatre.com/"
       ],
-      "default_venue": "Madinat Theatre, Madinat Jumeirah"
+      "default_venue": "Madinat Theatre, Madinat Jumeirah",
+      "trusted": true
     },
     {
       "id": "expo_city",
@@ -39,7 +42,8 @@
       "urls": [
         "https://www.expocitydubai.com/en/things-to-do/events-and-workshops/"
       ],
-      "default_venue": "Expo City Dubai"
+      "default_venue": "Expo City Dubai",
+      "trusted": true
     },
     {
       "id": "museum_future",
@@ -49,7 +53,8 @@
       "urls": [
         "https://museumofthefuture.ae/en/programs"
       ],
-      "default_venue": "Museum of the Future, Sheikh Zayed Road"
+      "default_venue": "Museum of the Future, Sheikh Zayed Road",
+      "trusted": true
     },
     {
       "id": "alserkal",
@@ -59,7 +64,8 @@
       "urls": [
         "https://alserkal.online/events"
       ],
-      "default_venue": "Alserkal Avenue, Al Quoz"
+      "default_venue": "Alserkal Avenue, Al Quoz",
+      "trusted": true
     },
     {
       "id": "jameel_arts",
@@ -69,7 +75,8 @@
       "urls": [
         "https://jameelartscentre.org/whats-on/"
       ],
-      "default_venue": "Jameel Arts Centre, Jaddaf Waterfront"
+      "default_venue": "Jameel Arts Centre, Jaddaf Waterfront",
+      "trusted": true
     },
     {
       "id": "global_village",
@@ -79,7 +86,8 @@
       "urls": [
         "https://www.globalvillage.ae/en"
       ],
-      "default_venue": "Global Village, Dubailand"
+      "default_venue": "Global Village, Dubailand",
+      "trusted": true
     },
     {
       "id": "sharjah_art",
@@ -89,7 +97,8 @@
       "urls": [
         "https://www.sharjahart.org/"
       ],
-      "default_venue": null
+      "default_venue": null,
+      "trusted": false
     },
     {
       "id": "sharjah_museums",
@@ -99,7 +108,8 @@
       "urls": [
         "https://www.sharjahmuseums.ae/"
       ],
-      "default_venue": null
+      "default_venue": null,
+      "trusted": false
     },
     {
       "id": "al_majaz",
@@ -109,7 +119,8 @@
       "urls": [
         "https://www.almajazamphitheatre.ae/"
       ],
-      "default_venue": "Al Majaz Amphitheatre, Al Majaz Waterfront"
+      "default_venue": "Al Majaz Amphitheatre, Al Majaz Waterfront",
+      "trusted": true
     },
     {
       "id": "visit_rak",
@@ -120,7 +131,8 @@
       "urls": [
         "https://visitrasalkhaimah.com/events/"
       ],
-      "default_venue": null
+      "default_venue": null,
+      "trusted": false
     },
     {
       "id": "rak_art",
@@ -130,7 +142,8 @@
       "urls": [
         "https://www.rakart.ae/"
       ],
-      "default_venue": "Al Jazeera Al Hamra Heritage Village"
+      "default_venue": "Al Jazeera Al Hamra Heritage Village",
+      "trusted": false
     },
     {
       "id": "al_marjan",
@@ -140,7 +153,8 @@
       "urls": [
         "https://marjan.ae/lifestyle/community-and-culture"
       ],
-      "default_venue": null
+      "default_venue": null,
+      "trusted": false
     },
     {
       "id": "jebel_jais",
@@ -150,7 +164,8 @@
       "urls": [
         "https://visitjebeljais.com/events"
       ],
-      "default_venue": null
+      "default_venue": null,
+      "trusted": false
     },
     {
       "id": "visit_ajman",
@@ -161,7 +176,8 @@
       "urls": [
         "https://visit-ajman.ae/en/activities/upcoming-events"
       ],
-      "default_venue": null
+      "default_venue": null,
+      "trusted": false
     }
   ]
 }
