@@ -315,7 +315,7 @@ ABSOLUTE RULES
 
 ENTRY RULE (apply before saving)
 Save only things that are a real reason to go out at a specific time: concerts, shows, performances, talks, screenings, workshops, festivals, exhibitions with dates, sports events, markets with dates.
-Put into "rejected" (with reason): permanent collections or regular opening hours with no dates, generic infrastructure (paths, promenades, bridges, parks as such), online-only events, members-only or private events, job ads, news articles, newsletters, shop products, gift cards, memberships, past events.
+Put into "rejected" (with reason): permanent collections or regular opening hours with no dates, generic infrastructure (paths, promenades, bridges, parks as such), online-only events, members-only or private events, school-only performances (school matinees for school groups), job ads, news articles, newsletters, shop products, gift cards, memberships, past events.
 """
 
 
