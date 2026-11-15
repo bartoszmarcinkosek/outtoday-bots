@@ -195,10 +195,14 @@
       "city": "Dubai",
       "single_venue": false,
       "urls": [
-        "https://dubai.platinumlist.net/festival"
+        "https://dubai.platinumlist.net/festival",
+        "https://dubai.platinumlist.net/concerts",
+        "https://dubai.platinumlist.net/comedy",
+        "https://dubai.platinumlist.net/theatre",
+        "https://dubai.platinumlist.net/kids"
       ],
       "trusted": true,
-      "note": "Sprzedawca biletów: tylko festiwale."
+      "note": "Sprzedawca biletów: festiwale, koncerty, komedia, teatr i imprezy dla dzieci w Dubaju."
     }
   ]
 }
