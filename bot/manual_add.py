@@ -38,6 +38,12 @@ def main() -> int:
             db.insert("events", row)
             added += 1
             print(f"+ {row['title']} ({row['start_date']})")
+        for r in data.get("reject", []):
+            rows = db.get("events", {"select": "id,title,status", "title": f"ilike.{r['title']}", "start_date": f"eq.{r['start_date']}"})
+            for row in rows:
+                if row["status"] != "rejected":
+                    db.update("events", {"id": row["id"]}, {"status": "rejected", "updated_at": now})
+                    print(f"- odrzucone: {row['title']} ({r['start_date']})")
     print(f"Dodane: {added}, już były: {skipped}")
     return 0
 
