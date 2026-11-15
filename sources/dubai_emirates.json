@@ -55,7 +55,7 @@
       "id": "alserkal",
       "name": "Alserkal Avenue",
       "city": "Dubai",
-      "single_venue": false,
+      "single_venue": true,
       "urls": [
         "https://alserkal.online/events"
       ],
