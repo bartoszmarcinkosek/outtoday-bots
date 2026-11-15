@@ -188,6 +188,17 @@
       ],
       "default_venue": null,
       "trusted": false
+    },
+    {
+      "id": "platinumlist_dxb",
+      "name": "Platinumlist Dubai",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://dubai.platinumlist.net/festival"
+      ],
+      "trusted": true,
+      "note": "Sprzedawca biletów: tylko festiwale."
     }
   ]
 }

@@ -77,6 +77,17 @@
       "default_venue": null,
       "single_venue": false,
       "trusted": false
+    },
+    {
+      "id": "platinumlist_ad",
+      "name": "Platinumlist Abu Dhabi",
+      "city": "Abu Dhabi",
+      "single_venue": false,
+      "urls": [
+        "https://abu-dhabi.platinumlist.net/festival"
+      ],
+      "trusted": true,
+      "note": "Sprzedawca biletów: tylko festiwale (duże imprezy w parkach na Yas, Liwa itd.), których nie ma na stronach miejsc."
     }
   ]
 }
