@@ -93,7 +93,7 @@ def find_official_url(client, table: str, row: dict, usage: dict) -> tuple[str |
             messages=[{"role": "user", "content": prompt}],
         )
     except Exception as e:
-        return None, f"błąd wyszukiwania: {type(e).__name__}"
+        return None, f"błąd wyszukiwania: {type(e).__name__}: {str(e)[:200]}"
     usage["input"] += resp.usage.input_tokens
     usage["output"] += resp.usage.output_tokens
     usage["calls"] += 1
