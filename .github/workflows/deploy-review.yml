@@ -25,8 +25,8 @@ jobs:
         env:
           OT_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
-          supabase secrets set --project-ref "$PROJECT_REF" \
+          supabase secrets set --yes --project-ref "$PROJECT_REF" \
             OT_SECRET_KEY="$OT_SECRET_KEY" \
             OT_ALLOWED_ORIGINS="https://bartoszmarcinkosek.github.io"
       - name: Wgranie funkcji
-        run: supabase functions deploy review --project-ref "$PROJECT_REF" --no-verify-jwt --use-api
+        run: supabase functions deploy review --yes --project-ref "$PROJECT_REF" --no-verify-jwt --use-api
