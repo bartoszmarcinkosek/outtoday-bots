@@ -1,5 +1,5 @@
 {
-  "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Kandydaci do sprawdzenia próbą bota (robots.txt, czy strona pokazuje eventy).",
+  "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Sprawdzone próbą 15.11.2026. Pominięte: DWTC (głównie targi branżowe), Dubai Culture (strona główna to wiadomości), Al Hamra RAK (brak eventów). Madinat Theatre, Sharjah Museums i Al Majaz nie odpowiadały na robots.txt; bot próbuje je co raz i pomija, dopóki nie odpowiedzą.",
   "sources": [
     {
       "id": "coca_cola_arena",
@@ -30,16 +30,6 @@
         "https://www.madinattheatre.com/"
       ],
       "default_venue": "Madinat Theatre, Madinat Jumeirah"
-    },
-    {
-      "id": "dwtc",
-      "name": "Dubai World Trade Centre",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://www.dwtc.com/en/events/"
-      ],
-      "default_venue": "Dubai World Trade Centre"
     },
     {
       "id": "expo_city",
