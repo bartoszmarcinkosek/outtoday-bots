@@ -401,6 +401,8 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     title = (raw.get("title") or "").strip()
     if not title:
         return None, "brak tytułu"
+    if re.search(r"school matinee|school performance|for schools only|schools only", norm(title)):
+        return None, "tylko dla szkół"
     if not (quote_on_page(title, page_norm) or quote_on_page(ev.get("title"), page_norm)):
         return None, "tytułu nie ma na stronie (AI wymyśliło?)"
 
