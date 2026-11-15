@@ -440,6 +440,8 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
         return None, "brak tytułu"
     if re.search(r"school matinee|school performance|for schools only|schools only", norm(title)):
         return None, "tylko dla szkół"
+    if re.search(r"\b(summit|conference|congress|forum|symposium for professionals|trade show|b2b)\b", norm(title)) and "symposium o" not in norm(title):
+        return None, "wydarzenie branżowe (konferencja/szczyt)"
     if not (quote_on_page(title, page_norm) or quote_on_page(ev.get("title"), page_norm)):
         return None, "tytułu nie ma na stronie (AI wymyśliło?)"
 
@@ -925,7 +927,10 @@ def auto_approve_pending(db: "DB", sources: list[dict], now_iso: str) -> int:
 
 def enrich_from_tickets(br: "Browser", client, item: dict, src: dict, usage: dict, links: list) -> dict:
     """Brakuje godziny albo ceny? Sprawdź oficjalnego sprzedawcę biletów podlinkowanego na stronie eventu."""
-    for url in ticket_links(links):
+    tl = ticket_links(links)
+    ext = sorted({urlparse(h).netloc for _, h in links if h and h.startswith("http")})
+    print(f"   bilety dla '{item['title'][:40]}': {len(tl)} linków; domeny na stronie: {', '.join(ext)[:300]}")
+    for url in tl:
         ok, _ = robots_allows(url)
         if not ok:
             continue
