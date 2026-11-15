@@ -529,9 +529,42 @@ def to_row(item: dict, source: dict, key: str, now_iso: str) -> dict:
     }
 
 
+STOP = {"the", "and", "with", "live", "in", "at", "of", "a", "an", "by", "presents", "abu", "dhabi", "show", "concert"}
+
+
+def _tokens(s: str) -> list[str]:
+    s = unicodedata.normalize("NFKD", norm(s))
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = re.sub(r"[^a-z0-9 ]+", " ", s.replace("'s", ""))
+    return s.split()
+
+
 def titles_match(a: str, b: str) -> bool:
-    a, b = re.sub(r"[^a-z0-9 ]", "", norm(a)), re.sub(r"[^a-z0-9 ]", "", norm(b))
-    return bool(a) and bool(b) and (a == b or (min(len(a), len(b)) >= 8 and (a in b or b in a)))
+    ta, tb = _tokens(a), _tokens(b)
+    if not ta or not tb:
+        return False
+    ja, jb = " ".join(ta), " ".join(tb)
+    if ja == jb or (min(len(ja), len(jb)) >= 8 and (ja in jb or jb in ja)):
+        return True
+    sa, sb = {t for t in ta if t not in STOP}, {t for t in tb if t not in STOP}
+    small, big = (sa, sb) if len(sa) <= len(sb) else (sb, sa)
+    if small and small == big:
+        return True
+    return len(small) >= 3 and len(small & big) / len(small) >= 0.8
+
+
+def dedupe(accepted: list[tuple[dict, dict]]) -> list[tuple[dict, dict]]:
+    """Ten sam event z dwóch źródeł (np. Etihad Arena i Yas Island): zostaje pełniejszy wpis.
+    Przy remisie wygrywa źródło wyżej na liście (strona samego miejsca)."""
+    kept: list[tuple[dict, dict]] = []
+    for src, it in accepted:
+        dup = next((i for i, (_, k) in enumerate(kept)
+                    if k["start_date"] == it["start_date"] and titles_match(k["title"], it["title"])), None)
+        if dup is None:
+            kept.append((src, it))
+        elif len(it["gaps"]) < len(kept[dup][1]["gaps"]):
+            kept[dup] = (src, it)
+    return kept
 
 
 # ---------------------------------------------------------------- główna pętla
@@ -635,6 +668,9 @@ def main() -> int:
                     for rj in out.get("rejected", []):
                         report.append({"source": src["name"], "title": rj.get("title"), "action": f"odrzucone: {rj.get('reason')}"})
 
+                    if not out.get("events"):
+                        hints = [f"{l} -> {u}" for l, u in links if re.search(r"what.?s on|event|calendar|programme|program|performances|exhibitions", (l + " " + u).lower())]
+                        log["status"] += " | brak eventów; możliwe strony: " + "; ".join(hints[:6])
                     details_used = 0
                     for raw in out.get("events", []):
                         log["found"] += 1
@@ -665,6 +701,10 @@ def main() -> int:
                 time.sleep(PAUSE_SECONDS)
 
     # zapis do bazy
+    before = len(accepted)
+    accepted = dedupe(accepted)
+    if before != len(accepted):
+        print(f"Duplikaty między źródłami: usunięto {before - len(accepted)}")
     counts = {"new": 0, "seen": 0, "changes": 0}
     done_keys: set[str] = set()
     for src, it in accepted:
@@ -684,12 +724,19 @@ def main() -> int:
             continue
 
         diffs = []
-        for field in ("price_text", "start_time", "venue"):
-            new, old = it.get(field), match.get(field)
-            if field == "start_time" and old:
-                old = old[:5]
-            if new and old and norm(str(new)) != norm(str(old)):
-                diffs.append((field, old, new))
+        # cena: porównujemy liczby, nie zapis ("From AED 150" = "Prices from AED 150")
+        np_, op_ = it.get("price_min_aed"), match.get("price_min_aed")
+        if np_ is not None and op_ is not None and abs(float(np_) - float(op_)) > 0.01:
+            diffs.append(("price_text", match.get("price_text"), it.get("price_text")))
+        nt, ot = it.get("start_time"), (match.get("start_time") or "")[:5] or None
+        if nt and ot and nt != ot:
+            diffs.append(("start_time", ot, nt))
+        # miejsce: tylko gdy strona podaje inne konkretne miejsce (nie domyślne źródła)
+        nv, ov = it.get("venue"), match.get("venue")
+        if nv and ov and it["evidence"].get("venue") != "domyślne miejsce źródła":
+            a, b = " ".join(_tokens(nv)), " ".join(_tokens(ov))
+            if a not in b and b not in a and not titles_match(nv, ov):
+                diffs.append(("venue", ov, nv))
         action = "już jest w bazie" + (f", ZMIANA: {', '.join(f'{f}: {o} -> {n}' for f, o, n in diffs)}" if diffs else "")
         if db and not args.dry_run:
             upd = {"last_seen_at": now_iso}
