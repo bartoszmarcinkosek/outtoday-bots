@@ -88,8 +88,7 @@ def find_official_url(client, table: str, row: dict, usage: dict) -> tuple[str |
             model=R.MODEL,
             max_tokens=1500,
             tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 3,
-                    "blocked_domains": SEARCH_BLOCKED,
-                    "user_location": {"type": "approximate", "country": "AE", "timezone": "Asia/Dubai"}}],
+                    "blocked_domains": SEARCH_BLOCKED}],
             messages=[{"role": "user", "content": prompt}],
         )
     except Exception as e:
