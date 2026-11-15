@@ -205,7 +205,9 @@ ITEM_SCHEMA = {
         "category": {"type": "string", "enum": EVENT_CATEGORIES},
         "start_date": {"type": ["string", "null"], "description": "YYYY-MM-DD. Null if the page gives no date."},
         "end_date": {"type": ["string", "null"], "description": "YYYY-MM-DD for multi-day runs (exhibitions, festivals). Null otherwise."},
-        "start_time": {"type": ["string", "null"], "description": "HH:MM 24h. Null if not on the page."},
+        "start_time": {"type": ["string", "null"], "description": "HH:MM 24h when the show/event itself STARTS. Never the doors-opening time. Null if not on the page."},
+        "time_kind": {"type": "string", "enum": ["show_start", "doors_only", "none"], "description": "show_start if start_time is the real start; doors_only if the page gives only a doors-open time (then start_time must be null)."},
+        "doors_time": {"type": ["string", "null"], "description": "HH:MM doors-open time if the page gives one."},
         "end_time": {"type": ["string", "null"]},
         "venue": {"type": ["string", "null"], "description": "Specific venue as written on the page. Null if not on the page."},
         "city": {"type": "string", "enum": CITIES},
@@ -231,7 +233,7 @@ ITEM_SCHEMA = {
     },
     "required": [
         "title", "category", "start_date", "end_date", "start_time", "end_time", "venue", "city",
-        "price_text", "price_min_aed", "is_free", "kid_friendly", "registration_required",
+        "price_text", "price_min_aed", "is_free", "kid_friendly", "registration_required", "time_kind", "doors_time",
         "description", "detail_url", "evidence",
     ],
 }
@@ -266,6 +268,7 @@ ABSOLUTE RULES
 - Dates: today is {today}. If the page shows a day and month without a year, use the next occurrence on or after today. Skip events that have already ended.
 - If one event lists several specific dates or sessions, output one item per date (max 12).
 - Exhibitions and festivals that run over a period: one item with start_date and end_date.
+- Times: start_time is when the show or event starts ("Show starts", "Starts", "Event time"). "Doors open" / "Doors" is NOT the start time: put it in doors_time. If the page gives only a doors time, start_time = null.
 - Prices: only AED amounts written on the page. "Free" only if the page says so.
 - detail_url must be copied exactly from the LINKS list.
 - Default venue for this source (use ONLY when the page clearly describes events at this one place and names no other venue): {default_venue}
@@ -386,7 +389,13 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     # godzina
     st, et = parse_time(raw.get("start_time")), parse_time(raw.get("end_time"))
     tq = ev.get("time")
-    if st and quote_on_page(tq, page_norm) and time_matches_quote(st, tq):
+    doors_only = raw.get("time_kind") == "doors_only" or (
+        tq and re.search(r"\bdoors?\b", norm(tq)) and not re.search(r"show|start|begin|perform|curtain", norm(tq))
+    )
+    dt_ = parse_time(raw.get("doors_time"))
+    if dt_ and st == dt_:
+        doors_only = True
+    if st and not doors_only and quote_on_page(tq, page_norm) and time_matches_quote(st, tq):
         item["start_time"] = st
         item["end_time"] = et if et and time_matches_quote(et, tq) else None
         item["evidence"]["time"] = tq

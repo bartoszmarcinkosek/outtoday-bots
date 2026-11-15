@@ -5,49 +5,63 @@
       "id": "louvre_ad",
       "name": "Louvre Abu Dhabi",
       "city": "Abu Dhabi",
-      "urls": ["https://www.louvreabudhabi.ae/en/whats-on"],
+      "urls": [
+        "https://www.louvreabudhabi.ae/en/whats-on"
+      ],
       "default_venue": "Louvre Abu Dhabi, Saadiyat Island"
     },
     {
       "id": "etihad_arena",
       "name": "Etihad Arena",
       "city": "Abu Dhabi",
-      "urls": ["https://www.etihadarena.ae/en/events"],
+      "urls": [
+        "https://www.etihadarena.ae/en/events"
+      ],
       "default_venue": "Etihad Arena, Yas Island"
     },
     {
       "id": "cultural_foundation",
       "name": "Cultural Foundation",
       "city": "Abu Dhabi",
-      "urls": ["https://culturalfoundation.ae/"],
+      "urls": [
+        "https://culturalfoundation.ae/"
+      ],
       "default_venue": "Cultural Foundation, Al Hosn"
     },
     {
       "id": "manarat",
       "name": "Manarat Al Saadiyat",
       "city": "Abu Dhabi",
-      "urls": ["https://www.manaratalsaadiyat.ae/"],
+      "urls": [
+        "https://manaratalsaadiyat.ae/en/seeanddo/weeklyschedule/"
+      ],
       "default_venue": "Manarat Al Saadiyat, Saadiyat Island"
     },
     {
       "id": "nyuad_arts",
       "name": "The Arts Center at NYU Abu Dhabi",
       "city": "Abu Dhabi",
-      "urls": ["https://www.nyuad-artscenter.org/en_US/events/"],
+      "urls": [
+        "https://www.nyuad-artscenter.org/en_US/events/"
+      ],
       "default_venue": "The Arts Center at NYU Abu Dhabi, Saadiyat Island"
     },
     {
       "id": "warehouse421",
       "name": "Warehouse421",
       "city": "Abu Dhabi",
-      "urls": ["https://www.warehouse421.ae/en/programmes"],
+      "urls": [
+        "https://www.warehouse421.ae/en/programmes"
+      ],
       "default_venue": "Warehouse421, Mina Zayed"
     },
     {
       "id": "yas_island",
       "name": "Yas Island",
       "city": "Abu Dhabi",
-      "urls": ["https://www.yasisland.com/en/events"],
+      "urls": [
+        "https://www.yasisland.com/en/events"
+      ],
       "default_venue": null
     }
   ]
