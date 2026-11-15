@@ -216,14 +216,15 @@ class Browser:
         return {"status": r.status_code, "text": soup.get_text("\n", strip=True), "links": links, "final_url": r.url}
 
 
-TICKET_SELLERS = ("platinumlist.net", "ticketmaster", "livenation.me", "ticketsmarche", "800tickets", "q-tickets",
+TICKET_SELLERS = ("district.ae", "platinumlist.net", "ticketmaster", "livenation.me", "ticketsmarche", "800tickets", "q-tickets",
                   "tixbox", "eventbrite", "virginmegastore", "etix.com", "ticketingbox", "dubaiopera.com")
 
 
 def ticket_links(links: list) -> list[str]:
     out = []
     for _, href in links:
-        if href and href.startswith("http") and any(t in urlparse(href).netloc.lower() for t in TICKET_SELLERS):
+        u = urlparse(href or "")
+        if href and href.startswith("http") and len(u.path.strip("/")) > 3 and any(t in u.netloc.lower() for t in TICKET_SELLERS):
             h = href.split("#")[0]
             if h not in out:
                 out.append(h)
@@ -929,7 +930,7 @@ def enrich_from_tickets(br: "Browser", client, item: dict, src: dict, usage: dic
     """Brakuje godziny albo ceny? Sprawdź oficjalnego sprzedawcę biletów podlinkowanego na stronie eventu."""
     tl = ticket_links(links)
     ext = sorted({urlparse(h).netloc for _, h in links if h and h.startswith("http")})
-    print(f"   bilety dla '{item['title'][:40]}': {len(tl)} linków; domeny na stronie: {', '.join(ext)[:300]}")
+    print(f"   bilety dla '{item['title'][:40]}': {tl[:2]}")
     for url in tl:
         ok, _ = robots_allows(url)
         if not ok:
