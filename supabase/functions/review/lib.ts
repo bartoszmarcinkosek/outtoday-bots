@@ -61,6 +61,18 @@ async function db(path: string, init: RequestInit = {}): Promise<any> {
 const EVENT_COLS =
   "id,title,category,start_date,end_date,start_time,end_time,venue,city,price_text,price_min_aed,is_free,url,official_url,source_name,source_url,status,evidence,gaps,description";
 
+// Pola, które bot może zaproponować do zmiany, osobno dla każdej tabeli.
+const CHANGE_FIELDS: Record<string, string[]> = {
+  events: ["price_text", "start_time", "venue"],
+  places: ["price_text", "hours_text", "official_url", "phone"],
+  deals: ["price_text", "days_of_week", "start_time", "end_time", "official_url", "phone"],
+};
+const ROW_COLS: Record<string, string> = {
+  events: EVENT_COLS,
+  places: "id,name,category,area,city,hours_text,price_text,is_free,official_url,url,phone,status",
+  deals: "id,title,venue,area,city,details,days_of_week,start_time,end_time,price_text,official_url,url,phone,status",
+};
+
 // Pola, które można poprawić z formularza "Uzupełnij", z prostą kontrolą formatu.
 const EDITABLE: Record<string, (v: unknown) => unknown> = {
   title: (v) => str(v, 200, true),
@@ -161,26 +173,32 @@ export async function handle(body: any): Promise<{ status: number; data: unknown
     return { status: 400, data: { error: "Nieznana akcja." } };
   }
 
-  // zmiana wykryta przez bota
+  // zmiana wykryta przez bota (events, places albo deals)
   const chs = await db(`bot_changes?id=eq.${t.id}&select=*`);
   const ch = chs?.[0];
   if (!ch) return { status: 404, data: { error: "Nie ma już tej zmiany." } };
-  const evs = await db(`events?id=eq.${ch.row_id}&select=${EVENT_COLS}`);
-  if (action === "get") return { status: 200, data: { kind: "change", change: ch, event: evs?.[0] ?? null } };
+  const table = ch.table_name as string;
+  if (!(table in CHANGE_FIELDS)) return { status: 400, data: { error: "Nieznana tabela." } };
+  const rows = await db(`${table}?id=eq.${ch.row_id}&select=${ROW_COLS[table]}`);
+  const row = rows?.[0] ?? null;
+  if (action === "get") return { status: 200, data: { kind: "change", change: ch, table, event: row } };
   if (action === "accept" || action === "ignore") {
     if (ch.handled) return { status: 200, data: { ok: true, already: true } };
     if (action === "accept") {
+      if (!CHANGE_FIELDS[table].includes(ch.field)) return { status: 400, data: { error: "Tego pola nie można zmienić automatycznie." } };
       const upd: Record<string, unknown> = { updated_at: now };
-      if (ch.field === "price_text") {
-        upd.price_text = ch.new_value;
-        const n = priceNumber(ch.new_value);
-        if (n !== null) upd.price_min_aed = n;
-      } else if (ch.field === "start_time" || ch.field === "venue") {
-        upd[ch.field] = ch.new_value;
+      const v = ch.new_value === "" ? null : ch.new_value;
+      if (ch.field === "days_of_week") {
+        const names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        upd.days_of_week = v ? String(v).split(",").map((d) => names.indexOf(d.trim())).filter((i) => i >= 0) : null;
       } else {
-        return { status: 400, data: { error: "Tego pola nie można zmienić automatycznie." } };
+        upd[ch.field] = v;
       }
-      await db(`events?id=eq.${ch.row_id}`, { method: "PATCH", body: JSON.stringify(upd) });
+      if (table === "events" && ch.field === "price_text") {
+        const n = priceNumber(v);
+        if (n !== null) upd.price_min_aed = n;
+      }
+      await db(`${table}?id=eq.${ch.row_id}`, { method: "PATCH", body: JSON.stringify(upd) });
     }
     await db(`bot_changes?id=eq.${ch.id}`, { method: "PATCH", body: JSON.stringify({ handled: true }) });
     return { status: 200, data: { ok: true } };

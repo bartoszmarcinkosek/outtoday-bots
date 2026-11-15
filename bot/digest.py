@@ -37,7 +37,9 @@ MAX_ROWS = 80
 MONTHS_PL = ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru"]
 DAYS_PL = ["pon", "wt", "śr", "czw", "pt", "sob", "niedz"]
 GAP_PL = {"start_time": "godzina", "price": "cena", "venue": "miejsce", "date": "data"}
-FIELD_PL = {"price_text": "Cena", "start_time": "Godzina", "venue": "Miejsce"}
+FIELD_PL = {"price_text": "Cena", "start_time": "Godzina", "end_time": "Godzina końca", "venue": "Miejsce",
+            "hours_text": "Godziny otwarcia", "days_of_week": "Dni", "official_url": "Oficjalna strona", "phone": "Telefon"}
+TABLE_PL = {"events": "Event", "places": "Miejsce", "deals": "Promocja"}
 
 
 # ---------------------------------------------------------------- tokeny (zgodne z supabase/functions/review/lib.ts)
@@ -85,11 +87,16 @@ def load(db: DB) -> dict:
     pending = [e for e in pending if (e.get("end_date") or e["start_date"]) >= today]
     changes = db.get("bot_changes", {"select": "*", "handled": "eq.false", "order": "created_at.asc", "limit": "500"})
     titles = {}
-    ids = sorted({c["row_id"] for c in changes})
-    for i in range(0, len(ids), 50):
-        chunk = ids[i:i + 50]
-        for e in db.get("events", {"select": "id,title,start_date,official_url,url", "id": f"in.({','.join(chunk)})"}):
-            titles[e["id"]] = e
+    sel = {"events": "id,title,start_date,official_url,url",
+           "places": "id,name,official_url,url,city",
+           "deals": "id,title,venue,official_url,url,city"}
+    for table, cols in sel.items():
+        ids = sorted({c["row_id"] for c in changes if c.get("table_name", "events") == table})
+        for i in range(0, len(ids), 50):
+            for e in db.get(table, {"select": cols, "id": f"in.({','.join(ids[i:i + 50])})"}):
+                e["_table"] = table
+                e.setdefault("title", e.get("name"))
+                titles[e["id"]] = e
     return {"pending": pending, "changes": changes, "events_by_id": titles}
 
 
@@ -159,10 +166,17 @@ def event_row(e: dict, key: str) -> str:
 def change_row(c: dict, ev: dict | None, key: str) -> str:
     tok = make_token(key, "ch", c["id"])
     t = title_link(ev) if ev else "<b>(wpis usunięty)</b>"
-    when = html.escape(fmt_date(ev)) if ev else ""
+    kind = TABLE_PL.get(c.get("table_name", "events"), "")
+    if ev and ev.get("start_date"):
+        when = html.escape(fmt_date(ev))
+    else:
+        when = html.escape(" · ".join(x for x in [kind, (ev or {}).get("venue") or "", (ev or {}).get("city") or ""] if x))
     field = FIELD_PL.get(c["field"], c["field"])
     src = f' · <a href="{html.escape(c["source_url"])}" style="color:{C["muted"]}">strona źródłowa</a>' if c.get("source_url") else ""
-    ev_txt = f'<br><span style="color:{C["muted"]};font-size:12px">Cytat: „{html.escape(c["evidence"])}”</span>' if c.get("evidence") else ""
+    if c["field"] == "official_url" and c.get("new_value"):
+        src = f' · <a href="{html.escape(c["new_value"])}" style="color:{C["muted"]}">otwórz proponowaną stronę</a>'
+    label = "Uzasadnienie" if c["field"] == "official_url" else "Cytat"
+    ev_txt = f'<br><span style="color:{C["muted"]};font-size:12px">{label}: „{html.escape(c["evidence"])}”</span>' if c.get("evidence") else ""
     buttons = btn(link(tok, "accept"), "✓ Przyjmij zmianę", C["ok"]) + btn(link(tok, "ignore"), "Zostaw jak jest", C["muted"])
     return (f'<tr><td style="padding:12px 14px;border-bottom:1px solid {C["line"]};font-size:14px;line-height:1.5">'
             f'{t}<br>{when}<br><b>{field}:</b> {html.escape(c.get("old_value") or "–")} → <b>{html.escape(c.get("new_value") or "–")}</b>{src}{ev_txt}'
@@ -205,7 +219,7 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
         f'Tytuł otwiera stronę źródłową. Przyciski otwierają stronę z potwierdzeniem.</div>'
         + section("1. Gotowe do zatwierdzenia", "Wszystkie pola są potwierdzone cytatem ze strony.", [event_row(e, key) for e in r_shown], r_more)
         + section("2. Do uzupełnienia", "Strona nie podaje wszystkiego. Uzupełnij albo zatwierdź tak, jak jest.", [event_row(e, key) for e in g_shown], g_more)
-        + section("3. Zmiany w zatwierdzonych wpisach", "Bot znalazł na stronie inną wartość niż w apce. Nic nie zostało zmienione.",
+        + section("3. Zmiany i propozycje", "Bot znalazł na stronie oficjalnej inną wartość niż w apce albo proponuje stronę oficjalną. Nic nie zostało zmienione.",
                   [change_row(c, data["events_by_id"].get(c["row_id"]), key) for c in c_shown], c_more)
         + f'<p style="color:{C["muted"]};font-size:12px;margin-top:24px">Linki są ważne {TOKEN_DAYS} dni. '
           f'Nie przekazuj tego e-maila dalej: przyciski działają bez logowania.</p></div></div>'

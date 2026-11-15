@@ -1,0 +1,65 @@
+name: Places and deals check
+
+on:
+  schedule:
+    - cron: "17 1 * * 0"   # niedziela 05:17 czasu UAE
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Próba: nic nie zapisuje"
+        type: boolean
+        default: true
+      table:
+        description: "places, deals albo all"
+        type: string
+        default: "all"
+      limit:
+        description: "Ile pozycji sprawdzić"
+        type: string
+        default: "30"
+      find_urls:
+        description: "Szukaj stron oficjalnych dla pozycji bez linku (ok. 0,01 USD za wyszukanie)"
+        type: boolean
+        default: false
+      force:
+        description: "Sprawdź nawet strony bez zmian"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalacja
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Sprawdzanie
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          IN_DRY: ${{ inputs.dry_run }}
+          IN_TABLE: ${{ inputs.table || 'all' }}
+          IN_LIMIT: ${{ inputs.limit || '400' }}
+          IN_FIND: ${{ inputs.find_urls }}
+          IN_FORCE: ${{ inputs.force }}
+        run: |
+          ARGS=(--table "$IN_TABLE" --limit "$IN_LIMIT")
+          if [ "$IN_DRY" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ "$IN_FIND" = "true" ]; then ARGS+=(--find-urls); fi
+          if [ "$IN_FORCE" = "true" ]; then ARGS+=(--force); fi
+          python bot/verify.py "${ARGS[@]}"
