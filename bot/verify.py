@@ -147,9 +147,13 @@ def check_facts(raw: dict, page_norm: str, table: str = "", row: dict | None = N
             return {"found": False}
     out["found"] = True
     pq = ev.get("price")
-    if raw.get("price_text") and R.quote_on_page(pq, page_norm) and (
-        raw.get("price_number") is None or R.number_in_quote(raw["price_number"], pq)
-    ):
+    pt = (raw.get("price_text") or "").strip()
+    # cena musi być krótka, z kwotą w AED (albo "free"), potwierdzona cytatem
+    price_ok = pt and len(pt) <= 120 and (
+        (raw.get("price_number") is not None and R.number_in_quote(raw["price_number"], pq or "") and re.search(r"aed|dhs?|dirham", R.norm(pt + " " + (pq or ""))))
+        or re.search(r"\bfree\b|complimentary", R.norm(pt))
+    )
+    if price_ok and R.quote_on_page(pq, page_norm):
         out["price_text"] = R.clean_price(raw["price_text"])
         out["price_number"] = raw.get("price_number")
         out["evidence"]["price"] = pq
@@ -213,7 +217,27 @@ def diffs_for(table: str, row: dict, facts: dict) -> list[tuple[str, str | None,
     return out
 
 
+KEEP = re.compile(r"aed|dhs|dirham|price|rate|per person|per adult|day ?pass|pool|beach|brunch|ladies|happy hour|"
+                  r"open|hours|daily|monday|tuesday|wednesday|thursday|friday|saturday|sunday|\d{1,2}(:\d{2})? ?(am|pm)|\+971|tel", re.I)
+
+
+def trim_text(text: str, row: dict, limit: int = 14000) -> str:
+    """Długie strony: zostawiamy tylko linie o cenach, godzinach i samej ofercie (taniej i dokładniej)."""
+    if len(text) <= limit:
+        return text
+    words = [w for w in R._tokens((row.get("title") or row.get("name") or "") + " " + (row.get("venue") or "")) if len(w) > 3]
+    lines = [l.strip() for l in text.splitlines() if l.strip()]
+    keep = set()
+    for i, l in enumerate(lines):
+        low = l.lower()
+        if KEEP.search(low) or any(w in low for w in words):
+            keep.update({i - 1, i, i + 1})
+    out = "\n".join(lines[i] for i in sorted(k for k in keep if 0 <= k < len(lines)))
+    return out[:limit]
+
+
 def ask_facts(client, table: str, row: dict, text: str, url: str, usage: dict) -> dict:
+    text = trim_text(text, row)
     msg = (f"ITEM: {item_label(table, row)}\n"
            f"Currently listed as: price={row.get('price_text')!r}"
            + (f", hours={row.get('hours_text')!r}" if table == "places" else
