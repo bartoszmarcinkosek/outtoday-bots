@@ -1,0 +1,40 @@
+name: Build app (EAS)
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "android albo ios"
+        type: string
+        default: "android"
+      profile:
+        description: "production (AAB do Google Play) albo preview (APK do instalacji ręcznej)"
+        type: string
+        default: "production"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: npm ci
+      - name: Build
+        env:
+          IN_PLATFORM: ${{ inputs.platform }}
+          IN_PROFILE: ${{ inputs.profile }}
+        run: eas build --platform "$IN_PLATFORM" --profile "$IN_PROFILE" --non-interactive --no-wait
