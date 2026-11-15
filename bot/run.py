@@ -111,7 +111,9 @@ def robots_allows(url: str) -> tuple[bool, str]:
     try:
         r = requests.get(robots_url, headers={"User-Agent": USER_AGENT}, timeout=20)
     except requests.RequestException as e:
-        return True, f"robots.txt niedostępny ({type(e).__name__}), wchodzę"
+        return False, f"robots.txt nie odpowiada ({type(e).__name__}), dziś pomijam"
+    if r.status_code >= 500 or r.status_code == 429:
+        return False, f"robots.txt błąd serwera ({r.status_code}), dziś pomijam"
     if r.status_code >= 400:
         return True, f"brak robots.txt ({r.status_code})"
     rp = urllib.robotparser.RobotFileParser()
@@ -410,7 +412,7 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     if venue and quote_on_page(vq, page_norm):
         item["venue"] = venue
         item["evidence"]["venue"] = vq
-    elif venue and default_venue and norm(venue) == norm(default_venue):
+    elif default_venue and (source.get("single_venue") or (venue and norm(venue) == norm(default_venue))):
         item["venue"] = default_venue
         item["evidence"]["venue"] = "domyślne miejsce źródła"
     else:
@@ -559,6 +561,8 @@ def titles_match(a: str, b: str) -> bool:
     small, big = (sa, sb) if len(sa) <= len(sb) else (sb, sa)
     if small and small == big:
         return True
+    if len(small) >= 2 and small <= big and len(big) <= len(small) + 4:
+        return True
     return len(small) >= 3 and len(small & big) / len(small) >= 0.8
 
 
@@ -585,7 +589,7 @@ def main() -> int:
     ap.add_argument("--force", action="store_true", help="sprawdź strony nawet bez zmian")
     ap.add_argument("--only", default="", help="id źródeł po przecinku, np. louvre_ad,etihad_arena")
     ap.add_argument("--max-items", type=int, default=50, help="limit wpisów na całe uruchomienie (próba: 50)")
-    ap.add_argument("--max-details", type=int, default=15, help="ile podstron eventów otworzyć na źródło")
+    ap.add_argument("--max-details", type=int, default=40, help="ile podstron eventów otworzyć na źródło")
     args = ap.parse_args()
 
     api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
