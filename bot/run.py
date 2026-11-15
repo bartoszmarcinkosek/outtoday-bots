@@ -216,6 +216,20 @@ class Browser:
         return {"status": r.status_code, "text": soup.get_text("\n", strip=True), "links": links, "final_url": r.url}
 
 
+TICKET_SELLERS = ("platinumlist.net", "ticketmaster", "livenation.me", "ticketsmarche", "800tickets", "q-tickets",
+                  "tixbox", "eventbrite", "virginmegastore", "etix.com", "ticketingbox", "dubaiopera.com")
+
+
+def ticket_links(links: list) -> list[str]:
+    out = []
+    for _, href in links:
+        if href and href.startswith("http") and any(t in urlparse(href).netloc.lower() for t in TICKET_SELLERS):
+            h = href.split("#")[0]
+            if h not in out:
+                out.append(h)
+    return out[:3]
+
+
 AGGREGATORS = ("platinumlist", "feverup", "yallaabudhabi", "whatson.ae", "timeoutdubai", "wow-rak", "koobit",
                "facebook.com", "instagram.com", "twitter.com", "x.com", "youtube.com", "tiktok.com", "linkedin.com",
                "google.", "apple.com", "wa.me", "whatsapp")
@@ -274,7 +288,7 @@ ITEM_SCHEMA = {
         "is_free": {"type": "boolean", "description": "True ONLY if the page says free / free entry / complimentary."},
         "kid_friendly": {"type": "boolean", "description": "True only if the page says it is for children or families."},
         "registration_required": {"type": "boolean"},
-        "description": {"type": ["string", "null"], "description": "One or two short sentences in your own words, only facts from the page."},
+        "description": {"type": ["string", "null"], "description": "One or two short sentences written in YOUR OWN WORDS (never copy sentences from the page), only facts from the page."},
         "detail_url": {"type": ["string", "null"], "description": "URL of this event's own page, copied from the LINKS list. Null if none."},
         "organiser_url": {"type": ["string", "null"], "description": "Only for tourism-board sources: the organiser's own website or ticket page for this event, copied exactly from the EXTERNAL LINKS list. Null if none."},
         "evidence": {
@@ -433,7 +447,7 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
         "title": title,
         "category": raw.get("category") if raw.get("category") in EVENT_CATEGORIES else "culture",
         "city": raw.get("city") if raw.get("city") in CITIES else source.get("city", "Abu Dhabi"),
-        "description": raw.get("description"),
+        "description": None if copied_text(raw.get("description"), page_norm) else raw.get("description"),
         "kid_friendly": bool(raw.get("kid_friendly")),
         "registration_required": bool(raw.get("registration_required")),
         "evidence": {"page": page_url},
@@ -516,6 +530,12 @@ def clean_price(t: str) -> str:
     t = re.sub(r"(?<![A-Za-z])[êÊ\ue000-\uf8ff]\s*(?=\d)", "AED ", t)
     t = re.sub(r"AED(?=\d)", "AED ", t)
     return t.replace("  ", " ").replace(" • ", " · ").strip()
+
+
+def copied_text(desc: str | None, page_norm: str, n: int = 7) -> bool:
+    """Opis ma być naszymi słowami: 7 kolejnych słów identycznych ze stroną = kopia."""
+    words = norm(desc).split()
+    return any(" ".join(words[i:i + n]) in page_norm for i in range(0, max(0, len(words) - n + 1)))
 
 
 def date_matches_quote(sd: dt.date, ed: dt.date | None, quote: str) -> bool:
@@ -614,7 +634,7 @@ def to_row(item: dict, source: dict, key: str, now_iso: str) -> dict:
         "is_free": item.get("is_free", False),
         "kid_friendly": item.get("kid_friendly", False),
         "registration_required": item.get("registration_required", False),
-        "url": item.get("organiser_url") or item.get("detail_url") or item["evidence"]["page"],
+        "url": item.get("ticket_url") or item.get("organiser_url") or item.get("detail_url") or item["evidence"]["page"],
         "official_url": item.get("organiser_url") or item.get("detail_url") or item["evidence"]["page"],
         "source_name": source["name"],
         "source_url": item["evidence"]["page"],
@@ -849,8 +869,19 @@ def main() -> int:
             upd = {"last_seen_at": now_iso}
             if not match.get("bot_key"):
                 upd["bot_key"] = key
-            if match["status"] == "pending":  # niezatwierdzone można poprawić od razu
+            if match["status"] == "pending":  # niezatwierdzone można poprawić od razu i uzupełnić braki
                 upd.update({f: n for f, _, n in diffs})
+                fills = {f: it.get(f) for f in ("start_time", "end_time", "venue", "price_text", "price_min_aed")
+                         if it.get(f) is not None and match.get(f) in (None, "")}
+                if fills:
+                    upd.update(fills)
+                    upd["gaps"] = it["gaps"]
+                    upd["evidence"] = it["evidence"]
+                    if it.get("ticket_url"):
+                        upd["url"] = it["ticket_url"]
+                if auto_ok(it, src):
+                    upd.update({"status": "approved", "verified_at": now_iso,
+                                "evidence": {**it["evidence"], "auto": True}})
             else:
                 for f, o, n in diffs:
                     ev_key = {"price_text": "price", "start_time": "time", "venue": "venue"}[f]
@@ -890,6 +921,40 @@ def auto_approve_pending(db: "DB", sources: list[dict], now_iso: str) -> int:
     if n:
         print(f"Zatwierdzone automatycznie spośród czekających: {n}")
     return n
+
+
+def enrich_from_tickets(br: "Browser", client, item: dict, src: dict, usage: dict, links: list) -> dict:
+    """Brakuje godziny albo ceny? Sprawdź oficjalnego sprzedawcę biletów podlinkowanego na stronie eventu."""
+    for url in ticket_links(links):
+        ok, _ = robots_allows(url)
+        if not ok:
+            continue
+        try:
+            time.sleep(PAUSE_SECONDS)
+            page = br.fetch(url)
+        except Exception:
+            continue
+        if page["status"] >= 400 or not page["text"]:
+            continue
+        out = call_model(client, page["text"], [], src, page["final_url"], item["title"], usage)
+        pn = norm(page["text"])
+        for raw in out.get("events", []):
+            d, _ = check_item(raw, pn, set(), src, page["final_url"])
+            if not d or d.get("start_date") != item.get("start_date"):
+                continue
+            merged = dict(item)
+            merged["evidence"] = dict(item["evidence"])
+            for fields, gap, evk in ((("start_time", "end_time"), "start_time", "time"),
+                                     (("price_text", "price_min_aed", "is_free"), "price", "price")):
+                if gap in merged["gaps"] and gap not in d["gaps"]:
+                    for f in fields:
+                        merged[f] = d[f]
+                    merged["evidence"][evk] = d["evidence"].get(evk)
+                    merged["evidence"][evk + "_page"] = page["final_url"]
+                    merged["gaps"] = [g for g in merged["gaps"] if g != gap]
+            merged["ticket_url"] = page["final_url"]
+            return merged
+    return item
 
 
 def enrich_from_detail(br: Browser, client, item: dict, src: dict, usage: dict) -> list[dict]:
@@ -934,7 +999,9 @@ def enrich_from_detail(br: Browser, client, item: dict, src: dict, usage: dict) 
         if d.get("description") and not merged.get("description"):
             merged["description"] = d["description"]
         results.append(merged)
-    return results or [item]
+    results = results or [item]
+    return [enrich_from_tickets(br, client, r, src, usage, page["links"])
+            if src.get("trusted") and ({"start_time", "price"} & set(r["gaps"])) else r for r in results]
 
 
 def row_for_report(src: dict, it: dict, action: str) -> dict:
