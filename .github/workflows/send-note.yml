@@ -1,0 +1,34 @@
+name: Send note
+
+on:
+  workflow_dispatch:
+    inputs:
+      file:
+        description: "Plik z folderu notes/"
+        type: string
+        required: true
+      subject:
+        description: "Temat e-maila"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - env:
+          MAIL_USER: ${{ secrets.MAIL_USER }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          IN_FILE: ${{ inputs.file }}
+          IN_SUBJECT: ${{ inputs.subject }}
+        run: python bot/send_note.py "$IN_FILE" "$IN_SUBJECT"
