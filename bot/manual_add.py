@@ -32,12 +32,38 @@ def main() -> int:
             gaps = [g for g, f in (("start_time", "start_time"), ("venue", "venue"), ("price", "price_text")) if not row.get(f)]
             if row.get("is_free"):
                 gaps = [g for g in gaps if g != "price"]
-            row.update({"status": "pending", "bot_key": key, "gaps": gaps, "last_seen_at": now,
+            st = "approved" if e.get("status") == "approved" else "pending"
+            if st == "approved":
+                row["verified_at"] = now
+            row.update({"status": st, "bot_key": key, "gaps": gaps, "last_seen_at": now,
                         "source_name": e.get("source_name") or "Zrzut ekranu",
                         "evidence": {"page": "zrzut ekranu przesłany przez właściciela", "note": e.get("note") or os.path.basename(path)}})
             db.insert("events", row)
             added += 1
             print(f"+ {row['title']} ({row['start_date']})")
+        for d in data.get("deals", []):
+            if db.get("deals", {"select": "id", "title": f"eq.{d['title']}", "venue": f"eq.{d.get('venue')}"}):
+                skipped += 1
+                continue
+            row = {k: d[k] for k in ("title", "details", "venue", "area", "city", "days_of_week", "start_time", "end_time",
+                                     "price_text", "valid_until", "official_url", "deal_type", "ladies_only", "kid_friendly",
+                                     "pet_friendly") if k in d and d[k] not in (None, "")}
+            row.update({"status": "approved" if d.get("status") == "approved" else "pending",
+                        "source_name": d.get("source_name") or "Zrzut ekranu"})
+            db.insert("deals", row)
+            added += 1
+            print(f"+ deal: {row['title']}")
+        for pl in data.get("places", []):
+            if db.get("places", {"select": "id", "name": f"eq.{pl['name']}"}):
+                skipped += 1
+                continue
+            row = {k: pl[k] for k in ("name", "description", "category", "area", "city", "hours_text", "price_text",
+                                      "is_free", "official_url", "kid_friendly", "is_indoor") if k in pl and pl[k] not in (None, "")}
+            row.update({"status": "approved" if pl.get("status") == "approved" else "pending",
+                        "source_name": pl.get("source_name") or "Zrzut ekranu"})
+            db.insert("places", row)
+            added += 1
+            print(f"+ place: {row['name']}")
         for r in data.get("reject", []):
             rows = db.get("events", {"select": "id,title,status", "title": f"ilike.{r['title']}", "start_date": f"eq.{r['start_date']}"})
             for row in rows:

@@ -1,0 +1,386 @@
+{
+ "events": [
+  {
+   "title": "RAK Night Market",
+   "category": "festivals",
+   "start_date": "2026-11-20",
+   "end_date": "2026-12-13",
+   "start_time": "16:00",
+   "end_time": "23:00",
+   "venue": "RAK Exhibition Centre, outdoor area",
+   "city": "Ras Al Khaimah",
+   "is_free": true,
+   "price_text": "Free",
+   "description": "Weekend night market with local makers, food stalls and family entertainment. Open Fridays, Saturdays and Sundays only during this first period.",
+   "official_url": "https://www.rakexpo.ae",
+   "source_name": "RAK Exhibition Centre (zrzut)",
+   "kid_friendly": true,
+   "status": "approved"
+  },
+  {
+   "title": "RAK Innovation Exhibition 2026",
+   "category": "community",
+   "start_date": "2026-11-17",
+   "end_date": "2026-11-19",
+   "venue": "RAK Exhibition Centre",
+   "city": "Ras Al Khaimah",
+   "description": "Public exhibition marking UAE Innovates month, open to residents, companies and organisations.",
+   "source_name": "RAK Events Standing Committee (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "Room to Grow – Heart of RAK Quality of Life Series",
+   "category": "community",
+   "start_date": "2026-11-18",
+   "start_time": "08:30",
+   "end_time": "12:40",
+   "venue": "Rotana Ras Al Khaimah, The Mangroves",
+   "city": "Ras Al Khaimah",
+   "description": "Two panel talks on schooling and life after Grade 12 in Ras Al Khaimah. RSVP required.",
+   "official_url": "https://heartofrak.com/en/events/room-to-grow",
+   "registration_required": true,
+   "source_name": "Heart of RAK (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "Italian Night + Karaoke",
+   "category": "music",
+   "start_date": "2026-11-17",
+   "start_time": "20:00",
+   "end_time": "21:30",
+   "venue": "Serenata Restaurant & Bar, Pacific, Al Marjan Island",
+   "city": "Ras Al Khaimah",
+   "description": "An Italian-themed evening with a singer and karaoke on the terrace.",
+   "source_name": "Serenata (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "Pixel & Paint – kids' art workshop & AI expo (RAK Fest 2026)",
+   "category": "family",
+   "start_date": "2026-11-21",
+   "start_time": "15:00",
+   "venue": "RAK Mall",
+   "city": "Ras Al Khaimah",
+   "description": "Art workshop for children paired with a small AI showcase, part of RAK Fest at RAK Mall.",
+   "kid_friendly": true,
+   "source_name": "RAK Mall (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "Into the Groove – Viken Arman",
+   "category": "nightlife",
+   "start_date": "2026-11-21",
+   "venue": "Helipad, Dubai",
+   "city": "Dubai",
+   "description": "Season opener from Groove on the Grass: an intimate house-music night headlined by Viken Arman.",
+   "official_url": "https://dubai.platinumlist.net/event-tickets/109541/into-the-groove-nov21",
+   "source_name": "Groove on the Grass (zrzut)",
+   "status": "pending"
+  },
+  {
+   "title": "Heritage & Culture Trip in Ras Al Khaimah",
+   "category": "culture",
+   "start_date": "2026-11-21",
+   "venue": "Ras Al Khaimah (guided tour)",
+   "city": "Ras Al Khaimah",
+   "description": "Full-day guided trip to heritage sites around the emirate. Booking required.",
+   "registration_required": true,
+   "source_name": "RAK Guide Tour (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "Arabic Music Night 2026",
+   "category": "music",
+   "start_date": "2026-12-05",
+   "start_time": "20:00",
+   "end_time": "23:59",
+   "venue": "Kick Sports Ground (near RAK Mall)",
+   "city": "Ras Al Khaimah",
+   "price_text": "AED 100; VIP AED 150 with table & coffee",
+   "price_min_aed": 100,
+   "description": "First Arabic music night in Ras Al Khaimah, with a DJ, Arabic singers and UAE rappers.",
+   "source_name": "Arabic Music Night (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "The New Year Mix-Up – bilingual kids' show (EN/RU)",
+   "category": "family",
+   "start_date": "2026-12-19",
+   "start_time": "15:00",
+   "venue": "Tower Links Golf Club",
+   "city": "Ras Al Khaimah",
+   "price_text": "AED 190 (show, games, gift, kids' lunch)",
+   "price_min_aed": 190,
+   "description": "Interactive New Year show for children in English and Russian, with Santa, Ded Moroz and Snegurochka.",
+   "kid_friendly": true,
+   "source_name": "The New Year Mix-Up (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "The New Year Mix-Up – bilingual kids' show (EN/RU)",
+   "category": "family",
+   "start_date": "2026-12-26",
+   "start_time": "15:00",
+   "venue": "Tower Links Golf Club",
+   "city": "Ras Al Khaimah",
+   "price_text": "AED 190 (show, games, gift, kids' lunch)",
+   "price_min_aed": 190,
+   "description": "Interactive New Year show for children in English and Russian, with Santa, Ded Moroz and Snegurochka.",
+   "kid_friendly": true,
+   "source_name": "The New Year Mix-Up (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "The New Year Mix-Up – bilingual kids' show (EN/RU)",
+   "category": "family",
+   "start_date": "2027-01-09",
+   "start_time": "15:00",
+   "venue": "Tower Links Golf Club",
+   "city": "Ras Al Khaimah",
+   "price_text": "AED 190 (show, games, gift, kids' lunch)",
+   "price_min_aed": 190,
+   "description": "Interactive New Year show for children in English and Russian, with Santa, Ded Moroz and Snegurochka.",
+   "kid_friendly": true,
+   "source_name": "The New Year Mix-Up (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "A Taste of Morocco – Moroccan Independence Week",
+   "category": "food",
+   "start_date": "2026-11-16",
+   "end_date": "2026-11-22",
+   "venue": "Dar Zellij",
+   "city": "Ras Al Khaimah",
+   "price_text": "30% off the total bill",
+   "description": "A week of Moroccan dishes, tea ceremonies and Moroccan-style drinks to mark Independence Day.",
+   "source_name": "Dar Zellij (zrzut)",
+   "note": "Plakat nie podaje adresu Dar Zellij – sprawdzić miasto i hotel",
+   "status": "approved"
+  }
+ ],
+ "deals": [
+  {
+   "title": "Ladies Night at Socials",
+   "deal_type": "ladies_night",
+   "ladies_only": true,
+   "venue": "Socials Tourist Restaurant & Bar, Mughal Suites, Al Mareedh St",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    2
+   ],
+   "start_time": "17:00",
+   "end_time": "23:00",
+   "price_text": "AED 59: 2 drinks, 1 starter, 1 shisha",
+   "details": "Every Tuesday.",
+   "status": "approved"
+  },
+  {
+   "title": "Socials Free Flow",
+   "deal_type": "night_out",
+   "venue": "Socials Tourist Restaurant & Bar, Mughal Suites, Al Mareedh St",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    4
+   ],
+   "start_time": "19:00",
+   "end_time": "22:00",
+   "price_text": "AED 179: unlimited drinks + 3 appetizers; AED 199 with shisha",
+   "details": "Every Thursday.",
+   "status": "approved"
+  },
+  {
+   "title": "Business Lunch at Socials",
+   "deal_type": "lunch",
+   "venue": "Socials Tourist Restaurant & Bar, Mughal Suites, Al Mareedh St",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "price_text": "AED 25 per set lunch",
+   "details": "Monday to Friday.",
+   "status": "approved"
+  },
+  {
+   "title": "Teachers' Day at Socials",
+   "deal_type": "dinner",
+   "venue": "Socials Tourist Restaurant & Bar, Mughal Suites, Al Mareedh St",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "start_time": "12:00",
+   "end_time": "23:59",
+   "price_text": "25% off total bill (non-promotion items)",
+   "details": "For teachers, Sunday to Thursday.",
+   "status": "approved"
+  },
+  {
+   "title": "Hotelier's Day at Socials",
+   "deal_type": "dinner",
+   "venue": "Socials Tourist Restaurant & Bar, Mughal Suites, Al Mareedh St",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "start_time": "12:00",
+   "end_time": "23:59",
+   "price_text": "25% off total bill (non-promotion items)",
+   "details": "For hotel staff, Sunday to Thursday.",
+   "status": "approved"
+  },
+  {
+   "title": "Beach BBQ – SmokeBreakers",
+   "deal_type": "dinner",
+   "venue": "Breakers, The Cove Rotana Resort",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    5
+   ],
+   "start_time": "18:00",
+   "end_time": "22:00",
+   "price_text": "AED 179 non-alcoholic, AED 219 house; kids 6–12 AED 90",
+   "details": "Friday beach BBQ with live entertainment.",
+   "kid_friendly": true,
+   "status": "approved"
+  },
+  {
+   "title": "Seafood Beach BBQ – SmokeBreakers",
+   "deal_type": "dinner",
+   "venue": "Breakers, The Cove Rotana Resort",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    6
+   ],
+   "start_time": "18:00",
+   "end_time": "22:00",
+   "price_text": "AED 199 non-alcoholic, AED 219 house; kids 6–12 AED 100",
+   "details": "Saturday seafood BBQ with live entertainment.",
+   "kid_friendly": true,
+   "status": "approved"
+  },
+  {
+   "title": "Brunch: Coastal Brunch at Basilico",
+   "deal_type": "brunch",
+   "venue": "Basilico, The Cove Rotana Resort",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    6
+   ],
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "price_text": "AED 249 non-alcoholic, AED 339 house; includes pool & beach access",
+   "details": "Every Saturday with live entertainment.",
+   "status": "approved"
+  },
+  {
+   "title": "Day pass: The Cove Rotana Resort",
+   "deal_type": "day_pass",
+   "venue": "The Cove Rotana Resort",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "start_time": "09:00",
+   "price_text": "Weekdays AED 150 (AED 75 F&B credit), weekends AED 250 (AED 125 F&B credit); kids 6–11 50% off, under 6 free",
+   "details": "Pool, beach and waterslide access until sunset.",
+   "kid_friendly": true,
+   "status": "approved"
+  },
+  {
+   "title": "Fire Fish at Banan Beach",
+   "deal_type": "day_pass",
+   "venue": "Banan Beach, Marjan Island",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    6
+   ],
+   "start_time": "14:00",
+   "end_time": "20:00",
+   "price_text": "AED 200 walk-in, fully redeemable on food & drinks",
+   "details": "Saturday beach afternoon with DJ sets and grilled fish.",
+   "official_url": "https://www.bananbeach.com",
+   "status": "approved"
+  },
+  {
+   "title": "Brunch: WAKA Night Brunch",
+   "deal_type": "brunch",
+   "venue": "WAKA, Sofitel Al Hamra Beach Resort",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    5
+   ],
+   "start_time": "19:00",
+   "end_time": "23:59",
+   "price_text": "AED 230 soft, AED 375 bubbly, AED 575 champagne",
+   "details": "Friday night brunch with a live Colombian trio and DJ. Booking required.",
+   "status": "approved"
+  },
+  {
+   "title": "Hot air balloon – 25% off for UAE residents",
+   "venue": "ActionFlight, Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "25% off with code ACTION25 (UAE residents)",
+   "valid_until": "2026-12-15",
+   "details": "Sunrise flights; weather dependent.",
+   "official_url": "https://actionflight.ae",
+   "status": "approved"
+  },
+  {
+   "title": "G-Force aerobatic flight – 10% off for UAE residents",
+   "venue": "ActionFlight, Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "10% off with code ACTION10 (UAE residents)",
+   "valid_until": "2026-12-15",
+   "details": "Book at least 48 hours ahead.",
+   "official_url": "https://actionflight.ae",
+   "status": "approved"
+  }
+ ],
+ "places": [
+  {
+   "name": "San Enertech Farm",
+   "category": "daytrips",
+   "city": "Ras Al Khaimah",
+   "description": "Research farm showing desert agriculture built on energy, water, soil and plants. Visits by booking.",
+   "status": "approved"
+  }
+ ]
+}
