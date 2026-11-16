@@ -1,0 +1,98 @@
+{
+ "approve": [
+  {
+   "title": "Hive Furniture Show",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "The Big Shopper Sale",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Winter Clearance Sale",
+   "start_date": "2026-12-17"
+  },
+  {
+   "title": "Ramadan Nights",
+   "start_date": "2027-02-18"
+  },
+  {
+   "title": "Sharjah Children’s Reading Festival",
+   "start_date": "2027-03-24"
+  },
+  {
+   "title": "59th Watch & Jewellery Middle East Show",
+   "start_date": "2027-04-28"
+  },
+  {
+   "title": "Come on Keralam",
+   "start_date": "2027-05-07"
+  },
+  {
+   "title": "Eid Al Adha Exhibition",
+   "start_date": "2027-05-14"
+  },
+  {
+   "title": "Hive Furniture Show",
+   "start_date": "2027-06-10"
+  },
+  {
+   "title": "Super Sale",
+   "start_date": "2027-06-24"
+  },
+  {
+   "title": "Summer Sales (Back to School)",
+   "start_date": "2027-07-29"
+  },
+  {
+   "title": "60th Watch & Jewellery Middle East Show",
+   "start_date": "2027-09-29"
+  },
+  {
+   "title": "Middle East Cosmetics Show",
+   "start_date": "2027-10-08"
+  },
+  {
+   "title": "Emirates Perfumes and Oud Exhibition",
+   "start_date": "2027-10-08"
+  },
+  {
+   "title": "Sharjah International Book Fair",
+   "start_date": "2027-11-02"
+  },
+  {
+   "title": "The Big Shopper Sale",
+   "start_date": "2027-11-25"
+  },
+  {
+   "title": "Winter Clearance Sale",
+   "start_date": "2027-12-16"
+  }
+ ],
+ "reject": [
+  {
+   "title": "Surfex",
+   "start_date": "2026-12-08"
+  },
+  {
+   "title": "SteelFab 2027",
+   "start_date": "2027-01-11"
+  },
+  {
+   "title": "Sharjah Real Estate Exhibition – ACRES",
+   "start_date": "2027-01-27"
+  },
+  {
+   "title": "METAS",
+   "start_date": "2027-06-07"
+  },
+  {
+   "title": "Evolve Future Mobility Show",
+   "start_date": "2027-11-24"
+  },
+  {
+   "title": "Surfex",
+   "start_date": "2027-12-07"
+  }
+ ]
+}
