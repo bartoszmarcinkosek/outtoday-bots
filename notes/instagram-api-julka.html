@@ -1,0 +1,50 @@
+<div style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#14213d;max-width:640px;margin:0 auto;padding:16px;line-height:1.55;font-size:15px">
+
+<h1 style="font-size:21px;margin:0 0 6px">OutToday: połączenie Instagrama z botem – dla Julki</h1>
+<p style="color:#5b6b88;margin:0 0 16px">Ok. 20 minut, na komputerze, zalogowana na Facebooku, którym zarządzasz stroną OutToday.</p>
+
+<div style="background:#eef3ff;border-radius:10px;padding:12px 14px;margin-bottom:18px">
+<b>Po co to jest:</b> bot co rano przeczyta publiczne posty kont firmowych na Instagramie (hotele, beach cluby, galerie, centra handlowe, Louvre, Atlantis itd.) i wyciągnie z nich wydarzenia do apki: nazwę, datę, miejsce, cenę. Nic nie publikuje, nic nie lajkuje, nie czyta prywatnych kont ani wiadomości. Korzysta z oficjalnego API Mety, więc konto outtodayapp jest bezpieczne.
+</div>
+
+<h2 style="font-size:17px;margin:22px 0 6px">Krok 1. Sprawdź konto Instagram</h2>
+<p>W aplikacji Instagram na koncie <b>outtodayapp</b>: Ustawienia → <b>Typ konta i narzędzia</b>. Musi być <b>konto firmowe (Business)</b>. Jeśli jest „osobiste” albo „twórca”, przełącz na <b>Firma</b>.</p>
+<p>Potem na Facebooku, na stronie <b>OutToday</b>: Ustawienia → <b>Połączone konta</b> → Instagram → upewnij się, że jest połączone <b>outtodayapp</b>.</p>
+
+<h2 style="font-size:17px;margin:22px 0 6px">Krok 2. Konto dewelopera</h2>
+<p>Wejdź na <b>developers.facebook.com</b> → <b>Get Started</b> → przejdź rejestrację (potwierdzenie numerem telefonu, rola np. „Developer”).</p>
+
+<h2 style="font-size:17px;margin:22px 0 6px">Krok 3. Aplikacja</h2>
+<ol>
+<li><b>My Apps</b> → <b>Create App</b>.</li>
+<li>Nazwa: <b>OutToday Bot</b>, e-mail: <b>outtodayapp.uae@gmail.com</b>.</li>
+<li>Przypadek użycia: <b>Other</b> → typ: <b>Business</b> → portfolio biznesowe: pomiń (bez).</li>
+<li><b>Create app</b>.</li>
+</ol>
+
+<h2 style="font-size:17px;margin:22px 0 6px">Krok 4. Token (krótki)</h2>
+<ol>
+<li>Otwórz <b>developers.facebook.com/tools/explorer</b>.</li>
+<li>Po prawej: <b>Meta App</b> = <b>OutToday Bot</b>, <b>User or Page</b> = <b>Get User Access Token</b>.</li>
+<li><b>Permissions</b> → dodaj: <b>instagram_basic</b>, <b>pages_show_list</b>, <b>pages_read_engagement</b>, <b>business_management</b>.</li>
+<li>Kliknij <b>Generate Access Token</b> → w okienku zaznacz stronę <b>OutToday</b> i konto <b>outtodayapp</b> → zatwierdź.</li>
+</ol>
+
+<h2 style="font-size:17px;margin:22px 0 6px">Krok 5. Token na stałe</h2>
+<ol>
+<li>Obok tokenu kliknij niebieską ikonkę <b>(i)</b> → <b>Open in Access Token Tool</b>.</li>
+<li>Na dole kliknij <b>Extend Access Token</b> → skopiuj nowy, długi token.</li>
+<li>Wróć do Graph API Explorer, wklej ten długi token w pole <b>Access Token</b>.</li>
+<li>W polu zapytania (obok GET) wpisz <b>me/accounts</b> → <b>Submit</b>.</li>
+<li>W wyniku znajdź <b>"name": "OutToday"</b> i skopiuj wartość <b>"access_token"</b> tuż nad nią (bardzo długi ciąg znaków). To jest token strony – <b>nie wygasa</b>.</li>
+</ol>
+
+<h2 style="font-size:17px;margin:22px 0 6px">Krok 6. Przekazanie</h2>
+<p>Wyślij ten token strony <b>Bartoszowi na WhatsAppie</b> (nie mailem, nie publicznie). Bartosz wpisze go na GitHubie jako sekret <b>IG_ACCESS_TOKEN</b> i usunie wiadomość.</p>
+
+<div style="background:#fff4e5;border-radius:10px;padding:12px 14px;margin-top:14px">
+Nie podawaj nikomu hasła do Facebooka ani Instagrama. Token daje tylko odczyt i można go w każdej chwili unieważnić (zmiana hasła na Facebooku albo usunięcie aplikacji OutToday Bot).
+</div>
+
+<p style="color:#5b6b88;margin-top:20px">Jeśli coś wygląda inaczej niż tu opisane, zrób zrzut ekranu i wyślij Bartoszowi.</p>
+</div>
