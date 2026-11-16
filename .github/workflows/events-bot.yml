@@ -14,12 +14,11 @@ on:
       max_items:
         description: "Limit wpisów"
         type: number
-        default: 50
+        default: 400
       force:
         description: "Sprawdź strony nawet bez zmian"
         type: boolean
         default: false
-  # Codziennie o 06:17 czasu UAE (przed e-mailem o 07:47). Z harmonogramu bot zawsze zapisuje do bazy jako pending.
   # Harmonogram: zadanie zaplanowane w Claude (codziennie 6:13 UAE) uruchamia ten workflow.
 
 permissions:
@@ -47,6 +46,7 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Bot
+        if: ${{ inputs.only != 'eventbrite' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -61,6 +61,16 @@ jobs:
           if [ "$IN_FORCE" = "true" ]; then ARGS+=(--force); fi
           if [ -n "$IN_ONLY" ]; then ARGS+=(--only "$IN_ONLY"); fi
           python bot/run.py "${ARGS[@]}"
+
+      - name: Eventbrite (oficjalne API)
+        if: ${{ !inputs.dry_run && (inputs.only == '' || contains(inputs.only, 'eventbrite')) }}
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
+        run: python bot/eventbrite.py
 
       - name: Raport do pobrania
         if: always()
