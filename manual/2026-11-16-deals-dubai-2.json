@@ -1,0 +1,251 @@
+{
+ "deals": [
+  {
+   "title": "Happy Hour at Twenty Three Rooftop Bar",
+   "deal_type": "happy_hour",
+   "venue": "Twenty Three Rooftop Bar, Grand Plaza Mövenpick Media City",
+   "city": "Dubai",
+   "official_url": "https://movenpick.accor.com/en/middle-east/uae/dubai/grand-plaza-movenpick-media-city/hotel-offers/happy-hours-at-twenty-three.html",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "House beverages AED 29 · bottle of wine AED 119 · 23% off food",
+   "details": "Rooftop bar with skyline views; house wines, spirits and selected bottled beers.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Media City",
+   "start_time": "17:00",
+   "end_time": "20:00"
+  },
+  {
+   "title": "Happy Hour at The Balcony Bar",
+   "deal_type": "happy_hour",
+   "venue": "The Balcony Bar, Shangri-La Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.shangri-la.com/dubai/shangrila/offer-detail/dining/the-balcony-bar-experiences",
+   "days_of_week": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "price_text": "AED 48",
+   "details": "Weekday happy hour at the lobby-level bar of Shangri-La Dubai.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Sheikh Zayed Road",
+   "start_time": "17:00",
+   "end_time": "20:00"
+  },
+  {
+   "title": "Craic & Quiz Night",
+   "deal_type": "quiz",
+   "venue": "McGettigan's Dubai Production City",
+   "city": "Dubai",
+   "official_url": "https://www.mcgettigans.com/dubai-production-city/whats-on/craic-quiz-night.html",
+   "days_of_week": [
+    3
+   ],
+   "price_text": "Free entry",
+   "details": "Weekly speed quiz with general knowledge and music rounds and prizes.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Production City",
+   "start_time": "20:00"
+  },
+  {
+   "title": "Pool & Beach Day Pass – Raffles The Palm",
+   "deal_type": "day_pass",
+   "venue": "Raffles The Palm Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.raffles.com/thepalm-dubai/experiences/pool-beach-day-pass",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "Weekdays AED 250 · weekends AED 300 (AED 150 redeemable on F&B) · kids AED 100",
+   "details": "Temperature-controlled pool and beach on the West Crescent of the Palm.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "09:00",
+   "end_time": "19:00",
+   "kid_friendly": true
+  },
+  {
+   "title": "Pool & Beach Day Pass – Jumeirah Beach Hotel",
+   "deal_type": "day_pass",
+   "venue": "Jumeirah Beach Hotel",
+   "city": "Dubai",
+   "official_url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-beach-hotel/experiences/pool-and-beach-access",
+   "days_of_week": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "price_text": "Weekdays AED 600 incl. AED 400 credit · kids 4–12 AED 300 incl. AED 200 credit",
+   "details": "Day access to the resort's pools and private beach next to Burj Al Arab.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Umm Suqeim",
+   "kid_friendly": true
+  },
+  {
+   "title": "Pool Day Pass – Fairmont The Palm",
+   "deal_type": "day_pass",
+   "venue": "Fairmont The Palm",
+   "city": "Dubai",
+   "official_url": "https://elr.fairmont.com/palm-dubai/activities/pool-and-beach",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "Mon–Fri AED 200 redeemable (or AED 100 non-redeemable) · Sat–Sun AED 250 redeemable · kids 6–12 AED 100 · under 6 free",
+   "details": "Pool access at Fairmont The Palm; beach passes also available.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "kid_friendly": true
+  },
+  {
+   "title": "Pool & Beach Day Pass – Delano Dubai",
+   "deal_type": "day_pass",
+   "venue": "Delano Dubai",
+   "city": "Dubai",
+   "official_url": "https://delanohotels.com/es/dubai/restaurants-and-bars/delano-pool-and-beach",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "Mon–Thu AED 400 (AED 200 credit) · Fri–Sun AED 600 (AED 300 credit)",
+   "details": "Pool and beach on Bluewaters Island facing the Marina skyline.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Bluewaters"
+  },
+  {
+   "title": "Pool & Beach Day Pass – Banyan Tree Dubai",
+   "deal_type": "day_pass",
+   "venue": "Alizée Pool & Beach, Banyan Tree Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.banyantree.com/united-arab-emirates/dubai/dining/alizee-pool-beach",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "Mon–Thu AED 400 · Fri–Sun AED 600 (50% redeemable on F&B) · kids 4–11 AED 150",
+   "details": "Bohemian-style pool bar and beach on Bluewaters.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Bluewaters",
+   "kid_friendly": true
+  },
+  {
+   "title": "Amara Spa Pool Pass",
+   "deal_type": "day_pass",
+   "venue": "Amara Spa, Park Hyatt Dubai",
+   "city": "Dubai",
+   "official_url": "https://dubaicreekresort.com/?p=4146",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "Weekdays AED 200 · weekends and public holidays AED 250 (redeemable on F&B)",
+   "details": "Spa pool, steam room, sauna and gym access at Park Hyatt Dubai.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Creek",
+   "start_time": "09:00",
+   "end_time": "22:00"
+  },
+  {
+   "title": "Bold Night Brunch",
+   "deal_type": "brunch",
+   "venue": "BA – Boldly Asian, Fairmont The Palm",
+   "city": "Dubai",
+   "official_url": "https://www.fairmont.com/es/hotels/dubai/fairmont-the-palm/offers/bold-night-brunch.html",
+   "days_of_week": [
+    5,
+    6
+   ],
+   "price_text": "Soft AED 250 · House AED 395 · Platinum AED 495",
+   "details": "Three-hour night brunch with Asian sharing dishes and a live DJ.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "20:00",
+   "end_time": "23:00"
+  },
+  {
+   "title": "Weekend Day Pass – Anantara The Palm",
+   "deal_type": "day_pass",
+   "venue": "Anantara The Palm Dubai Resort",
+   "city": "Dubai",
+   "official_url": "https://www.anantara.com/en/palm-dubai/offers/the-lego-heroes-family-brunch",
+   "days_of_week": [
+    5,
+    6
+   ],
+   "price_text": "AED 250 per adult incl. AED 150 dining or spa credit · kids 3–11 AED 100",
+   "details": "Weekend pool and beach day pass on the East Crescent of the Palm (also public holidays).",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "kid_friendly": true
+  },
+  {
+   "title": "Sunset Rituals",
+   "deal_type": "happy_hour",
+   "venue": "Hotel Local Dubai",
+   "city": "Dubai",
+   "official_url": "https://restaurants.thefirstgroup.com/special-offers",
+   "days_of_week": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "price_text": "Selected cocktails AED 45",
+   "details": "Golden-hour drinks and light bites.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "16:00",
+   "end_time": "20:00"
+  }
+ ]
+}
