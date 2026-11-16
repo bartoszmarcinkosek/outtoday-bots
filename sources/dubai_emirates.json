@@ -343,6 +343,36 @@
     "https://fujairahrun.com"
    ],
    "trusted": true
+  },
+  {
+   "id": "fever_dxb",
+   "name": "Fever / Candlelight (Dubai)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://feverup.com/en/dubai/candlelight"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "fever_rak",
+   "name": "Fever / Candlelight (Ras Al Khaimah)",
+   "city": "Ras Al Khaimah",
+   "single_venue": false,
+   "urls": [
+    "https://feverup.com/m/541674"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "fever_fuj",
+   "name": "Fever / Candlelight (Fujairah)",
+   "city": "Fujairah",
+   "single_venue": false,
+   "urls": [
+    "https://feverup.com/m/401960/en"
+   ],
+   "trusted": true
   }
  ]
 }
