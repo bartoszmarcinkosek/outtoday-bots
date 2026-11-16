@@ -67,6 +67,10 @@ Prices: AED amounts with their conditions (per person, per adult, includes credi
 def item_label(table: str, row: dict) -> str:
     if table == "places":
         return f"{row['name']} ({row.get('category') or ''}, {row.get('area') or ''} {row.get('city') or ''})"
+    if table == "events":
+        return (f"EVENT '{row['title']}' on {row['start_date']}" + (f" to {row['end_date']}" if row.get("end_date") else "")
+                + f" at {row.get('venue') or '?'} ({row.get('city') or ''}). start_time = when the show/event starts on that date, "
+                  "never doors-open or gates-open time")
     return f"{row['title']} at {row.get('venue') or '?'} ({row.get('city') or ''})"
 
 
@@ -214,6 +218,11 @@ def diffs_for(table: str, row: dict, facts: dict) -> list[tuple[str, str | None,
             old = (row.get("end_time") or "")[:5] or None
             if old != facts["end_time"]:
                 out.append(("end_time", old, facts["end_time"], facts["evidence"]["time"]))
+    if table == "events":
+        out = [d for d in out if d[0] == "price_text" and not row.get("price_text")]
+        if facts.get("start_time") and not row.get("start_time") and not row.get("end_date"):
+            out.append(("start_time", None, facts["start_time"], facts["evidence"]["time"]))
+        return out
     if facts.get("phone") and not row.get("phone"):
         out.append(("phone", None, facts["phone"], facts["evidence"]["phone"]))
     return out
@@ -243,6 +252,7 @@ def ask_facts(client, table: str, row: dict, text: str, url: str, usage: dict) -
     msg = (f"ITEM: {item_label(table, row)}\n"
            f"Currently listed as: price={row.get('price_text')!r}"
            + (f", hours={row.get('hours_text')!r}" if table == "places" else
+              f", time={row.get('start_time')}" if table == "events" else
               f", days={[DAYS[i] for i in (row.get('days_of_week') or []) if 0 <= i < 7]}, time={row.get('start_time')}-{row.get('end_time')}, details={row.get('details')!r}")
            + f"\nPAGE URL: {url}\n\n=== PAGE TEXT ===\n{text[:R.MAX_TEXT]}\n=== END PAGE TEXT ===")
     for attempt in range(3):
@@ -278,7 +288,7 @@ def ask_facts(client, table: str, row: dict, text: str, url: str, usage: dict) -
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--table", choices=["places", "deals", "all"], default="all")
+    ap.add_argument("--table", choices=["places", "deals", "events", "all"], default="all")
     ap.add_argument("--limit", type=int, default=400)
     ap.add_argument("--find-urls", action="store_true", help="szukaj stron oficjalnych dla wpisów bez linku (płatne wyszukiwanie, ok. 1 grosz za wyszukanie)")
     ap.add_argument("--dry-run", action="store_true")
@@ -302,7 +312,18 @@ def main() -> int:
         for table in tables:
             cols = ("id,name,category,area,city,hours_text,price_text,is_free,url,official_url,phone,status" if table == "places"
                     else "id,title,venue,area,city,details,days_of_week,start_time,end_time,price_text,url,official_url,phone,deal_type,status")
-            rows = db.get(table, {"select": cols, "status": "in.(approved,pending)", "order": "updated_at.asc.nullsfirst", "limit": "2000"})
+            if table == "events":
+                cols = "id,title,venue,area,city,start_date,end_date,start_time,price_text,url,official_url,status,gaps"
+                today = dt.datetime.now(dt.timezone(dt.timedelta(hours=4))).date().isoformat()
+                rows = db.get(table, {"select": cols, "status": "eq.approved", "order": "start_date.asc", "limit": "3000"})
+                # tylko nadchodzące, którym brakuje godziny (wydarzenia jednodniowe) albo ceny, i które mają stronę
+                rows = [r for r in rows if (r.get("end_date") or r["start_date"]) >= today
+                        and (r.get("official_url") or r.get("url"))
+                        and ((not r.get("start_time") and not r.get("end_date")) or not r.get("price_text"))]
+                for r in rows:
+                    r["official_url"] = r.get("official_url") or r.get("url")
+            else:
+                rows = db.get(table, {"select": cols, "status": "in.(approved,pending)", "order": "updated_at.asc.nullsfirst", "limit": "2000"})
             if table == "places":
                 rows = [r for r in rows if not r.get("is_free") or not r.get("hours_text")]  # darmowe z godzinami: nic do sprawdzania
             for row in rows:
