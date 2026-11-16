@@ -86,6 +86,13 @@ def main() -> int:
                 if row["status"] != "rejected":
                     db.update("events", {"id": row["id"]}, {"status": "rejected", "updated_at": now})
                     print(f"- odrzucone: {row['title']} ({r['start_date']})")
+        # "reject_places": lista id miejsc do ukrycia (np. zwykłe centra handlowe).
+        for pid in data.get("reject_places", []):
+            rows = db.get("places", {"select": "id,name,status", "id": f"eq.{pid}"})
+            for row in rows:
+                if row["status"] != "rejected":
+                    db.update("places", {"id": row["id"]}, {"status": "rejected"})
+                    print(f"- miejsce ukryte: {row['name']}")
     print(f"Dodane: {added}, już były: {skipped}")
     return 0
 
