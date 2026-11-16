@@ -1,0 +1,35 @@
+<div style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#14213d;max-width:640px;margin:0 auto;padding:16px;line-height:1.55;font-size:15px">
+<h1 style="font-size:21px;margin:0 0 6px">OutToday: Instagram + bot (token) – for Julka</h1>
+<p style="color:#5b6b88;margin:0 0 16px">Part A on the phone (Instagram, English menus, ~3 min). Part B on a computer (Meta developers site does not work well on a phone, ~15 min).</p>
+
+<div style="background:#eef3ff;border-radius:10px;padding:12px 14px;margin-bottom:18px">
+<b>Why:</b> every morning the bot reads public posts of business accounts (hotels, beach clubs, venues, ticket sellers) and turns them into events in the app. It only reads – it never posts, likes or reads messages.
+</div>
+
+<h2 style="font-size:17px;margin:20px 0 6px">A. On the phone – Instagram app (@outtodayapp)</h2>
+<ol>
+<li>Open your <b>profile</b> → tap <b>☰</b> (top right).</li>
+<li>Tap <b>Account type and tools</b>.
+ <ul><li>If you see <b>Switch to professional account</b> → tap it → choose <b>Business</b>.</li>
+ <li>If you see <b>Switch account type</b>, it is already professional – make sure it says <b>Business</b> (not Creator).</li></ul></li>
+<li>Back on the profile tap <b>Edit profile</b> → under <i>Public business information</i> tap <b>Page</b> → <b>Connect existing page</b> → choose <b>OutToday</b> → <b>Done</b>. (If OutToday is already shown there, skip.)</li>
+</ol>
+
+<h2 style="font-size:17px;margin:20px 0 6px">B. On a computer – the token</h2>
+<p>Log in to Facebook (your account that manages the OutToday page), then:</p>
+<ol>
+<li><b>developers.facebook.com</b> → <b>Get Started</b> → finish sign-up (confirm phone number, role: Developer).</li>
+<li><b>My Apps</b> → <b>Create App</b> → name <b>OutToday Bot</b>, e-mail <b>outtodayapp.uae@gmail.com</b> → use case <b>Other</b> → type <b>Business</b> → skip business portfolio → <b>Create app</b>.</li>
+<li>Open <b>developers.facebook.com/tools/explorer</b>. On the right: <b>Meta App</b> = OutToday Bot, <b>User or Page</b> = Get User Access Token.</li>
+<li><b>Permissions</b> → add: <code>instagram_basic</code>, <code>pages_show_list</code>, <code>pages_read_engagement</code>, <code>business_management</code>.</li>
+<li><b>Generate Access Token</b> → in the pop-up tick page <b>OutToday</b> and Instagram <b>outtodayapp</b> → confirm.</li>
+<li>Next to the token click the blue <b>(i)</b> → <b>Open in Access Token Tool</b> → at the bottom <b>Extend Access Token</b> → copy the new long token.</li>
+<li>Back in Graph API Explorer paste this long token in <b>Access Token</b>. In the query box (next to GET) type <code>me/accounts</code> → <b>Submit</b>.</li>
+<li>In the result find <code>"name": "OutToday"</code> and copy the <code>"access_token"</code> value right above it (a very long string). This is the page token – it does not expire.</li>
+</ol>
+
+<h2 style="font-size:17px;margin:20px 0 6px">C. Send it</h2>
+<p>Send that page token to <b>Bartosz on WhatsApp</b> (not by e-mail, not in any group). He adds it on GitHub as <code>IG_ACCESS_TOKEN</code> and deletes the message.</p>
+
+<p style="background:#fff4e5;border-radius:10px;padding:10px 12px">Never send your Facebook or Instagram password to anyone. The token only allows reading and can be cancelled any time (change Facebook password or delete the OutToday Bot app).<br>If a screen looks different, take a screenshot and send it to Bartosz.</p>
+</div>
