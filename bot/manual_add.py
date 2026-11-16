@@ -94,7 +94,12 @@ def main() -> int:
                 print(f"~ deal poprawiony: {row['title']} {fix}")
         # "reject_deals": [{"title":..., "venue":...}] – np. duplikaty.
         for r in data.get("reject_deals", []):
-            rows = db.get("deals", {"select": "id,title,status", "title": f"eq.{r['title']}", "venue": f"eq.{r['venue']}"})
+            q = {"select": "id,title,status", "title": f"eq.{r['title']}"}
+            if r.get("venue"):
+                q["venue"] = f"eq.{r['venue']}"
+            if r.get("venue_like"):
+                q["venue"] = f"ilike.*{r['venue_like']}*"
+            rows = db.get("deals", q)
             for row in rows:
                 if row["status"] != "rejected":
                     db.update("deals", {"id": row["id"]}, {"status": "rejected"})
