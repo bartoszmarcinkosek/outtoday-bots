@@ -120,7 +120,9 @@ def main() -> int:
                 print(f"błąd {url}: {e}")
                 continue
             hs = extract_hints(client, page["text"], city, usage)
-            print(f"{url}: {len(hs)} podpowiedzi")
+            print(f"{url}: status {page.get('status')}, tekst {len(page['text'])} znaków, {len(hs)} podpowiedzi")
+            if not hs:
+                print("   początek strony:", re.sub(r"\s+", " ", page["text"][:300]))
             hints += hs
             time.sleep(R.PAUSE_SECONDS)
 
