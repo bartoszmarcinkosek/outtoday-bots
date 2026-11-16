@@ -20,8 +20,7 @@ on:
         type: boolean
         default: false
   # Codziennie o 06:17 czasu UAE (przed e-mailem o 07:47). Z harmonogramu bot zawsze zapisuje do bazy jako pending.
-  schedule:
-    - cron: "17 2 * * *"
+  # Harmonogram: zadanie zaplanowane w Claude (codziennie 6:13 UAE) uruchamia ten workflow.
 
 permissions:
   contents: read

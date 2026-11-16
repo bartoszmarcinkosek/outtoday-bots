@@ -1,8 +1,7 @@
 name: Daily e-mail
 
 on:
-  schedule:
-    - cron: "47 3 * * *"   # 07:47 czasu UAE
+  # Harmonogram: zadanie zaplanowane w Claude (codziennie 6:13 UAE) uruchamia ten workflow.
   workflow_dispatch:
     inputs:
       always:

@@ -1,8 +1,7 @@
 name: Places and deals check
 
 on:
-  schedule:
-    - cron: "17 1 * * 0"   # niedziela 05:17 czasu UAE
+  # Harmonogram: zadanie zaplanowane w Claude (codziennie 6:13 UAE) uruchamia ten workflow.
   workflow_dispatch:
     inputs:
       dry_run:
