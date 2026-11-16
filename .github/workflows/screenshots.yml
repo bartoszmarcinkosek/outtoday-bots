@@ -1,0 +1,51 @@
+name: App screenshots (web build)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build web version (only for screenshots)
+        working-directory: app
+        run: |
+          npm ci
+          npx expo install react-native-web react-dom @expo/metro-runtime
+          mkdir -p web-stubs
+          printf "import React from 'react';\nimport { View } from 'react-native';\nexport default function MapView(p){return React.createElement(View,{style:[p.style,{backgroundColor:'#1b2a44'}]});}\nexport function Marker(){return null;}\n" > web-stubs/maps.js
+          cat > metro.config.js <<'JS'
+          const { getDefaultConfig } = require('expo/metro-config');
+          const path = require('path');
+          const config = getDefaultConfig(__dirname);
+          const orig = config.resolver.resolveRequest;
+          config.resolver.resolveRequest = (ctx, name, platform) => {
+            if (platform === 'web' && name === 'react-native-maps') return { type: 'sourceFile', filePath: path.join(__dirname, 'web-stubs/maps.js') };
+            return orig ? orig(ctx, name, platform) : ctx.resolveRequest(ctx, name, platform);
+          };
+          module.exports = config;
+          JS
+          npx expo export -p web --output-dir dist
+      - name: Screenshots
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+          mkdir -p out
+          (cd app/dist && python -m http.server 8080 >/dev/null 2>&1 &)
+          sleep 3
+          python tools/shots.py http://localhost:8080/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: out/
