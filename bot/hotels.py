@@ -258,6 +258,39 @@ def ask_offers(client, hotel: dict, text: str, url: str, usage: dict) -> list[di
     return []
 
 
+SEARCH_TOOL = {
+    "name": "report_offer_pages",
+    "description": "Official pages of this hotel that describe dining offers, and the offers seen in the search results.",
+    "input_schema": {"type": "object", "properties": {
+        "urls": {"type": "array", "items": {"type": "string"}, "description": "Up to 6 URLs from the search results, on the official site, about THIS hotel's offers/restaurants."},
+        "offers": OFFER_TOOL["input_schema"]["properties"]["offers"],
+    }, "required": ["urls", "offers"]},
+}
+
+
+def search_offers(client, hotel: dict, usage: dict) -> tuple[list[str], list[dict]]:
+    host = urlparse(hotel["url"]).netloc.lower().removeprefix("www.").removeprefix("www3.")
+    prompt = (f"Hotel: {hotel['name']} ({hotel['city']}, UAE). Search its official website for its current dining offers: "
+              "brunch, theme nights, happy hour, ladies' night, business lunch, breakfast, pool/beach day pass, staycation packages "
+              "(with AED prices). Report the official pages about THIS hotel (not other hotels of the chain) and the offers "
+              "you can see in the search results. " + OFFER_RULES)
+    try:
+        resp = client.messages.create(
+            model=R.MODEL, max_tokens=4000,
+            tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 2, "allowed_domains": [host]}, SEARCH_TOOL],
+            messages=[{"role": "user", "content": prompt}],
+        )
+    except Exception as e:
+        print(f"   [szukanie] {type(e).__name__}: {str(e)[:120]}")
+        return [], []
+    add_usage(usage, resp)
+    for b in resp.content:
+        if getattr(b, "type", "") == "tool_use" and b.name == "report_offer_pages":
+            urls = [u for u in (b.input.get("urls") or []) if isinstance(u, str) and host in urlparse(u).netloc.lower()]
+            return urls[:6], [o for o in (b.input.get("offers") or []) if isinstance(o, dict)]
+    return [], []
+
+
 ONE_OFF = re.compile(r"christmas|festive|season'?s|turkey|thanksgiving|new year|nye|eid\b|iftar|suhoor|ramadan|valentine|easter|diwali|halloween|mother'?s day|father'?s day|national day|\bspa\b|massage|treatment|wedding", re.I)
 
 
@@ -343,7 +376,12 @@ def scan(city: str | None, limit: int, dry: bool, force: bool) -> int:
             prefix = hotel_prefix(base) if len([p for p in urlparse(base).path.split("/") if p]) >= 2 else "/"
             urls = [hotel["url"]] + offer_pages(main, base, prefix)
             print(f"{hotel['name']}: strona {main.get('status')} / {len(main.get('text') or '')} znaków, podstron: {len(urls) - 1} (prefiks {prefix})")
+            found_urls, snippet_offers = search_offers(client, hotel, usage)
+            for u in found_urls:
+                if u not in urls:
+                    urls.append(u)
             hotel_new = 0
+            fetched_ok = 0
             visited = set()
             i = 0
             while i < len(urls) and i < 10:
@@ -364,6 +402,7 @@ def scan(city: str | None, limit: int, dry: bool, force: bool) -> int:
                     for extra in offer_pages(page, url, prefix, limit=4):
                         if extra not in urls:
                             urls.append(extra)
+                fetched_ok += 1
                 text = page["text"]
                 h = hashlib.sha1(R.norm(text).encode()).hexdigest()
                 prev = db.get("bot_pages", {"select": "content_hash", "url": f"eq.{url}"})
@@ -393,6 +432,36 @@ def scan(city: str | None, limit: int, dry: bool, force: bool) -> int:
                 if not dry:
                     db.upsert("bot_pages", {"url": url, "content_hash": h, "last_fetched_at": now_iso, "last_status": "hotels"}, "url")
                 time.sleep(R.PAUSE_SECONDS)
+            if not hotel_new and snippet_offers and fetched_ok <= 1:
+                # strona hotelu nie dała się przeczytać (np. blokada botów): oferty z wyników wyszukiwarki, tylko do sprawdzenia
+                for o in snippet_offers:
+                    pt = (o.get("price_text") or "").strip()
+                    if (o.get("deal_type") not in TYPES or not pt or not re.search(r"aed|dhs?|dirham", R.norm(pt))
+                            or ONE_OFF.search(f"{o.get('title')} {pt}")):
+                        continue
+                    vu = o.get("valid_until")
+                    try:
+                        if vu and dt.date.fromisoformat(vu) < R.today_uae():
+                            continue
+                    except ValueError:
+                        vu = None
+                    outlet = (o.get("outlet") or "").strip()
+                    venue = f"{outlet}, {hotel['name']}" if outlet and R.norm(outlet) not in R.norm(hotel["name"]) else hotel["name"]
+                    row = {"title": o["title"].strip()[:120], "deal_type": o["deal_type"], "price_text": R.clean_price(pt)[:160],
+                           "venue": venue, "city": hotel["city"], "official_url": (found_urls or [hotel["url"]])[0],
+                           "days_of_week": sorted({DAYS.index(d) for d in (o.get("days") or []) if d in DAYS}) or None,
+                           "start_time": R.parse_time(o.get("start_time")), "end_time": R.parse_time(o.get("end_time")),
+                           "details": (o.get("details") or "").strip()[:300] or None, "valid_until": vu,
+                           "status": "pending", "source_name": "OutToday hotel bot (search result, to verify)"}
+                    row = {k: v for k, v in row.items() if v not in (None, "", [])}
+                    if is_dup(row, deals):
+                        continue
+                    if not dry:
+                        db.insert("deals", row)
+                    deals.append(row)
+                    added += 1
+                    hotel_new += 1
+                    report.append((hotel, f"? (z wyszukiwarki) {row['title']} — {row['price_text']}", row["official_url"]))
             if not hotel_new:
                 report.append((hotel, "brak nowych ofert z ceną", hotel["url"]))
     print("\n| Emirat | Hotel | Wynik | Strona |\n|---|---|---|---|")
