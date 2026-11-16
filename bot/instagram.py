@@ -42,7 +42,7 @@ def ig_user_id(tok: str) -> str:
 
 def recent_posts(tok: str, ig: str, username: str) -> tuple[dict | None, str]:
     fields = (f"business_discovery.username({username})"
-              f"{{username,name,media.limit({POSTS_PER_ACCOUNT}){{caption,timestamp,permalink}}}}")
+              f"{{username,name,followers_count,media.limit({POSTS_PER_ACCOUNT}){{caption,timestamp,permalink}}}}")
     for attempt in range(3):
         try:
             r = requests.get(f"{G}/{ig}", params={"fields": fields, "access_token": tok}, timeout=40).json()
@@ -82,6 +82,9 @@ def main() -> int:
         if not bd:
             bad_accounts.append((u, err))
             print(f"@{u}: {err}")
+            continue
+        if (bd.get("followers_count") or 0) < 1000:
+            bad_accounts.append((u, f"za mało obserwujących ({bd.get('followers_count')}), pewnie nie oficjalne"))
             continue
         posts = (bd.get("media") or {}).get("data", [])
         name = bd.get("name") or u

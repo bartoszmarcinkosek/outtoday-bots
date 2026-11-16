@@ -2,11 +2,11 @@
  "_info": "Oficjalne konta Instagram (biznesowe). Bot czyta ich posty przez Instagram Graph API (business_discovery). Wszystko z Instagrama trafia jako 'pending'. venue = domyślne miejsce, gdy konto to jedno miejsce.",
  "accounts": [
   {
-   "username": "visitdubai",
+   "username": "dubai_calendar",
    "city": "Dubai"
   },
   {
-   "username": "dubaicalendar",
+   "username": "visitdubai",
    "city": "Dubai"
   },
   {
@@ -69,11 +69,6 @@
    "venue": "Madinat Jumeirah"
   },
   {
-   "username": "dubaiparksandresorts",
-   "city": "Dubai",
-   "venue": "Dubai Parks and Resorts"
-  },
-  {
    "username": "ripemarket",
    "city": "Dubai"
   },
@@ -92,40 +87,13 @@
    "venue": "WHITE Dubai, Meydan"
   },
   {
-   "username": "dubaimarathon",
-   "city": "Dubai"
-  },
-  {
    "username": "dubaifitnesschallenge",
    "city": "Dubai"
-  },
-  {
-   "username": "dubaishoppingfestival",
-   "city": "Dubai"
-  },
-  {
-   "username": "dubaifoodfestival",
-   "city": "Dubai"
-  },
-  {
-   "username": "theviewatthepalm",
-   "city": "Dubai",
-   "venue": "The View at The Palm"
   },
   {
    "username": "dubaiframe",
    "city": "Dubai",
    "venue": "Dubai Frame, Zabeel Park"
-  },
-  {
-   "username": "laperledubai",
-   "city": "Dubai",
-   "venue": "La Perle, Al Habtoor City"
-  },
-  {
-   "username": "theatreofdigitalart",
-   "city": "Dubai",
-   "venue": "Theatre of Digital Art, Souk Madinat Jumeirah"
   },
   {
    "username": "visitabudhabi",
@@ -156,69 +124,13 @@
    "city": "Abu Dhabi"
   },
   {
-   "username": "ferrariworldyas",
-   "city": "Abu Dhabi",
-   "venue": "Ferrari World Yas Island"
-  },
-  {
-   "username": "wbworldabudhabi",
-   "city": "Abu Dhabi",
-   "venue": "Warner Bros. World Yas Island"
-  },
-  {
    "username": "seaworldyasisland",
    "city": "Abu Dhabi",
    "venue": "SeaWorld Yas Island"
   },
   {
-   "username": "yaswaterworld",
-   "city": "Abu Dhabi",
-   "venue": "Yas Waterworld"
-  },
-  {
-   "username": "teamlabphenomenaad",
-   "city": "Abu Dhabi",
-   "venue": "teamLab Phenomena Abu Dhabi"
-  },
-  {
-   "username": "emiratespalacemo",
-   "city": "Abu Dhabi",
-   "venue": "Emirates Palace Mandarin Oriental"
-  },
-  {
-   "username": "abudhabiartfair",
-   "city": "Abu Dhabi"
-  },
-  {
-   "username": "dct_abudhabi",
-   "city": "Abu Dhabi"
-  },
-  {
-   "username": "alqanaabudhabi",
-   "city": "Abu Dhabi",
-   "venue": "Al Qana"
-  },
-  {
-   "username": "yasbayabudhabi",
-   "city": "Abu Dhabi",
-   "venue": "Yas Bay Waterfront"
-  },
-  {
    "username": "abudhabiculture",
    "city": "Abu Dhabi"
-  },
-  {
-   "username": "qasralwatan",
-   "city": "Abu Dhabi",
-   "venue": "Qasr Al Watan"
-  },
-  {
-   "username": "visitalain",
-   "city": "Al Ain"
-  },
-  {
-   "username": "visitsharjah",
-   "city": "Sharjah"
   },
   {
    "username": "sharjahartfoundation",
@@ -229,39 +141,8 @@
    "city": "Sharjah"
   },
   {
-   "username": "houseofwisdomshj",
-   "city": "Sharjah",
-   "venue": "House of Wisdom"
-  },
-  {
-   "username": "mleihasharjah",
-   "city": "Sharjah",
-   "venue": "Mleiha National Park"
-  },
-  {
-   "username": "aljadasharjah",
-   "city": "Sharjah",
-   "venue": "Aljada"
-  },
-  {
    "username": "visitrasalkhaimah",
    "city": "Ras Al Khaimah"
-  },
-  {
-   "username": "jebeljais",
-   "city": "Ras Al Khaimah"
-  },
-  {
-   "username": "visitajman",
-   "city": "Ajman"
-  },
-  {
-   "username": "visitfujairah",
-   "city": "Fujairah"
-  },
-  {
-   "username": "platinumlistnet",
-   "city": "Dubai"
   },
   {
    "username": "livenationme",
@@ -269,14 +150,6 @@
   },
   {
    "username": "virginmegastoreme",
-   "city": "Dubai"
-  },
-  {
-   "username": "feverdubai",
-   "city": "Dubai"
-  },
-  {
-   "username": "candlelight.dubai",
    "city": "Dubai"
   }
  ]
