@@ -871,6 +871,21 @@ def main() -> int:
     accepted = dedupe(accepted)
     if before != len(accepted):
         print(f"Duplikaty między źródłami: usunięto {before - len(accepted)}")
+    # Cykliczne spotkania (np. co tydzień): tylko 3 najbliższe terminy w ciągu 35 dni, żeby nie zalać apki.
+    accepted.sort(key=lambda p: p[1]["start_date"])
+    per_title: dict[str, int] = {}
+    capped = []
+    horizon = dt.date.today() + dt.timedelta(days=35)
+    for src, it in accepted:
+        k = norm(it["title"])
+        n = per_title.get(k, 0)
+        if n >= 3 or (n >= 1 and it["start_date"] > horizon):
+            continue
+        per_title[k] = n + 1
+        capped.append((src, it))
+    if len(capped) != len(accepted):
+        print(f"Cykliczne: pominięto {len(accepted) - len(capped)} dalszych terminów")
+    accepted = capped
     counts = {"new": 0, "seen": 0, "changes": 0}
     done_keys: set[str] = set()
     for src, it in accepted:
