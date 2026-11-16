@@ -6,7 +6,7 @@ export const SUPABASE_KEY = 'sb_publishable_2SPY_zl7rAw7K5D1T2TzwQ_mxpzYrCS';
 
 // Adres, na który trafiają zgłoszenia z przycisku "Report a problem".
 // Na razie pusty: telefon otworzy pustą wiadomość, adres wpiszesz ręcznie.
-export const REPORT_EMAIL = 'outtodayapp@gmail.com';
+export const REPORT_EMAIL = 'outtodayapp.uae@gmail.com';
 
 // Znacznik "New" dostają tylko wpisy dodane po tej dacie (i nie starsze niż 7 dni).
 export const NEW_BASELINE = '2026-11-16';
