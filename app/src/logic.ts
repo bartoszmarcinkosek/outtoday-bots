@@ -211,7 +211,42 @@ export function sortItems(items: Item[], sort: SortKey, now: Date = new Date()):
   const copy = [...items];
   if (sort === 'near') return copy.sort((a, b) => byKm(a, b) || base(a, b));
   if (sort === 'price') return copy.sort((a, b) => byPrice(a, b) || base(a, b));
-  return copy.sort(base);
+  copy.sort(base);
+  return mixEvents(copy, today);
+}
+
+// "Recommended" dla eventów: w obrębie tego samego dnia najpierw wydarzenia krótkie
+// (koncert, spektakl), potem długie (wystawy trwające ponad tydzień), a kategorie
+// na przemian, żeby jedna galeria z 30 wystawami nie zasłaniała reszty.
+function mixEvents(sorted: Item[], today: string): Item[] {
+  const out: Item[] = [];
+  const eff = (i: Item) => (i.event && i.event.start_date > today ? i.event.start_date : today);
+  const long = (i: Item) => {
+    const e = i.event;
+    if (!e || !e.end_date) return false;
+    return (Date.parse(e.end_date) - Date.parse(e.start_date)) / 86400000 > 7;
+  };
+  let k = 0;
+  while (k < sorted.length) {
+    const it = sorted[k];
+    if (it.kind !== 'event') { out.push(it); k++; continue; }
+    const day = eff(it);
+    let j = k;
+    while (j < sorted.length && sorted[j].kind === 'event' && eff(sorted[j]) === day) j++;
+    const group = sorted.slice(k, j);
+    for (const part of [group.filter((i) => !long(i)), group.filter(long)]) {
+      const byCat = new Map<string, Item[]>();
+      for (const i of part) {
+        const c = i.event?.category ?? '';
+        if (!byCat.has(c)) byCat.set(c, []);
+        byCat.get(c)!.push(i);
+      }
+      const queues = [...byCat.values()];
+      while (queues.some((q) => q.length)) for (const q of queues) if (q.length) out.push(q.shift()!);
+    }
+    k = j;
+  }
+  return out;
 }
 
 // Słowa, po których wyszukiwarka przenosi od razu do gotowej zakładki z filtrem.

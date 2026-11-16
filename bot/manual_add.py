@@ -65,9 +65,12 @@ def main() -> int:
             added += 1
             print(f"+ place: {row['name']}")
         for r in data.get("approve", []):
-            rows = db.get("events", {"select": "id,title,status,gaps", "title": f"ilike.{r['title']}", "start_date": f"eq.{r['start_date']}"})
+            q = {"select": "id,title,status,gaps", "title": f"ilike.{r['title']}"}
+            if r.get("start_date"):
+                q["start_date"] = f"eq.{r['start_date']}"
+            rows = db.get("events", q)
             # "set": poprawki pól sprawdzone na oficjalnej stronie (np. venue "Various venues across Sharjah").
-            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("venue", "price_text", "is_free", "start_time", "end_time", "description", "official_url")}
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("venue", "price_text", "is_free", "start_time", "end_time", "description", "official_url", "category")}
             for row in rows:
                 if row["status"] != "approved" or fix:
                     upd = {"status": "approved", "verified_at": now, "updated_at": now, **fix}
@@ -76,7 +79,7 @@ def main() -> int:
                                   "start_time" if "start_time" in fix else None}
                         upd["gaps"] = [g for g in (row.get("gaps") or []) if g not in filled]
                     db.update("events", {"id": row["id"]}, upd)
-                    print(f"✓ zatwierdzone: {row['title']} ({r['start_date']}) {fix or ''}")
+                    print(f"✓ zatwierdzone: {row['title']} ({r.get('start_date', '')}) {fix or ''}")
         for r in data.get("reject", []):
             rows = db.get("events", {"select": "id,title,status", "title": f"ilike.{r['title']}", "start_date": f"eq.{r['start_date']}"})
             for row in rows:

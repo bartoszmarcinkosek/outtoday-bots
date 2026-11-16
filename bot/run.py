@@ -275,7 +275,15 @@ ITEM_SCHEMA = {
     "type": "object",
     "properties": {
         "title": {"type": "string", "description": "Event name exactly as written on the page."},
-        "category": {"type": "string", "enum": EVENT_CATEGORIES},
+        "category": {"type": "string", "enum": EVENT_CATEGORIES, "description": (
+            "music = concerts, DJ sets, opera, musicals, comedy and stage shows; "
+            "culture = exhibitions, talks, film screenings, theatre plays, heritage; "
+            "family = activities aimed at children or families (kids' shows, family days, games, storytelling, kids' workshops); "
+            "classes = workshops and courses for adults; sport = matches, races, runs, fitness; "
+            "food = food festivals, tastings, dining events; festivals = multi-day festivals and seasonal villages; "
+            "nightlife = club nights and parties; nature = outdoor, desert, beach, stargazing; "
+            "community = markets, meetups, charity, national-day celebrations. "
+            "If something is for children or families, always use family.")},
         "start_date": {"type": ["string", "null"], "description": "YYYY-MM-DD. Null if the page gives no date."},
         "end_date": {"type": ["string", "null"], "description": "YYYY-MM-DD for multi-day runs (exhibitions, festivals). Null otherwise."},
         "start_time": {"type": ["string", "null"], "description": "HH:MM 24h when the show/event itself STARTS. Never the doors-opening time. Null if not on the page."},
