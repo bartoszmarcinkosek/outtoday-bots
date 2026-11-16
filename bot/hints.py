@@ -49,7 +49,7 @@ HINT_TOOL = {
     },
 }
 HINT_RULES = (
-    "This is a voucher site. Extract only RECURRING offers at hotels, restaurants, bars or beach clubs in the UAE: "
+    "This is a voucher site or a city magazine/portal. Extract only RECURRING offers at hotels, restaurants, bars or beach clubs in the UAE: "
     "theme-night buffets, brunches, dinner or lunch buffets with unlimited drinks, happy hours, ladies' nights, "
     "breakfast with pool/beach access, pool/beach day passes. Skip spas, salons, cars, products, staycations (room nights), "
     "one-off holiday dinners (Christmas, New Year, Iftar), cinemas and anything outside the UAE. "
@@ -75,6 +75,14 @@ def extract_hints(client, text: str, default_city: str | None, usage: dict) -> l
     return []
 
 
+PORTALS = ["yallaabudhabi.ae", "whatson.ae", "timeoutdubai.com", "timeoutabudhabi.com", "wow-rak.com"]
+VOUCHERS = ["cobone.com", "groupon.ae"]
+NOPRICE = {"happy_hour", "quiz", "ladies_night", "night_out"}
+PORTAL_QUERIES = [
+    (f"{kind} {city}", city)
+    for city in ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"]
+    for kind in ["happy hour bars pubs", "ladies night", "quiz night pub", "brunch", "theme night dinner unlimited drinks", "beach club day pass"]
+]
 SEARCH_QUERIES = [
     (f"{kind} {city}", city)
     for city in ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"]
@@ -82,15 +90,15 @@ SEARCH_QUERIES = [
 ]
 
 
-def hints_from_search(client, query: str, city: str, usage: dict) -> list[dict]:
-    prompt = (f"Search cobone.com and groupon.ae for: {query}. From the search results, list hotels/restaurants in {city} "
-              "with a RECURRING dining offer or pool/beach access offer. " + HINT_RULES +
+def hints_from_search(client, query: str, city: str, usage: dict, domains: list[str] = VOUCHERS) -> list[dict]:
+    prompt = (f"Search {', '.join(domains)} for: {query}. From the search results, list hotels, bars, pubs, clubs and restaurants "
+              f"in {city} with a RECURRING offer (dining, happy hour, ladies' night, quiz, pool/beach access). " + HINT_RULES +
               " Then call report_hints with what you found (empty list if nothing).")
     try:
         resp = client.messages.create(
             model=R.MODEL, max_tokens=3000,
             tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 2,
-                    "allowed_domains": ["cobone.com", "groupon.ae"]}, HINT_TOOL],
+                    "allowed_domains": domains}, HINT_TOOL],
             messages=[{"role": "user", "content": prompt}],
         )
     except Exception as e:
@@ -146,6 +154,11 @@ def main() -> int:
             hs = hints_from_search(client, q, city, usage)
             print(f"[szukanie] {q}: {len(hs)} podpowiedzi")
             hints += hs
+        # Portale (Yalla Abu Dhabi, What's On, Time Out, wow-rak): też tylko podpowiedzi z wyników wyszukiwarki.
+        for q, city in PORTAL_QUERIES:
+            hs = hints_from_search(client, q, city, usage, PORTALS)
+            print(f"[portale] {q}: {len(hs)} podpowiedzi")
+            hints += hs
         seen: set[str] = set()
         todo = []
         for h in hints:
@@ -174,23 +187,23 @@ def main() -> int:
             page_norm = R.norm(page["text"])
             raw = V.ask_facts(client, "deals", row, page["text"], url, usage)
             facts = V.check_facts(raw, page_norm, "deals", row)
-            if not facts.get("found") or not facts.get("price_text"):
+            if not facts.get("found") or not (facts.get("price_text") or (h["deal_type"] in NOPRICE and facts.get("days"))):
                 report.append((h, "strona nie potwierdza oferty z ceną", url))
                 continue
             approved = bool(facts.get("days") or "daily" in R.norm(facts["evidence"].get("price") or ""))
             out = {
                 "title": h["title"], "deal_type": h["deal_type"], "venue": h["venue"], "city": h["city"],
-                "official_url": page.get("final_url") or url, "price_text": facts["price_text"],
+                "official_url": page.get("final_url") or url, "price_text": facts.get("price_text"),
                 "days_of_week": facts.get("days"), "start_time": facts.get("start_time"), "end_time": facts.get("end_time"),
                 "status": "approved" if approved else "pending",
-                "source_name": "OutToday (official site; hint from voucher site)",
+                "source_name": "OutToday (official site; hint from voucher/portal site)",
             }
             out = {k: v for k, v in out.items() if v not in (None, [], "")}
             if not args.dry_run:
                 db.insert("deals", out)
                 deals.append(out)
             added += 1
-            report.append((h, ("dodane" if approved else "dodane do sprawdzenia") + f": {facts['price_text']}", url))
+            report.append((h, ("dodane" if approved else "dodane do sprawdzenia") + f": {facts.get('price_text') or 'bez ceny'}", url))
             time.sleep(R.PAUSE_SECONDS)
 
     print("\n| Miasto | Miejsce | Oferta | Wynik | Strona |\n|---|---|---|---|---|")

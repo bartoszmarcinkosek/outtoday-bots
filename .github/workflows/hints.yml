@@ -10,7 +10,7 @@ on:
       limit:
         description: "Ile nowych podpowiedzi sprawdzić na stronach oficjalnych"
         type: string
-        default: "25"
+        default: "80"
 
 permissions:
   contents: read
@@ -22,7 +22,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -39,7 +39,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           IN_DRY: ${{ inputs.dry_run }}
-          IN_LIMIT: ${{ inputs.limit || '25' }}
+          IN_LIMIT: ${{ inputs.limit || '80' }}
         run: |
           ARGS=(--limit "$IN_LIMIT")
           if [ "$IN_DRY" = "true" ]; then ARGS+=(--dry-run); fi
