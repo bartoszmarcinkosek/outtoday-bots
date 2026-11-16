@@ -756,7 +756,9 @@ def main() -> int:
     sources = []
     for path in sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "sources", "*.json"))):
         with open(path, encoding="utf-8") as f:
-            sources += json.load(f)["sources"]
+            d = json.load(f)
+            if isinstance(d, dict) and isinstance(d.get("sources"), list):  # hotels.json / instagram.json mają inny format
+                sources += d["sources"]
     sources_all = list(sources)
     only = {s.strip() for s in args.only.split(",") if s.strip()}
     if only:
