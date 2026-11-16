@@ -919,6 +919,10 @@ def main() -> int:
                                 "evidence": {**it["evidence"], "auto": True}})
             else:
                 for f, o, n in diffs:
+                    # Miejsce: zgłaszamy tylko, gdy w apce go brakuje albo jest "do potwierdzenia".
+                    # Inne nazwy tego samego miejsca (Space42 / Space 42, nazwa festiwalu zamiast miejsca) to szum.
+                    if f == "venue" and o and "confirm" not in str(o).lower():
+                        continue
                     ev_key = {"price_text": "price", "start_time": "time", "venue": "venue"}[f]
                     db.insert("bot_changes", {
                         "table_name": "events", "row_id": match["id"], "field": f,
