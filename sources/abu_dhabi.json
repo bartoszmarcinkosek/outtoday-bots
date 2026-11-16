@@ -1,174 +1,234 @@
 {
-  "_info": "Oficjalne strony miejsc w Abu Dhabi. Tylko strony organizatorów, żadnych portali zbierających info. default_venue = miejsce, jeśli strona dotyczy jednego obiektu. single_venue = true tylko dla stron jednego obiektu (wtedy brak miejsca na stronie = to miejsce). trusted = oficjalna strona samego miejsca/organizatora: kompletne wpisy z cytatami bot zatwierdza sam.",
-  "sources": [
-    {
-      "id": "louvre_ad",
-      "name": "Louvre Abu Dhabi",
-      "city": "Abu Dhabi",
-      "urls": [
-        "https://www.louvreabudhabi.ae/en/whats-on"
-      ],
-      "default_venue": "Louvre Abu Dhabi, Saadiyat Island",
-      "single_venue": true,
-      "trusted": true
-    },
-    {
-      "id": "etihad_arena",
-      "name": "Etihad Arena",
-      "city": "Abu Dhabi",
-      "urls": [
-        "https://www.etihadarena.ae/en/events"
-      ],
-      "default_venue": "Etihad Arena, Yas Island",
-      "single_venue": true,
-      "trusted": true
-    },
-    {
-      "id": "cultural_foundation",
-      "name": "Cultural Foundation",
-      "city": "Abu Dhabi",
-      "urls": [
-        "https://culturalfoundation.ae/en/calendar"
-      ],
-      "default_venue": "Cultural Foundation, Al Hosn",
-      "single_venue": false,
-      "trusted": false
-    },
-    {
-      "id": "manarat",
-      "name": "Manarat Al Saadiyat",
-      "city": "Abu Dhabi",
-      "urls": [
-        "https://manaratalsaadiyat.ae/en/seeanddo/weeklyschedule/"
-      ],
-      "default_venue": "Manarat Al Saadiyat, Saadiyat Island",
-      "single_venue": false,
-      "trusted": false
-    },
-    {
-      "id": "nyuad_arts",
-      "name": "The Arts Center at NYU Abu Dhabi",
-      "city": "Abu Dhabi",
-      "urls": [
-        "https://www.nyuad-artscenter.org/en_US/events/"
-      ],
-      "default_venue": "The Arts Center at NYU Abu Dhabi, Saadiyat Island",
-      "single_venue": true,
-      "trusted": true
-    },
-    {
-      "id": "warehouse421",
-      "name": "Warehouse421",
-      "city": "Abu Dhabi",
-      "urls": [
-        "https://www.warehouse421.ae/en/programmes"
-      ],
-      "default_venue": "Warehouse421, Mina Zayed",
-      "single_venue": true,
-      "trusted": true
-    },
-    {
-      "id": "yas_island",
-      "name": "Yas Island",
-      "city": "Abu Dhabi",
-      "urls": [
-        "https://www.yasisland.com/en/events"
-      ],
-      "default_venue": null,
-      "single_venue": false,
-      "trusted": false
-    },
-    {
-      "id": "platinumlist_ad",
-      "name": "Platinumlist Abu Dhabi",
-      "city": "Abu Dhabi",
-      "single_venue": false,
-      "urls": [
-        "https://abu-dhabi.platinumlist.net/event/list",
-        "https://abu-dhabi.platinumlist.net/event/list?page=2",
-        "https://abu-dhabi.platinumlist.net/event/list?page=3",
-        "https://abu-dhabi.platinumlist.net/event/list?page=4",
-        "https://abu-dhabi.platinumlist.net/event/list?page=5",
-        "https://abu-dhabi.platinumlist.net/event/list?page=6",
-        "https://abu-dhabi.platinumlist.net/festival"
-      ],
-      "trusted": true,
-      "note": "Sprzedawca biletów: pełna lista wydarzeń (strony 1-6) + festiwale."
-    },
-    {
-      "id": "visit_abu_dhabi",
-      "name": "Visit Abu Dhabi",
-      "city": "Abu Dhabi",
-      "single_venue": false,
-      "gov_tourism": true,
-      "urls": [
-        "https://visitabudhabi.ae/en/events"
-      ],
-      "default_venue": null,
-      "note": "Urząd turystyki (rządowy): link w apce do organizatora, jeśli podany."
-    },
-    {
-      "id": "yas_bay",
-      "name": "Yas Bay Waterfront",
-      "city": "Abu Dhabi",
-      "single_venue": false,
-      "urls": [
-        "https://www.yasbay.ae/whats-on/"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "galleria_ad",
-      "name": "The Galleria Al Maryah Island",
-      "city": "Abu Dhabi",
-      "single_venue": true,
-      "urls": [
-        "https://www.thegalleria.ae/en/whats-on"
-      ],
-      "trusted": true,
-      "default_venue": "The Galleria, Al Maryah Island"
-    },
-    {
-      "id": "yas_mall",
-      "name": "Yas Mall",
-      "city": "Abu Dhabi",
-      "single_venue": true,
-      "urls": [
-        "https://www.yasmall.ae/en/events"
-      ],
-      "trusted": true,
-      "default_venue": "Yas Mall, Yas Island"
-    },
-    {
-      "id": "af_abudhabi",
-      "name": "Alliance Française Abu Dhabi",
-      "city": "Abu Dhabi",
-      "single_venue": false,
-      "urls": [
-        "https://www.afabudhabi.org/events/"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "iic_abudhabi",
-      "name": "Italian Cultural Institute Abu Dhabi",
-      "city": "Abu Dhabi",
-      "single_venue": false,
-      "urls": [
-        "https://iicabudhabi.esteri.it/en/gli_eventi/"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "al_ain_zoo",
-      "name": "Al Ain Zoo",
-      "city": "Al Ain",
-      "single_venue": true,
-      "urls": [
-        "https://www.alainzoo.com/"
-      ],
-      "trusted": true,
-      "default_venue": "Al Ain Zoo, Al Ain"
-    }
-  ]
+ "_info": "Oficjalne strony miejsc w Abu Dhabi. Tylko strony organizatorów, żadnych portali zbierających info. default_venue = miejsce, jeśli strona dotyczy jednego obiektu. single_venue = true tylko dla stron jednego obiektu (wtedy brak miejsca na stronie = to miejsce). trusted = oficjalna strona samego miejsca/organizatora: kompletne wpisy z cytatami bot zatwierdza sam.",
+ "sources": [
+  {
+   "id": "louvre_ad",
+   "name": "Louvre Abu Dhabi",
+   "city": "Abu Dhabi",
+   "urls": [
+    "https://www.louvreabudhabi.ae/en/whats-on"
+   ],
+   "default_venue": "Louvre Abu Dhabi, Saadiyat Island",
+   "single_venue": true,
+   "trusted": true
+  },
+  {
+   "id": "etihad_arena",
+   "name": "Etihad Arena",
+   "city": "Abu Dhabi",
+   "urls": [
+    "https://www.etihadarena.ae/en/events"
+   ],
+   "default_venue": "Etihad Arena, Yas Island",
+   "single_venue": true,
+   "trusted": true
+  },
+  {
+   "id": "cultural_foundation",
+   "name": "Cultural Foundation",
+   "city": "Abu Dhabi",
+   "urls": [
+    "https://culturalfoundation.ae/en/calendar"
+   ],
+   "default_venue": "Cultural Foundation, Al Hosn",
+   "single_venue": false,
+   "trusted": false
+  },
+  {
+   "id": "manarat",
+   "name": "Manarat Al Saadiyat",
+   "city": "Abu Dhabi",
+   "urls": [
+    "https://manaratalsaadiyat.ae/en/seeanddo/weeklyschedule/"
+   ],
+   "default_venue": "Manarat Al Saadiyat, Saadiyat Island",
+   "single_venue": false,
+   "trusted": false
+  },
+  {
+   "id": "nyuad_arts",
+   "name": "The Arts Center at NYU Abu Dhabi",
+   "city": "Abu Dhabi",
+   "urls": [
+    "https://www.nyuad-artscenter.org/en_US/events/"
+   ],
+   "default_venue": "The Arts Center at NYU Abu Dhabi, Saadiyat Island",
+   "single_venue": true,
+   "trusted": true
+  },
+  {
+   "id": "warehouse421",
+   "name": "Warehouse421",
+   "city": "Abu Dhabi",
+   "urls": [
+    "https://www.warehouse421.ae/en/programmes"
+   ],
+   "default_venue": "Warehouse421, Mina Zayed",
+   "single_venue": true,
+   "trusted": true
+  },
+  {
+   "id": "yas_island",
+   "name": "Yas Island",
+   "city": "Abu Dhabi",
+   "urls": [
+    "https://www.yasisland.com/en/events"
+   ],
+   "default_venue": null,
+   "single_venue": false,
+   "trusted": false
+  },
+  {
+   "id": "platinumlist_ad",
+   "name": "Platinumlist Abu Dhabi",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://abu-dhabi.platinumlist.net/event/list",
+    "https://abu-dhabi.platinumlist.net/event/list?page=2",
+    "https://abu-dhabi.platinumlist.net/event/list?page=3",
+    "https://abu-dhabi.platinumlist.net/event/list?page=4",
+    "https://abu-dhabi.platinumlist.net/event/list?page=5",
+    "https://abu-dhabi.platinumlist.net/event/list?page=6",
+    "https://abu-dhabi.platinumlist.net/festival"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów: pełna lista wydarzeń (strony 1-6) + festiwale."
+  },
+  {
+   "id": "visit_abu_dhabi",
+   "name": "Visit Abu Dhabi",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "gov_tourism": true,
+   "urls": [
+    "https://visitabudhabi.ae/en/events"
+   ],
+   "default_venue": null,
+   "note": "Urząd turystyki (rządowy): link w apce do organizatora, jeśli podany."
+  },
+  {
+   "id": "yas_bay",
+   "name": "Yas Bay Waterfront",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.yasbay.ae/whats-on/"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "galleria_ad",
+   "name": "The Galleria Al Maryah Island",
+   "city": "Abu Dhabi",
+   "single_venue": true,
+   "urls": [
+    "https://www.thegalleria.ae/en/whats-on"
+   ],
+   "trusted": true,
+   "default_venue": "The Galleria, Al Maryah Island"
+  },
+  {
+   "id": "yas_mall",
+   "name": "Yas Mall",
+   "city": "Abu Dhabi",
+   "single_venue": true,
+   "urls": [
+    "https://www.yasmall.ae/en/events"
+   ],
+   "trusted": true,
+   "default_venue": "Yas Mall, Yas Island"
+  },
+  {
+   "id": "af_abudhabi",
+   "name": "Alliance Française Abu Dhabi",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.afabudhabi.org/events/"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "iic_abudhabi",
+   "name": "Italian Cultural Institute Abu Dhabi",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://iicabudhabi.esteri.it/en/gli_eventi/"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "al_ain_zoo",
+   "name": "Al Ain Zoo",
+   "city": "Al Ain",
+   "single_venue": true,
+   "urls": [
+    "https://www.alainzoo.com/"
+   ],
+   "trusted": true,
+   "default_venue": "Al Ain Zoo, Al Ain"
+  },
+  {
+   "id": "meetup_ad_friends",
+   "name": "Meetup – make friends Abu Dhabi",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/find/ae--abu-dhabi/meet-new-friends/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_ad_social",
+   "name": "Meetup – social activities Abu Dhabi",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/find/ae--abu-dhabi/social-activities/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_ad_hobbies",
+   "name": "Meetup – sports & hobbies Abu Dhabi",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/find/ae--abu-dhabi/sports-and-hobbies/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_ad_outdoor",
+   "name": "Meetup – outdoor Abu Dhabi",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/find/ae--abu-dhabi/outdoor-activities/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_ad_hiking",
+   "name": "Abu Dhabi Hiking Group (Meetup)",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/abu-dhabi-weekend-road-trips-meetup-group/events/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_ad_salsa",
+   "name": "Salsa Vibez Abu Dhabi (Meetup)",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/find/ae--abu-dhabi/improv-class/"
+   ],
+   "trusted": false
+  }
+ ]
 }
