@@ -1,0 +1,45 @@
+name: Instagram (official accounts -> pending events)
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Próba: nic nie zapisuje"
+        type: boolean
+        default: false
+      limit:
+        description: "Ile kont przejrzeć"
+        type: string
+        default: "100"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalacja
+        run: pip install -r requirements.txt
+      - name: Instagram
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IN_DRY: ${{ inputs.dry_run }}
+          IN_LIMIT: ${{ inputs.limit || '100' }}
+        run: |
+          ARGS=(--limit "$IN_LIMIT")
+          if [ "$IN_DRY" = "true" ]; then ARGS+=(--dry-run); fi
+          python bot/instagram.py "${ARGS[@]}"
