@@ -199,10 +199,22 @@
         "https://dubai.platinumlist.net/concerts",
         "https://dubai.platinumlist.net/comedy",
         "https://dubai.platinumlist.net/theatre",
-        "https://dubai.platinumlist.net/kids"
+        "https://dubai.platinumlist.net/kids",
+        "https://dubai.platinumlist.net/sports"
       ],
       "trusted": true,
       "note": "Sprzedawca biletów: festiwale, koncerty, komedia, teatr i imprezy dla dzieci w Dubaju."
+    },
+    {
+      "id": "eventbrite_uae",
+      "name": "Eventbrite",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://www.eventbrite.com/d/united-arab-emirates--dubai/all-events/",
+        "https://www.eventbrite.com/d/united-arab-emirates--abu-dhabi/all-events/"
+      ],
+      "note": "Sprzedawca biletów: warsztaty, community, sport amatorski. Bez B2B. Miasto z adresu wydarzenia."
     }
   ]
 }

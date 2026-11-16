@@ -84,10 +84,27 @@
       "city": "Abu Dhabi",
       "single_venue": false,
       "urls": [
-        "https://abu-dhabi.platinumlist.net/festival"
+        "https://abu-dhabi.platinumlist.net/festival",
+        "https://abu-dhabi.platinumlist.net/concerts",
+        "https://abu-dhabi.platinumlist.net/comedy",
+        "https://abu-dhabi.platinumlist.net/theatre",
+        "https://abu-dhabi.platinumlist.net/kids",
+        "https://abu-dhabi.platinumlist.net/sports"
       ],
       "trusted": true,
-      "note": "Sprzedawca biletów: tylko festiwale (duże imprezy w parkach na Yas, Liwa itd.), których nie ma na stronach miejsc."
+      "note": "Sprzedawca biletów: festiwale, koncerty, komedia, teatr, dzieci, sport."
+    },
+    {
+      "id": "visit_abu_dhabi",
+      "name": "Visit Abu Dhabi",
+      "city": "Abu Dhabi",
+      "single_venue": false,
+      "gov_tourism": true,
+      "urls": [
+        "https://visitabudhabi.ae/en/events"
+      ],
+      "default_venue": null,
+      "note": "Urząd turystyki (rządowy): link w apce do organizatora, jeśli podany."
     }
   ]
 }
