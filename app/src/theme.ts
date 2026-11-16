@@ -59,8 +59,10 @@ export const dealTypes: Record<string, CategoryStyle> = {
   lunch: { label: 'Business lunch', card: '#0F5A44', title: '#E6FBF3', sub: '#A8E8D0', accent: '#8FE3C3' },
   dinner: { label: 'Dinner deals', card: '#7A2327', title: '#FFECEC', sub: '#FFC4C6', accent: '#FFB3B6' },
   quiz: { label: 'Quiz night', card: '#46308F', title: '#F0EBFF', sub: '#CFC2FF', accent: '#C0B0FF' },
+  breakfast: { label: 'Breakfast', card: '#6A5410', title: '#FFF8E1', sub: '#F2DE9C', accent: '#EBD07A' },
+  staycation: { label: 'Staycation', card: '#1E4F7A', title: '#E8F3FF', sub: '#B3D4F5', accent: '#9CC7F2' },
 };
-export const DEAL_TYPE_ORDER = ['day_pass', 'brunch', 'ladies_night', 'happy_hour', 'night_out', 'quiz', 'lunch', 'dinner'];
+export const DEAL_TYPE_ORDER = ['day_pass', 'brunch', 'ladies_night', 'happy_hour', 'night_out', 'quiz', 'breakfast', 'lunch', 'dinner', 'staycation'];
 
 export function dealStyle(key: string | null | undefined): CategoryStyle {
   return dealTypes[key ?? ''] ?? { ...fallback, label: 'Other deal' };

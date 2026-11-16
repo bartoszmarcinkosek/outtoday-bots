@@ -2,7 +2,7 @@ import type { Ionicons } from '@expo/vector-icons';
 import type { ComponentProps } from 'react';
 import type { AppData, DealRow, EventRow, PlaceRow } from './api';
 import { NEW_BASELINE } from './config';
-import { fmtCardWhen, fmtDays, fmtTime, fmtWhen, isLongRunning } from './dates';
+import { fmtCardWhen, fmtDate, fmtDays, fmtTime, fmtWhen, isLongRunning } from './dates';
 import { CategoryStyle, cat, dealStyle } from './theme';
 import { ZONE_CENTER, distanceKm, placeOf } from './zones';
 
@@ -53,7 +53,7 @@ const ICONS: Record<string, IconName> = {
   beaches: 'water', parks: 'leaf', museums: 'business', attractions: 'star', active: 'bicycle',
   kids: 'happy', markets: 'bag-handle', studios: 'brush', daytrips: 'car',
   day_pass: 'sunny', ladies_night: 'wine', brunch: 'cafe', happy_hour: 'beer', night_out: 'mic',
-  quiz: 'help-circle', lunch: 'briefcase', dinner: 'restaurant',
+  quiz: 'help-circle', lunch: 'briefcase', dinner: 'restaurant', breakfast: 'cafe-outline', staycation: 'bed',
 };
 
 export function iconFor(key: string | null | undefined): IconName {
@@ -159,7 +159,9 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
     const { city: itemCity, zone } = placeOf(d.city, d.venue, d.area);
     const price = parsePrice(d.price_text);
     const times = dealTimes(d);
-    const when = `${fmtDays(d.days_of_week)}${times ? ` · ${times}` : ''}`;
+    const daysTxt = d.deal_type === 'staycation' && !(d.days_of_week ?? []).length
+      ? (d.valid_until ? `Book by ${fmtDate(d.valid_until)}` : 'Hotel stay offer') : fmtDays(d.days_of_week);
+    const when = `${daysTxt}${times ? ` · ${times}` : ''}`;
     out.push({
       key: `deal:${d.id}`, kind: 'deal', title: d.title, catKey: d.deal_type ?? '', look: dealStyle(d.deal_type),
       icon: iconFor(d.deal_type), when, whenFull: when, where: placeLine(d.venue, d.area),
@@ -254,6 +256,7 @@ export type Shortcut = { tab: 'events' | 'places' | 'deals'; key: string; label:
 const SHORTCUTS: [string[], Shortcut][] = [
   [['brunch'], { tab: 'deals', key: 'brunch', label: 'Brunch deals' }],
   [['day pass', 'daypass', 'pool pass', 'daycation'], { tab: 'deals', key: 'day_pass', label: 'Day passes' }],
+  [['staycation', 'hotel stay', 'weekend stay'], { tab: 'deals', key: 'staycation', label: 'Staycations' }],
   [['happy hour'], { tab: 'deals', key: 'happy_hour', label: 'Happy hours' }],
   [['ladies night', "ladies' night", 'ladies'], { tab: 'deals', key: 'ladies_night', label: "Ladies' nights" }],
   [['quiz'], { tab: 'deals', key: 'quiz', label: 'Quiz nights' }],
