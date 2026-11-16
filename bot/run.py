@@ -932,6 +932,8 @@ def main() -> int:
 
     if db and not args.dry_run:
         counts["auto_old"] = auto_approve_pending(db, sources_all, now_iso)
+        from apply_changes import apply_safe_changes
+        counts["auto_changes"] = apply_safe_changes(db)
     write_report(report, source_log, usage, counts, args.dry_run)
     if db and not args.dry_run:
         db.insert("bot_runs", {"dry_run": False, "finished_at": dt.datetime.now(dt.timezone.utc).isoformat(),

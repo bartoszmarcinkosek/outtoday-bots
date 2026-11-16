@@ -405,6 +405,8 @@ def main() -> int:
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
             f.write(md)
     if not args.dry_run:
+        from apply_changes import apply_safe_changes
+        print("Zmiany przyjęte automatycznie:", apply_safe_changes(db))
         db.insert("bot_runs", {"dry_run": False, "finished_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                                "summary": {"kind": "verify", "usage": usage, "checked": done}})
     return 0
