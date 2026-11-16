@@ -78,12 +78,6 @@
   "kind": "bars"
  },
  {
-  "name": "The Club",
-  "city": "Abu Dhabi",
-  "url": "https://the-club.com/",
-  "kind": "beach"
- },
- {
   "name": "Ting Irie Pon Di Beach",
   "city": "Abu Dhabi",
   "url": "https://tingirie.com/event/abudhabi-happy-hour/",
@@ -136,12 +130,6 @@
   "city": "Ajman",
   "url": "https://www.mcgettigans.com/ajman/whats-on/saturday-brunch.html",
   "kind": "standalone"
- },
- {
-  "name": "Thirsty Horse Sports Bar",
-  "city": "Ajman",
-  "url": "https://www.uniglobeholding.com/hospitality/",
-  "kind": "pubs"
  },
  {
   "name": "Al Ain Equestrian, Shooting & Golf Club (clubhouse bar and Palm Greens restaurant)",
@@ -342,12 +330,6 @@
   "kind": "pubs"
  },
  {
-  "name": "TheQuizNight (quiz nights at Dukes Bar)",
-  "city": "Ras Al Khaimah",
-  "url": "https://thequiznight.com/en",
-  "kind": "pubs"
- },
- {
   "name": "Tower Links Golf Club",
   "city": "Ras Al Khaimah",
   "url": "https://towerlinks.ae/",
@@ -378,21 +360,9 @@
   "kind": "golf"
  },
  {
-  "name": "Sharjah Ladies Club",
-  "city": "Sharjah",
-  "url": "https://www.slc.ae/en/events/eventcalendar",
-  "kind": "beach"
- },
- {
   "name": "Taier Al Monal",
   "city": "Sharjah",
   "url": "https://www.monalrestaurantuae.com/blog/weekday-vs-weekend-buffet-sharjah",
   "kind": "standalone"
- },
- {
-  "name": "Sobha Siniya Island golf course and clubhouse",
-  "city": "Umm Al Quwain",
-  "url": "https://sobharealty.com/sobha-communities/sobha-siniya-island",
-  "kind": "golf"
  }
 ]
