@@ -157,6 +157,43 @@ def discover() -> int:
                 hotels.append({"name": h["name"].strip(), "city": city, "url": u})
                 new += 1
             print(f"[{brands[:30]} / {city}] nowe hotele: {new}")
+    # Hotele niezależne i lokalne sieci: zwykłe wyszukiwanie (bez portali), adres musi być stroną samego hotelu.
+    blocked = ["booking.com", "expedia.com", "tripadvisor.com", "agoda.com", "hotels.com", "trip.com", "kayak.com",
+               "trivago.com", "cobone.com", "groupon.ae", "whatson.ae", "timeoutdubai.com", "wow-rak.com", "visitdubai.com",
+               "facebook.com", "instagram.com", "wikipedia.org", "makemytrip.com", "hotelscombined.com"]
+    brand_domains = [d for _, ds in BRANDS for d in ds]
+    for city in CITIES:
+        for kind in ["beach resorts", "hotels with restaurants and bars", "4-star and 5-star hotels", "independent boutique hotels"]:
+            prompt = (f"Find {kind} in the emirate of {city}, UAE, that are NOT part of these chains: {', '.join(b for b, _ in BRANDS)}. "
+                      "For each, report the hotel's OWN official website URL (never a booking site, portal or review site). "
+                      f"Only hotels located in {city}. Call report_hotels (empty list if none).")
+            try:
+                resp = client.messages.create(
+                    model=R.MODEL, max_tokens=4000,
+                    tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 3, "blocked_domains": blocked},
+                           HOTEL_LIST_TOOL],
+                    messages=[{"role": "user", "content": prompt}],
+                )
+            except Exception as e:
+                print(f"[niezależne / {city}] błąd: {type(e).__name__}")
+                continue
+            add_usage(usage, resp)
+            new = 0
+            for b in resp.content:
+                if getattr(b, "type", "") == "tool_use" and b.name == "report_hotels":
+                    for h in b.input.get("hotels") or []:
+                        u = str(h.get("url") or "")
+                        host = urlparse(u).netloc.lower()
+                        if (not u.startswith("http") or h.get("city") != city or any(x in host for x in blocked)
+                                or any(x in host for x in R.AGGREGATORS)):
+                            continue
+                        k = host + urlparse(u).path.rstrip("/")
+                        if k in known:
+                            continue
+                        known.add(k)
+                        hotels.append({"name": h["name"].strip(), "city": city, "url": u})
+                        new += 1
+            print(f"[niezależne {kind} / {city}] nowe hotele: {new}")
     hotels.sort(key=lambda h: (h["city"], h["name"]))
     with open(HOTELS_FILE, "w", encoding="utf-8") as f:
         json.dump(hotels, f, ensure_ascii=False, indent=1)
