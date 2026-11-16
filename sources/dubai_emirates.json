@@ -195,15 +195,20 @@
       "city": "Dubai",
       "single_venue": false,
       "urls": [
-        "https://dubai.platinumlist.net/festival",
-        "https://dubai.platinumlist.net/concerts",
-        "https://dubai.platinumlist.net/comedy",
-        "https://dubai.platinumlist.net/theatre",
-        "https://dubai.platinumlist.net/kids",
-        "https://dubai.platinumlist.net/sports"
+        "https://dubai.platinumlist.net/event/list",
+        "https://dubai.platinumlist.net/event/list?page=2",
+        "https://dubai.platinumlist.net/event/list?page=3",
+        "https://dubai.platinumlist.net/event/list?page=4",
+        "https://dubai.platinumlist.net/event/list?page=5",
+        "https://dubai.platinumlist.net/event/list?page=6",
+        "https://dubai.platinumlist.net/event/list?page=7",
+        "https://dubai.platinumlist.net/event/list?page=8",
+        "https://dubai.platinumlist.net/event/list?page=9",
+        "https://dubai.platinumlist.net/event/list?page=10",
+        "https://dubai.platinumlist.net/festival"
       ],
       "trusted": true,
-      "note": "Sprzedawca biletów: festiwale, koncerty, komedia, teatr i imprezy dla dzieci w Dubaju."
+      "note": "Sprzedawca biletów: pełna lista wydarzeń (strony 1-10) + festiwale."
     }
   ]
 }

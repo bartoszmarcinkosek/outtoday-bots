@@ -84,15 +84,16 @@
       "city": "Abu Dhabi",
       "single_venue": false,
       "urls": [
-        "https://abu-dhabi.platinumlist.net/festival",
-        "https://abu-dhabi.platinumlist.net/concerts",
-        "https://abu-dhabi.platinumlist.net/comedy",
-        "https://abu-dhabi.platinumlist.net/theatre",
-        "https://abu-dhabi.platinumlist.net/kids",
-        "https://abu-dhabi.platinumlist.net/sports"
+        "https://abu-dhabi.platinumlist.net/event/list",
+        "https://abu-dhabi.platinumlist.net/event/list?page=2",
+        "https://abu-dhabi.platinumlist.net/event/list?page=3",
+        "https://abu-dhabi.platinumlist.net/event/list?page=4",
+        "https://abu-dhabi.platinumlist.net/event/list?page=5",
+        "https://abu-dhabi.platinumlist.net/event/list?page=6",
+        "https://abu-dhabi.platinumlist.net/festival"
       ],
       "trusted": true,
-      "note": "Sprzedawca biletów: festiwale, koncerty, komedia, teatr, dzieci, sport."
+      "note": "Sprzedawca biletów: pełna lista wydarzeń (strony 1-6) + festiwale."
     },
     {
       "id": "visit_abu_dhabi",
