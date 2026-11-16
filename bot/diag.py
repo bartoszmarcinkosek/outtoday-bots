@@ -1,13 +1,12 @@
 import os, requests
 tok = os.environ.get("IG_ACCESS_TOKEN", "").strip()
-print("TOKEN set:", bool(tok), "length:", len(tok))
-if tok:
-    r = requests.get("https://graph.facebook.com/v21.0/me", params={"fields": "id,name,instagram_business_account{id,username}", "access_token": tok}, timeout=30)
-    d = r.json()
-    print("STATUS", r.status_code, {k: v for k, v in d.items() if k != "access_token"})
-    ig = (d.get("instagram_business_account") or {}).get("id")
-    if ig:
-        q = f"business_discovery.username(atlantisthepalm){{username,media.limit(2){{caption,timestamp}}}}"
-        r2 = requests.get(f"https://graph.facebook.com/v21.0/{ig}", params={"fields": q, "access_token": tok}, timeout=30)
-        bd = r2.json()
-        print("DISCOVERY", r2.status_code, str(bd)[:400])
+G = "https://graph.facebook.com/v21.0"
+me = requests.get(f"{G}/me", params={"fields": "id,name", "access_token": tok}, timeout=30).json()
+print("ME", {k: v for k, v in me.items() if k in ("name", "error")})
+acc = requests.get(f"{G}/me/accounts", params={"fields": "name,instagram_business_account{id,username}", "access_token": tok}, timeout=30).json()
+print("ACCOUNTS", [{"name": p.get("name"), "ig": p.get("instagram_business_account")} for p in acc.get("data", [])], acc.get("error"))
+ig = next((p["instagram_business_account"]["id"] for p in acc.get("data", []) if p.get("instagram_business_account")), None)
+if ig:
+    q = "business_discovery.username(atlantisthepalm){username,media.limit(2){caption,timestamp}}"
+    r2 = requests.get(f"{G}/{ig}", params={"fields": q, "access_token": tok}, timeout=30).json()
+    print("DISCOVERY", str(r2)[:400])
