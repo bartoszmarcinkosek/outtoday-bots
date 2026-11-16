@@ -157,6 +157,10 @@ def check_facts(raw: dict, page_norm: str, table: str = "", row: dict | None = N
         (raw.get("price_number") is not None and R.number_in_quote(raw["price_number"], pq or "") and re.search(r"aed|dhs?|dirham", R.norm(pt + " " + (pq or ""))))
         or re.search(r"\bfree\b|complimentary", R.norm(pt))
     )
+    # opis zamiast ceny ("Tagged free entry on the page...") albo chwilowa promocja: nie bierzemy
+    META = r"\bpage\b|\blisting\b|\btagged\b|no specific|not stated|stated|gives no|\bwas \d|half price|% off"
+    if price_ok and re.search(META, pt, re.I):
+        price_ok = False
     if price_ok and R.quote_on_page(pq, page_norm):
         out["price_text"] = R.clean_price(raw["price_text"])
         out["price_number"] = raw.get("price_number")
@@ -164,6 +168,8 @@ def check_facts(raw: dict, page_norm: str, table: str = "", row: dict | None = N
     hq = ev.get("hours")
     # godziny "na dziś" (np. "OPEN TODAY: 10 AM - 7 PM") zmieniają się codziennie: nie bierzemy ich
     today_only = re.search(r"\btoday\b|\btonight\b|\bnow open\b", R.norm((raw.get("hours_text") or "") + " " + (hq or "")))
+    if raw.get("hours_text") and re.search(r"\bpage\b|\blisting\b|no specific|not stated|gives no|there are", raw["hours_text"], re.I):
+        raw["hours_text"] = None
     if raw.get("hours_text") and not today_only and len(raw["hours_text"]) <= 200 and R.quote_on_page(hq, page_norm):
         out["hours_text"] = raw["hours_text"].strip()
         out["evidence"]["hours"] = hq

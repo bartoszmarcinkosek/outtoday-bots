@@ -106,6 +106,15 @@ def main() -> int:
                 if row["status"] != "rejected":
                     db.update("places", {"id": row["id"]}, {"status": "rejected"})
                     print(f"- miejsce ukryte: {row['name']}")
+        # "update_places": [{"name":..., "city":..., "set": {...}}] – poprawki ceny/godzin/telefonu
+        for r in data.get("update_places", []):
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("price_text", "hours_text", "is_free", "phone", "official_url")}
+            q = {"select": "id,name", "name": f"eq.{r['name']}"}
+            if r.get("city"):
+                q["city"] = f"eq.{r['city']}"
+            for row in db.get("places", q):
+                db.update("places", {"id": row["id"]}, fix)
+                print(f"~ miejsce poprawione: {row['name']} {fix}")
     print(f"Dodane: {added}, już były: {skipped}")
     return 0
 

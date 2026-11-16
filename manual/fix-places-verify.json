@@ -1,0 +1,13 @@
+{
+  "update_places": [
+    {"name": "Wadi Wurayah National Park", "set": {"price_text": null}},
+    {"name": "Al Qudra Cycle Track", "set": {"price_text": "Free", "is_free": true}},
+    {"name": "Ras Al Khor Wildlife Sanctuary", "set": {"price_text": "Free", "is_free": true}},
+    {"name": "ARTE Museum Dubai", "set": {"price_text": "AED 149 adults, AED 79 children"}},
+    {"name": "Sharjah Art Museum", "set": {"price_text": "Free", "is_free": true}},
+    {"name": "Saqr Park", "set": {"hours_text": "Open all year round"}},
+    {"name": "Sunset Beach", "set": {"hours_text": "Night swimming: lit after dark until midnight"}},
+    {"name": "Ajman Museum", "set": {"hours_text": "Daily 8 am – 8 pm, closed Fridays and public holidays"}},
+    {"name": "Wadi Shawka", "set": {"hours_text": "Open all year round"}}
+  ]
+}
