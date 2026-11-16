@@ -1,0 +1,20 @@
+{
+ "deals": [
+  {
+   "title": "The Bench Brunch",
+   "deal_type": "brunch",
+   "venue": "Rove Al Marjan Island",
+   "city": "Ras Al Khaimah",
+   "area": "Al Marjan Island",
+   "official_url": "https://rovehotels.com/en/?p=31833&post_type=offer_page",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 99 per person",
+   "details": "Family-friendly Saturday brunch buffet.",
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  }
+ ]
+}
