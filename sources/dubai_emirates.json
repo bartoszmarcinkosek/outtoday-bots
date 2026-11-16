@@ -443,6 +443,29 @@
     "https://www.meetup.com/find/ae--dubai/looking-to-make-friends/"
    ],
    "trusted": false
+  },
+  {
+   "id": "fever_ain",
+   "name": "Fever / Candlelight (Al Ain)",
+   "city": "Al Ain",
+   "single_venue": false,
+   "default_venue": "ADNEC Centre Al Ain",
+   "urls": [
+    "https://feverup.com/en/al-ain-uae",
+    "https://feverup.com/m/518117/en",
+    "https://feverup.com/m/653682/en"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "uaq_tourism_hopa",
+   "name": "Umm Al Quwain Tourism (Hopasports)",
+   "city": "Umm Al Quwain",
+   "single_venue": false,
+   "urls": [
+    "https://www.hopasports.com/en/tad"
+   ],
+   "trusted": false
   }
  ]
 }
