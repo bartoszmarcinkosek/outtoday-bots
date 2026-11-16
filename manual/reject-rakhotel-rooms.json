@@ -1,0 +1,7 @@
+{
+  "reject_deals": [
+    {"title": "Super Deluxe Room", "venue": "Ras Al Khaimah Hotel"},
+    {"title": "Summer Offer - Room with Breakfast + Dreamland Tickets", "venue": "Ras Al Khaimah Hotel"},
+    {"title": "Summer Offer - Room with Breakfast & Lunch or Dinner + Dreamland Tickets", "venue": "Ras Al Khaimah Hotel"}
+  ]
+}

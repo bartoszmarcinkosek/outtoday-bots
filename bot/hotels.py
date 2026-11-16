@@ -291,7 +291,10 @@ def search_offers(client, hotel: dict, usage: dict) -> tuple[list[str], list[dic
     return [], []
 
 
-ONE_OFF = re.compile(r"christmas|festive|season'?s|turkey|thanksgiving|new year|nye|eid\b|iftar|suhoor|ramadan|valentine|easter|diwali|halloween|mother'?s day|father'?s day|national day|\bspa\b|massage|treatment|wedding", re.I)
+ONE_OFF = re.compile(r"christmas|festive|season'?s|turkey|thanksgiving|new year|nye|eid\b|iftar|suhoor|ramadan|valentine|easter|diwali|halloween|mother'?s day|father'?s day|national day|summer|\bspa\b|massage|treatment|wedding", re.I)
+
+PLAIN_ROOM = re.compile(r"\b(room|suite|villa|chalet|apartment)s?\b", re.I)
+PACKAGE = re.compile(r"breakfast|brunch|dinner|lunch|half board|full board|all.inclusive|day pass|staycation|package|credit|\bf&b\b|spa credit|nights? stay|stay \d|% off|discount", re.I)
 
 
 def check_offer(o: dict, page_norm: str) -> tuple[dict | None, str]:
@@ -300,6 +303,8 @@ def check_offer(o: dict, page_norm: str) -> tuple[dict | None, str]:
         return None, "zły typ"
     if ONE_OFF.search(f"{o.get('title')} {ev.get('offer') or ''}"):
         return None, "jednorazowe (święto)"
+    if PLAIN_ROOM.search(o.get("title") or "") and not PACKAGE.search(f"{o.get('title')} {o.get('details') or ''} {ev.get('offer') or ''}"):
+        return None, "zwykła cena pokoju"
     if not R.quote_on_page(ev.get("offer"), page_norm):
         return None, "brak cytatu oferty"
     pt, pq = (o.get("price_text") or "").strip(), ev.get("price")

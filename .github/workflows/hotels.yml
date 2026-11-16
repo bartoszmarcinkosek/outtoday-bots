@@ -28,7 +28,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: hotels
+  group: hotels-${{ inputs.mode }}-${{ inputs.city }}
   cancel-in-progress: false
 
 jobs:
