@@ -1,0 +1,31 @@
+{
+ "events": [
+  {
+   "title": "Room to Grow: Education & the Next Generation in Ras Al Khaimah",
+   "category": "community",
+   "start_date": "2026-11-18",
+   "start_time": "08:30",
+   "end_time": "12:40",
+   "venue": "Rotana Ras Al Khaimah, The Mangroves",
+   "city": "Ras Al Khaimah",
+   "price_text": "By invitation – RSVP on the official page",
+   "registration_required": true,
+   "description": "Quality of Life Series, edition 3, from the RAK Government Media Office and Heart of RAK. Two panels on what Ras Al Khaimah offers families: the school years, and what comes after Grade 12.",
+   "official_url": "https://heartofrak.com/en/events/room-to-grow",
+   "status": "approved",
+   "source_name": "Poster (Heart of RAK invitation)"
+  },
+  {
+   "title": "Al Ayyala Art Festival Operetta",
+   "category": "culture",
+   "start_date": "2026-11-17",
+   "start_time": "19:30",
+   "venue": "Cultural Centre, Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "price_text": "Invitation from the organising committee",
+   "description": "Emirati heritage operetta with drums and traditional Al Ayyala chants. Idea by Abdulwahab Al-Wahabi, poetry by Abdullah Al-Hadiya, directed by Mohammed Haji. Supported by the UAE Ministry of Culture and the RAK Association for Arts and Folk Heritage.",
+   "status": "approved",
+   "source_name": "Poster (organising committee)"
+  }
+ ]
+}
