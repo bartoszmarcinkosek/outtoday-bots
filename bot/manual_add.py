@@ -86,6 +86,13 @@ def main() -> int:
                 if row["status"] != "rejected":
                     db.update("events", {"id": row["id"]}, {"status": "rejected", "updated_at": now})
                     print(f"- odrzucone: {row['title']} ({r['start_date']})")
+        # "reject_deals": [{"title":..., "venue":...}] – np. duplikaty.
+        for r in data.get("reject_deals", []):
+            rows = db.get("deals", {"select": "id,title,status", "title": f"eq.{r['title']}", "venue": f"eq.{r['venue']}"})
+            for row in rows:
+                if row["status"] != "rejected":
+                    db.update("deals", {"id": row["id"]}, {"status": "rejected"})
+                    print(f"- deal ukryty: {row['title']}")
         # "reject_places": lista id miejsc do ukrycia (np. zwykłe centra handlowe).
         for pid in data.get("reject_places", []):
             rows = db.get("places", {"select": "id,name,status", "id": f"eq.{pid}"})

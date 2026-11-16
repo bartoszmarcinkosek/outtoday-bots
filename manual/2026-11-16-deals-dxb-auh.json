@@ -1,0 +1,239 @@
+{
+ "deals": [
+  {
+   "title": "Unlimited Sushi Tuesdays",
+   "deal_type": "dinner",
+   "venue": "Izakaya, JW Marriott Marquis Hotel Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbjw-jw-marriott-marquis-hotel-dubai/dining/explore-culinary-delights/promotions/",
+   "days_of_week": [
+    2
+   ],
+   "price_text": "From AED 195 per person",
+   "details": "Unlimited sushi with selected beverages for two hours.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "18:00",
+   "end_time": "00:00"
+  },
+  {
+   "title": "High So: Unlimited Thai",
+   "deal_type": "dinner",
+   "venue": "Tong Thai, JW Marriott Marquis Hotel Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbjw-jw-marriott-marquis-hotel-dubai/dining/explore-culinary-delights/promotions/",
+   "days_of_week": [
+    3
+   ],
+   "price_text": "AED 195 food only · AED 300 with house beverages (2 hours)",
+   "details": "Unlimited Thai street-food favourites.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "18:00",
+   "end_time": "00:00"
+  },
+  {
+   "title": "Teppanyaki Set",
+   "deal_type": "dinner",
+   "venue": "Izakaya, JW Marriott Marquis Hotel Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbjw-jw-marriott-marquis-hotel-dubai/dining/explore-culinary-delights/promotions/",
+   "days_of_week": [
+    0,
+    3
+   ],
+   "price_text": "AED 225 food only · AED 325 with house beverages (2 hours)",
+   "details": "Teppanyaki menu; book ahead.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "18:00",
+   "end_time": "22:00"
+  },
+  {
+   "title": "Quiz Night with Ollie",
+   "deal_type": "quiz",
+   "venue": "JW Marriott Marquis Hotel Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbjw-jw-marriott-marquis-hotel-dubai/dining/explore-culinary-delights/promotions/",
+   "days_of_week": [
+    4
+   ],
+   "price_text": "Prices on the official page",
+   "details": "Weekly trivia; the top team wins dining vouchers and F&B credit. Book ahead.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "20:00",
+   "end_time": "22:00"
+  },
+  {
+   "title": "Happy Hour at Bridgewater Tavern",
+   "deal_type": "happy_hour",
+   "venue": "Bridgewater Tavern, JW Marriott Marquis Hotel Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbjw-jw-marriott-marquis-hotel-dubai/dining/explore-culinary-delights/promotions/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "Selected beverages from AED 32",
+   "details": "Sports bar happy hour.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "16:00",
+   "end_time": "19:00"
+  },
+  {
+   "title": "Stratos Supperclub",
+   "deal_type": "dinner",
+   "venue": "Stratos, Le Royal Méridien Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/",
+   "days_of_week": [
+    5
+   ],
+   "price_text": "AED 395 per person",
+   "details": "Unlimited gourmet dishes and unlimited beverages in the revolving lounge.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "18:00",
+   "end_time": "22:30"
+  },
+  {
+   "title": "Shamrock Ladies Night",
+   "deal_type": "ladies_night",
+   "venue": "PJ O'Reilly's, Le Royal Méridien Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/",
+   "days_of_week": [
+    4
+   ],
+   "price_text": "Ladies AED 99 · gents AED 199",
+   "details": "Three hours of unlimited selected bites and drinks.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "19:00",
+   "end_time": "22:00"
+  },
+  {
+   "title": "Beer Garden Brunch",
+   "deal_type": "brunch",
+   "venue": "PJ O'Reilly's, Le Royal Méridien Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 140 soft package · AED 299 house package",
+   "details": "Saturday pub brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "13:00",
+   "end_time": "16:00"
+  },
+  {
+   "title": "Sunday Roast at PJ O'Reilly's",
+   "deal_type": "lunch",
+   "venue": "PJ O'Reilly's, Le Royal Méridien Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/",
+   "days_of_week": [
+    0
+   ],
+   "price_text": "AED 95 unlimited roast buffet · kids 6–12 AED 75 · +AED 75 unlimited beverages · AED 150 premium",
+   "details": "Unlimited roast buffet with optional drinks package.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "kid_friendly": true
+  },
+  {
+   "title": "Liquid Lunch",
+   "deal_type": "lunch",
+   "venue": "PJ O'Reilly's, Le Royal Méridien Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/",
+   "days_of_week": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "price_text": "AED 99",
+   "details": "One main course and three drinks.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "12:00",
+   "end_time": "16:00"
+  },
+  {
+   "title": "The Longest Happy Hour",
+   "deal_type": "happy_hour",
+   "venue": "PJ O'Reilly's, Le Royal Méridien Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "Drinks from AED 30",
+   "details": "Irish pub happy hour.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "12:00",
+   "end_time": "20:00"
+  },
+  {
+   "title": "Friday Surf & Turf",
+   "deal_type": "dinner",
+   "venue": "Market Kitchen, Le Royal Méridien Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/",
+   "days_of_week": [
+    5
+   ],
+   "price_text": "AED 300 per person",
+   "details": "Sharing starters, one meat and one seafood main, sides and sharing desserts.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "19:00",
+   "end_time": "22:00"
+  },
+  {
+   "title": "Theme Night Dinner Buffet at Ginger",
+   "deal_type": "dinner",
+   "venue": "Ginger, Park Rotana Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/abudhabi/parkrotana/diningout/gingeralldaydining",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "From AED 219 per person",
+   "details": "Mon Asian · Tue Mediterranean · Wed Indian · Thu Arabic · Fri Seafood · Sat–Sun International.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  }
+ ]
+}
