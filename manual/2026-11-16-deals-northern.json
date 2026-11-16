@@ -1,0 +1,240 @@
+{
+ "deals": [
+  {
+   "title": "Sundown: Pool, Dinner & Unlimited Drinks",
+   "deal_type": "dinner",
+   "venue": "BM Beach Hotel",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://www.bmhotelsresorts.com/bm-eat-drink/eat-and-drink-hotel/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 160",
+   "details": "Pool and beach access, dinner at Al Rahala and unlimited selected beverages.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "16:00",
+   "end_time": "22:00"
+  },
+  {
+   "title": "Daycation with Lunch & Unlimited Drinks",
+   "deal_type": "day_pass",
+   "venue": "BM Beach Hotel",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://www.bmhotelsresorts.com/bm-eat-drink/eat-and-drink-hotel/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 150 adults · AED 75 kids",
+   "details": "All-day pool and beach access, lunch buffet at Al Rahala and unlimited drinks.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "11:00",
+   "end_time": "18:00",
+   "kid_friendly": true
+  },
+  {
+   "title": "House Beverage Package at Pebbles",
+   "deal_type": "happy_hour",
+   "venue": "Pebbles Sports Bar, BM Beach Hotel",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://www.bmhotelsresorts.com/bm-eat-drink/eat-and-drink-hotel/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 99 for 2 hours unlimited selected drinks (+AED 59 for unlimited antipasti)",
+   "details": "One of RAK's longest-standing bars: live sports, live music and pub games.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "14:00",
+   "end_time": "02:00"
+  },
+  {
+   "title": "Grill & Chill Night",
+   "deal_type": "dinner",
+   "venue": "Awtar Restaurant, Ras Al Khaimah Hotel",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://rasalkhaimahhotel.com/events/awtar/",
+   "days_of_week": [
+    5
+   ],
+   "price_text": "AED 89 per person",
+   "details": "Weekly grill night with meats and seafood from live stations.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Ocean Bounty Seafood Night",
+   "deal_type": "dinner",
+   "venue": "Awtar Restaurant, Ras Al Khaimah Hotel",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://rasalkhaimahhotel.com/events/awtar/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 99 per person",
+   "details": "Weekly seafood night.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Indian Soirée",
+   "deal_type": "dinner",
+   "venue": "Awtar Restaurant, Ras Al Khaimah Hotel",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://rasalkhaimahhotel.com/events/awtar/",
+   "days_of_week": [
+    0
+   ],
+   "price_text": "AED 89 per person",
+   "details": "Weekly Indian night of curries and grills.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Brunch & Nar",
+   "deal_type": "brunch",
+   "venue": "Levant & Nar, InterContinental Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://icrasalkhaimah.com/en/offers/dining/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "From AED 215 per person",
+   "details": "Saturday Levantine and Turkish brunch with sea views.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Mina Al Arab",
+   "start_time": "13:00",
+   "end_time": "16:00"
+  },
+  {
+   "title": "Sunset Margaritas",
+   "deal_type": "happy_hour",
+   "venue": "Sahar Beach Bar, InterContinental Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://icrasalkhaimah.com/en/offers/dining/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 99 unlimited margaritas",
+   "details": "Free-flow handcrafted margaritas by the beach.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Mina Al Arab",
+   "start_time": "16:00",
+   "end_time": "19:00"
+  },
+  {
+   "title": "Rosé & Pearls",
+   "deal_type": "happy_hour",
+   "venue": "Sahar Beach Bar, InterContinental Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://icrasalkhaimah.com/en/offers/dining/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 145 per person",
+   "details": "Fresh oysters with two hours of free-flow rosé.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Mina Al Arab",
+   "start_time": "17:00",
+   "end_time": "19:00"
+  },
+  {
+   "title": "Arabic Night",
+   "deal_type": "dinner",
+   "venue": "Cafe Naseem, Ajman Hotel",
+   "city": "Ajman",
+   "official_url": "https://www.hotelajman.com/restaurants-bars/restaurants/cafe-naseem",
+   "days_of_week": [
+    1
+   ],
+   "price_text": "AED 210 per person",
+   "details": "Weekly Arabic theme night buffet by the beach.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Asian Night",
+   "deal_type": "dinner",
+   "venue": "Cafe Naseem, Ajman Hotel",
+   "city": "Ajman",
+   "official_url": "https://www.hotelajman.com/restaurants-bars/restaurants/cafe-naseem",
+   "days_of_week": [
+    3
+   ],
+   "price_text": "AED 210 per person",
+   "details": "Weekly Asian theme night buffet by the beach.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Seafood Night",
+   "deal_type": "dinner",
+   "venue": "Cafe Naseem, Ajman Hotel",
+   "city": "Ajman",
+   "official_url": "https://www.hotelajman.com/restaurants-bars/restaurants/cafe-naseem",
+   "days_of_week": [
+    5
+   ],
+   "price_text": "AED 210 per person",
+   "details": "Weekly seafood buffet by the beach.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Let's Flow: Free-flowing Drinks",
+   "deal_type": "happy_hour",
+   "venue": "Arena Sports Bar, Fairmont Fujairah Beach Resort",
+   "city": "Fujairah",
+   "official_url": "https://www.fairmont.com/en/hotels/fujairah/fairmont-fujairah-beach-resort.html",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 99 unlimited beer & wine · AED 175 unlimited house spirits, wine & beer · 20% off food",
+   "details": "Sports bar with free-flowing drink packages.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "18:30",
+   "end_time": "02:00"
+  }
+ ]
+}
