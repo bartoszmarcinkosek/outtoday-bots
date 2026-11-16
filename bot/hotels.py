@@ -28,6 +28,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 import run as R  # noqa: E402
 
 HOTELS_FILE = os.path.join(os.path.dirname(__file__), "..", "sources", "hotels.json")
+VENUES_FILE = os.path.join(os.path.dirname(__file__), "..", "sources", "venues.json")
+NOPRICE_OK = {"happy_hour", "quiz", "ladies_night", "night_out"}
 CITIES = ["Dubai", "Abu Dhabi", "Al Ain", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"]
 TYPES = ["brunch", "dinner", "lunch", "breakfast", "happy_hour", "ladies_night", "night_out", "quiz", "day_pass", "staycation"]
 DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -87,12 +89,13 @@ OFFER_TOOL = {
                     "valid_until", "kid_friendly", "ladies_only", "details", "evidence"]}}},
         "required": ["offers"]},
 }
-OFFER_RULES = """You read one UAE hotel web page. List only offers that the public can book:
+OFFER_RULES = """You read one web page of a UAE venue (hotel, bar, pub, golf club, beach club or restaurant). List only offers that the public can book:
 - RECURRING offers: brunches, theme nights, buffets with drinks packages, happy hours, ladies' nights, quiz nights,
   business lunches, breakfast offers, pool/beach day passes;
 - STAYCATION offers (room packages with a price per night), deal_type "staycation".
 Skip: one-off holiday events (Christmas, New Year, Eid, Iftar, Valentine's), weddings, meetings, spa treatments, gift cards,
-loyalty-member-only rates, offers that ended, anything without an AED price.
+loyalty-member-only rates, offers that ended, anything without an AED price (EXCEPT happy hours, quiz nights,
+ladies' nights and club nights: keep them without a price when the page states their days and times).
 Use ONLY what PAGE TEXT says. Every price, day and time needs an exact verbatim quote in evidence. Null is better than a guess.
 Never copy sentences into "details": write your own short sentence."""
 
@@ -198,6 +201,80 @@ def discover() -> int:
     with open(HOTELS_FILE, "w", encoding="utf-8") as f:
         json.dump(hotels, f, ensure_ascii=False, indent=1)
     print(f"\nHoteli na liście: {len(hotels)}. Koszt ok. ${cost(usage):.2f}")
+    return 0
+
+
+VENUE_KINDS = [
+    "pubs and sports bars with happy hour or quiz night",
+    "bars and lounges with ladies' night or weekly offers",
+    "beach clubs with day passes or weekly events",
+    "golf clubs with a bar or restaurant (sports bar, clubhouse)",
+    "standalone restaurants (not inside hotels) with a weekly brunch, roast or theme night",
+]
+VENUE_BLOCKED = ["booking.com", "expedia.com", "tripadvisor.com", "agoda.com", "trip.com", "trivago.com", "cobone.com", "groupon.ae",
+                 "whatson.ae", "timeoutdubai.com", "timeoutabudhabi.com", "wow-rak.com", "facebook.com", "instagram.com", "zomato.com",
+                 "talabat.com", "deliveroo.ae", "wanderlog.com", "lokalee.app", "bayut.com", "propertyfinder.ae", "yelp.com",
+                 "restaurantguru.com", "eatapp.co", "sevenrooms.com", "opentable.com", "platinumlist.net", "dubaicityguide.com"]
+VENUE_TOOL = {
+    "name": "report_venues",
+    "description": "Venues found.",
+    "input_schema": {"type": "object", "properties": {"venues": {"type": "array", "items": {"type": "object", "properties": {
+        "name": {"type": "string"},
+        "city": {"type": "string", "enum": CITIES},
+        "url": {"type": "string", "description": "The venue's OWN official website page (or its page on the official government tourism site if it has no own site), from the search results."},
+        "in_hotel": {"type": "boolean", "description": "True if the venue is inside a hotel or resort."},
+    }, "required": ["name", "city", "url", "in_hotel"]}}}, "required": ["venues"]},
+}
+
+
+def discover_venues() -> int:
+    """Bary, puby, kluby golfowe, beach cluby i restauracje POZA hotelami (te są w hotels.json)."""
+    client, usage = client_usage()
+    try:
+        venues = json.load(open(VENUES_FILE, encoding="utf-8"))
+    except (OSError, ValueError):
+        venues = []
+    hotels = json.load(open(HOTELS_FILE, encoding="utf-8"))
+    known = {urlparse(v["url"]).netloc + urlparse(v["url"]).path.rstrip("/") for v in venues}
+    hotel_hosts = {urlparse(h["url"]).netloc for h in hotels}
+    for city in CITIES:
+        for kind in VENUE_KINDS:
+            prompt = (f"Find {kind} in the emirate of {city}, UAE. Search broadly (several searches) and list as many real venues as you can "
+                      "(up to 25). For each, report the venue's OWN official website URL from the search results; if it has no own "
+                      "website, its page on the official government tourism website of that emirate is acceptable. Never a portal, "
+                      "review site, booking site, social media or magazine. Mark in_hotel=true for venues inside hotels or resorts. "
+                      "Call report_venues (empty list if none).")
+            try:
+                resp = client.messages.create(
+                    model=R.MODEL, max_tokens=6000,
+                    tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 4, "blocked_domains": VENUE_BLOCKED},
+                           VENUE_TOOL],
+                    messages=[{"role": "user", "content": prompt}],
+                )
+            except Exception as e:
+                print(f"[{kind[:25]} / {city}] błąd: {type(e).__name__}: {str(e)[:120]}")
+                continue
+            add_usage(usage, resp)
+            new = 0
+            for b in resp.content:
+                if getattr(b, "type", "") == "tool_use" and b.name == "report_venues":
+                    for v in b.input.get("venues") or []:
+                        u = str(v.get("url") or "")
+                        host = urlparse(u).netloc.lower()
+                        if (not u.startswith("http") or v.get("city") != city or v.get("in_hotel") or host in hotel_hosts
+                                or any(x in host for x in VENUE_BLOCKED) or any(x in host for x in R.AGGREGATORS)):
+                            continue
+                        k = host + urlparse(u).path.rstrip("/")
+                        if k in known:
+                            continue
+                        known.add(k)
+                        venues.append({"name": v["name"].strip(), "city": city, "url": u, "kind": kind.split(" ")[0]})
+                        new += 1
+            print(f"[{kind[:40]} / {city}] nowe miejsca: {new}")
+    venues.sort(key=lambda h: (h["city"], h["name"]))
+    with open(VENUES_FILE, "w", encoding="utf-8") as f:
+        json.dump(venues, f, ensure_ascii=False, indent=1)
+    print(f"\nMiejsc na liście: {len(venues)}. Koszt ok. ${cost(usage):.2f}")
     return 0
 
 
@@ -318,7 +395,10 @@ def check_offer(o: dict, page_norm: str) -> tuple[dict | None, str]:
     pn = o.get("price_number")
     if not (pt and len(pt) <= 160 and pn is not None and R.quote_on_page(pq, page_norm) and R.number_in_quote(pn, pq or "")
             and re.search(r"aed|dhs?|dirham", R.norm(f"{pt} {pq}"))):
-        return None, "cena niepotwierdzona"
+        if not (o.get("deal_type") in NOPRICE_OK and o.get("days") and R.quote_on_page(ev.get("days"), page_norm)
+                and R.quote_on_page(ev.get("time"), page_norm)):
+            return None, "cena niepotwierdzona"
+        pt = ""
     vu = o.get("valid_until")
     if vu:
         try:
@@ -328,7 +408,7 @@ def check_offer(o: dict, page_norm: str) -> tuple[dict | None, str]:
             vu = None
         if vu and not R.quote_on_page(ev.get("valid_until"), page_norm):
             vu = None
-    out = {"title": o["title"].strip()[:120], "deal_type": o["deal_type"], "price_text": R.clean_price(pt),
+    out = {"title": o["title"].strip()[:120], "deal_type": o["deal_type"], "price_text": R.clean_price(pt) if pt else None,
            "details": (o.get("details") or "").strip()[:300] or None, "valid_until": vu,
            "kid_friendly": bool(o.get("kid_friendly")), "ladies_only": bool(o.get("ladies_only")) or o["deal_type"] == "ladies_night",
            "outlet": (o.get("outlet") or "").strip() or None}
@@ -364,10 +444,10 @@ def is_dup(row: dict, deals: list[dict]) -> bool:
     return False
 
 
-def scan(city: str | None, limit: int, dry: bool, force: bool) -> int:
+def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = HOTELS_FILE) -> int:
     client, usage = client_usage()
     db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
-    hotels = json.load(open(HOTELS_FILE, encoding="utf-8"))
+    hotels = json.load(open(list_file, encoding="utf-8"))
     if city:
         hotels = [h for h in hotels if h["city"] == city]
     deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,status", "limit": "10000"})
@@ -492,11 +572,12 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=40)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--venues", action="store_true", help="bary/puby/kluby golfowe/beach cluby zamiast hoteli")
     a = ap.parse_args()
     if a.discover:
-        return discover()
+        return discover_venues() if a.venues else discover()
     if a.scan:
-        return scan(a.city or None, a.limit, a.dry_run, a.force)
+        return scan(a.city or None, a.limit, a.dry_run, a.force, VENUES_FILE if a.venues else HOTELS_FILE)
     ap.print_help()
     return 1
 
