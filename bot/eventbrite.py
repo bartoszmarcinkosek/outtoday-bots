@@ -25,9 +25,11 @@ from run import DB, titles_match  # noqa: E402
 API = "https://www.eventbriteapi.com/v3"
 SOURCE = "Eventbrite"
 QUERIES = [
-    "Dubai events this week", "Abu Dhabi events this week", "Sharjah events", "Dubai workshop",
-    "Abu Dhabi workshop", "Dubai comedy night", "Dubai live music", "Abu Dhabi live music",
-    "Dubai kids activities", "Dubai art class", "Dubai run race", "Abu Dhabi community event",
+    "Dubai events December 2026", "Abu Dhabi events December 2026", "Sharjah events 2026", "Dubai workshop 2026",
+    "Abu Dhabi workshop 2026", "Dubai comedy night", "Abu Dhabi comedy night", "Dubai live music 2026",
+    "Abu Dhabi live music 2026", "Dubai kids activities 2026", "Dubai art class 2026", "Dubai run club race 2026",
+    "Abu Dhabi community event 2026", "Dubai book club", "Dubai yoga event 2026", "Abu Dhabi language exchange",
+    "Dubai pottery workshop", "Dubai salsa night", "Dubai quiz night", "Dubai market 2026",
 ]
 # Wycieczki, pakiety podróży, B2B i targi branżowe nie są "powodem, żeby wyjść".
 REJECT = re.compile(
@@ -135,14 +137,23 @@ def main() -> int:
     today = dt.datetime.now(dt.timezone(dt.timedelta(hours=4))).date().isoformat()
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
 
-    ids = discover_ids(args.searches)
-    # Znani organizatorzy z wcześniejszych wpisów: ich kolejne wydarzenia z API.
-    known = db.get("events", {"select": "evidence", "source_name": f"eq.{SOURCE}", "limit": "1000"})
-    orgs = {str((r.get("evidence") or {}).get("organizer_id")) for r in known if (r.get("evidence") or {}).get("organizer_id")}
-    for org in sorted(orgs)[:60]:
+    found = discover_ids(args.searches)
+    # Organizatorzy: z wyszukanych wydarzeń (nawet minionych) i zapamiętani wcześniej (bot_pages "eventbrite-org:<id>").
+    # Ich bieżące wydarzenia bierzemy z API: wyszukiwarka często pokazuje stare strony, organizator ma nowe terminy.
+    orgs = {r["url"].split(":", 1)[1] for r in db.get("bot_pages", {"select": "url", "url": "like.eventbrite-org:*", "limit": "2000"})}
+    for i in sorted(found):
+        ev = eb(token, f"/events/{i}/")
+        if ev and ev.get("organizer_id"):
+            orgs.add(str(ev["organizer_id"]))
+    ids = set(found)
+    for org in sorted(orgs)[:150]:
         data = eb(token, f"/organizers/{org}/events/", status="live", order_by="start_asc", page_size=50)
-        for e in (data or {}).get("events", []):
+        evs = (data or {}).get("events", [])
+        for e in evs:
             ids.add(str(e["id"]))
+        if not args.dry_run:
+            db.upsert("bot_pages", {"url": f"eventbrite-org:{org}", "last_fetched_at": now_iso,
+                                    "last_status": f"Eventbrite organizer, live events: {len(evs)}"}, "url")
     print(f"Kandydaci: {len(ids)} (organizatorzy: {len(orgs)})")
 
     existing = db.get("events", {"select": "id,title,start_date,bot_key", "start_date": f"gte.{today}", "limit": "5000"})
