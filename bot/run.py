@@ -459,7 +459,7 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
         return None, "wydarzenie branżowe (konferencja/szczyt)"
     if re.search(r"\b(online|webinar|zoom|virtual|livestream|live stream|hybrid)\b", norm(f"{title} {raw.get('venue') or ''}")):
         return None, "online (nie dodajemy)"
-    if re.search(r"\b(investor|investors|vc|venture capital|founders|startup pitch|networking|b2b|speed dating|singles)\b", norm(title)):
+    if re.search(r"\b(investor|investors|vc|venture capital|founders|startup pitch|networking|b2b|speed dating|dating|singles|mingle)\b", norm(title)):
         return None, "networking/inwestorzy/randki (nie dla OutToday)"
     if ABROAD.search(norm(f"{raw.get('venue') or ''} {raw.get('area') or ''}")):
         return None, "poza ZEA (miejsce za granicą)"
