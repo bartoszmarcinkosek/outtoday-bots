@@ -1,0 +1,109 @@
+{
+ "deals": [
+  {
+   "title": "Ladies Night at The Mansion",
+   "deal_type": "ladies_night",
+   "venue": "The Mansion, FIVE Jumeirah Village",
+   "city": "Dubai",
+   "official_url": "https://jumeirahvillage.fivehotelsandresorts.com/whats-on/when-is-ladies-night-in-dubai/",
+   "days_of_week": [
+    3
+   ],
+   "price_text": "Ladies: free entry before 1am and complimentary drinks · gents AED 200 incl. 3 drinks",
+   "details": "Club night with a DJ; smart casual dress code.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Jumeirah Village Circle",
+   "start_time": "21:00",
+   "ladies_only": true
+  },
+  {
+   "title": "Friday Ladies Day",
+   "deal_type": "ladies_night",
+   "venue": "Lucky Voice, Grand Millennium Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.luckyvoice.ae/promotions",
+   "days_of_week": [
+    5
+   ],
+   "price_text": "Ladies AED 99 (3 hours unlimited selected house drinks + entrée) · gents AED 250",
+   "details": "Karaoke bar party with a live DJ.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Barsha Heights",
+   "start_time": "17:00",
+   "end_time": "23:00"
+  },
+  {
+   "title": "Breakup Tuesdays",
+   "deal_type": "ladies_night",
+   "venue": "Lighthous Terrace & Lounge, Millennium Central Downtown",
+   "city": "Dubai",
+   "official_url": "https://www.millenniumhotels.com/en/dubai/millennium-central-downtown/lighthous-terrace-and-lounge/",
+   "days_of_week": [
+    2
+   ],
+   "price_text": "Ladies: free unlimited drinks · men: 3 drinks for AED 99",
+   "details": "Terrace lounge night in Business Bay.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "21:00",
+   "end_time": "03:00"
+  },
+  {
+   "title": "Saturday Vibes",
+   "deal_type": "ladies_night",
+   "venue": "Lighthous Terrace & Lounge, Millennium Central Downtown",
+   "city": "Dubai",
+   "official_url": "https://www.millenniumhotels.com/en/dubai/millennium-central-downtown/lighthous-terrace-and-lounge/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "Ladies: free unlimited drinks",
+   "details": "Saturday night at the terrace lounge.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "21:00",
+   "end_time": "03:00",
+   "ladies_only": true
+  },
+  {
+   "title": "Moroccan Vibe Sundays",
+   "deal_type": "ladies_night",
+   "venue": "Lighthous Terrace & Lounge, Millennium Central Downtown",
+   "city": "Dubai",
+   "official_url": "https://www.millenniumhotels.com/en/dubai/millennium-central-downtown/lighthous-terrace-and-lounge/",
+   "days_of_week": [
+    0
+   ],
+   "price_text": "Ladies: 3 free drinks",
+   "details": "Moroccan music night.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "21:00",
+   "end_time": "03:00",
+   "ladies_only": true
+  },
+  {
+   "title": "Ladies 'N' Cheers",
+   "deal_type": "ladies_night",
+   "venue": "Trophy Room, Fairmont Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.fairmont.com/dubai/offers/ladies-n-cheers-where-every-sip-is-a-celebration/",
+   "days_of_week": [
+    5
+   ],
+   "price_text": "AED 159 for two hours of unlimited drinks and bar snacks",
+   "details": "Sports bar ladies' night with big screens.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Sheikh Zayed Road",
+   "start_time": "12:00",
+   "end_time": "02:00",
+   "ladies_only": true
+  }
+ ]
+}
