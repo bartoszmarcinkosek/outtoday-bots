@@ -1,0 +1,1033 @@
+{
+ "places": [
+  {
+   "name": "Dubai Autodrome & Kartdrome",
+   "category": "active",
+   "area": "Motor City",
+   "city": "Dubai",
+   "official_url": "https://www.dubaiautodrome.ae/",
+   "description": "Indoor and outdoor karting and track experiences at Dubai's motorsport circuit.",
+   "kid_friendly": true
+  },
+  {
+   "name": "XLine Dubai Marina",
+   "category": "active",
+   "area": "Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.xdubai.com/xline/",
+   "description": "Long urban zipline flying over Dubai Marina.",
+   "is_indoor": false
+  },
+  {
+   "name": "Deep Dive Dubai",
+   "category": "active",
+   "area": "Nad Al Sheba",
+   "city": "Dubai",
+   "official_url": "https://www.deepdivedubai.com/",
+   "description": "A 60-metre-deep pool with a sunken city for scuba and freediving, including beginner dives.",
+   "is_indoor": true
+  },
+  {
+   "name": "Skydive Dubai",
+   "category": "active",
+   "area": "Skydive Dubai, Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.skydivedubai.ae/",
+   "description": "Tandem skydives over Palm Jumeirah and a desert drop zone.",
+   "is_indoor": false
+  },
+  {
+   "name": "iFLY Dubai",
+   "category": "active",
+   "area": "City Centre Mirdif",
+   "city": "Dubai",
+   "official_url": "https://www.iflyme.com/",
+   "description": "Indoor skydiving in a vertical wind tunnel.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Topgolf Dubai",
+   "category": "active",
+   "area": "Emirates Golf Club, Emirates Hills",
+   "city": "Dubai",
+   "official_url": "https://topgolfdubai.ae/",
+   "description": "Three-level driving range with scoring games, food and views of the Marina skyline.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Dubai Ice Rink",
+   "category": "active",
+   "area": "The Dubai Mall, Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.dubaiicerink.com/",
+   "description": "Olympic-size ice rink in The Dubai Mall with public skating sessions.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Aventura Parks",
+   "category": "active",
+   "area": "Mushrif Park",
+   "city": "Dubai",
+   "official_url": "https://www.aventuraparks.com/",
+   "description": "Treetop ropes courses and ziplines in the ghaf forest of Mushrif Park.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Meydan Golf (The Track)",
+   "category": "active",
+   "area": "Meydan",
+   "city": "Dubai",
+   "official_url": "https://www.meydangolf.com/",
+   "description": "Floodlit nine-hole golf course and driving range at Meydan.",
+   "is_indoor": false
+  },
+  {
+   "name": "Emirates Golf Club",
+   "category": "active",
+   "area": "Emirates Hills",
+   "city": "Dubai",
+   "official_url": "https://www.dubaigolf.com/emirates-golf-club/",
+   "description": "Championship golf courses including the Majlis, plus a floodlit par-3 course.",
+   "is_indoor": false
+  },
+  {
+   "name": "Dubai Creek Golf & Yacht Club",
+   "category": "active",
+   "area": "Port Saeed, Deira",
+   "city": "Dubai",
+   "official_url": "https://www.dubaigolf.com/dubai-creek-resort/",
+   "description": "Creekside golf course with a floodlit par-3 and academy.",
+   "is_indoor": false
+  },
+  {
+   "name": "BOUNCE Dubai",
+   "category": "active",
+   "area": "Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.bounce.ae/",
+   "description": "Trampoline park with free-jump areas, obstacle courses and classes.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Surf House Dubai",
+   "category": "active",
+   "area": "Sunset Beach, Umm Suqeim",
+   "city": "Dubai",
+   "official_url": "https://www.surfhousedubai.com/",
+   "description": "Surf school and board rental on Sunset Beach, with a café.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Kite Surf Beach Center",
+   "category": "active",
+   "area": "Kite Beach, Umm Suqeim",
+   "city": "Dubai",
+   "official_url": "https://www.kitesurfbeachcenter.ae/",
+   "description": "Kitesurfing, SUP and kayak lessons and rental on Kite Beach.",
+   "is_indoor": false
+  },
+  {
+   "name": "Matcha Club",
+   "category": "active",
+   "area": "Meydan",
+   "city": "Dubai",
+   "official_url": "https://matchaclub.ae/",
+   "description": "Padel club with courts, fitness classes and a café.",
+   "is_indoor": false
+  },
+  {
+   "name": "Flip Out Dubai",
+   "category": "active",
+   "area": "Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.flipout.ae/",
+   "description": "Trampoline and adventure park with ninja courses.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Dubai Camel Racing Club",
+   "category": "active",
+   "area": "Al Marmoom",
+   "city": "Dubai",
+   "official_url": "https://dcrc.ae/",
+   "description": "Camel racing track at Al Marmoom with races in the cooler season.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Laguna Waterpark",
+   "category": "kids",
+   "area": "La Mer, Jumeirah 1",
+   "city": "Dubai",
+   "official_url": "https://www.lagunawaterpark.com/",
+   "description": "Waterpark at La Mer with slides, a surf machine and a lazy river.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Air Maniax",
+   "category": "active",
+   "area": "Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.airmaniax.com/",
+   "description": "Inflatable and trampoline park for children and adults.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "TEPfactor Dubai",
+   "category": "active",
+   "area": "JBR",
+   "city": "Dubai",
+   "official_url": "https://www.tepfactor.ae/",
+   "description": "Team challenge game with physical and logic rooms.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "The Smash Room",
+   "category": "active",
+   "area": "Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://thesmashroom.com/",
+   "description": "Rage room where you smash old electronics and glass in protective gear.",
+   "is_indoor": true
+  },
+  {
+   "name": "Rock Republic",
+   "category": "active",
+   "area": "Dubai Investments Park",
+   "city": "Dubai",
+   "official_url": "https://www.rockrepublicdubai.com/",
+   "description": "Indoor bouldering and climbing gym.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Dubai Polo & Equestrian Club",
+   "category": "active",
+   "area": "Arabian Ranches",
+   "city": "Dubai",
+   "official_url": "https://www.poloclubdubai.com/",
+   "description": "Polo matches, riding lessons and restaurants at Arabian Ranches.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Hamdan Sports Complex",
+   "category": "active",
+   "area": "Dubailand",
+   "city": "Dubai",
+   "official_url": "https://www.hamdansc.com/",
+   "description": "Olympic-size swimming complex with public swimming and courts.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Al Qudra Cycle Track",
+   "category": "active",
+   "area": "Al Qudra",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/al-qudra-cycling-track",
+   "description": "Desert cycling track with loops of different lengths and bike rental at the trailhead.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Sunset Beach",
+   "category": "beaches",
+   "area": "Umm Suqeim",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/sunset-beach",
+   "description": "Public beach beside Burj Al Arab, popular for sunset views and surfing.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Al Mamzar Beach Park",
+   "category": "beaches",
+   "area": "Al Mamzar, Deira",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/al-mamzar-beach-park",
+   "description": "Large beach park with sheltered lagoons, lawns and barbecue areas.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Palm West Beach",
+   "category": "beaches",
+   "area": "Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/palm-west-beach",
+   "description": "Beach promenade on the Palm trunk lined with beach clubs and restaurants.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Club Vista Mare",
+   "category": "beaches",
+   "area": "Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.clubvistamare.com/",
+   "description": "Row of beachfront restaurants on the Palm with sun loungers.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Zero Gravity",
+   "category": "beaches",
+   "area": "Skydive Dubai, Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.0-gravity.ae/",
+   "description": "Beach club with a pool and private beach next to the Skydive drop zone.",
+   "is_indoor": false
+  },
+  {
+   "name": "Cove Beach",
+   "category": "beaches",
+   "area": "Bluewaters",
+   "city": "Dubai",
+   "official_url": "https://www.covebeach.com/",
+   "description": "Beach club with pools, cabanas and a restaurant.",
+   "is_indoor": false
+  },
+  {
+   "name": "Nikki Beach Dubai",
+   "category": "beaches",
+   "area": "Pearl Jumeira",
+   "city": "Dubai",
+   "official_url": "https://nikkibeach.com/dubai/",
+   "description": "Beach club with a large pool, daybeds and a restaurant.",
+   "is_indoor": false
+  },
+  {
+   "name": "Twiggy by La Cantine",
+   "category": "beaches",
+   "area": "Park Hyatt, Dubai Creek",
+   "city": "Dubai",
+   "official_url": "https://twiggy.ae/",
+   "description": "Lagoon beach club and restaurant at Park Hyatt Dubai.",
+   "is_indoor": false
+  },
+  {
+   "name": "Drift Beach Dubai",
+   "category": "beaches",
+   "area": "One&Only Royal Mirage, Al Sufouh",
+   "city": "Dubai",
+   "official_url": "https://www.driftbeachdubai.com/",
+   "description": "Adults-only beach club with an infinity pool facing the Palm.",
+   "is_indoor": false
+  },
+  {
+   "name": "Bla Bla Dubai",
+   "category": "beaches",
+   "area": "The Beach, JBR",
+   "city": "Dubai",
+   "official_url": "https://www.blabladubai.com/",
+   "description": "Beach club with a pool by day and many bars by night.",
+   "is_indoor": false
+  },
+  {
+   "name": "Kyma Beach",
+   "category": "beaches",
+   "area": "Palm West Beach, Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://kymabeach.com/",
+   "description": "Greek-style beach club and restaurant on Palm West Beach.",
+   "is_indoor": false
+  },
+  {
+   "name": "AURA Skypool",
+   "category": "beaches",
+   "area": "The Palm Tower, Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.auraskypool.com/",
+   "description": "360-degree infinity pool on the 50th floor of The Palm Tower.",
+   "is_indoor": false
+  },
+  {
+   "name": "RIVA Beach Club",
+   "category": "beaches",
+   "area": "Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.riva-beach.com/",
+   "description": "Beach club with a pool and private beach on the Palm shoreline.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Zabeel Park",
+   "category": "parks",
+   "area": "Zabeel",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/zabeel-park",
+   "description": "Large city park with lawns, a boating lake and barbecue areas.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Safa Park",
+   "category": "parks",
+   "area": "Al Wasl Road, Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/safa-park",
+   "description": "Green park with lakes, play areas and skyline views.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Creek Park",
+   "category": "parks",
+   "area": "Creek Park, Bur Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/creek-park",
+   "description": "Park along Dubai Creek with gardens, play areas and a cable car.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Mushrif Park",
+   "category": "parks",
+   "area": "Mushrif",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/mushrif-park",
+   "description": "Natural ghaf forest park with cycling and hiking trails and picnic areas.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Al Qudra Lakes",
+   "category": "daytrips",
+   "area": "Al Qudra",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/al-qudra-lakes",
+   "description": "Man-made desert lakes with birdlife, popular for picnics and sunsets.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Ras Al Khor Wildlife Sanctuary",
+   "category": "parks",
+   "area": "Ras Al Khor",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/ras-al-khor-wildlife-sanctuary",
+   "description": "Wetland reserve with bird hides for watching flamingos.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Quranic Park",
+   "category": "parks",
+   "area": "Al Khawaneej",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/quranic-park",
+   "description": "Garden of plants named in the Quran, with a glass house and a cave of miracles.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Al Barsha Pond Park",
+   "category": "parks",
+   "area": "Al Barsha",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/al-barsha-pond-park",
+   "description": "Neighbourhood park around a lake with a running track and courts.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Dubai Crocodile Park",
+   "category": "kids",
+   "area": "Mushrif",
+   "city": "Dubai",
+   "official_url": "https://www.dubaicrocodilepark.com/",
+   "description": "Park housing Nile crocodiles, with a natural history museum.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Dubai Desert Conservation Reserve",
+   "category": "daytrips",
+   "area": "Al Marmoom",
+   "city": "Dubai",
+   "official_url": "https://www.ddcr.org/",
+   "description": "Protected desert reserve visited with approved tour operators.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Al Marmoom Desert Conservation Reserve",
+   "category": "daytrips",
+   "area": "Al Marmoom",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/al-marmoom-desert-conservation-reserve",
+   "description": "Open desert reserve with lakes, wildlife and stargazing.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Coffee Museum",
+   "category": "museums",
+   "area": "Al Fahidi, Bur Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.coffeemuseum.ae/",
+   "description": "Small museum of coffee history and brewing in an Al Fahidi house.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Museum of Illusions Dubai",
+   "category": "museums",
+   "area": "Al Seef, Bur Dubai",
+   "city": "Dubai",
+   "official_url": "https://museumofillusions.ae/",
+   "description": "Rooms of optical illusions and photo exhibits.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Sheikh Mohammed Centre for Cultural Understanding",
+   "category": "museums",
+   "area": "Al Fahidi, Bur Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.cultures.ae/",
+   "description": "Cultural meals, heritage tours and mosque visits with Emirati hosts.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Al Fahidi Historical Neighbourhood",
+   "category": "museums",
+   "area": "Al Fahidi, Bur Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/al-fahidi-historical-neighbourhood",
+   "description": "Old wind-tower quarter by the Creek with galleries, cafés and small museums.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Theatre of Digital Art (ToDA)",
+   "category": "museums",
+   "area": "Souk Madinat Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://toda.ae/",
+   "description": "Immersive digital art shows and concerts.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Infinity des Lumières",
+   "category": "museums",
+   "area": "The Dubai Mall, Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.infinitylumieres.com/",
+   "description": "Large digital art gallery with projected exhibitions.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "AYA Universe",
+   "category": "attractions",
+   "area": "WAFI City, Oud Metha",
+   "city": "Dubai",
+   "official_url": "https://www.aya-universe.com/",
+   "description": "Immersive park of light and sound installations across twelve zones.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "ARTE Museum Dubai",
+   "category": "museums",
+   "area": "The Dubai Mall, Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://dubai.artemuseum.com/",
+   "description": "Immersive media art exhibition themed around nature.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Madame Tussauds Dubai",
+   "category": "attractions",
+   "area": "Bluewaters",
+   "city": "Dubai",
+   "official_url": "https://www.madametussauds.com/dubai/",
+   "description": "Wax museum with figures of regional and international stars.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Crossroads of Civilizations Museum",
+   "category": "museums",
+   "area": "Al Shindagha, Bur Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.themuseum.ae/",
+   "description": "Private museum of antiquities, manuscripts and arms in a historic house.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Cinema Akil",
+   "category": "museums",
+   "area": "Alserkal Avenue, Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.cinemaakil.com/",
+   "description": "Independent arthouse cinema showing world and regional films.",
+   "is_indoor": true
+  },
+  {
+   "name": "The Courtyard Playhouse",
+   "category": "museums",
+   "area": "Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.courtyardplayhouse.com/",
+   "description": "Community theatre for improv, comedy and screenings.",
+   "is_indoor": true
+  },
+  {
+   "name": "Tashkeel",
+   "category": "studios",
+   "area": "Nad Al Sheba",
+   "city": "Dubai",
+   "official_url": "https://tashkeel.org/",
+   "description": "Art and design studios with exhibitions and workshops.",
+   "is_indoor": true
+  },
+  {
+   "name": "Mohammed Bin Rashid Library",
+   "category": "museums",
+   "area": "Jaddaf",
+   "city": "Dubai",
+   "official_url": "https://www.mbrl.ae/",
+   "description": "Book-shaped library on the Creek with exhibitions and a children's library.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Ain Dubai",
+   "category": "attractions",
+   "area": "Bluewaters",
+   "city": "Dubai",
+   "official_url": "https://www.aindubai.com/",
+   "description": "Giant observation wheel on Bluewaters.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Inside Burj Al Arab",
+   "category": "attractions",
+   "area": "Burj Al Arab, Umm Suqeim",
+   "city": "Dubai",
+   "official_url": "https://www.insideburjalarab.com/",
+   "description": "Guided tour inside Burj Al Arab including the Royal Suite.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "IMG Worlds of Adventure",
+   "category": "attractions",
+   "area": "City of Arabia, Dubailand",
+   "city": "Dubai",
+   "official_url": "https://www.imgworlds.com/",
+   "description": "Large indoor theme park with rides in themed zones.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "MOTIONGATE Dubai",
+   "category": "attractions",
+   "area": "Dubai Parks and Resorts",
+   "city": "Dubai",
+   "official_url": "https://www.motiongatedubai.com/",
+   "description": "Hollywood-themed park with roller coasters and shows.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Real Madrid World",
+   "category": "attractions",
+   "area": "Dubai Parks and Resorts",
+   "city": "Dubai",
+   "official_url": "https://www.realmadridworld.ae/",
+   "description": "Football-themed park with rides and club exhibits.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Chillout Ice Lounge",
+   "category": "attractions",
+   "area": "Times Square Center, Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.chilloutindubai.com/",
+   "description": "Sub-zero lounge with ice sculptures and hot drinks.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Riverland Dubai",
+   "category": "markets",
+   "area": "Dubai Parks and Resorts",
+   "city": "Dubai",
+   "official_url": "https://www.riverlanddubai.com/",
+   "description": "Free-entry dining and entertainment promenade at Dubai Parks.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "La Perle",
+   "category": "attractions",
+   "area": "Al Habtoor City, Business Bay",
+   "city": "Dubai",
+   "official_url": "https://www.laperle.com/",
+   "description": "Resident aqua-acrobatic show in a purpose-built theatre.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Dubai Opera",
+   "category": "museums",
+   "area": "Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.dubaiopera.com/",
+   "description": "Dhow-shaped performing arts centre for opera, ballet, concerts and comedy.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "KidZania Dubai",
+   "category": "kids",
+   "area": "The Dubai Mall, Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://dubai.kidzania.com/",
+   "description": "Child-size city where kids role-play jobs.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "LEGOLAND Water Park",
+   "category": "kids",
+   "area": "Dubai Parks and Resorts",
+   "city": "Dubai",
+   "official_url": "https://www.legoland.com/dubai/legoland-water-park/",
+   "description": "Waterpark designed for families with children aged 2 to 12.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Cheeky Monkeys",
+   "category": "kids",
+   "area": "Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.cheekymonkeys.com/",
+   "description": "Indoor soft-play centres for younger children, in several locations.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Woo-hoo!",
+   "category": "kids",
+   "area": "Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.woohoo.ae/",
+   "description": "Children's edutainment museum with themed play rooms.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Children's City",
+   "category": "kids",
+   "area": "Creek Park, Bur Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.childrencity.ae/",
+   "description": "Science and discovery centre for children in Creek Park.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Fun City",
+   "category": "kids",
+   "area": "Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.funcity.ae/",
+   "description": "Family entertainment centres with rides and games, in several malls.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Splash 'n' Party",
+   "category": "kids",
+   "area": "Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.splashnparty.ae/",
+   "description": "Small water-play park for young children.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Play DXB",
+   "category": "kids",
+   "area": "The Dubai Mall, Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.playdxb.com/",
+   "description": "Indoor games and virtual reality park.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Gold Souk",
+   "category": "markets",
+   "area": "Gold Souk, Deira",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/gold-souk",
+   "description": "Covered lanes of jewellery shops in old Deira.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Spice Souk",
+   "category": "markets",
+   "area": "Spice Souk, Deira",
+   "city": "Dubai",
+   "official_url": "https://www.visitdubai.com/en/places-to-visit/spice-souk",
+   "description": "Traditional market for spices, incense and dried fruit near the abra station.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "The Dubai Mall",
+   "category": "markets",
+   "area": "Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://thedubaimall.com/",
+   "description": "Huge mall beside Burj Khalifa with an aquarium, ice rink and waterfall.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Ibn Battuta Mall",
+   "category": "markets",
+   "area": "Jebel Ali",
+   "city": "Dubai",
+   "official_url": "https://www.ibnbattutamall.com/",
+   "description": "Mall themed around the travels of Ibn Battuta.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Dubai Festival City Mall",
+   "category": "markets",
+   "area": "Festival City",
+   "city": "Dubai",
+   "official_url": "https://www.dubaifestivalcitymall.com/",
+   "description": "Waterfront mall with the IMAGINE light and water show.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "City Walk",
+   "category": "markets",
+   "area": "City Walk",
+   "city": "Dubai",
+   "official_url": "https://www.citywalk.ae/",
+   "description": "Open-air streets of shops, restaurants and entertainment.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Bluewaters",
+   "category": "markets",
+   "area": "Bluewaters",
+   "city": "Dubai",
+   "official_url": "https://bluewatersdubai.ae/",
+   "description": "Island of restaurants and shops around Ain Dubai.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Souk Al Bahar",
+   "category": "markets",
+   "area": "Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.soukalbahar.ae/",
+   "description": "Arabesque souk with restaurants overlooking the Dubai Fountain lake.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Dragon Mart",
+   "category": "markets",
+   "area": "International City",
+   "city": "Dubai",
+   "official_url": "https://www.dragonmart.ae/",
+   "description": "Vast trading mall for household goods, furniture and more.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "The Outlet Village",
+   "category": "markets",
+   "area": "Jebel Ali",
+   "city": "Dubai",
+   "official_url": "https://www.theoutletvillage.ae/",
+   "description": "Outlet mall styled as a Tuscan hill town.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Dubai Outlet Mall",
+   "category": "markets",
+   "area": "Dubailand",
+   "city": "Dubai",
+   "official_url": "https://www.dubaioutletmall.com/",
+   "description": "Outlet mall on the Dubai–Al Ain road.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Ripe Market",
+   "category": "markets",
+   "area": "Dubai",
+   "city": "Dubai",
+   "official_url": "https://ripeme.com/",
+   "description": "Weekend market of local produce, food and crafts; location changes by season.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Time Out Market Dubai",
+   "category": "markets",
+   "area": "Souk Al Bahar, Downtown Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.timeoutmarket.com/dubai/",
+   "description": "Food hall of local restaurants with Burj Khalifa views.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Waterfront Market",
+   "category": "markets",
+   "area": "Deira",
+   "city": "Dubai",
+   "official_url": "https://www.waterfrontmarket.ae/",
+   "description": "Fresh fish, meat, fruit and vegetable market on the Deira corniche.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Nakheel Mall",
+   "category": "markets",
+   "area": "Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.nakheelmall.ae/",
+   "description": "Mall at the centre of Palm Jumeirah, below The View.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Mercato",
+   "category": "markets",
+   "area": "Jumeirah 1",
+   "city": "Dubai",
+   "official_url": "https://www.mercatoshoppingmall.com/",
+   "description": "Renaissance-themed neighbourhood mall on Jumeirah Beach Road.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "WAFI City",
+   "category": "markets",
+   "area": "Oud Metha",
+   "city": "Dubai",
+   "official_url": "https://www.wafi.com/",
+   "description": "Egyptian-themed mall and dining complex.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Dubai Marina Mall",
+   "category": "markets",
+   "area": "Dubai Marina",
+   "city": "Dubai",
+   "official_url": "https://www.dubaimarinamall.com/",
+   "description": "Mall on the Marina promenade.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "thejamjar",
+   "category": "studios",
+   "area": "Alserkal Avenue, Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.thejamjardubai.com/",
+   "description": "DIY painting studio and community arts space.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Yadawei Ceramic Studio",
+   "category": "studios",
+   "area": "Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://www.yadawei.com/",
+   "description": "Pottery classes and open studio sessions.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Mirzam Chocolate Makers",
+   "category": "studios",
+   "area": "Alserkal Avenue, Al Quoz",
+   "city": "Dubai",
+   "official_url": "https://mirzam.com/",
+   "description": "Bean-to-bar chocolate factory with tours and workshops.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Top Chef Cooking Studio",
+   "category": "studios",
+   "area": "Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.topchefdubai.com/",
+   "description": "Hands-on cooking classes for adults and children.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Dubai International Art Centre",
+   "category": "studios",
+   "area": "Jumeirah 1",
+   "city": "Dubai",
+   "official_url": "https://www.artdubai.com/",
+   "description": "Long-running art centre with courses and exhibitions.",
+   "kid_friendly": true,
+   "is_indoor": true
+  },
+  {
+   "name": "Platinum Heritage",
+   "category": "daytrips",
+   "area": "Dubai Desert Conservation Reserve",
+   "city": "Dubai",
+   "official_url": "https://www.platinum-heritage.com/",
+   "description": "Heritage-style desert safaris in vintage Land Rovers.",
+   "kid_friendly": true,
+   "is_indoor": false
+  },
+  {
+   "name": "Balloon Adventures Dubai",
+   "category": "daytrips",
+   "area": "Dubai desert",
+   "city": "Dubai",
+   "official_url": "https://ballooning.ae/",
+   "description": "Sunrise hot-air balloon flights over the desert.",
+   "kid_friendly": true,
+   "is_indoor": false
+  }
+ ]
+}
