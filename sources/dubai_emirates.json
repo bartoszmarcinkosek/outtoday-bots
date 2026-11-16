@@ -373,6 +373,76 @@
     "https://feverup.com/m/401960/en"
    ],
    "trusted": true
+  },
+  {
+   "id": "meetup_boardgamers",
+   "name": "Dubai Board Gamers (Meetup)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/dubaiboardgamers/events/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_bookends",
+   "name": "Bookends Dubai (Meetup)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/bookends-dubai/events/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_chess",
+   "name": "Dubai Social Chess Club (Meetup)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/dubai-social-chess-club/events/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_alpine",
+   "name": "Alpine Trekkers (Meetup)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/alpinetrekkersae/events/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_weekendlovers",
+   "name": "UAE Weekend Lovers (Meetup)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/UAE-Weekend-Lovers/events/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_bookclubs_dxb",
+   "name": "Meetup – book clubs Dubai",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/find/ae--dubai/bookclub/"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "meetup_friends_dxb",
+   "name": "Meetup – make friends Dubai",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.meetup.com/find/ae--dubai/looking-to-make-friends/"
+   ],
+   "trusted": false
   }
  ]
 }
