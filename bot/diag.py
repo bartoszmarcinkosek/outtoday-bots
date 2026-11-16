@@ -1,11 +1,9 @@
-import os, requests
+import os, requests, collections, json
 URL = os.environ["SUPABASE_URL"].strip(); KEY = os.environ["SUPABASE_SECRET_KEY"].strip()
-H = {"apikey": KEY, "Content-Type": "application/json"}
-r = requests.get(f"{URL}/rest/v1/events", headers=H, params={"select": "id,title,status,bot_key", "bot_key": "like.eventbrite:*"}, timeout=30)
-rows = r.json()
-for x in rows: print("ROW", x["status"], x["title"][:60], x["id"])
-# duplikaty SAT03: zostaw odrzucony, usuń nowszy pending
-for x in rows:
-    if x["title"].startswith("SAT03") and x["status"] == "pending":
-        requests.patch(f"{URL}/rest/v1/events", headers=H, params={"id": f"eq.{x['id']}"}, json={"status": "rejected"}, timeout=30)
-        print("REJECTED duplicate", x["id"])
+H = {"apikey": KEY}
+rows = requests.get(f"{URL}/rest/v1/bot_changes", headers=H, params={"select": "*", "handled": "eq.false", "limit": "1000"}, timeout=30).json()
+print("TOTAL", len(rows))
+c = collections.Counter((r["table_name"], r["field"], bool(r.get("evidence"))) for r in rows)
+for k, v in c.most_common(): print("KIND", k, v)
+for r in rows[:25]:
+    print("EX", r["table_name"], r["field"], repr(r["old_value"])[:40], "->", repr(r["new_value"])[:50], "|", (r.get("evidence") or "")[:60], "|", (r.get("source_url") or "")[:50])
