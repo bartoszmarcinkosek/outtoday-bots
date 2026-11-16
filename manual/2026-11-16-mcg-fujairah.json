@@ -1,0 +1,20 @@
+{
+ "deals": [
+  {
+   "title": "Saturday Brunch at McGettigan's Fujairah",
+   "deal_type": "brunch",
+   "venue": "McGettigan's Fujairah, Tennis & Country Club",
+   "city": "Fujairah",
+   "official_url": "https://www.mcgettigans.com/fujairah/whats-on/saturday-brunch.html",
+   "days_of_week": [
+    6
+   ],
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "price_text": "From AED 179–199 (the pub's two official pages differ – check when booking)",
+   "details": "Three-course meal with unlimited drinks and live entertainment.",
+   "status": "pending",
+   "source_name": "OutToday (official site)"
+  }
+ ]
+}
