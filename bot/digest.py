@@ -90,10 +90,10 @@ def load(db: DB) -> dict:
     sel = {"events": "id,title,start_date,official_url,url",
            "places": "id,name,official_url,url,city",
            "deals": "id,title,venue,official_url,url,city"}
-    for table, cols in sel.items():
+    for table, tcols in sel.items():
         ids = sorted({c["row_id"] for c in changes if c.get("table_name", "events") == table})
         for i in range(0, len(ids), 50):
-            for e in db.get(table, {"select": cols, "id": f"in.({','.join(ids[i:i + 50])})"}):
+            for e in db.get(table, {"select": tcols, "id": f"in.({','.join(ids[i:i + 50])})"}):
                 e["_table"] = table
                 e.setdefault("title", e.get("name"))
                 titles[e["id"]] = e
