@@ -1,1 +1,1022 @@
-[]
+[
+ {
+  "name": "Al Maha Arjaan by Rotana",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/abudhabi/almahaarjaanbyrotana"
+ },
+ {
+  "name": "Al Rawda Arjaan by Rotana",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/abudhabi/alrawdaarjaanbyrotana"
+ },
+ {
+  "name": "Anantara Retreat Santorini Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.anantara.com/en/santorini-abu-dhabi"
+ },
+ {
+  "name": "Anantara Sir Bani Yas Island Al Sahel Villa Resort",
+  "city": "Abu Dhabi",
+  "url": "https://www.anantara.com/en/al-sahel-sir-bani-yas"
+ },
+ {
+  "name": "Anantara Sir Bani Yas Island Al Yamm Villa Resort",
+  "city": "Abu Dhabi",
+  "url": "https://www.anantara.com/en/al-yamm-sir-bani-yas"
+ },
+ {
+  "name": "Andaz Capital Gate, Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.hyatt.com/en-US/hotel/united-arab-emirates/andaz-capital-gate-abu-dhabi/abdcc"
+ },
+ {
+  "name": "Bloom Arjaan by Rotana",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/abudhabi/bloomarjaanbyrotana"
+ },
+ {
+  "name": "Capital Centre Arjaan by Rotana",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/abudhabi/capitalcentrearjaanbyrotana"
+ },
+ {
+  "name": "Centro Al Manhal",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/centrohotels/unitedarabemirates/abudhabi/centroalmanhal"
+ },
+ {
+  "name": "Centro Capital Centre",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/centrohotels/unitedarabemirates/abudhabi/centrocapitalcentre"
+ },
+ {
+  "name": "Conrad Abu Dhabi Etihad Towers",
+  "city": "Abu Dhabi",
+  "url": "https://www.hilton.com/en/hotels/auhetci-conrad-abu-dhabi-etihad-towers/"
+ },
+ {
+  "name": "Copthorne Downtown Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.millenniumhotels.com/en/abu-dhabi/copthorne-downtown-abu-dhabi/"
+ },
+ {
+  "name": "Courtyard by Marriott World Trade Center, Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.marriott.com/en-us/hotels/auhcy-courtyard-world-trade-center-abu-dhabi/overview/"
+ },
+ {
+  "name": "Crowne Plaza Abu Dhabi - Yas Island",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/crowneplaza/hotels/us/en/abu-dhabi/auhyi/hoteldetail"
+ },
+ {
+  "name": "Desert Islands Resort & Spa by Anantara",
+  "city": "Abu Dhabi",
+  "url": "https://www.anantara.com/en/desert-islands-sir-bani-yas"
+ },
+ {
+  "name": "Fairmont Bab Al Bahr",
+  "city": "Abu Dhabi",
+  "url": "https://www.fairmont.com/en/hotels/abu-dhabi/fairmont-bab-al-bahr.html"
+ },
+ {
+  "name": "Four Seasons Hotel Abu Dhabi at Al Maryah Island",
+  "city": "Abu Dhabi",
+  "url": "https://www.fourseasons.com/abudhabi/"
+ },
+ {
+  "name": "Grand Hyatt Abu Dhabi Hotel & Residences Emirates Pearl",
+  "city": "Abu Dhabi",
+  "url": "https://www.hyatt.com/grand-hyatt/en-US/auhgh-grand-hyatt-abu-dhabi-hotel-and-residences-emirates-pearl"
+ },
+ {
+  "name": "Grand Millennium Al Wahda",
+  "city": "Abu Dhabi",
+  "url": "https://www.millenniumhotels.com/en/abu-dhabi/grand-millennium-al-wahda/"
+ },
+ {
+  "name": "Hala Arjaan by Rotana",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/abudhabi/halaarjaanbyrotana"
+ },
+ {
+  "name": "Hawthorn Suites by Wyndham Abu Dhabi City Center",
+  "city": "Abu Dhabi",
+  "url": "https://www.wyndhamhotels.com/hawthorn-extended-stay/abu-dhabi-united-arab-emirates/hawthorn-suites-by-wyndham-city-center-abu-dhabi/overview"
+ },
+ {
+  "name": "Hilton Capital Grand Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www3.hilton.com/en/hotels/uae/hilton-capital-grand-abu-dhabi-AUHAMHI/index.html"
+ },
+ {
+  "name": "Holiday Inn Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/holidayinn/hotels/us/en/abu-dhabi/auhar/hoteldetail"
+ },
+ {
+  "name": "Howard Johnson by Wyndham Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.wyndhamhotels.com/hojo/abu-dhabi-united-arab-emirates/howard-johnson-hotel-diplomat-abu-dhabi-ae"
+ },
+ {
+  "name": "InterContinental Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/intercontinental/hotels/us/en/abu-dhabi/auhha/hoteldetail"
+ },
+ {
+  "name": "Jumeirah Saadiyat Island",
+  "city": "Abu Dhabi",
+  "url": "https://www.jumeirah.com/en/stay/abu-dhabi/jumeirah-saadiyat-island"
+ },
+ {
+  "name": "Kingsgate Hotel Abu Dhabi by Millennium",
+  "city": "Abu Dhabi",
+  "url": "https://www.millenniumhotels.com/en/abu-dhabi/kingsgate-hotel-abu-dhabi-by-millennium/"
+ },
+ {
+  "name": "La Quinta by Wyndham Abu Dhabi Al Wahda",
+  "city": "Abu Dhabi",
+  "url": "https://www.wyndhamhotels.com/laquinta/abu-dhabi-united-arab-emirates/la-quinta-abu-dhabi-al-wahda/overview"
+ },
+ {
+  "name": "Le Royal Méridien Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/overview/"
+ },
+ {
+  "name": "Marriott Executive Apartments Downtown Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.marriott.com/en-us/hotels/auher-marriott-executive-apartments-downtown-abu-dhabi/overview/"
+ },
+ {
+  "name": "Marriott Hotel Downtown, Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.marriott.com/en-us/hotels/auhmc-marriott-hotel-downtown-abu-dhabi/overview/"
+ },
+ {
+  "name": "Millennium Al Rawdah Hotel",
+  "city": "Abu Dhabi",
+  "url": "https://www.millenniumhotels.com/en/abu-dhabi/millennium-al-rawdah-hotel/"
+ },
+ {
+  "name": "Millennium Downtown Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.millenniumhotels.com/en/abu-dhabi/millennium-downtown-abu-dhabi/"
+ },
+ {
+  "name": "Park Arjaan by Rotana",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/abudhabi/parkarjaanbyrotana"
+ },
+ {
+  "name": "Park Hyatt Abu Dhabi Hotel and Villas",
+  "city": "Abu Dhabi",
+  "url": "https://www.hyatt.com/en-US/hotel/united-arab-emirates/park-hyatt-abu-dhabi-hotel-and-villas/abuph"
+ },
+ {
+  "name": "Park Inn by Radisson Abu Dhabi, Yas Island",
+  "city": "Abu Dhabi",
+  "url": "https://www.radissonhotels.com/en-us/hotels/park-inn-abu-dhabi-yas-island"
+ },
+ {
+  "name": "Park Rotana",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/abudhabi/parkrotana"
+ },
+ {
+  "name": "Pearl Rotana Capital Centre",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/abudhabi/pearlrotana"
+ },
+ {
+  "name": "Qasr Al Sarab Desert Resort by Anantara",
+  "city": "Abu Dhabi",
+  "url": "https://www.anantara.com/en/qasr-al-sarab-abu-dhabi"
+ },
+ {
+  "name": "Radisson Blu Hotel & Resort, Abu Dhabi Corniche",
+  "city": "Abu Dhabi",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-abu-dhabi-corniche"
+ },
+ {
+  "name": "Radisson Blu Hotel, Abu Dhabi Yas Island",
+  "city": "Abu Dhabi",
+  "url": "https://radissonhotels.com/en-us/hotels/radisson-blu-abu-dhabi-yas-island"
+ },
+ {
+  "name": "Ramada by Wyndham Abu Dhabi Corniche",
+  "city": "Abu Dhabi",
+  "url": "https://www.wyndhamhotels.com/ramada/abu-dhabi-united-arab-emirates/ramada-abu-dhabi-corniche"
+ },
+ {
+  "name": "Ramada by Wyndham Abu Dhabi Downtown",
+  "city": "Abu Dhabi",
+  "url": "https://www.wyndhamhotels.com/ramada/abu-dhabi-united-arab-emirates/ramada-abu-dhabi-downtown"
+ },
+ {
+  "name": "Royal Rose Hotel Abu Dhabi, Curio Collection by Hilton",
+  "city": "Abu Dhabi",
+  "url": "https://www.hilton.com/en/hotels/auhrrqq-royal-rose-abu-dhabi/"
+ },
+ {
+  "name": "Saadiyat Rotana Resort & Villas",
+  "city": "Abu Dhabi",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/abudhabi/saadiyatrotanaresortandvillas"
+ },
+ {
+  "name": "Shangri-La Qaryat Al Beri, Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.shangri-la.com/abudhabi/shangrila/"
+ },
+ {
+  "name": "Sheraton Abu Dhabi Hotel & Resort",
+  "city": "Abu Dhabi",
+  "url": "https://www.marriott.com/en-us/hotels/auhsi-sheraton-abu-dhabi-hotel-and-resort/overview/"
+ },
+ {
+  "name": "Sofitel Abu Dhabi Corniche",
+  "city": "Abu Dhabi",
+  "url": "https://sofitel.accor.com/en/hotels/7507.html"
+ },
+ {
+  "name": "TRYP by Wyndham Abu Dhabi City Center",
+  "city": "Abu Dhabi",
+  "url": "https://www.wyndhamhotels.com/tryp/abu-dhabi-united-arab-emirates/tryp-by-wyndham-abu-dhabi"
+ },
+ {
+  "name": "The Biltmore Bab Al Qasr Hotel",
+  "city": "Abu Dhabi",
+  "url": "https://www.millenniumhotels.com/en/abu-dhabi/bab-al-qasr-hotel/"
+ },
+ {
+  "name": "The Ritz-Carlton Abu Dhabi, Grand Canal",
+  "city": "Abu Dhabi",
+  "url": "https://www.ritzcarlton.com/en/hotels/auhrz-the-ritz-carlton-abu-dhabi-grand-canal/overview/"
+ },
+ {
+  "name": "The WB Abu Dhabi, Curio Collection by Hilton",
+  "city": "Abu Dhabi",
+  "url": "https://www.hilton.com/en/hotels/auhwbqq-the-wb-abu-dhabi-hotel/"
+ },
+ {
+  "name": "Ajman Saray, a Luxury Collection Resort, Ajman",
+  "city": "Ajman",
+  "url": "https://www.marriott.com/en-us/hotels/shjlc-ajman-saray-a-luxury-collection-resort-ajman/overview/"
+ },
+ {
+  "name": "Fairmont Ajman",
+  "city": "Ajman",
+  "url": "https://www.fairmont.com/en/hotels/ajman/fairmont-ajman.html"
+ },
+ {
+  "name": "Radisson Blu Hotel, Ajman",
+  "city": "Ajman",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-ajman"
+ },
+ {
+  "name": "Ramada Hotel & Suites by Wyndham Ajman",
+  "city": "Ajman",
+  "url": "https://www.wyndhamhotels.com/ramada/ajman-united-arab-emirates/ramada-hotel-and-suites-ajman/overview"
+ },
+ {
+  "name": "Ramada by Wyndham Beach Hotel Ajman",
+  "city": "Ajman",
+  "url": "https://www.wyndhamhotels.com/ramada/ajman-united-arab-emirates/ramada-beach-hotel-ajman/overview"
+ },
+ {
+  "name": "Wyndham Garden Ajman Corniche",
+  "city": "Ajman",
+  "url": "https://www.wyndhamhotels.com/en-uk/wyndham-garden/ajman-united-arab-emirates/wyndham-garden-ajman-corniche/overview"
+ },
+ {
+  "name": "Al Ain Rotana",
+  "city": "Al Ain",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/alain/alainrotana"
+ },
+ {
+  "name": "Aloft by Marriott Al Ain",
+  "city": "Al Ain",
+  "url": "https://www.marriott.com/en-us/hotels/aanlo-aloft-al-ain/overview/"
+ },
+ {
+  "name": "Four Points by Sheraton Al Ain",
+  "city": "Al Ain",
+  "url": "https://www.marriott.com/en-us/hotels/aanfp-four-points-al-ain/overview/"
+ },
+ {
+  "name": "Radisson Blu Hotel & Resort, Al Ain",
+  "city": "Al Ain",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-al-ain"
+ },
+ {
+  "name": "Al Bandar Arjaan Dubai - Creek",
+  "city": "Dubai",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/dubai/albandararjaanbyrotana"
+ },
+ {
+  "name": "Amwaj Rotana-Jumeirah Beach",
+  "city": "Dubai",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/dubai/amwajrotana"
+ },
+ {
+  "name": "Anantara The Palm Dubai Resort",
+  "city": "Dubai",
+  "url": "https://www.anantara.com/en/palm-dubai"
+ },
+ {
+  "name": "Andaz Dubai The Palm",
+  "city": "Dubai",
+  "url": "https://www.hyatt.com/andaz/en-US/dxbct-andaz-dubai-the-palm"
+ },
+ {
+  "name": "Arjaan by Rotana Dubai Media City",
+  "city": "Dubai",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/dubai/arjaanbyrotanadubaimediacity"
+ },
+ {
+  "name": "Avani Deira Dubai Hotel",
+  "city": "Dubai",
+  "url": "https://www.avanihotels.com/en/deira-dubai"
+ },
+ {
+  "name": "Avani Ibn Battuta Dubai Hotel",
+  "city": "Dubai",
+  "url": "https://www.avanihotels.com/en/ibn-battuta-dubai"
+ },
+ {
+  "name": "Avani+ Palm View Dubai Hotel & Suites",
+  "city": "Dubai",
+  "url": "https://www.avanihotels.com/en/palm-dubai"
+ },
+ {
+  "name": "Centro Barsha",
+  "city": "Dubai",
+  "url": "https://www.rotana.com/centrohotels/unitedarabemirates/dubai/centrobarsha"
+ },
+ {
+  "name": "Conrad Dubai",
+  "city": "Dubai",
+  "url": "https://www.hilton.com/en/hotels/dxbcdci-conrad-dubai/"
+ },
+ {
+  "name": "Copthorne Hotel Dubai",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/copthorne-hotel-dubai/"
+ },
+ {
+  "name": "Crowne Plaza Dubai - Deira",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/crowneplaza/hotels/us/en/dubai/dxbcp/hoteldetail"
+ },
+ {
+  "name": "Crowne Plaza Dubai - Festival City",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/crowneplaza/hotels/us/en/dubai/dubfc/hoteldetail"
+ },
+ {
+  "name": "Crowne Plaza Dubai Jumeirah",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/crowneplaza/hotels/us/en/dubai/dxbjd/hoteldetail"
+ },
+ {
+  "name": "Crowne Plaza Dubai Marina",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/crowneplaza/hotels/us/en/dubai/dxbmr/hoteldetail/rooms"
+ },
+ {
+  "name": "Damac Hills 2 Hotel, Edge by Rotana",
+  "city": "Dubai",
+  "url": "https://www.rotana.com/edge/unitedarabemirates/dubai/damachills2hotel"
+ },
+ {
+  "name": "Days Hotel by Wyndham Dubai Deira",
+  "city": "Dubai",
+  "url": "https://www.wyndhamhotels.com/days-inn/dubai-united-arab-emirates/days-hotel-dubai-deira/rooms-rates"
+ },
+ {
+  "name": "Fairmont Dubai",
+  "city": "Dubai",
+  "url": "https://www.fairmont.com/en/hotels/dubai/fairmont-dubai.html"
+ },
+ {
+  "name": "Fairmont The Palm",
+  "city": "Dubai",
+  "url": "https://www.fairmont.com/en/hotels/dubai/fairmont-the-palm.html"
+ },
+ {
+  "name": "Four Seasons Hotel Dubai International Financial Centre",
+  "city": "Dubai",
+  "url": "https://www.fourseasons.com/dubaidifc/"
+ },
+ {
+  "name": "Four Seasons Resort Dubai at Jumeirah Beach",
+  "city": "Dubai",
+  "url": "https://www.fourseasons.com/dubaijb/"
+ },
+ {
+  "name": "Grand Hyatt Dubai",
+  "city": "Dubai",
+  "url": "https://www.hyatt.com/grand-hyatt/en-US/dxbgh-grand-hyatt-dubai"
+ },
+ {
+  "name": "Grand Millennium Business Bay",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/grand-millennium-business-bay/"
+ },
+ {
+  "name": "Grand Millennium Dubai",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/grand-millennium-dubai/"
+ },
+ {
+  "name": "Hilton Dubai Al Habtoor City",
+  "city": "Dubai",
+  "url": "https://www.hilton.com/en/hotels/dxbahhi-hilton-dubai-al-habtoor-city/"
+ },
+ {
+  "name": "Hilton Dubai Palm Jumeirah",
+  "city": "Dubai",
+  "url": "https://www.hilton.com/en/hotels/dxbpjhi-hilton-dubai-palm-jumeirah/"
+ },
+ {
+  "name": "Holiday Inn & Suites Dubai Festival City",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/holidayinn/hotels/us/en/dubai/dxbfc/hoteldetail"
+ },
+ {
+  "name": "Holiday Inn & Suites Dubai Science Park",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/holidayinn/hotels/us/en/dubai/dxbda/hoteldetail"
+ },
+ {
+  "name": "Holiday Inn Dubai - Al Barsha",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/holidayinn/hotels/us/en/dubai/dubhi/hoteldetail"
+ },
+ {
+  "name": "Holiday Inn Dubai - Downtown Dubai",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/holidayinn/hotels/us/en/dubai/dubdt/hoteldetail?cm_mmc=GoogleMaps-_-HI-_-ARE-_-DUBDT"
+ },
+ {
+  "name": "Holiday Inn Dubai Al-Maktoum Airport",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/holidayinn/hotels/us/en/dubai/dxbwc/hoteldetail"
+ },
+ {
+  "name": "Holiday Inn Dubai Business Bay",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/holidayinn/hotels/us/en/dubai/dxbby/hoteldetail"
+ },
+ {
+  "name": "Holiday Inn Dubai Jumeirah Village Circle",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/holidayinn/hotels/us/en/dubai/dxbdv/hoteldetail"
+ },
+ {
+  "name": "Hyatt Place Dubai Al Rigga",
+  "city": "Dubai",
+  "url": "https://www.hyatt.com/hyatt-place/en-US/dxbzd-hyatt-place-dubai-al-rigga"
+ },
+ {
+  "name": "Hyatt Place Dubai Jumeirah",
+  "city": "Dubai",
+  "url": "https://www.hyatt.com/en-US/hotel/united-arab-emirates/hyatt-place-dubai-jumeirah/dxbza"
+ },
+ {
+  "name": "Hyatt Regency Dubai Creek Heights",
+  "city": "Dubai",
+  "url": "https://www.hyatt.com/hyatt-regency/en-US/dxbhc-hyatt-regency-dubai-creek-heights"
+ },
+ {
+  "name": "InterContinental Dubai Festival City",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/intercontinental/hotels/us/en/dubai/dxbhb/hoteldetail"
+ },
+ {
+  "name": "InterContinental Dubai Marina",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/intercontinental/hotels/us/en/dubai/dxbpl/hoteldetail"
+ },
+ {
+  "name": "InterContinental Residence Suites Dubai F.C",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/intercontinental/hotels/us/en/dubai/dxbrs/hoteldetail"
+ },
+ {
+  "name": "InterContinental Residences Dubai Business Bay",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/intercontinental/hotels/us/en/dubai/dxbhc/hoteldetail"
+ },
+ {
+  "name": "JW Marriott Marquis Hotel Dubai",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbjw-jw-marriott-marquis-hotel-dubai/overview/"
+ },
+ {
+  "name": "Jumeira Rotana",
+  "city": "Dubai",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/dubai/jumeirarotana"
+ },
+ {
+  "name": "Jumeirah Al Naseem",
+  "city": "Dubai",
+  "url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-al-naseem"
+ },
+ {
+  "name": "Jumeirah Al Qasr",
+  "city": "Dubai",
+  "url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-al-qasr"
+ },
+ {
+  "name": "Jumeirah Beach Hotel",
+  "city": "Dubai",
+  "url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-beach-hotel"
+ },
+ {
+  "name": "Jumeirah Dar Al Masyaf",
+  "city": "Dubai",
+  "url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-dar-al-masyaf"
+ },
+ {
+  "name": "Jumeirah Emirates Towers",
+  "city": "Dubai",
+  "url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-emirates-towers"
+ },
+ {
+  "name": "Jumeirah Marsa Al Arab",
+  "city": "Dubai",
+  "url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-marsa-al-arab"
+ },
+ {
+  "name": "Jumeirah Mina Al Salam",
+  "city": "Dubai",
+  "url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-mina-al-salam"
+ },
+ {
+  "name": "Jumeirah Zabeel Saray",
+  "city": "Dubai",
+  "url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-zabeel-saray"
+ },
+ {
+  "name": "Kempinski Central Avenue Dubai",
+  "city": "Dubai",
+  "url": "https://www.kempinski.com/en/central-avenue-dubai"
+ },
+ {
+  "name": "Kempinski Hotel & Residences Palm Jumeirah",
+  "city": "Dubai",
+  "url": "https://www.kempinski.com/en/palm-jumeirah"
+ },
+ {
+  "name": "Kempinski Hotel Mall of the Emirates",
+  "city": "Dubai",
+  "url": "https://www.kempinski.com/en/mall-of-the-emirates"
+ },
+ {
+  "name": "Kempinski The Boulevard Dubai",
+  "city": "Dubai",
+  "url": "https://www.kempinski.com/en/the-boulevard-dubai"
+ },
+ {
+  "name": "La Suite Dubai Hotel & Apartments",
+  "city": "Dubai",
+  "url": "https://www.nh-hotels.com/en/hotel/nh-collection-dubai-la-suite-hotel-and-apartments"
+ },
+ {
+  "name": "Marriott Hotel Al Jaddaf, Dubai",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbmh-marriott-hotel-al-jaddaf-dubai/overview/"
+ },
+ {
+  "name": "Marriott Resort Palm Jumeirah, Dubai",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbpj-marriott-resort-palm-jumeirah-dubai/overview/"
+ },
+ {
+  "name": "Millennium Airport Hotel Dubai",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/millennium-airport-hotel-dubai/"
+ },
+ {
+  "name": "Millennium Al Barsha",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/millennium-al-barsha/"
+ },
+ {
+  "name": "Millennium Atria Business Bay",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/millennium-atria-business-bay/"
+ },
+ {
+  "name": "Millennium Central Downtown",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/millennium-central-downtown/"
+ },
+ {
+  "name": "Millennium Lakeview Hotel",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/millennium-lakeview-hotel/"
+ },
+ {
+  "name": "Millennium Place Marina",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/millennium-place-marina/"
+ },
+ {
+  "name": "Millennium Place Mirdif Hotel",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/millennium-place-mirdif-hotel/"
+ },
+ {
+  "name": "Millennium Plaza Downtown Hotel, Dubai",
+  "city": "Dubai",
+  "url": "https://www.millenniumhotels.com/en/dubai/millennium-plaza-downtown-hotel-dubai/"
+ },
+ {
+  "name": "NH Collection Dubai Ibn Battuta Hotel",
+  "city": "Dubai",
+  "url": "https://www.nh-hotels.com/en/hotel/nh-collection-dubai-ibn-battuta"
+ },
+ {
+  "name": "NH Collection Dubai The Palm",
+  "city": "Dubai",
+  "url": "https://www.nh-hotels.com/en/hotel/nh-collection-dubai-the-palm"
+ },
+ {
+  "name": "Park Hyatt Dubai",
+  "city": "Dubai",
+  "url": "https://www.hyatt.com/en-US/hotel/united-arab-emirates/park-hyatt-dubai/dxbph/"
+ },
+ {
+  "name": "Park Inn by Radisson Dubai Motor City",
+  "city": "Dubai",
+  "url": "https://www.radissonhotels.com/en-us/hotels/park-inn-dubai-motor-city"
+ },
+ {
+  "name": "Radisson Beach Resort Palm Jumeirah",
+  "city": "Dubai",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-resort-palm-jumeirah-beach-dubai"
+ },
+ {
+  "name": "Radisson Blu Hotel, Dubai Barsha Heights",
+  "city": "Dubai",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-dubai-barsha-heights"
+ },
+ {
+  "name": "Radisson Blu Hotel, Dubai Canal View",
+  "city": "Dubai",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-dubai-canal"
+ },
+ {
+  "name": "Radisson Blu Hotel, Dubai Deira Creek",
+  "city": "Dubai",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-dubai-deira-creek"
+ },
+ {
+  "name": "Radisson Blu Hotel, Dubai Media City",
+  "city": "Dubai",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-dubai-media-city"
+ },
+ {
+  "name": "Radisson Blu Hotel, Dubai Waterfront",
+  "city": "Dubai",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-dubai-waterfront"
+ },
+ {
+  "name": "Raffles Dubai",
+  "city": "Dubai",
+  "url": "https://www.raffles.com/dubai/about/"
+ },
+ {
+  "name": "Raffles The Palm Dubai",
+  "city": "Dubai",
+  "url": "https://www.raffles.com/thepalm-dubai/"
+ },
+ {
+  "name": "Ramada Hotel & Suites by Wyndham Dubai JBR",
+  "city": "Dubai",
+  "url": "https://www.wyndhamhotels.com/ramada/dubai-united-arab-emirates/ramada-hotel-and-suites-dubai-jbr"
+ },
+ {
+  "name": "Ramada Plaza by Wyndham Dubai Deira",
+  "city": "Dubai",
+  "url": "https://www.wyndhamhotels.com/ramada/dubai-united-arab-emirates/ramada-plaza-dubai-deira/overview"
+ },
+ {
+  "name": "Ramada by Wyndham Downtown Dubai",
+  "city": "Dubai",
+  "url": "https://www.wyndhamhotels.com/en-uk/ramada/dubai-united-arab-emirates/ramada-downtown-dubai/overview"
+ },
+ {
+  "name": "Ramada by Wyndham Dubai Barsha Heights",
+  "city": "Dubai",
+  "url": "https://www.wyndhamhotels.com/ramada/dubai-united-arab-emirates/ramada-dubai-barsha-heights"
+ },
+ {
+  "name": "Ramada by Wyndham Dubai Deira",
+  "city": "Dubai",
+  "url": "https://www.wyndhamhotels.com/ramada/dubai-united-arab-emirates/ramada-deira/overview"
+ },
+ {
+  "name": "Rove City Walk",
+  "city": "Dubai",
+  "url": "https://www.rovehotels.com/en/hotels/rove-city-walk/"
+ },
+ {
+  "name": "Rove Downtown",
+  "city": "Dubai",
+  "url": "https://www.rovehotels.com/en/hotels/downtown/"
+ },
+ {
+  "name": "Shangri-La Dubai",
+  "city": "Dubai",
+  "url": "https://www.shangri-la.com/dubai/shangrila/"
+ },
+ {
+  "name": "Sheraton Dubai Creek Hotel & Towers",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbsi-sheraton-dubai-creek-hotel-and-towers/overview/"
+ },
+ {
+  "name": "Sheraton Grand Hotel, Dubai",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbgh-sheraton-grand-hotel-dubai/overview/"
+ },
+ {
+  "name": "Sheraton Mall of the Emirates Hotel, Dubai",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbml-sheraton-mall-of-the-emirates-hotel-dubai/overview/"
+ },
+ {
+  "name": "Sheraton The Walk, Dubai",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbsj-sheraton-the-walk-dubai/overview/"
+ },
+ {
+  "name": "Sofitel Dubai Downtown",
+  "city": "Dubai",
+  "url": "https://sofitel.accor.com/en/hotels/7492.html"
+ },
+ {
+  "name": "Sofitel Dubai Jumeirah Beach",
+  "city": "Dubai",
+  "url": "https://sofitel.accor.com/en/hotels/6146.html"
+ },
+ {
+  "name": "Sofitel Dubai The Obelisk",
+  "city": "Dubai",
+  "url": "https://sofitel.accor.com/en/hotels/B197.html"
+ },
+ {
+  "name": "Sofitel Dubai The Palm",
+  "city": "Dubai",
+  "url": "https://sofitel.accor.com/en/hotels/6541.html"
+ },
+ {
+  "name": "The Westin Dubai Mina Seyahi Beach Resort & Marina",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbmb-the-westin-dubai-mina-seyahi-beach-resort-and-marina/overview/"
+ },
+ {
+  "name": "Towers Rotana",
+  "city": "Dubai",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/dubai/towersrotana"
+ },
+ {
+  "name": "W Dubai - The Palm",
+  "city": "Dubai",
+  "url": "https://www.marriott.com/en-us/hotels/dxbtp-w-dubai-the-palm/overview/"
+ },
+ {
+  "name": "Waldorf Astoria Dubai International Financial Centre",
+  "city": "Dubai",
+  "url": "https://www.hilton.com/en/hotels/dxbwawa-waldorf-astoria-dubai-international-financial-centre/"
+ },
+ {
+  "name": "Waldorf Astoria Dubai Palm Jumeirah",
+  "city": "Dubai",
+  "url": "https://www.hilton.com/en/hotels/dxbpdwa-waldorf-astoria-dubai-palm-jumeirah/"
+ },
+ {
+  "name": "Wyndham Downtown Dubai",
+  "city": "Dubai",
+  "url": "https://www.wyndhamhotels.com/wyndham/dubai-united-arab-emirates/wyndham-downtown-dubai"
+ },
+ {
+  "name": "Wyndham Residences The Palm",
+  "city": "Dubai",
+  "url": "https://www.wyndhamhotels.com/wyndham/dubai-united-arab-emirates/wyndham-residences-dubai-palm-jumeirah"
+ },
+ {
+  "name": "Address Beach Resort Fujairah",
+  "city": "Fujairah",
+  "url": "https://www.addresshotels.com/en/resorts/address-beach-resort-fujairah/"
+ },
+ {
+  "name": "DoubleTree by Hilton Fujairah City",
+  "city": "Fujairah",
+  "url": "https://www.hilton.com/en/hotels/fjrahdi-doubletree-fujairah-city/"
+ },
+ {
+  "name": "Fairmont Fujairah Beach Resort",
+  "city": "Fujairah",
+  "url": "https://www.fairmont.com/en/hotels/fujairah/fairmont-fujairah-beach-resort.html"
+ },
+ {
+  "name": "Fujairah Rotana Resort & Spa",
+  "city": "Fujairah",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/fujairah/fujairahrotanaresortandspa/"
+ },
+ {
+  "name": "InterContinental Fujairah Resort",
+  "city": "Fujairah",
+  "url": "https://www.ihg.com/intercontinental/hotels/us/en/fujairah/fjrae/hoteldetail"
+ },
+ {
+  "name": "Le Méridien Al Aqah Beach Resort",
+  "city": "Fujairah",
+  "url": "https://www.marriott.com/en-us/hotels/fjrmd-le-meridien-al-aqah-beach-resort/overview/"
+ },
+ {
+  "name": "Nour Arjaan by Rotana",
+  "city": "Fujairah",
+  "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/fujairah/nourarjaanbyrotana"
+ },
+ {
+  "name": "Palace Beach Resort Fujairah",
+  "city": "Fujairah",
+  "url": "https://www.addresshotels.com/en/resorts/palace-beach-resort-fujairah/"
+ },
+ {
+  "name": "Radisson Blu Resort, Fujairah",
+  "city": "Fujairah",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-fujairah"
+ },
+ {
+  "name": "Anantara Mina Ras Al Khaimah Resort",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.anantara.com/en/mina-al-arab-ras-al-khaimah"
+ },
+ {
+  "name": "Avani Al Marjan Island Ras Al Khaimah",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.avanihotels.com/en/marjan-island-ras-al-khaimah"
+ },
+ {
+  "name": "DoubleTree by Hilton Ras Al Khaimah",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.hilton.com/en/hotels/rktdtdi-doubletree-ras-al-khaimah/"
+ },
+ {
+  "name": "DoubleTree by Hilton Ras al Khaimah Corniche Hotel & Residences",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.hilton.com/en/hotels/rktcrdi-doubletree-by-hilton-ras-al-khaimah-corniche-hotel-and-residences/"
+ },
+ {
+  "name": "DoubleTree by Hilton Resort & Spa Marjan Island",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.hilton.com/en/hotels/rktmidi-doubletree-resort-and-spa-marjan-island/"
+ },
+ {
+  "name": "Hampton by Hilton Marjan Island",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.hilton.com/en/hotels/rktmahx-hampton-marjan-island/"
+ },
+ {
+  "name": "Hilton Garden Inn Ras Al Khaimah",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.hilton.com/en/hotels/rkthigi-hilton-garden-inn-ras-al-khaimah/"
+ },
+ {
+  "name": "Hilton Ras Al Khaimah Beach Resort",
+  "city": "Ras Al Khaimah",
+  "url": "https://www3.hilton.com/en/hotels/uae/hilton-ras-al-khaimah-beach-resort-RKTRSHI/index.html"
+ },
+ {
+  "name": "InterContinental Ras Al Khaimah Resort and Spa",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.ihg.com/intercontinental/hotels/us/en/ras-al-khaimah/rktha/hoteldetail"
+ },
+ {
+  "name": "Mövenpick Resort Al Marjan Island",
+  "city": "Ras Al Khaimah",
+  "url": "https://all.accor.com/hotel/B4W0/index.en.shtml"
+ },
+ {
+  "name": "Radisson Resort Ras Al Khaimah Marjan Island",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.radissonhotels.com/en-us/hotels/radisson-resort-marjan-island"
+ },
+ {
+  "name": "Rixos Al Mairid Ras Al Khaimah",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.rixos.com/hotel-resort/rixos-al-mairid-ras-al-khaimah"
+ },
+ {
+  "name": "Rixos Bab Al Bahr",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.rixos.com/hotel-resort/rixos-bab-al-bahr"
+ },
+ {
+  "name": "Rotana Ras Al Khaimah - The Mangroves",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/rasalkhaimah/rotanarasalkhaimahthemangroves"
+ },
+ {
+  "name": "Rove Al Marjan Island",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.rovehotels.com/en/hotels/rove-al-marjan-island/"
+ },
+ {
+  "name": "Sofitel Ras Al Khaimah Al Hamra Beach Resort",
+  "city": "Ras Al Khaimah",
+  "url": "https://sofitel.accor.com/en/hotels/B9F8.html"
+ },
+ {
+  "name": "The Cove Rotana Resort",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/rasalkhaimah/thecoverotanaresort"
+ },
+ {
+  "name": "The Ritz-Carlton Ras Al Khaimah, Al Hamra Beach",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.ritzcarlton.com/en/hotels/rktrz-the-ritz-carlton-ras-al-khaimah-al-hamra-beach/overview/"
+ },
+ {
+  "name": "The Ritz-Carlton Ras Al Khaimah, Al Wadi Desert",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.ritzcarlton.com/en/hotels/rktrw-the-ritz-carlton-ras-al-khaimah-al-wadi-desert/overview/"
+ },
+ {
+  "name": "Waldorf Astoria Ras Al Khaimah",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.hilton.com/en/hotels/rktwawa-waldorf-astoria-ras-al-khaimah/"
+ },
+ {
+  "name": "Centro Sharjah",
+  "city": "Sharjah",
+  "url": "https://www.rotana.com/centrohotels/unitedarabemirates/sharjah/centrosharjah"
+ },
+ {
+  "name": "Copthorne Hotel Sharjah",
+  "city": "Sharjah",
+  "url": "https://www.millenniumhotels.com/en/sharjah/copthorne-hotel-sharjah/"
+ },
+ {
+  "name": "DoubleTree by Hilton Sharjah Waterfront Hotel & Residences",
+  "city": "Sharjah",
+  "url": "https://www.hilton.com/en/hotels/shjawdi-doubletree-sharjah-waterfront-hotel-and-residences/rooms/"
+ },
+ {
+  "name": "Four Points by Sheraton Sharjah",
+  "city": "Sharjah",
+  "url": "https://www.marriott.com/en-us/hotels/shjfp-four-points-sharjah/overview/"
+ },
+ {
+  "name": "Hilton Sharjah",
+  "city": "Sharjah",
+  "url": "https://www3.hilton.com/en/hotels/uae/hilton-sharjah-SHJHSHI/index.html"
+ },
+ {
+  "name": "Novotel Sharjah Expo Centre",
+  "city": "Sharjah",
+  "url": "https://all.accor.com/hotel/9788/index.en.shtml"
+ },
+ {
+  "name": "Pullman Sharjah",
+  "city": "Sharjah",
+  "url": "https://all.accor.com/hotel/A0R4/index.en.shtml"
+ },
+ {
+  "name": "Radisson Blu Resort, Sharjah",
+  "city": "Sharjah",
+  "url": "https://www.radissonhotels.com/ru-ru/hotels/radisson-blu-resort-sharjah"
+ },
+ {
+  "name": "Ramada Hotel & Suites by Wyndham Sharjah",
+  "city": "Sharjah",
+  "url": "https://www.wyndhamhotels.com/en-uk/ramada/sharjah-united-arab-emirates/ramada-hotel-and-suites-sharjah/overview"
+ },
+ {
+  "name": "Sheraton Sharjah Beach Resort & Spa",
+  "city": "Sharjah",
+  "url": "https://www.marriott.com/en-us/hotels/shjsi-sheraton-sharjah-beach-resort-and-spa/overview/"
+ },
+ {
+  "name": "Vida Aljada",
+  "city": "Sharjah",
+  "url": "https://www.vidahotels.com/en/hotels/vida-aljada-sharjah/"
+ },
+ {
+  "name": "ibis Styles Sharjah",
+  "city": "Sharjah",
+  "url": "https://all.accor.com/hotel/B046/index.en.shtml"
+ },
+ {
+  "name": "Vida Beach Resort Umm Al Quwain",
+  "city": "Umm Al Quwain",
+  "url": "https://www.vidahotels.com/en/resorts/vida-beach-resort-umm-al-quwain/"
+ }
+]
