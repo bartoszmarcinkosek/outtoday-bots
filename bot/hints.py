@@ -75,6 +75,37 @@ def extract_hints(client, text: str, default_city: str | None, usage: dict) -> l
     return []
 
 
+SEARCH_QUERIES = [
+    (f"{kind} {city}", city)
+    for city in ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"]
+    for kind in ["theme night dinner buffet unlimited beverages", "breakfast pool beach access", "brunch house beverages"]
+]
+
+
+def hints_from_search(client, query: str, city: str, usage: dict) -> list[dict]:
+    prompt = (f"Search cobone.com and groupon.ae for: {query}. From the search results, list hotels/restaurants in {city} "
+              "with a RECURRING dining offer or pool/beach access offer. " + HINT_RULES +
+              " Then call report_hints with what you found (empty list if nothing).")
+    try:
+        resp = client.messages.create(
+            model=R.MODEL, max_tokens=3000,
+            tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 2,
+                    "allowed_domains": ["cobone.com", "groupon.ae"]}, HINT_TOOL],
+            messages=[{"role": "user", "content": prompt}],
+        )
+    except Exception as e:
+        print(f"   [AI] {type(e).__name__}: {str(e)[:120]}")
+        return []
+    usage["input"] += resp.usage.input_tokens
+    usage["output"] += resp.usage.output_tokens
+    usage["calls"] += 1
+    usage["searches"] += int(getattr(getattr(resp.usage, "server_tool_use", None), "web_search_requests", 0) or 0)
+    for b in resp.content:
+        if getattr(b, "type", "") == "tool_use" and b.name == "report_hints":
+            return [h for h in (b.input.get("hints") or []) if isinstance(h, dict) and h.get("venue") and h.get("city") == city]
+    return []
+
+
 def venue_key(v: str) -> str:
     stop = {"hotel", "resort", "the", "by", "at", "dubai", "abu", "dhabi", "sharjah", "ajman", "restaurant", "&", "and", "spa", "beach"}
     return " ".join(t for t in R._tokens(v) if t not in stop)
@@ -109,23 +140,12 @@ def main() -> int:
 
     with R.Browser() as br:
         hints: list[dict] = []
-        for url, city in HINT_PAGES:
-            ok, why = R.robots_allows(url)
-            if not ok:
-                print(f"robots.txt nie pozwala: {url} ({why})")
-                continue
-            try:
-                page = br.fetch(url)
-            except Exception as e:
-                print(f"błąd {url}: {e}")
-                continue
-            hs = extract_hints(client, page["text"], city, usage)
-            print(f"{url}: status {page.get('status')}, tekst {len(page['text'])} znaków, {len(hs)} podpowiedzi")
-            if not hs:
-                print("   początek strony:", re.sub(r"\s+", " ", page["text"][:300]))
+        # Cobone i Groupon blokują boty (Cloudflare / 403), więc nie otwieramy ich stron.
+        # Podpowiedzi bierzemy z wyników wyszukiwarki (fragmenty stron), a dane i tak tylko ze strony oficjalnej.
+        for q, city in SEARCH_QUERIES:
+            hs = hints_from_search(client, q, city, usage)
+            print(f"[szukanie] {q}: {len(hs)} podpowiedzi")
             hints += hs
-            time.sleep(R.PAUSE_SECONDS)
-
         seen: set[str] = set()
         todo = []
         for h in hints:
