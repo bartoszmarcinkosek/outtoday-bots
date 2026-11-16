@@ -1,0 +1,398 @@
+[
+ {
+  "name": "Abu Dhabi Golf Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.abudhabigolfclub.abudhabi/restaurants",
+  "kind": "golf"
+ },
+ {
+  "name": "Al Ghazal Golf Club",
+  "city": "Abu Dhabi",
+  "url": "https://alghazalgolfclub.ae/",
+  "kind": "golf"
+ },
+ {
+  "name": "Barbossa",
+  "city": "Abu Dhabi",
+  "url": "https://barbossa.ae/brunch/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Kai Beach",
+  "city": "Abu Dhabi",
+  "url": "https://www.kaibeachsaadiyat.com/",
+  "kind": "beach"
+ },
+ {
+  "name": "LPM Restaurant & Bar Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://lpmrestaurants.com/abu-dhabi/menus/new-brunch/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Lock, Stock & Barrel Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://solutions-leisure.com/venues/lock-stock-barrel-abu-dhabi/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Ma's Irish Pub",
+  "city": "Abu Dhabi",
+  "url": "https://mabuckleys.com/irish-sunday-roast-abu-dhabi/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Nation Riviera Beach Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.nationrivierabeachclub.com/offers",
+  "kind": "beach"
+ },
+ {
+  "name": "Nuri Grill & Bar",
+  "city": "Abu Dhabi",
+  "url": "https://nurigrillbar.com/abu-dhabi-night-party-experience-nuri-after-dark/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Saadiyat Beach Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.saadiyatbeachclub.ae/memberships-day-passes/",
+  "kind": "beach"
+ },
+ {
+  "name": "Saadiyat Beach Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.saadiyatbeachclub.ae/offers/farm-to-beach-brunch/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Saadiyat Beach Golf Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.saadiyatisland.ae/experience/saadiyat-beach-golf-club/",
+  "kind": "golf"
+ },
+ {
+  "name": "Siddharta Lounge by Buddha-Bar",
+  "city": "Abu Dhabi",
+  "url": "https://www.siddhartalounge-abudhabi.com/current-promotions",
+  "kind": "bars"
+ },
+ {
+  "name": "The Club",
+  "city": "Abu Dhabi",
+  "url": "https://the-club.com/",
+  "kind": "beach"
+ },
+ {
+  "name": "Ting Irie Pon Di Beach",
+  "city": "Abu Dhabi",
+  "url": "https://tingirie.com/event/abudhabi-happy-hour/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Yas Acres Golf & Country Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.viyagolf.com/rootsbar/",
+  "kind": "golf"
+ },
+ {
+  "name": "Yas Beach",
+  "city": "Abu Dhabi",
+  "url": "https://yasbeach.ae/",
+  "kind": "beach"
+ },
+ {
+  "name": "Yas Links Abu Dhabi Golf Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.viyagolf.com/",
+  "kind": "golf"
+ },
+ {
+  "name": "Zuma Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://www.zumarestaurant.com/en/abu-dhabi/whats-on/zuma-baikingu-brunch",
+  "kind": "standalone"
+ },
+ {
+  "name": "Al Zorah Golf Club",
+  "city": "Ajman",
+  "url": "https://www.alzorahgolfclub.ae",
+  "kind": "golf"
+ },
+ {
+  "name": "McGettigan's Ajman",
+  "city": "Ajman",
+  "url": "https://www.mcgettigans.com/ajman/",
+  "kind": "pubs"
+ },
+ {
+  "name": "McGettigan's Ajman",
+  "city": "Ajman",
+  "url": "https://www.mcgettigans.com/ajman.html",
+  "kind": "bars"
+ },
+ {
+  "name": "McGettigan's Ajman",
+  "city": "Ajman",
+  "url": "https://www.mcgettigans.com/ajman/whats-on/saturday-brunch.html",
+  "kind": "standalone"
+ },
+ {
+  "name": "Thirsty Horse Sports Bar",
+  "city": "Ajman",
+  "url": "https://www.uniglobeholding.com/hospitality/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Al Ain Equestrian, Shooting & Golf Club (clubhouse bar and Palm Greens restaurant)",
+  "city": "Al Ain",
+  "url": "https://www.aesgc.com/",
+  "kind": "golf"
+ },
+ {
+  "name": "The Palm Greens Bar & Restaurant (AESGC)",
+  "city": "Al Ain",
+  "url": "https://www.aesgc.com/the-palm-greens-restaurant/",
+  "kind": "golf"
+ },
+ {
+  "name": "261 Bar & Restaurant (The Els Club)",
+  "city": "Dubai",
+  "url": "https://www.elsclubdubai.com/261_restaurant/",
+  "kind": "golf"
+ },
+ {
+  "name": "Bar Du Port",
+  "city": "Dubai",
+  "url": "https://barduportdubai.com/whatson/brunch-du-port/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Bar du Port",
+  "city": "Dubai",
+  "url": "https://barduportdubai.com/whatson/ladies-night/",
+  "kind": "bars"
+ },
+ {
+  "name": "Be Beach Dubai",
+  "city": "Dubai",
+  "url": "https://www.bebeachdxb.com/dubai-dj-club-happenings",
+  "kind": "beach"
+ },
+ {
+  "name": "Bohemia Beach Club",
+  "city": "Dubai",
+  "url": "https://www.bohemiadubai.com/beach-club",
+  "kind": "beach"
+ },
+ {
+  "name": "Carine (Emirates Golf Club)",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/carine/",
+  "kind": "golf"
+ },
+ {
+  "name": "Goose Island Tap House JBR",
+  "city": "Dubai",
+  "url": "https://www.gooseislanddubai.com/fiveluxe",
+  "kind": "pubs"
+ },
+ {
+  "name": "Hutong Dubai",
+  "city": "Dubai",
+  "url": "https://www.hutong-dubai.com/menus/brunch/",
+  "kind": "standalone"
+ },
+ {
+  "name": "JamJars Restaurant & Bar – Dubai Marina",
+  "city": "Dubai",
+  "url": "https://www.jamjarsdubai.ae/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Jones the Grocer (Emirates Golf Club)",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/jones/",
+  "kind": "golf"
+ },
+ {
+  "name": "Mama Zonia",
+  "city": "Dubai",
+  "url": "https://mamazoniadubai.com/menu/saturday-brunch/",
+  "kind": "standalone"
+ },
+ {
+  "name": "McGettigan's Irish Pub Dubai Production City",
+  "city": "Dubai",
+  "url": "https://www.mcgettigans.com/jlt-dubai/whats-on/craic-quiz-night.html",
+  "kind": "pubs"
+ },
+ {
+  "name": "McGettigan's Irish Pub JLT",
+  "city": "Dubai",
+  "url": "https://www.mcgettigans.com/jlt-dubai/whats-on/quiz-night.html",
+  "kind": "pubs"
+ },
+ {
+  "name": "Nikki Beach Dubai",
+  "city": "Dubai",
+  "url": "https://nikkibeach.com/dubai/dine-drink/nikki-beach-restaurant-beach-club/",
+  "kind": "beach"
+ },
+ {
+  "name": "QD's Bar and Grill (Dubai Creek Golf & Yacht Club)",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/",
+  "kind": "golf"
+ },
+ {
+  "name": "Sole Mio Beach Club",
+  "city": "Dubai",
+  "url": "https://solemio.ae/",
+  "kind": "beach"
+ },
+ {
+  "name": "Spike Sports Bar & Terrace at Emirates Golf Club",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/egc/dine/spike-bar/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Stoke House Dubai (Trump International Golf Club)",
+  "city": "Dubai",
+  "url": "https://www.trump.com/golf/trump-international-golf-club-dubai",
+  "kind": "golf"
+ },
+ {
+  "name": "Surf Club Dubai",
+  "city": "Dubai",
+  "url": "https://www.surfclubdubai.com/ladies-day",
+  "kind": "beach"
+ },
+ {
+  "name": "The Black Sheep British Gastropub",
+  "city": "Dubai",
+  "url": "https://www.theblacksheepdubai.com/",
+  "kind": "pubs"
+ },
+ {
+  "name": "The Guild",
+  "city": "Dubai",
+  "url": "https://www.theguilddubai.com/",
+  "kind": "standalone"
+ },
+ {
+  "name": "The Rose & Crown Dubai",
+  "city": "Dubai",
+  "url": "https://roseandcrowndubai.com/",
+  "kind": "pubs"
+ },
+ {
+  "name": "The Yard Sports Bar (Topgolf Dubai)",
+  "city": "Dubai",
+  "url": "https://topgolfdubai.ae/the-yard",
+  "kind": "golf"
+ },
+ {
+  "name": "Zuma Dubai",
+  "city": "Dubai",
+  "url": "https://www.zumarestaurant.com/en/dubai/whats-on/zuma-baikingu-brunch-in-dubai",
+  "kind": "standalone"
+ },
+ {
+  "name": "McGettigan's Fujairah",
+  "city": "Fujairah",
+  "url": "https://www.mcgettigans.com/fujairah.html",
+  "kind": "pubs"
+ },
+ {
+  "name": "McGettigan's Fujairah",
+  "city": "Fujairah",
+  "url": "https://www.mcgettigans.com/fujairah/whats-on/ladies-night.html",
+  "kind": "bars"
+ },
+ {
+  "name": "O'Learys Sports Restaurant Fujairah",
+  "city": "Fujairah",
+  "url": "https://olearys.com/en-ae/fujairah-mall/",
+  "kind": "standalone"
+ },
+ {
+  "name": "The Orangery Fujairah",
+  "city": "Fujairah",
+  "url": "https://theorangery.ae/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Al Hamra Golf Club",
+  "city": "Ras Al Khaimah",
+  "url": "https://www.alhamragolf.com/facilities",
+  "kind": "golf"
+ },
+ {
+  "name": "Bar du Port Beach",
+  "city": "Ras Al Khaimah",
+  "url": "https://bdpbeachrak.com",
+  "kind": "bars"
+ },
+ {
+  "name": "The Bay Sports Bar, Al Hamra Golf Club",
+  "city": "Ras Al Khaimah",
+  "url": "https://alhamragolfclub.com",
+  "kind": "pubs"
+ },
+ {
+  "name": "TheQuizNight (quiz nights at Dukes Bar)",
+  "city": "Ras Al Khaimah",
+  "url": "https://thequiznight.com/en",
+  "kind": "pubs"
+ },
+ {
+  "name": "Tower Links Golf Club",
+  "city": "Ras Al Khaimah",
+  "url": "https://towerlinks.ae/",
+  "kind": "golf"
+ },
+ {
+  "name": "Ula",
+  "city": "Ras Al Khaimah",
+  "url": "https://ularasalkhaimah.com/happy-hour/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Majdolin",
+  "city": "Sharjah",
+  "url": "https://majdolinshj.com/offers",
+  "kind": "standalone"
+ },
+ {
+  "name": "Paper Fig",
+  "city": "Sharjah",
+  "url": "https://www.paperfig.ae/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Sharjah Golf & Shooting Club (clubhouse with Twisted Olive Bistro and Sensi restaurants)",
+  "city": "Sharjah",
+  "url": "https://www.golfandshootingshj.com/",
+  "kind": "golf"
+ },
+ {
+  "name": "Sharjah Ladies Club",
+  "city": "Sharjah",
+  "url": "https://www.slc.ae/en/events/eventcalendar",
+  "kind": "beach"
+ },
+ {
+  "name": "Taier Al Monal",
+  "city": "Sharjah",
+  "url": "https://www.monalrestaurantuae.com/blog/weekday-vs-weekend-buffet-sharjah",
+  "kind": "standalone"
+ },
+ {
+  "name": "Sobha Siniya Island golf course and clubhouse",
+  "city": "Umm Al Quwain",
+  "url": "https://sobharealty.com/sobha-communities/sobha-siniya-island",
+  "kind": "golf"
+ }
+]
