@@ -138,6 +138,37 @@
       ],
       "trusted": true,
       "default_venue": "Yas Mall, Yas Island"
+    },
+    {
+      "id": "af_abudhabi",
+      "name": "Alliance Française Abu Dhabi",
+      "city": "Abu Dhabi",
+      "single_venue": false,
+      "urls": [
+        "https://www.afabudhabi.org/events/"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "iic_abudhabi",
+      "name": "Italian Cultural Institute Abu Dhabi",
+      "city": "Abu Dhabi",
+      "single_venue": false,
+      "urls": [
+        "https://iicabudhabi.esteri.it/en/gli_eventi/"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "al_ain_zoo",
+      "name": "Al Ain Zoo",
+      "city": "Al Ain",
+      "single_venue": true,
+      "urls": [
+        "https://www.alainzoo.com/"
+      ],
+      "trusted": true,
+      "default_venue": "Al Ain Zoo, Al Ain"
     }
   ]
 }

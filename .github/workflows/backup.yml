@@ -1,0 +1,38 @@
+name: Backup bazy (co tydzień)
+
+# Kopia wszystkich tabel jako zaszyfrowany plik (artefakt na 90 dni).
+# Repo jest publiczne, więc plik jest szyfrowany hasłem z sekretu SUPABASE_SECRET_KEY.
+# Odszyfrowanie: gpg --batch --passphrase "<SUPABASE_SECRET_KEY>" -d backup.json.gz.gpg | gunzip > backup.json
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Eksport tabel
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: python bot/backup.py backup.json
+      - name: Szyfrowanie
+        env:
+          PASS: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          gzip -9 backup.json
+          gpg --batch --yes --pinentry-mode loopback --passphrase "$PASS" --symmetric --cipher-algo AES256 -o backup.json.gz.gpg backup.json.gz
+          rm backup.json.gz
+          ls -la backup.json.gz.gpg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: outtoday-backup-${{ github.run_number }}
+          path: backup.json.gz.gpg
+          retention-days: 90

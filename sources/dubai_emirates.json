@@ -293,6 +293,36 @@
       ],
       "trusted": false,
       "default_venue": "Expo Centre Sharjah, Al Taawun"
+    },
+    {
+      "id": "af_dubai",
+      "name": "Alliance Française Dubai",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://www.afdubai.org/events-learning-french-with-alliance-francaise"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "dubai_flea",
+      "name": "Dubai Flea Market",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://dubai-fleamarket.com/"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "hopasports",
+      "name": "Hopasports (biegi i zawody)",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://www.hopasports.com/en"
+      ],
+      "trusted": false
     }
   ]
 }
