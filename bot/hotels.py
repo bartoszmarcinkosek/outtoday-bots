@@ -520,7 +520,7 @@ def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = 
                     added += 1
                     approved += sure
                     hotel_new += 1
-                    report.append((hotel, ("✓ " if sure else "? ") + f"{row['title']} — {row['price_text']}", row["official_url"]))
+                    report.append((hotel, ("✓ " if sure else "? ") + f"{row['title']} — {row.get('price_text') or 'bez ceny'}", row["official_url"]))
                 if not dry:
                     db.upsert("bot_pages", {"url": url, "content_hash": h, "last_fetched_at": now_iso, "last_status": "hotels"}, "url")
                 time.sleep(R.PAUSE_SECONDS)
