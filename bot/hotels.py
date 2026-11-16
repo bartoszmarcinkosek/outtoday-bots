@@ -248,6 +248,13 @@ def ask_offers(client, hotel: dict, text: str, url: str, usage: dict) -> list[di
     for b in resp.content:
         if b.type == "tool_use":
             offers = b.input.get("offers") or []
+            if isinstance(offers, str):
+                try:
+                    offers = json.loads(offers)
+                except ValueError:
+                    offers = []
+            offers = [json.loads(o) if isinstance(o, str) and o.strip().startswith("{") else o for o in (offers if isinstance(offers, list) else [])]
+            offers = [o for o in offers if isinstance(o, dict)]
             for o in offers:
                 if isinstance(o.get("evidence"), str):
                     try:
