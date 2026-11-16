@@ -1,0 +1,251 @@
+{
+ "deals": [
+  {
+   "title": "Batafurai Ladies Night",
+   "deal_type": "ladies_night",
+   "venue": "Akira Back, W Dubai – The Palm",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/hotels/hotel-information/restaurant/details/dxbtp-w-dubai-the-palm/6490225/",
+   "days_of_week": [
+    1
+   ],
+   "price_text": "Ladies AED 250 · gents AED 399",
+   "details": "Three hours of unlimited selected beverages with sharing plates.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "19:00",
+   "end_time": "23:00"
+  },
+  {
+   "title": "Social Sunday at Akira Back",
+   "deal_type": "brunch",
+   "venue": "Akira Back, W Dubai – The Palm",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/hotels/hotel-information/restaurant/details/dxbtp-w-dubai-the-palm/6490225/",
+   "days_of_week": [
+    0
+   ],
+   "price_text": "AED 395 soft · AED 495 house · AED 695 bubbly · kids under 12 free (kids menu)",
+   "details": "Sharing-style lunch with bottomless drinks and live entertainment.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "kid_friendly": true
+  },
+  {
+   "title": "Street Food Night",
+   "deal_type": "dinner",
+   "venue": "c.taste, Centro Barsha",
+   "city": "Dubai",
+   "official_url": "https://www.rotana.com/centrohotels/unitedarabemirates/dubai/centrobarsha/diningout/ctaste",
+   "days_of_week": [
+    3
+   ],
+   "price_text": "AED 79 per person",
+   "details": "Wednesday street-food theme night.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Al Barsha",
+   "start_time": "18:30",
+   "end_time": "22:30"
+  },
+  {
+   "title": "Ladies' Night at McGettigan's Factory",
+   "deal_type": "ladies_night",
+   "venue": "McGettigan's Factory, Hilton Dubai Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.hilton.com/en/hotels/dxbpjhi-hilton-dubai-palm-jumeirah/dining/mcgettigansfactory-thepalm/",
+   "days_of_week": [
+    3
+   ],
+   "price_text": "AED 75",
+   "details": "Three drinks from the ladies' menu and AED 75 off food.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "18:00",
+   "end_time": "23:00"
+  },
+  {
+   "title": "Drunch at McGettigan's Factory",
+   "deal_type": "happy_hour",
+   "venue": "McGettigan's Factory, Hilton Dubai Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.hilton.com/en/hotels/dxbpjhi-hilton-dubai-palm-jumeirah/dining/mcgettigansfactory-thepalm/",
+   "days_of_week": [
+    5,
+    6
+   ],
+   "price_text": "AED 179 for 2 hours of unlimited house drinks",
+   "details": "Two hours of free-flowing house drinks.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "17:00",
+   "end_time": "19:00"
+  },
+  {
+   "title": "Overtime – 5 Hour Brunch",
+   "deal_type": "brunch",
+   "venue": "McGettigan's Factory, Hilton Dubai Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.hilton.com/en/hotels/dxbpjhi-hilton-dubai-palm-jumeirah/dining/mcgettigansfactory-thepalm/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 299 soft · AED 399 house · AED 499 premium",
+   "details": "Five-hour Saturday pub brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "12:00",
+   "end_time": "17:00"
+  },
+  {
+   "title": "International Dinner Buffet with Unlimited Drinks",
+   "deal_type": "dinner",
+   "venue": "Salt & Pepper, Al Bandar Rotana",
+   "city": "Dubai",
+   "official_url": "https://rotana.com/rotanahotelandresorts/unitedarabemirates/dubai/albandarrotana/diningout/saltpepperrestaurant",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 179 with soft drinks · AED 278 with unlimited house beverages · kids 6–12 AED 65 · under 6 free",
+   "details": "Nightly international buffet with live stations and a different chef's special every night.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Creek",
+   "start_time": "18:30",
+   "end_time": "22:00",
+   "kid_friendly": true
+  },
+  {
+   "title": "Friday Brunch at The Hide",
+   "deal_type": "brunch",
+   "venue": "The Hide, Jumeirah Al Qasr",
+   "city": "Dubai",
+   "official_url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-al-qasr/experiences/friday-brunch-at-the-hide",
+   "days_of_week": [
+    5
+   ],
+   "price_text": "AED 395 (3-course menu) · +AED 200 premium beverages",
+   "details": "Evening sharing brunch of grills with a live singer.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Madinat Jumeirah",
+   "start_time": "18:30",
+   "end_time": "21:30"
+  },
+  {
+   "title": "Deep South Social Brunch",
+   "deal_type": "brunch",
+   "venue": "FireLake, Radisson Blu Hotel Dubai Waterfront",
+   "city": "Dubai",
+   "official_url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-dubai-waterfront/whats-on",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 250 soft · AED 350 house · AED 525 premium · kids 6–11 AED 105",
+   "details": "American South smoky-grill brunch with live music.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "12:30",
+   "end_time": "16:00",
+   "kid_friendly": true
+  },
+  {
+   "title": "Best of British Brunch",
+   "deal_type": "brunch",
+   "venue": "The Croft, Dubai Marriott Harbour Hotel & Suites",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbhr-dubai-marriott-harbour-hotel-and-suites/dining/dubai-harbour-restaurants/croft/",
+   "days_of_week": [
+    5
+   ],
+   "price_text": "AED 199 soft · AED 299 house beverages for 3 hours",
+   "details": "Family-style British sharing menu with Marina views.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Marina",
+   "start_time": "19:00",
+   "end_time": "22:00"
+  },
+  {
+   "title": "Sunday Roast at The Croft",
+   "deal_type": "lunch",
+   "venue": "The Croft, Dubai Marriott Harbour Hotel & Suites",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbhr-dubai-marriott-harbour-hotel-and-suites/dining/dubai-harbour-restaurants/croft/",
+   "days_of_week": [
+    0
+   ],
+   "price_text": "AED 150 food only · AED 299 with house beverages for 2 hours",
+   "details": "British Sunday roast.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Marina",
+   "start_time": "12:30",
+   "end_time": "23:00"
+  },
+  {
+   "title": "Happy Hour at The Croft",
+   "deal_type": "happy_hour",
+   "venue": "The Croft, Dubai Marriott Harbour Hotel & Suites",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbhr-dubai-marriott-harbour-hotel-and-suites/dining/dubai-harbour-restaurants/croft/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "From AED 39",
+   "details": "House beverages at happy-hour prices.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Marina",
+   "start_time": "16:00",
+   "end_time": "19:00"
+  },
+  {
+   "title": "The Grand Market Brunch",
+   "deal_type": "brunch",
+   "venue": "Market Kitchen, Le Royal Méridien Abu Dhabi",
+   "city": "Abu Dhabi",
+   "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/culinary-destination/promotions/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 199 · kids 6–12 AED 99",
+   "details": "Saturday market-style brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "kid_friendly": true
+  }
+ ],
+ "update_deals": [
+  {
+   "title": "Friday Surf & Turf",
+   "venue": "Market Kitchen, Le Royal Méridien Abu Dhabi",
+   "set": {
+    "price_text": "AED 250 per person · +AED 150 for unlimited house beverages",
+    "official_url": "https://www.marriott.com/en-us/hotels/auhdm-le-royal-meridien-abu-dhabi/dining/culinary-destination/promotions/"
+   }
+  }
+ ]
+}

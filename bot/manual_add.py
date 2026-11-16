@@ -86,6 +86,12 @@ def main() -> int:
                 if row["status"] != "rejected":
                     db.update("events", {"id": row["id"]}, {"status": "rejected", "updated_at": now})
                     print(f"- odrzucone: {row['title']} ({r['start_date']})")
+        # "update_deals": [{"title":..., "venue":..., "set": {...}}] – poprawki z oficjalnej strony.
+        for r in data.get("update_deals", []):
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("price_text", "details", "official_url", "start_time", "end_time", "days_of_week")}
+            for row in db.get("deals", {"select": "id,title", "title": f"eq.{r['title']}", "venue": f"eq.{r['venue']}"}):
+                db.update("deals", {"id": row["id"]}, fix)
+                print(f"~ deal poprawiony: {row['title']} {fix}")
         # "reject_deals": [{"title":..., "venue":...}] – np. duplikaty.
         for r in data.get("reject_deals", []):
             rows = db.get("deals", {"select": "id,title,status", "title": f"eq.{r['title']}", "venue": f"eq.{r['venue']}"})
