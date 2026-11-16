@@ -10,3 +10,8 @@ for pg in acc.get("data", []):
     for label, t in (("user", tok), ("page", pg.get("access_token"))):
         r = requests.get(f"{G}/{ig}", params={"fields": "business_discovery.username(atlantisthepalm){username,media_count}", "access_token": t}, timeout=30).json()
         print("DISCOVERY", label, str(r)[:300])
+        me = requests.get(f"{G}/{ig}", params={"fields": "username,media_count", "access_token": t}, timeout=30).json()
+        print("SELF", label, str(me)[:200])
+dbg = requests.get(f"{G}/debug_token", params={"input_token": tok, "access_token": tok}, timeout=30).json()
+d = dbg.get("data", {})
+print("TOKEN", d.get("type"), d.get("expires_at"), d.get("scopes"), d.get("error"))
