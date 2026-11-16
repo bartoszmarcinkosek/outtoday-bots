@@ -34,6 +34,7 @@ QUERIES = [
 # Wycieczki, pakiety podróży, B2B i targi branżowe nie są "powodem, żeby wyjść".
 REJECT = re.compile(
     r"\b(b2b|summit|conference|forum|expo|exhibitors?|networking|investors?|startups?|pitch|masterclass for (business|founders)|"
+    r"gitex|blockchain|crypto|trading|awards?|market trends|launch event|ai lab|predict|leadership|entrepreneurs?|"
     r"desert safari|safari|city tour|yacht tour|dhow cruise|travel|trip|getaway|takeover|experience 20\d\d|visa|job fair|"
     r"real estate|property|webinar|online)\b", re.I)
 CAT = {"Music": "music", "Performing & Visual Arts": "culture", "Film, Media & Entertainment": "culture",
@@ -75,7 +76,7 @@ def discover_ids(max_searches: int) -> set[str]:
 
 def to_item(ev: dict, today: str) -> tuple[dict | None, str]:
     if ev.get("online_event") or ev.get("status") not in ("live", "started"):
-        return None, "online albo nieaktywne"
+        return None, f"online albo nieaktywne (status {ev.get('status')}, online {ev.get('online_event')}, start {(ev.get('start') or {}).get('local', '')[:10]})"
     v = ev.get("venue") or {}
     addr = v.get("address") or {}
     if (addr.get("country") or "").upper() != "AE":
