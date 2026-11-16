@@ -207,20 +207,27 @@ def discover() -> int:
 OFFER_LINK = re.compile(r"offer|dining|restaurant|bar|brunch|what.?s.?on|promotion|deal|experience|eat|drink|pool|beach|package", re.I)
 
 
-def offer_pages(page: dict, base: str, limit: int = 4) -> list[str]:
+def hotel_prefix(url: str) -> str:
+    """Wspólny początek adresów jednego hotelu na stronie sieci (ścieżka hotelu bez końcówki typu /overview)."""
+    parts = [p for p in urlparse(url).path.split("/") if p]
+    if parts and re.search(r"^(overview|hoteldetail|home|index.*|default.*)$", parts[-1], re.I):
+        parts = parts[:-1]
+    return "/" + "/".join(parts)
+
+
+def offer_pages(page: dict, base: str, prefix: str, limit: int = 6) -> list[str]:
     seen, out = set(), []
     host = urlparse(base).netloc
     for label, href in page.get("links") or []:
         if not href or not href.startswith("http") or urlparse(href).netloc != host:
             continue
-        h = href.split("#")[0].rstrip("/")
-        if h in seen or h == base.rstrip("/"):
+        h = href.split("#")[0].split("?")[0].rstrip("/")
+        if h in seen or h == base.rstrip("/") or not urlparse(h).path.startswith(prefix):
             continue
-        if OFFER_LINK.search(f"{label} {urlparse(h).path}") and not re.search(r"wedding|meeting|careers|gift|spa\b|room|suite|gallery|faq|login", h, re.I):
+        if OFFER_LINK.search(f"{label} {urlparse(h).path}") and not re.search(r"wedding|meeting|careers|gift|spa\b|/rooms?\b|suite|gallery|faq|login|festive|christmas", h, re.I):
             seen.add(h)
             out.append(h)
-    # najpierw strony z ofertami/brunchami
-    out.sort(key=lambda u: 0 if re.search(r"offer|brunch|what.?s.?on|promotion|deal", u, re.I) else 1)
+    out.sort(key=lambda u: 0 if re.search(r"offer|brunch|what.?s.?on|promotion|deal|dining|restaurant", u, re.I) else 1)
     return out[:limit]
 
 
@@ -251,7 +258,7 @@ def ask_offers(client, hotel: dict, text: str, url: str, usage: dict) -> list[di
     return []
 
 
-ONE_OFF = re.compile(r"christmas|new year|nye|eid\b|iftar|suhoor|ramadan|valentine|easter|diwali|halloween|mother'?s day|father'?s day|national day", re.I)
+ONE_OFF = re.compile(r"christmas|festive|season'?s|turkey|thanksgiving|new year|nye|eid\b|iftar|suhoor|ramadan|valentine|easter|diwali|halloween|mother'?s day|father'?s day|national day|\bspa\b|massage|treatment|wedding", re.I)
 
 
 def check_offer(o: dict, page_norm: str) -> tuple[dict | None, str]:
@@ -332,15 +339,31 @@ def scan(city: str | None, limit: int, dry: bool, force: bool) -> int:
             except Exception as e:
                 report.append((hotel, f"błąd {type(e).__name__}", ""))
                 continue
-            urls = [hotel["url"]] + offer_pages(main, main.get("final_url") or hotel["url"])
+            base = main.get("final_url") or hotel["url"]
+            prefix = hotel_prefix(base) if len([p for p in urlparse(base).path.split("/") if p]) >= 2 else "/"
+            urls = [hotel["url"]] + offer_pages(main, base, prefix)
+            print(f"{hotel['name']}: strona {main.get('status')} / {len(main.get('text') or '')} znaków, podstron: {len(urls) - 1} (prefiks {prefix})")
             hotel_new = 0
-            for i, url in enumerate(urls):
+            visited = set()
+            i = 0
+            while i < len(urls) and i < 10:
+                url = urls[i]
+                i += 1
+                if url in visited:
+                    continue
+                visited.add(url)
                 try:
-                    page = main if i == 0 else br.fetch(url)
+                    page = main if url == hotel["url"] else br.fetch(url)
                 except Exception:
                     continue
                 if page.get("status", 200) >= 400 or len(page.get("text") or "") < 300:
+                    print(f"   pominięta {url}: {page.get('status')} / {len(page.get('text') or '')} znaków")
                     continue
+                # z listy restauracji: wejdź też w strony pojedynczych restauracji / ofert
+                if url != hotel["url"] and re.search(r"dining|restaurant|offer|what.?s.?on", url, re.I):
+                    for extra in offer_pages(page, url, prefix, limit=4):
+                        if extra not in urls:
+                            urls.append(extra)
                 text = page["text"]
                 h = hashlib.sha1(R.norm(text).encode()).hexdigest()
                 prev = db.get("bot_pages", {"select": "content_hash", "url": f"eq.{url}"})

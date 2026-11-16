@@ -1,7 +1,10 @@
-import os, requests, collections
-URL = os.environ["SUPABASE_URL"].strip()
-H = {"apikey": "sb_publishable_2SPY_zl7rAw7K5D1T2TzwQ_mxpzYrCS"}
-D = requests.get(f"{URL}/rest/v1/deals?select=title,venue,city&deal_type=eq.brunch&limit=5000", headers=H, timeout=30).json()
-print("BRUNCH", dict(collections.Counter(d["city"] for d in D)))
-for d in sorted(D, key=lambda d:(d["city"], d["venue"] or "")):
-    if d["city"] != "Abu Dhabi": print("ROW", d["city"], "|", d["venue"], "|", d["title"])
+import os, sys, re
+sys.path.insert(0, os.path.dirname(__file__))
+import run as R
+db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
+rows = db.get("deals", {"select": "id,title,venue,official_url,status", "source_name": "eq.OutToday hotel bot (official site)"})
+for r in rows:
+    bad = re.search(r"seychelles|festive|spa", (r["official_url"] or "") + " " + r["title"], re.I)
+    if bad:
+        db.update("deals", {"id": r["id"]}, {"status": "rejected"})
+    print("ROW", "REJ" if bad else "OK ", r["title"], "|", r["venue"], "|", r["official_url"])
