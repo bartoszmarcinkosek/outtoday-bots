@@ -457,6 +457,10 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
         return None, "tylko dla szkół"
     if re.search(r"\b(summit|conference|congress|forum|symposium for professionals|trade show|b2b)\b", norm(title)) and "symposium o" not in norm(title):
         return None, "wydarzenie branżowe (konferencja/szczyt)"
+    if re.search(r"\b(online|webinar|zoom|virtual|livestream|live stream|hybrid)\b", norm(f"{title} {raw.get('venue') or ''}")):
+        return None, "online (nie dodajemy)"
+    if re.search(r"\b(investor|investors|vc|venture capital|founders|startup pitch|networking|b2b|speed dating|singles)\b", norm(title)):
+        return None, "networking/inwestorzy/randki (nie dla OutToday)"
     if ABROAD.search(norm(f"{raw.get('venue') or ''} {raw.get('area') or ''}")):
         return None, "poza ZEA (miejsce za granicą)"
     if not (quote_on_page(title, page_norm) or quote_on_page(ev.get("title"), page_norm)):
