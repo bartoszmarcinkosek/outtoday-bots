@@ -759,7 +759,7 @@ def main() -> int:
         sources = [s for s in sources if s["id"] in only]
 
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
-    usage = {"input": 0, "output": 0, "calls": 0}
+    usage = {"input": 0, "output": 0, "calls": 0, "searches": 0}
     report: list[dict] = []
     source_log: list[dict] = []
     accepted: list[tuple[dict, dict]] = []
@@ -990,6 +990,7 @@ def search_ticket_page(client, item: dict, src: dict, usage: dict) -> list[str]:
     usage["input"] += resp.usage.input_tokens
     usage["output"] += resp.usage.output_tokens
     usage["calls"] += 1
+    usage["searches"] = usage.get("searches", 0) + int(getattr(getattr(resp.usage, "server_tool_use", None), "web_search_requests", 0) or 0)
     text = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
     m = re.search(r"https?://[^\s\"'<>]+", text)
     if not m:

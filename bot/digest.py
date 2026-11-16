@@ -112,7 +112,60 @@ def load(db: DB) -> dict:
                     e["_table"] = table
                     e.setdefault("title", e.get("name"))
                     titles[e["id"]] = e
-    return {"pending": pending, "changes": changes, "events_by_id": titles, "sample": sample, "auto_changes": auto_changes}
+    since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=31)).isoformat()
+    runs = db.get("bot_runs", {"select": "finished_at,summary", "dry_run": "eq.false", "finished_at": f"gte.{since}",
+                               "order": "finished_at.asc", "limit": "500"})
+    return {"pending": pending, "changes": changes, "events_by_id": titles, "sample": sample, "auto_changes": auto_changes,
+            "runs": runs}
+
+
+# Cennik Claude Haiku 5.5 (prompty do 100 tys. tokenów) i narzędzia web search, USD.
+PRICE_IN, PRICE_OUT, PRICE_SEARCH = 0.10 / 1e6, 0.50 / 1e6, 10 / 1000
+
+
+def run_cost(summary: dict) -> float:
+    u = (summary or {}).get("usage") or {}
+    return u.get("input", 0) * PRICE_IN + u.get("output", 0) * PRICE_OUT + u.get("searches", 0) * PRICE_SEARCH
+
+
+def health(runs: list[dict]) -> tuple[str, list[str]]:
+    """Koszt (wczoraj, 30 dni) i źródła, które dziś nic nie dały, choć zwykle dają."""
+    now = dt.datetime.now(dt.timezone.utc)
+    day = [r for r in runs if r["finished_at"] >= (now - dt.timedelta(hours=26)).isoformat()]
+    c_day = sum(run_cost(r["summary"]) for r in day)
+    c_month = sum(run_cost(r["summary"]) for r in runs)
+    line = f"Koszt AI: ostatnia doba {c_day:.2f} USD, ostatnie 30 dni {c_month:.2f} USD (limit konta 25 USD/mies.)."
+    # Źródła: ostatni przebieg z danym źródłem vs. wcześniejsze przebiegi.
+    hist: dict[str, list[int]] = {}
+    last: dict[str, dict] = {}
+    for r in runs:
+        per: dict[str, int] = {}
+        status: dict[str, str] = {}
+        skip: set[str] = set()
+        for s in (r.get("summary") or {}).get("sources") or []:
+            name = s.get("source")
+            if not name:
+                continue
+            st = s.get("status") or ""
+            if "bez zmian" in st:  # strona się nie zmieniła: AI nie czytało, 0 nic nie znaczy
+                skip.add(name)
+            per[name] = per.get(name, 0) + int(s.get("kept") or 0)
+            status[name] = st
+        for name, kept in per.items():
+            if name in skip and kept == 0:
+                continue
+            hist.setdefault(name, []).append(kept)
+            last[name] = {"status": status[name]}
+    alarms = []
+    for name, vals in hist.items():
+        if len(vals) < 3:
+            continue
+        prev = sorted(vals[:-1])
+        median = prev[len(prev) // 2]
+        if vals[-1] == 0 and median >= 3:
+            st = (last[name].get("status") or "")[:80]
+            alarms.append(f"{name}: dziś 0 wydarzeń, zwykle ok. {median}. Stan strony: {st or 'brak danych'}.")
+    return line, alarms
 
 
 # ---------------------------------------------------------------- HTML
@@ -227,6 +280,15 @@ def section(title: str, note: str, rows: list[str], extra: int) -> str:
             + "".join(rows) + more + "</table>")
 
 
+def health_html(runs: list[dict]) -> str:
+    line, alarms = health(runs)
+    al = "".join(f'<li style="margin:4px 0">{a}</li>' for a in alarms)
+    al_html = (f'<div style="color:{C["no"]};font-weight:600;margin-top:8px">Źródła do sprawdzenia:</div>'
+               f'<ul style="margin:4px 0 0 18px;padding:0;color:{C["text"]};font-size:13px">{al}</ul>') if alarms else ""
+    return (f'<h2 style="font-size:17px;color:{C["text"]};margin:26px 0 4px">Koszty i źródła</h2>'
+            f'<div style="color:{C["muted"]};font-size:13px">{line}</div>{al_html}')
+
+
 def build(data: dict, key: str) -> tuple[str, str, str, int]:
     ready = [e for e in data["pending"] if not e.get("gaps")]
     gaps = [e for e in data["pending"] if e.get("gaps")]
@@ -260,6 +322,7 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
         + section("5. Uzupełnione automatycznie w tym tygodniu", "Telefony i godziny z oficjalnych stron, potwierdzone cytatem.",
                   [auto_change_row(c, data["events_by_id"].get(c["row_id"])) for c in data.get("auto_changes", [])[:40]],
                   max(0, len(data.get("auto_changes", [])) - 40))
+        + health_html(data.get("runs", []))
         + f'<p style="color:{C["muted"]};font-size:12px;margin-top:24px">Linki są ważne {TOKEN_DAYS} dni. '
           f'Nie przekazuj tego e-maila dalej: przyciski działają bez logowania.</p></div></div>'
     )
