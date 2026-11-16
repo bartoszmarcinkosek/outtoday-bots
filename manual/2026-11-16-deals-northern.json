@@ -235,6 +235,22 @@
    "source_name": "OutToday (official site)",
    "start_time": "18:30",
    "end_time": "02:00"
+  },
+  {
+   "title": "Coastal Brunch at Basilico",
+   "deal_type": "brunch",
+   "venue": "Basilico, The Cove Rotana Resort",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/rasalkhaimah/thecoverotanaresort/diningout/basilicomediterraneanrestaurant",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 249 with soft beverages · AED 339 with house beverages",
+   "details": "Saturday Mediterranean brunch by the sea; open to non-residents.",
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
   }
  ]
 }
