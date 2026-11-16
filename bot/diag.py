@@ -1,10 +1,11 @@
-"""Diagnostyka: buduje dzisiejszy e-mail bez wysyłania i drukuje sekcję kosztów."""
-import os, sys, re
-sys.path.insert(0, os.path.dirname(__file__))
-import digest
-db = digest.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
-data = digest.load(db)
-subject, body, text, total = digest.build(data, os.environ["SUPABASE_SECRET_KEY"].strip())
-print("SUBJ", subject, "RUNS", len(data["runs"]))
-h = body[body.find("Koszty i źródła"):]
-print("HEALTH", re.sub(r"<[^>]+>", " ", h)[:800])
+import os, requests
+URL = os.environ["SUPABASE_URL"].strip(); KEY = os.environ["SUPABASE_SECRET_KEY"].strip()
+H = {"apikey": KEY, "Content-Type": "application/json"}
+r = requests.get(f"{URL}/rest/v1/events", headers=H, params={"select": "id,title,status,bot_key", "bot_key": "like.eventbrite:*"}, timeout=30)
+rows = r.json()
+for x in rows: print("ROW", x["status"], x["title"][:60], x["id"])
+# duplikaty SAT03: zostaw odrzucony, usuń nowszy pending
+for x in rows:
+    if x["title"].startswith("SAT03") and x["status"] == "pending":
+        requests.patch(f"{URL}/rest/v1/events", headers=H, params={"id": f"eq.{x['id']}"}, json={"status": "rejected"}, timeout=30)
+        print("REJECTED duplicate", x["id"])

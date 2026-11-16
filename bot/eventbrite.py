@@ -158,7 +158,8 @@ def main() -> int:
     print(f"Kandydaci: {len(ids)} (organizatorzy: {len(orgs)})")
 
     existing = db.get("events", {"select": "id,title,start_date,bot_key", "start_date": f"gte.{today}", "limit": "5000"})
-    keys = {e.get("bot_key") for e in existing}
+    # Wszystkie wpisy z Eventbrite (także odrzucone i z przeszłą datą startu), żeby nie dodawać ich drugi raz.
+    keys = {e.get("bot_key") for e in db.get("events", {"select": "bot_key", "bot_key": "like.eventbrite:*", "limit": "5000"})}
     added = skipped = 0
     for i in sorted(ids):
         if f"eventbrite:{i}" in keys:
