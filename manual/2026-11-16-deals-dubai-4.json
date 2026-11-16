@@ -1,0 +1,138 @@
+{
+ "deals": [
+  {
+   "title": "Happy Hour at Barasti",
+   "deal_type": "happy_hour",
+   "venue": "Barasti, Le Méridien Mina Seyahi",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-gb/hotels/hotel-information/restaurant/details/dxbms-le-meridien-mina-seyahi-beach-resort-and-waterpark/5970633/",
+   "days_of_week": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "price_text": "Selected drinks from AED 30 (9am–5pm) · two-for-one on selected drinks (5–8pm)",
+   "details": "Beach bar with live sports on big screens and Marina views.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Marina",
+   "start_time": "09:00",
+   "end_time": "20:00"
+  },
+  {
+   "title": "Tropicana By The Beach",
+   "deal_type": "ladies_night",
+   "venue": "Barasti, Le Méridien Mina Seyahi",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-gb/hotels/hotel-information/restaurant/details/dxbms-le-meridien-mina-seyahi-beach-resort-and-waterpark/5970633/",
+   "days_of_week": [
+    4
+   ],
+   "price_text": "Ladies AED 99 · gents AED 199 (free-flow drinks and beach bites)",
+   "details": "80s, 90s and 00s soundtrack on the beach.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Marina",
+   "start_time": "19:00",
+   "end_time": "22:00"
+  },
+  {
+   "title": "Happy Hour @ DPC",
+   "deal_type": "happy_hour",
+   "venue": "McGettigan's Dubai Production City",
+   "city": "Dubai",
+   "official_url": "https://www.mcgettigans.com/dubai-production-city/whats-on/all-events.html",
+   "days_of_week": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "price_text": "Pours from AED 30",
+   "details": "Irish pub happy hour.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Production City",
+   "start_time": "12:00",
+   "end_time": "20:00"
+  },
+  {
+   "title": "Ladies' Night at McGettigan's DPC",
+   "deal_type": "ladies_night",
+   "venue": "McGettigan's Dubai Production City",
+   "city": "Dubai",
+   "official_url": "https://www.mcgettigans.com/dubai-production-city/whats-on/all-events.html",
+   "days_of_week": [
+    4
+   ],
+   "price_text": "Three complimentary drinks with AED 99 spend on food",
+   "details": "Thursday ladies' night at the pub.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Production City",
+   "start_time": "17:00",
+   "end_time": "22:00",
+   "ladies_only": true
+  },
+  {
+   "title": "Quiz Night at Brasserie by McGettigan's",
+   "deal_type": "quiz",
+   "venue": "Brasserie by McGettigan's, Expo City Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.mcgettigans.com/expo-city-dubai/whats-on/quiz-night.html",
+   "days_of_week": [
+    4
+   ],
+   "price_text": "AED 35 pints of Heineken all night",
+   "details": "Weekly trivia night hosted by Jono.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Expo City Dubai",
+   "start_time": "19:00"
+  },
+  {
+   "title": "Sundown Social",
+   "deal_type": "happy_hour",
+   "venue": "Observatory Lounge, Dubai Marriott Harbour Hotel & Suites",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbhr-dubai-marriott-harbour-hotel-and-suites/dining/dubai-harbour-restaurants/observatory-lounge/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "Starting AED 39",
+   "details": "Signature cocktails with views over Palm Jumeirah from the 52nd floor.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Marina",
+   "start_time": "16:00",
+   "end_time": "19:00"
+  },
+  {
+   "title": "Saturday Brunch at Sheraton Jumeirah Beach",
+   "deal_type": "brunch",
+   "venue": "Sheraton Jumeirah Beach Resort",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbjs-sheraton-jumeirah-beach-resort/dining/dining-experiences/our-offers",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 299 per adult · AED 150 per child · AED 469 house beverages · AED 499 premium beverages",
+   "details": "Beachfront Saturday brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "JBR",
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "kid_friendly": true
+  }
+ ]
+}
