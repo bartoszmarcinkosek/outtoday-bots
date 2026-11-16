@@ -1,0 +1,28 @@
+{
+ "deals": [
+  {
+   "title": "All-Inclusive Day Use at Rixos Premium Saadiyat",
+   "deal_type": "day_pass",
+   "venue": "Rixos Premium Saadiyat Island",
+   "city": "Abu Dhabi",
+   "area": "Saadiyat Island",
+   "official_url": "https://www.rixos.com/all-inclusive-day-use-experience-rixos-premium-saadiyat-island",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 695 per adult · kids 2–6 half price · under 2 free",
+   "details": "Pool and beach access with breakfast (09:00–11:00), lunch (12:30–15:30) and an all-inclusive drinks package. Not valid on holidays and blackout dates; booking required.",
+   "start_time": "09:00",
+   "end_time": "18:00",
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  }
+ ]
+}
