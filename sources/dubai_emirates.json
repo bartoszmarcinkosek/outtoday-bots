@@ -209,6 +209,90 @@
       ],
       "trusted": true,
       "note": "Sprzedawca biletów: pełna lista wydarzeń (strony 1-10) + festiwale."
+    },
+    {
+      "id": "bluewaters",
+      "name": "Bluewaters Dubai",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://bluewatersdubai.ae/en/whats-on/events"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "hatta",
+      "name": "Visit Hatta",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://www.visithatta.com/en/events"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "theatre_qe2",
+      "name": "Theatre by QE2",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://www.theatrebyqe2.com/whats-on"
+      ],
+      "trusted": true,
+      "default_venue": "Theatre by QE2, Mina Rashid"
+    },
+    {
+      "id": "dubai_parks",
+      "name": "Dubai Parks and Resorts",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://www.dubaiparksandresorts.com/en/events"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "dubai_mall",
+      "name": "The Dubai Mall",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://thedubaimall.com/en/events"
+      ],
+      "trusted": true,
+      "default_venue": "The Dubai Mall, Downtown Dubai"
+    },
+    {
+      "id": "the_junction",
+      "name": "The Junction",
+      "city": "Dubai",
+      "single_venue": true,
+      "urls": [
+        "https://www.thejunctiondubai.com/"
+      ],
+      "trusted": true,
+      "default_venue": "The Junction, Alserkal Avenue, Al Quoz"
+    },
+    {
+      "id": "dubai_golf",
+      "name": "Dubai Golf",
+      "city": "Dubai",
+      "single_venue": false,
+      "urls": [
+        "https://www.dubaigolf.com/events/"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "expo_centre_shj",
+      "name": "Expo Centre Sharjah",
+      "city": "Sharjah",
+      "single_venue": true,
+      "urls": [
+        "https://expo-centre.ae/events/"
+      ],
+      "trusted": false,
+      "default_venue": "Expo Centre Sharjah, Al Taawun"
     }
   ]
 }

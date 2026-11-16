@@ -106,6 +106,38 @@
       ],
       "default_venue": null,
       "note": "Urząd turystyki (rządowy): link w apce do organizatora, jeśli podany."
+    },
+    {
+      "id": "yas_bay",
+      "name": "Yas Bay Waterfront",
+      "city": "Abu Dhabi",
+      "single_venue": false,
+      "urls": [
+        "https://www.yasbay.ae/whats-on/"
+      ],
+      "trusted": true
+    },
+    {
+      "id": "galleria_ad",
+      "name": "The Galleria Al Maryah Island",
+      "city": "Abu Dhabi",
+      "single_venue": true,
+      "urls": [
+        "https://www.thegalleria.ae/en/whats-on"
+      ],
+      "trusted": true,
+      "default_venue": "The Galleria, Al Maryah Island"
+    },
+    {
+      "id": "yas_mall",
+      "name": "Yas Mall",
+      "city": "Abu Dhabi",
+      "single_venue": true,
+      "urls": [
+        "https://www.yasmall.ae/en/events"
+      ],
+      "trusted": true,
+      "default_venue": "Yas Mall, Yas Island"
     }
   ]
 }
