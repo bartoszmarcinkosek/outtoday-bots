@@ -106,6 +106,13 @@ def main() -> int:
                 if row["status"] != "rejected":
                     db.update("places", {"id": row["id"]}, {"status": "rejected"})
                     print(f"- miejsce ukryte: {row['name']}")
+        # "approve_event_ids" / "reject_event_ids": listy id eventów
+        for eid in data.get("approve_event_ids", []):
+            db.update("events", {"id": eid}, {"status": "approved", "verified_at": now, "updated_at": now})
+            print(f"✓ zatwierdzone id {eid}")
+        for eid in data.get("reject_event_ids", []):
+            db.update("events", {"id": eid}, {"status": "rejected", "updated_at": now})
+            print(f"- odrzucone id {eid}")
         # "update_places": [{"name":..., "city":..., "set": {...}}] – poprawki ceny/godzin/telefonu
         for r in data.get("update_places", []):
             fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("price_text", "hours_text", "is_free", "phone", "official_url")}
