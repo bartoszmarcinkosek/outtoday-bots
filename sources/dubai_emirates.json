@@ -1,328 +1,348 @@
 {
-  "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Sprawdzone próbą 15.11.2026. Pominięte: DWTC (głównie targi branżowe), Dubai Culture (strona główna to wiadomości), Al Hamra RAK (brak eventów). Madinat Theatre, Sharjah Museums i Al Majaz nie odpowiadały na robots.txt; bot próbuje je co raz i pomija, dopóki nie odpowiedzą. gov_tourism = rządowy urząd turystyki: wolno go używać, ale link w apce prowadzi do organizatora, jeśli urząd go podaje. trusted = oficjalna strona samego miejsca/organizatora: kompletne wpisy z cytatami bot zatwierdza sam.",
-  "sources": [
-    {
-      "id": "coca_cola_arena",
-      "name": "Coca-Cola Arena",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://www.coca-cola-arena.com/events"
-      ],
-      "default_venue": "Coca-Cola Arena, City Walk",
-      "trusted": true
-    },
-    {
-      "id": "dubai_opera",
-      "name": "Dubai Opera",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://www.dubaiopera.com/"
-      ],
-      "default_venue": "Dubai Opera, Downtown Dubai",
-      "trusted": true
-    },
-    {
-      "id": "madinat_theatre",
-      "name": "Madinat Theatre",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://www.madinattheatre.com/"
-      ],
-      "default_venue": "Madinat Theatre, Madinat Jumeirah",
-      "trusted": true
-    },
-    {
-      "id": "expo_city",
-      "name": "Expo City Dubai",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://www.expocitydubai.com/en/things-to-do/events-and-workshops/"
-      ],
-      "default_venue": "Expo City Dubai",
-      "trusted": true
-    },
-    {
-      "id": "museum_future",
-      "name": "Museum of the Future",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://museumofthefuture.ae/en/programs"
-      ],
-      "default_venue": "Museum of the Future, Sheikh Zayed Road",
-      "trusted": true
-    },
-    {
-      "id": "alserkal",
-      "name": "Alserkal Avenue",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://alserkal.online/events"
-      ],
-      "default_venue": "Alserkal Avenue, Al Quoz",
-      "trusted": true,
-      "free_entry": {
-        "quote": "Entry is free, and pets are welcome.",
-        "url": "https://alserkal.online/words/contemporary-art-in-dubai-at-alserkal-avenue",
-        "scope": "exhibitions"
-      }
-    },
-    {
-      "id": "jameel_arts",
-      "name": "Jameel Arts Centre",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://jameelartscentre.org/whats-on/"
-      ],
-      "default_venue": "Jameel Arts Centre, Jaddaf Waterfront",
-      "trusted": true,
-      "free_entry": {
-        "quote": "Jameel Arts Centre is open-access and free for all.",
-        "url": "https://jameelartscentre.org/visit/",
-        "scope": "all"
-      }
-    },
-    {
-      "id": "global_village",
-      "name": "Global Village",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://www.globalvillage.ae/en"
-      ],
-      "default_venue": "Global Village, Dubailand",
-      "trusted": true
-    },
-    {
-      "id": "sharjah_art",
-      "name": "Sharjah Art Foundation",
-      "city": "Sharjah",
-      "single_venue": false,
-      "urls": [
-        "https://www.sharjahart.org/"
-      ],
-      "default_venue": null,
-      "trusted": true
-    },
-    {
-      "id": "sharjah_museums",
-      "name": "Sharjah Museums Authority",
-      "city": "Sharjah",
-      "single_venue": false,
-      "urls": [
-        "https://www.sharjahmuseums.ae/"
-      ],
-      "default_venue": null,
-      "trusted": true
-    },
-    {
-      "id": "al_majaz",
-      "name": "Al Majaz Amphitheatre",
-      "city": "Sharjah",
-      "single_venue": true,
-      "urls": [
-        "https://www.almajazamphitheatre.ae/"
-      ],
-      "default_venue": "Al Majaz Amphitheatre, Al Majaz Waterfront",
-      "trusted": true
-    },
-    {
-      "id": "visit_rak",
-      "name": "Visit Ras Al Khaimah",
-      "city": "Ras Al Khaimah",
-      "single_venue": false,
-      "gov_tourism": true,
-      "urls": [
-        "https://visitrasalkhaimah.com/events/"
-      ],
-      "default_venue": null,
-      "trusted": false
-    },
-    {
-      "id": "rak_art",
-      "name": "Ras Al Khaimah Art",
-      "city": "Ras Al Khaimah",
-      "single_venue": false,
-      "urls": [
-        "https://www.rakart.ae/"
-      ],
-      "default_venue": "Al Jazeera Al Hamra Heritage Village",
-      "trusted": true
-    },
-    {
-      "id": "al_marjan",
-      "name": "Al Marjan Island",
-      "city": "Ras Al Khaimah",
-      "single_venue": false,
-      "urls": [
-        "https://marjan.ae/lifestyle/community-and-culture"
-      ],
-      "default_venue": null,
-      "trusted": true
-    },
-    {
-      "id": "jebel_jais",
-      "name": "Jebel Jais",
-      "city": "Ras Al Khaimah",
-      "single_venue": false,
-      "urls": [
-        "https://visitjebeljais.com/events"
-      ],
-      "default_venue": null,
-      "trusted": true
-    },
-    {
-      "id": "visit_ajman",
-      "name": "Visit Ajman",
-      "city": "Ajman",
-      "single_venue": false,
-      "gov_tourism": true,
-      "urls": [
-        "https://visit-ajman.ae/en/activities/upcoming-events"
-      ],
-      "default_venue": null,
-      "trusted": false
-    },
-    {
-      "id": "platinumlist_dxb",
-      "name": "Platinumlist Dubai",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://dubai.platinumlist.net/event/list",
-        "https://dubai.platinumlist.net/event/list?page=2",
-        "https://dubai.platinumlist.net/event/list?page=3",
-        "https://dubai.platinumlist.net/event/list?page=4",
-        "https://dubai.platinumlist.net/event/list?page=5",
-        "https://dubai.platinumlist.net/event/list?page=6",
-        "https://dubai.platinumlist.net/event/list?page=7",
-        "https://dubai.platinumlist.net/event/list?page=8",
-        "https://dubai.platinumlist.net/event/list?page=9",
-        "https://dubai.platinumlist.net/event/list?page=10",
-        "https://dubai.platinumlist.net/festival"
-      ],
-      "trusted": true,
-      "note": "Sprzedawca biletów: pełna lista wydarzeń (strony 1-10) + festiwale."
-    },
-    {
-      "id": "bluewaters",
-      "name": "Bluewaters Dubai",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://bluewatersdubai.ae/en/whats-on/events"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "hatta",
-      "name": "Visit Hatta",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://www.visithatta.com/en/events"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "theatre_qe2",
-      "name": "Theatre by QE2",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://www.theatrebyqe2.com/whats-on"
-      ],
-      "trusted": true,
-      "default_venue": "Theatre by QE2, Mina Rashid"
-    },
-    {
-      "id": "dubai_parks",
-      "name": "Dubai Parks and Resorts",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://www.dubaiparksandresorts.com/en/events"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "dubai_mall",
-      "name": "The Dubai Mall",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://thedubaimall.com/en/events"
-      ],
-      "trusted": true,
-      "default_venue": "The Dubai Mall, Downtown Dubai"
-    },
-    {
-      "id": "the_junction",
-      "name": "The Junction",
-      "city": "Dubai",
-      "single_venue": true,
-      "urls": [
-        "https://www.thejunctiondubai.com/"
-      ],
-      "trusted": true,
-      "default_venue": "The Junction, Alserkal Avenue, Al Quoz"
-    },
-    {
-      "id": "dubai_golf",
-      "name": "Dubai Golf",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://www.dubaigolf.com/events/"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "expo_centre_shj",
-      "name": "Expo Centre Sharjah",
-      "city": "Sharjah",
-      "single_venue": true,
-      "urls": [
-        "https://expo-centre.ae/events/"
-      ],
-      "trusted": false,
-      "default_venue": "Expo Centre Sharjah, Al Taawun"
-    },
-    {
-      "id": "af_dubai",
-      "name": "Alliance Française Dubai",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://www.afdubai.org/events-learning-french-with-alliance-francaise"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "dubai_flea",
-      "name": "Dubai Flea Market",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://dubai-fleamarket.com/"
-      ],
-      "trusted": true
-    },
-    {
-      "id": "hopasports",
-      "name": "Hopasports (biegi i zawody)",
-      "city": "Dubai",
-      "single_venue": false,
-      "urls": [
-        "https://www.hopasports.com/en"
-      ],
-      "trusted": false
-    }
-  ]
+ "_info": "Dubaj i pozostałe emiraty. Tylko oficjalne strony miejsc i organizatorów. Sprawdzone próbą 15.11.2026. Pominięte: DWTC (głównie targi branżowe), Dubai Culture (strona główna to wiadomości), Al Hamra RAK (brak eventów). Madinat Theatre, Sharjah Museums i Al Majaz nie odpowiadały na robots.txt; bot próbuje je co raz i pomija, dopóki nie odpowiedzą. gov_tourism = rządowy urząd turystyki: wolno go używać, ale link w apce prowadzi do organizatora, jeśli urząd go podaje. trusted = oficjalna strona samego miejsca/organizatora: kompletne wpisy z cytatami bot zatwierdza sam.",
+ "sources": [
+  {
+   "id": "coca_cola_arena",
+   "name": "Coca-Cola Arena",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://www.coca-cola-arena.com/events"
+   ],
+   "default_venue": "Coca-Cola Arena, City Walk",
+   "trusted": true
+  },
+  {
+   "id": "dubai_opera",
+   "name": "Dubai Opera",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://www.dubaiopera.com/"
+   ],
+   "default_venue": "Dubai Opera, Downtown Dubai",
+   "trusted": true
+  },
+  {
+   "id": "madinat_theatre",
+   "name": "Madinat Theatre",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://www.madinattheatre.com/"
+   ],
+   "default_venue": "Madinat Theatre, Madinat Jumeirah",
+   "trusted": true
+  },
+  {
+   "id": "expo_city",
+   "name": "Expo City Dubai",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.expocitydubai.com/en/things-to-do/events-and-workshops/"
+   ],
+   "default_venue": "Expo City Dubai",
+   "trusted": true
+  },
+  {
+   "id": "museum_future",
+   "name": "Museum of the Future",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://museumofthefuture.ae/en/programs"
+   ],
+   "default_venue": "Museum of the Future, Sheikh Zayed Road",
+   "trusted": true
+  },
+  {
+   "id": "alserkal",
+   "name": "Alserkal Avenue",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://alserkal.online/events"
+   ],
+   "default_venue": "Alserkal Avenue, Al Quoz",
+   "trusted": true,
+   "free_entry": {
+    "quote": "Entry is free, and pets are welcome.",
+    "url": "https://alserkal.online/words/contemporary-art-in-dubai-at-alserkal-avenue",
+    "scope": "exhibitions"
+   }
+  },
+  {
+   "id": "jameel_arts",
+   "name": "Jameel Arts Centre",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://jameelartscentre.org/whats-on/"
+   ],
+   "default_venue": "Jameel Arts Centre, Jaddaf Waterfront",
+   "trusted": true,
+   "free_entry": {
+    "quote": "Jameel Arts Centre is open-access and free for all.",
+    "url": "https://jameelartscentre.org/visit/",
+    "scope": "all"
+   }
+  },
+  {
+   "id": "global_village",
+   "name": "Global Village",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://www.globalvillage.ae/en"
+   ],
+   "default_venue": "Global Village, Dubailand",
+   "trusted": true
+  },
+  {
+   "id": "sharjah_art",
+   "name": "Sharjah Art Foundation",
+   "city": "Sharjah",
+   "single_venue": false,
+   "urls": [
+    "https://www.sharjahart.org/"
+   ],
+   "default_venue": null,
+   "trusted": true
+  },
+  {
+   "id": "sharjah_museums",
+   "name": "Sharjah Museums Authority",
+   "city": "Sharjah",
+   "single_venue": false,
+   "urls": [
+    "https://www.sharjahmuseums.ae/"
+   ],
+   "default_venue": null,
+   "trusted": true
+  },
+  {
+   "id": "al_majaz",
+   "name": "Al Majaz Amphitheatre",
+   "city": "Sharjah",
+   "single_venue": true,
+   "urls": [
+    "https://www.almajazamphitheatre.ae/"
+   ],
+   "default_venue": "Al Majaz Amphitheatre, Al Majaz Waterfront",
+   "trusted": true
+  },
+  {
+   "id": "visit_rak",
+   "name": "Visit Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "single_venue": false,
+   "gov_tourism": true,
+   "urls": [
+    "https://visitrasalkhaimah.com/events/"
+   ],
+   "default_venue": null,
+   "trusted": false
+  },
+  {
+   "id": "rak_art",
+   "name": "Ras Al Khaimah Art",
+   "city": "Ras Al Khaimah",
+   "single_venue": false,
+   "urls": [
+    "https://www.rakart.ae/"
+   ],
+   "default_venue": "Al Jazeera Al Hamra Heritage Village",
+   "trusted": true
+  },
+  {
+   "id": "al_marjan",
+   "name": "Al Marjan Island",
+   "city": "Ras Al Khaimah",
+   "single_venue": false,
+   "urls": [
+    "https://marjan.ae/lifestyle/community-and-culture"
+   ],
+   "default_venue": null,
+   "trusted": true
+  },
+  {
+   "id": "jebel_jais",
+   "name": "Jebel Jais",
+   "city": "Ras Al Khaimah",
+   "single_venue": false,
+   "urls": [
+    "https://visitjebeljais.com/events"
+   ],
+   "default_venue": null,
+   "trusted": true
+  },
+  {
+   "id": "visit_ajman",
+   "name": "Visit Ajman",
+   "city": "Ajman",
+   "single_venue": false,
+   "gov_tourism": true,
+   "urls": [
+    "https://visit-ajman.ae/en/activities/upcoming-events"
+   ],
+   "default_venue": null,
+   "trusted": false
+  },
+  {
+   "id": "platinumlist_dxb",
+   "name": "Platinumlist Dubai",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://dubai.platinumlist.net/event/list",
+    "https://dubai.platinumlist.net/event/list?page=2",
+    "https://dubai.platinumlist.net/event/list?page=3",
+    "https://dubai.platinumlist.net/event/list?page=4",
+    "https://dubai.platinumlist.net/event/list?page=5",
+    "https://dubai.platinumlist.net/event/list?page=6",
+    "https://dubai.platinumlist.net/event/list?page=7",
+    "https://dubai.platinumlist.net/event/list?page=8",
+    "https://dubai.platinumlist.net/event/list?page=9",
+    "https://dubai.platinumlist.net/event/list?page=10",
+    "https://dubai.platinumlist.net/festival"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów: pełna lista wydarzeń (strony 1-10) + festiwale."
+  },
+  {
+   "id": "bluewaters",
+   "name": "Bluewaters Dubai",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://bluewatersdubai.ae/en/whats-on/events"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "hatta",
+   "name": "Visit Hatta",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.visithatta.com/en/events"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "theatre_qe2",
+   "name": "Theatre by QE2",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://www.theatrebyqe2.com/whats-on"
+   ],
+   "trusted": true,
+   "default_venue": "Theatre by QE2, Mina Rashid"
+  },
+  {
+   "id": "dubai_parks",
+   "name": "Dubai Parks and Resorts",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.dubaiparksandresorts.com/en/events"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "dubai_mall",
+   "name": "The Dubai Mall",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://thedubaimall.com/en/events"
+   ],
+   "trusted": true,
+   "default_venue": "The Dubai Mall, Downtown Dubai"
+  },
+  {
+   "id": "the_junction",
+   "name": "The Junction",
+   "city": "Dubai",
+   "single_venue": true,
+   "urls": [
+    "https://www.thejunctiondubai.com/"
+   ],
+   "trusted": true,
+   "default_venue": "The Junction, Alserkal Avenue, Al Quoz"
+  },
+  {
+   "id": "dubai_golf",
+   "name": "Dubai Golf",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.dubaigolf.com/events/"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "expo_centre_shj",
+   "name": "Expo Centre Sharjah",
+   "city": "Sharjah",
+   "single_venue": true,
+   "urls": [
+    "https://expo-centre.ae/events/"
+   ],
+   "trusted": false,
+   "default_venue": "Expo Centre Sharjah, Al Taawun"
+  },
+  {
+   "id": "af_dubai",
+   "name": "Alliance Française Dubai",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.afdubai.org/events-learning-french-with-alliance-francaise"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "dubai_flea",
+   "name": "Dubai Flea Market",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://dubai-fleamarket.com/"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "hopasports",
+   "name": "Hopasports (biegi i zawody)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.hopasports.com/en"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "ajman_tourism_hopa",
+   "name": "Ajman Tourism on Hopasports",
+   "city": "Ajman",
+   "single_venue": false,
+   "urls": [
+    "https://www.hopasports.com/ajmantourism"
+   ],
+   "trusted": false
+  },
+  {
+   "id": "fujairah_run",
+   "name": "NBF Fujairah Run",
+   "city": "Fujairah",
+   "single_venue": true,
+   "urls": [
+    "https://fujairahrun.com"
+   ],
+   "trusted": true
+  }
+ ]
 }

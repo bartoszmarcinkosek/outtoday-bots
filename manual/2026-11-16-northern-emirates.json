@@ -1,0 +1,73 @@
+{
+ "events": [
+  {
+   "title": "Ajman Half Marathon 2026",
+   "category": "sport",
+   "start_date": "2026-12-27",
+   "start_time": "07:00",
+   "venue": "Al Safia Park, Ajman",
+   "city": "Ajman",
+   "price_text": "AED 160 (2.5, 5 and 10 km) · AED 210 (21.1 km) + 8% service fee",
+   "price_min_aed": 160,
+   "description": "The biggest running event in Ajman, on traffic-free roads, with 21.1 km, 10 km, 5 km and 2.5 km races. Organised with the Ajman Department of Tourism, Culture & Media.",
+   "official_url": "https://www.hopasports.com/en/event/ajman-half-marathon-2026",
+   "status": "approved",
+   "source_name": "Hopasports (official registration)"
+  },
+  {
+   "title": "New Year's Eve Gala Dinner at Fairmont Ajman",
+   "category": "food",
+   "start_date": "2026-12-31",
+   "start_time": "19:00",
+   "end_time": "01:00",
+   "venue": "Fairmont Ajman",
+   "city": "Ajman",
+   "price_text": "15 Nov–15 Dec: AED 850 food only · AED 1,199 with house beverages. From 16 Dec: AED 975 / AED 1,350. Kids 6–12 half price, under 6 free",
+   "price_min_aed": 850,
+   "kid_friendly": true,
+   "description": "International buffet with live cooking stations and live entertainment through the night.",
+   "official_url": "https://www.fairmont.com/en/hotels/ajman/fairmont-ajman/offers/New-Year-Gala-Dinner.html",
+   "status": "approved",
+   "source_name": "Fairmont (official)"
+  },
+  {
+   "title": "New Year's Eve Gala Dinner at Lava Beach Club",
+   "category": "food",
+   "start_date": "2026-12-31",
+   "start_time": "19:00",
+   "end_time": "01:00",
+   "venue": "Lava Beach Club, Fairmont Fujairah Beach Resort",
+   "city": "Fujairah",
+   "price_text": "Early bird until 27 Nov: AED 599 non-alcoholic · AED 799 standard · AED 899 bubbly. Kids 6–12 half price, under 6 free",
+   "price_min_aed": 599,
+   "kid_friendly": true,
+   "description": "Open-air New Year's Eve gala dinner on the beach.",
+   "official_url": "https://www.fairmont.com/en/hotels/fujairah/fairmont-fujairah-beach-resort/offers/New-Year-s-Eve-Gala-Dinner.html",
+   "status": "approved",
+   "source_name": "Fairmont (official)"
+  },
+  {
+   "title": "7th Fujairah International Triathlon",
+   "category": "sport",
+   "start_date": "2026-12-13",
+   "city": "Fujairah",
+   "price_text": "From AED 120.75 (juniors) · AED 126 super sprint · up to AED 210 + 5% service fee",
+   "price_min_aed": 120.75,
+   "description": "Triathlon for individuals and teams, from junior super sprint to longer distances. Registration closes 11 Dec.",
+   "official_url": "https://www.hopasports.com/en/event/7th-edition-of-fujairah-international-triathlon",
+   "status": "pending",
+   "source_name": "Hopasports (official registration)"
+  },
+  {
+   "title": "NBF Fujairah Run 2026",
+   "category": "sport",
+   "start_date": "2026-11-21",
+   "venue": "Fujairah Festival Square",
+   "city": "Fujairah",
+   "description": "10th edition of the community run, now with a 21 km half marathon plus 10 km, 5 km and 3 km races and a trail run.",
+   "official_url": "https://fujairahrun.com",
+   "status": "pending",
+   "source_name": "Fujairah Run (to verify)"
+  }
+ ]
+}
