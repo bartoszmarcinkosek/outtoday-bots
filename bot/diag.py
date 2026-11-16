@@ -1,17 +1,11 @@
-import os, requests
-tok = os.environ.get("IG_ACCESS_TOKEN", "").strip()
-G = "https://graph.facebook.com/v21.0"
-p = requests.get(f"{G}/me/permissions", params={"access_token": tok}, timeout=30).json()
-print("PERMS", [(x["permission"], x["status"]) for x in p.get("data", [])], p.get("error"))
-acc = requests.get(f"{G}/me/accounts", params={"fields": "name,access_token,instagram_business_account{id}", "access_token": tok}, timeout=30).json()
-for pg in acc.get("data", []):
-    ig = (pg.get("instagram_business_account") or {}).get("id")
-    if not ig: continue
-    for label, t in (("user", tok), ("page", pg.get("access_token"))):
-        r = requests.get(f"{G}/{ig}", params={"fields": "business_discovery.username(atlantisthepalm){username,media_count}", "access_token": t}, timeout=30).json()
-        print("DISCOVERY", label, str(r)[:300])
-        me = requests.get(f"{G}/{ig}", params={"fields": "username,media_count", "access_token": t}, timeout=30).json()
-        print("SELF", label, str(me)[:200])
-dbg = requests.get(f"{G}/debug_token", params={"input_token": tok, "access_token": tok}, timeout=30).json()
-d = dbg.get("data", {})
-print("TOKEN", d.get("type"), d.get("expires_at"), d.get("scopes"), d.get("error"))
+import os, sys
+sys.path.insert(0, os.path.dirname(__file__))
+import run as R
+db = R.DB(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SECRET_KEY"].strip())
+rows = db.get("events", {"select": "id,title,start_date,start_time,venue,city,price_text,source_name,url",
+                         "status": "eq.pending", "source_name": "ilike.*meetup*", "order": "city,start_date", "limit": "500"})
+print("PENDING MEETUP", len(rows))
+for r in rows:
+    print("ROW", r["id"], "|", r["city"], "|", r["start_date"], r.get("start_time"), "|", r["title"], "|", r.get("venue"), "|", r.get("price_text"), "|", r["source_name"], "|", r.get("url"))
+uaq = db.get("events", {"select": "title,start_date,status", "city": "eq.Umm Al Quwain", "start_date": f"gte.{R.today_uae().isoformat()}"})
+print("UAQ", uaq)
