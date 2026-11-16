@@ -2,7 +2,7 @@ import os, re, sys, collections
 sys.path.insert(0, os.path.dirname(__file__))
 import run as R
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
-rows = db.get("events", {"select": "id,title,start_date,venue,status,source_name,bot_key", "bot_key": "like.meetup_*", "status": "eq.pending", "order": "start_date"})
+rows = db.get("events", {"select": "id,title,start_date,venue,status,source_name,bot_key", "source_name": "ilike.*meetup*", "status": "eq.pending", "order": "start_date"})
 BAD = re.compile(r"silent reading|speed|dating|singles|mingle|networking|investor|founder|online|webinar|zoom|virtual")
 VAGUE = re.compile(r"^(dubai[ ,]*)+(united arab emirates)?$")
 seen = collections.Counter(); rej = keep = 0
