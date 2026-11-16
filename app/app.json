@@ -36,16 +36,22 @@
       "favicon": "./assets/favicon.png"
     },
     "backgroundColor": "#0D1B33",
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0D1B33"
-    },
     "owner": "outtoday",
     "extra": {
       "eas": {
         "projectId": "2e98fcaf-cd5d-44dc-bc32-8dd57774691e"
       }
-    }
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#0D1B33"
+        }
+      ]
+    ]
   }
 }
