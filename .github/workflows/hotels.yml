@@ -1,0 +1,75 @@
+name: Hotel offers (all UAE)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "discover (lista hoteli) albo scan (oferty)"
+        type: string
+        default: "scan"
+      city:
+        description: "Emirat (puste = wszystkie)"
+        type: string
+        default: ""
+      limit:
+        description: "Ile hoteli przejrzeć"
+        type: string
+        default: "40"
+      dry_run:
+        description: "Próba: nic nie zapisuje"
+        type: boolean
+        default: false
+      force:
+        description: "Sprawdź także strony bez zmian"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hotels
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalacja
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Hotele
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          IN_MODE: ${{ inputs.mode }}
+          IN_CITY: ${{ inputs.city }}
+          IN_LIMIT: ${{ inputs.limit || '40' }}
+          IN_DRY: ${{ inputs.dry_run }}
+          IN_FORCE: ${{ inputs.force }}
+        run: |
+          if [ "$IN_MODE" = "discover" ]; then
+            python bot/hotels.py --discover
+          else
+            ARGS=(--scan --limit "$IN_LIMIT")
+            if [ -n "$IN_CITY" ]; then ARGS+=(--city "$IN_CITY"); fi
+            if [ "$IN_DRY" = "true" ]; then ARGS+=(--dry-run); fi
+            if [ "$IN_FORCE" = "true" ]; then ARGS+=(--force); fi
+            python bot/hotels.py "${ARGS[@]}"
+          fi
+      - name: Zapis listy hoteli
+        if: ${{ inputs.mode == 'discover' }}
+        run: |
+          git config user.name "outtoday-bot"
+          git config user.email "outtoday-bot@users.noreply.github.com"
+          git add sources/hotels.json
+          git commit -m "hotels.json: lista hoteli" || exit 0
+          git pull --rebase origin main && git push origin HEAD:main
