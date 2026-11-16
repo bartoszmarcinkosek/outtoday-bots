@@ -1,0 +1,132 @@
+{
+ "deals": [
+  {
+   "title": "Great Garden Brunch After Party",
+   "deal_type": "happy_hour",
+   "venue": "Bask Beach Club, Fairmont The Palm",
+   "city": "Dubai",
+   "official_url": "https://www.fairmont.com/en/hotels/dubai/fairmont-the-palm/offers/The-Great-Garden-Brunch-at-Fairmont-The-Palm.html",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 199 per person",
+   "details": "Unlimited selected cocktails and wines after brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "16:00",
+   "end_time": "19:00"
+  },
+  {
+   "title": "Le Brunch",
+   "deal_type": "brunch",
+   "venue": "La Brasserie Sur Le Boulevard, Kempinski The Boulevard",
+   "city": "Dubai",
+   "official_url": "https://www.kempinski.com/en/the-boulevard-dubai/restaurants-bars/la-brasserie-sur-le-boulevard/le-brunch",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 320 soft package · AED 450 house package",
+   "details": "French-Mediterranean brunch with seafood on ice, oysters, sushi and live stations.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Downtown Dubai"
+  },
+  {
+   "title": "Ladies' Night at Society Room",
+   "deal_type": "ladies_night",
+   "venue": "Society Room, Raffles Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.raffles.com/dubai/dining/Cocktail-bar/",
+   "days_of_week": [
+    3,
+    5
+   ],
+   "price_text": "AED 125",
+   "details": "Two-course dinner with three complimentary drinks.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Wafi"
+  },
+  {
+   "title": "Saturday Brunch at Cafe Naseem",
+   "deal_type": "brunch",
+   "venue": "Cafe Naseem, Ajman Hotel",
+   "city": "Ajman",
+   "official_url": "https://www.hotelajman.com/offers/brunch-in-the-gardens-of-cafe-naseem",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 249 soft · AED 299 house · with beach & pool: AED 385 soft / AED 485 house",
+   "details": "Buffet brunch with live music, live cooking and a seafood grill bar.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Surf and Turf at Bab Al Bahr",
+   "deal_type": "dinner",
+   "venue": "Bab Al Bahr Beach Bar & Grill, Ajman Saray",
+   "city": "Ajman",
+   "official_url": "https://www.marriott.com/hotels/hotel-information/restaurant/details/shjlc-ajman-saray-a-luxury-collection-resort-ajman/6035352/",
+   "days_of_week": [
+    5,
+    6
+   ],
+   "price_text": "AED 175 non-alcoholic · AED 195 house beer & wine · AED 245 with house spirits",
+   "details": "Surf and turf with a house DJ. Fridays 7–10pm, Saturdays 1–4pm.",
+   "status": "approved",
+   "source_name": "OutToday (official site)"
+  },
+  {
+   "title": "Hinky Dinks Brunch",
+   "deal_type": "brunch",
+   "venue": "Trader Vic's, Al Ain Rotana",
+   "city": "Al Ain",
+   "official_url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/alain/alainrotana/diningout/tradervics",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 269 soft · AED 329 house beverages",
+   "details": "Soup, four starters, four mains and dessert with unlimited selected drinks and live entertainment.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "start_time": "12:30",
+   "end_time": "15:30"
+  },
+  {
+   "title": "Mekong Sunday Brunch",
+   "deal_type": "brunch",
+   "venue": "Mekong, Anantara Mina Al Arab Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://www.anantara.com/en/mina-al-arab-ras-al-khaimah/offers/mekong-sunday-brunch",
+   "days_of_week": [
+    0
+   ],
+   "price_text": "AED 275 soft · AED 395 house · kids 5–11 half price · under 5 free",
+   "details": "Asian sharing-style brunch with free-flow drinks by the water.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Mina Al Arab",
+   "start_time": "12:30",
+   "end_time": "15:30",
+   "kid_friendly": true
+  },
+  {
+   "title": "Brunchella",
+   "deal_type": "brunch",
+   "venue": "Beach House, Anantara Mina Al Arab Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://www.anantara.com/en/mina-al-arab-ras-al-khaimah/offers/brunchella",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "From AED 275 soft · AED 395 house · AED 650 with Champagne (offer page may be older – check)",
+   "details": "Mediterranean brunch by the sea with live music.",
+   "status": "pending",
+   "source_name": "OutToday (official site)",
+   "area": "Mina Al Arab",
+   "start_time": "12:30",
+   "end_time": "15:30"
+  }
+ ]
+}
