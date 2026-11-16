@@ -7,7 +7,7 @@ import { fmtDate } from './dates';
 import { IconName, Item, todayIso } from './logic';
 import { colors } from './theme';
 import { Pill, Sheet, badgesFor } from './ui';
-import { CITIES, ZONES } from './zones';
+import { CITIES, ZONES, ZONE_CENTER, distanceKm } from './zones';
 
 // ---------- Wybór miasta i dzielnic ----------
 
@@ -16,8 +16,13 @@ export function LocationSheet(props: {
   available: Record<string, string[]>; // miasto -> rejony, w których coś jest
   counts: Record<string, number>; // miasto -> liczba pozycji
   onChange: (city: string, zones: string[]) => void;
+  me?: [number, number] | null; // lokalizacja telefonu: najbliższe rejony na górze
 }) {
-  const zoneList = ZONES.filter((z) => (props.available[props.city] ?? []).includes(z.key));
+  // Rejony: najbliższy pierwszy (gdy znamy lokalizację), inaczej alfabetycznie.
+  const km = (key: string) => (props.me && ZONE_CENTER[key] ? distanceKm(props.me, ZONE_CENTER[key]) : null);
+  const zoneList = ZONES.filter((z) => (props.available[props.city] ?? []).includes(z.key))
+    .map((z) => ({ ...z, km: km(z.key) }))
+    .sort((a, b) => (a.km != null && b.km != null ? a.km - b.km : a.label.localeCompare(b.label)));
   const toggle = (key: string) => {
     const next = props.zones.includes(key) ? props.zones.filter((z) => z !== key) : [...props.zones, key];
     props.onChange(props.city, next);
@@ -37,7 +42,7 @@ export function LocationSheet(props: {
           <Row label={`All ${props.city}`} icon={props.zones.length === 0 ? 'checkbox' : 'square-outline'}
             active={props.zones.length === 0} onPress={() => props.onChange(props.city, [])} />
           {zoneList.map((z) => (
-            <Row key={z.key} label={z.label} icon={props.zones.includes(z.key) ? 'checkbox' : 'square-outline'}
+            <Row key={z.key} label={z.km != null ? `${z.label} · ${z.km < 10 ? z.km.toFixed(1) : Math.round(z.km)} km` : z.label} icon={props.zones.includes(z.key) ? 'checkbox' : 'square-outline'}
               active={props.zones.includes(z.key)} onPress={() => toggle(z.key)} />
           ))}
         </>

@@ -16,7 +16,7 @@ import { ZoneMap } from './src/map';
 import { BigButton, CalendarSheet, DetailSheet, LocationSheet } from './src/sheets';
 import { cat, colors, dealStyle } from './src/theme';
 import { Chip, Empty, ItemCard, Sheet } from './src/ui';
-import { ZONES } from './src/zones';
+import { CITY_CENTER, ZONES, distanceKm } from './src/zones';
 
 type Tab = 'today' | 'events' | 'places' | 'deals';
 type ListTab = Exclude<Tab, 'today'>;
@@ -95,11 +95,12 @@ function Main() {
 
   useEffect(() => {
     (async () => {
+      let hasCity = false; // czy użytkownik już kiedyś wybrał miasto
       const cached = await loadCached();
       if (cached) setData(cached);
       try {
         const prefs = JSON.parse((await AsyncStorage.getItem(PREFS_KEY)) ?? 'null');
-        if (prefs?.city) setCity(prefs.city);
+        if (prefs?.city) { setCity(prefs.city); hasCity = true; }
         if (Array.isArray(prefs?.zones)) setZones(prefs.zones);
         const u = JSON.parse((await AsyncStorage.getItem(USAGE_KEY)) ?? '{}');
         if (u && typeof u === 'object') setUsage(u);
@@ -115,7 +116,17 @@ function Main() {
         if (status === 'granted') {
           const pos = (await Location.getLastKnownPositionAsync()) ??
             (await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Low }));
-          if (pos) setMe([pos.coords.latitude, pos.coords.longitude]);
+          if (pos) {
+            const here: [number, number] = [pos.coords.latitude, pos.coords.longitude];
+            setMe(here);
+            // Pierwsze uruchomienie: zaczynamy od najbliższego miasta.
+            if (!hasCity) {
+              const nearest = Object.entries(CITY_CENTER)
+                .map(([c, v]) => [c, distanceKm(here, [v[0], v[1]])] as const)
+                .sort((a, b) => a[1] - b[1])[0];
+              if (nearest && nearest[1] < 60) setCity(nearest[0]);
+            }
+          }
         }
       } catch {
         // Brak lokalizacji: sortujemy po dacie i nazwie.
@@ -335,7 +346,7 @@ function Main() {
         ))}
       </SafeAreaView>
 
-      <LocationSheet visible={showWhere} onClose={() => setShowWhere(false)} city={city} zones={zones} available={available} counts={cityCounts} onChange={changeWhere} />
+      <LocationSheet visible={showWhere} onClose={() => setShowWhere(false)} city={city} zones={zones} available={available} counts={cityCounts} onChange={changeWhere} me={me} />
       <CalendarSheet visible={showCal} onClose={() => setShowCal(false)} selected={isDate ? day : null} onPick={setDay} />
 
       {tab !== 'today' && (
