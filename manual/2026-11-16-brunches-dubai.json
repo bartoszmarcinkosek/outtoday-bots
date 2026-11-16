@@ -1,0 +1,198 @@
+{
+ "deals": [
+  {
+   "title": "Once Upon a Brunch",
+   "deal_type": "brunch",
+   "venue": "Mezzerie, Waldorf Astoria Dubai Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.hilton.com/en/hotels/dxbpdwa-waldorf-astoria-dubai-palm-jumeirah/dining/mezzerie/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 350 soft · AED 549 house · AED 690 bubbles",
+   "details": "International Saturday brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "13:00",
+   "end_time": "16:30"
+  },
+  {
+   "title": "Themed Nights at Mezzerie",
+   "deal_type": "dinner",
+   "venue": "Mezzerie, Waldorf Astoria Dubai Palm Jumeirah",
+   "city": "Dubai",
+   "official_url": "https://www.hilton.com/en/hotels/dxbpdwa-waldorf-astoria-dubai-palm-jumeirah/dining/mezzerie/",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "price_text": "AED 240 per person",
+   "details": "Sun roast · Mon Indian · Tue rotisserie · Wed Arabic · Thu Indian · Fri Levantine · Sat international.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "18:30",
+   "end_time": "22:30"
+  },
+  {
+   "title": "Rite of Siam Brunch",
+   "deal_type": "brunch",
+   "venue": "Jumeirah Al Qasr",
+   "city": "Dubai",
+   "official_url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-al-qasr/experiences/rite-of-siam-brunch",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 275 soft · AED 395 house · kids up to 12 free (max 2 per booking)",
+   "details": "Thai sharing-style brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Madinat Jumeirah",
+   "start_time": "12:30",
+   "end_time": "15:00",
+   "kid_friendly": true
+  },
+  {
+   "title": "Al Qasr Brunch",
+   "deal_type": "brunch",
+   "venue": "Jumeirah Al Qasr",
+   "city": "Dubai",
+   "official_url": "https://www.jumeirah.com/en/offers/category-offers/dine/jumeirah-al-qasr-arboretum/al-qasr-brunch",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "From AED 395–495 with soft beverages (Jumeirah's pages list different prices – check when booking)",
+   "details": "International buffet brunch at Madinat Jumeirah.",
+   "status": "pending",
+   "source_name": "OutToday (official site)",
+   "area": "Madinat Jumeirah",
+   "start_time": "13:00",
+   "end_time": "16:00"
+  },
+  {
+   "title": "Cedar Brunch",
+   "deal_type": "brunch",
+   "venue": "Al Nafoorah, Jumeirah Al Qasr",
+   "city": "Dubai",
+   "official_url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-al-qasr/experiences/cedar-brunch",
+   "days_of_week": [
+    0
+   ],
+   "price_text": "AED 375 soft · AED 475 house · AED 575 premium · kids 5–12 AED 175",
+   "details": "Lebanese family-style Sunday brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Madinat Jumeirah",
+   "start_time": "13:00",
+   "end_time": "16:00",
+   "kid_friendly": true
+  },
+  {
+   "title": "Vista Brunch",
+   "deal_type": "brunch",
+   "venue": "Cala Vista, Jumeirah Mina Al Salam",
+   "city": "Dubai",
+   "official_url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-mina-al-salam/experiences/vista-brunch-at-cala-vista",
+   "days_of_week": [
+    0
+   ],
+   "price_text": "AED 375 soft · AED 495 cocktails, wine & beer · AED 595 with sparkling",
+   "details": "Italian sharing brunch with Burj Al Arab views and live entertainment.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Madinat Jumeirah"
+  },
+  {
+   "title": "The Great Garden Brunch",
+   "deal_type": "brunch",
+   "venue": "Fairmont The Palm",
+   "city": "Dubai",
+   "official_url": "https://www.fairmont.com/en/hotels/dubai/fairmont-the-palm/offers/The-Great-Garden-Brunch-at-Fairmont-The-Palm.html",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 350 soft · AED 450 alcohol · AED 550 bubbly · kids 3–5 AED 50, 6–12 AED 150",
+   "details": "Outdoor brunch from five of the resort's restaurants.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Palm Jumeirah",
+   "start_time": "13:00",
+   "end_time": "16:30",
+   "kid_friendly": true
+  },
+  {
+   "title": "Brunch at Prime68",
+   "deal_type": "brunch",
+   "venue": "Prime68, JW Marriott Marquis Hotel Dubai",
+   "city": "Dubai",
+   "official_url": "https://portal.marriott.com/dxbjw-jw-marriott-marquis-dubai-uae-hotels-dining/brunches",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 295 soft · AED 495 house & sparkling",
+   "details": "Family-style steakhouse brunch with city views.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "13:00",
+   "end_time": "16:00"
+  },
+  {
+   "title": "Wanderlust Brunch",
+   "deal_type": "brunch",
+   "venue": "JW Marriott Marquis Hotel Dubai",
+   "city": "Dubai",
+   "official_url": "https://portal.marriott.com/dxbjw-jw-marriott-marquis-dubai-uae-hotels-dining/brunches",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 425 with house beverages (21+)",
+   "details": "Award-winning Saturday brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Business Bay",
+   "start_time": "13:00",
+   "end_time": "16:00"
+  },
+  {
+   "title": "Live Lounge Brunch",
+   "deal_type": "brunch",
+   "venue": "Prime52, Dubai Marriott Harbour Hotel & Suites",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/en-us/hotels/dxbhr-dubai-marriott-harbour-hotel-and-suites/dining/dubai-harbour-restaurants/prime52/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "From AED 392 with soft beverages",
+   "details": "Steakhouse brunch with free-flowing drinks and Marina views.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Dubai Marina",
+   "start_time": "13:00",
+   "end_time": "16:30"
+  },
+  {
+   "title": "Seafood Brunch at Feast",
+   "deal_type": "brunch",
+   "venue": "Feast, Sheraton Grand Hotel Dubai",
+   "city": "Dubai",
+   "official_url": "https://www.marriott.com/hotels/hotel-information/restaurant/details/dxbgh-sheraton-grand-hotel-dubai/5978813/",
+   "days_of_week": [
+    6
+   ],
+   "price_text": "AED 275 soft · AED 400 house · AED 500 bubbly",
+   "details": "Saturday evening seafood brunch.",
+   "status": "approved",
+   "source_name": "OutToday (official site)",
+   "area": "Sheikh Zayed Road",
+   "start_time": "19:30",
+   "end_time": "22:30"
+  }
+ ]
+}
