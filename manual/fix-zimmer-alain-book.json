@@ -1,0 +1,9 @@
+{
+ "approve": [
+  {"title": "Candlelight Concert: Hans Zimmer", "start_date": "2026-12-18",
+   "set": {"city": "Al Ain", "venue": "ADNEC Centre Al Ain", "start_time": "21:00", "price_text": "From AED 150", "official_url": "https://feverup.com/m/653682/en"}}
+ ],
+ "reject": [
+  {"title": "Al Ain Book Festival", "start_date": "2026-11-17"}
+ ]
+}

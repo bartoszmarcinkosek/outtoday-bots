@@ -70,7 +70,7 @@ def main() -> int:
                 q["start_date"] = f"eq.{r['start_date']}"
             rows = db.get("events", q)
             # "set": poprawki pól sprawdzone na oficjalnej stronie (np. venue "Various venues across Sharjah").
-            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("venue", "price_text", "is_free", "start_time", "end_time", "description", "official_url", "category")}
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("venue", "price_text", "is_free", "start_time", "end_time", "description", "official_url", "category", "city")}
             for row in rows:
                 if row["status"] == "rejected":
                     continue  # odrzucone ręcznie (np. w mailu) – stary plik nie może tego cofnąć
