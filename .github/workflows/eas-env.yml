@@ -32,4 +32,3 @@ jobs:
           for E in production preview development; do
             eas env:create --name GOOGLE_MAPS_API_KEY --value "$KEY" --environment "$E" --visibility sensitive --scope project --non-interactive --force
           done
-          eas env:list --environment production --non-interactive | grep -c GOOGLE_MAPS_API_KEY
