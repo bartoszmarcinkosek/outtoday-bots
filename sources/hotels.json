@@ -1130,6 +1130,21 @@
   "url": "https://sandybeach.ae/"
  },
  {
+  "name": "Al Hamra Residence",
+  "city": "Ras Al Khaimah",
+  "url": "https://alhamra.ae/hospitality-al-hamra-residence/"
+ },
+ {
+  "name": "Al Hamra Village Hotel",
+  "city": "Ras Al Khaimah",
+  "url": "https://alhamra.ae/hospitality-al-hamra-village-hotel/"
+ },
+ {
+  "name": "Al Hamra Village Hotel (Al Hamra Village Golf & Beach Resort)",
+  "city": "Ras Al Khaimah",
+  "url": "https://alhamravillage.rasalkhaimahotel.com/en/"
+ },
+ {
   "name": "Anantara Mina Ras Al Khaimah Resort",
   "city": "Ras Al Khaimah",
   "url": "https://www.anantara.com/en/mina-al-arab-ras-al-khaimah"
@@ -1195,6 +1210,11 @@
   "url": "https://all.accor.com/hotel/B4W0/index.en.shtml"
  },
  {
+  "name": "One to One Mughal Suites",
+  "city": "Ras Al Khaimah",
+  "url": "http://www.mughalsuites.ae"
+ },
+ {
   "name": "Pullman Resort Al Marjan Island",
   "city": "Ras Al Khaimah",
   "url": "https://all.accor.com/hotel/A0D2/index.en.shtml"
@@ -1248,6 +1268,11 @@
   "name": "The Ritz-Carlton Ras Al Khaimah, Al Wadi Desert",
   "city": "Ras Al Khaimah",
   "url": "https://www.ritzcarlton.com/en/hotels/rktrw-the-ritz-carlton-ras-al-khaimah-al-wadi-desert/overview/"
+ },
+ {
+  "name": "ULA Ras Al Khaimah (Ula Beach RAK)",
+  "city": "Ras Al Khaimah",
+  "url": "https://ularasalkhaimah.com/pool-beach-pass/"
  },
  {
   "name": "Waldorf Astoria Ras Al Khaimah",
