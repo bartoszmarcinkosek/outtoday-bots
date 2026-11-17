@@ -94,6 +94,20 @@ def main() -> int:
             for row in db.get("deals", {"select": "id,title", "title": f"eq.{r['title']}", "venue": f"eq.{r['venue']}"}):
                 db.update("deals", {"id": row["id"]}, fix)
                 print(f"~ deal poprawiony: {row['title']} {fix}")
+        # "approve_deal_ids": ["uuid" lub {"id": ..., "set": {...}}] – zatwierdza oczekujące oferty (opcjonalnie z poprawką).
+        for r in data.get("approve_deal_ids", []):
+            did, fix = (r, {}) if isinstance(r, str) else (r["id"], r.get("set") or {})
+            fix = {k: v for k, v in fix.items() if k in ("venue", "deal_type", "price_text", "city", "days_of_week", "start_time", "end_time")}
+            for row in db.get("deals", {"select": "id,title,status", "id": f"eq.{did}"}):
+                if row["status"] == "pending":
+                    db.update("deals", {"id": did}, {**fix, "status": "approved"})
+                    print(f"✓ deal zatwierdzony: {row['title']} {fix or ''}")
+        # "reject_deal_ids": ["uuid"] – odrzuca oferty po id.
+        for did in data.get("reject_deal_ids", []):
+            for row in db.get("deals", {"select": "id,title,status", "id": f"eq.{did}"}):
+                if row["status"] != "rejected":
+                    db.update("deals", {"id": did}, {"status": "rejected"})
+                    print(f"- deal ukryty: {row['title']}")
         # "reject_deals": [{"title":..., "venue":...}] – np. duplikaty.
         for r in data.get("reject_deals", []):
             q = {"select": "id,title,status", "title": f"ilike.{r['title']}"}
