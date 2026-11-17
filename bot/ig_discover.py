@@ -29,7 +29,11 @@ import instagram as IG  # noqa: E402
 SRC = os.path.join(os.path.dirname(__file__), "..", "sources")
 IG_FILE = os.path.join(SRC, "instagram.json")
 HANDLE = re.compile(r"instagram\.com/(?!p/|reel/|explore/|stories/|accounts/|share)([A-Za-z0-9_.]{2,30})", re.I)
-SKIP = {"instagram", "about", "developer", "legal", "direct", "tv", "web"}
+SKIP = {"instagram", "about", "developer", "legal", "direct", "tv", "web",
+        # konta sieci / obce / nieoficjalne grupy (sprawdzone ręcznie 17.11)
+        "africanqueen_beaulieusurmer", "barcelohotelsresorts", "daysinn", "bangaloresinglesnetwork", "ginger_universaldma",
+        "emaardubai", "marriottbonvoy", "hilton", "ihg", "accorhotels", "radissonhotels", "wyndhamhotels", "rotana",
+        "meetup", "fever", "platinumlist", "eventbrite", "tiktok", "facebook"}
 
 
 def pages() -> list[dict]:
@@ -43,7 +47,7 @@ def pages() -> list[dict]:
             for s in d["sources"]:
                 for u in (s.get("urls") or [])[:1]:
                     out.append({"name": s.get("default_venue") or s.get("name"), "city": s.get("city"), "url": u,
-                                "single": bool(s.get("single_venue"))})
+                                "single": False})
     return [p for p in out if p.get("url") and p.get("city")]
 
 
@@ -96,8 +100,13 @@ def main() -> int:
         if len(names) > 2:
             report.append((h, f"pominięte: konto sieci/wspólne ({len(names)} miejsc)"))
             continue
-        bd, err = IG.recent_posts(tok, ig, h)
-        time.sleep(1)
+        for wait in range(7):
+            bd, err = IG.recent_posts(tok, ig, h)
+            if bd or "request limit" not in err:
+                break
+            print(f"[limit Instagrama] czekam 20 min (sprawdzone: {len(report)})", flush=True)
+            time.sleep(20 * 60)
+        time.sleep(2)
         if not bd:
             report.append((h, f"niedostępne: {err[:60]}"))
             continue
@@ -107,7 +116,7 @@ def main() -> int:
             continue
         p = ps[0]
         acc = {"username": h, "city": p["city"]}
-        if p.get("name") and (p.get("single", True)):
+        if p.get("name") and p.get("single", True):
             acc["venue"] = p["name"]
         added.append(acc)
         have.add(h)
