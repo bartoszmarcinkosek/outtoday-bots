@@ -1,0 +1,35 @@
+name: Opening hours table (Open now)
+
+on:
+  schedule:
+    - cron: "37 5 * * 0"
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Przelicz wszystkie miejsca"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Próba: nic nie zapisuje"
+        type: boolean
+        default: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install anthropic requests beautifulsoup4
+      - env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          IN_ALL: ${{ inputs.all }}
+          IN_DRY: ${{ inputs.dry_run }}
+        run: |
+          A=(); [ "$IN_ALL" = "true" ] && A+=(--all); [ "$IN_DRY" = "true" ] && A+=(--dry-run)
+          python bot/hours.py "${A[@]}"
