@@ -137,7 +137,11 @@ def main() -> int:
                         report.append((u, f"[oferta] {row['title']}", "już jest w bazie"))
                         continue
                     if not a.dry_run:
-                        db.insert("deals", row)
+                        try:
+                            db.insert("deals", row)
+                        except RuntimeError as e:
+                            report.append((u, f"[oferta] {row['title']}", f"błąd zapisu: {str(e)[:80]}"))
+                            continue
                     deals.append(row)
                     deals_added += 1
                     new_here += 1
@@ -165,7 +169,11 @@ def main() -> int:
                 row.update(status="pending", verified_at=None, source_name=f"OutToday Instagram bot (@{u}, to verify)")
                 row["evidence"] = {k: v for k, v in row["evidence"].items() if k != "auto"}
                 if not a.dry_run:
-                    db.insert("events", row)
+                    try:
+                        db.insert("events", row)
+                    except RuntimeError as e:
+                        report.append((u, item["title"], "już jest w bazie" if "23505" in str(e) else f"błąd zapisu: {str(e)[:80]}"))
+                        continue
                 existing.append({"title": item["title"], "start_date": sd, "bot_key": key})
                 added += 1
                 new_here += 1
