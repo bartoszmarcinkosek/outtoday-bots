@@ -208,6 +208,22 @@ export function dealEndedToday(d: DealRow, now: Date = new Date()): boolean {
   return end > start && hm > end; // end <= start = po północy (np. 22:00–02:00), wtedy nie uznajemy za zakończoną
 }
 
+// Czy miejsce jest teraz otwarte (z tabeli godzin). null = nie wiemy.
+export function placeOpen(p: PlaceRow | undefined, now: Date = new Date()): { open: boolean; until?: string } | null {
+  const h = p?.hours;
+  if (!h || !Object.keys(h).length) return null;
+  const hm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  const d = now.getDay();
+  for (const [a, b] of h[String(d)] ?? []) {
+    if (b > a ? hm >= a && hm < b : hm >= a) return { open: true, until: b === '24:00' && a === '00:00' ? undefined : b === '24:00' ? 'midnight' : b };
+  }
+  // zmiana zaczęta wczoraj i trwająca po północy, np. 18:00–02:00
+  for (const [a, b] of h[String((d + 6) % 7)] ?? []) {
+    if (b <= a && b !== '24:00' && hm < b) return { open: true, until: b };
+  }
+  return { open: false };
+}
+
 export type SortKey = 'default' | 'near' | 'price';
 export const SORT_LABEL: Record<SortKey, string> = { default: 'Recommended', near: 'Nearest', price: 'Price' };
 

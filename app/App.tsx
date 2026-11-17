@@ -11,8 +11,10 @@ import { AppData, fetchAll, loadCached } from './src/api';
 import { DOW_CHIPS, fmtDate, inRange, rangeFor } from './src/dates';
 import {
   Item, SORT_LABEL, Shortcut, SortKey, buildItems, dealEndedToday, dealOnDay, dealOnNow, searchItems, shortcutsFor, sortItems, todayIso,
+  placeOpen,
 } from './src/logic';
 import { ZoneMap } from './src/map';
+import { SuggestSheet } from './src/suggest';
 import { BigButton, CalendarSheet, DetailSheet, LocationSheet } from './src/sheets';
 import { cat, colors, dealStyle } from './src/theme';
 import { Chip, Empty, ItemCard, Sheet } from './src/ui';
@@ -64,6 +66,7 @@ function Main() {
   const [day, setDay] = useState('today');
   const [dealDay, setDealDay] = useState<number | null>(null);
   const [topOnly, setTopOnly] = useState(false);
+  const [openOnly, setOpenOnly] = useState(false);
   const [cats, setCats] = useState<Record<ListTab, string | null>>({ events: null, places: null, deals: null });
   const [sorts, setSorts] = useState<Record<ListTab, SortKey>>({ events: 'default', places: 'default', deals: 'default' });
   const [free, setFree] = useState(false);
@@ -80,6 +83,7 @@ function Main() {
   const [showCal, setShowCal] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [showFavs, setShowFavs] = useState(false);
+  const [showSuggest, setShowSuggest] = useState(false);
   const [query, setQuery] = useState('');
   const [view, setView] = useState<'list' | 'map'>('list');
   // Ile razy użyto każdego filtra. Najczęstsze trafiają na górę panelu filtrów.
@@ -198,12 +202,13 @@ function Main() {
         .filter((i) => t !== 'events' || inRange(i.event!, range))
         .filter((i) => t !== 'places' || inOut === 'all' || i.indoor === (inOut === 'in'))
         .filter((i) => t !== 'places' || !topOnly || !hasTop10(city) || i.top != null)
+        .filter((i) => t !== 'places' || !openOnly || placeOpen(i.place)?.open === true)
         .filter((i) => t !== 'deals' || dealDay === null || dealOnDay(i.deal!, dealDay))
         .filter((i) => t !== 'deals' || cap === null || (i.price !== null && i.price <= cap));
       if (t === 'places' && topOnly && hasTop10(city) && sorts[t] === 'default') return [...filtered].sort((a, b) => (a.top ?? 99) - (b.top ?? 99));
       return sortItems(filtered, sorts[t]);
     },
-    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, city],
+    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, openOnly, city],
   );
 
   const list = useMemo(() => (tab === 'today' ? [] : listFor(tab)), [tab, listFor]);
@@ -217,11 +222,11 @@ function Main() {
 
   const activeCount =
     Number(free) + Number(kid) + Number(pet) + Number(ladies) +
-    (tab !== 'today' && cats[tab] ? 1 : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) +
+    (tab !== 'today' && cats[tab] ? 1 : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) + (tab === 'places' && openOnly ? 1 : 0) +
     (tab === 'deals' && cap !== null ? 1 : 0);
 
   const clearFilters = () => {
-    setFree(false); setKid(false); setPet(false); setLadies(false); setInOut('all'); setCap(null); setTopOnly(false);
+    setFree(false); setKid(false); setPet(false); setLadies(false); setInOut('all'); setCap(null); setTopOnly(false); setOpenOnly(false);
     setCats({ events: null, places: null, deals: null });
   };
 
@@ -263,6 +268,9 @@ function Main() {
             <Ionicons name="chevron-down" size={15} color={colors.primary} />
           </Pressable>
         </View>
+        <Pressable onPress={() => setShowSuggest(true)} hitSlop={10} style={styles.headBtn} accessibilityLabel="Suggest an event">
+          <Ionicons name="add-circle-outline" size={24} color={colors.text} />
+        </Pressable>
         <Pressable onPress={() => setShowSearch(true)} hitSlop={10} style={styles.headBtn}>
           <Ionicons name="search" size={23} color={colors.text} />
         </Pressable>
@@ -293,11 +301,14 @@ function Main() {
             </ScrollView>
             </View>
           )}
-          {tab === 'places' && hasTop10(city) && (
+          {tab === 'places' && (
             <View style={styles.chipRow}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRowIn}>
-              <Chip label="All places" active={!topOnly} onPress={() => setTopOnly(false)} />
-              <Chip label={`Top 10 in ${city}`} icon="trophy-outline" active={topOnly} onPress={() => setTopOnly(!topOnly)} />
+              <Chip label="All places" active={!topOnly && !openOnly} onPress={() => { setTopOnly(false); setOpenOnly(false); }} />
+              <Chip label="Open now" icon="time-outline" active={openOnly} onPress={() => setOpenOnly(!openOnly)} />
+              {hasTop10(city) && (
+                <Chip label={`Top 10 in ${city}`} icon="trophy-outline" active={topOnly} onPress={() => setTopOnly(!topOnly)} />
+              )}
             </ScrollView>
             </View>
           )}
@@ -453,6 +464,7 @@ function Main() {
             onFav={() => selected && toggleFav(selected.key)} onClose={() => setSelected(null)} />
         } />
 
+      <SuggestSheet visible={showSuggest} onClose={() => setShowSuggest(false)} city={city} />
       <Modal visible={showFavs} animationType="slide" onRequestClose={() => setShowFavs(false)}>
         <SafeAreaProvider>
           <SafeAreaView style={styles.screen}>

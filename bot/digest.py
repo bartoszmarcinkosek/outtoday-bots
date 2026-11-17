@@ -115,8 +115,24 @@ def load(db: DB) -> dict:
     since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=31)).isoformat()
     runs = db.get("bot_runs", {"select": "finished_at,summary", "dry_run": "eq.false", "finished_at": f"gte.{since}",
                                "order": "finished_at.asc", "limit": "500"})
+    try:  # zgłoszenia z apki z ostatniej doby (tabela suggestions)
+        day_ago = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=25)).isoformat()
+        suggestions = db.get("suggestions", {"select": "*", "created_at": f"gte.{day_ago}", "order": "created_at.asc", "limit": "50"})
+    except Exception:
+        suggestions = []
     return {"pending": pending, "changes": changes, "events_by_id": titles, "sample": sample, "auto_changes": auto_changes,
-            "runs": runs}
+            "runs": runs, "suggestions": suggestions}
+
+
+def suggestion_row(s: dict) -> str:
+    import html as _h
+    e = lambda v: _h.escape(str(v or ""))  # noqa: E731  treść od użytkownika: tylko jako tekst, bez klikalnych linków
+    bits = " · ".join(x for x in (e(s.get("event_date")), e(s.get("venue")), e(s.get("city"))) if x)
+    extra = "".join(f'<div style="color:{C["muted"]};font-size:13px;margin-top:3px">{lbl}: {e(s.get(k))}</div>'
+                    for k, lbl in (("link", "Link (nie klikaj bez sprawdzenia)"), ("note", "Uwagi"), ("contact", "Kontakt")) if s.get(k))
+    return (f'<tr><td style="padding:10px 14px;border-top:1px solid {C["line"]}">'
+            f'<div style="font-weight:600">{e(s.get("title"))}</div>'
+            f'<div style="color:{C["muted"]};font-size:13px">{bits}</div>{extra}</td></tr>')
 
 
 # Cennik Claude Haiku 5.5 (prompty do 100 tys. tokenów) i narzędzia web search, USD.
@@ -293,7 +309,8 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
     ready = [e for e in data["pending"] if not e.get("gaps")]
     gaps = [e for e in data["pending"] if e.get("gaps")]
     changes = data["changes"]
-    total = len(ready) + len(gaps) + len(changes) + len(data.get("sample", []))
+    sugg = data.get("suggestions", [])
+    total = len(ready) + len(gaps) + len(changes) + len(data.get("sample", [])) + len(sugg)
     today = dt.datetime.now(UAE_TZ).date()
 
     budget = MAX_ROWS
@@ -313,6 +330,8 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
         f'<h1 style="font-size:20px;margin:0 0 4px">OutToday · {today.day} {MONTHS_PL[today.month - 1]}</h1>'
         f'<div style="color:{C["muted"]};font-size:14px">{len(ready)} gotowe · {len(gaps)} do uzupełnienia · {len(changes)} {plural(len(changes), "zmiana", "zmiany", "zmian")}. '
         f'Tytuł otwiera stronę źródłową. Przyciski otwierają stronę z potwierdzeniem.</div>'
+        + section("Zgłoszenia od użytkowników apki", "Prześlij je Claude'owi w czacie: sprawdzi na stronie oficjalnej i doda.",
+                  [suggestion_row(x) for x in sugg], 0)
         + section("1. Gotowe do zatwierdzenia", "Wszystkie pola są potwierdzone cytatem ze strony.", [event_row(e, key) for e in r_shown], r_more)
         + section("2. Do uzupełnienia", "Strona nie podaje wszystkiego. Uzupełnij albo zatwierdź tak, jak jest.", [event_row(e, key) for e in g_shown], g_more)
         + section("3. Zmiany i propozycje", "Bot znalazł na stronie oficjalnej inną wartość niż w apce albo proponuje stronę oficjalną. Nic nie zostało zmienione.",
@@ -326,7 +345,7 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
         + f'<p style="color:{C["muted"]};font-size:12px;margin-top:24px">Linki są ważne {TOKEN_DAYS} dni. '
           f'Nie przekazuj tego e-maila dalej: przyciski działają bez logowania.</p></div></div>'
     )
-    subject = f"OutToday: {len(ready) + len(gaps)} do sprawdzenia" + (f", {len(changes)} {plural(len(changes), 'zmiana', 'zmiany', 'zmian')}" if changes else "") + f" · {today.day} {MONTHS_PL[today.month - 1]}"
+    subject = (f"OutToday: {len(sugg)} {plural(len(sugg), 'zgłoszenie', 'zgłoszenia', 'zgłoszeń')}, " if sugg else "OutToday: ") + f"{len(ready) + len(gaps)} do sprawdzenia" + (f", {len(changes)} {plural(len(changes), 'zmiana', 'zmiany', 'zmian')}" if changes else "") + f" · {today.day} {MONTHS_PL[today.month - 1]}"
     text = (f"OutToday {today.isoformat()}: {len(ready)} gotowe, {len(gaps)} do uzupełnienia, {len(changes)} zmian. "
             "Otwórz ten e-mail w widoku HTML, żeby zobaczyć przyciski.")
     return subject, body, text, total

@@ -40,6 +40,7 @@ export type PlaceRow = {
   area: string | null;
   city: string;
   hours_text: string | null;
+  hours?: Record<string, string[][]> | null; // 0 = niedziela, [["10:00","22:00"]]
   price_text: string | null;
   is_free: boolean;
   kid_friendly?: boolean;
@@ -120,4 +121,20 @@ export async function fetchAll(): Promise<AppData> {
     // Brak pamięci podręcznej nie blokuje działania apki.
   }
   return data;
+}
+
+// Zgłoszenie eventu od użytkownika (tabela suggestions: apka może tylko dodawać).
+export type Suggestion = { title: string; event_date?: string; venue?: string; city?: string; link?: string; note?: string; contact?: string };
+
+export async function sendSuggestion(s: Suggestion): Promise<void> {
+  const body = Object.fromEntries(Object.entries(s).map(([k, v]) => [k, (v ?? '').trim() || null]));
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/suggestions`, {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`,
+      'Content-Type': 'application/json', Prefer: 'return=minimal',
+    },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`${res.status}`);
 }
