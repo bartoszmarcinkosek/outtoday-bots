@@ -723,6 +723,15 @@ def dedupe(accepted: list[tuple[dict, dict]]) -> list[tuple[dict, dict]]:
 # ---------------------------------------------------------------- główna pętla
 
 
+RECHECK_DAYS = 3
+DAILY_HOSTS = ("platinumlist", "feverup", "eventbrite", "meetup.com", "hopasports", "ticketmaster", "q-tickets",
+               "coca-cola-arena", "etihadarena", "virginmegastore")
+
+
+def is_daily(src: dict, url: str) -> bool:
+    return bool(src.get("daily")) or any(h in url.lower() for h in DAILY_HOSTS)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="nic nie zapisuje w bazie, tylko raport")
@@ -794,6 +803,17 @@ def main() -> int:
             for url in src["urls"]:
                 log = {"source": src["name"], "url": url, "status": "", "found": 0, "kept": 0}
                 source_log.append(log)
+                # Oszczędność: codziennie tylko sprzedawcy biletów i duże hale; reszta co RECHECK_DAYS dni.
+                if db and not args.force and not only and not is_daily(src, url):
+                    try:
+                        prev = db.get("bot_pages", {"select": "last_fetched_at", "url": f"eq.{url}"})
+                        last = prev[0]["last_fetched_at"] if prev and prev[0].get("last_fetched_at") else None
+                        if last and dt.datetime.fromisoformat(last.replace("Z", "+00:00")) > \
+                                dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=RECHECK_DAYS, hours=-2):
+                            log["status"] = f"sprawdzane co {RECHECK_DAYS} dni (ostatnio {last[:10]})"
+                            continue
+                    except Exception:
+                        pass
                 try:
                     ok, why = robots_allows(url)
                     if not ok:

@@ -32,6 +32,12 @@ HINT = re.compile(r"\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b|
                   r"\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*day\b|tonight|this weekend|aed|tickets?|book now|\bpm\b", re.I)
 
 
+# Oszczędność: jeden odczyt AI na post. Event tylko przy konkretnej dacie; oferta stała (co tydzień itp.) – tylko oferty.
+_M = r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
+DATE_HINT = re.compile(r"\b\d{1,2}(st|nd|rd|th)?\s*(-|–|to|&)?\s*(\d{1,2}(st|nd|rd|th)?\s*)?" + _M + r"\b|\b" + _M +
+                       r"\.?\s+\d{1,2}(st|nd|rd|th)?\b|\b\d{1,2}[./]\d{1,2}([./]\d{2,4})?\b|\btonight\b|\btomorrow\b|this (weekend|friday|saturday|sunday)", re.I)
+RECUR = re.compile(r"\bevery\b|\bweekly\b|\bdaily\b|\beach\b|\b(mon|tues|wednes|thurs|fri|satur|sun)days\b|all week|7 days", re.I)
+
 OFFER_HINT = re.compile(r"brunch|happy hour|ladies|business lunch|set menu|breakfast|day pass|pool pass|beach pass|staycation|"
                         r"quiz|unlimited|free.?flow|\bdeal\b|offer|aed|dhs", re.I)
 
@@ -129,7 +135,8 @@ def main() -> int:
             if len(cap) < 40:
                 continue
             text = f"Instagram post by @{u} ({name}), posted on {posted.isoformat()}.\n\n{cap}"
-            if OFFER_HINT.search(cap):
+            is_offer = bool(OFFER_HINT.search(cap)) and (bool(RECUR.search(cap)) or not DATE_HINT.search(cap))
+            if is_offer:
                 page_norm = R.norm(text)
                 venue_name = acc.get("venue") or name
                 for o in H.ask_offers(client_h, {"name": venue_name, "city": acc["city"]}, text, url, usage_h):
@@ -157,7 +164,7 @@ def main() -> int:
                     deals_added += 1
                     new_here += 1
                     report.append((u, f"[oferta] {row['title']}", f"✓ {venue} — {row.get('price_text') or 'bez ceny'}"))
-            if not HINT.search(cap):
+            if is_offer or not DATE_HINT.search(cap):
                 continue
             src = {"id": f"ig_{u}", "name": f"Instagram @{u}", "city": acc["city"], "default_venue": acc.get("venue"),
                    "single_venue": bool(acc.get("venue")), "trusted": False}
