@@ -28,6 +28,9 @@ export function AboutSheet(props: { visible: boolean; onClose: () => void; onSug
         For adults (18+): some listings mention venues and offers that serve alcohol. Your location and favourites stay on
         your phone.
       </Text>
+      <Text style={styles.note}>
+        Map locations: © OpenStreetMap contributors (openstreetmap.org/copyright), geocoding by Nominatim.
+      </Text>
       <Text style={styles.note}>Version {VERSION} · {REPORT_EMAIL}</Text>
     </Sheet>
   );
