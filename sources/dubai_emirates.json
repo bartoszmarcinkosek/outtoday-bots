@@ -566,7 +566,7 @@
    "default_venue": "Dubai Festival City Mall",
    "trusted": true,
    "urls": [
-    "https://www.dubaifestivalcity.com/en/whats-on"
+    "https://www.dubaifestivalcity.com/en"
    ]
   },
   {
@@ -588,7 +588,7 @@
    "default_venue": "Dubai Design District (d3)",
    "trusted": true,
    "urls": [
-    "https://dubaidesigndistrict.com/whats-on/"
+    "https://dubaidesigndistrict.com/"
    ]
   },
   {
@@ -687,7 +687,7 @@
    "default_venue": "Mleiha National Park",
    "trusted": true,
    "urls": [
-    "https://discovermleiha.ae/"
+    "https://www.discovermleiha.ae/en"
    ]
   }
  ]
