@@ -108,10 +108,28 @@
   "kind": "standalone"
  },
  {
+  "name": "Ajman Water Park",
+  "city": "Ajman",
+  "url": "https://ajmanwaterpark.com/",
+  "kind": "waterparks,"
+ },
+ {
   "name": "Al Zorah Golf Club",
   "city": "Ajman",
   "url": "https://www.alzorahgolfclub.ae",
   "kind": "golf"
+ },
+ {
+  "name": "Happy Fun Festival Land Ajman",
+  "city": "Ajman",
+  "url": "https://happyfun.ae/ajman/",
+  "kind": "waterparks,"
+ },
+ {
+  "name": "Magic Planet City Centre Ajman",
+  "city": "Ajman",
+  "url": "https://www.magicplanetmena.com/en-ae/explore/soft-play/store-city-centre-ajman",
+  "kind": "waterparks,"
  },
  {
   "name": "McGettigan's Ajman",
@@ -130,6 +148,12 @@
   "city": "Ajman",
   "url": "https://www.mcgettigans.com/ajman/whats-on/saturday-brunch.html",
   "kind": "standalone"
+ },
+ {
+  "name": "Sprinkles Play Ajman",
+  "city": "Ajman",
+  "url": "https://sprinklesplay.com/",
+  "kind": "waterparks,"
  },
  {
   "name": "Al Ain Adventure",
