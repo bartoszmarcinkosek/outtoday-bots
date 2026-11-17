@@ -480,6 +480,11 @@
   "url": "https://www.telalresort.ae/"
  },
  {
+  "name": "Adagio Premium The Palm",
+  "city": "Dubai",
+  "url": "https://all.accor.com/hotel/A609/index.en.shtml"
+ },
+ {
   "name": "Al Bandar Arjaan Dubai - Creek",
   "city": "Dubai",
   "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/dubai/albandararjaanbyrotana"
@@ -515,6 +520,11 @@
   "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/dubai/arjaanbyrotanadubaimediacity"
  },
  {
+  "name": "Armada Avenue Hotel",
+  "city": "Dubai",
+  "url": "https://armadaavenuehotel.com/"
+ },
+ {
   "name": "Avani Deira Dubai Hotel",
   "city": "Dubai",
   "url": "https://www.avanihotels.com/en/deira-dubai"
@@ -530,6 +540,11 @@
   "url": "https://www.avanihotels.com/en/palm-dubai"
  },
  {
+  "name": "Barceló Business Bay Dubai",
+  "city": "Dubai",
+  "url": "https://www.barcelo.com/en-ae/barcelo-business-bay-dubai/"
+ },
+ {
   "name": "Carlton Downtown Hotel",
   "city": "Dubai",
   "url": "https://www.carltondowntown.com/"
@@ -543,6 +558,16 @@
   "name": "Centro Barsha",
   "city": "Dubai",
   "url": "https://www.rotana.com/centrohotels/unitedarabemirates/dubai/centrobarsha"
+ },
+ {
+  "name": "Cheval Maison – The Palm Dubai",
+  "city": "Dubai",
+  "url": "https://www.chevalcollection.com/cheval-maison-the-palm/"
+ },
+ {
+  "name": "Ciel Dubai Marina",
+  "city": "Dubai",
+  "url": "https://www.ihg.com/vignettecollection/hotels/us/en/dubai/dxbma/hoteldetail"
  },
  {
   "name": "Conrad Dubai",
@@ -820,6 +845,16 @@
   "url": "https://www.nh-hotels.com/en/hotel/nh-collection-dubai-la-suite-hotel-and-apartments"
  },
  {
+  "name": "Mama Shelter Dubai",
+  "city": "Dubai",
+  "url": "https://mamashelter.com/dubai/"
+ },
+ {
+  "name": "Marina Byblos Hotel",
+  "city": "Dubai",
+  "url": "https://www.marinabybloshotel.com/"
+ },
+ {
   "name": "Marriott Hotel Al Jaddaf, Dubai",
   "city": "Dubai",
   "url": "https://www.marriott.com/en-us/hotels/dxbmh-marriott-hotel-al-jaddaf-dubai/overview/"
@@ -905,6 +940,11 @@
   "url": "https://www.paramounthotelsdubai.com/dubai"
  },
  {
+  "name": "Paramount Hotel Dubai",
+  "city": "Dubai",
+  "url": "https://www.paramounthotelsdubai.com/"
+ },
+ {
   "name": "Park Hyatt Dubai",
   "city": "Dubai",
   "url": "https://www.hyatt.com/en-US/hotel/united-arab-emirates/park-hyatt-dubai/dxbph/"
@@ -913,6 +953,11 @@
   "name": "Park Inn by Radisson Dubai Motor City",
   "city": "Dubai",
   "url": "https://www.radissonhotels.com/en-us/hotels/park-inn-dubai-motor-city"
+ },
+ {
+  "name": "Park Regis Business Bay",
+  "city": "Dubai",
+  "url": "https://www.parkregisbusinessbay.com/"
  },
  {
   "name": "Radisson Beach Resort Palm Jumeirah",
@@ -1053,6 +1098,21 @@
   "name": "Sofitel Dubai The Palm",
   "city": "Dubai",
   "url": "https://sofitel.accor.com/en/hotels/6541.html"
+ },
+ {
+  "name": "Stella Di Mare Dubai Marina Hotel",
+  "city": "Dubai",
+  "url": "https://stelladimare.com/dubai-marina-hotel/dining/"
+ },
+ {
+  "name": "Th8 Palm Dubai Beach Resort, Vignette Collection by IHG",
+  "city": "Dubai",
+  "url": "https://th8palmdubai.com/en"
+ },
+ {
+  "name": "The Lana, Dorchester Collection",
+  "city": "Dubai",
+  "url": "https://www.dorchestercollection.com/dubai/the-lana/pool"
  },
  {
   "name": "The Ritz-Carlton, Dubai",
