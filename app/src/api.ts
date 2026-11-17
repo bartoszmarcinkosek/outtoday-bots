@@ -20,6 +20,8 @@ export type EventRow = {
   pet_friendly?: boolean;
   ladies_only?: boolean;
   official_url?: string | null;
+  lat?: number | null;
+  lng?: number | null;
   phone?: string | null;
   created_at?: string | null;
   updated_at?: string | null;
@@ -45,6 +47,8 @@ export type PlaceRow = {
   pet_friendly?: boolean;
   ladies_only?: boolean;
   official_url?: string | null;
+  lat?: number | null;
+  lng?: number | null;
   phone?: string | null;
   created_at?: string | null;
   updated_at?: string | null;
@@ -70,6 +74,8 @@ export type DealRow = {
   pet_friendly?: boolean;
   ladies_only?: boolean;
   official_url?: string | null;
+  lat?: number | null;
+  lng?: number | null;
   phone?: string | null;
   created_at?: string | null;
   updated_at?: string | null;

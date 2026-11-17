@@ -35,6 +35,7 @@ export type Item = {
   zone: string | null;
   city: string;
   km: number | null;
+  geo: [number, number] | null; // dokładne współrzędne miejsca, gdy znane
   officialUrl: string | null;
   phone: string | null;
   sourceName: string | null;
@@ -105,8 +106,15 @@ function isNew(created: string | null | undefined, now: Date): boolean {
   return day >= NEW_BASELINE && day >= addDaysIso(-7, now);
 }
 
-function kmFor(zone: string | null, me: [number, number] | null): number | null {
-  if (!me || !zone || !ZONE_CENTER[zone]) return null;
+function geoOf(r: { lat?: number | null; lng?: number | null }): [number, number] | null {
+  return r.lat != null && r.lng != null ? [r.lat, r.lng] : null;
+}
+
+// Odległość: do dokładnego miejsca, gdy znamy współrzędne; inaczej do środka dzielnicy.
+function kmFor(zone: string | null, me: [number, number] | null, geo: [number, number] | null = null): number | null {
+  if (!me) return null;
+  if (geo) return distanceKm(me, geo);
+  if (!zone || !ZONE_CENTER[zone]) return null;
   return distanceKm(me, ZONE_CENTER[zone]);
 }
 
@@ -135,7 +143,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       where: placeLine(e.venue, e.area), mapQuery: `${e.venue ?? e.area ?? e.title}, ${e.city}`,
       description: e.description, priceText: e.price_text, price, free: e.is_free || price === 0,
       kid: e.kid_friendly === true, pet: e.pet_friendly === true, ladies: e.ladies_only === true,
-      indoor: null, top: null, zone, city: itemCity, km: kmFor(zone, me),
+      indoor: null, top: null, zone, city: itemCity, km: kmFor(zone, me, geoOf(e)), geo: geoOf(e),
       officialUrl: e.official_url ?? null, phone: e.phone ?? null, sourceName: e.source_name,
       checked: monthYear(e.verified_at ?? e.updated_at ?? e.created_at), verified: !!e.verified_at, isNew: isNew(e.created_at, now),
       endsSoon: isLongRunning(e) && end >= today && end <= soon, booking: e.registration_required, event: e,
@@ -151,7 +159,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       mapQuery: `${p.name}, ${p.city}`, description: p.description, priceText: p.price_text, price,
       free: p.is_free || price === 0, kid: p.kid_friendly === true, pet: p.pet_friendly === true,
       ladies: p.ladies_only === true, indoor: p.is_indoor === true, top: topRank(itemCity, p.name), zone, city: itemCity,
-      km: kmFor(zone, me), officialUrl: p.official_url ?? null, phone: p.phone ?? null,
+      km: kmFor(zone, me, geoOf(p)), geo: geoOf(p), officialUrl: p.official_url ?? null, phone: p.phone ?? null,
       sourceName: p.source_name, checked: monthYear(p.updated_at ?? p.created_at), verified: false,
       isNew: isNew(p.created_at, now), endsSoon: false, booking: false, place: p,
     });
@@ -170,7 +178,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       mapQuery: `${d.venue ?? d.title}, ${d.city}`, description: d.details, priceText: d.price_text, price,
       free: price === 0, kid: d.kid_friendly === true, pet: d.pet_friendly === true,
       ladies: d.ladies_only === true || d.deal_type === 'ladies_night', indoor: null, top: null, zone,
-      city: itemCity, km: kmFor(zone, me), officialUrl: d.official_url ?? null,
+      city: itemCity, km: kmFor(zone, me, geoOf(d)), geo: geoOf(d), officialUrl: d.official_url ?? null,
       phone: d.phone ?? null, sourceName: d.source_name, checked: monthYear(d.updated_at ?? d.created_at), verified: false,
       isNew: isNew(d.created_at, now),
       endsSoon: !!d.valid_until && d.valid_until >= today && d.valid_until <= soon, booking: false, deal: d,

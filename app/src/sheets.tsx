@@ -192,8 +192,8 @@ export function DetailSheet(props: { item: Item | null; fav: boolean; onFav: () 
       <View style={styles.actions}>
         <Action icon={props.fav ? 'heart' : 'heart-outline'} label={props.fav ? 'Saved' : 'Save'} onPress={props.onFav} />
         <Action icon="share-outline" label="Share" onPress={share} />
-        <Action icon="map-outline" label="Google Maps" onPress={() => open(`https://www.google.com/maps/dir/?api=1&destination=${q}`)} />
-        <Action icon="navigate-outline" label="Waze" onPress={() => open(`https://waze.com/ul?q=${q}&navigate=yes`)} />
+        <Action icon="map-outline" label="Google Maps" onPress={() => open(`https://www.google.com/maps/dir/?api=1&destination=${item.geo ? `${item.geo[0]},${item.geo[1]}` : q}`)} />
+        <Action icon="navigate-outline" label="Waze" onPress={() => open(item.geo ? `https://waze.com/ul?ll=${item.geo[0]},${item.geo[1]}&navigate=yes` : `https://waze.com/ul?q=${q}&navigate=yes`)} />
         {item.kind === 'event' && <Action icon="calendar-outline" label="Add to calendar" onPress={() => addToCalendar(item)} />}
         {!!digits && <Action icon="call-outline" label="Call" onPress={() => open(`tel:${digits}`)} />}
         {!!digits && <Action icon="logo-whatsapp" label="WhatsApp" onPress={() => open(`https://wa.me/${digits.replace('+', '')}`)} />}

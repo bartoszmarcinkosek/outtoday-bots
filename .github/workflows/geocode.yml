@@ -1,0 +1,42 @@
+name: Geocode (współrzędne miejsc z OpenStreetMap)
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Ile wpisów"
+        type: string
+        default: "1500"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geocode
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Geocode
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          IN_LIMIT: ${{ inputs.limit || '1500' }}
+        run: python bot/geocode.py --limit "$IN_LIMIT"
+      - name: Zapis pamięci podręcznej
+        if: always()
+        run: |
+          git config user.name "outtoday-bot"
+          git config user.email "outtoday-bot@users.noreply.github.com"
+          git add sources/geo_cache.json || exit 0
+          git commit -m "geo cache" || exit 0
+          git pull --rebase origin main && git push origin HEAD:main
