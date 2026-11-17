@@ -760,5 +760,17 @@
   "city": "Sharjah",
   "url": "https://xquarry.com/",
   "kind": "waterparks,"
+ },
+ {
+  "name": "Sobha Siniya Island clubhouse and 18-hole golf course",
+  "city": "Umm Al Quwain",
+  "url": "https://sobharealty.com/sobha-communities/sobha-siniya-island",
+  "kind": "golf"
+ },
+ {
+  "name": "Umm Al Quwain Marine Club Restaurant & TV Lounge",
+  "city": "Umm Al Quwain",
+  "url": "http://www.uaqmarineclub.com/restaurant-lounge/",
+  "kind": "bars"
  }
 ]
