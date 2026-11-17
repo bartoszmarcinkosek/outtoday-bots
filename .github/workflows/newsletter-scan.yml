@@ -1,0 +1,35 @@
+name: Newslettery – które hotele mają własny
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Ile stron"
+        type: string
+        default: "500"
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalacja
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Skan
+        env:
+          IN_LIMIT: ${{ inputs.limit || '500' }}
+        run: python bot/newsletter_scan.py --limit "$IN_LIMIT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: newsletters
+          path: newsletters.json
