@@ -1,0 +1,32 @@
+name: EAS – klucz Google Maps (z sekretu GitHub do Expo)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: Zapis klucza w Expo (sensitive)
+        env:
+          KEY: ${{ secrets.GOOGLE_MAPS_ANDROID_KEY }}
+        run: |
+          test -n "$KEY" || { echo "Brak sekretu GOOGLE_MAPS_ANDROID_KEY"; exit 1; }
+          for E in production preview development; do
+            eas env:create --name GOOGLE_MAPS_API_KEY --value "$KEY" --environment "$E" --visibility sensitive --scope project --non-interactive --force
+          done
+          eas env:list --environment production --non-interactive | grep -c GOOGLE_MAPS_API_KEY
