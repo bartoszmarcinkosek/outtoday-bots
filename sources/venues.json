@@ -402,6 +402,12 @@
   "kind": "standalone"
  },
  {
+  "name": "Atelier M (Pier 7)",
+  "city": "Dubai",
+  "url": "https://atelierm.ae/events/ladies-night/",
+  "kind": "bars"
+ },
+ {
   "name": "Atelier M (Pier 7, Dubai Marina)",
   "city": "Dubai",
   "url": "https://www.atelierm.ae/",
@@ -411,6 +417,12 @@
   "name": "BOCA",
   "city": "Dubai",
   "url": "https://boca.ae/promotions/happyhour/",
+  "kind": "bars"
+ },
+ {
+  "name": "BOCA",
+  "city": "Dubai",
+  "url": "https://boca.ae/boca-happy-hour/",
   "kind": "bars"
  },
  {
@@ -436,6 +448,12 @@
   "city": "Dubai",
   "url": "https://bedrockdxb.ae/",
   "kind": "golf"
+ },
+ {
+  "name": "Bla Bla Dubai (at The Beach JBR)",
+  "city": "Dubai",
+  "url": "https://www.thebeach.ae/en",
+  "kind": "beach"
  },
  {
   "name": "Boardwalk (Dubai Creek Golf & Yacht Club)",
@@ -474,6 +492,18 @@
   "kind": "golf"
  },
  {
+  "name": "CLAP",
+  "city": "Dubai",
+  "url": "https://claprestaurant.com/dubai/whats-on/ladies-night/",
+  "kind": "bars"
+ },
+ {
+  "name": "COCO Restaurant & Shisha Lounge",
+  "city": "Dubai",
+  "url": "https://coco-restaurants.ae/",
+  "kind": "standalone"
+ },
+ {
   "name": "Canary Beach (Palm Jumeirah)",
   "city": "Dubai",
   "url": "https://canaryclub.com/beach-brunch-dubai/",
@@ -496,6 +526,12 @@
   "city": "Dubai",
   "url": "https://www.dubaigolf.com/carine/",
   "kind": "golf"
+ },
+ {
+  "name": "Cove Beach",
+  "city": "Dubai",
+  "url": "https://www.covebeach.com/",
+  "kind": "beach"
  },
  {
   "name": "Crafty Fox Gastropub & Sports Bar",
@@ -526,6 +562,12 @@
   "city": "Dubai",
   "url": "https://www.emaar.com/en/dubai-hills-golf-club",
   "kind": "golf"
+ },
+ {
+  "name": "Elaia (Pier 7)",
+  "city": "Dubai",
+  "url": "https://www.elaiadubai.com/ladies-night/",
+  "kind": "bars"
  },
  {
   "name": "Emirates Golf Club (dining: Spike Bar, Carine, Jones the Grocer)",
@@ -588,10 +630,22 @@
   "kind": "golf"
  },
  {
+  "name": "Kids Zone Souk Al Bahar",
+  "city": "Dubai",
+  "url": "https://www.kidszone.ae/uae-national-day/",
+  "kind": "waterparks,"
+ },
+ {
   "name": "Lakeview (Dubai Creek Golf & Yacht Club)",
   "city": "Dubai",
   "url": "https://www.dubaigolf.com/dcgyc/dine/lakeview/",
   "kind": "golf"
+ },
+ {
+  "name": "MAMA ZONIA (Pier 7)",
+  "city": "Dubai",
+  "url": "https://mamazoniadubai.com/",
+  "kind": "bars"
  },
  {
   "name": "Mama Zonia",
@@ -658,6 +712,12 @@
   "city": "Dubai",
   "url": "https://www.pizzaexpress.ae/bsq-promos/just-friday-brunch",
   "kind": "standalone"
+ },
+ {
+  "name": "Play DXB Dubai Mall",
+  "city": "Dubai",
+  "url": "https://entertainment.emaar.com/attraction/play-dxb",
+  "kind": "waterparks,"
  },
  {
   "name": "QD's Bar & Grill (Dubai Creek Golf & Yacht Club)",
@@ -756,6 +816,12 @@
   "kind": "pubs"
  },
  {
+  "name": "The Blacksmith Bar & Eatery (Business Bay)",
+  "city": "Dubai",
+  "url": "https://www.theblacksmithdubai.com/offer/happy-hour-business-bay/",
+  "kind": "pubs"
+ },
+ {
   "name": "The Blacksmith Bar & Eatery Business Bay",
   "city": "Dubai",
   "url": "https://www.theblacksmithdubai.com/business-bay/",
@@ -771,6 +837,12 @@
   "name": "The Guild",
   "city": "Dubai",
   "url": "https://www.theguilddubai.com/",
+  "kind": "standalone"
+ },
+ {
+  "name": "The Guild",
+  "city": "Dubai",
+  "url": "https://theguilddubai.com",
   "kind": "standalone"
  },
  {
