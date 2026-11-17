@@ -229,6 +229,16 @@
     "https://www.meetup.com/find/ae--abu-dhabi/improv-class/"
    ],
    "trusted": false
+  },
+  {
+   "id": "eid_etihad_visitad",
+   "name": "Visit Abu Dhabi – Eid Al Etihad",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://visitabudhabi.ae/en/campaign/eid-al-etihad"
+   ],
+   "trusted": true
   }
  ]
 }

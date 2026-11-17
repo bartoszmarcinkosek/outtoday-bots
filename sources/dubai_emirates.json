@@ -466,6 +466,28 @@
     "https://www.hopasports.com/en/tad"
    ],
    "trusted": false
+  },
+  {
+   "id": "gv_eid_etihad",
+   "name": "Global Village – Eid Al Etihad",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "Global Village",
+   "urls": [
+    "https://globalvillage.ae/en/celebrate-eid-al-eithad-global-village",
+    "https://globalvillage.ae/en/events"
+   ],
+   "trusted": true
+  },
+  {
+   "id": "eidaletihad_official",
+   "name": "Eid Al Etihad (official)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://eidaletihad.ae/en"
+   ],
+   "trusted": true
   }
  ]
 }
