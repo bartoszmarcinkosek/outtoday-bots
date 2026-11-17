@@ -22,5 +22,5 @@ for e in ev:
 for d in dl:
     for p in pl:
         if d["city"] == p["city"] and R.titles_match(d["title"], p["name"]):
-            n += 1; print("DP|", d["title"], d["deal_type"], "||", p["name"], p["category"])
+            n += 1; print("DP|", d["title"], d["deal_type"], "||", p["name"], p["category"], "|ID", p["id"])
 print("CROSS", n)
