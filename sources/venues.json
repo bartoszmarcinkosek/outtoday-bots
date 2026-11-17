@@ -144,10 +144,46 @@
   "kind": "golf"
  },
  {
+  "name": "21grams Urban Balkan Bistro",
+  "city": "Dubai",
+  "url": "https://21grams.me",
+  "kind": "standalone"
+ },
+ {
   "name": "261 Bar & Restaurant (The Els Club)",
   "city": "Dubai",
   "url": "https://www.elsclubdubai.com/261_restaurant/",
   "kind": "golf"
+ },
+ {
+  "name": "AMAYA",
+  "city": "Dubai",
+  "url": "https://amayaintl.com/best-brunch-in-dubai/",
+  "kind": "standalone"
+ },
+ {
+  "name": "AMOO Restaurant & Lounge",
+  "city": "Dubai",
+  "url": "https://amoo.ae/en/offers/ladies-night",
+  "kind": "bars"
+ },
+ {
+  "name": "African Queen",
+  "city": "Dubai",
+  "url": "https://africanqueen-restaurant.com",
+  "kind": "standalone"
+ },
+ {
+  "name": "Atelier M (Pier 7, Dubai Marina)",
+  "city": "Dubai",
+  "url": "https://www.atelierm.ae/",
+  "kind": "bars"
+ },
+ {
+  "name": "BOCA",
+  "city": "Dubai",
+  "url": "https://boca.ae/promotions/happyhour/",
+  "kind": "bars"
  },
  {
   "name": "Bar Du Port",
@@ -168,16 +204,124 @@
   "kind": "beach"
  },
  {
+  "name": "Bedrock (Pier 7, Dubai Marina)",
+  "city": "Dubai",
+  "url": "https://bedrockdxb.ae/",
+  "kind": "golf"
+ },
+ {
+  "name": "Boardwalk (Dubai Creek Golf & Yacht Club)",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/dcgyc/dine/boardwalk/make-a-reservation/",
+  "kind": "golf"
+ },
+ {
   "name": "Bohemia Beach Club",
   "city": "Dubai",
   "url": "https://www.bohemiadubai.com/beach-club",
   "kind": "beach"
  },
  {
+  "name": "Buffalo Wings & Rings (DIFC branch)",
+  "city": "Dubai",
+  "url": "https://dubai.bwr-intl.com/",
+  "kind": "bars"
+ },
+ {
+  "name": "Bussola",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/bussola/",
+  "kind": "golf"
+ },
+ {
+  "name": "Bâoli Dubai",
+  "city": "Dubai",
+  "url": "https://baoli-restaurant.com",
+  "kind": "standalone"
+ },
+ {
+  "name": "BŌTA Cafe",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/bota",
+  "kind": "golf"
+ },
+ {
+  "name": "Canary Beach (Palm Jumeirah)",
+  "city": "Dubai",
+  "url": "https://canaryclub.com/beach-brunch-dubai/",
+  "kind": "beach"
+ },
+ {
+  "name": "Canary Beach – Hola Chicas Ladies' Night",
+  "city": "Dubai",
+  "url": "https://canaryclub.com/vibes/",
+  "kind": "bars"
+ },
+ {
+  "name": "Cargo (Pier 7, Dubai Marina)",
+  "city": "Dubai",
+  "url": "https://cargo-dubai.com/",
+  "kind": "bars"
+ },
+ {
   "name": "Carine (Emirates Golf Club)",
   "city": "Dubai",
   "url": "https://www.dubaigolf.com/carine/",
   "kind": "golf"
+ },
+ {
+  "name": "Crafty Fox Gastropub & Sports Bar",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/craftyfox/",
+  "kind": "golf"
+ },
+ {
+  "name": "Del Mar Palm Jumeirah",
+  "city": "Dubai",
+  "url": "https://www.delmardubai.com/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Distillery Dubai Gastropub",
+  "city": "Dubai",
+  "url": "https://distillerydubai.com/longest-happy-hours-in-dubai-sip-savor-and-save-at-distillery-dubai/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Dubai Creek Golf & Yacht Club",
+  "city": "Dubai",
+  "url": "https://dubaicreekresort.com/dubai-creek-golf-club/",
+  "kind": "golf"
+ },
+ {
+  "name": "Dubai Hills Golf Club",
+  "city": "Dubai",
+  "url": "https://www.emaar.com/en/dubai-hills-golf-club",
+  "kind": "golf"
+ },
+ {
+  "name": "Emirates Golf Club (dining: Spike Bar, Carine, Jones the Grocer)",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/egc/dine/",
+  "kind": "golf"
+ },
+ {
+  "name": "FANZONE Sports Bar (West Beach)",
+  "city": "Dubai",
+  "url": "https://fanzonedubai.com",
+  "kind": "pubs"
+ },
+ {
+  "name": "Gigi Rigolatto (J1 Beach, Jumeirah 1)",
+  "city": "Dubai",
+  "url": "https://gigi-restaurant.com",
+  "kind": "beach"
+ },
+ {
+  "name": "Gitano",
+  "city": "Dubai",
+  "url": "https://www.gitano.com",
+  "kind": "standalone"
  },
  {
   "name": "Goose Island Tap House JBR",
@@ -192,6 +336,12 @@
   "kind": "standalone"
  },
  {
+  "name": "Iris Dubai",
+  "city": "Dubai",
+  "url": "http://www.irisdubai.com/",
+  "kind": "bars"
+ },
+ {
   "name": "JamJars Restaurant & Bar – Dubai Marina",
   "city": "Dubai",
   "url": "https://www.jamjarsdubai.ae/",
@@ -204,10 +354,40 @@
   "kind": "golf"
  },
  {
+  "name": "Jumeirah Golf Estates Clubhouse",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/jge/",
+  "kind": "golf"
+ },
+ {
+  "name": "Lakeview (Dubai Creek Golf & Yacht Club)",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/dcgyc/dine/lakeview/",
+  "kind": "golf"
+ },
+ {
   "name": "Mama Zonia",
   "city": "Dubai",
   "url": "https://mamazoniadubai.com/menu/saturday-brunch/",
   "kind": "standalone"
+ },
+ {
+  "name": "McG's by McGettigan's Al Barsha",
+  "city": "Dubai",
+  "url": "https://www.mcgettigans.com/mcgs-barsha/whats-on/happy-hour.html",
+  "kind": "pubs"
+ },
+ {
+  "name": "McG's by McGettigan's Deira",
+  "city": "Dubai",
+  "url": "https://www.mcgettigans.com/deira-dubai/whats-on/happy-hour.html",
+  "kind": "pubs"
+ },
+ {
+  "name": "McGettigan's Irish Pub - Souk Madinat Jumeirah",
+  "city": "Dubai",
+  "url": "https://www.mcgettigans.com/souk-madinat-jumeirah-dubai/whats-on/happy-hour.html",
+  "kind": "pubs"
  },
  {
   "name": "McGettigan's Irish Pub Dubai Production City",
@@ -222,16 +402,70 @@
   "kind": "pubs"
  },
  {
+  "name": "Mezzanine Bar & Kitchen (Souk Madinat Jumeirah)",
+  "city": "Dubai",
+  "url": "https://www.soukmadinatjumeirah.ae/en/news/souk-madinat-jumeirah-introduces-weekly-dining-moments-to-savour-2",
+  "kind": "standalone"
+ },
+ {
+  "name": "Moli by SHI, Dubai Hills Business Park",
+  "city": "Dubai",
+  "url": "https://molibyshi.com/",
+  "kind": "standalone"
+ },
+ {
   "name": "Nikki Beach Dubai",
   "city": "Dubai",
   "url": "https://nikkibeach.com/dubai/dine-drink/nikki-beach-restaurant-beach-club/",
   "kind": "beach"
  },
  {
+  "name": "Pitfire - Dubai Hills Business Park",
+  "city": "Dubai",
+  "url": "https://pitfirepizzabakers.com/",
+  "kind": "bars"
+ },
+ {
+  "name": "PizzaExpress Live Bay Square",
+  "city": "Dubai",
+  "url": "https://www.pizzaexpress.ae/bsq-promos/just-friday-brunch",
+  "kind": "standalone"
+ },
+ {
+  "name": "QD's Bar & Grill (Dubai Creek Golf & Yacht Club)",
+  "city": "Dubai",
+  "url": "https://dubaigolf.com/dcgyc/dine/qd-s/",
+  "kind": "golf"
+ },
+ {
   "name": "QD's Bar and Grill (Dubai Creek Golf & Yacht Club)",
   "city": "Dubai",
   "url": "https://www.dubaigolf.com/",
   "kind": "golf"
+ },
+ {
+  "name": "ROKA Business Bay",
+  "city": "Dubai",
+  "url": "https://www.rokarestaurant.com/en/roka-business-bay-dubai",
+  "kind": "standalone"
+ },
+ {
+  "name": "Revelry DXB - Dubai Hills Estate",
+  "city": "Dubai",
+  "url": "https://revelrydxb.com/happy-hour-in-dubai-hills/",
+  "kind": "pubs"
+ },
+ {
+  "name": "SOLUNA Beach Club",
+  "city": "Dubai",
+  "url": "https://www.solunabeachclub.com/visitor-day-passes/",
+  "kind": "beach"
+ },
+ {
+  "name": "Soho Beach DXB",
+  "city": "Dubai",
+  "url": "https://sohobeachdxb.com",
+  "kind": "beach"
  },
  {
   "name": "Sole Mio Beach Club",
@@ -252,9 +486,39 @@
   "kind": "golf"
  },
  {
+  "name": "Super 22 Indian Restaurant and Sports Bar",
+  "city": "Dubai",
+  "url": "https://bcceventsdxb.com/super22",
+  "kind": "golf"
+ },
+ {
   "name": "Surf Club Dubai",
   "city": "Dubai",
   "url": "https://www.surfclubdubai.com/ladies-day",
+  "kind": "beach"
+ },
+ {
+  "name": "Surf Club Dubai",
+  "city": "Dubai",
+  "url": "https://www.surfclubdubai.com/",
+  "kind": "beach"
+ },
+ {
+  "name": "Surf Club Dubai (West Beach, Palm Jumeirah)",
+  "city": "Dubai",
+  "url": "https://www.surfclubdubai.com/sunday-beach-brunch",
+  "kind": "beach"
+ },
+ {
+  "name": "Tap & Grill",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/tap-grill/",
+  "kind": "golf"
+ },
+ {
+  "name": "The 305 Dubai",
+  "city": "Dubai",
+  "url": "https://solutions-leisure.com/venues/the-305-west-beach/",
   "kind": "beach"
  },
  {
@@ -264,9 +528,39 @@
   "kind": "pubs"
  },
  {
+  "name": "The Blacksmith Bar & Eatery Business Bay",
+  "city": "Dubai",
+  "url": "https://www.theblacksmithdubai.com/business-bay/",
+  "kind": "pubs"
+ },
+ {
+  "name": "The Blacksmith Dubai Marina",
+  "city": "Dubai",
+  "url": "https://www.theblacksmithdubai.com/offer/happy-hour-dubai-marina/",
+  "kind": "pubs"
+ },
+ {
   "name": "The Guild",
   "city": "Dubai",
   "url": "https://www.theguilddubai.com/",
+  "kind": "standalone"
+ },
+ {
+  "name": "The Irish Vicker's",
+  "city": "Dubai",
+  "url": "https://theirishvickers.com/",
+  "kind": "pubs"
+ },
+ {
+  "name": "The Lighthouse Restaurant & Bar - Dubai Hills Business Park",
+  "city": "Dubai",
+  "url": "https://thelighthouse.ae/blogs/whats-on/happy-hour-the-lighthouse-restaurant-bar",
+  "kind": "pubs"
+ },
+ {
+  "name": "The Lighthouse Restaurant & Bar, Dubai Hills Business Park",
+  "city": "Dubai",
+  "url": "https://thelighthouse.ae/blogs/whats-on",
   "kind": "standalone"
  },
  {
@@ -276,15 +570,69 @@
   "kind": "pubs"
  },
  {
+  "name": "The Strand (Palm Views West)",
+  "city": "Dubai",
+  "url": "https://www.strandcraftkitchen.com/",
+  "kind": "standalone"
+ },
+ {
+  "name": "The Tap House - Club Vista Mare",
+  "city": "Dubai",
+  "url": "https://thetaphouse.ae/",
+  "kind": "bars"
+ },
+ {
+  "name": "The Tap House - Dubai Hills",
+  "city": "Dubai",
+  "url": "https://thetaphouse.ae/dubai-hills/",
+  "kind": "pubs"
+ },
+ {
+  "name": "The Track Meydan Golf (Qube Sports Bar, clubhouse)",
+  "city": "Dubai",
+  "url": "https://www.meydangolf.com/",
+  "kind": "golf"
+ },
+ {
   "name": "The Yard Sports Bar (Topgolf Dubai)",
   "city": "Dubai",
   "url": "https://topgolfdubai.ae/the-yard",
   "kind": "golf"
  },
  {
+  "name": "Three Cuts Steakhouse & Bar (Rooftop West, Nakheel Mall)",
+  "city": "Dubai",
+  "url": "https://threecuts.co/easter-sunday-roast-dubai-three-cuts/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Ting Irie",
+  "city": "Dubai",
+  "url": "https://tingirie.com/event/dubai-happy-hour/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Topgolf Dubai (Emirates Golf Club, Emirates Hills)",
+  "city": "Dubai",
+  "url": "https://www.dubaigolf.com/egc/golf/topgolf-dubai/",
+  "kind": "golf"
+ },
+ {
+  "name": "Zero Gravity Dubai",
+  "city": "Dubai",
+  "url": "http://0-gravity.ae/",
+  "kind": "beach"
+ },
+ {
   "name": "Zuma Dubai",
   "city": "Dubai",
   "url": "https://www.zumarestaurant.com/en/dubai/whats-on/zuma-baikingu-brunch-in-dubai",
+  "kind": "standalone"
+ },
+ {
+  "name": "Zuma Dubai",
+  "city": "Dubai",
+  "url": "https://www.zumarestaurant.com/en/dubai",
   "kind": "standalone"
  },
  {
