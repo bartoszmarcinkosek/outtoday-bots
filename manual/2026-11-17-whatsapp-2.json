@@ -1,0 +1,45 @@
+{
+ "events": [
+  {
+   "title": "Sunrise Desert Horse Ride",
+   "category": "sport",
+   "start_date": "2026-11-22",
+   "start_time": "06:00",
+   "venue": "Soul Equestrian & Wellness Club",
+   "city": "Dubai",
+   "price_text": "AED 135",
+   "description": "Early-morning group horse ride into the desert, 45 to 60 minutes, open to all levels. Arrive at the stable by 6:00; the ride sets off around 6:30. Booking by message to the organisers.",
+   "source_name": "Adventure with Nature (zrzut)",
+   "status": "approved"
+  },
+  {
+   "title": "RAK Community Abend (German-speaking community evening)",
+   "category": "community",
+   "start_date": "2026-11-28",
+   "start_time": "17:30",
+   "venue": "Rove Al Marjan Island",
+   "city": "Ras Al Khaimah",
+   "price_text": "AED 120 adults, AED 90 children 6–12, buffet and drinks included",
+   "description": "Social evening for the German, Austrian and Swiss community with an international buffet and childcare. Registration from 17:30, buffet from 18:30; sign-up via online form.",
+   "official_url": "https://forms.gle/NNUCoxo9GvEYXggN8",
+   "registration_required": true,
+   "kid_friendly": true,
+   "source_name": "RAK Community Abend (zrzut)",
+   "status": "approved"
+  }
+ ],
+ "deals": [
+  {
+   "title": "Live Sports & All-Day Happy Hour at Socials",
+   "deal_type": "happy_hour",
+   "venue": "Socials Tourist Restaurant & Bar, Mughal Suites, Al Mareedh St",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [0, 1, 2, 3, 4, 5, 6],
+   "start_time": "12:00",
+   "end_time": "01:00",
+   "details": "Live sport on multiple screens with the happy hour drinks menu all day; Indian, Mangalorean and Czech dishes.",
+   "source_name": "Socials (zrzut)",
+   "status": "approved"
+  }
+ ]
+}
