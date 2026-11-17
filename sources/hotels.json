@@ -1,5 +1,10 @@
 [
  {
+  "name": "Abu Dhabi Plaza Hotel Apartments",
+  "city": "Abu Dhabi",
+  "url": "https://www.adpha.ae"
+ },
+ {
   "name": "Al Maha Arjaan by Rotana",
   "city": "Abu Dhabi",
   "url": "https://www.rotana.com/arjaanhotelapartments/unitedarabemirates/abudhabi/almahaarjaanbyrotana"
@@ -35,6 +40,11 @@
   "url": "https://www.hyatt.com/en-US/hotel/united-arab-emirates/andaz-capital-gate-abu-dhabi/abdcc"
  },
  {
+  "name": "Bab Al Qasr Hotel & Residences",
+  "city": "Abu Dhabi",
+  "url": "https://www.babalqasr.com"
+ },
+ {
   "name": "Beach Rotana - Residences",
   "city": "Abu Dhabi",
   "url": "https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/abudhabi/beachrotanaresidences"
@@ -68,6 +78,11 @@
   "name": "Copthorne Downtown Abu Dhabi",
   "city": "Abu Dhabi",
   "url": "https://www.millenniumhotels.com/en/abu-dhabi/copthorne-downtown-abu-dhabi/"
+ },
+ {
+  "name": "Corniche Hotel Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://cornichehotelabudhabi.com/dining-facilities"
  },
  {
   "name": "Courtyard by Marriott World Trade Center, Abu Dhabi",
@@ -128,6 +143,11 @@
   "name": "Holiday Inn Abu Dhabi",
   "city": "Abu Dhabi",
   "url": "https://www.ihg.com/holidayinn/hotels/us/en/abu-dhabi/auhar/hoteldetail"
+ },
+ {
+  "name": "Horizon, Yas World Resort, Vignette Collection by IHG",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/vignettecollection/hotels/us/en/abu-dhabi/auhay/hoteldetail"
  },
  {
   "name": "Howard Johnson by Wyndham Abu Dhabi",
@@ -293,6 +313,31 @@
   "name": "The WB Abu Dhabi, Curio Collection by Hilton",
   "city": "Abu Dhabi",
   "url": "https://www.hilton.com/en/hotels/auhwbqq-the-wb-abu-dhabi-hotel/"
+ },
+ {
+  "name": "Verde, Yas World Resort, Vignette Collection by IHG",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/vignettecollection/hotels/us/en/abu-dhabi/auhmy/hoteldetail"
+ },
+ {
+  "name": "Vignette Collection Fairway, Yas World Resort",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/vignettecollection/hotels/us/en/abu-dhabi/auhyi/hoteldetail"
+ },
+ {
+  "name": "Vignette Collection Pulse, Yas World Resort",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/vignettecollection/hotels/us/en/abu-dhabi/auhsy/hoteldetail"
+ },
+ {
+  "name": "Yas Plaza Bay by IHG (Amerigos Saturday Mexican brunch)",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/spnd/hotels/us/en/abu-dhabi/auhby/hoteldetail"
+ },
+ {
+  "name": "Yas Plaza Marina by IHG (Y Bar Thursday Ladies Night)",
+  "city": "Abu Dhabi",
+  "url": "https://www.ihg.com/spnd/hotels/us/en/abu-dhabi/auhay/hoteldetail"
  },
  {
   "name": "Zaya Nurai Island Resort",
