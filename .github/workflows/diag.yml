@@ -1,5 +1,10 @@
 name: Diag
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        type: string
+        default: diag
 permissions:
   contents: read
 jobs:
@@ -7,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install -r requirements.txt && python bot/diag.py
+      - run: pip install -r requirements.txt && python bot/${{ github.event.inputs.script || 'diag' }}.py
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
