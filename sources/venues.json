@@ -690,6 +690,12 @@
   "kind": "pubs"
  },
  {
+  "name": "Flipped Park Sharjah",
+  "city": "Sharjah",
+  "url": "https://flippedpark.com/",
+  "kind": "waterparks,"
+ },
+ {
   "name": "Majdolin",
   "city": "Sharjah",
   "url": "https://majdolinshj.com/offers",
@@ -702,15 +708,57 @@
   "kind": "standalone"
  },
  {
+  "name": "Shamsa Entertainment Park (Aljada)",
+  "city": "Sharjah",
+  "url": "https://www.visitsharjah.com/shjsummer26/categories/destination-offers/shamsa-entertainment-park/",
+  "kind": "waterparks,"
+ },
+ {
   "name": "Sharjah Golf & Shooting Club (clubhouse with Twisted Olive Bistro and Sensi restaurants)",
   "city": "Sharjah",
   "url": "https://www.golfandshootingshj.com/",
   "kind": "golf"
  },
  {
+  "name": "Sharjah Ladies Club",
+  "city": "Sharjah",
+  "url": "https://www.slc.ae/en/events/eventcalendar",
+  "kind": "beach"
+ },
+ {
+  "name": "Sharjah Ladies Club",
+  "city": "Sharjah",
+  "url": "https://www.slc.ae/en/membership/1-day-tourism-package",
+  "kind": "pools,"
+ },
+ {
+  "name": "Sharjah Ladies Club",
+  "city": "Sharjah",
+  "url": "https://www.slc.ae/en/offers",
+  "kind": "waterparks,"
+ },
+ {
+  "name": "Sharjah Wanderers Sports Club",
+  "city": "Sharjah",
+  "url": "https://www.sharjahwandererssc.com/",
+  "kind": "golf"
+ },
+ {
+  "name": "Sharjah Wanderers Sports Club",
+  "city": "Sharjah",
+  "url": "https://www.sharjahwandererssc.com/membership",
+  "kind": "waterparks,"
+ },
+ {
   "name": "Taier Al Monal",
   "city": "Sharjah",
   "url": "https://www.monalrestaurantuae.com/blog/weekday-vs-weekend-buffet-sharjah",
   "kind": "standalone"
+ },
+ {
+  "name": "XQuarry Off-Road & Adventure Park",
+  "city": "Sharjah",
+  "url": "https://xquarry.com/",
+  "kind": "waterparks,"
  }
 ]
