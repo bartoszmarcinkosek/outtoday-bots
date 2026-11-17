@@ -79,6 +79,7 @@ def main() -> int:
             by_url.setdefault(u, []).append((table, r))
     print(f"Wpisów bez współrzędnych z oficjalnym linkiem: {sum(len(v) for v in by_url.values())}, stron: {len(by_url)}")
     opened = found = updated = 0
+    planned = []  # (table, row, hit) – zapis dopiero po sprawdzeniu zgodności
     last_host: dict[str, float] = {}
     for url, items in by_url.items():
         if url in cache:
@@ -108,10 +109,34 @@ def main() -> int:
         for table, r in items:
             if km(tuple(hit), CITY[r["city"]]) > 70:
                 continue
-            print(f"{table:6} {(r.get('venue') or r.get('name') or '')[:45]:45} {r['city']:14} -> {hit[0]:.5f},{hit[1]:.5f}")
-            if not a.dry_run:
-                db.update(table, {"id": r["id"]}, {"lat": round(hit[0], 6), "lng": round(hit[1], 6)})
-            updated += 1
+            planned.append((table, r, tuple(hit)))
+    # Zabezpieczenia: (1) punkt "środek miasta" (sprzedawca nie zna miejsca), (2) ten sam punkt dla różnych miejsc,
+    # (3) to samo miejsce z różnymi punktami na różnych stronach.
+    PLACEHOLDERS = [(25.2048, 55.2708), (24.4539, 54.3773), (25.3463, 55.4209), (25.8007, 55.9762), (24.2075, 55.7447),
+                    (25.4052, 55.5136), (25.1288, 56.3265), (25.5647, 55.5552)] + list(CITY.values())
+    vname = lambda r: frozenset(t for t in R._tokens(r.get("venue") or r.get("name") or "") if len(t) > 2)  # noqa: E731
+    by_pt: dict = {}
+    by_name: dict = {}
+    for table, r, hit in planned:
+        by_pt.setdefault((round(hit[0], 3), round(hit[1], 3)), []).append(vname(r))
+        by_name.setdefault(vname(r), []).append(hit)
+    for table, r, hit in planned:
+        names = by_pt[(round(hit[0], 3), round(hit[1], 3))]
+        why = ""
+        if any(km(hit, p) <= 1.2 for p in PLACEHOLDERS):
+            why = "środek miasta"
+        elif any(not (n & vname(r)) for n in names):
+            why = "ten sam punkt dla różnych miejsc"
+        elif any(km(hit, h) > 1 for h in by_name.get(vname(r), [])):
+            why = "różne punkty dla tego samego miejsca"
+        label = (r.get('venue') or r.get('name') or '')[:45]
+        if why:
+            print(f"  pominięte {label:45} ({why})")
+            continue
+        print(f"{table:6} {label:45} {r['city']:14} -> {hit[0]:.5f},{hit[1]:.5f}")
+        if not a.dry_run:
+            db.update(table, {"id": r["id"]}, {"lat": round(hit[0], 6), "lng": round(hit[1], 6)})
+        updated += 1
     json.dump(cache, open(CACHE, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     print(f"Otwarte strony: {opened}. Strony ze współrzędnymi: {found}. Uzupełnione wpisy: {updated}.")
     return 0
