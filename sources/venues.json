@@ -132,16 +132,46 @@
   "kind": "standalone"
  },
  {
+  "name": "Al Ain Adventure",
+  "city": "Al Ain",
+  "url": "https://alainadventure.com/",
+  "kind": "waterparks,"
+ },
+ {
   "name": "Al Ain Equestrian, Shooting & Golf Club (clubhouse bar and Palm Greens restaurant)",
   "city": "Al Ain",
   "url": "https://www.aesgc.com/",
   "kind": "golf"
  },
  {
+  "name": "Al Ain Sportsplex",
+  "city": "Al Ain",
+  "url": "https://visitabudhabi.ae/en/where-to-go/sports-clubs/al-ain-sportplex",
+  "kind": "waterparks,"
+ },
+ {
+  "name": "Amblers Bar & Restaurant (Al Ain Equestrian, Shooting & Golf Club)",
+  "city": "Al Ain",
+  "url": "https://www.aesgc.com/amblers-bar-restaurant/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Hili Fun City",
+  "city": "Al Ain",
+  "url": "https://visitabudhabi.ae/en/things-to-do/adventure/theme-parks/hili-fun-city",
+  "kind": "waterparks,"
+ },
+ {
   "name": "The Palm Greens Bar & Restaurant (AESGC)",
   "city": "Al Ain",
   "url": "https://www.aesgc.com/the-palm-greens-restaurant/",
   "kind": "golf"
+ },
+ {
+  "name": "Trader Vic's Al Ain",
+  "city": "Al Ain",
+  "url": "https://tradervicsalain.com/offers-promotions/",
+  "kind": "bars"
  },
  {
   "name": "21grams Urban Balkan Bistro",
