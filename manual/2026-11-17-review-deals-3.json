@@ -1,0 +1,15 @@
+{
+ "approve_deal_ids": [
+  {"id": "4c7b5cb0-68c0-43b2-a9e1-0c79290eb9ee", "set": {"price_text": "Arabic breakfast AED 235; continental breakfast AED 190", "days_of_week": [0,1,2,3,4,5,6], "start_time": "07:00", "end_time": "10:30"}},
+  "4154bb61-38fd-4235-8bf7-051fbced66dc"
+ ],
+ "reject_deal_ids": [
+  "426c6d7a-7d73-4e62-bce1-6509ddaf8cbd",
+  "d1a67110-f184-4ac3-a709-d4a022d6ee94",
+  "caa6031d-6e76-4e55-883e-47c2993e7e8f",
+  "7f38e05f-d020-4915-8056-339cd17bf442",
+  "941cee34-e373-4f1f-b967-a938da73834e",
+  "f79065f4-327c-4414-a156-2e9e78e84395",
+  "3130eace-824b-421d-9e65-14f17f685f26"
+ ]
+}
