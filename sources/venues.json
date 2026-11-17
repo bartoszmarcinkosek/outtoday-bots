@@ -6,16 +6,76 @@
   "kind": "golf"
  },
  {
+  "name": "Al Bateen Ladies Club by Matcha",
+  "city": "Abu Dhabi",
+  "url": "https://www.matcha-albateen.ae/",
+  "kind": "beach"
+ },
+ {
   "name": "Al Ghazal Golf Club",
   "city": "Abu Dhabi",
   "url": "https://alghazalgolfclub.ae/",
   "kind": "golf"
  },
  {
+  "name": "Asia Asia",
+  "city": "Abu Dhabi",
+  "url": "https://solutions-leisure.com/venues/asia-asia-abu-dhabi/",
+  "kind": "standalone"
+ },
+ {
   "name": "Barbossa",
   "city": "Abu Dhabi",
   "url": "https://barbossa.ae/brunch/",
   "kind": "standalone"
+ },
+ {
+  "name": "Barbossa",
+  "city": "Abu Dhabi",
+  "url": "https://barbossa.ae/about-us/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Bentley Kitchen",
+  "city": "Abu Dhabi",
+  "url": "https://www.bentleykitchen.com/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Café del Mar Beach Club Abu Dhabi",
+  "city": "Abu Dhabi",
+  "url": "https://cafedelmarabudhabi.com/",
+  "kind": "beach"
+ },
+ {
+  "name": "Crafty Fox (Yas Links)",
+  "city": "Abu Dhabi",
+  "url": "http://www.viyagolf.com/yaslinks/dining/crafty-fox-yas-links-gastro-tapas-sports-bar/",
+  "kind": "pubs"
+ },
+ {
+  "name": "Crafty Fox at Yas Links",
+  "city": "Abu Dhabi",
+  "url": "https://www.viyagolf.com/yaslinks/promotions/sunday-roast/",
+  "kind": "standalone"
+ },
+ {
+  "name": "GymNation Reem Island",
+  "city": "Abu Dhabi",
+  "url": "https://gymnation.com/gymsnearme/reem-island/gym-facilities/",
+  "kind": "waterparks,"
+ },
+ {
+  "name": "Hawksbill Restaurant, Saadiyat Beach Golf Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.viyagolf.com/saadiyat/dining/hawksbill-restaurant/",
+  "kind": "golf"
+ },
+ {
+  "name": "Ibn AlBahr",
+  "city": "Abu Dhabi",
+  "url": "https://www.ibnalbahr.me",
+  "kind": "beach"
  },
  {
   "name": "Kai Beach",
@@ -36,9 +96,27 @@
   "kind": "pubs"
  },
  {
+  "name": "Lock, Stock & Barrel Yas Bay (Ladies Night)",
+  "city": "Abu Dhabi",
+  "url": "https://solutions-leisure.com/events/lock-stock-barrel-abu-dhabi/thursday-ladies-night/",
+  "kind": "bars"
+ },
+ {
   "name": "Ma's Irish Pub",
   "city": "Abu Dhabi",
   "url": "https://mabuckleys.com/irish-sunday-roast-abu-dhabi/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Mamsha Beach (Soul Beach)",
+  "city": "Abu Dhabi",
+  "url": "https://www.mamshabeachsaadiyat.com/",
+  "kind": "beach"
+ },
+ {
+  "name": "Marcella",
+  "city": "Abu Dhabi",
+  "url": "https://mymarcella.ae/sabado-social-brunch/",
   "kind": "standalone"
  },
  {
@@ -54,6 +132,30 @@
   "kind": "standalone"
  },
  {
+  "name": "Paradiso",
+  "city": "Abu Dhabi",
+  "url": "https://www.paradisoabudhabi.com/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Perlage (The Galleria Al Maryah Island)",
+  "city": "Abu Dhabi",
+  "url": "https://www.barperlage.com/",
+  "kind": "bars"
+ },
+ {
+  "name": "PizzaExpress Al Reem (Friday brunch)",
+  "city": "Abu Dhabi",
+  "url": "https://www.pizzaexpress.ae/friday-brunch-abu-dhabi",
+  "kind": "standalone"
+ },
+ {
+  "name": "PizzaExpress Live Al Reem (Ladies Night)",
+  "city": "Abu Dhabi",
+  "url": "https://www.pizzaexpress.ae/ladies-night-dubai",
+  "kind": "bars"
+ },
+ {
   "name": "Saadiyat Beach Club",
   "city": "Abu Dhabi",
   "url": "https://www.saadiyatbeachclub.ae/memberships-day-passes/",
@@ -66,9 +168,27 @@
   "kind": "standalone"
  },
  {
+  "name": "Saadiyat Beach Club",
+  "city": "Abu Dhabi",
+  "url": "https://www.saadiyatisland.ae/experience/saadiyat-beach-club/",
+  "kind": "waterparks,"
+ },
+ {
+  "name": "Saadiyat Beach Club - Safina Restaurant (Farm to Beach Brunch)",
+  "city": "Abu Dhabi",
+  "url": "https://www.saadiyatbeachclub.ae/restaurants-bars/",
+  "kind": "standalone"
+ },
+ {
   "name": "Saadiyat Beach Golf Club",
   "city": "Abu Dhabi",
   "url": "https://www.saadiyatisland.ae/experience/saadiyat-beach-golf-club/",
+  "kind": "golf"
+ },
+ {
+  "name": "Saadiyat Beach Golf Club (clubhouse bar and restaurant)",
+  "city": "Abu Dhabi",
+  "url": "https://www.viyagolf.com/saadiyat/",
   "kind": "golf"
  },
  {
@@ -78,15 +198,51 @@
   "kind": "bars"
  },
  {
+  "name": "Siddharta Lounge by Buddha-Bar",
+  "city": "Abu Dhabi",
+  "url": "https://www.siddhartalounge-abudhabi.com/post/ladies-night-at-siddharta-by-buddha-bar-a-night-of-unlimited-fun-and-vibes",
+  "kind": "bars"
+ },
+ {
+  "name": "Siddharta Lounge by Buddha-Bar",
+  "city": "Abu Dhabi",
+  "url": "https://www.siddhartalounge-abudhabi.com/",
+  "kind": "standalone"
+ },
+ {
+  "name": "Soho Beach Yas Island",
+  "city": "Abu Dhabi",
+  "url": "https://sohogardendxb.com/discover-abu-dhabi-2/",
+  "kind": "beach"
+ },
+ {
+  "name": "Ting Irie Mamsha Al Saadiyat",
+  "city": "Abu Dhabi",
+  "url": "https://tingirie.com/event/abudhabi-ladies-night/",
+  "kind": "bars"
+ },
+ {
   "name": "Ting Irie Pon Di Beach",
   "city": "Abu Dhabi",
   "url": "https://tingirie.com/event/abudhabi-happy-hour/",
   "kind": "pubs"
  },
  {
+  "name": "Xtreme Zone (The Galleria Al Maryah Island)",
+  "city": "Abu Dhabi",
+  "url": "https://www.thegalleria.ae/en/play",
+  "kind": "waterparks,"
+ },
+ {
   "name": "Yas Acres Golf & Country Club",
   "city": "Abu Dhabi",
   "url": "https://www.viyagolf.com/rootsbar/",
+  "kind": "golf"
+ },
+ {
+  "name": "Yas Acres Golf & Country Club (Roots Bar & Kitchen, Acres Grill House)",
+  "city": "Abu Dhabi",
+  "url": "https://viyagolf.com/yasacres/dining/acres-grill-house",
   "kind": "golf"
  },
  {
@@ -96,15 +252,33 @@
   "kind": "beach"
  },
  {
+  "name": "Yas Beach",
+  "city": "Abu Dhabi",
+  "url": "https://visitabudhabi.ae/en/where-to-go/beaches/yas-beach",
+  "kind": "pools,"
+ },
+ {
   "name": "Yas Links Abu Dhabi Golf Club",
   "city": "Abu Dhabi",
   "url": "https://www.viyagolf.com/",
   "kind": "golf"
  },
  {
+  "name": "Yas Links Golf Club (Hickory's Restaurant & Bar, Crafty Fox, Villa Sélène, MATSU)",
+  "city": "Abu Dhabi",
+  "url": "https://www.viyagolf.com/yaslinks/golf-course/",
+  "kind": "golf"
+ },
+ {
   "name": "Zuma Abu Dhabi",
   "city": "Abu Dhabi",
   "url": "https://www.zumarestaurant.com/en/abu-dhabi/whats-on/zuma-baikingu-brunch",
+  "kind": "standalone"
+ },
+ {
+  "name": "Zuma Abu Dhabi (Yashoku Night Brunch, Wednesdays)",
+  "city": "Abu Dhabi",
+  "url": "https://www.zumarestaurant.com/en/abu-dhabi",
   "kind": "standalone"
  },
  {
