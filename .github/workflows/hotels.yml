@@ -3,6 +3,10 @@ name: Hotel offers (all UAE)
 on:
   workflow_dispatch:
     inputs:
+      only_new:
+        description: "Skan: tylko nowe miejsca"
+        type: boolean
+        default: false
       mode:
         description: "discover (lista hoteli) albo scan (oferty)"
         type: string
@@ -60,6 +64,7 @@ jobs:
           IN_DRY: ${{ inputs.dry_run }}
           IN_FORCE: ${{ inputs.force }}
           IN_VENUES: ${{ inputs.venues }}
+          IN_ONLYNEW: ${{ inputs.only_new }}
         run: |
           V=(); if [ "$IN_VENUES" = "true" ]; then V=(--venues); fi
           if [ "$IN_MODE" = "discover" ]; then
@@ -70,6 +75,7 @@ jobs:
             if [ -n "$IN_CITY" ]; then ARGS+=(--city "$IN_CITY"); fi
             if [ "$IN_DRY" = "true" ]; then ARGS+=(--dry-run); fi
             if [ "$IN_FORCE" = "true" ]; then ARGS+=(--force); fi
+            if [ "$IN_ONLYNEW" = "true" ]; then ARGS+=(--only-new); fi
             python bot/hotels.py "${ARGS[@]}"
           fi
       - name: Zapis listy hoteli

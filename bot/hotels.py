@@ -464,12 +464,16 @@ def is_dup(row: dict, deals: list[dict]) -> bool:
     return False
 
 
-def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = HOTELS_FILE) -> int:
+def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = HOTELS_FILE, only_new: bool = False) -> int:
     client, usage = client_usage()
     db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
     hotels = json.load(open(list_file, encoding="utf-8"))
     if city:
         hotels = [h for h in hotels if h["city"] == city]
+    if only_new:  # tylko miejsca, których strony bot jeszcze nigdy nie czytał
+        seen = {r["url"] for r in db.get("bot_pages", {"select": "url", "limit": "50000"})}
+        hotels = [h for h in hotels if h["url"] not in seen]
+        print(f"Nowe miejsca do skanu: {len(hotels)}")
     deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,status", "limit": "10000"})
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
     report, added, approved = [], 0, 0
@@ -593,12 +597,13 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--venues", action="store_true", help="bary/puby/kluby golfowe/beach cluby zamiast hoteli")
+    ap.add_argument("--only-new", action="store_true", help="scan: tylko miejsca jeszcze nieczytane")
     ap.add_argument("--independent", action="store_true", help="discover: tylko hotele spoza sieci (bez przeszukiwania sieci)")
     a = ap.parse_args()
     if a.discover:
         return discover_venues(a.city or None) if a.venues else discover(a.city or None, a.independent)
     if a.scan:
-        return scan(a.city or None, a.limit, a.dry_run, a.force, VENUES_FILE if a.venues else HOTELS_FILE)
+        return scan(a.city or None, a.limit, a.dry_run, a.force, VENUES_FILE if a.venues else HOTELS_FILE, a.only_new)
     ap.print_help()
     return 1
 
