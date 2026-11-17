@@ -25,13 +25,14 @@ TOOL = {
         "id": {"type": "string"},
         "readable": {"type": "boolean", "description": "false if the text does not state regular opening hours"},
         "always_open": {"type": "boolean"},
-        "days": {"type": "object", "description": "Keys '0'..'6' (0=Sunday). Value: list of [open, close] in HH:MM 24h. Omit closed days.",
-                 "additionalProperties": {"type": "array", "items": {"type": "array", "items": {"type": "string"}}}},
+        "days": {"type": "object", "description": "Keys are day names Sun, Mon, Tue, Wed, Thu, Fri, Sat. Value: list of [open, close] in HH:MM 24h. Omit closed days.",
+                 "properties": {d: {"type": "array", "items": {"type": "array", "items": {"type": "string"}}} for d in ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]}},
     }, "required": ["id", "readable", "always_open", "days"]}}}, "required": ["items"]},
 }
 RULES = """Convert each opening-hours text of a UAE venue into a regular weekly schedule.
 - Use only what the text says. Ignore Ramadan, holiday and seasonal exceptions, last-entry times, tour slots and happy hours.
 - "midnight"/"12 AM" as closing = "24:00". Closing after midnight: e.g. ["18:00","02:00"].
+- Write out every open day separately; check each day name carefully (Sat to Thu = Sat, Sun, Mon, Tue, Wed, Thu).
 - "Fri and Sat until midnight" after "Sun to Thu 10:00 to 22:00" means Fri/Sat 10:00 to 24:00.
 - If the text has no regular hours (e.g. "Best at dawn", "Book online", "Session times vary", "Currently closed",
   only one day like "OPEN TODAY", or only a closing time), set readable=false.
@@ -45,9 +46,11 @@ def clean(it: dict) -> dict:
     if not it.get("readable"):
         return {}
     out = {}
-    for k, spans in (it.get("days") or {}).items():
-        if k not in {str(d) for d in range(7)}:
+    names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    for name, spans in (it.get("days") or {}).items():
+        if name not in names or not isinstance(spans, list):
             continue
+        k = str(names.index(name))
         good = [[a, b] for a, b in (s for s in spans if isinstance(s, list) and len(s) == 2) if TIME.match(a) and TIME.match(b)]
         if good:
             out[k] = good
@@ -67,8 +70,8 @@ def main() -> int:
     print(f"Miejsc do przeliczenia: {len(rows)}")
     client, usage = H.client_usage()
     done = 0
-    for i in range(0, len(rows), 25):
-        batch = rows[i:i + 25]
+    for i in range(0, len(rows), 10):
+        batch = rows[i:i + 10]
         msg = "\n".join(json.dumps({"id": r["id"], "text": r["hours_text"][:400]}, ensure_ascii=False) for r in batch)
         resp = client.messages.create(model=R.MODEL, max_tokens=8000, system=RULES, tools=[TOOL],
                                       tool_choice={"type": "tool", "name": "report_hours"},
@@ -80,7 +83,7 @@ def main() -> int:
             if not isinstance(it, dict) or it.get("id") not in ids:
                 continue
             h = clean(it)
-            print(f"{ids[it['id']]['name'][:40]:40} | {ids[it['id']]['hours_text'][:60]:60} -> {json.dumps(h)[:120]}")
+            print(f"{ids[it['id']]['name'][:40]:40} | {ids[it['id']]['hours_text'][:60]:60} -> {json.dumps({["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][int(k)]: v for k, v in h.items()})[:220]}")
             if not a.dry_run:
                 db.update("places", {"id": it["id"]}, {"hours": h})
             done += 1
