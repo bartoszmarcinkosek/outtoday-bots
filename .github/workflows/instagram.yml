@@ -10,7 +10,7 @@ on:
       limit:
         description: "Ile kont przejrzeć"
         type: string
-        default: "100"
+        default: "500"
       redo:
         description: "Przeczytaj ponownie posty z 30 dni (oferty)"
         type: boolean
@@ -46,7 +46,7 @@ jobs:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IN_DRY: ${{ inputs.dry_run }}
-          IN_LIMIT: ${{ inputs.limit || '100' }}
+          IN_LIMIT: ${{ inputs.limit || '500' }}
           IN_REDO: ${{ inputs.redo }}
           IN_ONLY: ${{ inputs.only }}
         run: |

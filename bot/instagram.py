@@ -71,7 +71,7 @@ def recent_posts(tok: str, ig: str, username: str) -> tuple[dict | None, str]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--limit", type=int, default=100, help="ile kont")
+    ap.add_argument("--limit", type=int, default=500, help="ile kont")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--redo", action="store_true", help="przeczytaj ponownie posty z ostatnich 30 dni")
     ap.add_argument("--only", default="", help="tylko te konta (po przecinku)")
