@@ -63,7 +63,8 @@ jobs:
         run: |
           V=(); if [ "$IN_VENUES" = "true" ]; then V=(--venues); fi
           if [ "$IN_MODE" = "discover" ]; then
-            python bot/hotels.py --discover "${V[@]}"
+            C=(); if [ -n "$IN_CITY" ]; then C=(--city "$IN_CITY"); fi
+            python bot/hotels.py --discover "${V[@]}" "${C[@]}"
           else
             ARGS=(--scan --limit "$IN_LIMIT" "${V[@]}")
             if [ -n "$IN_CITY" ]; then ARGS+=(--city "$IN_CITY"); fi

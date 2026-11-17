@@ -227,7 +227,11 @@ VENUE_TOOL = {
 }
 
 
-def discover_venues() -> int:
+DUBAI_AREAS = ["Dubai Marina and JBR", "JLT", "Downtown Dubai and DIFC", "Business Bay", "Palm Jumeirah",
+               "Jumeirah and Umm Suqeim", "Al Barsha and Al Sufouh", "Deira and Bur Dubai", "Dubai Hills, Al Quoz and Meydan"]
+
+
+def discover_venues(only_city: str | None = None) -> int:
     """Bary, puby, kluby golfowe, beach cluby i restauracje POZA hotelami (te są w hotels.json)."""
     client, usage = client_usage()
     try:
@@ -237,9 +241,13 @@ def discover_venues() -> int:
     hotels = json.load(open(HOTELS_FILE, encoding="utf-8"))
     known = {urlparse(v["url"]).netloc + urlparse(v["url"]).path.rstrip("/") for v in venues}
     hotel_hosts = {urlparse(h["url"]).netloc for h in hotels}
-    for city in CITIES:
-        for kind in VENUE_KINDS:
-            prompt = (f"Find {kind} in the emirate of {city}, UAE. Search broadly (several searches) and list as many real venues as you can "
+    jobs = [(city, kind, city) for city in CITIES for kind in VENUE_KINDS]
+    if only_city:
+        areas = DUBAI_AREAS if only_city == "Dubai" else [only_city]
+        jobs = [(only_city, kind, f"{a}, {only_city}") for a in areas for kind in VENUE_KINDS]
+    for city, kind, where in jobs:
+        if True:
+            prompt = (f"Find {kind} in {where}, UAE (emirate of {city}). Search broadly (several searches) and list as many real venues as you can "
                       "(up to 25). For each, report the venue's OWN official website URL from the search results; if it has no own "
                       "website, its page on the official government tourism website of that emirate is acceptable. Never a portal, "
                       "review site, booking site, social media or magazine. Mark in_hotel=true for venues inside hotels or resorts. "
@@ -270,7 +278,7 @@ def discover_venues() -> int:
                         known.add(k)
                         venues.append({"name": v["name"].strip(), "city": city, "url": u, "kind": kind.split(" ")[0]})
                         new += 1
-            print(f"[{kind[:40]} / {city}] nowe miejsca: {new}")
+            print(f"[{kind[:40]} / {where}] nowe miejsca: {new}")
     venues.sort(key=lambda h: (h["city"], h["name"]))
     with open(VENUES_FILE, "w", encoding="utf-8") as f:
         json.dump(venues, f, ensure_ascii=False, indent=1)
@@ -575,7 +583,7 @@ def main() -> int:
     ap.add_argument("--venues", action="store_true", help="bary/puby/kluby golfowe/beach cluby zamiast hoteli")
     a = ap.parse_args()
     if a.discover:
-        return discover_venues() if a.venues else discover()
+        return discover_venues(a.city or None) if a.venues else discover()
     if a.scan:
         return scan(a.city or None, a.limit, a.dry_run, a.force, VENUES_FILE if a.venues else HOTELS_FILE)
     ap.print_help()
