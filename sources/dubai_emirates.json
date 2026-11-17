@@ -489,6 +489,19 @@
     "https://eidaletihad.ae/en"
    ],
    "trusted": true
+  },
+  {
+   "id": "rak_half_marathon",
+   "name": "Ras Al Khaimah Half Marathon (official)",
+   "city": "Ras Al Khaimah",
+   "single_venue": true,
+   "default_venue": "Al Marjan Island, Ras Al Khaimah",
+   "trusted": true,
+   "urls": [
+    "https://rakhalfmarathon.com/",
+    "https://rakhalfmarathon.com/race-info/entry-fees/",
+    "https://rakhalfmarathon.com/race-info/how-to-register/"
+   ]
   }
  ]
 }
