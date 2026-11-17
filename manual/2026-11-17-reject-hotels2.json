@@ -1,0 +1,6 @@
+{
+ "reject_deals": [
+  {"title": "Urban Staycation", "venue_like": "La Suite"},
+  {"title": "Breakfast Included room rate", "venue_like": "Waldorf"}
+ ]
+}
