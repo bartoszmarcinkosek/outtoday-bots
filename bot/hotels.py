@@ -119,15 +119,15 @@ def cost(usage: dict) -> float:
 # ---------------------------------------------------------------- tryb 1: lista hoteli
 
 
-def discover() -> int:
+def discover(only_city: str | None = None, independent_only: bool = False) -> int:
     client, usage = client_usage()
     try:
         hotels = json.load(open(HOTELS_FILE, encoding="utf-8"))
     except (OSError, ValueError):
         hotels = []
     known = {urlparse(h["url"]).netloc + urlparse(h["url"]).path.rstrip("/") for h in hotels}
-    for brands, domains in BRANDS:
-        for city in CITIES:
+    for brands, domains in ([] if independent_only else BRANDS):
+        for city in ([only_city] if only_city else CITIES):
             prompt = (f"Search the official websites ({', '.join(domains)}) for ALL hotels and resorts of these brands in {city}, "
                       f"United Arab Emirates: {brands}. Report each hotel located in the emirate of {city} with its page URL "
                       "taken from the search results (the hotel's own page on the brand site). Skip hotels outside this emirate, "
@@ -165,9 +165,14 @@ def discover() -> int:
                "trivago.com", "cobone.com", "groupon.ae", "whatson.ae", "timeoutdubai.com", "wow-rak.com", "visitdubai.com",
                "facebook.com", "instagram.com", "wikipedia.org", "makemytrip.com", "hotelscombined.com"]
     brand_domains = [d for _, ds in BRANDS for d in ds]
-    for city in CITIES:
-        for kind in ["beach resorts", "hotels with restaurants and bars", "4-star and 5-star hotels", "independent boutique hotels"]:
-            prompt = (f"Find {kind} in the emirate of {city}, UAE, that are NOT part of these chains: {', '.join(b for b, _ in BRANDS)}. "
+    hkinds = ["beach resorts", "hotels with restaurants and bars", "4-star and 5-star hotels", "independent boutique hotels",
+              "hotels and resorts selling pool or beach day passes", "hotels known for a weekly brunch or ladies' night"]
+    hjobs = [(c, k, c) for c in ([only_city] if only_city else CITIES) for k in hkinds]
+    if only_city in AREAS:
+        hjobs = [(only_city, k, f"{a}, {only_city}") for a in AREAS[only_city] for k in hkinds]
+    for city, kind, where in hjobs:
+        if True:
+            prompt = (f"Find {kind} in {where}, UAE (emirate of {city}), that are NOT part of these chains: {', '.join(b for b, _ in BRANDS)}. "
                       "For each, report the hotel's OWN official website URL (never a booking site, portal or review site). "
                       f"Only hotels located in {city}. Call report_hotels (empty list if none).")
             try:
@@ -196,7 +201,7 @@ def discover() -> int:
                         known.add(k)
                         hotels.append({"name": h["name"].strip(), "city": city, "url": u})
                         new += 1
-            print(f"[niezależne {kind} / {city}] nowe hotele: {new}")
+            print(f"[niezależne {kind} / {where}] nowe hotele: {new}")
     hotels.sort(key=lambda h: (h["city"], h["name"]))
     with open(HOTELS_FILE, "w", encoding="utf-8") as f:
         json.dump(hotels, f, ensure_ascii=False, indent=1)
@@ -210,6 +215,8 @@ VENUE_KINDS = [
     "beach clubs with day passes or weekly events",
     "golf clubs with a bar or restaurant (sports bar, clubhouse)",
     "standalone restaurants (not inside hotels) with a weekly brunch, roast or theme night",
+    "pools, beach clubs and leisure clubs selling day passes (pool day pass, beach day pass, family day pass)",
+    "waterparks, adventure parks and family leisure clubs with day passes or weekly offers",
 ]
 VENUE_BLOCKED = ["booking.com", "expedia.com", "tripadvisor.com", "agoda.com", "trip.com", "trivago.com", "cobone.com", "groupon.ae",
                  "whatson.ae", "timeoutdubai.com", "timeoutabudhabi.com", "wow-rak.com", "facebook.com", "instagram.com", "zomato.com",
@@ -227,8 +234,13 @@ VENUE_TOOL = {
 }
 
 
+AD_AREAS = ["Yas Island", "Saadiyat Island", "Al Maryah and Al Reem Island", "Corniche, Al Markaziyah and Al Bateen",
+            "Al Raha, Khalifa City and Al Qana", "Hudayriyat, Al Mina and Marina Mall area"]
 DUBAI_AREAS = ["Dubai Marina and JBR", "JLT", "Downtown Dubai and DIFC", "Business Bay", "Palm Jumeirah",
                "Jumeirah and Umm Suqeim", "Al Barsha and Al Sufouh", "Deira and Bur Dubai", "Dubai Hills, Al Quoz and Meydan"]
+
+
+AREAS = {"Dubai": DUBAI_AREAS, "Abu Dhabi": AD_AREAS}
 
 
 def discover_venues(only_city: str | None = None) -> int:
@@ -243,7 +255,7 @@ def discover_venues(only_city: str | None = None) -> int:
     hotel_hosts = {urlparse(h["url"]).netloc for h in hotels}
     jobs = [(city, kind, city) for city in CITIES for kind in VENUE_KINDS]
     if only_city:
-        areas = DUBAI_AREAS if only_city == "Dubai" else [only_city]
+        areas = AREAS.get(only_city, [only_city])
         jobs = [(only_city, kind, f"{a}, {only_city}") for a in areas for kind in VENUE_KINDS]
     for city, kind, where in jobs:
         if True:
@@ -581,9 +593,10 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--venues", action="store_true", help="bary/puby/kluby golfowe/beach cluby zamiast hoteli")
+    ap.add_argument("--independent", action="store_true", help="discover: tylko hotele spoza sieci (bez przeszukiwania sieci)")
     a = ap.parse_args()
     if a.discover:
-        return discover_venues(a.city or None) if a.venues else discover()
+        return discover_venues(a.city or None) if a.venues else discover(a.city or None, a.independent)
     if a.scan:
         return scan(a.city or None, a.limit, a.dry_run, a.force, VENUES_FILE if a.venues else HOTELS_FILE)
     ap.print_help()
