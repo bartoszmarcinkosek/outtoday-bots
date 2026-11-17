@@ -1,0 +1,11 @@
+{
+ "update_place_ids": [
+  {"id": "e4f16211-67b2-40f8-82fc-fb7a6c905e0a", "set": {"hours_text": "No sessions on the official schedule for November 2026 (F1 Grand Prix 3–6 Dec). Free, registration required; check the schedule before you go.", "hours": {}, "official_url": "https://www.yasmarinacircuit.com/en/trainyas"}},
+  {"id": "7227c431-8041-43aa-81f9-d8d4a1734f2f", "set": {"hours_text": "Cycling only, bring your own bike. No sessions on the official schedule for November 2026 (F1 Grand Prix 3–6 Dec); check the schedule before you go.", "hours": {}, "official_url": "https://www.yasmarinacircuit.com/en/trainyas"}},
+  {"id": "e5906d16-abea-4184-a327-52755e9556df", "set": {"hours_text": "Women only. No sessions on the official schedule for November 2026 (F1 Grand Prix 3–6 Dec); check the schedule before you go.", "hours": {}, "official_url": "https://www.yasmarinacircuit.com/en/trainyas"}}
+ ],
+ "reject_event_ids": [
+  "251a4112-a5e7-4d46-9855-40cc45de0f82",
+  "22889cd0-b291-4c1b-81e7-091a6ce5e160"
+ ]
+}

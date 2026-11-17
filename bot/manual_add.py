@@ -150,7 +150,7 @@ def main() -> int:
                 db.update("deals", {"id": r["id"]}, fix)
                 print(f"~ deal poprawiony: {r['id']} {fix}")
         for r in data.get("update_place_ids", []):
-            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("name", "area", "city", "description")}
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("name", "area", "city", "description", "hours_text", "hours", "official_url")}
             if fix:
                 db.update("places", {"id": r["id"]}, fix)
                 print(f"~ miejsce poprawione: {r['id']} {fix}")
