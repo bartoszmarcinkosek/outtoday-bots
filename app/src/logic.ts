@@ -137,6 +137,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
     const { city: itemCity, zone } = first.zone ? first : placeOf(e.city, e.source_name);
     const price = e.is_free ? 0 : e.price_min_aed ?? parsePrice(e.price_text);
     const end = e.end_date ?? e.start_date;
+    if (eventOverToday(e, now)) continue;
     out.push({
       key: `event:${e.id}`, kind: 'event', title: e.title, catKey: e.category, look: cat(e.category),
       icon: iconFor(e.category), when: fmtCardWhen(e, now), whenFull: fmtWhen(e),
@@ -206,6 +207,22 @@ export function dealEndedToday(d: DealRow, now: Date = new Date()): boolean {
   const end = d.end_time.slice(0, 5);
   const start = d.start_time ? d.start_time.slice(0, 5) : '00:00';
   return end > start && hm > end; // end <= start = po północy (np. 22:00–02:00), wtedy nie uznajemy za zakończoną
+}
+
+// Event, który kończy się dziś i jego godzina już minęła (np. 09:30–11:00, a jest 18:00) – nie pokazujemy.
+// Bez godziny końca: jednodniowy event znika 3 godziny po starcie.
+export function eventOverToday(e: EventRow, now: Date = new Date()): boolean {
+  const end = e.end_date ?? e.start_date;
+  if (end !== todayIso(now)) return false;
+  const mins = now.getHours() * 60 + now.getMinutes();
+  const toMin = (t: string) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3, 5));
+  if (e.end_time) {
+    const et = toMin(e.end_time);
+    const st = e.start_time ? toMin(e.start_time) : 0;
+    return et > st && mins > et; // koniec po północy (np. 22:00–02:00) – nie chowamy
+  }
+  if (e.start_time && !e.end_date) return mins > toMin(e.start_time) + 180;
+  return false;
 }
 
 // Czy miejsce jest teraz otwarte (z tabeli godzin). null = nie wiemy.

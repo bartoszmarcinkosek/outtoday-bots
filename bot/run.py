@@ -274,7 +274,7 @@ def clean_links(links: list, base: str) -> list[tuple[str, str]]:
 ITEM_SCHEMA = {
     "type": "object",
     "properties": {
-        "title": {"type": "string", "description": "Event name exactly as written on the page."},
+        "title": {"type": "string", "description": "Event name as written on the page. If it is not in English (e.g. Arabic or Russian), give an English translation, keeping proper names, and add ' (in Arabic)' / ' (in Russian)' when the event itself is held in that language. The original wording goes in evidence.title."},
         "category": {"type": "string", "enum": EVENT_CATEGORIES, "description": (
             "music = concerts, DJ sets, opera, musicals, comedy and stage shows; "
             "culture = exhibitions, talks, film screenings, theatre plays, heritage; "
@@ -290,7 +290,7 @@ ITEM_SCHEMA = {
         "time_kind": {"type": "string", "enum": ["show_start", "doors_only", "none"], "description": "show_start if start_time is the real start; doors_only if the page gives only a doors-open time (then start_time must be null)."},
         "doors_time": {"type": ["string", "null"], "description": "HH:MM doors-open time if the page gives one."},
         "end_time": {"type": ["string", "null"]},
-        "venue": {"type": ["string", "null"], "description": "Specific venue as written on the page. Null if not on the page."},
+        "venue": {"type": ["string", "null"], "description": "Specific venue as written on the page, in English with normal capitalisation (translate an Arabic-only name). Null if not on the page."},
         "city": {"type": "string", "enum": CITIES},
         "price_text": {"type": ["string", "null"], "description": "Price as written, e.g. 'From AED 95'. Null if not on the page."},
         "price_min_aed": {"type": ["number", "null"], "description": "Lowest price in AED as a number. Null if not on the page."},

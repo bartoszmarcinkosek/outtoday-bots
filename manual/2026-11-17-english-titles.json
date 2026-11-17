@@ -1,0 +1,12 @@
+{
+ "update_event_ids": [
+  {"id": "5e709d3c-f076-4547-982e-2c824d2f1e5f", "set": {"title": "Group Exhibition | The Days Go On"}},
+  {"id": "327d03f7-d765-4f78-91ec-bef8df0a7223", "set": {"title": "Venice Part 2: Venice and the Middle East"}},
+  {"id": "b809dd87-914e-4b53-a585-31500be611d0", "set": {"venue": "Fujairah Creative Centre (Ministry of Culture)"}},
+  {"id": "90bae7b8-6435-41fc-ae4f-5988e2ba92c0", "set": {"title": "Sing for the Nation"}},
+  {"id": "34683b18-9089-4a2b-879c-37135d1d97b7", "set": {"title": "In Search of a Life: talk with a novelist and doctor (in Arabic)", "venue": "Al Safa Art & Design Library"}},
+  {"id": "d65d548a-2945-4f62-8635-2306f4b4b53e", "set": {"title": "Arabic book club: Eros the Bittersweet by Anne Carson", "venue": "Café Bateel, Dubai Marina"}},
+  {"id": "f8d66ed1-1115-457b-8fe0-f0acb6e67ece", "set": {"title": "Arabic book club: The Island of Missing Trees by Elif Shafak", "venue": "Café Bateel, Dubai Marina"}},
+  {"id": "f6feb9db-0501-4395-8ced-0e6d32c71ec1", "set": {"title": "Arabic morning book club: a novel by Irvin Yalom", "venue": "Al Barsha Pond Park"}}
+ ]
+}

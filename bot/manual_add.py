@@ -143,6 +143,12 @@ def main() -> int:
                 continue
             db.update("events", {"id": eid}, {"status": "rejected", "updated_at": now})
             print(f"- odrzucone id {eid}")
+        # "update_event_ids": [{"id":..., "set": {...}}] – poprawki tytułu/miejsca/opisu eventu
+        for r in data.get("update_event_ids", []):
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("title", "venue", "city", "start_time", "description", "category")}
+            if fix and db.get("events", {"select": "id", "id": f"eq.{r['id']}"}):
+                db.update("events", {"id": r["id"]}, {**fix, "updated_at": now})
+                print(f"~ event poprawiony: {r['id']} {fix}")
         # "update_places": [{"name":..., "city":..., "set": {...}}] – poprawki ceny/godzin/telefonu
         for r in data.get("update_places", []):
             fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("price_text", "hours_text", "is_free", "phone", "official_url")}
