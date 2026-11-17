@@ -191,6 +191,15 @@ export function dealOnNow(d: DealRow, now: Date = new Date()): boolean {
   return d.start_time.slice(0, 5) <= hm && hm <= end;
 }
 
+// Promocja była dziś, ale jej godziny już minęły (np. lunch 12–15, a jest 16:00).
+export function dealEndedToday(d: DealRow, now: Date = new Date()): boolean {
+  if (!dealOnDay(d, now.getDay()) || !d.end_time) return false;
+  const hm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  const end = d.end_time.slice(0, 5);
+  const start = d.start_time ? d.start_time.slice(0, 5) : '00:00';
+  return end > start && hm > end; // end <= start = po północy (np. 22:00–02:00), wtedy nie uznajemy za zakończoną
+}
+
 export type SortKey = 'default' | 'near' | 'price';
 export const SORT_LABEL: Record<SortKey, string> = { default: 'Recommended', near: 'Nearest', price: 'Price' };
 

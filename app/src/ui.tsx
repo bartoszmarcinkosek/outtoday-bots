@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { IconName, Item, dealOnDay, dealOnNow } from './logic';
+import { IconName, Item, dealEndedToday, dealOnDay, dealOnNow } from './logic';
 import { colors } from './theme';
 
 export function Chip(props: { label: string; active: boolean; onPress: () => void; color?: string; icon?: IconName }) {
@@ -32,7 +32,7 @@ export function badgesFor(item: Item, now: Date = new Date()): string[] {
   const out: string[] = [];
   if (item.deal) {
     if (dealOnNow(item.deal, now)) out.push('On now');
-    else if (dealOnDay(item.deal, now.getDay())) out.push('On today');
+    else if (dealOnDay(item.deal, now.getDay()) && !dealEndedToday(item.deal, now)) out.push('On today');
   }
   if (item.endsSoon) out.push('Ends soon');
   if (item.isNew) out.push('New');

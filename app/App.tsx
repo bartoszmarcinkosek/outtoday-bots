@@ -10,7 +10,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppData, fetchAll, loadCached } from './src/api';
 import { DOW_CHIPS, fmtDate, inRange, rangeFor } from './src/dates';
 import {
-  Item, SORT_LABEL, Shortcut, SortKey, buildItems, dealOnDay, dealOnNow, searchItems, shortcutsFor, sortItems, todayIso,
+  Item, SORT_LABEL, Shortcut, SortKey, buildItems, dealEndedToday, dealOnDay, dealOnNow, searchItems, shortcutsFor, sortItems, todayIso,
 } from './src/logic';
 import { ZoneMap } from './src/map';
 import { BigButton, CalendarSheet, DetailSheet, LocationSheet } from './src/sheets';
@@ -493,7 +493,8 @@ function TodayScreen(props: { local: Item[]; card: (i: Item) => React.ReactNode;
   const onToday = [...single, ...events.filter((i) => !single.includes(i))];
   const freeToday = onToday.filter((i) => i.free);
   const deals = props.local.filter((i) => i.deal && dealOnDay(i.deal, now.getDay()));
-  const dealsSorted = sortItems(deals, 'default').sort((a, b) => Number(dealOnNow(b.deal!, now)) - Number(dealOnNow(a.deal!, now)));
+  const rank = (i: Item) => (dealOnNow(i.deal!, now) ? 0 : dealEndedToday(i.deal!, now) ? 2 : 1);
+  const dealsSorted = sortItems(deals, 'default').sort((a, b) => rank(a) - rank(b));
   const ending = sortItems(props.local.filter((i) => i.kind === 'event' && i.endsSoon), 'default');
 
   const section = (title: string, items: Item[], max: number, onAll: () => void) =>
