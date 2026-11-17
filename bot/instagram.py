@@ -139,8 +139,10 @@ def main() -> int:
                         continue
                     outlet = off.pop("outlet", None)
                     venue = f"{outlet}, {venue_name}" if outlet and R.norm(outlet) not in R.norm(venue_name) else venue_name
-                    row = {**off, "venue": venue, "city": acc["city"], "official_url": url, "status": "pending",
-                           "source_name": f"OutToday Instagram bot (@{u}, to verify)"}
+                    full = bool(off.get("price_text") and off.get("days_of_week") and off.get("start_time"))
+                    row = {**off, "venue": venue, "city": acc["city"], "official_url": url,
+                           "status": "approved" if full else "pending",
+                           "source_name": f"OutToday Instagram bot (@{u}, {'official account' if full else 'to verify'})"}
                     row = {k: v for k, v in row.items() if v not in (None, "", [])}
                     if H.is_dup(row, deals) or any(R.titles_match(e["title"], row["title"]) for e in existing):
                         report.append((u, f"[oferta] {row['title']}", "już jest w bazie"))
@@ -175,7 +177,12 @@ def main() -> int:
                     report.append((u, item["title"], "już jest w bazie"))
                     continue
                 row = R.to_row(item, src, key, now_iso)
-                row.update(status="pending", verified_at=None, source_name=f"OutToday Instagram bot (@{u}, to verify)")
+                g = set(item.get("gaps") or [])
+                full = not g or (g == {"start_time"} and item.get("end_date") and str(item["end_date"]) > str(item["start_date"]))
+                if full:  # wszystkie szczegóły potwierdzone cytatem z oficjalnego konta -> od razu w apce
+                    row.update(status="approved", verified_at=now_iso, source_name=f"OutToday Instagram bot (@{u}, official account)")
+                else:
+                    row.update(status="pending", verified_at=None, source_name=f"OutToday Instagram bot (@{u}, missing: {', '.join(sorted(g))})")
                 row["evidence"] = {k: v for k, v in row["evidence"].items() if k != "auto"}
                 if not a.dry_run:
                     try:
@@ -186,7 +193,7 @@ def main() -> int:
                 existing.append({"title": item["title"], "start_date": sd, "bot_key": key})
                 added += 1
                 new_here += 1
-                report.append((u, item["title"], f"✓ {sd} {item.get('start_time') or ''} {item.get('venue') or ''} {item.get('price_text') or ''}".strip()))
+                report.append((u, item["title"], f"{'✓' if full else '?'} {sd} {item.get('start_time') or ''} {item.get('venue') or ''} {item.get('price_text') or ''}".strip()))
             time.sleep(1)
         print(f"@{u} ({name}): postów {len(posts)}, nowych eventów/ofert {new_here}")
 
