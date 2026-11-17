@@ -38,6 +38,8 @@ with sync_playwright() as p:
             print("detail failed", e.__class__.__name__)
         click_text(page, "Deals"); shot(page, f"out/{name}-4-deals.png")
         click_text(page, "Places"); shot(page, f"out/{name}-5-places.png")
+        click_text(page, "Top 10 in Dubai"); page.wait_for_timeout(800); shot(page, f"out/{name}-7-top10.png")
+        click_text(page, "All places")
         click_text(page, "Filters"); shot(page, f"out/{name}-6-filters.png")
         ctx.close()
     b.close()
