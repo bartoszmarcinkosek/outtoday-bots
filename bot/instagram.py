@@ -151,6 +151,9 @@ def main() -> int:
                            "status": "approved" if full else "pending",
                            "source_name": f"OutToday Instagram bot (@{u}, {'official account' if full else 'to verify'})"}
                     row = {k: v for k, v in row.items() if v not in (None, "", [])}
+                    if H.sharjah_alcohol(row):
+                        report.append((u, f"[oferta] {row['title']}", "odrzucone: alkohol w Szardży"))
+                        continue
                     if H.is_dup(row, deals) or any(R.titles_match(e["title"], row["title"]) for e in existing):
                         report.append((u, f"[oferta] {row['title']}", "już jest w bazie"))
                         continue

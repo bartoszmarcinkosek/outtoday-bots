@@ -25,7 +25,7 @@ export function AboutSheet(props: { visible: boolean; onClose: () => void; onSug
         onPress={() => Linking.openURL(`mailto:${REPORT_EMAIL}?subject=${encodeURIComponent('OutToday feedback')}`)} />
       <Row icon="shield-checkmark-outline" label="Privacy policy" onPress={() => Linking.openURL(PRIVACY_URL)} />
       <Text style={styles.note}>
-        For adults (18+): some listings mention venues and offers that serve alcohol. Your location and favourites stay on
+        For adults (21+): some listings mention venues and offers that serve alcohol. Your location and favourites stay on
         your phone.
       </Text>
       <Text style={styles.note}>

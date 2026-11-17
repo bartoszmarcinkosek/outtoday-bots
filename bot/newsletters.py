@@ -155,6 +155,9 @@ def main() -> int:
                 venue = f"{outlet}, {place['name']}" if outlet and R.norm(outlet) not in R.norm(place["name"]) else place["name"]
                 row = {**off, "venue": venue, "city": place["city"], "official_url": place["url"],
                        "source_name": "OutToday newsletter bot (official email)"}
+                if H.sharjah_alcohol(row):
+                    print(f"   x {row.get('title')}: alkohol w Szardży")
+                    continue
                 sure = bool(row.get("days_of_week") or row.get("price_text")) or row["deal_type"] == "staycation"
                 row["status"] = "approved" if sure else "pending"
                 row = {k: v for k, v in row.items() if v not in (None, "", [])}

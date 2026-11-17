@@ -451,6 +451,17 @@ def venue_tokens(v: str) -> set[str]:
     return {t for t in R._tokens(v or "") if t not in stop}
 
 
+SHJ_ALC = re.compile(r"\balcohol|\bbeers?\b|\bwines?\b|\bhops\b|\bgrapes\b|cocktail|\bspirits\b|prosecco|champagne|sangria|"
+                     r"\bpints?\b|bubbly|house beverages|premium beverages|alcoholic", re.I)
+
+
+def sharjah_alcohol(row: dict) -> bool:
+    """W Szardży alkohol jest całkowicie zakazany: takiej oferty nie dodajemy (błąd albo oferta z innego emiratu)."""
+    if (row.get("city") or "").lower() != "sharjah":
+        return False
+    return bool(SHJ_ALC.search(" ".join(str(row.get(k) or "") for k in ("title", "details", "price_text", "description"))))
+
+
 def is_dup(row: dict, deals: list[dict]) -> bool:
     vt = venue_tokens(row["venue"])
     for d in deals:
@@ -533,6 +544,9 @@ def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = 
                     off.pop("outlet", None)
                     row = {**off, "venue": venue, "city": hotel["city"], "official_url": page.get("final_url") or url,
                            "source_name": "OutToday hotel bot (official site)"}
+                    if sharjah_alcohol(row):
+                        print(f"   x {row.get('title')}: alkohol w Szardży")
+                        continue
                     sure = bool(row.get("days_of_week") or row.get("price_text")) or row["deal_type"] == "staycation"
                     row["status"] = "approved" if sure else "pending"
                     row = {k: v for k, v in row.items() if v not in (None, "", [])}
