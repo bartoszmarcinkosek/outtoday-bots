@@ -77,6 +77,13 @@ jobs:
         run: |
           git config user.name "outtoday-bot"
           git config user.email "outtoday-bot@users.noreply.github.com"
-          git add sources/hotels.json sources/venues.json 2>/dev/null || git add sources/hotels.json
-          git commit -m "lista hoteli / miejsc" || exit 0
-          git pull --rebase origin main && git push origin HEAD:main
+          for f in sources/hotels.json sources/venues.json; do cp "$f" "/tmp/$(basename $f)"; done
+          for i in 1 2 3 4 5 6; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in hotels.json venues.json; do python bot/merge_lists.py "/tmp/$f" "sources/$f" "sources/$f"; done
+            git add sources/hotels.json sources/venues.json
+            git commit -q -m "lista hoteli / miejsc (${{ inputs.city }})" || exit 0
+            git push origin HEAD:main && exit 0
+            sleep $((RANDOM % 20 + 5))
+          done
+          exit 1
