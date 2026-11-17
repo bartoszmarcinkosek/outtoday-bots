@@ -636,6 +636,18 @@
   "kind": "standalone"
  },
  {
+  "name": "Fujairah Adventure Park",
+  "city": "Fujairah",
+  "url": "https://fujairahadventurepark.ae/product/full-day-pass/",
+  "kind": "waterparks,"
+ },
+ {
+  "name": "Fujairah International Marine Club",
+  "city": "Fujairah",
+  "url": "http://fimc.ae/club/",
+  "kind": "beach"
+ },
+ {
   "name": "McGettigan's Fujairah",
   "city": "Fujairah",
   "url": "https://www.mcgettigans.com/fujairah.html",
@@ -646,6 +658,12 @@
   "city": "Fujairah",
   "url": "https://www.mcgettigans.com/fujairah/whats-on/ladies-night.html",
   "kind": "bars"
+ },
+ {
+  "name": "McGettigan's Irish Pub Fujairah",
+  "city": "Fujairah",
+  "url": "https://www.mcgettigans.com/fujairah/whats-on/happy-hour.html",
+  "kind": "pubs"
  },
  {
   "name": "O'Learys Sports Restaurant Fujairah",
