@@ -1,0 +1,37 @@
+{
+  "approve_event_ids": [
+    {"id": "8d51f6a2-c46b-43b0-a18b-885bef1099cd", "set": {"venue": "Theatre of Digital Art (ToDA)", "start_time": "20:00"}},
+    {"id": "3c515cff-8a9e-4354-ab15-b834048b7c3b", "set": {"venue": "Dubai International Stadium"}},
+    {"id": "1c6b74eb-e5ac-4154-8479-396bc4dde1a2", "set": {"venue": "Mövenpick Grand Al Bustan Dubai", "start_time": "21:00"}},
+    {"id": "192cd92d-3146-4717-83ce-f1fe534b07c8", "set": {"venue": "Dubai Opera", "start_time": "19:00"}},
+    {"id": "dc2f1739-62cb-4816-9cd6-fe366e967968", "set": {"venue": "GEMS Wellington International School", "start_time": "19:30"}},
+    {"id": "29d1316b-4965-41dc-88a2-c0db41cb92bf", "set": {"venue": "Meyana Theatre, Jumeirah Beach Hotel"}},
+    {"id": "c1320af9-2ed1-4175-a620-0aa546dc35f7", "set": {"venue": "Manarat Al Saadiyat"}},
+    {"id": "53e498db-4ce1-46f2-aa93-bd3a279188ed", "set": {"venue": "Manarat Al Saadiyat"}},
+    {"id": "a7340248-f84d-42f9-89c2-96d62cbc2994", "set": {"venue": "Manarat Al Saadiyat"}},
+    {"id": "2e666018-7998-4ece-920c-037b08211cdc", "set": {"venue": "ROKA The Palm"}},
+    {"id": "e04ab53a-739a-4a37-b3f7-5f2a85d2fff5", "set": {"venue": "Yas Marina Circuit"}},
+    "c0abdcbf-3d1e-47e8-80ec-918516c52e65",
+    "da95204e-8980-4412-8222-e477e98657fe",
+    "885b7eff-61b1-4034-ae9c-dc59b082465d",
+    "1a6fc14e-7e6b-49d2-b6e5-0a3b114f8286"
+  ],
+  "reject_event_ids": [
+    "2e573bdb-198e-4bf4-b444-04d63e29a391",
+    "80190fea-8057-4ef0-8946-a66b344c1190"
+  ],
+  "approve_deal_ids": [
+    "6caaa10f-d401-45ff-b488-17419643c02a",
+    "f0b7d6cb-f8e5-4e04-afb5-d053cc294b01",
+    "40a3ba08-f7e3-484f-90ac-e6ce230867f4",
+    "7f779286-80bc-4f67-b66d-7d3caf365c42",
+    "b0b05d58-0931-42e6-9e1f-fb2ac0419d99",
+    "03fb0dfb-22ea-46b2-9a0f-967eb2110369",
+    "be9838c6-3c97-46f5-9ece-4139afda3cbf",
+    "61b48a3e-1b64-4c28-889b-c2d509d69137",
+    "f1494ffe-a5a8-4827-afe6-b67a4fa5373a"
+  ],
+  "reject_deal_ids": [
+    "5fcbdb02-cc10-401f-996b-a5bc3d58bd25"
+  ]
+}

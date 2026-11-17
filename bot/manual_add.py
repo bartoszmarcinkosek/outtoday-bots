@@ -128,12 +128,15 @@ def main() -> int:
                     db.update("places", {"id": row["id"]}, {"status": "rejected"})
                     print(f"- miejsce ukryte: {row['name']}")
         # "approve_event_ids" / "reject_event_ids": listy id eventów
-        for eid in data.get("approve_event_ids", []):
-            cur = db.get("events", {"select": "status", "id": f"eq.{eid}"})
+        for r in data.get("approve_event_ids", []):
+            eid, fix = (r, {}) if isinstance(r, str) else (r["id"], r.get("set") or {})
+            fix = {k: v for k, v in fix.items() if k in ("venue", "start_time", "city", "title")}
+            cur = db.get("events", {"select": "status,gaps", "id": f"eq.{eid}"})
             if not cur or cur[0]["status"] != "pending":
                 continue
-            db.update("events", {"id": eid}, {"status": "approved", "verified_at": now, "updated_at": now})
-            print(f"✓ zatwierdzone id {eid}")
+            gaps = [g for g in (cur[0].get("gaps") or []) if g not in fix]
+            db.update("events", {"id": eid}, {**fix, "gaps": gaps, "status": "approved", "verified_at": now, "updated_at": now})
+            print(f"✓ zatwierdzone id {eid} {fix or ''}")
         for eid in data.get("reject_event_ids", []):
             cur = db.get("events", {"select": "status", "id": f"eq.{eid}"})
             if not cur or cur[0]["status"] == "rejected":
