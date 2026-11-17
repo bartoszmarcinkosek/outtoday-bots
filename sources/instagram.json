@@ -152,6 +152,177 @@
    "username": "alhamragolfclub",
    "city": "Ras Al Khaimah",
    "venue": "The Bay, Al Hamra Golf Club"
+  },
+  {
+   "username": "visitsharjah",
+   "city": "Sharjah",
+   "candidate": true
+  },
+  {
+   "username": "sharjahart",
+   "city": "Sharjah",
+   "venue": "Sharjah Art Foundation",
+   "candidate": true
+  },
+  {
+   "username": "aljadauae",
+   "city": "Sharjah",
+   "venue": "Aljada",
+   "candidate": true
+  },
+  {
+   "username": "alnoorisland",
+   "city": "Sharjah",
+   "venue": "Al Noor Island",
+   "candidate": true
+  },
+  {
+   "username": "alqasbauae",
+   "city": "Sharjah",
+   "venue": "Al Qasba",
+   "candidate": true
+  },
+  {
+   "username": "almajazwaterfront",
+   "city": "Sharjah",
+   "venue": "Al Majaz Waterfront",
+   "candidate": true
+  },
+  {
+   "username": "discovermleiha",
+   "city": "Sharjah",
+   "venue": "Mleiha Archaeological Centre",
+   "candidate": true
+  },
+  {
+   "username": "houseofwisdomshj",
+   "city": "Sharjah",
+   "venue": "House of Wisdom",
+   "candidate": true
+  },
+  {
+   "username": "ajmantourism",
+   "city": "Ajman",
+   "candidate": true
+  },
+  {
+   "username": "visitajman",
+   "city": "Ajman",
+   "candidate": true
+  },
+  {
+   "username": "visitummalquwain",
+   "city": "Umm Al Quwain",
+   "candidate": true
+  },
+  {
+   "username": "uaqtourism",
+   "city": "Umm Al Quwain",
+   "candidate": true
+  },
+  {
+   "username": "dreamlanduae",
+   "city": "Umm Al Quwain",
+   "venue": "Dreamland Aqua Park",
+   "candidate": true
+  },
+  {
+   "username": "fujairahtourism",
+   "city": "Fujairah",
+   "candidate": true
+  },
+  {
+   "username": "visitfujairah",
+   "city": "Fujairah",
+   "candidate": true
+  },
+  {
+   "username": "fujairahadventures",
+   "city": "Fujairah",
+   "candidate": true
+  },
+  {
+   "username": "visitalain",
+   "city": "Al Ain",
+   "candidate": true
+  },
+  {
+   "username": "alainzoo",
+   "city": "Al Ain",
+   "venue": "Al Ain Zoo",
+   "candidate": true
+  },
+  {
+   "username": "wadiadventure",
+   "city": "Al Ain",
+   "venue": "Wadi Adventure",
+   "candidate": true
+  },
+  {
+   "username": "etihadarena",
+   "city": "Abu Dhabi",
+   "venue": "Etihad Arena, Yas Island",
+   "candidate": true
+  },
+  {
+   "username": "ferrariworldad",
+   "city": "Abu Dhabi",
+   "venue": "Ferrari World Abu Dhabi",
+   "candidate": true
+  },
+  {
+   "username": "wbworldabudhabi",
+   "city": "Abu Dhabi",
+   "venue": "Warner Bros. World Abu Dhabi",
+   "candidate": true
+  },
+  {
+   "username": "yasbaywaterfront",
+   "city": "Abu Dhabi",
+   "venue": "Yas Bay Waterfront",
+   "candidate": true
+  },
+  {
+   "username": "galleriaalmaryah",
+   "city": "Abu Dhabi",
+   "venue": "The Galleria Al Maryah Island",
+   "candidate": true
+  },
+  {
+   "username": "mamshaalsaadiyat",
+   "city": "Abu Dhabi",
+   "venue": "Mamsha Al Saadiyat",
+   "candidate": true
+  },
+  {
+   "username": "alqanaabudhabi",
+   "city": "Abu Dhabi",
+   "venue": "Al Qana",
+   "candidate": true
+  },
+  {
+   "username": "emiratespalace",
+   "city": "Abu Dhabi",
+   "venue": "Emirates Palace Mandarin Oriental",
+   "candidate": true
+  },
+  {
+   "username": "jebeljais",
+   "city": "Ras Al Khaimah",
+   "venue": "Jebel Jais",
+   "candidate": true
+  },
+  {
+   "username": "visitjebeljais",
+   "city": "Ras Al Khaimah",
+   "venue": "Jebel Jais",
+   "candidate": true
+  },
+  {
+   "username": "almarjanisland",
+   "city": "Ras Al Khaimah",
+   "venue": "Al Marjan Island",
+   "candidate": true
   }
  ]
 }

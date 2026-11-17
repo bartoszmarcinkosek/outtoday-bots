@@ -11,6 +11,14 @@ on:
         description: "Ile kont przejrzeć"
         type: string
         default: "100"
+      redo:
+        description: "Przeczytaj ponownie posty z 30 dni (oferty)"
+        type: boolean
+        default: false
+      only:
+        description: "Tylko te konta (po przecinku)"
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -39,7 +47,11 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IN_DRY: ${{ inputs.dry_run }}
           IN_LIMIT: ${{ inputs.limit || '100' }}
+          IN_REDO: ${{ inputs.redo }}
+          IN_ONLY: ${{ inputs.only }}
         run: |
           ARGS=(--limit "$IN_LIMIT")
           if [ "$IN_DRY" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ "$IN_REDO" = "true" ]; then ARGS+=(--redo); fi
+          if [ -n "$IN_ONLY" ]; then ARGS+=(--only "$IN_ONLY"); fi
           python bot/instagram.py "${ARGS[@]}"
