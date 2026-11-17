@@ -274,13 +274,13 @@ function Main() {
           </Pressable>
         </View>
         <Pressable onPress={() => setShowSuggest(true)} hitSlop={10} style={styles.headBtn} accessibilityLabel="Suggest an event">
-          <Ionicons name="add-circle-outline" size={24} color={colors.text} />
+          <Ionicons name="add-circle-outline" size={28} color={colors.text} />
         </Pressable>
         <Pressable onPress={() => setShowSearch(true)} hitSlop={10} style={styles.headBtn}>
-          <Ionicons name="search" size={23} color={colors.text} />
+          <Ionicons name="search" size={27} color={colors.text} />
         </Pressable>
         <Pressable onPress={() => setShowFavs(true)} hitSlop={10} style={styles.headBtn}>
-          <Ionicons name={favs.length ? 'heart' : 'heart-outline'} size={23} color={favs.length ? '#FF8FA3' : colors.text} />
+          <Ionicons name={favs.length ? 'heart' : 'heart-outline'} size={27} color={favs.length ? '#FF8FA3' : colors.text} />
         </Pressable>
       </View>
 
@@ -331,7 +331,7 @@ function Main() {
 
           <View style={styles.toolbar}>
             <Pressable onPress={openFilters} style={[styles.tool, activeCount > 0 && styles.toolOn]}>
-              <Ionicons name="options-outline" size={16} color={activeCount > 0 ? colors.bg : colors.text} />
+              <Ionicons name="options-outline" size={19} color={activeCount > 0 ? colors.bg : colors.text} />
               <Text style={[styles.toolText, activeCount > 0 && { color: colors.bg, fontWeight: '700' }]}>
                 Filters{activeCount > 0 ? ` (${activeCount})` : ''}
               </Text>
@@ -342,7 +342,7 @@ function Main() {
               </Pressable>
             )}
             <Pressable onPress={() => setView(view === 'list' ? 'map' : 'list')} style={styles.tool}>
-              <Ionicons name={view === 'list' ? 'map-outline' : 'list-outline'} size={16} color={colors.text} />
+              <Ionicons name={view === 'list' ? 'map-outline' : 'list-outline'} size={19} color={colors.text} />
               <Text style={styles.toolText}>{view === 'list' ? 'Map' : 'List'}</Text>
             </Pressable>
             <View style={{ flex: 1 }} />
@@ -370,7 +370,7 @@ function Main() {
       <SafeAreaView edges={['bottom']} style={styles.tabBar}>
         {TABS.map((t) => (
           <Pressable key={t.key} style={styles.tabBtn} onPress={() => { setTab(t.key); setView('list'); }}>
-            <Ionicons name={t.icon} size={22} color={tab === t.key ? colors.primary : colors.muted} />
+            <Ionicons name={t.icon} size={26} color={tab === t.key ? colors.primary : colors.muted} />
             <Text style={[styles.tabText, tab === t.key && { color: colors.primary, fontWeight: '700' }]}>{t.label}</Text>
           </Pressable>
         ))}
@@ -603,7 +603,7 @@ const styles = StyleSheet.create({
   brand: { color: colors.text, fontSize: 26, fontWeight: '800' },
   where: { flexDirection: 'row', alignItems: 'center', marginTop: 2 },
   whereText: { color: colors.primary, fontSize: 15, fontWeight: '600', marginHorizontal: 4, flexShrink: 1 },
-  headBtn: { marginLeft: 22, padding: 4 },
+  headBtn: { marginLeft: 18, padding: 4 },
   errorBox: { backgroundColor: colors.errorBg, marginHorizontal: 16, marginBottom: 8, padding: 10, borderRadius: 10 },
   errorText: { color: colors.errorText, fontSize: 13 },
   chipRow: { height: 50, flexGrow: 0, flexShrink: 0 },

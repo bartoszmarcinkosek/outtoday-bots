@@ -12,7 +12,7 @@ export function Chip(props: { label: string; active: boolean; onPress: () => voi
       style={[styles.chip, props.active && { backgroundColor: tint, borderColor: tint }]}
     >
       {props.icon && (
-        <Ionicons name={props.icon} size={14} color={props.active ? colors.bg : colors.muted} style={{ marginRight: 5 }} />
+        <Ionicons name={props.icon} size={16} color={props.active ? colors.bg : colors.muted} style={{ marginRight: 5 }} />
       )}
       <Text style={[styles.chipText, props.active && { color: colors.bg, fontWeight: '700' }]}>{props.label}</Text>
     </Pressable>
@@ -51,7 +51,7 @@ export function ItemCard(props: { item: Item; fav: boolean; onFav: () => void; o
   return (
     <Pressable onPress={props.onPress} style={[styles.card, { backgroundColor: c.card }]}>
       <View style={[styles.iconBox, { backgroundColor: 'rgba(0,0,0,0.22)' }]}>
-        <Ionicons name={item.icon} size={22} color={c.accent} />
+        <Ionicons name={item.icon} size={27} color={c.accent} />
       </View>
       <View style={{ flex: 1 }}>
         <View style={styles.pillRow}>
@@ -82,7 +82,7 @@ export function ItemCard(props: { item: Item; fav: boolean; onFav: () => void; o
         )}
       </View>
       <Pressable onPress={props.onFav} hitSlop={12} style={styles.heart}>
-        <Ionicons name={props.fav ? 'heart' : 'heart-outline'} size={22} color={props.fav ? '#FF8FA3' : c.sub} />
+        <Ionicons name={props.fav ? 'heart' : 'heart-outline'} size={26} color={props.fav ? '#FF8FA3' : c.sub} />
       </Pressable>
     </Pressable>
   );
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   pillText: { fontSize: 11, fontWeight: '700' },
   pillRow: { flexDirection: 'row', flexWrap: 'wrap', marginBottom: 4, paddingRight: 26 },
   card: { flexDirection: 'row', borderRadius: 16, padding: 14, marginBottom: 12 },
-  iconBox: { width: 42, height: 42, borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
+  iconBox: { width: 50, height: 50, borderRadius: 14, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
   cardTitle: { fontSize: 17, fontWeight: '700', marginBottom: 3 },
   cardSub: { fontSize: 13, marginTop: 1 },
   cardPrice: { fontSize: 13, fontWeight: '600', marginTop: 5 },
