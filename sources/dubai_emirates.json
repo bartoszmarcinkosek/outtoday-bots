@@ -184,7 +184,8 @@
    "single_venue": false,
    "gov_tourism": true,
    "urls": [
-    "https://visit-ajman.ae/en/activities/upcoming-events"
+    "https://visit-ajman.ae/en/activities/upcoming-events",
+    "https://visit-ajman.ae/en/things-to-do/event-calendar/"
    ],
    "default_venue": null,
    "trusted": false
