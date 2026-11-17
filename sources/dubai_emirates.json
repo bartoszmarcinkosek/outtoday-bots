@@ -546,6 +546,149 @@
    "urls": [
     "https://arabia.spartan.com/en"
    ]
+  },
+  {
+   "id": "dwtc",
+   "name": "Dubai World Trade Centre events",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "Dubai World Trade Centre",
+   "trusted": true,
+   "urls": [
+    "https://www.dwtc.com/en/events/"
+   ]
+  },
+  {
+   "id": "dubai_festival_city",
+   "name": "Dubai Festival City Mall what's on",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "Dubai Festival City Mall",
+   "trusted": true,
+   "urls": [
+    "https://www.dubaifestivalcity.com/en/whats-on"
+   ]
+  },
+  {
+   "id": "moe",
+   "name": "Mall of the Emirates events",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "Mall of the Emirates",
+   "trusted": true,
+   "urls": [
+    "https://www.malloftheemirates.com/en/events"
+   ]
+  },
+  {
+   "id": "d3",
+   "name": "Dubai Design District what's on",
+   "city": "Dubai",
+   "single_venue": false,
+   "default_venue": "Dubai Design District (d3)",
+   "trusted": true,
+   "urls": [
+    "https://dubaidesigndistrict.com/whats-on/"
+   ]
+  },
+  {
+   "id": "dubai_autodrome",
+   "name": "Dubai Autodrome events",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "Dubai Autodrome",
+   "trusted": true,
+   "urls": [
+    "https://www.dubaiautodrome.com/events/"
+   ]
+  },
+  {
+   "id": "dubai_racing",
+   "name": "Dubai Racing Club (Meydan)",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "Meydan Racecourse",
+   "trusted": true,
+   "urls": [
+    "https://www.dubairacingclub.com/"
+   ]
+  },
+  {
+   "id": "ddf_tennis",
+   "name": "Dubai Duty Free Tennis Championships",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "Dubai Duty Free Tennis Stadium",
+   "trusted": true,
+   "urls": [
+    "https://www.dubaidutyfreetennischampionships.com/"
+   ]
+  },
+  {
+   "id": "dubai_7s",
+   "name": "Emirates Dubai 7s",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "The Sevens Stadium",
+   "trusted": true,
+   "urls": [
+    "https://www.dubairugby7s.com/"
+   ]
+  },
+  {
+   "id": "desert_classic",
+   "name": "Hero Dubai Desert Classic",
+   "city": "Dubai",
+   "single_venue": true,
+   "default_venue": "Emirates Golf Club",
+   "trusted": true,
+   "urls": [
+    "https://www.dubaidesertclassic.com/"
+   ]
+  },
+  {
+   "id": "sibf",
+   "name": "Sharjah International Book Fair",
+   "city": "Sharjah",
+   "single_venue": true,
+   "default_venue": "Expo Centre Sharjah",
+   "trusted": true,
+   "urls": [
+    "https://www.sibf.com/en/"
+   ]
+  },
+  {
+   "id": "sharjah_light",
+   "name": "Sharjah Light Festival",
+   "city": "Sharjah",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": true,
+   "urls": [
+    "https://www.sharjahlightfestival.ae/"
+   ]
+  },
+  {
+   "id": "al_qasba",
+   "name": "Al Qasba events",
+   "city": "Sharjah",
+   "single_venue": true,
+   "default_venue": "Al Qasba",
+   "trusted": true,
+   "urls": [
+    "https://www.alqasba.ae/en/events"
+   ]
+  },
+  {
+   "id": "mleiha",
+   "name": "Mleiha National Park",
+   "city": "Sharjah",
+   "single_venue": true,
+   "default_venue": "Mleiha National Park",
+   "trusted": true,
+   "urls": [
+    "https://discovermleiha.ae/"
+   ]
   }
  ]
 }

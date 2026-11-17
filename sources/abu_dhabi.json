@@ -283,6 +283,50 @@
    "urls": [
     "https://www.mediaoffice.abudhabi/en/sport/abu-dhabi-sports-council-reveals-schedule-for-4th-season-of-abu-dhabi-baja-challenge/"
    ]
+  },
+  {
+   "id": "adnec",
+   "name": "ADNEC events",
+   "city": "Abu Dhabi",
+   "single_venue": true,
+   "default_venue": "ADNEC Centre Abu Dhabi",
+   "trusted": true,
+   "urls": [
+    "https://www.adnec.ae/en/eventlisting"
+   ]
+  },
+  {
+   "id": "yas_marina_circuit",
+   "name": "Yas Marina Circuit events",
+   "city": "Abu Dhabi",
+   "single_venue": true,
+   "default_venue": "Yas Marina Circuit",
+   "trusted": true,
+   "urls": [
+    "https://www.yasmarinacircuit.com/en/events"
+   ]
+  },
+  {
+   "id": "qasr_al_watan",
+   "name": "Qasr Al Watan",
+   "city": "Abu Dhabi",
+   "single_venue": true,
+   "default_venue": "Qasr Al Watan",
+   "trusted": true,
+   "urls": [
+    "https://www.qasralwatan.ae/en/"
+   ]
+  },
+  {
+   "id": "ad_festival",
+   "name": "Abu Dhabi Festival",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": true,
+   "urls": [
+    "https://abudhabifestival.ae/"
+   ]
   }
  ]
 }
