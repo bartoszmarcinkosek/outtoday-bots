@@ -1,0 +1,52 @@
+name: Coordinates from official pages
+
+on:
+  schedule:
+    - cron: "23 6 * * 0"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Ile stron otworzyć"
+        type: string
+        default: "800"
+      dry_run:
+        description: "Próba: nic nie zapisuje"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geocode
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4 anthropic
+      - name: Współrzędne ze stron
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          IN_LIMIT: ${{ inputs.limit || '800' }}
+          IN_DRY: ${{ inputs.dry_run || 'false' }}
+        run: |
+          A=(--limit "$IN_LIMIT"); [ "$IN_DRY" = "true" ] && A+=(--dry-run)
+          python bot/geo_pages.py "${A[@]}"
+      - name: Zapis pamięci
+        if: ${{ always() && inputs.dry_run != true }}
+        run: |
+          git config user.name "outtoday-bot"
+          git config user.email "outtoday-bot@users.noreply.github.com"
+          for i in 1 2 3; do
+            git add sources/pagegeo_cache.json || exit 0
+            git commit -qm "page geo cache" || exit 0
+            git pull -q --rebase origin main && git push -q && exit 0
+          done
