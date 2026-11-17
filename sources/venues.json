@@ -744,6 +744,24 @@
   "kind": "bars"
  },
  {
+  "name": "Flipped Park Ras Al Khaimah",
+  "city": "Ras Al Khaimah",
+  "url": "https://flippedpark.com/flipped-ras-al-khaimah/",
+  "kind": "waterparks,"
+ },
+ {
+  "name": "Karma Kafé",
+  "city": "Ras Al Khaimah",
+  "url": "https://visitrasalkhaimah.com/blog/brunch-in-ras-al-khaimah/",
+  "kind": "standalone"
+ },
+ {
+  "name": "The Bay (Al Hamra Golf Club)",
+  "city": "Ras Al Khaimah",
+  "url": "https://visitrasalkhaimah.com/blog/top-outdoor-restaurants-ras-al-khaimah/",
+  "kind": "standalone"
+ },
+ {
   "name": "The Bay Sports Bar, Al Hamra Golf Club",
   "city": "Ras Al Khaimah",
   "url": "https://alhamragolfclub.com",
