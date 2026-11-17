@@ -85,7 +85,14 @@ def pick_place(sender_domain: str, subject: str, text: str, places: list[dict]) 
         return cands[0]
     blob = R.norm(f"{subject} {text[:4000]}")
     named = [p for p in cands if R.norm(p["name"]) in blob]
-    return named[0] if len(named) == 1 else None
+    if len(named) == 1:
+        return named[0]
+    # ten sam lokal zapisany dwa razy (np. dwie podstrony): bierzemy pierwszy
+    if cands and len({c["city"] for c in cands}) == 1:
+        t0 = H.venue_tokens(cands[0]["name"])
+        if all(len(t0 & H.venue_tokens(c["name"])) >= 2 for c in cands[1:]):
+            return cands[0]
+    return None
 
 
 def main() -> int:
@@ -119,14 +126,20 @@ def main() -> int:
         mid = (msg.get("Message-ID") or "").strip() or hashlib.sha1(md[0][1][:2000]).hexdigest()
         key = "newsletter:" + hashlib.sha1(mid.encode()).hexdigest()
         subject = str(make_header(decode_header(msg.get("Subject") or "")))[:200]
-        addr = email.utils.parseaddr(msg.get("From") or "")[1].lower()
-        dom = base_domain(addr.split("@")[-1]) if "@" in addr else ""
+        doms = []
+        for h in ("From", "Reply-To", "Sender"):
+            addr = email.utils.parseaddr(msg.get(h) or "")[1].lower()
+            if "@" in addr:
+                doms.append(base_domain(addr.split("@")[-1]))
+        dom = doms[0] if doms else ""
         stats["maile"] += 1
         if db.get("bot_pages", {"select": "url", "url": f"eq.{key}"}):
             stats["juz_byly"] += 1
             continue
         text = text_of(msg)
-        place = pick_place(dom, subject, text, places)
+        place = None
+        for d in dict.fromkeys(doms):
+            place = place or pick_place(d, subject, text, places)
         if not place:
             print(f"- pominięty ({dom}): {subject[:80]}")
             stats["pominiete_nadawca"] += 1
