@@ -1,0 +1,47 @@
+name: Instagram – nowe konta z oznaczeń
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Próba: nic nie zapisuje"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalacja
+        run: |
+          pip install -r requirements.txt
+      - name: Szukanie kont
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IN_DRY: ${{ inputs.dry_run }}
+        run: |
+          ARGS=()
+          if [ "$IN_DRY" != "true" ]; then ARGS+=(--save); fi
+          python bot/ig_mentions.py "${ARGS[@]}"
+      - name: Zapis listy
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "outtoday-bot"
+          git config user.email "outtoday-bot@users.noreply.github.com"
+          git add sources/instagram.json
+          git commit -m "Instagram: nowe konta z oznaczeń" || exit 0
+          git pull --rebase origin main && git push origin HEAD:main
