@@ -139,7 +139,7 @@ def main() -> int:
                         continue
                     outlet = off.pop("outlet", None)
                     venue = f"{outlet}, {venue_name}" if outlet and R.norm(outlet) not in R.norm(venue_name) else venue_name
-                    full = bool(off.get("price_text") and off.get("days_of_week") and off.get("start_time"))
+                    full = bool(off.get("price_text") or (off.get("days_of_week") and off.get("start_time")))
                     row = {**off, "venue": venue, "city": acc["city"], "official_url": url,
                            "status": "approved" if full else "pending",
                            "source_name": f"OutToday Instagram bot (@{u}, {'official account' if full else 'to verify'})"}
@@ -178,7 +178,7 @@ def main() -> int:
                     continue
                 row = R.to_row(item, src, key, now_iso)
                 g = set(item.get("gaps") or [])
-                full = not g or (g == {"start_time"} and item.get("end_date") and str(item["end_date"]) > str(item["start_date"]))
+                full = not (g - {"price", "start_time"})  # data i miejsce pewne -> od razu w apce
                 if full:  # wszystkie szczegóły potwierdzone cytatem z oficjalnego konta -> od razu w apce
                     row.update(status="approved", verified_at=now_iso, source_name=f"OutToday Instagram bot (@{u}, official account)")
                 else:

@@ -645,16 +645,10 @@ class DB:
 
 
 def auto_ok(item: dict, source: dict) -> bool:
-    """Bot sam zatwierdza tylko pewne wpisy: oficjalna strona miejsca + data, miejsce i cena potwierdzone cytatem.
-    Wystawy (zakres dat) mogą nie mieć godziny."""
-    if not source.get("trusted"):
-        return False
-    # Brak ceny nie jest błędem: apka pokazuje wtedy "check the official page". Data i miejsce muszą być pewne.
-    gaps = set(item.get("gaps") or []) - {"price"}
-    if not gaps:
-        return True
-    sd, ed = item.get("start_date"), item.get("end_date")
-    return gaps == {"start_time"} and bool(ed and sd and str(ed) > str(sd))
+    """Bot sam zatwierdza wpis, gdy data i miejsce są pewne (potwierdzone cytatem z oficjalnego źródła).
+    Brak ceny lub godziny nie blokuje: apka pokazuje wtedy "check the official page" (decyzja użytkownika 17.11)."""
+    gaps = set(item.get("gaps") or []) - {"price", "start_time"}
+    return not gaps
 
 
 def to_row(item: dict, source: dict, key: str, now_iso: str) -> dict:

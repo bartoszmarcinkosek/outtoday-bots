@@ -533,7 +533,7 @@ def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = 
                     off.pop("outlet", None)
                     row = {**off, "venue": venue, "city": hotel["city"], "official_url": page.get("final_url") or url,
                            "source_name": "OutToday hotel bot (official site)"}
-                    sure = bool(row.get("days_of_week")) or row["deal_type"] == "staycation"
+                    sure = bool(row.get("days_of_week") or row.get("price_text")) or row["deal_type"] == "staycation"
                     row["status"] = "approved" if sure else "pending"
                     row = {k: v for k, v in row.items() if v not in (None, "", [])}
                     if is_dup(row, deals):
