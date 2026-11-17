@@ -239,6 +239,50 @@
     "https://visitabudhabi.ae/en/campaign/eid-al-etihad"
    ],
    "trusted": true
+  },
+  {
+   "id": "adnoc_ad_marathon",
+   "name": "ADNOC Abu Dhabi Marathon (official)",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": true,
+   "urls": [
+    "https://www.adnocabudhabimarathon.com/"
+   ]
+  },
+  {
+   "id": "spartan_ad",
+   "name": "Spartan World Championship Abu Dhabi (official)",
+   "city": "Abu Dhabi",
+   "single_venue": true,
+   "default_venue": "Al Wathba Desert",
+   "trusted": true,
+   "urls": [
+    "https://arabia.spartan.com/en/races/abu-dhabi"
+   ]
+  },
+  {
+   "id": "ad_desert_challenge",
+   "name": "Abu Dhabi Desert Challenge (official)",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": true,
+   "urls": [
+    "https://abudhabidesertchallenge.com/"
+   ]
+  },
+  {
+   "id": "ad_baja",
+   "name": "Abu Dhabi Baja Challenge (Abu Dhabi Media Office)",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": false,
+   "urls": [
+    "https://www.mediaoffice.abudhabi/en/sport/abu-dhabi-sports-council-reveals-schedule-for-4th-season-of-abu-dhabi-baja-challenge/"
+   ]
   }
  ]
 }

@@ -502,6 +502,50 @@
     "https://rakhalfmarathon.com/race-info/entry-fees/",
     "https://rakhalfmarathon.com/race-info/how-to-register/"
    ]
+  },
+  {
+   "id": "dubai_marathon",
+   "name": "Dubai Marathon (official)",
+   "city": "Dubai",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": true,
+   "urls": [
+    "https://www.dubaimarathon.org/"
+   ]
+  },
+  {
+   "id": "burj2burj",
+   "name": "Burj2Burj Half Marathon (official)",
+   "city": "Dubai",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": true,
+   "urls": [
+    "https://burj2burj.com/"
+   ]
+  },
+  {
+   "id": "dcs_half",
+   "name": "Dubai Creek Striders Half Marathon (official)",
+   "city": "Dubai",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": true,
+   "urls": [
+    "https://www.dcshalfmarathon.com/"
+   ]
+  },
+  {
+   "id": "spartan_arabia",
+   "name": "Spartan Race Arabia (official)",
+   "city": "Dubai",
+   "single_venue": false,
+   "default_venue": null,
+   "trusted": true,
+   "urls": [
+    "https://arabia.spartan.com/en"
+   ]
   }
  ]
 }
