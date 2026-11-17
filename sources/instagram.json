@@ -598,13 +598,7 @@
   },
   {
    "username": "hmhhotelgroup",
-   "city": "Ajman",
-   "venue": "Bahi Ajman Palace Hotel"
-  },
-  {
-   "username": "hojo",
-   "city": "Abu Dhabi",
-   "venue": "Howard Johnson by Wyndham Abu Dhabi"
+   "city": "Ajman"
   },
   {
    "username": "hutongdubai",
@@ -640,11 +634,6 @@
    "venue": "Kai Beach"
   },
   {
-   "username": "kempinski",
-   "city": "Abu Dhabi",
-   "venue": "Kempinski Hotel Emirates Palace"
-  },
-  {
    "username": "kempinskidubai",
    "city": "Dubai",
    "venue": "Kempinski Hotel Mall of the Emirates"
@@ -658,11 +647,6 @@
    "username": "kingsgateabudhabi",
    "city": "Abu Dhabi",
    "venue": "Kingsgate Hotel Abu Dhabi by Millennium"
-  },
-  {
-   "username": "laquintahotels",
-   "city": "Abu Dhabi",
-   "venue": "La Quinta by Wyndham Abu Dhabi Al Wahda"
   },
   {
    "username": "lpmabudhabi",
@@ -794,7 +778,7 @@
   {
    "username": "parkhyattdubai",
    "city": "Dubai",
-   "venue": "Dubai Creek Golf & Yacht Club"
+   "venue": "Park Hyatt Dubai"
   },
   {
    "username": "parkrotana",
@@ -817,26 +801,7 @@
    "venue": "PizzaExpress Live Bay Square"
   },
   {
-   "username": "platinumlistuae",
-   "city": "Abu Dhabi"
-  },
-  {
-   "username": "premierinngulf",
-   "city": "Abu Dhabi",
-   "venue": "Premier Inn Abu Dhabi Capital Centre"
-  },
-  {
-   "username": "pullmanhotels",
-   "city": "Sharjah",
-   "venue": "Pullman Sharjah"
-  },
-  {
    "username": "rafflesdubai",
-   "city": "Dubai",
-   "venue": "Raffles Dubai"
-  },
-  {
-   "username": "raffleshotels",
    "city": "Dubai",
    "venue": "Raffles Dubai"
   },
@@ -869,19 +834,13 @@
    "venue": "The Ritz-Carlton Abu Dhabi, Grand Canal"
   },
   {
-   "username": "rixoshotels",
-   "city": "Ras Al Khaimah",
-   "venue": "Rixos Al Mairid Ras Al Khaimah"
-  },
-  {
    "username": "rokarestaurant.dxb",
    "city": "Dubai",
    "venue": "ROKA Business Bay"
   },
   {
    "username": "saadiyatae",
-   "city": "Abu Dhabi",
-   "venue": "Saadiyat Beach Golf Club"
+   "city": "Abu Dhabi"
   },
   {
    "username": "saadiyatbeachclub",
@@ -904,11 +863,6 @@
    "venue": "Sandy Beach Hotel & Resort"
   },
   {
-   "username": "shangrilahotels",
-   "city": "Abu Dhabi",
-   "venue": "Shangri-La Qaryat Al Beri, Abu Dhabi"
-  },
-  {
    "username": "sharjahgsc",
    "city": "Sharjah",
    "venue": "Sharjah Golf & Shooting Club (clubhouse with Twisted Olive Bistro and Sensi restaurants)"
@@ -917,10 +871,6 @@
    "username": "shurooqsharjah",
    "city": "Sharjah",
    "venue": "Al Badayer Retreat"
-  },
-  {
-   "username": "socializinguae",
-   "city": "Dubai"
   },
   {
    "username": "sofitelabudhabicorniche",
@@ -969,8 +919,7 @@
   },
   {
    "username": "solutionsleisure",
-   "city": "Abu Dhabi",
-   "venue": "Lock, Stock & Barrel Abu Dhabi"
+   "city": "Abu Dhabi"
   },
   {
    "username": "soukmadinatjumeirah",
@@ -985,7 +934,7 @@
   {
    "username": "stregisabudhabi",
    "city": "Abu Dhabi",
-   "venue": "Nation Riviera Beach Club"
+   "venue": "The St. Regis Abu Dhabi"
   },
   {
    "username": "surfclubdubai",
@@ -1092,8 +1041,8 @@
   },
   {
    "username": "tingiriedxb",
-   "city": "Abu Dhabi",
-   "venue": "Ting Irie Pon Di Beach"
+   "city": "Dubai",
+   "venue": "Ting Irie"
   },
   {
    "username": "topgolfdubai",
@@ -1106,16 +1055,6 @@
    "venue": "Towers Rotana"
   },
   {
-   "username": "trump",
-   "city": "Dubai",
-   "venue": "Stoke House Dubai (Trump International Golf Club)"
-  },
-  {
-   "username": "tryphotels",
-   "city": "Abu Dhabi",
-   "venue": "TRYP by Wyndham Abu Dhabi City Center"
-  },
-  {
    "username": "uaqhalfmarathon",
    "city": "Umm Al Quwain"
   },
@@ -1125,17 +1064,7 @@
   },
   {
    "username": "viyarewards",
-   "city": "Abu Dhabi",
-   "venue": "Yas Links Abu Dhabi Golf Club"
-  },
-  {
-   "username": "whfl_bangalore",
    "city": "Abu Dhabi"
-  },
-  {
-   "username": "wyndham",
-   "city": "Dubai",
-   "venue": "Wyndham Downtown Dubai"
   },
   {
    "username": "xvagallery",
