@@ -274,7 +274,7 @@ def clean_links(links: list, base: str) -> list[tuple[str, str]]:
 ITEM_SCHEMA = {
     "type": "object",
     "properties": {
-        "title": {"type": "string", "description": "Event name as written on the page. If it is not in English (e.g. Arabic or Russian), give an English translation, keeping proper names, and add ' (in Arabic)' / ' (in Russian)' when the event itself is held in that language. The original wording goes in evidence.title."},
+        "title": {"type": "string", "description": "Event name as written on the page. If it is not in English (e.g. Arabic or Russian), give an English translation, keeping proper names, and add ' (in Arabic)' / ' (in Russian)' when the event itself is held in that language. The original wording goes in evidence.title. Write titles in normal capitalisation, not ALL CAPS (e.g. 'CHICAGO THE MUSICAL' -> 'Chicago the Musical'), keeping acronyms like IIFA or UAE."},
         "category": {"type": "string", "enum": EVENT_CATEGORIES, "description": (
             "music = concerts, DJ sets, opera, musicals, comedy and stage shows; "
             "culture = exhibitions, talks, film screenings, theatre plays, heritage; "

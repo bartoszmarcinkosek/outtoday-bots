@@ -1,0 +1,190 @@
+{
+ "update_event_ids": [
+  {
+   "id": "d94e3425-9161-4d39-8b58-df505e0e7a2a",
+   "set": {
+    "title": "IIFA Digital Awards 2027"
+   }
+  },
+  {
+   "id": "5defc02a-3779-456c-88cc-517344f33bc1",
+   "set": {
+    "title": "Rashed Al Majed"
+   }
+  },
+  {
+   "id": "f136877c-80f2-4450-b7cc-b4c476392e7d",
+   "set": {
+    "title": "Chicago the Musical"
+   }
+  },
+  {
+   "id": "52af915f-5b39-4fb7-824d-e6e9800d5532",
+   "set": {
+    "title": "Sid Sriram – Sing India"
+   }
+  },
+  {
+   "id": "5e375ef1-5009-47dd-9b45-8221a67a96bc",
+   "set": {
+    "title": "Buena Vista Social Club Legacy"
+   }
+  },
+  {
+   "id": "9919c939-6d41-4834-b858-f5c8f996e1a9",
+   "set": {
+    "title": "Coca-Cola Arena Winter Market"
+   }
+  },
+  {
+   "id": "97240443-f0a0-460c-b9ee-d048090655fb",
+   "set": {
+    "title": "Harry Potter™ Film Concert Series"
+   }
+  },
+  {
+   "id": "c56fcbae-d3e6-411a-9ff6-e1167a96b7a7",
+   "set": {
+    "title": "Jake Paul vs. Cédric Doumbé"
+   }
+  },
+  {
+   "id": "0038f5ea-505a-4dd4-bc93-969c96609560",
+   "set": {
+    "title": "Disney's Encanto Live in Concert"
+   }
+  },
+  {
+   "id": "e1ef4108-d4ce-4a86-aadc-5df16bb3e96e",
+   "set": {
+    "title": "Hala Mohanlal – The Complete Lalettan Show"
+   }
+  },
+  {
+   "id": "58e23849-ec0c-4150-a6ea-c6bf16f5dac6",
+   "set": {
+    "title": "Home Alone 2: Lost in New York Live in Concert"
+   }
+  },
+  {
+   "id": "32817d98-e714-4d81-b305-99ae4ff35219",
+   "set": {
+    "title": "Mina Nader's Interactive Stand-Up Comedy Show (Abu Dhabi Comedy Festival)"
+   }
+  },
+  {
+   "id": "a0240b60-9103-4c39-a83f-9611b91a33a8",
+   "set": {
+    "title": "Disney's Frozen Live in Concert"
+   }
+  },
+  {
+   "id": "8a06f9a0-faed-4b05-afc6-4809f01b6e7f",
+   "set": {
+    "title": "Dubai Basketball vs Anadolu Efes Istanbul"
+   }
+  },
+  {
+   "id": "fe727f22-73cc-4ac1-b3f1-5631c62aebdf",
+   "set": {
+    "title": "Plus One – New Special by Mohamed Helmy"
+   }
+  },
+  {
+   "id": "e5ecaa0e-abbb-4eab-8984-7a688bd7d912",
+   "set": {
+    "title": "Heels & Chair (Ladies Only)"
+   }
+  },
+  {
+   "id": "9e234278-b270-49f9-8297-c4ea8a2b32c0",
+   "set": {
+    "title": "Anubhav Singh Bassi Live – Kisi Ko Batana Mat"
+   }
+  },
+  {
+   "id": "b05154f3-c2a1-4361-9a39-809999b21981",
+   "set": {
+    "title": "Afrobeats Dance Class (Ladies)"
+   }
+  },
+  {
+   "id": "f4ecfdf2-dd8f-475e-a52d-e665dd43f925",
+   "set": {
+    "title": "Dubai Basketball vs Partizan Mozzart Bet Belgrade"
+   }
+  },
+  {
+   "id": "9c097fec-dbe9-4ded-b6d5-710d58d5aabb",
+   "set": {
+    "title": "Disney's The Lion King Live in Concert"
+   }
+  },
+  {
+   "id": "9fdf7465-d8ab-4e1f-a66d-2f3cb8298832",
+   "set": {
+    "title": "The Bâoli Festival"
+   }
+  },
+  {
+   "id": "3a06135c-69a0-4a77-a103-7920df87181e",
+   "set": {
+    "title": "Festival Academy: Abu Dhabi Festival Youth Orchestra",
+    "venue": "The Blue Hall, The Arts Center at NYU Abu Dhabi"
+   }
+  },
+  {
+   "id": "990eb7c3-1265-4382-85bf-414c69e5f8bf",
+   "set": {
+    "title": "Rahat Fateh Ali Khan & Shah Zaman Ali Khan – Once Upon a Time World Tour"
+   }
+  },
+  {
+   "id": "06f396dd-9b95-4204-becb-064c554422a3",
+   "set": {
+    "title": "Book club: Stories Sell by Matthew Dicks",
+    "venue": "The Coffee, Souk Al Bahar, Downtown Dubai"
+   }
+  },
+  {
+   "id": "0ec1fa99-ef95-4838-b1db-2629e191ba1c",
+   "set": {
+    "venue": "The Amblers Restaurant, Al Ain Equestrian, Shooting & Golf Club"
+   }
+  }
+ ],
+ "update_place_ids": [
+  {
+   "id": "c2c946fc-a8f7-4d86-9dea-6e236342ab11",
+   "set": {
+    "name": "The Jam Jar"
+   }
+  }
+ ],
+ "update_deal_ids": [
+  {
+   "id": "53bd37e0-c5a1-4cb5-b2be-f416c5a76d75",
+   "set": {
+    "title": "Happy Hour at 49ers"
+   }
+  },
+  {
+   "id": "5af33c96-6ee5-4733-b85b-8eea21c482ee",
+   "set": {
+    "venue": "The Lighthouse Restaurant & Bar, Dubai Hills Business Park"
+   }
+  },
+  {
+   "id": "574f0e36-1561-45e5-a9a9-3f9b87af8935",
+   "set": {
+    "venue": "The Lighthouse Restaurant & Bar, Dubai Hills Business Park"
+   }
+  },
+  {
+   "id": "2c6c7095-f62a-47d9-9248-75a0ae067f18",
+   "set": {
+    "venue": "Emirates Golf Club pool"
+   }
+  }
+ ]
+}
