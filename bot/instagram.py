@@ -45,6 +45,9 @@ def ig_user_id(tok: str) -> str:
     raise SystemExit(f"Brak konta Instagram przy stronie Facebook: {str(r)[:300]}")
 
 
+_waited: dict = {}
+
+
 def recent_posts(tok: str, ig: str, username: str) -> tuple[dict | None, str]:
     fields = (f"business_discovery.username({username})"
               f"{{username,name,followers_count,media.limit({POSTS_PER_ACCOUNT}){{caption,timestamp,permalink}}}}")
@@ -56,7 +59,13 @@ def recent_posts(tok: str, ig: str, username: str) -> tuple[dict | None, str]:
             time.sleep(5 * (attempt + 1))
             r = {"error": {"message": str(e)}}
     if "error" in r:
-        return None, r["error"].get("message", "błąd")[:160]
+        msg = r["error"].get("message", "błąd")
+        if "request limit" in msg and not _waited.get(username):
+            _waited[username] = True
+            print(f"[limit Instagrama] czekam 20 min przy @{username}", flush=True)
+            time.sleep(20 * 60)
+            return recent_posts(tok, ig, username)
+        return None, msg[:160]
     return r.get("business_discovery"), ""
 
 
