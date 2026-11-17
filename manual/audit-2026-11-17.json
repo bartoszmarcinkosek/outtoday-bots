@@ -1,0 +1,17 @@
+{
+ "reject_event_ids": [
+  "00611417-dac1-47a5-b570-8cdf9a57d44e",
+  "1036cc54-d0d8-476f-837e-ab26548d9bc1",
+  "a2f3fb3a-ca99-4c9e-b609-a0eb6f5e4caf",
+  "fd1c6e35-b565-424f-94bf-7e40bfd16036",
+  "8403bddd-bf9e-4809-8f66-de7b5f573b93",
+  "4359bc2a-5537-43cc-a2f6-ba137b85dd44",
+  "8c54a301-c5c4-4e9b-a110-08d8834f00e3",
+  "2f3ce0d1-4e23-4576-8ea9-5ce266ae6ab3"
+ ],
+ "reject_deals": [
+  {"title": "Ladies' night: Ishtar", "venue_like": "Ishtar"},
+  {"title": "High So at Tong Thai", "venue_like": "Tong Thai"},
+  {"title": "October Fourball Offer", "venue_like": "Abu Dhabi Golf Club"}
+ ]
+}
