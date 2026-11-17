@@ -1,0 +1,35 @@
+name: Android – odcisk SHA-1 podpisu (z ostatniego buildu EAS)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: npm ci
+      - name: SHA-1
+        run: |
+          eas build:list --platform android --status finished --limit 5 --json --non-interactive > /tmp/builds.json
+          python3 -c "import json;b=json.load(open('/tmp/builds.json'));[print(x.get('buildProfile'),x.get('createdAt'),(x.get('artifacts') or {}).get('buildUrl')) for x in b]"
+          URL=$(python3 -c "import json;b=json.load(open('/tmp/builds.json'));u=[(x.get('artifacts') or {}).get('buildUrl') for x in b if (x.get('artifacts') or {}).get('buildUrl','').endswith('.apk')];print(u[0] if u else '')")
+          test -n "$URL" || { echo "Brak gotowego APK"; exit 1; }
+          curl -sL "$URL" -o /tmp/app.apk
+          AS=$(ls $ANDROID_HOME/build-tools/*/apksigner | tail -1)
+          $AS verify --print-certs /tmp/app.apk | grep -iE "SHA-1|SHA-256|DN"
