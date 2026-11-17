@@ -619,7 +619,7 @@ const styles = StyleSheet.create({
   activeCat: { color: colors.muted, fontSize: 13, paddingHorizontal: 16, marginBottom: 6 },
   list: { paddingHorizontal: 16, paddingBottom: 24, paddingTop: 4 },
   tabBar: { flexDirection: 'row', backgroundColor: colors.surface, borderTopWidth: 1, borderTopColor: colors.border },
-  tabBtn: { flex: 1, alignItems: 'center', paddingTop: 9, paddingBottom: 6 },
+  tabBtn: { flex: 1, alignItems: 'center', paddingTop: 5, paddingBottom: 6 },
   tabText: { color: colors.muted, fontSize: 12, marginTop: 2 },
   section: { color: colors.muted, fontSize: 13, fontWeight: '700', marginTop: 10, marginBottom: 8, textTransform: 'uppercase' },
   wrap: { flexDirection: 'row', flexWrap: 'wrap' },
