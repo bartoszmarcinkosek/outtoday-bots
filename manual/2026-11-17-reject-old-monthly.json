@@ -1,0 +1,9 @@
+{
+ "reject_deals": [
+  {"title": "Sunday Roast", "venue_like": "Crafty Fox"},
+  {"title": "Quiz Night", "venue_like": "Crafty Fox"},
+  {"title": "Taco Tuesday", "venue_like": "Crafty Fox"},
+  {"title": "Tapas and Wine", "venue_like": "Crafty Fox"},
+  {"title": "Ladies Night", "venue_like": "PizzaExpress Al Reem"}
+ ]
+}
