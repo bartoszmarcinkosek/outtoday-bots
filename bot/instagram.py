@@ -133,7 +133,7 @@ def main() -> int:
                     row = {**off, "venue": venue, "city": acc["city"], "official_url": url, "status": "pending",
                            "source_name": f"OutToday Instagram bot (@{u}, to verify)"}
                     row = {k: v for k, v in row.items() if v not in (None, "", [])}
-                    if H.is_dup(row, deals):
+                    if H.is_dup(row, deals) or any(R.titles_match(e["title"], row["title"]) for e in existing):
                         report.append((u, f"[oferta] {row['title']}", "już jest w bazie"))
                         continue
                     if not a.dry_run:
