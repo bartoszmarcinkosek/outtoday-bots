@@ -186,7 +186,9 @@ function Main() {
   const listFor = useCallback(
     (t: ListTab): Item[] => {
       const range = rangeFor(day);
-      const filtered = local
+      // Top 10 zawsze dla całego miasta, niezależnie od wybranego obszaru.
+      const base = t === 'places' && topOnly && hasTop10(city) ? all.filter((i) => i.city === city) : local;
+      const filtered = base
         .filter((i) => i.kind === KIND_OF[t])
         .filter((i) => !cats[t] || i.catKey === cats[t])
         .filter((i) => !free || i.free)
@@ -201,7 +203,7 @@ function Main() {
       if (t === 'places' && topOnly && hasTop10(city) && sorts[t] === 'default') return [...filtered].sort((a, b) => (a.top ?? 99) - (b.top ?? 99));
       return sortItems(filtered, sorts[t]);
     },
-    [local, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, city],
+    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, city],
   );
 
   const list = useMemo(() => (tab === 'today' ? [] : listFor(tab)), [tab, listFor]);
