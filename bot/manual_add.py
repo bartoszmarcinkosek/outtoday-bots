@@ -72,6 +72,8 @@ def main() -> int:
             # "set": poprawki pól sprawdzone na oficjalnej stronie (np. venue "Various venues across Sharjah").
             fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("venue", "price_text", "is_free", "start_time", "end_time", "description", "official_url", "category")}
             for row in rows:
+                if row["status"] == "rejected":
+                    continue  # odrzucone ręcznie (np. w mailu) – stary plik nie może tego cofnąć
                 if row["status"] != "approved" or fix:
                     upd = {"status": "approved", "verified_at": now, "updated_at": now, **fix}
                     if fix:
@@ -113,9 +115,15 @@ def main() -> int:
                     print(f"- miejsce ukryte: {row['name']}")
         # "approve_event_ids" / "reject_event_ids": listy id eventów
         for eid in data.get("approve_event_ids", []):
+            cur = db.get("events", {"select": "status", "id": f"eq.{eid}"})
+            if not cur or cur[0]["status"] != "pending":
+                continue
             db.update("events", {"id": eid}, {"status": "approved", "verified_at": now, "updated_at": now})
             print(f"✓ zatwierdzone id {eid}")
         for eid in data.get("reject_event_ids", []):
+            cur = db.get("events", {"select": "status", "id": f"eq.{eid}"})
+            if not cur or cur[0]["status"] == "rejected":
+                continue
             db.update("events", {"id": eid}, {"status": "rejected", "updated_at": now})
             print(f"- odrzucone id {eid}")
         # "update_places": [{"name":..., "city":..., "set": {...}}] – poprawki ceny/godzin/telefonu
