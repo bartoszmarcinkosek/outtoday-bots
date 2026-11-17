@@ -1285,6 +1285,11 @@
   "url": "https://www.hilton.com/en/hotels/rktwawa-waldorf-astoria-ras-al-khaimah/"
  },
  {
+  "name": "72 Hotel Sharjah",
+  "city": "Sharjah",
+  "url": "https://www.hotel72.com/"
+ },
+ {
   "name": "Al Badayer Retreat",
   "city": "Sharjah",
   "url": "https://shurooq.gov.ae/portfolio/al-badayar-retreat"
@@ -1303,6 +1308,11 @@
   "name": "Coral Beach Resort Sharjah",
   "city": "Sharjah",
   "url": "https://www.hmhhotelgroup.com/coral-hotels-resorts-beach-sharjah"
+ },
+ {
+  "name": "Coral Beach Resort Sharjah",
+  "city": "Sharjah",
+  "url": "https://coralbeachresortae.com/"
  },
  {
   "name": "Coralbay Beachfront Hotel Apartment Khorfakkan",
@@ -1338,6 +1348,11 @@
   "name": "Hotel Holiday International",
   "city": "Sharjah",
   "url": "https://holidayinternational.com/"
+ },
+ {
+  "name": "Lou'Lou'a Beach Resort Sharjah",
+  "city": "Sharjah",
+  "url": "https://loulouabeach.com/"
  },
  {
   "name": "Novotel Sharjah Expo Centre",
@@ -1380,9 +1395,19 @@
   "url": "https://www.sharjahpalacehotel.com/"
  },
  {
+  "name": "Sharjah Palace Hotel",
+  "city": "Sharjah",
+  "url": "https://palace.sharjahhotels.net/en/"
+ },
+ {
   "name": "Sheraton Sharjah Beach Resort & Spa",
   "city": "Sharjah",
   "url": "https://www.marriott.com/en-us/hotels/shjsi-sheraton-sharjah-beach-resort-and-spa/overview/"
+ },
+ {
+  "name": "The Act Hotel Sharjah",
+  "city": "Sharjah",
+  "url": "https://theacthotel.com/"
  },
  {
   "name": "Vida Aljada",
