@@ -123,7 +123,7 @@ def main() -> int:
     for table, r, hit in planned:
         names = by_pt[(round(hit[0], 3), round(hit[1], 3))]
         why = ""
-        if any(km(hit, p) <= 1.2 for p in PLACEHOLDERS):
+        if any(km(hit, p) <= 0.4 for p in PLACEHOLDERS):
             why = "środek miasta"
         elif any(not (n & vname(r)) for n in names):
             why = "ten sam punkt dla różnych miejsc"
