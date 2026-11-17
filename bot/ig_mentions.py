@@ -62,7 +62,9 @@ def main() -> int:
     for h in HUBS:
         bd, err = IG.recent_posts(tok, ig, h)
         if not bd:
+            print(f"  @{h}: brak ({err})", flush=True)
             continue
+        print(f"  @{h}: {len((bd.get('media') or {}).get('data', []))} postów", flush=True)
         for p in (bd.get("media") or {}).get("data", []):
             for m in MENTION.findall(p.get("caption") or ""):
                 m = m.rstrip(".").lower()
