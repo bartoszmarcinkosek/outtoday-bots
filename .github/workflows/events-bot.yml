@@ -32,6 +32,14 @@ jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        part:
+          - { name: dubai, cities: "Dubai" }
+          - { name: abu-dhabi, cities: "Abu Dhabi" }
+          - { name: north, cities: "Al Ain,Sharjah,Ras Al Khaimah,Ajman,Fujairah,Umm Al Quwain" }
+    name: run (${{ matrix.part.name }})
     steps:
       - uses: actions/checkout@v4
 
@@ -55,15 +63,17 @@ jobs:
           IN_FORCE: ${{ inputs.force }}
           IN_ONLY: ${{ inputs.only }}
           IN_MAX: ${{ inputs.max_items || 400 }}
+          IN_CITIES: ${{ matrix.part.cities }}
         run: |
           ARGS=(--max-items "$IN_MAX")
+          if [ -z "$IN_ONLY" ]; then ARGS+=(--cities "$IN_CITIES"); elif [ "${{ matrix.part.name }}" != "dubai" ]; then exit 0; fi
           if [ "$IN_DRY" = "true" ]; then ARGS+=(--dry-run); fi
           if [ "$IN_FORCE" = "true" ]; then ARGS+=(--force); fi
           if [ -n "$IN_ONLY" ]; then ARGS+=(--only "$IN_ONLY"); fi
           python bot/run.py "${ARGS[@]}"
 
       - name: Eventbrite (oficjalne API)
-        if: ${{ !inputs.dry_run && (inputs.only == '' || contains(inputs.only, 'eventbrite')) }}
+        if: ${{ matrix.part.name == 'north' && !inputs.dry_run && (inputs.only == '' || contains(inputs.only, 'eventbrite')) }}
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -76,6 +86,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: raport
+          name: raport-${{ matrix.part.name }}
           path: out/
           if-no-files-found: ignore

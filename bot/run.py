@@ -736,6 +736,7 @@ def main() -> int:
     ap.add_argument("--only", default="", help="id źródeł po przecinku, np. louvre_ad,etihad_arena")
     ap.add_argument("--max-items", type=int, default=50, help="limit wpisów na całe uruchomienie (próba: 50)")
     ap.add_argument("--max-details", type=int, default=40, help="ile podstron eventów otworzyć na źródło")
+    ap.add_argument("--cities", default="", help="tylko źródła z tych miast (po przecinku) – do równoległych przebiegów")
     args = ap.parse_args()
 
     api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
@@ -763,6 +764,10 @@ def main() -> int:
     only = {s.strip() for s in args.only.split(",") if s.strip()}
     if only:
         sources = [s for s in sources if s["id"] in only]
+    cities = {c.strip().lower() for c in args.cities.split(",") if c.strip()}
+    if cities:
+        sources = [s for s in sources if (s.get("city") or "").lower() in cities]
+        print(f"Część: {', '.join(sorted(cities))} – źródeł {len(sources)}")
 
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
     usage = {"input": 0, "output": 0, "calls": 0, "searches": 0}
