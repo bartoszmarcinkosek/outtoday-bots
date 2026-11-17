@@ -305,9 +305,19 @@
   "url": "https://ajmanbeachhotel.com/"
  },
  {
+  "name": "Ajman Beach Hotel",
+  "city": "Ajman",
+  "url": "https://ajmanbeachhotel.com/about"
+ },
+ {
   "name": "Ajman Hotel (Blazon Hotels; also listed as Dusit Ajman Resort & Villas)",
   "city": "Ajman",
   "url": "https://www.hotelajman.com/"
+ },
+ {
+  "name": "Ajman Hotel by Blazon Hotels",
+  "city": "Ajman",
+  "url": "https://www.hotelajman.com/offers/dining-offers"
  },
  {
   "name": "Ajman Saray, a Luxury Collection Resort, Ajman",
@@ -320,6 +330,11 @@
   "url": "https://www.alzorahbeachresort.com/"
  },
  {
+  "name": "Bahi Ajman Palace",
+  "city": "Ajman",
+  "url": "https://www.hmhhotelgroup.com/bahi-hotels-resorts-bahi-ajman-palace/facilities"
+ },
+ {
   "name": "Bahi Ajman Palace Hotel",
   "city": "Ajman",
   "url": "https://www.hmhhotelgroup.com/bahi-hotels-resorts-bahi-ajman-palace"
@@ -330,9 +345,19 @@
   "url": "https://www.dusit.com/dusithotel-ajman/"
  },
  {
+  "name": "Dusit Ajman Resort & Villas (formerly The Ajman Hotel)",
+  "city": "Ajman",
+  "url": "https://hotelajman.com"
+ },
+ {
   "name": "Fairmont Ajman",
   "city": "Ajman",
   "url": "https://www.fairmont.com/en/hotels/ajman/fairmont-ajman.html"
+ },
+ {
+  "name": "Mermaid Beach Hotel",
+  "city": "Ajman",
+  "url": "https://mermaidbeachhotelajman.com/"
  },
  {
   "name": "Radisson Blu Hotel, Ajman",
@@ -353,6 +378,11 @@
   "name": "Ramada by Wyndham Beach Hotel Ajman",
   "city": "Ajman",
   "url": "https://www.wyndhamhotels.com/ramada/ajman-united-arab-emirates/ramada-beach-hotel-ajman/overview"
+ },
+ {
+  "name": "The Saj Hotel",
+  "city": "Ajman",
+  "url": "https://www.thesajhotel.com/"
  },
  {
   "name": "Wyndham Garden Ajman Corniche",
