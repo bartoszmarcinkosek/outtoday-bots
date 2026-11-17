@@ -1,0 +1,13 @@
+{
+ "_info": "Dubai venues scan 17.11: stare strony (2022-2025), oferty przypisane do złego lokalu, letnie",
+ "reject_deals": [
+  {"title": "Saturday Brunch At Toad In The Hole", "venue_like": "Topgolf"},
+  {"title": "Roast with all the Trimmings at Spike", "venue_like": "Topgolf"},
+  {"title": "All about the girls every Monday!", "venue_like": "Topgolf"},
+  {"title": "Nonna's Table at Boardwalk", "venue_like": "Boardwalk"},
+  {"title": "Squisito Brunch at Boardwalk", "venue_like": "Boardwalk"},
+  {"title": "Beer-ly Beat the Heat", "venue_like": "Revelry"},
+  {"title": "Business Lunch", "venue_like": "Production City"},
+  {"title": "Get Into Golf", "venue_like": "Dubai Creek Golf"}
+ ]
+}
