@@ -1,0 +1,10 @@
+{
+ "approve_event_ids": [
+  {"id": "674c8c8b-2010-4af6-8ad5-02e4545f370a", "set": {"venue": "Al Shindagah Ballroom, Metropolitan Hotel, Sheikh Zayed Road", "start_time": "20:00"}},
+  {"id": "d6218ad0-0034-4bc5-ad38-be44897c9e08", "set": {"venue": "Emirates Towers & Museum of the Future"}},
+  {"id": "3faaaf33-9ac5-4b31-8e59-1e09422a9b98", "set": {"venue": "Umm Suqeim (Dubai Police Academy)", "start_time": "06:30", "price_text": "From AED 183.62"}}
+ ],
+ "reject_event_ids": [
+  "be838303-98fe-4076-a72d-dd5352fd2d51"
+ ]
+}

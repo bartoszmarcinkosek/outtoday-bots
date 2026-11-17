@@ -130,7 +130,7 @@ def main() -> int:
         # "approve_event_ids" / "reject_event_ids": listy id eventów
         for r in data.get("approve_event_ids", []):
             eid, fix = (r, {}) if isinstance(r, str) else (r["id"], r.get("set") or {})
-            fix = {k: v for k, v in fix.items() if k in ("venue", "start_time", "city", "title")}
+            fix = {k: v for k, v in fix.items() if k in ("venue", "start_time", "city", "title", "price_text")}
             cur = db.get("events", {"select": "status,gaps", "id": f"eq.{eid}"})
             if not cur or cur[0]["status"] != "pending":
                 continue
