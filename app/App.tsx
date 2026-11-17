@@ -15,6 +15,7 @@ import {
 } from './src/logic';
 import { ZoneMap } from './src/map';
 import { SuggestSheet } from './src/suggest';
+import { AboutSheet } from './src/about';
 import { BigButton, CalendarSheet, DetailSheet, LocationSheet } from './src/sheets';
 import { cat, colors, dealStyle } from './src/theme';
 import { Chip, Empty, ItemCard, Sheet } from './src/ui';
@@ -84,6 +85,7 @@ function Main() {
   const [showSearch, setShowSearch] = useState(false);
   const [showFavs, setShowFavs] = useState(false);
   const [showSuggest, setShowSuggest] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
   const [query, setQuery] = useState('');
   const [view, setView] = useState<'list' | 'map'>('list');
   // Ile razy użyto każdego filtra. Najczęstsze trafiają na górę panelu filtrów.
@@ -261,7 +263,10 @@ function Main() {
 
       <View style={styles.header}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.brand}>OutToday</Text>
+          <Pressable onPress={() => setShowAbout(true)} hitSlop={6} accessibilityLabel="About OutToday" style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={styles.brand}>OutToday</Text>
+            <Ionicons name="information-circle-outline" size={18} color={colors.muted} style={{ marginLeft: 6, marginTop: 4 }} />
+          </Pressable>
           <Pressable onPress={() => setShowWhere(true)} style={styles.where} hitSlop={8}>
             <Ionicons name="location" size={15} color={colors.primary} />
             <Text style={styles.whereText} numberOfLines={1}>{whereLabel}</Text>
@@ -464,6 +469,7 @@ function Main() {
             onFav={() => selected && toggleFav(selected.key)} onClose={() => setSelected(null)} />
         } />
 
+      <AboutSheet visible={showAbout} onClose={() => setShowAbout(false)} onSuggest={() => setShowSuggest(true)} />
       <SuggestSheet visible={showSuggest} onClose={() => setShowSuggest(false)} city={city} />
       <Modal visible={showFavs} animationType="slide" onRequestClose={() => setShowFavs(false)}>
         <SafeAreaProvider>

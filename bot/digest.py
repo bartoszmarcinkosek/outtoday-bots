@@ -117,6 +117,8 @@ def load(db: DB) -> dict:
                                "order": "finished_at.asc", "limit": "500"})
     try:  # zgłoszenia z apki z ostatniej doby (tabela suggestions)
         day_ago = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=25)).isoformat()
+        old = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=90)).isoformat()
+        requests.delete(f"{db.base}/suggestions", headers=db.h, params={"created_at": f"lt.{old}"}, timeout=30)  # polityka: 90 dni
         suggestions = db.get("suggestions", {"select": "*", "created_at": f"gte.{day_ago}", "order": "created_at.asc", "limit": "50"})
     except Exception:
         suggestions = []
