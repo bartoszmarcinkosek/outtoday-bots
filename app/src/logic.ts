@@ -5,6 +5,7 @@ import { NEW_BASELINE } from './config';
 import { fmtCardWhen, fmtDate, fmtDays, fmtTime, fmtWhen, isLongRunning } from './dates';
 import { CategoryStyle, cat, dealStyle } from './theme';
 import { ZONE_CENTER, distanceKm, placeOf } from './zones';
+import { topRank } from './top10';
 
 export type IconName = ComponentProps<typeof Ionicons>['name'];
 export type Kind = 'event' | 'place' | 'deal';
@@ -30,6 +31,7 @@ export type Item = {
   pet: boolean;
   ladies: boolean;
   indoor: boolean | null; // tylko miejsca
+  top: number | null; // miejsce w Top 10 miasta (tylko miejsca)
   zone: string | null;
   city: string;
   km: number | null;
@@ -133,7 +135,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       where: placeLine(e.venue, e.area), mapQuery: `${e.venue ?? e.area ?? e.title}, ${e.city}`,
       description: e.description, priceText: e.price_text, price, free: e.is_free || price === 0,
       kid: e.kid_friendly === true, pet: e.pet_friendly === true, ladies: e.ladies_only === true,
-      indoor: null, zone, city: itemCity, km: kmFor(zone, me),
+      indoor: null, top: null, zone, city: itemCity, km: kmFor(zone, me),
       officialUrl: e.official_url ?? null, phone: e.phone ?? null, sourceName: e.source_name,
       checked: monthYear(e.verified_at ?? e.updated_at ?? e.created_at), verified: !!e.verified_at, isNew: isNew(e.created_at, now),
       endsSoon: isLongRunning(e) && end >= today && end <= soon, booking: e.registration_required, event: e,
@@ -148,7 +150,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       icon: iconFor(p.category), when: p.hours_text, whenFull: p.hours_text, where: p.area,
       mapQuery: `${p.name}, ${p.city}`, description: p.description, priceText: p.price_text, price,
       free: p.is_free || price === 0, kid: p.kid_friendly === true, pet: p.pet_friendly === true,
-      ladies: p.ladies_only === true, indoor: p.is_indoor === true, zone, city: itemCity,
+      ladies: p.ladies_only === true, indoor: p.is_indoor === true, top: topRank(itemCity, p.name), zone, city: itemCity,
       km: kmFor(zone, me), officialUrl: p.official_url ?? null, phone: p.phone ?? null,
       sourceName: p.source_name, checked: monthYear(p.updated_at ?? p.created_at), verified: false,
       isNew: isNew(p.created_at, now), endsSoon: false, booking: false, place: p,
@@ -167,7 +169,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       icon: iconFor(d.deal_type), when, whenFull: when, where: placeLine(d.venue, d.area),
       mapQuery: `${d.venue ?? d.title}, ${d.city}`, description: d.details, priceText: d.price_text, price,
       free: price === 0, kid: d.kid_friendly === true, pet: d.pet_friendly === true,
-      ladies: d.ladies_only === true || d.deal_type === 'ladies_night', indoor: null, zone,
+      ladies: d.ladies_only === true || d.deal_type === 'ladies_night', indoor: null, top: null, zone,
       city: itemCity, km: kmFor(zone, me), officialUrl: d.official_url ?? null,
       phone: d.phone ?? null, sourceName: d.source_name, checked: monthYear(d.updated_at ?? d.created_at), verified: false,
       isNew: isNew(d.created_at, now),

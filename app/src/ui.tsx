@@ -51,6 +51,7 @@ export function ItemCard(props: { item: Item; fav: boolean; onFav: () => void; o
       </View>
       <View style={{ flex: 1 }}>
         <View style={styles.pillRow}>
+          {item.top != null && <Pill text={`TOP 10 · #${item.top}`} color="#FFD166" solid />}
           <Pill text={c.label} color={c.accent} />
           {item.free && <Pill text="FREE" color={colors.free} solid />}
           {badges.map((b) => (

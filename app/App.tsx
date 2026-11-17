@@ -16,6 +16,7 @@ import { ZoneMap } from './src/map';
 import { BigButton, CalendarSheet, DetailSheet, LocationSheet } from './src/sheets';
 import { cat, colors, dealStyle } from './src/theme';
 import { Chip, Empty, ItemCard, Sheet } from './src/ui';
+import { hasTop10 } from './src/top10';
 import { CITY_CENTER, ZONES, distanceKm } from './src/zones';
 
 type Tab = 'today' | 'events' | 'places' | 'deals';
@@ -62,6 +63,7 @@ function Main() {
   // Filtry
   const [day, setDay] = useState('today');
   const [dealDay, setDealDay] = useState<number | null>(null);
+  const [topOnly, setTopOnly] = useState(false);
   const [cats, setCats] = useState<Record<ListTab, string | null>>({ events: null, places: null, deals: null });
   const [sorts, setSorts] = useState<Record<ListTab, SortKey>>({ events: 'default', places: 'default', deals: 'default' });
   const [free, setFree] = useState(false);
@@ -193,11 +195,13 @@ function Main() {
         .filter((i) => !ladies || i.ladies)
         .filter((i) => t !== 'events' || inRange(i.event!, range))
         .filter((i) => t !== 'places' || inOut === 'all' || i.indoor === (inOut === 'in'))
+        .filter((i) => t !== 'places' || !topOnly || !hasTop10(city) || i.top != null)
         .filter((i) => t !== 'deals' || dealDay === null || dealOnDay(i.deal!, dealDay))
         .filter((i) => t !== 'deals' || cap === null || (i.price !== null && i.price <= cap));
+      if (t === 'places' && topOnly && hasTop10(city) && sorts[t] === 'default') return [...filtered].sort((a, b) => (a.top ?? 99) - (b.top ?? 99));
       return sortItems(filtered, sorts[t]);
     },
-    [local, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts],
+    [local, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, city],
   );
 
   const list = useMemo(() => (tab === 'today' ? [] : listFor(tab)), [tab, listFor]);
@@ -211,11 +215,11 @@ function Main() {
 
   const activeCount =
     Number(free) + Number(kid) + Number(pet) + Number(ladies) +
-    (tab !== 'today' && cats[tab] ? 1 : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) +
+    (tab !== 'today' && cats[tab] ? 1 : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) +
     (tab === 'deals' && cap !== null ? 1 : 0);
 
   const clearFilters = () => {
-    setFree(false); setKid(false); setPet(false); setLadies(false); setInOut('all'); setCap(null);
+    setFree(false); setKid(false); setPet(false); setLadies(false); setInOut('all'); setCap(null); setTopOnly(false);
     setCats({ events: null, places: null, deals: null });
   };
 
@@ -284,6 +288,14 @@ function Main() {
                 <Chip key={d.key} label={d.label} active={day === d.key} onPress={() => setDay(d.key)} />
               ))}
               <Chip label={isDate ? fmtDate(day) : 'Pick a date'} icon="calendar-outline" active={isDate} onPress={() => setShowCal(true)} />
+            </ScrollView>
+            </View>
+          )}
+          {tab === 'places' && hasTop10(city) && (
+            <View style={styles.chipRow}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRowIn}>
+              <Chip label="All places" active={!topOnly} onPress={() => setTopOnly(false)} />
+              <Chip label={`Top 10 in ${city}`} icon="trophy-outline" active={topOnly} onPress={() => setTopOnly(!topOnly)} />
             </ScrollView>
             </View>
           )}
