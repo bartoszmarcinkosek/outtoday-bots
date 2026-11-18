@@ -102,7 +102,7 @@ Never copy sentences into "details": write your own short sentence."""
 
 def client_usage():
     import anthropic
-    return anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip()), {"input": 0, "output": 0, "calls": 0, "searches": 0}
+    return anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6), {"input": 0, "output": 0, "calls": 0, "searches": 0}
 
 
 def add_usage(usage: dict, resp) -> None:

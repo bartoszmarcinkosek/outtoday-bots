@@ -56,7 +56,7 @@ def eb(token: str, path: str, **params) -> dict | None:
 def discover_ids(max_searches: int) -> set[str]:
     """Adresy eventbrite.com/e/... z wyszukiwarki (Claude web search ograniczony do eventbrite.com)."""
     import anthropic
-    client = anthropic.Anthropic()
+    client = anthropic.Anthropic(max_retries=6)
     ids: set[str] = set()
     for q in QUERIES[:max_searches]:
         try:

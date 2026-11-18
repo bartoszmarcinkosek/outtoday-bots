@@ -747,7 +747,7 @@ def main() -> int:
         print("Brak ANTHROPIC_API_KEY")
         return 1
     import anthropic
-    client = anthropic.Anthropic(api_key=api_key)
+    client = anthropic.Anthropic(api_key=api_key, max_retries=6)
 
     db = None
     sb_url, sb_key = os.environ.get("SUPABASE_URL", "").strip(), os.environ.get("SUPABASE_SECRET_KEY", "").strip()

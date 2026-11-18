@@ -90,7 +90,7 @@ def main() -> int:
     accounts = accounts[: a.limit]
 
     import anthropic
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6)
     usage = {"input": 0, "output": 0, "calls": 0}
     client_h, usage_h = H.client_usage()
     db = R.DB(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SECRET_KEY"].strip())

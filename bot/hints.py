@@ -138,7 +138,7 @@ def main() -> int:
     args = ap.parse_args()
 
     import anthropic
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6)
     db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
     deals = db.get("deals", {"select": "title,venue,city,deal_type,status", "limit": "5000"})
     usage = {"input": 0, "output": 0, "calls": 0, "searches": 0}
