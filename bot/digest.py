@@ -30,7 +30,7 @@ from email.message import EmailMessage
 import requests
 
 UAE_TZ = dt.timezone(dt.timedelta(hours=4))
-REVIEW_PAGE = os.environ.get("REVIEW_PAGE", "https://bartoszmarcinkosek.github.io/outtoday-web/review.html")
+REVIEW_PAGE = os.environ.get("REVIEW_PAGE", "https://outtodayapp.github.io/review.html")
 TOKEN_DAYS = 14
 MAX_ROWS = 80
 
@@ -369,7 +369,7 @@ def send(subject: str, html_body: str, text: str) -> None:
 def selftest(db: DB, url: str, key: str) -> int:
     """Sprawdza funkcję review: zły token = 401, dobry token = odczyt wpisu (bez zmian w bazie)."""
     fn = url.rstrip("/") + "/functions/v1/review"
-    origin = "https://bartoszmarcinkosek.github.io"
+    origin = "https://outtodayapp.github.io"
     r = requests.options(fn, headers={"Origin": origin, "Access-Control-Request-Method": "POST"}, timeout=30)
     print("CORS:", r.status_code, r.headers.get("access-control-allow-origin"))
     r = requests.post(fn, json={"token": "x.y", "action": "approve"}, headers={"Origin": origin}, timeout=30)

@@ -27,7 +27,7 @@ jobs:
         run: |
           supabase secrets set --yes --project-ref "$PROJECT_REF" \
             OT_SECRET_KEY="$OT_SECRET_KEY" \
-            OT_ALLOWED_ORIGINS="https://bartoszmarcinkosek.github.io"
+            OT_ALLOWED_ORIGINS="https://outtodayapp.github.io,https://bartoszmarcinkosek.github.io"
       - name: Wgranie funkcji
         run: supabase functions deploy review --yes --project-ref "$PROJECT_REF" --no-verify-jwt --use-api
       - uses: actions/setup-python@v5
