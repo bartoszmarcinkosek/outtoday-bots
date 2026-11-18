@@ -51,7 +51,9 @@ export function ItemCard(props: { item: Item; photo?: number | null; fav: boolea
   return (
     <Pressable onPress={props.onPress} style={[styles.card, { backgroundColor: c.card }]}>
       {props.photo ? (
-        <Image source={props.photo} style={styles.photoBox} resizeMode="cover" />
+        <View style={styles.photoBox}>
+          <Image source={props.photo} style={StyleSheet.absoluteFill} resizeMode="cover" />
+        </View>
       ) : (
         <View style={[styles.iconBox, { backgroundColor: 'rgba(0,0,0,0.22)' }]}>
           <Ionicons name={item.icon} size={28} color={c.accent} />
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
   card: { flexDirection: 'row', borderRadius: 16, padding: 14, marginBottom: 12 },
   iconBox: { width: 42, minHeight: 42, alignSelf: 'stretch', borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
   // zdjęcie kategorii: o 25% szersze niż ikonka (42 → 53)
-  photoBox: { width: 53, minHeight: 64, alignSelf: 'stretch', borderRadius: 12, marginRight: 12, backgroundColor: 'rgba(0,0,0,0.22)' },
+  photoBox: { width: 53, minHeight: 64, alignSelf: 'stretch', borderRadius: 12, marginRight: 12, overflow: 'hidden', backgroundColor: 'rgba(0,0,0,0.22)' },
   cardTitle: { fontSize: 17, fontWeight: '700', marginBottom: 3 },
   cardSub: { fontSize: 13, marginTop: 1 },
   cardPrice: { fontSize: 13, fontWeight: '600', marginTop: 5 },
