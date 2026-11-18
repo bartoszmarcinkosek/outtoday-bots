@@ -1,0 +1,88 @@
+{
+ "events": [
+  {
+   "title": "RAK Night Market (20–22 Nov)",
+   "category": "festivals",
+   "start_date": "2026-11-20",
+   "end_date": "2026-11-22",
+   "venue": "Outdoor area, RAK Exhibition Center",
+   "city": "Ras Al Khaimah",
+   "description": "Evening market with small local businesses, home producers and student projects, plus entertainment and competitions. Runs Friday to Sunday on weekends until 13 December, then again 8–31 January.",
+   "status": "approved",
+   "source_name": "Ras Al Khaimah Chamber poster (WhatsApp)"
+  },
+  {
+   "title": "RAK Night Market (27–29 Nov)",
+   "category": "festivals",
+   "start_date": "2026-11-27",
+   "end_date": "2026-11-29",
+   "venue": "Outdoor area, RAK Exhibition Center",
+   "city": "Ras Al Khaimah",
+   "description": "Evening market with small local businesses, home producers and student projects, plus entertainment and competitions. Runs Friday to Sunday on weekends until 13 December, then again 8–31 January.",
+   "status": "approved",
+   "source_name": "Ras Al Khaimah Chamber poster (WhatsApp)"
+  },
+  {
+   "title": "RAK Night Market (4–6 Dec)",
+   "category": "festivals",
+   "start_date": "2026-12-04",
+   "end_date": "2026-12-06",
+   "venue": "Outdoor area, RAK Exhibition Center",
+   "city": "Ras Al Khaimah",
+   "description": "Evening market with small local businesses, home producers and student projects, plus entertainment and competitions. Runs Friday to Sunday on weekends until 13 December, then again 8–31 January.",
+   "status": "approved",
+   "source_name": "Ras Al Khaimah Chamber poster (WhatsApp)"
+  },
+  {
+   "title": "Eid Al Etihad Weekend at Al Marjan Island (27–29 Nov)",
+   "category": "festivals",
+   "start_date": "2026-11-27",
+   "end_date": "2026-11-29",
+   "venue": "Al Marjan Island Entrance",
+   "city": "Ras Al Khaimah",
+   "description": "National Day celebrations at the entrance to Al Marjan Island, 4:00 to 7:00 PM on weekends until 20 December.",
+   "status": "approved",
+   "source_name": "Eid Al Etihad 2026 posters (WhatsApp)",
+   "start_time": "16:00"
+  },
+  {
+   "title": "Eid Al Etihad Weekend at Al Marjan Island (4–6 Dec)",
+   "category": "festivals",
+   "start_date": "2026-12-04",
+   "end_date": "2026-12-06",
+   "venue": "Al Marjan Island Entrance",
+   "city": "Ras Al Khaimah",
+   "description": "National Day celebrations at the entrance to Al Marjan Island, 4:00 to 7:00 PM on weekends until 20 December.",
+   "status": "approved",
+   "source_name": "Eid Al Etihad 2026 posters (WhatsApp)",
+   "start_time": "16:00"
+  },
+  {
+   "title": "Eid Al Etihad Weekend at Al Marjan Island (11–13 Dec)",
+   "category": "festivals",
+   "start_date": "2026-12-11",
+   "end_date": "2026-12-13",
+   "venue": "Al Marjan Island Entrance",
+   "city": "Ras Al Khaimah",
+   "description": "National Day celebrations at the entrance to Al Marjan Island, 4:00 to 7:00 PM on weekends until 20 December.",
+   "status": "approved",
+   "source_name": "Eid Al Etihad 2026 posters (WhatsApp)",
+   "start_time": "16:00"
+  }
+ ],
+ "reject_event_ids": [
+  "7f17c5da-1d6b-4d1a-b11a-f0c5a937e261",
+  "fbf01553-1e03-42bf-a41b-993e1318983f",
+  "1cd3e9a1-7179-4fe7-8f8a-8afebe10501d",
+  "428ba4d8-9a8c-4347-9726-9a5f46843a05",
+  "dde7464e-6acf-4fef-8801-43a347921250"
+ ],
+ "update_event_ids": [
+  {
+   "id": "3ba6500f-f1d5-4a90-aa94-b89cc63a173b",
+   "set": {
+    "description": "National Day programme under the theme 'A Story of 55': Union Parade at 5:00 PM and 7:30 PM, Union Lantern Parade at 6:30 PM, Story of 55 show at 8:30 PM, prize draws at 9:30 PM and fireworks at 10:00 PM. Festival open 4:00 PM to 1:00 AM."
+   }
+  }
+ ]
+}
