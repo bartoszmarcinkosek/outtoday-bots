@@ -706,6 +706,22 @@ def titles_match(a: str, b: str) -> bool:
     return len(small) >= 3 and len(small & big) / len(small) >= 0.8
 
 
+def same_running(e: dict, it: dict) -> bool:
+    """Ten sam trwający event (wystawa, pakiet, cykl) widziany kolejnego dnia z przesuniętą datą początku:
+    ten sam tytuł, zakresy dat się nakładają i ten sam link albo to samo miejsce."""
+    if e.get("status") == "rejected" or not titles_match(e["title"], it["title"]):
+        return False
+    s1, e1 = e["start_date"], e.get("end_date") or e["start_date"]
+    s2 = it["start_date"].isoformat()
+    e2 = (it.get("end_date") or it["start_date"]).isoformat() if it.get("end_date") or it.get("start_date") else s2
+    if not (s1 <= e2 and s2 <= e1) or (e1 == s1 and e2 == s2):
+        return False
+    urls = {u.rstrip("/") for u in (e.get("url"), e.get("official_url")) if u}
+    new = {u.rstrip("/") for u in (it.get("ticket_url"), it.get("official_url"), it.get("url")) if u}
+    venue_same = bool(e.get("venue") and it.get("venue") and titles_match(e["venue"], it["venue"]))
+    return bool(urls & new) or venue_same
+
+
 def dedupe(accepted: list[tuple[dict, dict]]) -> list[tuple[dict, dict]]:
     """Ten sam event z dwóch źródeł (np. Etihad Arena i Yas Island): zostaje pełniejszy wpis.
     Przy remisie wygrywa źródło wyżej na liście (strona samego miejsca)."""
@@ -781,7 +797,7 @@ def main() -> int:
     existing = []
     if db:
         since = (today_uae() - dt.timedelta(days=120)).isoformat()
-        cols = "id,title,start_date,start_time,venue,price_text,price_min_aed,status"
+        cols = "id,title,start_date,end_date,start_time,venue,price_text,price_min_aed,status,url,official_url"
         try:
             existing = db.get("events", {"select": cols + ",bot_key", "start_date": f"gte.{since}", "limit": "5000"})
         except Exception:
@@ -916,7 +932,7 @@ def main() -> int:
         done_keys.add(key)
         match = next((e for e in existing if e.get("bot_key") == key), None) or next(
             (e for e in existing if e["start_date"] == it["start_date"].isoformat() and titles_match(e["title"], it["title"])), None
-        )
+        ) or next((e for e in existing if same_running(e, it)), None)
         if not match:
             action = "nowy, zatwierdzony automatycznie" if auto_ok(it, src) else "nowy (pending)"
             if db and not args.dry_run:
