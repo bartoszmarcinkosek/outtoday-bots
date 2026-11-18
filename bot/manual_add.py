@@ -160,6 +160,24 @@ def main() -> int:
             if fix and db.get("events", {"select": "id", "id": f"eq.{r['id']}"}):
                 db.update("events", {"id": r["id"]}, {**fix, "updated_at": now})
                 print(f"~ event poprawiony: {r['id']} {fix}")
+        # "accept_change_ids" / "ignore_change_ids": decyzje o zmianach z e-maila (tabela bot_changes)
+        WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+        for cid in data.get("accept_change_ids", []):
+            ch = db.get("bot_changes", {"select": "*", "id": f"eq.{cid}", "handled": "eq.false"})
+            if not ch:
+                continue
+            c = ch[0]
+            table, field, new = c.get("table_name") or "events", c["field"], c.get("new_value")
+            val = new
+            if field == "days_of_week":
+                val = sorted({WD.index(d.strip()) for d in (new or "").split(",") if d.strip() in WD}) or None
+            if field in ("days_of_week", "price_text", "start_time", "venue", "official_url", "hours_text") and val not in ("", None):
+                db.update(table, {"id": c["row_id"]}, {field: val})
+                db.update("bot_changes", {"id": cid}, {"handled": True})
+                print(f"~ zmiana przyjęta: {table}.{field} {c['row_id']} -> {val}")
+        for cid in data.get("ignore_change_ids", []):
+            db.update("bot_changes", {"id": cid}, {"handled": True})
+            print(f"~ zmiana pominięta: {cid}")
         # "update_places": [{"name":..., "city":..., "set": {...}}] – poprawki ceny/godzin/telefonu
         for r in data.get("update_places", []):
             fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("price_text", "hours_text", "is_free", "phone", "official_url")}

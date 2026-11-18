@@ -1,0 +1,47 @@
+{
+ "approve_event_ids": [
+  {
+   "id": "b14db5f1-d72b-4ff6-b6c1-9916c6f6ddaf",
+   "set": {
+    "venue": "Alliance Française Dubai, Oud Metha"
+   }
+  },
+  {
+   "id": "668178ab-0cca-442c-aefc-e767f24488b8",
+   "set": {
+    "venue": "Alliance Française Dubai, Oud Metha"
+   }
+  }
+ ],
+ "reject_event_ids": [
+  "e00f6f4f-3a0f-44fd-8ab4-8250dba9268a",
+  "0755bfbc-cc0d-4d83-8feb-fbeefb2b87bb",
+  "4653c87c-e807-4472-9cf6-cba5138c4ee3",
+  "7b7355f4-887a-4a83-9d95-42cb1ce2f404",
+  "f5be748a-b994-432c-b17c-0cf610c975a7",
+  "0d1491c1-d472-4418-b1fc-d990cc10a67d",
+  "e3ab4c63-13ed-47f2-bf17-af1dfaf2d5ba",
+  "6069e66a-ddb3-4b0f-b16a-8c9b29797d26",
+  "0213dde5-c194-4e2d-9c76-74bc5759ad5c"
+ ],
+ "update_event_ids": [
+  {
+   "id": "f93a8afb-932c-45b9-aef8-fd37b905a868",
+   "set": {
+    "venue": "Abu Dhabi Corniche"
+   }
+  }
+ ],
+ "accept_change_ids": [
+  "2e5cec4d-556c-4de7-a317-5b87e48e7005",
+  "0072c5fe-43a1-4588-8671-eef7595759b1",
+  "d04c6a7b-7a62-4f0f-adf0-1cf60c72fed0",
+  "5a253929-7dcb-4d9f-9f67-ce186974c340",
+  "d1af2d5e-f71f-4aef-9789-4950defc27ba",
+  "3d926bd1-5790-40c6-b8b5-e3c02eb3af47"
+ ],
+ "ignore_change_ids": [
+  "05913be0-a4cc-4939-8b83-abaef6807c9b",
+  "5d4ffb4d-1708-430e-a343-ed4dff57fde7"
+ ]
+}
