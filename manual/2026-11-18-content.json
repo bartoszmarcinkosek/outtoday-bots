@@ -1,0 +1,75 @@
+{
+ "events": [
+  {
+   "title": "Emirates Dubai 7s 2026",
+   "category": "sport",
+   "start_date": "2026-11-27",
+   "end_date": "2026-11-29",
+   "start_time": "07:00",
+   "venue": "The Sevens Stadium, Dubai–Al Ain Road",
+   "city": "Dubai",
+   "price_text": "Friday from AED 75; Saturday or Sunday day pass AED 455; 3-day pass from AED 595",
+   "description": "Three days of rugby sevens, the opening round of the HSBC SVNS series, plus padel, netball, cricket and Gaelic football, live music stages and a big kids' zone.",
+   "official_url": "https://www.emiratesdubai7s.com",
+   "status": "approved",
+   "source_name": "Emirates Dubai 7s (official) / The National"
+  },
+  {
+   "title": "DSF Candlelight Concert at Hatta Wadi Hub (Eid Al Etihad)",
+   "category": "music",
+   "start_date": "2026-12-02",
+   "venue": "Hatta Wadi Hub, Hatta",
+   "city": "Dubai",
+   "price_text": "Free",
+   "description": "Free outdoor candlelight concert with Khaleeji music to celebrate Eid Al Etihad, ahead of the official opening of Dubai Shopping Festival.",
+   "official_url": "https://www.wam.ae/en/article/c36ot7t-dubai-shopping-festival-launch-32nd-edition-4th",
+   "status": "approved",
+   "source_name": "WAM (Dubai Shopping Festival announcement)"
+  }
+ ],
+ "update_event_ids": [
+  {
+   "id": "c7d50768-8ab4-49a1-99e1-12167b6b115c",
+   "set": {
+    "city": "Abu Dhabi"
+   }
+  },
+  {
+   "id": "b34c51a5-7a13-430e-9742-1655ff835ebb",
+   "set": {
+    "city": "Abu Dhabi",
+    "venue": "Liwa Village, Al Dhafra"
+   }
+  },
+  {
+   "id": "429835e8-769c-40ef-b371-1cd26f263d1c",
+   "set": {
+    "city": "Abu Dhabi",
+    "venue": "Liwa desert, Al Dhafra"
+   }
+  },
+  {
+   "id": "8b7f5b56-0b8e-4e17-b435-bea525e9dd9d",
+   "set": {
+    "city": "Abu Dhabi"
+   }
+  },
+  {
+   "id": "5bb54907-6ded-49d7-b40a-9de4fe04ba1b",
+   "set": {
+    "city": "Abu Dhabi"
+   }
+  },
+  {
+   "id": "e8f4f5d5-cc58-454c-9e11-b34e1ad36961",
+   "set": {
+    "title": "Mina Nader – Interactive Stand-Up Comedy (Abu Dhabi Comedy Season)"
+   }
+  }
+ ],
+ "reject_event_ids": [
+  "1f57e8d3-b670-47e4-be90-d79d506dd3a4",
+  "32817d98-e714-4d81-b305-99ae4ff35219",
+  "f899f2d0-a271-4b98-a2e4-1160e7771985"
+ ]
+}
