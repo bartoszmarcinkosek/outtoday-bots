@@ -501,6 +501,31 @@ function Main() {
 
 type Jump = (s: { tab: ListTab; key?: string | null; day?: string; dealDay?: number | null; free?: boolean }) => void;
 
+// Duże, znane miejsca i wydarzenia idą na górę ekranu Today (stała lista, bez śledzenia użytkowników).
+const BIG = /etihad arena|etihad park|coca[- ]cola arena|space ?42|louvre|guggenheim|dubai opera|expo city|global village|yas marina|yas island|yas bay|ferrari world|warner bros|qasr al watan|sheikh zayed festival|liwa|al dhafra festival|mother of the nation|motn|zayed sports city|hazza bin zayed|mohammed bin zayed stadium|dubai sevens|the sevens|museum of the future|cultural foundation|manarat al saadiyat|sharjah light|al majaz|al qasba|dp world|meydan|grand prix|formula 1|f1 |marathon|festival|national day|eid al etihad/i;
+
+const toMin = (t?: string | null) => (t ? Number(t.slice(0, 2)) * 60 + Number(t.slice(3, 5)) : null);
+
+// Kolejność „On today”: 1) to, co dziś jeszcze trwa lub się zacznie, 2) duże wydarzenia,
+// 3) start w ciągu 3 godzin, 4) reszta w dotychczasowej kolejności. Na dół to, co już się dziś skończyło.
+function rankToday(items: Item[], now: Date): Item[] {
+  const nowMin = now.getHours() * 60 + now.getMinutes();
+  const today = todayIso(now);
+  const score = (i: Item) => {
+    const e = i.event!;
+    const start = e.start_date === today ? toMin(e.start_time) : null;
+    let end = toMin(e.end_time) ?? (start !== null && !e.end_date ? start + 180 : null);
+    if (end !== null && start !== null && end < start) end += 1440; // po północy
+    if (end !== null && (!e.end_date || e.end_date === today) && end <= nowMin) return 9;
+    let s = 3;
+    if (BIG.test(`${i.title} ${e.venue ?? ''}`)) s = 0;
+    else if (start !== null && start >= nowMin - 30 && start <= nowMin + 180) s = 1;
+    else if (start !== null && start > nowMin) s = 2;
+    return s;
+  };
+  return items.map((it, k) => ({ it, k, s: score(it) })).sort((a, b) => a.s - b.s || a.k - b.k).map((x) => x.it);
+}
+
 // Ekran startowy: co dzieje się dziś w wybranym mieście.
 function TodayScreen(props: { local: Item[]; card: (i: Item) => React.ReactNode; jump: Jump; refreshControl: React.ReactElement<any> }) {
   const now = new Date();
@@ -508,7 +533,7 @@ function TodayScreen(props: { local: Item[]; card: (i: Item) => React.ReactNode;
   const range: [string, string] = [today, today];
   const events = sortItems(props.local.filter((i) => i.event && inRange(i.event, range)), 'default');
   const single = events.filter((i) => !i.endsSoon && i.event!.start_date === today);
-  const onToday = [...single, ...events.filter((i) => !single.includes(i))];
+  const onToday = rankToday([...single, ...events.filter((i) => !single.includes(i))], now);
   const freeToday = onToday.filter((i) => i.free);
   const deals = props.local.filter((i) => i.deal && dealOnDay(i.deal, now.getDay()));
   const rank = (i: Item) => (dealOnNow(i.deal!, now) ? 0 : dealEndedToday(i.deal!, now) ? 2 : 1);
