@@ -1,0 +1,103 @@
+{
+ "events": [
+  {
+   "title": "The Comedy Lab by Mad Cat Comedy",
+   "category": "nightlife",
+   "start_date": "2026-11-24",
+   "start_time": "20:00",
+   "end_time": "22:30",
+   "venue": "Easy Tiger Bar, Al Ain Palace Hotel, West Corniche Road",
+   "city": "Abu Dhabi",
+   "price_text": "From AED 99 (includes two house drinks)",
+   "description": "Weekly stand-up comedy night by Mad Cat Comedy. The show starts at 8 PM sharp and there is no entry once it begins; seating is first come, first served. 21+ with physical ID.",
+   "official_url": "https://abu-dhabi.platinumlist.net/event-tickets/the-comedy-lab-by-mad-cat-comedy",
+   "status": "approved",
+   "source_name": "Platinumlist"
+  },
+  {
+   "title": "The Comedy Lab by Mad Cat Comedy",
+   "category": "nightlife",
+   "start_date": "2026-12-01",
+   "start_time": "20:00",
+   "end_time": "22:30",
+   "venue": "Easy Tiger Bar, Al Ain Palace Hotel, West Corniche Road",
+   "city": "Abu Dhabi",
+   "price_text": "From AED 99 (includes two house drinks)",
+   "description": "Weekly stand-up comedy night by Mad Cat Comedy. The show starts at 8 PM sharp and there is no entry once it begins; seating is first come, first served. 21+ with physical ID.",
+   "official_url": "https://abu-dhabi.platinumlist.net/event-tickets/the-comedy-lab-by-mad-cat-comedy",
+   "status": "approved",
+   "source_name": "Platinumlist"
+  },
+  {
+   "title": "The Comedy Lab by Mad Cat Comedy",
+   "category": "nightlife",
+   "start_date": "2026-12-08",
+   "start_time": "20:00",
+   "end_time": "22:30",
+   "venue": "Easy Tiger Bar, Al Ain Palace Hotel, West Corniche Road",
+   "city": "Abu Dhabi",
+   "price_text": "From AED 99 (includes two house drinks)",
+   "description": "Weekly stand-up comedy night by Mad Cat Comedy. The show starts at 8 PM sharp and there is no entry once it begins; seating is first come, first served. 21+ with physical ID.",
+   "official_url": "https://abu-dhabi.platinumlist.net/event-tickets/the-comedy-lab-by-mad-cat-comedy",
+   "status": "approved",
+   "source_name": "Platinumlist"
+  },
+  {
+   "title": "Comedy Lab – Mad Cat Comedy Show",
+   "category": "nightlife",
+   "start_date": "2026-11-19",
+   "start_time": "20:00",
+   "venue": "Studio 1, Radisson RED Dubai Silicon Oasis",
+   "city": "Dubai",
+   "price_text": "From AED 85 (adults 18+)",
+   "description": "Weekly stand-up comedy night by Mad Cat Comedy every Thursday. Doors open at 7:30 PM, show at 8 PM; seating is first come, first served.",
+   "official_url": "https://dubai.platinumlist.net/event-tickets/comedy-lab",
+   "status": "approved",
+   "source_name": "Platinumlist"
+  },
+  {
+   "title": "Comedy Lab – Mad Cat Comedy Show",
+   "category": "nightlife",
+   "start_date": "2026-11-26",
+   "start_time": "20:00",
+   "venue": "Studio 1, Radisson RED Dubai Silicon Oasis",
+   "city": "Dubai",
+   "price_text": "From AED 85 (adults 18+)",
+   "description": "Weekly stand-up comedy night by Mad Cat Comedy every Thursday. Doors open at 7:30 PM, show at 8 PM; seating is first come, first served.",
+   "official_url": "https://dubai.platinumlist.net/event-tickets/comedy-lab",
+   "status": "approved",
+   "source_name": "Platinumlist"
+  },
+  {
+   "title": "Comedy Lab – Mad Cat Comedy Show",
+   "category": "nightlife",
+   "start_date": "2026-12-03",
+   "start_time": "20:00",
+   "venue": "Studio 1, Radisson RED Dubai Silicon Oasis",
+   "city": "Dubai",
+   "price_text": "From AED 85 (adults 18+)",
+   "description": "Weekly stand-up comedy night by Mad Cat Comedy every Thursday. Doors open at 7:30 PM, show at 8 PM; seating is first come, first served.",
+   "official_url": "https://dubai.platinumlist.net/event-tickets/comedy-lab",
+   "status": "approved",
+   "source_name": "Platinumlist"
+  },
+  {
+   "title": "Candlelight: From Mozart to Chopin",
+   "category": "music",
+   "start_date": "2027-01-16",
+   "start_time": "19:00",
+   "venue": "Majlis Al Salam Ballroom, Mina A'Salam, Madinat Jumeirah",
+   "city": "Dubai",
+   "price_text": "From AED 150",
+   "description": "A string quartet plays Mozart and Chopin in a ballroom lit by hundreds of candles. About 60 minutes.",
+   "official_url": "https://feverup.com/m/373689",
+   "status": "approved",
+   "source_name": "Fever"
+  }
+ ],
+ "reject_event_ids": [
+  "20c8f3b5-d32a-4720-9775-c94ce563c6ad",
+  "305fcf0c-2ad9-430f-a44f-39ebaadf376a",
+  "755426b9-4fdb-4d12-9145-3f0562ae8fff"
+ ]
+}
