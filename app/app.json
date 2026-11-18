@@ -51,7 +51,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#0D1B33"
         }
-      ]
+      ],
+      "./plugins/portrait-optional"
     ],
     "runtimeVersion": {
       "policy": "appVersion"
