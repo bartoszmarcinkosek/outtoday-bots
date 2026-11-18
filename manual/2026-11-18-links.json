@@ -1,0 +1,20 @@
+{
+ "update_place_ids": [
+  {
+   "id": "f3f86732-b187-4f7d-94fe-d57cd16d132a",
+   "set": {
+    "official_url": "https://www.marriott.com/en-us/hotels/auhsi-sheraton-abu-dhabi-hotel-and-resort/overview/"
+   }
+  },
+  {
+   "id": "46e03aec-11ca-43cf-84ca-16c8ea04609f",
+   "set": {
+    "official_url": "https://www.fairmont.com/en/hotels/abu-dhabi/fairmont-bab-al-bahr/wellness.html"
+   }
+  }
+ ],
+ "ignore_change_ids": [
+  "d47d2d37-f45a-4413-a6da-4a2a2ddef78d",
+  "f96197c8-03a3-439d-bc26-1683f9abf6e6"
+ ]
+}
