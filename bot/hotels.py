@@ -70,7 +70,7 @@ OFFER_TOOL = {
     "name": "report_offers",
     "description": "Recurring public offers at this hotel's restaurants, bars, pools and rooms.",
     "input_schema": {"type": "object", "properties": {"offers": {"type": "array", "items": {"type": "object", "properties": {
-        "title": {"type": "string", "description": "Offer name as on the page, e.g. 'Seafood Night', 'Saturday Brunch'"},
+        "title": {"type": "string", "description": "Offer name in ENGLISH with normal capitalisation (translate Arabic/Russian/other names), e.g. 'Seafood Night', 'Saturday Brunch'"},
         "deal_type": {"type": "string", "enum": TYPES},
         "outlet": {"type": ["string", "null"], "description": "Restaurant/bar/pool name, if given"},
         "days": {"type": ["array", "null"], "items": {"type": "string", "enum": DAYS}},
@@ -81,7 +81,7 @@ OFFER_TOOL = {
         "valid_until": {"type": ["string", "null"], "description": "YYYY-MM-DD if the page states an end date"},
         "kid_friendly": {"type": "boolean"},
         "ladies_only": {"type": "boolean"},
-        "details": {"type": "string", "description": "One short sentence in YOUR OWN words about what is included."},
+        "details": {"type": "string", "description": "One short sentence in ENGLISH, in YOUR OWN words, about what is included."},
         "evidence": {"type": "object", "description": "Exact verbatim snippets copied from PAGE TEXT.",
                      "properties": {k: {"type": ["string", "null"]} for k in ("offer", "price", "days", "time", "valid_until")},
                      "required": ["offer", "price", "days", "time", "valid_until"]},
