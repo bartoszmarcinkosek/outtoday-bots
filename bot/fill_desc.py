@@ -18,7 +18,7 @@ if DRY:
     sys.exit(0)
 TOOL = {"name": "describe", "description": "Short description of the event.", "input_schema": {"type": "object", "properties": {
     "found": {"type": "boolean", "description": "True only if the page clearly describes THIS event."},
-    "description": {"type": ["string", "null"], "description": "1-2 sentences in plain English, in your own words, max 280 characters. Only facts from the page: what it is, who performs or what you can do. No prices, dates, times or hype words."}},
+    "description": {"type": ["string", "null"], "description": "1-2 sentences in plain English, in your own words, max 280 characters. Only facts from the page: what it is, who performs or what you can do. No prices, dates, times or hype words. Describe the event itself, never the web page: do not write words like page, listing, post, website or tickets. If the page says almost nothing about the event, set found=false."}},
     "required": ["found", "description"]}}
 usage = {"in": 0, "out": 0}; done = skip = 0
 with R.Browser() as br:
@@ -39,7 +39,7 @@ with R.Browser() as br:
         usage["in"] += r.usage.input_tokens; usage["out"] += r.usage.output_tokens
         d = next((b.input for b in r.content if b.type == "tool_use"), {})
         desc = (d.get("description") or "").strip()
-        if not d.get("found") or len(desc) < 30:
+        if not d.get("found") or len(desc) < 30 or re.search(r"\b(page|listing|post|website|ticketing)\b", desc, re.I):
             skip += 1; print("L|- not sure", e["title"][:50]); continue
         db.update("events", {"id": e["id"]}, {"description": desc[:400]})
         done += 1; print("L|OK", e["title"][:50], "|", desc[:120])
