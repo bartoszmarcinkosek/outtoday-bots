@@ -689,6 +689,19 @@
    "urls": [
     "https://www.discovermleiha.ae/en"
    ]
+  },
+  {
+   "id": "platinumlist_shj",
+   "name": "Platinumlist Sharjah",
+   "city": "Sharjah",
+   "single_venue": false,
+   "urls": [
+    "https://sharjah.platinumlist.net/event/list",
+    "https://sharjah.platinumlist.net/event/list?page=2",
+    "https://sharjah.platinumlist.net/event/list?page=3"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów: wydarzenia w Szardży i Khor Fakkan (dodane 18.11.2026)."
   }
  ]
 }

@@ -1103,6 +1103,25 @@
    "username": "poloniadubai",
    "city": "Dubai",
    "venue": "Polonia Polish Cuisine, Digital Park B6, Dubai Silicon Oasis"
+  },
+  {
+   "username": "fujairah_culture",
+   "city": "Fujairah"
+  },
+  {
+   "username": "citycentrefujairah",
+   "city": "Fujairah",
+   "venue": "City Centre Fujairah"
+  },
+  {
+   "username": "citycentreajman",
+   "city": "Ajman",
+   "venue": "City Centre Ajman"
+  },
+  {
+   "username": "ajmanchinamall",
+   "city": "Ajman",
+   "venue": "Ajman China Mall, Al Jurf"
   }
  ]
 }
