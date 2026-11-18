@@ -1,0 +1,73 @@
+{
+ "update_place_ids": [
+  {
+   "id": "e4f16211-67b2-40f8-82fc-fb7a6c905e0a",
+   "set": {
+    "hours_text": "Mondays and Wednesdays 18:00–22:00",
+    "hours": {
+     "1": [
+      [
+       "18:00",
+       "22:00"
+      ]
+     ],
+     "3": [
+      [
+       "18:00",
+       "22:00"
+      ]
+     ]
+    },
+    "price_text": "Free (registration required)",
+    "is_free": true,
+    "description": "Free evening cycling, running and walking on the Yas Marina F1 circuit. Cyclists ride anti-clockwise, walkers and runners go clockwise. Free bikes (adult and kids' sizes) on a first-come basis, or premium rental AED 60 per session; bring your own bike and helmet if you prefer (helmets are mandatory). Register once on the Yas Marina Circuit website and show your QR code from the YMC app. Park in G5/G6 and follow signs to TrainYAS Village. Sessions may change, so check the circuit's website or Instagram before going."
+   }
+  },
+  {
+   "id": "e5906d16-abea-4184-a327-52755e9556df",
+   "set": {
+    "hours_text": "Tuesdays 18:00–22:00",
+    "hours": {
+     "2": [
+      [
+       "18:00",
+       "22:00"
+      ]
+     ]
+    },
+    "price_text": "Free (registration required)",
+    "is_free": true,
+    "description": "Women-only evening session on the Yas Marina F1 circuit for cycling, running and walking. Boys under 12 may attend, but children under 12 may not cycle; ID may be checked. Free bikes (adult and kids' sizes) on a first-come basis, or premium rental AED 60 per session; bring your own bike and helmet if you prefer (helmets are mandatory). Register once on the Yas Marina Circuit website and show your QR code from the YMC app. Park in G5/G6 and follow signs to TrainYAS Village. Sessions may change, so check the circuit's website or Instagram before going."
+   }
+  },
+  {
+   "id": "7227c431-8041-43aa-81f9-d8d4a1734f2f",
+   "set": {
+    "hours_text": "Tuesdays, Thursdays and Fridays 05:00–08:00 (cycling only)",
+    "hours": {
+     "2": [
+      [
+       "05:00",
+       "08:00"
+      ]
+     ],
+     "4": [
+      [
+       "05:00",
+       "08:00"
+      ]
+     ],
+     "5": [
+      [
+       "05:00",
+       "08:00"
+      ]
+     ]
+    },
+    "price_text": "Free (registration required)",
+    "is_free": true,
+    "description": "Early-morning cycling-only session on the Yas Marina F1 circuit, riding anti-clockwise. Premium rental bikes AED 60 per session; bring your own bike and helmet if you prefer (helmets are mandatory). Register once on the Yas Marina Circuit website and show your QR code from the YMC app. Park in G5/G6 and follow signs to TrainYAS Village. Sessions may change, so check the circuit's website or Instagram before going."
+   }
+  }
+ ]
+}
