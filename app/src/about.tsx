@@ -6,7 +6,7 @@ import { IconName } from './logic';
 import { colors } from './theme';
 import { Sheet } from './ui';
 
-const PRIVACY_URL = 'https://bartoszmarcinkosek.github.io/outtoday-web/privacy.html';
+const PRIVACY_URL = 'https://outtodayapp.github.io/privacy.html';
 const VERSION = '1.0.0';
 
 // Ekran "About": czym jest apka, skąd dane, prywatność, kontakt.
