@@ -539,6 +539,14 @@ function TodayScreen(props: { local: Item[]; card: (i: Item) => React.ReactNode;
   const rank = (i: Item) => (dealOnNow(i.deal!, now) ? 0 : dealEndedToday(i.deal!, now) ? 2 : 1);
   const dealsSorted = sortItems(deals, 'default').sort((a, b) => rank(a) - rank(b));
   const ending = sortItems(props.local.filter((i) => i.kind === 'event' && i.endsSoon), 'default');
+  // Od czwartku: najlepsze rzeczy na weekend (piątek–niedziela). Duże wydarzenia i krótkie eventy najpierw.
+  const dow = now.getDay();
+  const wk = rangeFor('weekend', now);
+  const weekend = dow === 4 || dow === 5
+    ? sortItems(props.local.filter((i) => i.event && inRange(i.event, wk) && !(dow === 5 && i.event.start_date === today && onToday.includes(i))), 'default')
+        .map((it, k) => ({ it, k, s: (BIG.test(`${it.title} ${it.event!.venue ?? ''}`) ? 0 : 2) + (it.event!.end_date && it.event!.end_date !== it.event!.start_date ? 1 : 0) }))
+        .sort((a, b) => a.s - b.s || a.k - b.k).map((x) => x.it)
+    : [];
 
   const section = (title: string, items: Item[], max: number, onAll: () => void) =>
     items.length === 0 ? null : (
@@ -555,6 +563,7 @@ function TodayScreen(props: { local: Item[]; card: (i: Item) => React.ReactNode;
 
   const blocks = [
     section('On today', onToday, 5, () => props.jump({ tab: 'events', day: 'today' })),
+    section('This weekend', weekend, 5, () => props.jump({ tab: 'events', day: 'weekend' })),
     section('Free today', freeToday, 4, () => props.jump({ tab: 'events', day: 'today', free: true })),
     section('Deals today', dealsSorted, 5, () => props.jump({ tab: 'deals', dealDay: now.getDay() })),
     section('Ends soon', ending, 4, () => props.jump({ tab: 'events', day: 'all' })),
