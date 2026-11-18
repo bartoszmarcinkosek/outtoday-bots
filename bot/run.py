@@ -709,7 +709,7 @@ def titles_match(a: str, b: str) -> bool:
 def same_running(e: dict, it: dict) -> bool:
     """Ten sam trwający event (wystawa, pakiet, cykl) widziany kolejnego dnia z przesuniętą datą początku:
     ten sam tytuł, zakresy dat się nakładają i ten sam link albo to samo miejsce."""
-    if e.get("status") == "rejected" or not titles_match(e["title"], it["title"]):
+    if not titles_match(e["title"], it["title"]):
         return False
     s1, e1 = e["start_date"], e.get("end_date") or e["start_date"]
     s2 = it["start_date"].isoformat()
