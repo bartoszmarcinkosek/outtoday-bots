@@ -11,13 +11,18 @@ db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6)
 LIMIT = int(os.environ.get("LIMIT", "160"))
 ti = R.today_uae().isoformat()
-ev = db.get("events", {"select": "id,title,venue,area,city,start_date,end_date,official_url,url", "status": "eq.approved",
+ev = db.get("events", {"select": "id,title,venue,area,city,start_date,end_date,official_url,url,description", "status": "eq.approved",
                        "or": f"(end_date.gte.{ti},and(end_date.is.null,start_date.gte.{ti}))", "limit": "8000"})
 def generic(u):
     p = urlparse(u or "")
     return (not u) or p.path in ("", "/") or bool(re.search(r"/(event/list|shows|festival|events?|whats-on)/?$", p.path or ""))
 bad = [e for e in ev if generic(e.get("official_url")) and generic(e.get("url"))]
 bad.sort(key=lambda e: e["start_date"])
+if os.environ.get("ONLY") == "national":
+    rx = re.compile(r"national day|eid al etihad|eid al-etihad|etihad day|union day|spirit of the union|عيد الاتحاد|\b55\b|\b55th\b", re.I)
+    bad = [e for e in bad if rx.search((e["title"] or "") + " " + (e.get("description") or "")) and e["start_date"] <= "2026-12-07"]
+    for e in bad: print(f"L|  * {e['start_date']} {e['title'][:70]}")
+if os.environ.get("DRY"): print(f"L|DRY {len(bad)}"); sys.exit(0)
 print(f"L|do sprawdzenia {len(bad)}")
 STOP = {"the", "and", "with", "for", "live", "abu", "dhabi", "dubai", "uae", "2026", "2027", "edition", "festival", "event"}
 usage = {"input": 0, "output": 0, "calls": 0, "searches": 0}

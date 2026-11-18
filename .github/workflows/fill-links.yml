@@ -5,6 +5,12 @@ on:
       limit:
         type: string
         default: "160"
+      only:
+        type: string
+        default: ""
+      dry:
+        type: string
+        default: ""
 permissions:
   contents: read
 jobs:
@@ -21,3 +27,5 @@ jobs:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           LIMIT: ${{ github.event.inputs.limit }}
+          ONLY: ${{ github.event.inputs.only }}
+          DRY: ${{ github.event.inputs.dry }}
