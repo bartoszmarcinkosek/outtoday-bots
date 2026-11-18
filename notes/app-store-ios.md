@@ -59,8 +59,8 @@ dubai,abu dhabi,events,things to do,brunch,happy hour,ladies night,concerts,week
 **Kategoria:** główna Lifestyle, druga Entertainment.
 
 **Adresy:**
-- Polityka prywatności: https://bartoszmarcinkosek.github.io/outtoday-web/privacy.html
-- Pomoc (Support URL): https://bartoszmarcinkosek.github.io/outtoday-web/support.html
+- Polityka prywatności: https://outtodayapp.github.io/privacy.html
+- Pomoc (Support URL): https://outtodayapp.github.io/support.html
 - Kontakt: outtodayapp.uae@gmail.com
 
 **Copyright:** 2026 + imię i nazwisko Julki, takie jak w koncie Apple.
