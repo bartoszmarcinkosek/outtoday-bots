@@ -52,7 +52,7 @@ export function ItemCard(props: { item: Item; photo?: number | null; fav: boolea
     <Pressable onPress={props.onPress} style={[styles.card, { backgroundColor: c.card }]}>
       {props.photo ? (
         <View style={styles.photoBox}>
-          <Image source={props.photo} style={StyleSheet.absoluteFill} resizeMode="cover" />
+          <Image source={props.photo} style={{ width: '100%', height: '100%' }} resizeMode="cover" />
         </View>
       ) : (
         <View style={[styles.iconBox, { backgroundColor: 'rgba(0,0,0,0.22)' }]}>
