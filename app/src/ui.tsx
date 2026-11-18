@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { IconName, Item, dealEndedToday, dealOnDay, dealOnNow, placeOpen } from './logic';
 import { colors } from './theme';
 
@@ -43,16 +43,20 @@ export function badgesFor(item: Item, now: Date = new Date()): string[] {
   return out;
 }
 
-export function ItemCard(props: { item: Item; fav: boolean; onFav: () => void; onPress: () => void }) {
+export function ItemCard(props: { item: Item; photo?: number | null; fav: boolean; onFav: () => void; onPress: () => void }) {
   const { item } = props;
   const c = item.look;
   const badges = badgesFor(item);
   const meta = [item.where, item.km != null ? `~${Math.max(1, Math.round(item.km))} km` : null].filter(Boolean).join(' · ');
   return (
     <Pressable onPress={props.onPress} style={[styles.card, { backgroundColor: c.card }]}>
-      <View style={[styles.iconBox, { backgroundColor: 'rgba(0,0,0,0.22)' }]}>
-        <Ionicons name={item.icon} size={28} color={c.accent} />
-      </View>
+      {props.photo ? (
+        <Image source={props.photo} style={styles.photoBox} resizeMode="cover" />
+      ) : (
+        <View style={[styles.iconBox, { backgroundColor: 'rgba(0,0,0,0.22)' }]}>
+          <Ionicons name={item.icon} size={28} color={c.accent} />
+        </View>
+      )}
       <View style={{ flex: 1 }}>
         <View style={styles.pillRow}>
           {item.top != null && <Pill text={`TOP 10 · #${item.top}`} color="#FFD166" solid />}
@@ -126,6 +130,8 @@ const styles = StyleSheet.create({
   pillRow: { flexDirection: 'row', flexWrap: 'wrap', marginBottom: 4, paddingRight: 26 },
   card: { flexDirection: 'row', borderRadius: 16, padding: 14, marginBottom: 12 },
   iconBox: { width: 42, minHeight: 42, alignSelf: 'stretch', borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
+  // zdjęcie kategorii: o 25% szersze niż ikonka (42 → 53)
+  photoBox: { width: 53, minHeight: 64, alignSelf: 'stretch', borderRadius: 12, marginRight: 12, backgroundColor: 'rgba(0,0,0,0.22)' },
   cardTitle: { fontSize: 17, fontWeight: '700', marginBottom: 3 },
   cardSub: { fontSize: 13, marginTop: 1 },
   cardPrice: { fontSize: 13, fontWeight: '600', marginTop: 5 },

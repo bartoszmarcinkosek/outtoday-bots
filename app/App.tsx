@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppData, fetchAll, loadCached } from './src/api';
+import { photoFor } from './src/photos';
 import { DOW_CHIPS, fmtDate, inRange, rangeFor } from './src/dates';
 import {
   Item, SORT_LABEL, Shortcut, SortKey, buildItems, dealEndedToday, dealOnDay, dealOnNow, searchItems, shortcutsFor, sortItems, todayIso,
@@ -249,9 +250,14 @@ function Main() {
     : `${city} · ${zones.map((z) => ZONES.find((x) => x.key === z)?.label ?? z).join(', ')}`;
   const isDate = /^\d{4}-\d{2}-\d{2}$/.test(day);
   const labelFor = (t: ListTab, key: string) => (t === 'deals' ? dealStyle(key) : cat(key));
-  const card = (item: Item) => (
-    <ItemCard key={item.key} item={item} fav={favs.includes(item.key)} onFav={() => toggleFav(item.key)} onPress={() => setSelected(item)} />
-  );
+  // idx/arr przychodzą z .map() i FlatList – dzięki nim sąsiednie karty dostają różne zdjęcia
+  const card = (item: Item, idx?: number, arr?: readonly Item[]) => {
+    const prev = arr && idx ? arr[idx - 1] : undefined;
+    return (
+      <ItemCard key={item.key} item={item} photo={photoFor(item, prev ? photoFor(prev) : null)} fav={favs.includes(item.key)}
+        onFav={() => toggleFav(item.key)} onPress={() => setSelected(item)} />
+    );
+  };
   const refreshControl = (
     <RefreshControl refreshing={refreshing} tintColor={colors.primary}
       onRefresh={async () => { setRefreshing(true); await load(); setRefreshing(false); }} />
@@ -358,7 +364,7 @@ function Main() {
             <FlatList
               data={list}
               keyExtractor={(i) => i.key}
-              renderItem={({ item }) => card(item)}
+              renderItem={({ item, index }) => card(item, index, list)}
               contentContainerStyle={styles.list}
               refreshControl={refreshControl}
               ListEmptyComponent={<Empty text="Nothing matches these filters. Try another day, area or fewer filters." />}
