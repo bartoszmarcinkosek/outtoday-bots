@@ -29,13 +29,15 @@ with R.Browser() as br:
         url, why = V.find_official_url(client, "events", e, usage)
         if not url:
             none += 1; print(f"L|-  {e['title'][:60]} | {why[:80]}"); continue
+        if generic(url):
+            none += 1; print(f"L|-  {e['title'][:60]} | ogólna strona {url}"); continue
         ok = False
         try:
             pg = br.fetch(url)
             txt = R.norm(pg["text"] or "")
             words = [w for w in R._tokens(e["title"]) if len(w) > 3 and w not in STOP]
             hit = sum(1 for w in words if w in txt)
-            ok = pg["status"] < 400 and len(txt) > 200 and words and hit / len(words) >= 0.6 and urlparse(pg["final_url"]).path not in ("", "/")
+            ok = pg["status"] < 400 and len(txt) > 200 and words and hit / len(words) >= 0.6 and not generic(pg["final_url"])
         except Exception as ex:
             why = f"{why} / fetch {type(ex).__name__}"
         if ok:
