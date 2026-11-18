@@ -156,7 +156,7 @@ def main() -> int:
                 print(f"~ miejsce poprawione: {r['id']} {fix}")
         # "update_event_ids": [{"id":..., "set": {...}}] – poprawki tytułu/miejsca/opisu eventu
         for r in data.get("update_event_ids", []):
-            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("title", "venue", "city", "start_time", "description", "category")}
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("title", "venue", "city", "start_time", "description", "category", "official_url", "price_text")}
             if fix and db.get("events", {"select": "id", "id": f"eq.{r['id']}"}):
                 db.update("events", {"id": r["id"]}, {**fix, "updated_at": now})
                 print(f"~ event poprawiony: {r['id']} {fix}")

@@ -1,0 +1,42 @@
+{
+ "update_event_ids": [
+  {
+   "id": "0271c5c7-14e7-4978-b53e-14f70aa11b24",
+   "set": {
+    "official_url": "https://abudhabiculture.ae/en/events/nomad",
+    "start_time": "13:00",
+    "price_text": "Free"
+   }
+  },
+  {
+   "id": "62324903-be34-4f77-8867-b553184a80ac",
+   "set": {
+    "official_url": "https://www.adnec.ae/en/eventlisting/abu-dhabi-international-boat-show-adibs-2026",
+    "venue": "Marina Hall, ADNEC Centre Abu Dhabi"
+   }
+  },
+  {
+   "id": "7eba19d5-9648-4c9d-9ba0-e6ed5c8ee1e8",
+   "set": {
+    "official_url": "https://race.spartan.com/en/races/abu-dhabi",
+    "price_text": "Beast 21K from USD 150; kids race USD 25.99"
+   }
+  },
+  {
+   "id": "db3ab51d-4cb7-494f-b474-9ad1543ae753",
+   "set": {
+    "official_url": "https://www.abudhabiart.ae/en/FAQ",
+    "start_time": "14:00",
+    "description": "The first Frieze art fair in the Middle East, with more than 80 galleries at Manarat Al Saadiyat. Open to the public 20–22 November, 2:00 to 9:00 PM daily (19 November is invitation only)."
+   }
+  },
+  {
+   "id": "1f4c18ca-f89a-4069-8139-ad184f3f7b93",
+   "set": {
+    "official_url": "https://abu-dhabi.platinumlist.net/event-tickets/furusiyya-the-return-to-origins",
+    "start_time": "19:00",
+    "price_text": "From AED 150"
+   }
+  }
+ ]
+}
