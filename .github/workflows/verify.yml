@@ -20,6 +20,10 @@ on:
         description: "Szukaj stron oficjalnych dla pozycji bez linku (ok. 0,01 USD za wyszukanie)"
         type: boolean
         default: false
+      free_only:
+        description: "Tylko darmowe miejsca"
+        type: boolean
+        default: false
       force:
         description: "Sprawdź nawet strony bez zmian"
         type: boolean
@@ -56,9 +60,11 @@ jobs:
           IN_LIMIT: ${{ inputs.limit || '400' }}
           IN_FIND: ${{ inputs.find_urls }}
           IN_FORCE: ${{ inputs.force }}
+          IN_FREE: ${{ inputs.free_only }}
         run: |
           ARGS=(--table "$IN_TABLE" --limit "$IN_LIMIT")
           if [ "$IN_DRY" = "true" ]; then ARGS+=(--dry-run); fi
           if [ "$IN_FIND" = "true" ]; then ARGS+=(--find-urls); fi
           if [ "$IN_FORCE" = "true" ]; then ARGS+=(--force); fi
+          if [ "$IN_FREE" = "true" ]; then ARGS+=(--free-only); fi
           python bot/verify.py "${ARGS[@]}"

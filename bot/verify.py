@@ -299,6 +299,7 @@ def main() -> int:
     ap.add_argument("--find-urls", action="store_true", help="szukaj stron oficjalnych dla wpisów bez linku (płatne wyszukiwanie, ok. 1 grosz za wyszukanie)")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true", help="sprawdź nawet strony bez zmian")
+    ap.add_argument("--free-only", action="store_true", help="tylko miejsca oznaczone jako darmowe")
     args = ap.parse_args()
 
     import anthropic
@@ -330,7 +331,9 @@ def main() -> int:
                     r["official_url"] = r.get("official_url") or r.get("url")
             else:
                 rows = db.get(table, {"select": cols, "status": "in.(approved,pending)", "order": "updated_at.asc.nullsfirst", "limit": "2000"})
-            if table == "places":
+            if table == "places" and args.free_only:
+                rows = [r for r in rows if r.get("is_free")]
+            elif table == "places":
                 rows = [r for r in rows if not r.get("is_free") or not r.get("hours_text")]  # darmowe z godzinami: nic do sprawdzania
             for row in rows:
                 if done >= args.limit:
