@@ -3,7 +3,7 @@ export const PHOTO_FILES: Record<string, number[]> = {
   'active': [require('../assets/photos/active-1.jpg')],
   'arabic': [require('../assets/photos/arabic-1.jpg')],
   'attractions': [require('../assets/photos/attractions-1.jpg')],
-  'beaches': [require('../assets/photos/beaches-1.jpg')],
+  'beaches': [require('../assets/photos/beaches-1.jpg'), require('../assets/photos/beaches-2.jpg')],
   'books': [require('../assets/photos/books-1.jpg')],
   'breakfast': [require('../assets/photos/breakfast-1.jpg')],
   'brunch': [require('../assets/photos/brunch-1.jpg')],
