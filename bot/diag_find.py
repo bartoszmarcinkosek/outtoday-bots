@@ -14,3 +14,8 @@ cities = sorted({e["city"] for e in ev})
 print("F|cities " + json.dumps(cities, ensure_ascii=False))
 for e in ev:
     if re.search(r"nader", e["title"], re.I): print("F|NADER " + json.dumps(e, ensure_ascii=False)[:300])
+
+for e in ev:
+    if e["city"] not in ("Abu Dhabi","Al Ain","Dubai","Sharjah","Ajman","Umm Al Quwain","Ras Al Khaimah","Fujairah"):
+        print("F|ODD " + json.dumps({k: e[k] for k in ("id","title","city","venue")}, ensure_ascii=False))
+    if re.search(r"maritime heritage", e["title"], re.I): print("F|MAR " + json.dumps({k: e[k] for k in ("id","title","venue","official_url","status")}, ensure_ascii=False))
