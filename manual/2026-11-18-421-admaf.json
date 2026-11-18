@@ -1,0 +1,30 @@
+{
+ "events": [
+  {
+   "title": "421 Family Day",
+   "category": "family",
+   "start_date": "2026-11-21",
+   "start_time": "10:00",
+   "end_time": "14:00",
+   "venue": "421 Arts Campus, Mina Zayed",
+   "city": "Abu Dhabi",
+   "price_text": "Free (registration required)",
+   "registration_required": true,
+   "description": "A family day of storytelling, sensory play and art-making inspired by the exhibition Archipelago of Whispers: a curator-led tour, then drop-in activities like making shakers and rainsticks, clay prints, shadow theatre and a reading corner with Arabic and English books. Lunch and carnival treats included; for all ages.",
+   "official_url": "https://www.421.online/whats-on/421-family-day-_1_1/",
+   "status": "approved",
+   "source_name": "421 (Instagram post + website)"
+  },
+  {
+   "title": "From Place to Belonging: How Art Shapes the Way Children Feel the World (ADMAF Talk)",
+   "category": "culture",
+   "start_date": "2026-11-20",
+   "start_time": "18:00",
+   "venue": "Main Stage, Souq Al Mina",
+   "city": "Abu Dhabi",
+   "description": "Riwaq Al Fikr panel talk presented by Abu Dhabi Festival with the Public Art Abu Dhabi Biennial, with Dr. Dana Almazrouei, Hana El-Sagini, Iván Argote, Zainab Hasoon and Lisa Ball-Lechgar.",
+   "status": "approved",
+   "source_name": "Abu Dhabi Festival poster (Instagram)"
+  }
+ ]
+}
