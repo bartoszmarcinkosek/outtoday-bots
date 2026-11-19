@@ -308,6 +308,25 @@ def section(title: str, note: str, rows: list[str], extra: int) -> str:
             + "".join(rows) + more + "</table>")
 
 
+def nightly_html(runs: list[dict]) -> str:
+    """Raport nocnej kontroli bez AI (bot/nightly_check.py): martwe linki i duplikaty. Tylko do przejrzenia, nic nie zmienia."""
+    since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=30)).isoformat()
+    rep = next((r["summary"]["report"] for r in reversed(runs)
+                if (r.get("summary") or {}).get("kind") == "nightly_check" and r["finished_at"] >= since), None)
+    if not rep or not (rep.get("dead") or rep.get("dupes")):
+        return ""
+    e = lambda v: html.escape(str(v or ""))  # noqa: E731
+    rows = [f'{e(d["title"])} <span style="color:{C["muted"]}">({d["kind"]}, {e(d.get("city") or "")}) – link nie działa: {e(d["why"])}</span>'
+            for d in rep.get("dead", [])[:25]]
+    rows += [f'{e(d["title"])} <span style="color:{C["muted"]}">({d["kind"]}, {e(d.get("city") or "")}{", " + d["date"] if d.get("date") else ""}) – możliwy duplikat ×{len(d["ids"])}</span>'
+             for d in rep.get("dupes", [])[:25]]
+    li = "".join(f'<li style="margin:4px 0">{x}</li>' for x in rows)
+    return (f'<h2 style="font-size:17px;color:{C["text"]};margin:26px 0 4px">Nocna kontrola (bez AI, 0 USD)</h2>'
+            f'<div style="color:{C["muted"]};font-size:13px">Sprawdzone linki: {rep.get("checked", 0)} z {rep.get("links", 0)} (każdy raz w tygodniu). '
+            f'Prześlij Claude\'owi w czacie, co poprawić.</div>'
+            f'<ul style="margin:6px 0 0 18px;padding:0;color:{C["text"]};font-size:13px">{li}</ul>')
+
+
 def health_html(runs: list[dict]) -> str:
     line, alarms = health(runs)
     al = "".join(f'<li style="margin:4px 0">{a}</li>' for a in alarms)
@@ -353,6 +372,7 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
         + section("5. Uzupełnione automatycznie w tym tygodniu", "Telefony i godziny z oficjalnych stron, potwierdzone cytatem.",
                   [auto_change_row(c, data["events_by_id"].get(c["row_id"])) for c in data.get("auto_changes", [])[:40]],
                   max(0, len(data.get("auto_changes", [])) - 40))
+        + nightly_html(data.get("runs", []))
         + health_html(data.get("runs", []))
         + f'<p style="color:{C["muted"]};font-size:12px;margin-top:24px">Linki są ważne {TOKEN_DAYS} dni. '
           f'Nie przekazuj tego e-maila dalej: przyciski działają bez logowania.</p></div></div>'
