@@ -55,6 +55,7 @@ export const PHOTO_FILES: Record<string, number[]> = {
   'swimming': [require('../assets/photos/swimming-1.jpg')],
   'talk': [require('../assets/photos/talk-1.jpg')],
   'theatre': [require('../assets/photos/theatre-1.jpg')],
+  'watersports': [require('../assets/photos/watersports-1.jpg')],
   'yoga': [require('../assets/photos/yoga-1.jpg')],
 };
 export const PHOTO_FULL = new Map<number, number>([
@@ -131,5 +132,6 @@ export const PHOTO_FULL = new Map<number, number>([
   [require('../assets/photos/swimming-1.jpg'), require('../assets/photos/full/swimming-1.jpg')],
   [require('../assets/photos/talk-1.jpg'), require('../assets/photos/full/talk-1.jpg')],
   [require('../assets/photos/theatre-1.jpg'), require('../assets/photos/full/theatre-1.jpg')],
+  [require('../assets/photos/watersports-1.jpg'), require('../assets/photos/full/watersports-1.jpg')],
   [require('../assets/photos/yoga-1.jpg'), require('../assets/photos/full/yoga-1.jpg')],
 ]);
