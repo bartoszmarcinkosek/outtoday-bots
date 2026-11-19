@@ -51,7 +51,7 @@ def fnv(s: str) -> int:  # to samo co hash() w photos.ts
     return h
 
 
-def photo_for(kind: str, key: str, title: str, place_text: str, cat: str, city: str) -> str | None:
+def photo_for(kind: str, key: str, title: str, place_text: str, cat: str, city: str, avoid: str | None = None) -> str | None:
     lm = next((k for r, k in LANDMARKS if r.search(place_text)), None)
     if lm and lm in FILES:
         pool = FILES[lm]
@@ -68,7 +68,12 @@ def photo_for(kind: str, key: str, title: str, place_text: str, cat: str, city: 
             pool += FILES.get(k, [])
             if suf:
                 pool += FILES.get(f"{k}_{suf}", [])
-    return pool[fnv(key) % len(pool)] if pool else None
+    if not pool:
+        return None
+    i = fnv(key) % len(pool)
+    if len(pool) > 1 and pool[i] == avoid:  # jak w apce: inne niż poprzednia karta
+        i = (i + 1) % len(pool)
+    return pool[i]
 
 
 def get(table: str, cols: str, extra: str = "") -> list:
@@ -166,7 +171,9 @@ def rank(x: dict) -> tuple:
 
 def card(x: dict) -> str:
     key = f"event:{x['id']}"
-    img = photo_for("event", key, x["title"], f"{x['title']} {x.get('venue') or ''} {x.get('area') or ''}", x.get("category") or "", x.get("city") or "")
+    global prev_img
+    img = photo_for("event", key, x["title"], f"{x['title']} {x.get('venue') or ''} {x.get('area') or ''}", x.get("category") or "", x.get("city") or "", prev_img)
+    prev_img = img
     if img:
         used.add(img)
     when = fmt(x["start_date"]) if not x.get("end_date") or x["end_date"] == x["start_date"] else f"{fmt(x['start_date'])} – {fmt(x['end_date'])}"
@@ -180,6 +187,7 @@ def card(x: dict) -> str:
 
 
 tabs, panels = [], []
+prev_img = None
 for i, city in enumerate(CITIES):
     mine = [x for x in ev if (x.get("city") or "") == city]
     t_list = sorted((x for x in mine if on(x, td)), key=rank)[:10]
