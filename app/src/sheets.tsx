@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Calendar from 'expo-calendar/legacy';
 import React, { useState } from 'react';
 import { Image, Linking, Platform, Pressable, Share, StyleSheet, Text, View } from 'react-native';
-import { REPORT_EMAIL } from './config';
+import { sendSuggestion } from './api';
 import { fmtDate } from './dates';
 import { IconName, Item, todayIso } from './logic';
 import { PHOTO_FULL } from './photos.gen';
@@ -158,9 +158,15 @@ function ratioOf(src: number): number {
   return a && a.width && a.height ? a.width / a.height : 1;
 }
 
+const REPORT_REASONS = ['Wrong date or time', 'Wrong price', 'Cancelled or sold out', 'Wrong place', 'Photo does not fit', 'Something else'];
+
 export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void }) {
+  const [reporting, setReporting] = useState<'closed' | 'open' | 'sending' | 'sent'>('closed');
+  const [reportFor, setReportFor] = useState<string | null>(null);
   const item = props.item;
   if (!item) return null;
+  if (reportFor !== item.key && reporting !== 'closed') { setReporting('closed'); }
+  if (reportFor !== item.key) setReportFor(item.key);
   const c = item.look;
   const q = encodeURIComponent(item.mapQuery);
   const share = () => {
@@ -176,17 +182,21 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
       Share.share({ message: text }).catch(() => undefined);
     }
   };
-  const report = () => {
-    const subject = encodeURIComponent(`OutToday: problem with "${item.title}"`);
-    const body = encodeURIComponent(`What is wrong?\n\n\n---\n${item.title}\n${item.key}`);
-    open(`mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`);
+  // Zgłoszenie problemu trafia do tabeli suggestions → poranny mail do zespołu (bez maila po stronie użytkownika).
+  const report = (reason: string) => {
+    setReporting('sending');
+    sendSuggestion({
+      title: `Report: ${item.title}`.slice(0, 150), note: `Problem: ${reason}. Item: ${item.key}`,
+      link: item.officialUrl ?? undefined, city: item.city, venue: item.where ?? undefined,
+    }).then(() => setReporting('sent')).catch(() => setReporting('open'));
+    count('report', reason, item.city);
   };
   const isTicketing = /platinumlist|feverup|eventbrite|sevenrooms/i.test(item.officialUrl ?? '');
   const digits = (item.phone ?? '').replace(/[^\d+]/g, '');
   const facts: [string, string | null][] = [
     [item.kind === 'place' ? 'Hours' : 'When', item.whenFull],
     ['Where', item.where],
-    ['Price', item.free ? item.priceText ?? 'Free' : item.priceText ?? (item.officialUrl ? 'See the official page' : null)],
+    ['Price', item.free ? item.priceText ?? 'Free' : item.priceText],
     ['Booking', item.booking ? 'Registration required' : null],
     ['Good to know', [item.kid && 'Kid-friendly', item.pet && 'Pet-friendly', item.ladies && 'Ladies only',
       item.indoor === true && 'Indoor', item.kind === 'place' && item.indoor === false && 'Outdoor'].filter(Boolean).join(' · ') || null],
@@ -229,9 +239,24 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
       {item.verified && (
         <Text style={styles.note}>Verified with the organiser{item.checked ? ` · ${item.checked}` : ''}</Text>
       )}
-      <Pressable onPress={report} style={{ paddingVertical: 10 }}>
-        <Text style={styles.report}>Report a problem</Text>
-      </Pressable>
+      {reporting === 'closed' && (
+        <Pressable onPress={() => setReporting('open')} style={{ paddingVertical: 10 }}>
+          <Text style={styles.report}>Something not right? Tell us</Text>
+        </Pressable>
+      )}
+      {(reporting === 'open' || reporting === 'sending') && (
+        <View style={{ marginTop: 10 }}>
+          <Text style={styles.section}>What is wrong?</Text>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+            {REPORT_REASONS.map((r) => (
+              <Pressable key={r} disabled={reporting === 'sending'} onPress={() => report(r)} style={styles.action}>
+                <Text style={styles.actionText}>{r}</Text>
+              </Pressable>
+            ))}
+          </View>
+        </View>
+      )}
+      {reporting === 'sent' && <Text style={styles.note}>Thanks! We will check it against the official page.</Text>}
     </Sheet>
   );
 }

@@ -5,7 +5,7 @@ import { SUPABASE_KEY, SUPABASE_URL } from './config';
 
 export const STATS_ON = false;
 
-type Name = 'open' | 'tab' | 'item' | 'share' | 'new' | 'suggest' | 'search' | 'filter' | 'map';
+type Name = 'open' | 'tab' | 'item' | 'share' | 'new' | 'report' | 'plan' | 'interests' | 'suggest' | 'search' | 'filter' | 'map';
 
 export function count(name: Name, value?: string | null, city?: string | null): void {
   if (!STATS_ON) return;

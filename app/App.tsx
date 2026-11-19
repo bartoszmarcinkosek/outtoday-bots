@@ -4,7 +4,7 @@ import * as Location from 'expo-location';
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator, FlatList, Linking, Modal, Pressable, RefreshControl, ScrollView, StyleSheet, Text, TextInput, View,
+  ActivityIndicator, FlatList, Linking, Modal, Pressable, RefreshControl, ScrollView, Share, StyleSheet, Text, TextInput, View,
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppData, fetchAll, loadCached } from './src/api';
@@ -44,6 +44,9 @@ const PRICE_CAPS = [100, 200, 300];
 const PREFS_KEY = 'outtoday.prefs.v1';
 const FAVS_KEY = 'outtoday.favs.v1';
 const VISIT_KEY = 'outtoday.lastVisit.v1';
+const INTERESTS_KEY = 'outtoday.interests.v1';
+// Kategorie eventów do wyboru przy pierwszym uruchomieniu (ekran Dziś pokazuje je wyżej).
+const INTEREST_KEYS = ['music', 'culture', 'sport', 'food', 'family', 'nightlife', 'festivals', 'classes', 'nature', 'community', 'market'];
 const USAGE_KEY = 'outtoday.filterUse.v1';
 const KIND_OF: Record<ListTab, Item['kind']> = { events: 'event', places: 'place', deals: 'deal' };
 
@@ -79,6 +82,9 @@ function Main() {
   const [ladies, setLadies] = useState(false);
   const [inOut, setInOut] = useState<InOut>('all');
   const [cap, setCap] = useState<number | null>(null);
+  const [evening, setEvening] = useState(false);
+  const [interests, setInterests] = useState<string[] | null>(null); // null = jeszcze nie wybrano
+  const [showInterests, setShowInterests] = useState(false);
 
   // Okna
   const [selected, setSelected] = useState<Item | null>(null);
@@ -123,6 +129,8 @@ function Main() {
         const f = JSON.parse((await AsyncStorage.getItem(FAVS_KEY)) ?? '[]');
         if (Array.isArray(f)) setFavs(f);
         // "Co nowego": licznik wpisów dodanych od poprzedniej wizyty.
+        const ints = JSON.parse((await AsyncStorage.getItem(INTERESTS_KEY)) ?? 'null');
+        if (Array.isArray(ints)) setInterests(ints); else setShowInterests(true);
         const lv = Number(await AsyncStorage.getItem(VISIT_KEY));
         if (lv > 0) setPrevVisit(lv);
         AsyncStorage.setItem(VISIT_KEY, String(Date.now())).catch(() => undefined);
@@ -158,6 +166,20 @@ function Main() {
     setCity(c);
     setZones(z);
     AsyncStorage.setItem(PREFS_KEY, JSON.stringify({ city: c, zones: z })).catch(() => undefined);
+  };
+  const saveInterests = (keys: string[]) => {
+    setInterests(keys);
+    setShowInterests(false);
+    AsyncStorage.setItem(INTERESTS_KEY, JSON.stringify(keys)).catch(() => undefined);
+    count('interests', keys.join(',') || 'none');
+  };
+  // Plan na weekend: zapisane (serduszko) nadchodzące eventy jednym tekstem do wysłania znajomym.
+  const sharePlan = () => {
+    const up = sortItems(all.filter((i) => favs.includes(i.key) && i.kind === 'event'), 'default');
+    if (!up.length) return;
+    const lines = up.slice(0, 12).map((i) => `• ${i.title}\n  ${[i.when, i.where].filter(Boolean).join(' · ')}\n  https://outtodayapp.github.io/e/${i.key.replace(':', '-')}.html`);
+    Share.share({ message: `Our plan 🗓\n\n${lines.join('\n\n')}\n\nFound on OutToday: https://outtodayapp.github.io` }).catch(() => undefined);
+    count('plan', String(up.length), city);
   };
   const toggleFav = (key: string) => {
     setFavs((prev) => {
@@ -235,6 +257,7 @@ function Main() {
         .filter((i) => !pet || i.pet)
         .filter((i) => !ladies || i.ladies)
         .filter((i) => t !== 'events' || inRange(i.event!, range))
+        .filter((i) => t !== 'events' || !evening || (i.event!.start_time ?? '') >= '17:00')
         .filter((i) => t !== 'places' || inOut === 'all' || i.indoor === (inOut === 'in'))
         .filter((i) => t !== 'places' || !topOnly || !hasTop10(city) || i.top != null)
         .filter((i) => t !== 'places' || !openOnly || placeOpen(i.place)?.open === true)
@@ -243,7 +266,7 @@ function Main() {
       if (t === 'places' && topOnly && hasTop10(city) && sorts[t] === 'default') return [...filtered].sort((a, b) => (a.top ?? 99) - (b.top ?? 99));
       return sortItems(filtered, sorts[t]);
     },
-    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, openOnly, city],
+    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, openOnly, city, evening],
   );
 
   const list = useMemo(() => (tab === 'today' ? [] : listFor(tab)), [tab, listFor]);
@@ -256,12 +279,12 @@ function Main() {
   }, [tab, local]);
 
   const activeCount =
-    Number(free) + Number(kid) + Number(pet) + Number(ladies) +
+    Number(free) + Number(kid) + Number(pet) + Number(ladies) + (tab === 'events' && evening ? 1 : 0) +
     (tab !== 'today' && cats[tab] ? 1 : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) + (tab === 'places' && openOnly ? 1 : 0) +
     (tab === 'deals' && cap !== null ? 1 : 0);
 
   const clearFilters = () => {
-    setFree(false); setKid(false); setPet(false); setLadies(false); setInOut('all'); setCap(null); setTopOnly(false); setOpenOnly(false);
+    setFree(false); setKid(false); setPet(false); setLadies(false); setEvening(false); setInOut('all'); setCap(null); setTopOnly(false); setOpenOnly(false);
     setCats({ events: null, places: null, deals: null });
   };
 
@@ -342,7 +365,7 @@ function Main() {
       {!data ? (
         <ActivityIndicator color={colors.primary} style={{ marginTop: 60 }} />
       ) : tab === 'today' ? (
-        <TodayScreen local={local} card={card} jump={jump} refreshControl={refreshControl} />
+        <TodayScreen local={local} card={card} jump={jump} refreshControl={refreshControl} interests={interests ?? []} onInterests={() => setShowInterests(true)} />
       ) : (
         <>
           {tab === 'events' && (
@@ -352,6 +375,10 @@ function Main() {
                 <Chip key={d.key} label={d.label} active={day === d.key} onPress={() => setDay(d.key)} />
               ))}
               <Chip label={isDate ? fmtDate(day) : 'Pick a date'} icon="calendar-outline" active={isDate} onPress={() => setShowCal(true)} />
+              <View style={styles.chipSep} />
+              <Chip label="Free" icon="pricetag-outline" active={free} onPress={() => { setFree(!free); count('filter', 'quick:free', city); }} />
+              <Chip label="Kids" icon="happy-outline" active={kid} onPress={() => { setKid(!kid); count('filter', 'quick:kids', city); }} />
+              <Chip label="Evening" icon="moon-outline" active={evening} onPress={() => { setEvening(!evening); count('filter', 'quick:evening', city); }} />
             </ScrollView>
             </View>
           )}
@@ -525,6 +552,12 @@ function Main() {
           <SafeAreaView style={styles.screen}>
             <View style={styles.header}>
               <Text style={[styles.brand, { flex: 1 }]}>Saved</Text>
+              {all.some((i) => favs.includes(i.key) && i.kind === 'event') && (
+                <Pressable onPress={sharePlan} hitSlop={10} style={[styles.tool, { marginRight: 14 }]} accessibilityLabel="Share your plan">
+                  <Ionicons name="share-outline" size={18} color={colors.text} />
+                  <Text style={styles.toolText}>Share plan</Text>
+                </Pressable>
+              )}
               <Pressable onPress={() => setShowFavs(false)} hitSlop={10}>
                 <Ionicons name="close" size={26} color={colors.text} />
               </Pressable>
@@ -541,6 +574,8 @@ function Main() {
           </SafeAreaView>
         </SafeAreaProvider>
       </Modal>
+
+      <InterestsSheet visible={showInterests && !!data} initial={interests ?? []} onSave={saveInterests} />
 
       <Modal visible={showNew} animationType="slide" onRequestClose={() => setShowNew(false)}>
         <SafeAreaProvider>
@@ -598,13 +633,25 @@ function rankToday(items: Item[], now: Date): Item[] {
 }
 
 // Ekran startowy: co dzieje się dziś w wybranym mieście.
-function TodayScreen(props: { local: Item[]; card: (i: Item) => React.ReactNode; jump: Jump; refreshControl: React.ReactElement<any> }) {
+function TodayScreen(props: {
+  local: Item[]; card: (i: Item) => React.ReactNode; jump: Jump; refreshControl: React.ReactElement<any>;
+  interests: string[]; onInterests: () => void;
+}) {
   const now = new Date();
   const today = todayIso(now);
   const range: [string, string] = [today, today];
+  // Wybrane zainteresowania idą na górę (kolejność w obrębie grupy bez zmian).
+  const liked = (i: Item) => (props.interests.includes(i.catKey) ? 0 : 1);
+  const byInterest = (xs: Item[]) => (props.interests.length ? xs.map((it, k) => ({ it, k })).sort((a, b) => liked(a.it) - liked(b.it) || a.k - b.k).map((x) => x.it) : xs);
   const events = sortItems(props.local.filter((i) => i.event && inRange(i.event, range)), 'default');
   const single = events.filter((i) => !i.endsSoon && i.event!.start_date === today);
-  const onToday = rankToday([...single, ...events.filter((i) => !single.includes(i))], now);
+  const ranked = byInterest(rankToday([...single, ...events.filter((i) => !single.includes(i))], now));
+  // Od 15:00: osobno "Dziś wieczorem" – jednodniowe eventy, które jeszcze się nie zaczęły.
+  const hm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  const tonight = now.getHours() >= 15
+    ? ranked.filter((i) => i.event!.start_date === today && !!i.event!.start_time && i.event!.start_time.slice(0, 5) >= hm)
+    : [];
+  const onToday = ranked.filter((i) => !tonight.includes(i));
   const freeToday = onToday.filter((i) => i.free);
   const deals = props.local.filter((i) => i.deal && dealOnDay(i.deal, now.getDay()));
   const rank = (i: Item) => (dealOnNow(i.deal!, now) ? 0 : dealEndedToday(i.deal!, now) ? 2 : 1);
@@ -633,8 +680,9 @@ function TodayScreen(props: { local: Item[]; card: (i: Item) => React.ReactNode;
     );
 
   const blocks = [
-    section('On today', onToday, 5, () => props.jump({ tab: 'events', day: 'today' })),
-    section('This weekend', weekend, 5, () => props.jump({ tab: 'events', day: 'weekend' })),
+    section('Tonight', tonight, 5, () => props.jump({ tab: 'events', day: 'today' })),
+    section(tonight.length ? 'Also on today' : 'On today', onToday, tonight.length ? 3 : 5, () => props.jump({ tab: 'events', day: 'today' })),
+    section('This weekend', byInterest(weekend), 5, () => props.jump({ tab: 'events', day: 'weekend' })),
     section('Free today', freeToday, 4, () => props.jump({ tab: 'events', day: 'today', free: true })),
     section('Deals today', dealsSorted, 5, () => props.jump({ tab: 'deals', dealDay: now.getDay() })),
     section('Ends soon', ending, 4, () => props.jump({ tab: 'events', day: 'all' })),
@@ -642,9 +690,31 @@ function TodayScreen(props: { local: Item[]; card: (i: Item) => React.ReactNode;
 
   return (
     <ScrollView contentContainerStyle={styles.list} refreshControl={props.refreshControl}>
-      <Text style={styles.todayDate}>{fmtDate(today)}</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
+        <Text style={[styles.todayDate, { flex: 1, marginBottom: 0 }]}>{fmtDate(today)}</Text>
+        <Pressable onPress={props.onInterests} hitSlop={10}>
+          <Text style={styles.seeAll}>{props.interests.length ? 'For you ✓' : 'Personalise'}</Text>
+        </Pressable>
+      </View>
       {blocks.length > 0 ? blocks : <Empty text="Nothing listed for today in this area. Try a wider area or check the Events tab." />}
     </ScrollView>
+  );
+}
+
+function InterestsSheet(props: { visible: boolean; initial: string[]; onSave: (keys: string[]) => void }) {
+  const [sel, setSel] = useState<string[]>(props.initial);
+  useEffect(() => { if (props.visible) setSel(props.initial); }, [props.visible]); // eslint-disable-line react-hooks/exhaustive-deps
+  const toggle = (k: string) => setSel((p) => (p.includes(k) ? p.filter((x) => x !== k) : [...p, k]));
+  return (
+    <Sheet visible={props.visible} onClose={() => props.onSave(sel)} title="What do you like?">
+      <Text style={styles.todayDate}>Pick a few. We will show them first on the Today screen. You can change it any time.</Text>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+        {INTEREST_KEYS.map((k) => (
+          <Chip key={k} label={cat(k).label} active={sel.includes(k)} color={cat(k).accent} onPress={() => toggle(k)} />
+        ))}
+      </View>
+      <BigButton label={sel.length ? 'Done' : 'Skip'} icon="checkmark" onPress={() => props.onSave(sel)} />
+    </Sheet>
   );
 }
 
@@ -735,6 +805,7 @@ const styles = StyleSheet.create({
   wrap: { flexDirection: 'row', flexWrap: 'wrap' },
   hint: { color: colors.muted, fontSize: 12, marginBottom: 4 },
   todayDate: { color: colors.muted, fontSize: 14, marginBottom: 10 },
+  chipSep: { width: 1, alignSelf: 'stretch', backgroundColor: colors.border, marginHorizontal: 6, marginVertical: 6 },
   secHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 },
   secTitle: { color: colors.text, fontSize: 20, fontWeight: '800' },
   seeAll: { color: colors.primary, fontSize: 14, fontWeight: '600' },
