@@ -132,8 +132,8 @@ const styles = StyleSheet.create({
   pillRow: { flexDirection: 'row', flexWrap: 'wrap', marginBottom: 4, paddingRight: 26 },
   card: { flexDirection: 'row', borderRadius: 16, padding: 14, marginBottom: 12 },
   iconBox: { width: 42, minHeight: 42, alignSelf: 'stretch', borderRadius: 12, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
-  // zdjęcie kategorii: o 25% szersze niż ikonka (42 → 53), zawsze ta sama wysokość (2:3)
-  photoBox: { width: 53, height: 80, alignSelf: 'center', borderRadius: 12, marginRight: 12, overflow: 'hidden', backgroundColor: 'rgba(0,0,0,0.22)' },
+  // zdjęcie kategorii: 63x94 (2:3); ujemny lewy margines + mniejszy prawy, żeby tekst został na tym samym miejscu (14-6+63+8 = 79)
+  photoBox: { width: 63, height: 94, alignSelf: 'center', borderRadius: 12, marginLeft: -6, marginRight: 8, overflow: 'hidden', backgroundColor: 'rgba(0,0,0,0.22)' },
   cardTitle: { fontSize: 17, fontWeight: '700', marginBottom: 3 },
   cardSub: { fontSize: 13, marginTop: 1 },
   cardPrice: { fontSize: 13, fontWeight: '600', marginTop: 5 },
