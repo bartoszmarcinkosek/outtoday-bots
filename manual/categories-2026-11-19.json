@@ -1,0 +1,70 @@
+{
+ "update_event_ids": [
+  {
+   "id": "1d50a04a-2423-4ce2-9542-33bb48ee51cd",
+   "set": {
+    "category": "family"
+   }
+  },
+  {
+   "id": "12f0c026-b2d3-482f-b375-0102f211d6d9",
+   "set": {
+    "category": "family"
+   }
+  },
+  {
+   "id": "64ea10a2-9bcd-40df-81f9-ada1de3ce3e3",
+   "set": {
+    "category": "community"
+   }
+  },
+  {
+   "id": "93b0cd59-2694-447d-96e8-2a7329873402",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "3cb31b31-4fc1-46de-a431-8457126d509b",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "ba2f7ce1-d6bf-432e-9fd1-bf02bb67eaeb",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "561178f5-9073-496a-8f17-736ce1f4d8fc",
+   "set": {
+    "category": "community"
+   }
+  },
+  {
+   "id": "de240985-be9a-4d0f-bb24-871124e8c02e",
+   "set": {
+    "category": "community"
+   }
+  },
+  {
+   "id": "7cc25572-9559-488e-b83b-16440dd50213",
+   "set": {
+    "category": "community"
+   }
+  },
+  {
+   "id": "e951f74e-9ff0-4dab-9253-098ca3afba43",
+   "set": {
+    "category": "community"
+   }
+  },
+  {
+   "id": "5ef607a6-2caf-4115-b25d-2417b66398e5",
+   "set": {
+    "category": "community"
+   }
+  }
+ ]
+}

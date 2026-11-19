@@ -33,45 +33,47 @@ const LANDMARKS: [RegExp, string][] = [
 ];
 
 const RULES: [RegExp, string][] = [
-  [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|hot air balloon|seaplane|helicopter|microlight|zip ?line|flying (lesson|experience)|scenic flight/i, 'flying'],
-  [/board ?game|boardgame|\bchess\b|mahjong|scrabble|language|polyglot|conversation (club|meetup|café|cafe)|language exchange/i, 'community'],
-  [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|hip ?hop class|zumba|belly ?dance/i, 'dance'],
-  [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah/i, 'heritage'],
-  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|surfing|scuba|diving|snorkel|flyboard/i, 'watersports'],
+  [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|bungee|\bifly\b|jais flight|aerobatic|flying (lesson|experience)|scenic flight/i, 'flying'],
+  [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating|on ice\b/i, 'snow'],
+  [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower|polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
+  [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
+  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing|rowing|aquafit/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian/i, 'comedy'],
-  [/theat(re|er)|musical\b|ballet|\bplay\b|pantomime/i, 'theatre'],
+  [/theat(re|er)|musical\b|ballet|\bplay\b|pantomime|swan lake|nutcracker/i, 'theatre'],
   [/cinema|film|screening|movie/i, 'cinema'],
   [/\bjazz\b/i, 'jazz'],
   [/\bdj\b|techno|afro ?house|\bedm\b|rave|club night/i, 'dj'],
-  [/arabic|tarab|\boud\b|khaleeji|eid concert/i, 'arabic'],
+  [/arabic music|tarab|\boud\b|khaleeji|eid concert/i, 'arabic'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
-  [/cycl|\bbike\b|\bride\b|velo/i, 'cycling'],
+  [/horse|equestrian|racecourse|endurance ride|show jumping|polo\b/i, 'horse'],
+  [/cycl|\bbike ride|\bbicycle|velo\b/i, 'cycling'],
   [/swim|triathlon|aquathlon|open water/i, 'swimming'],
-  [/\brun\b|running|marathon|\b(5|10|21)k\b|parkrun|race run|trail race/i, 'running'],
-  [/yoga|pilates|fitness|bootcamp|hiit|workout|zumba/i, 'yoga'],
-  [/football|soccer|super cup|\bfc\b|pro league/i, 'football'],
-  [/cricket|\bt10\b|\bt20\b|ilt20/i, 'cricket'],
+  [/\brun\b|running|marathon|\b(3|5|10|21)k\b|\d+ ?km\b|parkrun|race run|trail race|relay/i, 'running'],
+  [/yoga|pilates|fitness|bootcamp|hiit|workout/i, 'yoga'],
+  [/cricket|\bt10\b|\bt20\b|ilt20|knight riders|dubai capitals|desert vipers|gulf giants|mi emirates|sharjah warriorz/i, 'cricket'],
+  [/football|soccer|super cup|\bfc\b|pro league|manchester city/i, 'football'],
   [/tennis|padel|squash|pickleball/i, 'padel'],
-  [/\bgolf/i, 'golf'],
-  [/grand prix|formula|\bf1\b|motor|karting|rally|drift|baja/i, 'motorsport'],
-  [/camel/i, 'camel'],
-  [/horse|equestrian|racecourse|endurance ride|show jumping/i, 'horse'],
+  [/golf/i, 'golf'],
+  [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|rally|drift|baja|desert challenge|nitro circus|car show|car and bike|bike week|driving experience/i, 'motorsport'],
+  [/\bcamels?\b/i, 'camel'],
   [/karaoke/i, 'night_out'],
   [/\bquiz\b/i, 'quiz'],
-  [/\bbook|library|reading|poetry/i, 'books'],
+  [/\bbooks?\b|book (club|fair|launch|presentation)|library|reading|poetry/i, 'books'],
   [/\btalk\b|lecture|panel|in conversation|seminar/i, 'talk'],
   [/night market|flea|bazaar|farmers'? market|winter market|christmas market|craft market|food market|urban market|souq|souk/i, 'market'],
+  // na końcu: bieg w parku archeologicznym to nadal bieg
+  [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
 ];
 
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów
 const CAT: Record<string, string[]> = {
-  music: ['music'], culture: ['culture'], sport: ['running', 'cycling', 'football', 'padel', 'yoga'], food: ['food'],
+  music: ['music'], culture: ['culture'], sport: [], food: ['food'],
   festivals: ['festivals'], festival: ['festivals'], nightlife: ['nightlife'], classes: ['classes'], nature: ['nature'],
   community: ['community'], business: ['talk'], family: ['family'], market: ['market'],
   beaches: ['beaches'], parks: ['parks'], museums: ['museums'], attractions: ['attractions'], active: ['active'],
   kids: ['kids'], markets: ['souk'], studios: ['studios'], daytrips: ['daytrips'],
-  day_pass: ['day_pass'], brunch: ['brunch'], happy_hour: ['happy_hour'], night_out: ['night_out'], lunch: ['lunch'],
+  day_pass: ['day_pass'], ladies_night: ['ladies_night'], brunch: ['brunch'], happy_hour: ['happy_hour'], night_out: ['night_out'], lunch: ['lunch'],
   dinner: ['dinner'], quiz: ['quiz'], breakfast: ['breakfast'], staycation: ['staycation'],
 };
 
@@ -79,7 +81,7 @@ const CAT: Record<string, string[]> = {
 const CITY_SUFFIX: Record<string, string> = { Dubai: 'dubai', 'Abu Dhabi': 'abudhabi', Sharjah: 'sharjah', 'Ras Al Khaimah': 'rak' };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['flying', 'watersports', 'heritage', 'dance']);
+const NO_FALLBACK = new Set(['flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;
@@ -92,7 +94,7 @@ function pool(item: Item): number[] {
   const placeText = `${item.title} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
   const lm = LANDMARKS.find(([re]) => re.test(placeText));
   if (lm && PHOTO_FILES[lm[1]]) return [...PHOTO_FILES[lm[1]]];
-  if (item.kind !== 'deal') {
+  if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
     const hit = RULES.find(([re]) => re.test(item.title));
     if (hit && PHOTO_FILES[hit[1]]) keys = [hit[1]];
     else if (hit && NO_FALLBACK.has(hit[1])) return [];

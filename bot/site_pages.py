@@ -58,7 +58,7 @@ def photo_for(kind: str, key: str, title: str, place_text: str, cat: str, city: 
         pool = FILES[lm]
     else:
         keys = None
-        if kind != "deal":
+        if kind != "deal" or not cat or cat == "other":
             hit = next((k for r, k in RULES if r.search(title)), None)
             if hit and hit in FILES:
                 keys = [hit]
