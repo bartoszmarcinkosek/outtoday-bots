@@ -1,0 +1,82 @@
+{
+ "update_event_ids": [
+  {
+   "id": "b2eb695d-2ea6-4e33-9007-6ba0c0701c71",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "92dbae1c-0a00-429e-bac3-7328151b3142",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "9afe7594-3156-42e5-8553-53abc980191c",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "3d0a114c-18ed-4208-add2-ecc4db5fa445",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "da8664eb-c3c0-4f3e-86be-366f58eecbde",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "bade39d6-e0e9-4d88-9f0a-29d07f2d881b",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "5117e440-ccc5-4ce7-9207-950c145e7965",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "5454021a-ebc8-46d5-88e2-b6055a30be59",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "21f866b2-ba21-4957-aea6-c85469f6d652",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "53e498db-4ce1-46f2-aa93-bd3a279188ed",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "a68bced2-2762-4d33-a88f-faed97c43e3c",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "9f21d0f5-47ef-4b22-9a22-1dd01714a976",
+   "set": {
+    "category": "market"
+   }
+  },
+  {
+   "id": "9919c939-6d41-4834-b858-f5c8f996e1a9",
+   "set": {
+    "category": "market"
+   }
+  }
+ ]
+}

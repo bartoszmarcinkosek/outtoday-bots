@@ -55,7 +55,7 @@ const RULES: [RegExp, string][] = [
   [/\bquiz\b/i, 'quiz'],
   [/\bbook|library|reading|poetry/i, 'books'],
   [/\btalk\b|lecture|panel|in conversation|seminar/i, 'talk'],
-  [/market|bazaar|souq|souk|night market/i, 'market'],
+  [/night market|flea|bazaar|farmers'? market|winter market|christmas market|craft market|food market|urban market|souq|souk/i, 'market'],
 ];
 
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów
