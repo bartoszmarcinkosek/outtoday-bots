@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as Calendar from 'expo-calendar/legacy';
 import React, { useState } from 'react';
-import { Image, Linking, Pressable, Share, StyleSheet, Text, View } from 'react-native';
+import { Image, Linking, Platform, Pressable, Share, StyleSheet, Text, View } from 'react-native';
 import { REPORT_EMAIL } from './config';
 import { fmtDate } from './dates';
 import { IconName, Item, todayIso } from './logic';
@@ -168,7 +168,13 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
     const link = `https://outtodayapp.github.io/e/${item.key.replace(':', '-')}.html`; // strona ze zdjęciem (podgląd w WhatsApp)
     const lines = [item.title, item.whenFull, item.where, item.priceText, '', `More on OutToday: ${link}`];
     count('share', `${item.kind}:${item.catKey ?? ''}`);
-    Share.share({ message: lines.filter(Boolean).join('\n') }).catch(() => undefined);
+    // iPhone: link osobno (url), wtedy WhatsApp robi podgląd ze zdjęciem; Android: link w tekście
+    const text = lines.filter(Boolean).join('\n');
+    if (Platform.OS === 'ios') {
+      Share.share({ message: [item.title, item.whenFull, item.where, item.priceText].filter(Boolean).join('\n'), url: link }).catch(() => undefined);
+    } else {
+      Share.share({ message: text }).catch(() => undefined);
+    }
   };
   const report = () => {
     const subject = encodeURIComponent(`OutToday: problem with "${item.title}"`);
