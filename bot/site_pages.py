@@ -19,6 +19,11 @@ SITE = "https://outtodayapp.github.io"
 URL = "https://ibpuispeimyyqiailjfy.supabase.co"
 KEY = "sb_publishable_2SPY_zl7rAw7K5D1T2TzwQ_mxpzYrCS"  # publiczny klucz apki (tylko odczyt zatwierdzonych wpisów)
 H = {"apikey": KEY, "Authorization": f"Bearer {KEY}"}
+# Linki do sklepów: wpisz, gdy apka będzie publicznie dostępna (wtedy na stronach pojawi się przycisk "Get the app").
+PLAY_URL = ""      # np. https://play.google.com/store/apps/details?id=ae.outtoday.app
+APPSTORE_URL = ""  # np. https://apps.apple.com/app/id...
+GETAPP = (" ".join(f'<a href="{u}">{n}</a>' for n, u in (("Google Play", PLAY_URL), ("App Store", APPSTORE_URL)) if u)
+          or '<span class="soon">Coming soon</span>')
 today = dt.datetime.now(dt.timezone(dt.timedelta(hours=4))).date().isoformat()
 
 # ---- reguły zdjęć z app/src/photos.ts (jedno źródło prawdy z apką)
@@ -100,7 +105,7 @@ def hm(t: str | None) -> str:
 
 
 e = lambda v: html.escape(str(v or ""), quote=True)  # noqa: E731
-TPL = open(os.path.join(ROOT, "bot/site_page.html"), encoding="utf-8").read()
+TPL = open(os.path.join(ROOT, "bot/site_page.html"), encoding="utf-8").read().replace("{{GETAPP}}", GETAPP)
 
 os.makedirs(os.path.join(OUT, "e"), exist_ok=True)
 os.makedirs(os.path.join(OUT, "img"), exist_ok=True)
@@ -191,7 +196,7 @@ for i, city in enumerate(CITIES):
         body += f"<h3>This weekend in {e(city)}</h3>" + "".join(card(x) for x in w_list)
     panels.append(f'<section id="{slug}"{"" if len(panels) == 0 else " hidden"}><h2>What\'s on in {e(city)}</h2>{body}</section>')
 home = (open(os.path.join(ROOT, "bot/site_home.html"), encoding="utf-8").read()
-        .replace("{{DATE}}", td.strftime("%A %d %B %Y").replace(" 0", " ")).replace("{{TABS}}", "".join(tabs)).replace("{{PANELS}}", "".join(panels)))
+        .replace("{{GETAPP}}", GETAPP).replace("{{DATE}}", td.strftime("%A %d %B %Y").replace(" 0", " ")).replace("{{TABS}}", "".join(tabs)).replace("{{PANELS}}", "".join(panels)))
 with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as fh:
     fh.write(home)
 
