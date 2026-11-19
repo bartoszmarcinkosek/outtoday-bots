@@ -139,7 +139,7 @@ for kind, rows in (("event", ev), ("place", pl), ("deal", dl)):
         off = x.get("official_url") or x.get("url") or ""
         rows_html = "".join(f'<p class="row"><b>{k}</b> {e(v)}</p>' for k, v in (("When", when), ("Where", where), ("Price", price)) if v)
         page = (TPL.replace("{{TITLE}}", e(title)).replace("{{OG_DESC}}", e((summary + (" — " + desc if desc else ""))[:280]))
-                .replace("{{OG_IMAGE}}", f"{SITE}/img/{img}" if img else f"{SITE}/apple-touch-icon.png")
+                .replace("{{OG_IMAGE}}", f"{SITE}/img/og/{img}" if img else f"{SITE}/apple-touch-icon.png")
                 .replace("{{URL}}", f"{SITE}/e/{kind}-{x['id']}.html").replace("{{LABEL}}", e(LABEL.get(cat, "OutToday")))
                 .replace("{{IMG}}", f'<img class="photo" src="../img/{img}" alt="">' if img else "")
                 .replace("{{ROWS}}", rows_html).replace("{{DESC}}", f'<p class="desc">{e(desc)}</p>' if desc else "")
@@ -212,7 +212,28 @@ with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as fh:
 for f in os.listdir(os.path.join(OUT, "e")):
     if f.endswith(".html") and f not in keep:
         os.remove(os.path.join(OUT, "e", f))
+def og_thumb(src: str, dst: str) -> None:
+    """Mały podgląd do udostępniania (WhatsApp: <300 px = mała miniatura): zdjęcie + duże logo."""
+    from PIL import Image, ImageDraw
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    S = 240
+    im = Image.open(src).convert("RGB")
+    w, h = im.size
+    m = min(w, h)
+    im = im.crop(((w - m) // 2, (h - m) // 2, (w + m) // 2, (h + m) // 2)).resize((S, S), Image.LANCZOS)
+    L = 140
+    logo = Image.open(os.path.join(ROOT, "app/assets/icon.png")).convert("RGB").resize((L, L), Image.LANCZOS)
+    mask = Image.new("L", (L, L), 0)
+    ImageDraw.Draw(mask).rounded_rectangle((0, 0, L - 1, L - 1), radius=30, fill=255)
+    ring = Image.new("L", (L + 8, L + 8), 0)
+    ImageDraw.Draw(ring).rounded_rectangle((0, 0, L + 7, L + 7), radius=34, fill=255)
+    im.paste((255, 255, 255), (S - L - 12, S - L - 12), ring)
+    im.paste(logo, (S - L - 8, S - L - 8), mask)
+    im.save(dst, quality=88)
+
+
 for f in used:
     src = os.path.join(photo_dir, "full", f) if os.path.exists(os.path.join(photo_dir, "full", f)) else os.path.join(photo_dir, f)
     shutil.copyfile(src, os.path.join(OUT, "img", f))
+    og_thumb(src, os.path.join(OUT, "img", "og", f))
 print(json.dumps({"pages": len(keep), "images": len(used)}))
