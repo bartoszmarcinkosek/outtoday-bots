@@ -2,7 +2,7 @@ name: Newsletters (Gmail -> deals)
 
 on:
   schedule:
-    - cron: "17 4 * * *"
+    - cron: "17 4 * * 1,4"
   workflow_dispatch:
     inputs:
       days:
@@ -35,7 +35,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          IN_DAYS: ${{ inputs.days || '3' }}
+          IN_DAYS: ${{ inputs.days || '4' }}
           IN_DRY: ${{ inputs.dry_run || 'false' }}
         run: |
           A=(--days "$IN_DAYS"); if [ "$IN_DRY" = "true" ]; then A+=(--dry-run); fi

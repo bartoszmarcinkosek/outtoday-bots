@@ -1,8 +1,9 @@
 name: Opening hours table (Open now)
 
 on:
-  schedule:
-    - cron: "37 5 * * 0"
+  # schedule:
+    # do grudnia wyłączone (oszczędność):
+    # - cron: "37 5 * * 0"
   workflow_dispatch:
     inputs:
       all:
