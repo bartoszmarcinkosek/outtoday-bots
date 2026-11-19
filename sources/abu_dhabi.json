@@ -327,6 +327,17 @@
    "urls": [
     "https://abudhabifestival.ae/"
    ]
+  },
+  {
+   "id": "reem_mall",
+   "name": "Reem Mall",
+   "city": "Abu Dhabi",
+   "single_venue": true,
+   "default_venue": "Reem Mall, Al Reem Island",
+   "trusted": true,
+   "urls": [
+    "https://www.reemmall.ae/event-offers/"
+   ]
   }
  ]
 }

@@ -22,7 +22,7 @@ import { BigButton, CalendarSheet, DetailSheet, LocationSheet } from './src/shee
 import { cat, colors, dealStyle } from './src/theme';
 import { Chip, Empty, ItemCard, Sheet } from './src/ui';
 import { hasTop10 } from './src/top10';
-import { CITY_CENTER, ZONES, distanceKm } from './src/zones';
+import { CITY_CENTER, ZONES, ZONE_CENTER, distanceKm } from './src/zones';
 
 type Tab = 'today' | 'events' | 'places' | 'deals';
 type ListTab = Exclude<Tab, 'today'>;
@@ -245,10 +245,10 @@ function Main() {
   }, [all]);
 
   const listFor = useCallback(
-    (t: ListTab): Item[] => {
+    (t: ListTab, wholeCity = false): Item[] => {
       const range = rangeFor(day);
       // Top 10 zawsze dla całego miasta, niezależnie od wybranego obszaru.
-      const base = t === 'places' && topOnly && hasTop10(city) ? all.filter((i) => i.city === city) : local;
+      const base = wholeCity || (t === 'places' && topOnly && hasTop10(city)) ? all.filter((i) => i.city === city) : local;
       const filtered = base
         .filter((i) => i.kind === KIND_OF[t])
         .filter((i) => !cats[t] || i.catKey === cats[t])
@@ -270,6 +270,17 @@ function Main() {
   );
 
   const list = useMemo(() => (tab === 'today' ? [] : listFor(tab)), [tab, listFor]);
+  // Pusto w wybranej dzielnicy (np. Reem Island)? Pokaż to, co jest najbliżej (do 8 km), zamiast pustego ekranu.
+  const nearby = useMemo(() => {
+    if (tab === 'today' || list.length > 0 || zones.length === 0) return [];
+    const centers = zones.map((z) => ZONE_CENTER[z]).filter(Boolean) as [number, number][];
+    if (!centers.length) return [];
+    const dist = (i: Item) => {
+      const p = i.geo ?? (i.zone ? ZONE_CENTER[i.zone] : null);
+      return p ? Math.min(...centers.map((c) => distanceKm(c, p as [number, number]))) : Infinity;
+    };
+    return listFor(tab, true).map((i) => ({ i, d: dist(i) })).filter((x) => x.d <= 8).sort((a, b) => a.d - b.d).map((x) => x.i).slice(0, 30);
+  }, [tab, list, zones, listFor]);
 
   const catKeys = useMemo(() => {
     if (tab === 'today') return [];
@@ -432,11 +443,14 @@ function Main() {
             <ZoneMap items={list} city={city} card={card} />
           ) : (
             <FlatList
-              data={list}
+              data={list.length ? list : nearby}
               keyExtractor={(i) => i.key}
-              renderItem={({ item, index }) => card(item, index, list)}
+              renderItem={({ item, index }) => card(item, index, list.length ? list : nearby)}
               contentContainerStyle={styles.list}
               refreshControl={refreshControl}
+              ListHeaderComponent={!list.length && nearby.length ? (
+                <Text style={styles.todayDate}>Nothing in {whereLabel.split(' · ')[1] ?? 'this area'} for these filters. Closest to it:</Text>
+              ) : undefined}
               ListEmptyComponent={<Empty text="Nothing matches these filters. Try another day, area or fewer filters." />}
             />
           )}
