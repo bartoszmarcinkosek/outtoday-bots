@@ -1,0 +1,51 @@
+{
+ "events": [
+  {
+   "title": "Emirates Villages Run Series: Al Rams (Ras Al Khaimah)",
+   "category": "sport",
+   "start_date": "2026-11-28",
+   "venue": "Al Rams Village",
+   "city": "Ras Al Khaimah",
+   "description": "Round 6 of the Emirates Villages Run Series, a nationwide community run through heritage villages in all seven emirates. Distances of 1.5 km (family), 5 km and 10 km; open to all ages. Register online.",
+   "registration_required": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "WhatsApp (poster @ecbduae)"
+  },
+  {
+   "title": "Emirates Villages Run Series: Al Shuwaib (final)",
+   "category": "sport",
+   "start_date": "2026-12-05",
+   "venue": "Al Shuwaib Family Park, Al Shuwaib",
+   "city": "Al Ain",
+   "description": "Final round of the Emirates Villages Run Series, starting and finishing at Al Shuwaib Family Park. Distances of 1.5 km (family), 5 km and 10 km; open to all ages. Register online.",
+   "registration_required": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "WhatsApp (poster @ecbduae)"
+  }
+ ],
+ "update_event_ids": [
+  {
+   "id": "b2eb695d-2ea6-4e33-9007-6ba0c0701c71",
+   "set": {
+    "start_time": "16:00",
+    "description": "Weekend night market at RAK Expo Center, Friday to Sunday 4–11 PM: magic and fire shows, Egyptian tanoura, Levantine dabke, African dance, Bollywood performances and Emirati heritage acts, plus kids' rides, games, a main stage and food stalls."
+   }
+  },
+  {
+   "id": "92dbae1c-0a00-429e-bac3-7328151b3142",
+   "set": {
+    "start_time": "16:00",
+    "description": "Weekend night market at RAK Expo Center, Friday to Sunday 4–11 PM: magic and fire shows, Egyptian tanoura, Levantine dabke, African dance, Bollywood performances and Emirati heritage acts, plus kids' rides, games, a main stage and food stalls."
+   }
+  },
+  {
+   "id": "9afe7594-3156-42e5-8553-53abc980191c",
+   "set": {
+    "start_time": "16:00",
+    "description": "Weekend night market at RAK Expo Center, Friday to Sunday 4–11 PM: magic and fire shows, Egyptian tanoura, Levantine dabke, African dance, Bollywood performances and Emirati heritage acts, plus kids' rides, games, a main stage and food stalls."
+   }
+  }
+ ]
+}
