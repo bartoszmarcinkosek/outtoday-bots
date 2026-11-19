@@ -27,6 +27,7 @@ export const PHOTO_FILES: Record<string, number[]> = {
   'football': [require('../assets/photos/football-1.jpg')],
   'golf': [require('../assets/photos/golf-1.jpg')],
   'happy_hour': [require('../assets/photos/happy_hour-1.jpg')],
+  'happy_hour_dubai': [require('../assets/photos/happy_hour_dubai-1.jpg')],
   'horse': [require('../assets/photos/horse-1.jpg')],
   'jazz': [require('../assets/photos/jazz-1.jpg')],
   'kids': [require('../assets/photos/kids-1.jpg')],
