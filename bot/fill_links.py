@@ -6,6 +6,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import run as R
 import verify as V
 import anthropic
+import cachefix  # noqa: F401  (prompt caching)
 
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6)

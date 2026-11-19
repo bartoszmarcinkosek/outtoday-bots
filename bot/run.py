@@ -367,18 +367,18 @@ def call_model(client, text: str, links: list[tuple[str, str]], source: dict, pa
                ext_links: list[tuple[str, str]] | None = None) -> dict:
     links_txt = "\n".join(f"[{label}] {href}" for label, href in links)
     ext_txt = "\n".join(f"[{label}] {href}" for label, href in (ext_links or []))
-    rules = RULES.format(
-        today=today_uae().isoformat(),
-        default_venue=source.get("default_venue") or "none",
-        city=source.get("city", "Abu Dhabi"),
-    )
+    # Reguły są stałe (prompt cache); zmienne wartości idą na początek wiadomości.
+    rules = RULES.format(today="TODAY (given in CONTEXT)", default_venue="DEFAULT VENUE (given in CONTEXT)",
+                         city="DEFAULT CITY (given in CONTEXT)")
+    ctx = (f"CONTEXT: TODAY = {today_uae().isoformat()}; DEFAULT VENUE = {source.get('default_venue') or 'none'}; "
+           f"DEFAULT CITY = {source.get('city', 'Abu Dhabi')}\n")
     task = (
         f"This is the page of one event. Return only the event titled: {focus!r} (one item per date if it has several dates)."
         if focus
         else "Return every event on this page."
     )
     msg = (
-        f"SOURCE: {source['name']}\nPAGE URL: {page_url}\n\n{task}\n\n"
+        ctx + f"SOURCE: {source['name']}\nPAGE URL: {page_url}\n\n{task}\n\n"
         f"=== PAGE TEXT ===\n{text[:MAX_TEXT]}\n=== END PAGE TEXT ===\n\n"
         f"=== LINKS ===\n{links_txt}\n=== END LINKS ==="
         + (f"\n\n=== EXTERNAL LINKS (organisers) ===\n{ext_txt}\n=== END EXTERNAL LINKS ===" if ext_txt else "")
