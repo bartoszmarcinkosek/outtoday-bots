@@ -150,6 +150,12 @@ async function addToCalendar(item: Item) {
   }
 }
 
+// proporcje dużego zdjęcia (kwadrat albo 2:3 dla wysokich budynków, np. Burj Khalifa)
+function ratioOf(src: number): number {
+  const a = Image.resolveAssetSource(src);
+  return a && a.width && a.height ? a.width / a.height : 1;
+}
+
 export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void }) {
   const item = props.item;
   if (!item) return null;
@@ -178,7 +184,7 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
   return (
     <Sheet visible onClose={props.onClose} title={item.title}>
       {!!props.photo && (
-        <View style={styles.bigPhoto}>
+        <View style={[styles.bigPhoto, { aspectRatio: ratioOf(PHOTO_FULL.get(props.photo) ?? props.photo) }, ratioOf(PHOTO_FULL.get(props.photo) ?? props.photo) < 1 && { width: '70%' }]}>
           <Image source={PHOTO_FULL.get(props.photo) ?? props.photo} resizeMode="cover"
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
         </View>
@@ -231,7 +237,7 @@ function Action(props: { icon: IconName; label: string; onPress: () => void }) {
 
 const styles = StyleSheet.create({
   // całe zdjęcie kategorii (kwadrat) na górze szczegółów
-  bigPhoto: { width: '100%', maxWidth: 420, aspectRatio: 1, alignSelf: 'center', borderRadius: 14, overflow: 'hidden', marginBottom: 12, backgroundColor: 'rgba(0,0,0,0.22)' },
+  bigPhoto: { width: '100%', maxWidth: 420, alignSelf: 'center', borderRadius: 14, overflow: 'hidden', marginBottom: 12, backgroundColor: 'rgba(0,0,0,0.22)' },
   section: { color: colors.muted, fontSize: 13, fontWeight: '700', marginTop: 12, marginBottom: 4, textTransform: 'uppercase' },
   soon: { color: colors.muted, fontSize: 13, marginTop: 4 },
   row: { flexDirection: 'row', alignItems: 'center', paddingVertical: 11 },
