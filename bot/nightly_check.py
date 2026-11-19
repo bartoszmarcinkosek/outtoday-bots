@@ -77,7 +77,31 @@ for d in dupes[:50]:
     print("L|DUP", d["kind"], d["date"] or "", d["city"], d["title"][:60], len(d["ids"]))
 for d in dead[:50]:
     print("L|DEAD", d["kind"], d["title"][:50], urlparse(d["url"]).netloc, d["why"])
+# ---- poprawki (zgoda Bartosza 19.11: "jak coś znajdziesz to poprawiaj")
+# duplikat: zostaje wpis z największą liczbą wypełnionych pól, reszta -> rejected
+# martwy link: event zostaje, link usunięty; miejsce/oferta -> pending (ukryte), bo strona zniknęła = oferta mogła się skończyć
+fixed = []
+if not os.environ.get("DRY"):
+    now = dt.datetime.now(dt.timezone.utc).isoformat()
+    table_of = {"event": "events", "place": "places", "deal": "deals"}
+    pool = {("event", r["id"]): r for r in ev} | {("place", r["id"]): r for r in pl} | {("deal", r["id"]): r for r in dl}
+    for d in dupes:
+        rows = sorted((pool[(d["kind"], i)] for i in d["ids"]), key=lambda r: -sum(1 for v in r.values() if v))
+        for r in rows[1:]:
+            db.update(table_of[d["kind"]], {"id": r["id"]}, {"status": "rejected"})
+            fixed.append(f"duplikat usunięty: {d['title']}")
+    for d in dead:
+        if d["kind"] == "event":
+            row = pool[("event", d["id"])]
+            fix = {"official_url": None} if row.get("official_url") == d["url"] else {"url": None}
+            db.update("events", {"id": d["id"]}, {**fix, "updated_at": now})
+            fixed.append(f"martwy link usunięty: {d['title']}")
+        else:
+            db.update(table_of[d["kind"]], {"id": d["id"]}, {"status": "pending"})
+            fixed.append(f"ukryte do sprawdzenia (strona zniknęła): {d['title']}")
+    for f in fixed:
+        print("L|FIX", f)
 if not os.environ.get("DRY"):
     db.insert("bot_runs", {"dry_run": False, "finished_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                            "summary": {"kind": "nightly_check", "report": {"dupes": dupes[:60], "dead": dead[:60],
-                                                                          "checked": len(todo), "links": len(links)}}})
+                                                                          "checked": len(todo), "links": len(links), "fixed": fixed[:80]}}})

@@ -313,13 +313,15 @@ def nightly_html(runs: list[dict]) -> str:
     since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=30)).isoformat()
     rep = next((r["summary"]["report"] for r in reversed(runs)
                 if (r.get("summary") or {}).get("kind") == "nightly_check" and r["finished_at"] >= since), None)
-    if not rep or not (rep.get("dead") or rep.get("dupes")):
+    if not rep or not (rep.get("dead") or rep.get("dupes") or rep.get("fixed")):
         return ""
     e = lambda v: html.escape(str(v or ""))  # noqa: E731
     rows = [f'{e(d["title"])} <span style="color:{C["muted"]}">({d["kind"]}, {e(d.get("city") or "")}) – link nie działa: {e(d["why"])}</span>'
             for d in rep.get("dead", [])[:25]]
     rows += [f'{e(d["title"])} <span style="color:{C["muted"]}">({d["kind"]}, {e(d.get("city") or "")}{", " + d["date"] if d.get("date") else ""}) – możliwy duplikat ×{len(d["ids"])}</span>'
              for d in rep.get("dupes", [])[:25]]
+    if rep.get("fixed"):  # od 19.11 nocna kontrola sama poprawia – pokazujemy tylko, co zrobiła
+        rows = [e(x) for x in rep["fixed"][:40]]
     li = "".join(f'<li style="margin:4px 0">{x}</li>' for x in rows)
     return (f'<h2 style="font-size:17px;color:{C["text"]};margin:26px 0 4px">Nocna kontrola (bez AI, 0 USD)</h2>'
             f'<div style="color:{C["muted"]};font-size:13px">Sprawdzone linki: {rep.get("checked", 0)} z {rep.get("links", 0)} (każdy raz w tygodniu). '
