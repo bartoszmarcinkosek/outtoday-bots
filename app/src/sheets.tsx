@@ -1,10 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as Calendar from 'expo-calendar/legacy';
 import React, { useState } from 'react';
-import { Linking, Pressable, Share, StyleSheet, Text, View } from 'react-native';
+import { Image, Linking, Pressable, Share, StyleSheet, Text, View } from 'react-native';
 import { REPORT_EMAIL } from './config';
 import { fmtDate } from './dates';
 import { IconName, Item, todayIso } from './logic';
+import { PHOTO_FULL } from './photos.gen';
 import { colors } from './theme';
 import { Pill, Sheet, badgesFor } from './ui';
 import { CITIES, ZONES, ZONE_CENTER, distanceKm } from './zones';
@@ -148,7 +149,7 @@ async function addToCalendar(item: Item) {
   }
 }
 
-export function DetailSheet(props: { item: Item | null; fav: boolean; onFav: () => void; onClose: () => void }) {
+export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void }) {
   const item = props.item;
   if (!item) return null;
   const c = item.look;
@@ -174,6 +175,12 @@ export function DetailSheet(props: { item: Item | null; fav: boolean; onFav: () 
   ];
   return (
     <Sheet visible onClose={props.onClose} title={item.title}>
+      {!!props.photo && (
+        <View style={styles.bigPhoto}>
+          <Image source={PHOTO_FULL.get(props.photo) ?? props.photo} resizeMode="cover"
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
+        </View>
+      )}
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 8 }}>
         <Pill text={c.label} color={c.accent} />
         {item.free && <Pill text="FREE" color={colors.free} solid />}
@@ -221,6 +228,8 @@ function Action(props: { icon: IconName; label: string; onPress: () => void }) {
 }
 
 const styles = StyleSheet.create({
+  // całe zdjęcie kategorii (kwadrat) na górze szczegółów
+  bigPhoto: { width: '100%', maxWidth: 420, aspectRatio: 1, alignSelf: 'center', borderRadius: 14, overflow: 'hidden', marginBottom: 12, backgroundColor: 'rgba(0,0,0,0.22)' },
   section: { color: colors.muted, fontSize: 13, fontWeight: '700', marginTop: 12, marginBottom: 4, textTransform: 'uppercase' },
   soon: { color: colors.muted, fontSize: 13, marginTop: 4 },
   row: { flexDirection: 'row', alignItems: 'center', paddingVertical: 11 },

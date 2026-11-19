@@ -80,6 +80,7 @@ function Main() {
 
   // Okna
   const [selected, setSelected] = useState<Item | null>(null);
+  const [selPhoto, setSelPhoto] = useState<number | null>(null);
   const [showWhere, setShowWhere] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [showCal, setShowCal] = useState(false);
@@ -253,9 +254,10 @@ function Main() {
   // idx/arr przychodzą z .map() i FlatList – dzięki nim sąsiednie karty dostają różne zdjęcia
   const card = (item: Item, idx?: number, arr?: readonly Item[]) => {
     const prev = arr && idx ? arr[idx - 1] : undefined;
+    const photo = photoFor(item, prev ? photoFor(prev) : null);
     return (
-      <ItemCard key={item.key} item={item} photo={photoFor(item, prev ? photoFor(prev) : null)} fav={favs.includes(item.key)}
-        onFav={() => toggleFav(item.key)} onPress={() => setSelected(item)} />
+      <ItemCard key={item.key} item={item} photo={photo} fav={favs.includes(item.key)}
+        onFav={() => toggleFav(item.key)} onPress={() => { setSelPhoto(photo); setSelected(item); }} />
     );
   };
   const refreshControl = (
@@ -472,7 +474,7 @@ function Main() {
         items={all.filter((i) => i.city === city)} card={card} jump={jump}
         detail={
           <DetailSheet item={showSearch ? selected : null} fav={!!selected && favs.includes(selected.key)}
-            onFav={() => selected && toggleFav(selected.key)} onClose={() => setSelected(null)} />
+            onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
         } />
 
       <AboutSheet visible={showAbout} onClose={() => setShowAbout(false)} onSuggest={() => setShowSuggest(true)} />
@@ -494,13 +496,13 @@ function Main() {
               ListEmptyComponent={<Empty text="Nothing saved yet. Tap the heart on any card to keep it here." />}
             />
             <DetailSheet item={showFavs ? selected : null} fav={!!selected && favs.includes(selected.key)}
-              onFav={() => selected && toggleFav(selected.key)} onClose={() => setSelected(null)} />
+              onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
           </SafeAreaView>
         </SafeAreaProvider>
       </Modal>
 
       <DetailSheet item={showFavs || showSearch ? null : selected} fav={!!selected && favs.includes(selected.key)}
-        onFav={() => selected && toggleFav(selected.key)} onClose={() => setSelected(null)} />
+        onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
     </SafeAreaView>
   );
 }
