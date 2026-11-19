@@ -342,7 +342,6 @@ function Main() {
             <Text style={styles.brand}>OutToday</Text>
             <Ionicons name="information-circle-outline" size={18} color={colors.muted} style={{ marginLeft: 6, marginTop: 4 }} />
           </Pressable>
-          <Text style={styles.tagline}>{'Events, deals & places. All in one app.'}</Text>
           <Pressable onPress={() => setShowWhere(true)} style={styles.where} hitSlop={8}>
             <Ionicons name="location" size={15} color={colors.primary} />
             <Text style={styles.whereText} numberOfLines={1}>{whereLabel}</Text>
@@ -828,7 +827,6 @@ const styles = StyleSheet.create({
   wrap: { flexDirection: 'row', flexWrap: 'wrap' },
   hint: { color: colors.muted, fontSize: 12, marginBottom: 4 },
   todayDate: { color: colors.muted, fontSize: 14, marginBottom: 10 },
-  tagline: { color: colors.muted, fontSize: 13, marginTop: -2, marginBottom: 2 },
   chipSep: { width: 1, alignSelf: 'stretch', backgroundColor: colors.border, marginHorizontal: 6, marginVertical: 6 },
   secHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 },
   secTitle: { color: colors.text, fontSize: 20, fontWeight: '800' },
