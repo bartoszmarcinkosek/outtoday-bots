@@ -325,7 +325,7 @@ def nightly_html(runs: list[dict]) -> str:
     li = "".join(f'<li style="margin:4px 0">{x}</li>' for x in rows)
     return (f'<h2 style="font-size:17px;color:{C["text"]};margin:26px 0 4px">Nocna kontrola (bez AI, 0 USD)</h2>'
             f'<div style="color:{C["muted"]};font-size:13px">Sprawdzone linki: {rep.get("checked", 0)} z {rep.get("links", 0)} (każdy raz w tygodniu). '
-            f'Prześlij Claude\'owi w czacie, co poprawić.</div>'
+            f'Poprawione automatycznie: duplikaty usunięte, martwe linki usunięte, oferty bez strony ukryte.</div>'
             f'<ul style="margin:6px 0 0 18px;padding:0;color:{C["text"]};font-size:13px">{li}</ul>')
 
 

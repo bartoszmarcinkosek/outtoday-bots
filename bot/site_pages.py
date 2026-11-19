@@ -139,6 +139,62 @@ for kind, rows in (("event", ev), ("place", pl), ("deal", dl)):
         with open(os.path.join(OUT, "e", name), "w", encoding="utf-8") as fh:
             fh.write(page)
 
+# ---- strona główna "What's on in the UAE today": najważniejsze eventy na dziś i na weekend w każdym mieście (bez całej bazy)
+BIG = re.compile(r"etihad arena|etihad park|coca[- ]cola arena|louvre|dubai opera|expo city|global village|yas marina|yas island|yas bay|"
+                 r"ferrari world|warner bros|qasr al watan|sheikh zayed festival|liwa|al dhafra|mother of the nation|zayed sports city|"
+                 r"museum of the future|cultural foundation|manarat|sharjah light|al majaz|al qasba|meydan|grand prix|marathon|festival|national day|eid al etihad", re.I)
+CITIES = ["Dubai", "Abu Dhabi", "Sharjah", "Al Ain", "Ras Al Khaimah", "Ajman", "Fujairah", "Umm Al Quwain"]
+td = dt.date.fromisoformat(today)
+fri = td + dt.timedelta(days=(4 - td.weekday()) % 7)  # piątek tego tygodnia (albo dziś)
+wk = [fri + dt.timedelta(days=i) for i in range(3)]
+
+
+def on(x: dict, day: dt.date) -> bool:
+    return x["start_date"] <= day.isoformat() <= (x.get("end_date") or x["start_date"])
+
+
+def rank(x: dict) -> tuple:
+    big = bool(BIG.search(f"{x['title']} {x.get('venue') or ''}"))
+    single = not x.get("end_date") or x["end_date"] == x["start_date"]
+    return (not big, not single, x.get("start_time") or "99", x["title"])
+
+
+def card(x: dict) -> str:
+    key = f"event:{x['id']}"
+    img = photo_for("event", key, x["title"], f"{x['title']} {x.get('venue') or ''} {x.get('area') or ''}", x.get("category") or "", x.get("city") or "")
+    if img:
+        used.add(img)
+    when = fmt(x["start_date"]) if not x.get("end_date") or x["end_date"] == x["start_date"] else f"{fmt(x['start_date'])} – {fmt(x['end_date'])}"
+    if x.get("start_time"):
+        when += f" · {hm(x['start_time'])}"
+    price = (x.get("price_text") or "Free") if x.get("is_free") else (x.get("price_text") or "")
+    sub = " · ".join(v for v in (x.get("venue"), price) if v)
+    pic = f'<img src="img/{img}" alt="" loading="lazy">' if img else '<span class="noimg"></span>'
+    return (f'<a class="ev" href="e/event-{x["id"]}.html">{pic}<span><b>{e(x["title"])}</b>'
+            f'<small>{e(when)}</small><small>{e(sub)}</small></span></a>')
+
+
+tabs, panels = [], []
+for i, city in enumerate(CITIES):
+    mine = [x for x in ev if (x.get("city") or "") == city]
+    t_list = sorted((x for x in mine if on(x, td)), key=rank)[:10]
+    t_ids = {x["id"] for x in t_list}
+    w_list = sorted((x for x in mine if x["id"] not in t_ids and any(on(x, d) for d in wk if d > td)), key=rank)[:10]
+    if not t_list and not w_list:
+        continue
+    slug = city.lower().replace(" ", "-")
+    tabs.append(f'<button data-c="{slug}"{" class=on" if not tabs else ""}>{e(city)}</button>')
+    body = ""
+    if t_list:
+        body += f"<h3>Today in {e(city)}</h3>" + "".join(card(x) for x in t_list)
+    if w_list:
+        body += f"<h3>This weekend in {e(city)}</h3>" + "".join(card(x) for x in w_list)
+    panels.append(f'<section id="{slug}"{"" if len(panels) == 0 else " hidden"}><h2>What\'s on in {e(city)}</h2>{body}</section>')
+home = (open(os.path.join(ROOT, "bot/site_home.html"), encoding="utf-8").read()
+        .replace("{{DATE}}", td.strftime("%A %d %B %Y").replace(" 0", " ")).replace("{{TABS}}", "".join(tabs)).replace("{{PANELS}}", "".join(panels)))
+with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as fh:
+    fh.write(home)
+
 # usuń strony wpisów, które już się skończyły albo zostały wycofane
 for f in os.listdir(os.path.join(OUT, "e")):
     if f.endswith(".html") and f not in keep:
