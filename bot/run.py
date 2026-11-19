@@ -1056,6 +1056,8 @@ def main() -> int:
 
                         if db and not args.dry_run:
                             db.upsert("bot_pages", {"url": url, "content_hash": h, "last_fetched_at": now_iso, "last_status": log["status"]}, "url")
+                    except CollectOnly:
+                        pass  # przejście 1 paczki: strona czeka na odpowiedź z paczki
                     except Exception as e:
                         log["status"] += f" | BŁĄD: {type(e).__name__}: {str(e)[:150]}"
                         print(f"   błąd: {e}")
