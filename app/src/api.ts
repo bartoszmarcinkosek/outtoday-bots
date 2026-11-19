@@ -89,15 +89,26 @@ export type AppData = { events: EventRow[]; places: PlaceRow[]; deals: DealRow[]
 
 const CACHE_KEY = 'outtoday.data.v1';
 
-async function getTable<T>(table: string, order: string): Promise<T[]> {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=*&order=${order}`, {
-    headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
-  });
-  if (!res.ok) {
-    throw new Error(`${table}: ${res.status} ${await res.text()}`);
+// Tylko potrzebne kolumny (bez "evidence" itp.), stronami po 1000 – Supabase oddaje najwyżej 1000 wierszy naraz.
+async function getTable<T>(table: string, order: string, select: string, extra = ''): Promise<T[]> {
+  const out: T[] = [];
+  for (let from = 0; from < 20000; from += 1000) {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=${select}&order=${order}${extra}`, {
+      headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`, Range: `${from}-${from + 999}` },
+    });
+    if (!res.ok) {
+      throw new Error(`${table}: ${res.status} ${await res.text()}`);
+    }
+    const page = (await res.json()) as T[];
+    out.push(...page);
+    if (page.length < 1000) break;
   }
-  return (await res.json()) as T[];
+  return out;
 }
+
+const EVENT_COLS = 'id,title,description,category,start_date,end_date,start_time,end_time,venue,area,city,price_text,is_free,kid_friendly,price_min_aed,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,registration_required,url,source_name,source_url,verified_at';
+const PLACE_COLS = 'id,name,description,category,area,city,hours_text,hours,price_text,is_free,kid_friendly,is_indoor,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,url,source_name';
+const DEAL_COLS = 'id,deal_type,title,details,venue,area,city,days_of_week,start_time,end_time,price_text,valid_until,kid_friendly,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,url,source_name';
 
 export async function loadCached(): Promise<AppData | null> {
   try {
@@ -108,11 +119,17 @@ export async function loadCached(): Promise<AppData | null> {
   }
 }
 
+function todayUae(): string {
+  return new Date(Date.now() + 4 * 3600000).toISOString().slice(0, 10); // data w ZEA (UTC+4)
+}
+
 export async function fetchAll(): Promise<AppData> {
   const [events, places, deals] = await Promise.all([
-    getTable<EventRow>('events', 'start_date.asc,start_time.asc.nullslast'),
-    getTable<PlaceRow>('places', 'name.asc'),
-    getTable<DealRow>('deals', 'title.asc'),
+    // tylko eventy, które jeszcze trwają albo dopiero będą (minione nie są potrzebne)
+    getTable<EventRow>('events', 'start_date.asc,start_time.asc.nullslast,id.asc', EVENT_COLS,
+      `&or=(end_date.gte.${todayUae()},and(end_date.is.null,start_date.gte.${todayUae()}))`),
+    getTable<PlaceRow>('places', 'name.asc,id.asc', PLACE_COLS),
+    getTable<DealRow>('deals', 'title.asc,id.asc', DEAL_COLS),
   ]);
   const data: AppData = { events, places, deals, fetchedAt: new Date().toISOString() };
   try {
