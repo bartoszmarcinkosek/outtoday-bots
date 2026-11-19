@@ -12,6 +12,7 @@ export function SuggestSheet(props: { visible: boolean; onClose: () => void; cit
   const [date, setDate] = useState('');
   const [venue, setVenue] = useState('');
   const [city, setCity] = useState(props.city);
+  const [price, setPrice] = useState('');
   const [link, setLink] = useState('');
   const [note, setNote] = useState('');
   const [contact, setContact] = useState('');
@@ -20,7 +21,7 @@ export function SuggestSheet(props: { visible: boolean; onClose: () => void; cit
   const ok = title.trim().length >= 3 && (date.trim() || link.trim());
   const close = () => {
     if (state === 'done') {
-      setTitle(''); setDate(''); setVenue(''); setLink(''); setNote(''); setContact(''); setState('idle');
+      setTitle(''); setDate(''); setVenue(''); setPrice(''); setLink(''); setNote(''); setContact(''); setState('idle');
     }
     props.onClose();
   };
@@ -28,7 +29,9 @@ export function SuggestSheet(props: { visible: boolean; onClose: () => void; cit
     if (!ok || state === 'sending') return;
     setState('sending');
     try {
-      await sendSuggestion({ title, event_date: date, venue, city, link, note, contact });
+      // cena idzie w polu note (bez zmiany bazy) – w porannym e-mailu widać ją na początku notatki
+      const fullNote = [price.trim() && `Price: ${price.trim()}`, note.trim()].filter(Boolean).join('\n');
+      await sendSuggestion({ title, event_date: date, venue, city, link, note: fullNote, contact });
       setState('done');
     } catch {
       setState('error');
@@ -51,12 +54,13 @@ export function SuggestSheet(props: { visible: boolean; onClose: () => void; cit
             <Field label="What is it? *" value={title} onChange={setTitle} placeholder="e.g. Sunset yoga on the beach" max={150} />
             <Field label="When?" value={date} onChange={setDate} placeholder="e.g. Sat 28 Nov, 6 pm" max={40} />
             <Field label="Where?" value={venue} onChange={setVenue} placeholder="Venue or area" max={150} />
+            <Field label="Price" value={price} onChange={setPrice} placeholder="e.g. Free, AED 50, from AED 99" max={80} />
             <Text style={styles.label}>City</Text>
             <View style={styles.chips}>
               {CITIES.map((c) => <Chip key={c} label={c} active={city === c} onPress={() => setCity(c)} />)}
             </View>
             <Field label="Link (official page, tickets or Instagram)" value={link} onChange={setLink} placeholder="https://" max={400} url />
-            <Field label="Anything else?" value={note} onChange={setNote} placeholder="Price, who it is for..." max={600} multi />
+            <Field label="Anything else?" value={note} onChange={setNote} placeholder="Who it is for, how to book..." max={600} multi />
             <Field label="Your email (optional, only if we have questions)" value={contact} onChange={setContact} placeholder="name@example.com" max={120} email />
             {state === 'error' && <Text style={styles.err}>Could not send. Check your connection and try again.</Text>}
             {!ok && <Text style={styles.small}>Add a name and either a date or a link.</Text>}
