@@ -23,7 +23,7 @@ export const PHOTO_FILES: Record<string, number[]> = {
   'dj': [require('../assets/photos/dj-1.jpg')],
   'family': [require('../assets/photos/family-1.jpg')],
   'festivals': [require('../assets/photos/festivals-1.jpg')],
-  'food': [require('../assets/photos/food-1.jpg')],
+  'food': [require('../assets/photos/food-1.jpg'), require('../assets/photos/food-2.jpg')],
   'football': [require('../assets/photos/football-1.jpg')],
   'golf': [require('../assets/photos/golf-1.jpg')],
   'happy_hour': [require('../assets/photos/happy_hour-1.jpg')],
