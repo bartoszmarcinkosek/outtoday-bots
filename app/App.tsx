@@ -342,7 +342,7 @@ function Main() {
             <Text style={styles.brand}>OutToday</Text>
             <Ionicons name="information-circle-outline" size={18} color={colors.muted} style={{ marginLeft: 6, marginTop: 4 }} />
           </Pressable>
-          <Text style={styles.tagline}>All UAE events in one place</Text>
+          <Text style={styles.tagline}>{'Events, deals & places. All in one app.'}</Text>
           <Pressable onPress={() => setShowWhere(true)} style={styles.where} hitSlop={8}>
             <Ionicons name="location" size={15} color={colors.primary} />
             <Text style={styles.whereText} numberOfLines={1}>{whereLabel}</Text>
