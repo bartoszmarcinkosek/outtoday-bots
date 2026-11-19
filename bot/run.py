@@ -47,7 +47,7 @@ UAE_TZ = dt.timezone(dt.timedelta(hours=4))
 
 EVENT_CATEGORIES = [
     "music", "culture", "sport", "food", "festivals",
-    "nightlife", "classes", "nature", "community", "family",
+    "nightlife", "classes", "nature", "community", "family", "market",
 ]
 CITIES = [
     "Abu Dhabi", "Al Ain", "Dubai", "Sharjah", "Ajman",
@@ -282,7 +282,8 @@ ITEM_SCHEMA = {
             "classes = workshops and courses for adults; sport = matches, races, runs, fitness; "
             "food = food festivals, tastings, dining events; festivals = multi-day festivals and seasonal villages; "
             "nightlife = club nights and parties; nature = outdoor, desert, beach, stargazing; "
-            "community = markets, meetups, charity, national-day celebrations. "
+            "market = markets held as events: flea, night, farmers', craft, winter and Christmas markets, bazaars (not venues that only have Market in their name); "
+            "community = meetups, charity, national-day celebrations. "
             "If something is for children or families, always use family.")},
         "start_date": {"type": ["string", "null"], "description": "YYYY-MM-DD. Null if the page gives no date."},
         "end_date": {"type": ["string", "null"], "description": "YYYY-MM-DD for multi-day runs (exhibitions, festivals). Null otherwise."},
