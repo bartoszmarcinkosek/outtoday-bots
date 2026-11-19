@@ -165,7 +165,7 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
   const q = encodeURIComponent(item.mapQuery);
   const share = () => {
     // link do strony wpisu na naszej stronie (działa też u osób bez apki)
-    const link = `https://outtodayapp.github.io/e.html?id=${encodeURIComponent(item.key)}`;
+    const link = `https://outtodayapp.github.io/e/${item.key.replace(':', '-')}.html`; // strona ze zdjęciem (podgląd w WhatsApp)
     const lines = [item.title, item.whenFull, item.where, item.priceText, '', `More on OutToday: ${link}`];
     count('share', `${item.kind}:${item.catKey ?? ''}`);
     Share.share({ message: lines.filter(Boolean).join('\n') }).catch(() => undefined);
