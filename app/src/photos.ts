@@ -20,6 +20,7 @@ const LANDMARKS: [RegExp, string][] = [
   [/expo city|al wasl dome|al wasl plaza/i, 'lm_expo_city'],
   [/palm jumeirah|\bthe palm\b|atlantis/i, 'lm_palm'],
   [/saadiyat/i, 'lm_saadiyat'],
+  [/reem island|\bal reem\b|reem mall|shams abu dhabi|gate towers|reem central park/i, 'lm_reem'],
   [/corniche/i, 'lm_corniche'],
   [/museum of the future/i, 'lm_museum_future'],
   [/global village/i, 'lm_global_village'],
