@@ -4,7 +4,7 @@ import * as Location from 'expo-location';
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator, FlatList, Linking, Modal, Pressable, RefreshControl, ScrollView, Share, StyleSheet, Text, TextInput, View,
+  ActivityIndicator, FlatList, Linking, Modal, Platform, Pressable, RefreshControl, ScrollView, Share, StyleSheet, Text, TextInput, View,
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppData, fetchAll, loadCached } from './src/api';
@@ -44,6 +44,8 @@ const PRICE_CAPS = [100, 200, 300];
 const PREFS_KEY = 'outtoday.prefs.v1';
 const FAVS_KEY = 'outtoday.favs.v1';
 const VISIT_KEY = 'outtoday.lastVisit.v1';
+// Mapa na Androidzie wymaga klucza Google Maps w buildzie (app.json) – do tego czasu tylko iPhone (Apple Maps).
+const MAP_OK = Platform.OS === 'ios';
 const INTERESTS_KEY = 'outtoday.interests.v1';
 // Kategorie eventów do wyboru przy pierwszym uruchomieniu (ekran Dziś pokazuje je wyżej).
 const INTEREST_KEYS = ['music', 'culture', 'sport', 'food', 'family', 'nightlife', 'festivals', 'classes', 'nature', 'community', 'market'];
@@ -428,10 +430,10 @@ function Main() {
                 <Text style={styles.toolText}>Clear</Text>
               </Pressable>
             )}
-            <Pressable onPress={() => setView(view === 'list' ? 'map' : 'list')} style={styles.tool}>
+            {MAP_OK && <Pressable onPress={() => setView(view === 'list' ? 'map' : 'list')} style={styles.tool}>
               <Ionicons name={view === 'list' ? 'map-outline' : 'list-outline'} size={19} color={colors.text} />
               <Text style={styles.toolText}>{view === 'list' ? 'Map' : 'List'}</Text>
-            </Pressable>
+            </Pressable>}
             <View style={{ flex: 1 }} />
             <Text style={styles.count}>{list.length} {list.length === 1 ? 'result' : 'results'}</Text>
           </View>
@@ -439,7 +441,7 @@ function Main() {
             <Text style={styles.activeCat}>Showing: {labelFor(tab, cats[tab]!).label}</Text>
           )}
 
-          {view === 'map' ? (
+          {MAP_OK && view === 'map' ? (
             <ZoneMap items={list} city={city} card={card} />
           ) : (
             <FlatList
@@ -666,6 +668,11 @@ function TodayScreen(props: {
     ? ranked.filter((i) => i.event!.start_date === today && !!i.event!.start_time && i.event!.start_time.slice(0, 5) >= hm)
     : [];
   const onToday = ranked.filter((i) => !tonight.includes(i));
+  // "For you": najbliższe 7 dni w wybranych kategoriach (żeby wybór było widać, nawet gdy dziś nic z nich nie ma).
+  const week: [string, string] = [today, todayIso(new Date(now.getTime() + 6 * 86400000))];
+  const forYou = props.interests.length
+    ? sortItems(props.local.filter((i) => i.event && props.interests.includes(i.catKey) && inRange(i.event, week)), 'default')
+    : [];
   const freeToday = onToday.filter((i) => i.free);
   const deals = props.local.filter((i) => i.deal && dealOnDay(i.deal, now.getDay()));
   const rank = (i: Item) => (dealOnNow(i.deal!, now) ? 0 : dealEndedToday(i.deal!, now) ? 2 : 1);
@@ -695,6 +702,7 @@ function TodayScreen(props: {
 
   const blocks = [
     section('Tonight', tonight, 5, () => props.jump({ tab: 'events', day: 'today' })),
+    section('For you this week', forYou, 5, () => props.jump({ tab: 'events', day: 'all', key: props.interests.length === 1 ? props.interests[0] : null })),
     section(tonight.length ? 'Also on today' : 'On today', onToday, tonight.length ? 3 : 5, () => props.jump({ tab: 'events', day: 'today' })),
     section('This weekend', byInterest(weekend), 5, () => props.jump({ tab: 'events', day: 'weekend' })),
     section('Free today', freeToday, 4, () => props.jump({ tab: 'events', day: 'today', free: true })),

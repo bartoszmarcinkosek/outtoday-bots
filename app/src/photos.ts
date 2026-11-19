@@ -34,6 +34,8 @@ const LANDMARKS: [RegExp, string][] = [
 
 const RULES: [RegExp, string][] = [
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|hot air balloon|seaplane|helicopter|microlight|zip ?line|flying (lesson|experience)|scenic flight/i, 'flying'],
+  [/board ?game|boardgame|\bchess\b|mahjong|scrabble|language|polyglot|conversation (club|meetup|café|cafe)|language exchange/i, 'community'],
+  [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|hip ?hop class|zumba|belly ?dance/i, 'dance'],
   [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah/i, 'heritage'],
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|surfing|scuba|diving|snorkel|flyboard/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|opera\b|recital|piano|violin/i, 'candlelight'],
@@ -77,7 +79,7 @@ const CAT: Record<string, string[]> = {
 const CITY_SUFFIX: Record<string, string> = { Dubai: 'dubai', 'Abu Dhabi': 'abudhabi', Sharjah: 'sharjah', 'Ras Al Khaimah': 'rak' };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['flying', 'watersports', 'heritage']);
+const NO_FALLBACK = new Set(['flying', 'watersports', 'heritage', 'dance']);
 
 function hash(s: string): number {
   let h = 2166136261;
