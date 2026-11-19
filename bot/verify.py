@@ -305,6 +305,7 @@ def main() -> int:
     import anthropic
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6)
     db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
+    R._DB = db
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
     usage = {"input": 0, "output": 0, "calls": 0, "searches": 0}
     report: list[dict] = []
@@ -347,8 +348,17 @@ def main() -> int:
                     if not args.find_urls:
                         rep["result"] = "brak strony oficjalnej (uruchom z --find-urls)"
                         continue
-                    done += 1
-                    url, why = find_official_url(client, table, row, usage)
+                    ckey = f"official:{table}:{row['id']}"
+                    cached = R.search_cache_get(ckey, days=30)
+                    if cached == "":
+                        rep["result"] = "nie znaleziono strony (sprawdzane w ostatnich 30 dniach)"
+                        continue
+                    if cached:
+                        url, why = cached, "z pamięci wyszukiwań"
+                    else:
+                        done += 1
+                        url, why = find_official_url(client, table, row, usage)
+                        R.search_cache_put(ckey, url)
                     if not url:
                         rep["result"] = f"nie znaleziono strony: {why}"
                         continue
@@ -382,7 +392,7 @@ def main() -> int:
                             already.add(key)
                     continue
 
-                h = hashlib.sha256((R.norm(text) + json.dumps(row, sort_keys=True, default=str)).encode()).hexdigest()
+                h = hashlib.sha256((R.norm(page.get("full_text") or text) + json.dumps(row, sort_keys=True, default=str)).encode()).hexdigest()
                 page_key = f"{table}:{row['id']}"
                 if not args.force:
                     prev = db.get("bot_pages", {"select": "content_hash", "url": f"eq.{page_key}"})

@@ -106,6 +106,47 @@ def parse_time(s) -> str | None:
 
 
 _ROBOTS_CACHE: dict[str, tuple[int, str]] = {}
+_DB = None  # ustawiane w main(); pamięć wyszukiwań (tabela bot_pages, klucz "search:...")
+MAX_SEARCH_CALLS = int(os.environ.get("MAX_SEARCH_CALLS", "15"))  # limit płatnych wyszukiwań na jedno uruchomienie
+_search_calls = 0
+
+
+def search_budget() -> bool:
+    """True = wolno jeszcze szukać w tym uruchomieniu (każde zapytanie to do 2–3 wyszukań po ~0,01 USD)."""
+    global _search_calls
+    if _search_calls >= MAX_SEARCH_CALLS:
+        return False
+    _search_calls += 1
+    return True
+
+
+def search_cache_get(key: str, days: int = 30):
+    """Wynik wcześniejszego wyszukania: url, "" (nic nie znaleziono) albo None (brak w pamięci / przeterminowane)."""
+    if not _DB:
+        return None
+    try:
+        rows = _DB.get("bot_pages", {"select": "content_hash,last_fetched_at", "url": f"eq.search:{key}"})
+    except Exception:
+        return None
+    if not rows:
+        return None
+    cutoff = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)).isoformat()
+    if (rows[0].get("last_fetched_at") or "") < cutoff:
+        return None
+    v = rows[0].get("content_hash") or "-"
+    return "" if v == "-" else v
+
+
+def search_cache_put(key: str, value: str | None) -> None:
+    if not _DB:
+        return
+    try:
+        _DB.upsert("bot_pages", {"url": f"search:{key}", "content_hash": value or "-",
+                                 "last_fetched_at": dt.datetime.now(dt.timezone.utc).isoformat(), "last_status": "search"}, "url")
+    except Exception as e:
+        print(f"   [pamięć wyszukiwań] {e}")
+
+
 _BROWSER = None  # ustawiane w main(); robots.txt czytamy przez przeglądarkę, gdy zwykłe pobieranie ma problem z certyfikatem
 
 
@@ -183,6 +224,16 @@ class Browser:
             ctx.close()
 
     def fetch(self, url: str) -> dict:
+        """Jak _fetch, ale w trybie paczki drugie przejście bierze stronę z pamięci (bez ponownego pobierania)."""
+        memo = self.__dict__.setdefault("_memo", {})
+        if BATCH["mode"] == "use" and url in memo:
+            return memo[url]
+        page = self._fetch(url)
+        if BATCH["mode"] == "collect":
+            memo[url] = page
+        return page
+
+    def _fetch(self, url: str) -> dict:
         if self._browser:
             ctx = self._browser.new_context(user_agent=USER_AGENT, locale="en-US")
             page = ctx.new_page()
@@ -196,7 +247,20 @@ class Browser:
                 for _ in range(4):
                     page.mouse.wheel(0, 4000)
                     page.wait_for_timeout(700)
-                text = page.inner_text("body")
+                full = page.inner_text("body")
+                # Bez menu, stopki i banerów cookies: mniej tokenów do AI (oszczędność), treść eventów zostaje.
+                try:
+                    lean = page.evaluate("""() => {
+                        const b = document.body.cloneNode(true);
+                        b.querySelectorAll('nav, footer, [role=navigation], [role=contentinfo], script, style, noscript, svg, '
+                          + '[id*=cookie i], [class*=cookie i], [id*=consent i], [class*=consent i], [class*=newsletter i]')
+                          .forEach(e => e.remove());
+                        document.documentElement.appendChild(b); b.style.display = 'block';
+                        const t = b.innerText; b.remove(); return t;
+                    }""")
+                except Exception:
+                    lean = ""
+                text = slim_text(lean if lean and len(lean) > max(500, 0.3 * len(full)) else full)
                 links = page.eval_on_selector_all(
                     "a[href]",
                     "els => els.map(a => [(a.innerText || a.getAttribute('aria-label') || '').trim().slice(0,150), a.href])",
@@ -205,7 +269,7 @@ class Browser:
                 final_url = page.url
             finally:
                 ctx.close()
-            return {"status": status, "text": text, "links": links, "final_url": final_url}
+            return {"status": status, "text": text, "full_text": full, "links": links, "final_url": final_url}
 
         r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=45)
         from bs4 import BeautifulSoup
@@ -213,7 +277,30 @@ class Browser:
         for t in soup(["script", "style", "noscript"]):
             t.decompose()
         links = [[a.get_text(" ", strip=True)[:150], urljoin(r.url, a["href"])] for a in soup.find_all("a", href=True)]
-        return {"status": r.status_code, "text": soup.get_text("\n", strip=True), "links": links, "final_url": r.url}
+        full = soup.get_text("\n", strip=True)
+        for t in soup(["nav", "footer"]):
+            t.decompose()
+        lean = soup.get_text("\n", strip=True)
+        text = slim_text(lean if len(lean) > max(500, 0.3 * len(full)) else full)
+        return {"status": r.status_code, "text": text, "full_text": full, "links": links, "final_url": r.url}
+
+
+def slim_text(t: str) -> str:
+    """Usuwa puste i powtarzające się linie (menu, przyciski "Book now" itp.) – mniej tokenów, ta sama treść."""
+    seen: dict[str, int] = {}
+    out = []
+    for line in (t or "").splitlines():
+        x = line.strip()
+        if not x:
+            continue
+        k = x.lower()
+        seen[k] = seen.get(k, 0) + 1
+        if len(x) < 40 and seen[k] > 2:  # krótkie powtórki ("Book now", "Read more") – zostawiamy dwie
+            continue
+        if out and out[-1] == x:
+            continue
+        out.append(x)
+    return "\n".join(out)
 
 
 TICKET_SELLERS = ("district.ae", "platinumlist.net", "ticketmaster", "livenation.me", "ticketsmarche", "800tickets", "q-tickets",
@@ -363,6 +450,48 @@ Put into "rejected" (with reason): permanent collections or regular opening hour
 """
 
 
+class CollectOnly(Exception):
+    """Pierwsze przejście trybu paczki: zapytanie zapisane, strona będzie przetworzona w drugim przejściu."""
+
+
+# Tryb paczki (Batch API, 50% taniej): przejście 1 zbiera zapytania, paczka idzie do Anthropic,
+# przejście 2 robi to samo co zwykle, ale bierze gotowe odpowiedzi z paczki.
+BATCH: dict = {"mode": None, "requests": {}, "results": {}}
+BATCH_WAIT_MIN = int(os.environ.get("BATCH_WAIT_MIN", "150"))
+
+
+def run_batch(client) -> None:
+    reqs = BATCH["requests"]
+    if not reqs:
+        return
+    print(f"Paczka: {len(reqs)} zapytań do AI (Batch API, połowa ceny)")
+    try:
+        b = client.messages.batches.create(requests=[{"custom_id": k, "params": v} for k, v in reqs.items()])
+    except Exception as e:
+        print(f"   paczka niedostępna ({type(e).__name__}: {e}) – zwykłe zapytania")
+        return
+    t0 = time.time()
+    while True:
+        b = client.messages.batches.retrieve(b.id)
+        if b.processing_status == "ended":
+            break
+        if time.time() - t0 > BATCH_WAIT_MIN * 60:
+            print("   paczka nie skończyła się na czas – reszta zwykłymi zapytaniami")
+            try:
+                client.messages.batches.cancel(b.id)
+            except Exception:
+                pass
+            break
+        time.sleep(30)
+    try:
+        for r in client.messages.batches.results(b.id):
+            if r.result.type == "succeeded":
+                BATCH["results"][r.custom_id] = r.result.message
+    except Exception as e:
+        print(f"   wyniki paczki: {type(e).__name__}: {e}")
+    print(f"   gotowe: {len(BATCH['results'])}/{len(reqs)} w {int((time.time() - t0) / 60)} min")
+
+
 def call_model(client, text: str, links: list[tuple[str, str]], source: dict, page_url: str, focus: str | None, usage: dict,
                ext_links: list[tuple[str, str]] | None = None) -> dict:
     links_txt = "\n".join(f"[{label}] {href}" for label, href in links)
@@ -383,16 +512,25 @@ def call_model(client, text: str, links: list[tuple[str, str]], source: dict, pa
         f"=== LINKS ===\n{links_txt}\n=== END LINKS ==="
         + (f"\n\n=== EXTERNAL LINKS (organisers) ===\n{ext_txt}\n=== END EXTERNAL LINKS ===" if ext_txt else "")
     )
+    params = {"model": MODEL, "max_tokens": 16000, "system": rules, "tools": [TOOL],
+              "tool_choice": {"type": "tool", "name": "save_events"}, "messages": [{"role": "user", "content": msg}]}
+    if BATCH["mode"] and not focus:
+        cid = hashlib.sha1(msg.encode()).hexdigest()
+        if BATCH["mode"] == "collect":
+            BATCH["requests"][cid] = params
+            raise CollectOnly()
+        res = BATCH["results"].get(cid)
+        if res is not None:  # wynik z paczki (połowa ceny)
+            usage["input"] += round(res.usage.input_tokens / 2)
+            usage["output"] += round(res.usage.output_tokens / 2)
+            usage["calls"] += 1
+            for block in res.content:
+                if block.type == "tool_use":
+                    return clean_output(block.input)
+            return {"events": [], "rejected": []}
     for attempt in range(3):
         try:
-            resp = client.messages.create(
-                model=MODEL,
-                max_tokens=16000,
-                system=rules,
-                tools=[TOOL],
-                tool_choice={"type": "tool", "name": "save_events"},
-                messages=[{"role": "user", "content": msg}],
-            )
+            resp = client.messages.create(**params)
             break
         except Exception as e:
             print(f"   [AI błąd, próba {attempt + 1}] {type(e).__name__}: {e}")
@@ -741,6 +879,7 @@ def dedupe(accepted: list[tuple[dict, dict]]) -> list[tuple[dict, dict]]:
 
 
 RECHECK_DAYS = 3
+EMPTY_RECHECK_DAYS = 30  # strony, które ciągle nic nie dają
 DAILY_HOSTS = ("platinumlist", "feverup", "eventbrite", "meetup.com", "hopasports", "ticketmaster", "q-tickets",
                "coca-cola-arena", "etihadarena", "virginmegastore")
 
@@ -770,6 +909,8 @@ def main() -> int:
     sb_url, sb_key = os.environ.get("SUPABASE_URL", "").strip(), os.environ.get("SUPABASE_SECRET_KEY", "").strip()
     if sb_url and sb_key:
         db = DB(sb_url, sb_key)
+        global _DB
+        _DB = db
     elif not args.dry_run:
         print("Brak SUPABASE_URL / SUPABASE_SECRET_KEY, a to nie jest próba (--dry-run)")
         return 1
@@ -814,95 +955,108 @@ def main() -> int:
     global _BROWSER
     with Browser() as br:
         _BROWSER = br
-        for src in sources:
-            if len(accepted) >= args.max_items:
-                break
-            for url in src["urls"]:
-                log = {"source": src["name"], "url": url, "status": "", "found": 0, "kept": 0}
-                source_log.append(log)
-                # Oszczędność: codziennie tylko sprzedawcy biletów i duże hale; reszta co RECHECK_DAYS dni.
-                if db and not args.force and not only and not is_daily(src, url):
-                    try:
-                        prev = db.get("bot_pages", {"select": "last_fetched_at", "url": f"eq.{url}"})
-                        last = prev[0]["last_fetched_at"] if prev and prev[0].get("last_fetched_at") else None
-                        if last and dt.datetime.fromisoformat(last.replace("Z", "+00:00")) > \
-                                dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=RECHECK_DAYS, hours=-2):
-                            log["status"] = f"sprawdzane co {RECHECK_DAYS} dni (ostatnio {last[:10]})"
-                            continue
-                    except Exception:
-                        pass
-                try:
-                    ok, why = robots_allows(url)
-                    if not ok:
-                        log["status"] = why
-                        print(f"- {src['name']}: {why}, pomijam")
-                        continue
-                    try:
-                        page = br.fetch(url)
-                    except Exception as e:
-                        log["status"] = f"błąd pobierania: {type(e).__name__}"
-                        print(f"- {src['name']}: {log['status']} {e}")
-                        continue
-                    text = page["text"] or ""
-                    log["status"] = f"HTTP {page['status']}, {len(text)} znaków"
-                    print(f"- {src['name']}: {log['status']}")
-                    if page["status"] >= 400 or len(text) < 200:
-                        log["status"] += " (pusta lub błąd)"
-                        continue
-
-                    h = hashlib.sha256(norm(text).encode()).hexdigest()
-                    if db and not args.force:
+        use_batch = os.environ.get("BATCH", "1") != "0" and not args.dry_run and not only
+        n_rep, n_log = len(report), len(source_log)
+        for _pass in (["collect", "use"] if use_batch else [None]):
+            BATCH["mode"] = _pass
+            if _pass == "use":
+                run_batch(client)
+                del report[n_rep:], source_log[n_log:]
+                accepted.clear()
+            for src in sources:
+                if len(accepted) >= args.max_items:
+                    break
+                for url in src["urls"]:
+                    log = {"source": src["name"], "url": url, "status": "", "found": 0, "kept": 0}
+                    source_log.append(log)
+                    # Oszczędność: codziennie tylko sprzedawcy biletów i duże hale; reszta co RECHECK_DAYS dni.
+                    if db and not args.force and not only and not is_daily(src, url):
                         try:
-                            prev = db.get("bot_pages", {"select": "content_hash", "url": f"eq.{url}"})
-                        except Exception:
-                            prev = []
-                        if prev and prev[0]["content_hash"] == h:
-                            log["status"] += ", bez zmian od ostatniego razu (pomijam AI)"
-                            print("   bez zmian, pomijam")
-                            continue
-
-                    links = clean_links(page["links"], page["final_url"])
-                    link_urls = {u for _, u in links}
-                    page_norm = norm(text)
-                    ext = external_links(page["links"], page["final_url"]) if src.get("gov_tourism") else None
-                    ext_urls = {u for _, u in (ext or [])}
-                    out = call_model(client, text, links, src, page["final_url"], None, usage, ext)
-                    for rj in out.get("rejected", []):
-                        report.append({"source": src["name"], "title": rj.get("title"), "action": f"odrzucone: {rj.get('reason')}"})
-
-                    if len(out.get("events", [])) < 3:
-                        hints = [f"{l} -> {u}" for l, u in links if re.search(r"what.?s on|event|calendar|programme|program|performances|exhibitions", (l + " " + u).lower())]
-                        log["status"] += " | mało eventów; możliwe strony: " + "; ".join(hints[:6])
-                    details_used = 0
-                    for raw in out.get("events", []):
-                        log["found"] += 1
-                        item, why = check_item(raw, page_norm, link_urls, src, page["final_url"])
-                        if item and raw.get("organiser_url") in ext_urls:
-                            item["organiser_url"] = raw["organiser_url"]
-                        if not item:
-                            report.append({"source": src["name"], "title": raw.get("title"), "action": f"odrzucone: {why}"})
-                            continue
-                        items = [item]
-                        # brakuje czegoś? zajrzyj na podstronę eventu
-                        if item["gaps"] and item["detail_url"] and details_used < args.max_details:
-                            details_used += 1
-                            time.sleep(PAUSE_SECONDS)
-                            items = enrich_from_detail(br, client, item, src, usage)
-                        for it in items:
-                            if len(accepted) >= args.max_items:
-                                break
-                            if not it.get("start_date"):
-                                report.append(row_for_report(src, it, "do uzupełnienia ręcznie: brak daty (nie trafia do bazy)"))
+                            prev = db.get("bot_pages", {"select": "last_fetched_at", "url": f"eq.{url}"})
+                            last = prev[0]["last_fetched_at"] if prev and prev[0].get("last_fetched_at") else None
+                            # Strona, która 3 razy z rzędu nie dała żadnego eventu: sprawdzamy raz w miesiącu.
+                            empty = search_cache_get(f"empty:{url}", days=3650)
+                            every = EMPTY_RECHECK_DAYS if (empty or "").isdigit() and int(empty) >= 3 else RECHECK_DAYS
+                            if last and dt.datetime.fromisoformat(last.replace("Z", "+00:00")) > \
+                                    dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=every, hours=-2):
+                                log["status"] = f"sprawdzane co {every} dni (ostatnio {last[:10]})"
                                 continue
-                            accepted.append((src, it))
-                            log["kept"] += 1
+                        except Exception:
+                            pass
+                    try:
+                        ok, why = robots_allows(url)
+                        if not ok:
+                            log["status"] = why
+                            print(f"- {src['name']}: {why}, pomijam")
+                            continue
+                        try:
+                            page = br.fetch(url)
+                        except Exception as e:
+                            log["status"] = f"błąd pobierania: {type(e).__name__}"
+                            print(f"- {src['name']}: {log['status']} {e}")
+                            continue
+                        text = page["text"] or ""
+                        log["status"] = f"HTTP {page['status']}, {len(text)} znaków"
+                        print(f"- {src['name']}: {log['status']}")
+                        if page["status"] >= 400 or len(text) < 200:
+                            log["status"] += " (pusta lub błąd)"
+                            continue
 
-                    if db and not args.dry_run:
-                        db.upsert("bot_pages", {"url": url, "content_hash": h, "last_fetched_at": now_iso, "last_status": log["status"]}, "url")
-                except Exception as e:
-                    log["status"] += f" | BŁĄD: {type(e).__name__}: {str(e)[:150]}"
-                    print(f"   błąd: {e}")
-                time.sleep(PAUSE_SECONDS)
+                        h = hashlib.sha256(norm(page.get("full_text") or text).encode()).hexdigest()  # skrót z pełnej strony: bez fałszywych "zmian"
+                        if db and not args.force:
+                            try:
+                                prev = db.get("bot_pages", {"select": "content_hash", "url": f"eq.{url}"})
+                            except Exception:
+                                prev = []
+                            if prev and prev[0]["content_hash"] == h:
+                                log["status"] += ", bez zmian od ostatniego razu (pomijam AI)"
+                                print("   bez zmian, pomijam")
+                                continue
+
+                        links = clean_links(page["links"], page["final_url"])
+                        link_urls = {u for _, u in links}
+                        page_norm = norm(text)
+                        ext = external_links(page["links"], page["final_url"]) if src.get("gov_tourism") else None
+                        ext_urls = {u for _, u in (ext or [])}
+                        out = call_model(client, text, links, src, page["final_url"], None, usage, ext)
+                        log["ai"] = True
+                        for rj in out.get("rejected", []):
+                            report.append({"source": src["name"], "title": rj.get("title"), "action": f"odrzucone: {rj.get('reason')}"})
+
+                        if len(out.get("events", [])) < 3:
+                            hints = [f"{l} -> {u}" for l, u in links if re.search(r"what.?s on|event|calendar|programme|program|performances|exhibitions", (l + " " + u).lower())]
+                            log["status"] += " | mało eventów; możliwe strony: " + "; ".join(hints[:6])
+                        details_used = 0
+                        for raw in out.get("events", []):
+                            log["found"] += 1
+                            item, why = check_item(raw, page_norm, link_urls, src, page["final_url"])
+                            if item and raw.get("organiser_url") in ext_urls:
+                                item["organiser_url"] = raw["organiser_url"]
+                            if not item:
+                                report.append({"source": src["name"], "title": raw.get("title"), "action": f"odrzucone: {why}"})
+                                continue
+                            items = [item]
+                            # brakuje czegoś? zajrzyj na podstronę eventu
+                            if item["gaps"] and item["detail_url"] and details_used < args.max_details:
+                                details_used += 1
+                                time.sleep(PAUSE_SECONDS)
+                                items = enrich_from_detail(br, client, item, src, usage)
+                            for it in items:
+                                if len(accepted) >= args.max_items:
+                                    break
+                                if not it.get("start_date"):
+                                    report.append(row_for_report(src, it, "do uzupełnienia ręcznie: brak daty (nie trafia do bazy)"))
+                                    continue
+                                accepted.append((src, it))
+                                log["kept"] += 1
+
+                        if db and not args.dry_run:
+                            db.upsert("bot_pages", {"url": url, "content_hash": h, "last_fetched_at": now_iso, "last_status": log["status"]}, "url")
+                    except Exception as e:
+                        log["status"] += f" | BŁĄD: {type(e).__name__}: {str(e)[:150]}"
+                        print(f"   błąd: {e}")
+                    time.sleep(PAUSE_SECONDS)
+        BATCH["mode"] = None
 
     # zapis do bazy
     before = len(accepted)
@@ -995,6 +1149,13 @@ def main() -> int:
         counts["auto_old"] = auto_approve_pending(db, sources_all, now_iso)
         from apply_changes import apply_safe_changes
         counts["auto_changes"] = apply_safe_changes(db)
+    if db and not args.dry_run:
+        # licznik "pustych" odczytów strony (AI nie znalazło żadnego eventu); zeruje się, gdy coś znajdzie
+        for lg in source_log:
+            if lg.get("ai"):
+                prev = search_cache_get(f"empty:{lg['url']}", days=3650) or "0"
+                n = (int(prev) + 1) if lg["found"] == 0 and prev.isdigit() else 0
+                search_cache_put(f"empty:{lg['url']}", str(n))
     write_report(report, source_log, usage, counts, args.dry_run)
     if db and not args.dry_run:
         db.insert("bot_runs", {"dry_run": False, "finished_at": dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -1037,8 +1198,15 @@ TICKET_SEARCH_DOMAINS = ["platinumlist.net", "district.ae", "livenation.me", "ti
 
 
 def search_ticket_page(client, item: dict, src: dict, usage: dict) -> list[str]:
-    """Strona eventu nie linkuje sprzedawcy biletów wprost: szukamy go (tylko domeny sprzedawców, ok. 0,01 USD)."""
+    """Strona eventu nie linkuje sprzedawcy biletów wprost: szukamy go (tylko domeny sprzedawców, ok. 0,01 USD).
+    Wynik (także "nie znaleziono") pamiętamy 30 dni, żeby nie płacić drugi raz za to samo."""
     when = item["start_date"].isoformat() if item.get("start_date") else ""
+    ckey = "tickets:" + hashlib.sha1(f"{norm(item['title'])}|{when}".encode()).hexdigest()[:20]
+    cached = search_cache_get(ckey)
+    if cached is not None:
+        return [cached] if cached else []
+    if not search_budget():
+        return []
     prompt = (f"Find the ticket sale page for this exact event: {item['title']}, {when}, at {item.get('venue') or src['name']}, UAE. "
               "Answer with ONE line of JSON only: {\"url\": \"https://...\" or null}")
     try:
@@ -1056,10 +1224,11 @@ def search_ticket_page(client, item: dict, src: dict, usage: dict) -> list[str]:
     usage["searches"] = usage.get("searches", 0) + int(getattr(getattr(resp.usage, "server_tool_use", None), "web_search_requests", 0) or 0)
     text = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
     m = re.search(r"https?://[^\s\"'<>]+", text)
-    if not m:
-        return []
-    url = m.group(0).rstrip(".,)")
-    return [url] if any(d in urlparse(url).netloc.lower() for d in TICKET_SEARCH_DOMAINS) else []
+    url = m.group(0).rstrip(".,)") if m else ""
+    if url and not any(d in urlparse(url).netloc.lower() for d in TICKET_SEARCH_DOMAINS):
+        url = ""
+    search_cache_put(ckey, url)
+    return [url] if url else []
 
 
 def enrich_from_tickets(br: "Browser", client, item: dict, src: dict, usage: dict, links: list) -> dict:

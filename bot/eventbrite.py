@@ -58,7 +58,11 @@ def discover_ids(max_searches: int) -> set[str]:
     import anthropic
     client = anthropic.Anthropic(max_retries=6)
     ids: set[str] = set()
-    for q in QUERIES[:max_searches]:
+    # Rotacja: każdego dnia inna część zapytań (całość co kilka dni) – mniej płatnych wyszukiwań.
+    k = max(1, min(max_searches, len(QUERIES)))
+    start = (dt.date.today().toordinal() * k) % len(QUERIES)
+    todays = [QUERIES[(start + i) % len(QUERIES)] for i in range(k)]
+    for q in todays:
         try:
             resp = client.messages.create(
                 model=os.environ.get("BOT_MODEL", "claude-haiku-5-5"), max_tokens=600,
@@ -124,7 +128,7 @@ def to_item(ev: dict, today: str) -> tuple[dict | None, str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--searches", type=int, default=len(QUERIES))
+    ap.add_argument("--searches", type=int, default=5)
     args = ap.parse_args()
     token = os.environ.get("EVENTBRITE_TOKEN", "").strip()
     if not token:

@@ -531,7 +531,7 @@ def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = 
                             urls.append(extra)
                 fetched_ok += 1
                 text = page["text"]
-                h = hashlib.sha1(R.norm(text).encode()).hexdigest()
+                h = hashlib.sha1(R.norm(page.get("full_text") or text).encode()).hexdigest()
                 prev = db.get("bot_pages", {"select": "content_hash", "url": f"eq.{url}"})
                 if prev and prev[0].get("content_hash") == h and not force:
                     continue
