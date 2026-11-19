@@ -1,0 +1,91 @@
+{
+ "events": [
+  {
+   "title": "GOLDEN: 50 Musical Seasons of the Abu Dhabi Choral Group",
+   "category": "music",
+   "start_date": "2026-11-19",
+   "end_date": "2026-11-21",
+   "start_time": "19:30",
+   "venue": "Raha International School, Gardens Campus",
+   "city": "Abu Dhabi",
+   "price_text": "Adults AED 100, under 18s AED 50 (Raha staff and families 50% off). Tickets cash at the door or from cast members",
+   "description": "The Abu Dhabi Choral Group celebrates its 50th season with five decades of songs from the musicals. Evening shows Thursday to Saturday at 7:30 PM, plus a Saturday matinee at 2:30 PM.",
+   "status": "approved",
+   "source_name": "WhatsApp (poster)"
+  },
+  {
+   "title": "Curating the Commons: Socially Engaged Public Art – book launch",
+   "category": "culture",
+   "start_date": "2026-11-25",
+   "start_time": "17:00",
+   "end_time": "18:30",
+   "venue": "The Art Gallery Reading Room, NYU Abu Dhabi, Saadiyat Island",
+   "city": "Abu Dhabi",
+   "price_text": "Reserve a spot online (Eventbrite)",
+   "registration_required": true,
+   "description": "Book launch and conversation with author Katia Arfara and Shuddhabrata Sengupta (Raqs Media Collective) about public art projects she curated in Athens and how socially engaged art uses shared public space.",
+   "official_url": "https://publicprograms.nyuad.nyu.edu/en/the-art-gallery/events/2026/november/curating-the-commons-socially-engaged-public-art.html",
+   "status": "approved",
+   "source_name": "NYUAD Public Programs"
+  },
+  {
+   "title": "Acid Arab live – Public Art Abu Dhabi Biennial",
+   "category": "music",
+   "start_date": "2026-11-20",
+   "start_time": "19:30",
+   "end_time": "21:30",
+   "venue": "Main Stage, Souq Al Mina",
+   "city": "Abu Dhabi",
+   "description": "Live concert by Acid Arab, blending electronic beats with Arab sounds, as part of the Public Art Abu Dhabi Biennial programme.",
+   "status": "approved",
+   "source_name": "Instagram @publicartabudhabi"
+  },
+  {
+   "title": "Coastal Narratives and Material Heritage – Biennial talk",
+   "category": "culture",
+   "start_date": "2026-11-19",
+   "start_time": "15:00",
+   "end_time": "15:45",
+   "venue": "NOMAD Abu Dhabi, Terminal 1, Old Abu Dhabi Airport",
+   "city": "Abu Dhabi",
+   "description": "Panel discussion on memory, migration and cultural knowledge with Asuncion Molinos Gordo, Khalid Al Banna and Nujoom Alghanem, moderated by Arnaud Morand. Part of the Public Art Abu Dhabi Biennial.",
+   "status": "approved",
+   "source_name": "Instagram @publicartabudhabi"
+  },
+  {
+   "title": "Open Studios: Güliz Gürel & Doris Tao at MiZa",
+   "category": "culture",
+   "start_date": "2026-11-20",
+   "start_time": "19:00",
+   "end_time": "20:00",
+   "venue": "Warehouse 110, MiZa, Mina Zayed",
+   "city": "Abu Dhabi",
+   "description": "An encounter between science, art and movement: an optical installation by MiZa resident Güliz Gürel with a movement improvisation by resident Doris Tao.",
+   "status": "approved",
+   "source_name": "Instagram @mizaabudhabi"
+  },
+  {
+   "title": "Open Studios: Güliz Gürel & Doris Tao at MiZa",
+   "category": "culture",
+   "start_date": "2026-11-21",
+   "start_time": "18:00",
+   "end_time": "20:00",
+   "venue": "Warehouse 110, MiZa, Mina Zayed",
+   "city": "Abu Dhabi",
+   "description": "An encounter between science, art and movement: an optical installation by MiZa resident Güliz Gürel with a movement improvisation by resident Doris Tao.",
+   "status": "approved",
+   "source_name": "Instagram @mizaabudhabi"
+  }
+ ],
+ "update_event_ids": [
+  {
+   "id": "3060573e-e8a2-4359-9af6-20a41db1cb39",
+   "set": {
+    "venue": "The Art Gallery Reading Room, NYU Abu Dhabi, Saadiyat Island",
+    "price_text": "Request an invitation online",
+    "official_url": "https://publicprograms.nyuad.nyu.edu/en/the-arts-center/events/2026/november/building-a-life-as-an-artist.html",
+    "description": "Arts Chat with UAE-based artists Alysia Knowles, Eman Al Hashemi and Yousif Hassan about the opportunities and challenges of building a career as an artist. Attendance by invitation request."
+   }
+  }
+ ]
+}
