@@ -35,6 +35,7 @@ pat = re.compile(r"\[/(.+?)/i, '(\w+)'\]")
 LANDMARKS = [(re.compile(a.replace("\\/", "/"), re.I), b) for a, b in pat.findall(lm_block)]
 RULES = [(re.compile(a.replace("\\/", "/"), re.I), b) for a, b in pat.findall(rules_block)]
 CAT = {k: re.findall(r"'(\w+)'", v) for k, v in re.findall(r"(\w+): \[([^\]]*)\]", cat_block)}
+NO_FALLBACK = set(re.findall(r"'(\w+)'", ts[ts.index("const NO_FALLBACK"):].split("\n")[0]))
 CITY_SUFFIX = {"Dubai": "dubai", "Abu Dhabi": "abudhabi", "Sharjah": "sharjah", "Ras Al Khaimah": "rak"}
 
 photo_dir = os.path.join(ROOT, "app/assets/photos")
@@ -57,10 +58,12 @@ def photo_for(kind: str, key: str, title: str, place_text: str, cat: str, city: 
         pool = FILES[lm]
     else:
         keys = None
-        if kind == "event":
+        if kind != "deal":
             hit = next((k for r, k in RULES if r.search(title)), None)
             if hit and hit in FILES:
                 keys = [hit]
+            elif hit in NO_FALLBACK:
+                return None
         keys = keys or CAT.get(cat, [])
         suf = CITY_SUFFIX.get(city)
         pool = []

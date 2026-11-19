@@ -32,6 +32,8 @@ const LANDMARKS: [RegExp, string][] = [
 ];
 
 const RULES: [RegExp, string][] = [
+  [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|hot air balloon|seaplane|helicopter|microlight|zip ?line|flying (lesson|experience)|scenic flight/i, 'flying'],
+  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|surfing|scuba|diving|snorkel|flyboard/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian/i, 'comedy'],
   [/theat(re|er)|musical\b|ballet|\bplay\b|pantomime/i, 'theatre'],
@@ -72,6 +74,9 @@ const CAT: Record<string, string[]> = {
 // Zdjęcia z widokiem miasta: klucz_miasto (np. day_pass_dubai) – dodawane do puli tylko w tym mieście.
 const CITY_SUFFIX: Record<string, string> = { Dubai: 'dubai', 'Abu Dhabi': 'abudhabi', Sharjah: 'sharjah', 'Ras Al Khaimah': 'rak' };
 
+// Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
+const NO_FALLBACK = new Set(['flying', 'watersports']);
+
 function hash(s: string): number {
   let h = 2166136261;
   for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
@@ -83,9 +88,10 @@ function pool(item: Item): number[] {
   const placeText = `${item.title} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
   const lm = LANDMARKS.find(([re]) => re.test(placeText));
   if (lm && PHOTO_FILES[lm[1]]) return [...PHOTO_FILES[lm[1]]];
-  if (item.kind === 'event') {
+  if (item.kind !== 'deal') {
     const hit = RULES.find(([re]) => re.test(item.title));
     if (hit && PHOTO_FILES[hit[1]]) keys = [hit[1]];
+    else if (hit && NO_FALLBACK.has(hit[1])) return [];
   }
   if (!keys) keys = CAT[item.catKey] ?? [];
   const suf = CITY_SUFFIX[item.city];
