@@ -955,7 +955,7 @@ def main() -> int:
     global _BROWSER
     with Browser() as br:
         _BROWSER = br
-        use_batch = os.environ.get("BATCH", "1") != "0" and not args.dry_run and not only
+        use_batch = os.environ.get("BATCH") == "force" or (os.environ.get("BATCH", "1") != "0" and not args.dry_run and not only)
         n_rep, n_log = len(report), len(source_log)
         for _pass in (["collect", "use"] if use_batch else [None]):
             BATCH["mode"] = _pass
@@ -977,6 +977,10 @@ def main() -> int:
                             # Strona, która 3 razy z rzędu nie dała żadnego eventu: sprawdzamy raz w miesiącu.
                             empty = search_cache_get(f"empty:{url}", days=3650)
                             every = EMPTY_RECHECK_DAYS if (empty or "").isdigit() and int(empty) >= 3 else RECHECK_DAYS
+                            # newsletter wspomniał event w tym miejscu: sprawdź od razu (flaga z bot/newsletters.py)
+                            if search_cache_get(f"due:{url}", days=14) == "1":
+                                every = 0
+                                log["due"] = True
                             if last and dt.datetime.fromisoformat(last.replace("Z", "+00:00")) > \
                                     dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=every, hours=-2):
                                 log["status"] = f"sprawdzane co {every} dni (ostatnio {last[:10]})"
@@ -1152,6 +1156,8 @@ def main() -> int:
     if db and not args.dry_run:
         # licznik "pustych" odczytów strony (AI nie znalazło żadnego eventu); zeruje się, gdy coś znajdzie
         for lg in source_log:
+            if lg.get("due"):
+                search_cache_put(f"due:{lg['url']}", "0")
             if lg.get("ai"):
                 prev = search_cache_get(f"empty:{lg['url']}", days=3650) or "0"
                 n = (int(prev) + 1) if lg["found"] == 0 and prev.isdigit() else 0
