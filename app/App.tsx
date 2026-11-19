@@ -2,9 +2,9 @@ import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
 import { StatusBar } from 'expo-status-bar';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator, FlatList, Modal, Pressable, RefreshControl, ScrollView, StyleSheet, Text, TextInput, View,
+  ActivityIndicator, FlatList, Linking, Modal, Pressable, RefreshControl, ScrollView, StyleSheet, Text, TextInput, View,
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppData, fetchAll, loadCached } from './src/api';
@@ -193,6 +193,22 @@ function Main() {
     () => all.filter((i) => i.city === city && (zones.length === 0 || (!!i.zone && zones.includes(i.zone)))),
     [all, city, zones],
   );
+
+  const initialLinkDone = useRef(false);
+  // Link outtoday://item?id=event:<uuid> (ze strony udostępnionego wpisu) otwiera ten wpis w apce.
+  useEffect(() => {
+    const openUrl = (url?: string | null) => {
+      const id = url ? decodeURIComponent((url.match(/[?&]id=([^&]+)/) ?? [])[1] ?? '') : '';
+      const hit = id ? all.find((i) => i.key === id) : undefined;
+      if (hit) { setSelPhoto(photoFor(hit)); setSelected(hit); }
+    };
+    if (all.length && !initialLinkDone.current) {
+      initialLinkDone.current = true;
+      Linking.getInitialURL().then(openUrl).catch(() => undefined);
+    }
+    const sub = Linking.addEventListener('url', (e) => openUrl(e.url));
+    return () => sub.remove();
+  }, [all]);
 
   const listFor = useCallback(
     (t: ListTab): Item[] => {

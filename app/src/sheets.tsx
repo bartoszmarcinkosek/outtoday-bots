@@ -144,6 +144,8 @@ async function addToCalendar(item: Item) {
     await Calendar.createEventInCalendarAsync({
       title: e.title, startDate: start, endDate: end > start ? end : new Date(start.getTime() + 3600 * 1000),
       allDay: !e.start_time, location: item.where ?? undefined, notes: item.priceText ?? undefined,
+      // przypomnienia: dzień wcześniej i 2 godziny przed (iPhone; na Androidzie kalendarz dodaje swoje domyślne)
+      alarms: [{ relativeOffset: -24 * 60 }, { relativeOffset: -120 }],
     });
   } catch {
     // Użytkownik zamknął okno kalendarza albo telefon go nie obsługuje.
@@ -162,7 +164,9 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
   const c = item.look;
   const q = encodeURIComponent(item.mapQuery);
   const share = () => {
-    const lines = [item.title, item.whenFull, item.where, item.priceText, item.officialUrl, 'Found on OutToday'];
+    // link do strony wpisu na naszej stronie (działa też u osób bez apki)
+    const link = `https://outtodayapp.github.io/e.html?id=${encodeURIComponent(item.key)}`;
+    const lines = [item.title, item.whenFull, item.where, item.priceText, '', `More on OutToday: ${link}`];
     count('share', `${item.kind}:${item.catKey ?? ''}`);
     Share.share({ message: lines.filter(Boolean).join('\n') }).catch(() => undefined);
   };
@@ -209,7 +213,7 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
         <Action icon="share-outline" label="Share" onPress={share} />
         <Action icon="map-outline" label="Google Maps" onPress={() => open(`https://www.google.com/maps/dir/?api=1&destination=${item.geo ? `${item.geo[0]},${item.geo[1]}` : q}`)} />
         <Action icon="navigate-outline" label="Waze" onPress={() => open(item.geo ? `https://waze.com/ul?ll=${item.geo[0]},${item.geo[1]}&navigate=yes` : `https://waze.com/ul?q=${q}&navigate=yes`)} />
-        {item.kind === 'event' && <Action icon="calendar-outline" label="Add to calendar" onPress={() => addToCalendar(item)} />}
+        {item.kind === 'event' && <Action icon="alarm-outline" label="Remind me" onPress={() => addToCalendar(item)} />}
         {!!digits && <Action icon="call-outline" label="Call" onPress={() => open(`tel:${digits}`)} />}
         {!!digits && <Action icon="logo-whatsapp" label="WhatsApp" onPress={() => open(`https://wa.me/${digits.replace('+', '')}`)} />}
       </View>
