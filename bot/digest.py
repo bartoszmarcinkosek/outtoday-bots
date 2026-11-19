@@ -81,9 +81,12 @@ class DB:
 
 
 def is_meetup(e: dict) -> bool:
-    """Eventy z Meetup są tylko dla zalogowanych użytkowników Meetup – nie wysyłamy ich w porannym mailu."""
-    return any("meetup.com" in (e.get(k) or "").lower() for k in ("url", "official_url", "source_name")) \
+    """Eventy z Meetup bez pełnych danych (szczegóły widać tylko po zalogowaniu na Meetup)
+    nie trafiają do porannego maila. Meetup z kompletem danych (data, godzina, miejsce, cena) idzie normalnie."""
+    meetup = any("meetup.com" in (e.get(k) or "").lower() for k in ("url", "official_url")) \
         or (e.get("source_name") or "").lower().startswith("meetup")
+    full = not (e.get("gaps") or []) and bool(e.get("venue")) and bool(e.get("start_time"))
+    return meetup and not full
 
 
 def load(db: DB) -> dict:
