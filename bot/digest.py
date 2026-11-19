@@ -80,11 +80,17 @@ class DB:
         return r.json()
 
 
+def is_meetup(e: dict) -> bool:
+    """Eventy z Meetup są tylko dla zalogowanych użytkowników Meetup – nie wysyłamy ich w porannym mailu."""
+    return any("meetup.com" in (e.get(k) or "").lower() for k in ("url", "official_url", "source_name")) \
+        or (e.get("source_name") or "").lower().startswith("meetup")
+
+
 def load(db: DB) -> dict:
     today = dt.datetime.now(UAE_TZ).date().isoformat()
     cols = "id,title,start_date,end_date,start_time,venue,city,price_text,is_free,url,official_url,source_name,gaps,created_at"
     pending = db.get("events", {"select": cols, "status": "eq.pending", "order": "start_date.asc", "limit": "1000"})
-    pending = [e for e in pending if (e.get("end_date") or e["start_date"]) >= today]
+    pending = [e for e in pending if (e.get("end_date") or e["start_date"]) >= today and not is_meetup(e)]
     changes = db.get("bot_changes", {"select": "*", "handled": "eq.false", "order": "created_at.asc", "limit": "500"})
     titles = {}
     sel = {"events": "id,title,start_date,official_url,url",
@@ -103,6 +109,7 @@ def load(db: DB) -> dict:
         auto = db.get("events", {"select": cols, "status": "eq.approved", "evidence->>auto": "eq.true",
                                  "verified_at": f"gte.{week}", "limit": "500"})
         import random
+        auto = [e for e in auto if not is_meetup(e)]
         sample = random.sample(auto, min(10, len(auto)))
         auto_changes = db.get("bot_changes", {"select": "*", "evidence": "like.[auto]*", "created_at": f"gte.{week}", "limit": "200"})
         for table in ("places", "deals"):
