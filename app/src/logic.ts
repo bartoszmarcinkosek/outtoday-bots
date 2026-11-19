@@ -42,6 +42,7 @@ export type Item = {
   checked: string | null; // "Nov 2026"
   verified: boolean; // potwierdzone na stronie organizatora
   isNew: boolean;
+  created: string | null; // created_at z bazy
   endsSoon: boolean;
   booking: boolean;
   event?: EventRow;
@@ -146,7 +147,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       kid: e.kid_friendly === true, pet: e.pet_friendly === true, ladies: e.ladies_only === true,
       indoor: null, top: null, zone, city: itemCity, km: kmFor(zone, me, geoOf(e)), geo: geoOf(e),
       officialUrl: e.official_url ?? null, phone: e.phone ?? null, sourceName: e.source_name,
-      checked: monthYear(e.verified_at ?? e.updated_at ?? e.created_at), verified: !!e.verified_at, isNew: isNew(e.created_at, now),
+      checked: monthYear(e.verified_at ?? e.updated_at ?? e.created_at), verified: !!e.verified_at, isNew: isNew(e.created_at, now), created: e.created_at ?? null,
       endsSoon: isLongRunning(e) && end >= today && end <= soon, booking: e.registration_required, event: e,
     });
   }
@@ -162,7 +163,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       ladies: p.ladies_only === true, indoor: p.is_indoor === true, top: topRank(itemCity, p.name), zone, city: itemCity,
       km: kmFor(zone, me, geoOf(p)), geo: geoOf(p), officialUrl: p.official_url ?? null, phone: p.phone ?? null,
       sourceName: p.source_name, checked: monthYear(p.updated_at ?? p.created_at), verified: false,
-      isNew: isNew(p.created_at, now), endsSoon: false, booking: false, place: p,
+      isNew: isNew(p.created_at, now), created: p.created_at ?? null, endsSoon: false, booking: false, place: p,
     });
   }
 
@@ -181,7 +182,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       ladies: d.ladies_only === true || d.deal_type === 'ladies_night', indoor: null, top: null, zone,
       city: itemCity, km: kmFor(zone, me, geoOf(d)), geo: geoOf(d), officialUrl: d.official_url ?? null,
       phone: d.phone ?? null, sourceName: d.source_name, checked: monthYear(d.updated_at ?? d.created_at), verified: false,
-      isNew: isNew(d.created_at, now),
+      isNew: isNew(d.created_at, now), created: d.created_at ?? null,
       endsSoon: !!d.valid_until && d.valid_until >= today && d.valid_until <= soon, booking: false, deal: d,
     });
   }

@@ -43,6 +43,7 @@ const DAY_CHIPS = [
 const PRICE_CAPS = [100, 200, 300];
 const PREFS_KEY = 'outtoday.prefs.v1';
 const FAVS_KEY = 'outtoday.favs.v1';
+const VISIT_KEY = 'outtoday.lastVisit.v1';
 const USAGE_KEY = 'outtoday.filterUse.v1';
 const KIND_OF: Record<ListTab, Item['kind']> = { events: 'event', places: 'place', deals: 'deal' };
 
@@ -86,6 +87,8 @@ function Main() {
   const [showFilters, setShowFilters] = useState(false);
   const [showCal, setShowCal] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showNew, setShowNew] = useState(false);
+  const [prevVisit, setPrevVisit] = useState<number | null>(null);
   const [showFavs, setShowFavs] = useState(false);
   const [showSuggest, setShowSuggest] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
@@ -119,6 +122,10 @@ function Main() {
         if (u && typeof u === 'object') setUsage(u);
         const f = JSON.parse((await AsyncStorage.getItem(FAVS_KEY)) ?? '[]');
         if (Array.isArray(f)) setFavs(f);
+        // "Co nowego": licznik wpisów dodanych od poprzedniej wizyty.
+        const lv = Number(await AsyncStorage.getItem(VISIT_KEY));
+        if (lv > 0) setPrevVisit(lv);
+        AsyncStorage.setItem(VISIT_KEY, String(Date.now())).catch(() => undefined);
       } catch {
         // Brak zapisanych ustawień: zostają domyślne.
       }
@@ -192,6 +199,11 @@ function Main() {
   const local = useMemo(
     () => all.filter((i) => i.city === city && (zones.length === 0 || (!!i.zone && zones.includes(i.zone)))),
     [all, city, zones],
+  );
+
+  const newItems = useMemo(
+    () => (prevVisit ? local.filter((i) => i.created && Date.parse(i.created) > prevVisit) : []),
+    [local, prevVisit],
   );
 
   const initialLinkDone = useRef(false);
@@ -315,6 +327,16 @@ function Main() {
         <View style={styles.errorBox}>
           <Text style={styles.errorText}>Could not refresh. Showing saved data. {error}</Text>
         </View>
+      )}
+
+      {newItems.length > 0 && (
+        <Pressable onPress={() => { setShowNew(true); count('new'); }} style={styles.newBanner} accessibilityLabel="New since your last visit">
+          <Ionicons name="sparkles" size={16} color={colors.primary} />
+          <Text style={styles.newBannerText}>
+            {newItems.length} new {newItems.length === 1 ? 'listing' : 'listings'} since your last visit
+          </Text>
+          <Ionicons name="chevron-forward" size={16} color={colors.primary} />
+        </Pressable>
       )}
 
       {!data ? (
@@ -520,7 +542,29 @@ function Main() {
         </SafeAreaProvider>
       </Modal>
 
-      <DetailSheet item={showFavs || showSearch ? null : selected} fav={!!selected && favs.includes(selected.key)}
+      <Modal visible={showNew} animationType="slide" onRequestClose={() => setShowNew(false)}>
+        <SafeAreaProvider>
+          <SafeAreaView style={styles.screen}>
+            <View style={styles.header}>
+              <Text style={[styles.brand, { flex: 1 }]}>New for you</Text>
+              <Pressable onPress={() => setShowNew(false)} hitSlop={10}>
+                <Ionicons name="close" size={26} color={colors.text} />
+              </Pressable>
+            </View>
+            <FlatList
+              data={sortItems(newItems, 'default')}
+              keyExtractor={(i) => i.key}
+              renderItem={({ item }) => card(item)}
+              contentContainerStyle={styles.list}
+              ListEmptyComponent={<Empty text="Nothing new since your last visit." />}
+            />
+            <DetailSheet item={showNew ? selected : null} fav={!!selected && favs.includes(selected.key)}
+              onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
+          </SafeAreaView>
+        </SafeAreaProvider>
+      </Modal>
+
+      <DetailSheet item={showFavs || showSearch || showNew ? null : selected} fav={!!selected && favs.includes(selected.key)}
         onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
     </SafeAreaView>
   );
@@ -666,6 +710,11 @@ const styles = StyleSheet.create({
   whereText: { color: colors.primary, fontSize: 15, fontWeight: '600', marginHorizontal: 4, flexShrink: 1 },
   headBtn: { marginLeft: 18, padding: 4 },
   errorBox: { backgroundColor: colors.errorBg, marginHorizontal: 16, marginBottom: 8, padding: 10, borderRadius: 10 },
+  newBanner: {
+    flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: colors.chip, borderColor: colors.border, borderWidth: 1,
+    marginHorizontal: 16, marginBottom: 8, paddingVertical: 10, paddingHorizontal: 14, borderRadius: 12,
+  },
+  newBannerText: { flex: 1, color: colors.text, fontSize: 15, fontWeight: '600' },
   errorText: { color: colors.errorText, fontSize: 13 },
   chipRow: { height: 50, flexGrow: 0, flexShrink: 0 },
   chipRowIn: { paddingHorizontal: 16, alignItems: 'flex-start' },

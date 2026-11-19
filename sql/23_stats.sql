@@ -3,7 +3,7 @@
 create table if not exists public.app_stats (
   id bigint generated always as identity primary key,
   day date not null default current_date,
-  name text not null check (name in ('open', 'tab', 'item', 'share', 'suggest', 'search', 'filter', 'map')),
+  name text not null check (name in ('open', 'tab', 'item', 'share', 'new', 'suggest', 'search', 'filter', 'map')),
   value text check (char_length(value) <= 60),
   city text check (char_length(city) <= 30),
   platform text check (platform in ('ios', 'android', 'web'))
