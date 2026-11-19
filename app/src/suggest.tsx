@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { sendSuggestion } from './api';
+import { count } from './stats';
 import { colors } from './theme';
 import { Chip, Sheet } from './ui';
 import { CITIES } from './zones';
@@ -33,6 +34,7 @@ export function SuggestSheet(props: { visible: boolean; onClose: () => void; cit
       const fullNote = [price.trim() && `Price: ${price.trim()}`, note.trim()].filter(Boolean).join('\n');
       await sendSuggestion({ title, event_date: date, venue, city, link, note: fullNote, contact });
       setState('done');
+      count('suggest', null, city);
     } catch {
       setState('error');
     }

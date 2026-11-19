@@ -9,6 +9,7 @@ import {
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppData, fetchAll, loadCached } from './src/api';
 import { photoFor } from './src/photos';
+import { count } from './src/stats';
 import { DOW_CHIPS, fmtDate, inRange, rangeFor } from './src/dates';
 import {
   Item, SORT_LABEL, Shortcut, SortKey, buildItems, dealEndedToday, dealOnDay, dealOnNow, searchItems, shortcutsFor, sortItems, todayIso,
@@ -102,6 +103,8 @@ function Main() {
       setError(e instanceof Error ? e.message : String(e));
     }
   }, []);
+
+  useEffect(() => { count('open'); }, []);
 
   useEffect(() => {
     (async () => {
@@ -257,7 +260,7 @@ function Main() {
     const photo = photoFor(item, prev ? photoFor(prev) : null);
     return (
       <ItemCard key={item.key} item={item} photo={photo} fav={favs.includes(item.key)}
-        onFav={() => toggleFav(item.key)} onPress={() => { setSelPhoto(photo); setSelected(item); }} />
+        onFav={() => toggleFav(item.key)} onPress={() => { setSelPhoto(photo); setSelected(item); count('item', `${item.kind}:${item.catKey ?? ''}`, city); }} />
     );
   };
   const refreshControl = (
@@ -377,7 +380,7 @@ function Main() {
 
       <SafeAreaView edges={['bottom']} style={styles.tabBar}>
         {TABS.map((t) => (
-          <Pressable key={t.key} style={styles.tabBtn} onPress={() => { setTab(t.key); setView('list'); }}>
+          <Pressable key={t.key} style={styles.tabBtn} onPress={() => { setTab(t.key); setView('list'); count('tab', t.key, city); }}>
             <Ionicons name={t.icon} size={26} color={tab === t.key ? colors.primary : colors.muted} />
             <Text style={[styles.tabText, tab === t.key && { color: colors.primary, fontWeight: '700' }]}>{t.label}</Text>
           </Pressable>

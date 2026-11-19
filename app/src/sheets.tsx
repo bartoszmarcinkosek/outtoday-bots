@@ -6,6 +6,7 @@ import { REPORT_EMAIL } from './config';
 import { fmtDate } from './dates';
 import { IconName, Item, todayIso } from './logic';
 import { PHOTO_FULL } from './photos.gen';
+import { count } from './stats';
 import { colors } from './theme';
 import { Pill, Sheet, badgesFor } from './ui';
 import { CITIES, ZONES, ZONE_CENTER, distanceKm } from './zones';
@@ -156,6 +157,7 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
   const q = encodeURIComponent(item.mapQuery);
   const share = () => {
     const lines = [item.title, item.whenFull, item.where, item.priceText, item.officialUrl, 'Found on OutToday'];
+    count('share', `${item.kind}:${item.catKey ?? ''}`);
     Share.share({ message: lines.filter(Boolean).join('\n') }).catch(() => undefined);
   };
   const report = () => {
