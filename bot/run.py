@@ -758,12 +758,29 @@ class DB:
             self.h["Authorization"] = f"Bearer {key}"
 
     def get(self, table: str, params: dict) -> list:
-        r = requests.get(f"{self.base}/{table}", headers=self.h, params=params, timeout=30)
-        r.raise_for_status()
-        return r.json()
+        # Supabase zwraca max 1000 wierszy na zapytanie, więc pobieramy stronami
+        want = int(params.get("limit", 1000))
+        p = {k: v for k, v in params.items() if k != "limit"}
+        if want > 1000 and "order" not in p and table in ("events", "places", "deals"):
+            p["order"] = "id.asc"  # stała kolejność między stronami
+        out, start = [], 0
+        while start < want:
+            end = min(start + 1000, want) - 1
+            r = requests.get(f"{self.base}/{table}", headers={**self.h, "Range": f"{start}-{end}"},
+                             params=p, timeout=30)
+            r.raise_for_status()
+            page = r.json()
+            out += page
+            if len(page) < end - start + 1:
+                break
+            start = end + 1
+        return out
 
     def insert(self, table: str, rows: list | dict) -> list:
         r = requests.post(f"{self.base}/{table}", headers={**self.h, "Prefer": "return=representation"}, json=rows, timeout=30)
+        if r.status_code == 409 and "bot_key" in r.text:
+            print(f"   już jest w bazie (bot_key), pomijam")
+            return []
         if r.status_code >= 400:
             raise RuntimeError(f"insert {table}: {r.status_code} {r.text[:300]}")
         return r.json()
