@@ -110,8 +110,25 @@ const EVENT_COLS = 'id,title,description,category,start_date,end_date,start_time
 const PLACE_COLS = 'id,name,description,category,area,city,hours_text,hours,price_text,is_free,kid_friendly,is_indoor,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,url,source_name';
 const DEAL_COLS = 'id,deal_type,title,details,venue,area,city,days_of_week,start_time,end_time,price_text,valid_until,kid_friendly,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,url,source_name';
 
+// Zapis w kawałkach po ~500 KB: na Androidzie jedna wartość powyżej ~2 MB nie da się odczytać,
+// a cała baza jest już większa. Dzięki temu apka startuje od razu z ostatnimi danymi.
+const CHUNK = 500_000;
+
+async function saveCache(data: AppData): Promise<void> {
+  const raw = JSON.stringify(data);
+  const parts: [string, string][] = [];
+  for (let i = 0; i * CHUNK < raw.length; i++) parts.push([`${CACHE_KEY}:${i}`, raw.slice(i * CHUNK, (i + 1) * CHUNK)]);
+  await AsyncStorage.multiSet([...parts, [`${CACHE_KEY}:n`, String(parts.length)]]);
+  AsyncStorage.removeItem(CACHE_KEY).catch(() => undefined); // stary zapis w jednym kawałku
+}
+
 export async function loadCached(): Promise<AppData | null> {
   try {
+    const n = Number(await AsyncStorage.getItem(`${CACHE_KEY}:n`));
+    if (n > 0) {
+      const got = await AsyncStorage.multiGet(Array.from({ length: n }, (_, i) => `${CACHE_KEY}:${i}`));
+      if (got.every(([, v]) => v != null)) return JSON.parse(got.map(([, v]) => v).join('')) as AppData;
+    }
     const raw = await AsyncStorage.getItem(CACHE_KEY);
     return raw ? (JSON.parse(raw) as AppData) : null;
   } catch {
@@ -133,7 +150,7 @@ export async function fetchAll(): Promise<AppData> {
   ]);
   const data: AppData = { events, places, deals, fetchedAt: new Date().toISOString() };
   try {
-    await AsyncStorage.setItem(CACHE_KEY, JSON.stringify(data));
+    await saveCache(data);
   } catch {
     // Brak pamięci podręcznej nie blokuje działania apki.
   }

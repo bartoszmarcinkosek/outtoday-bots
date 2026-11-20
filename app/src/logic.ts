@@ -127,6 +127,10 @@ export function dealTimes(d: DealRow): string {
   return '';
 }
 
+// Gdy w bazie nie ma informacji "w środku / na zewnątrz", zgadujemy po kategorii.
+const OUT_CATS = ['beaches', 'parks', 'daytrips'];
+const IN_CATS = ['museums', 'markets', 'studios'];
+
 export function buildItems(data: AppData, me: [number, number] | null, now: Date = new Date()): Item[] {
   const soon = addDaysIso(7, now);
   const today = todayIso(now);
@@ -160,7 +164,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       icon: iconFor(p.category), when: p.hours_text, whenFull: p.hours_text, where: p.area,
       mapQuery: `${p.name}, ${p.city}`, description: p.description, priceText: p.price_text, price,
       free: p.is_free || price === 0, kid: p.kid_friendly === true, pet: p.pet_friendly === true,
-      ladies: p.ladies_only === true, indoor: p.is_indoor === true, top: topRank(itemCity, p.name), zone, city: itemCity,
+      ladies: p.ladies_only === true, indoor: p.is_indoor ?? (OUT_CATS.includes(p.category ?? '') ? false : IN_CATS.includes(p.category ?? '') ? true : null), top: topRank(itemCity, p.name), zone, city: itemCity,
       km: kmFor(zone, me, geoOf(p)), geo: geoOf(p), officialUrl: p.official_url ?? null, phone: p.phone ?? null,
       sourceName: p.source_name, checked: monthYear(p.updated_at ?? p.created_at), verified: false,
       isNew: isNew(p.created_at, now), created: p.created_at ?? null, endsSoon: false, booking: false, place: p,
@@ -338,14 +342,50 @@ export function shortcutsFor(query: string): Shortcut[] {
   return SHORTCUTS.filter(([words]) => words.some((w) => w === q || w.startsWith(q))).map(([, s]) => s);
 }
 
+// Odległość edycyjna z limitem (literówki): przerywa, gdy różnica przekracza max.
+function editDist(a: string, b: string, max: number): number {
+  if (Math.abs(a.length - b.length) > max) return max + 1;
+  let prev2: number[] = [];
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    let best = i;
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      // zamienione sąsiednie litery ("nigth" → "night") liczą się jako jeden błąd
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) cur[j] = Math.min(cur[j], prev2[j - 2] + 1);
+      if (cur[j] < best) best = cur[j];
+    }
+    if (best > max) return max + 1;
+    prev2 = prev;
+    prev = cur;
+  }
+  return prev[b.length];
+}
+
+// Słowo z literówką pasuje do słowa z tekstu (albo do jego początku: "brunh" ≈ "brunch", "louvr" ≈ "louvre").
+function fuzzyWord(w: string, tokens: string[]): boolean {
+  if (w.length < 4) return false;
+  const max = w.length >= 7 ? 2 : 1;
+  return tokens.some((t) => t.length >= w.length - max &&
+    (editDist(w, t, max) <= max || (t.length > w.length && editDist(w, t.slice(0, w.length), max) <= max)));
+}
+
 export function searchItems(items: Item[], query: string): Item[] {
   const q = query.trim().toLowerCase();
   if (q.length < 2) return [];
   // Każde słowo musi pasować gdzieś w pozycji ("food festival" znajdzie festiwal jedzenia),
   // a końcówki liczby mnogiej nie przeszkadzają ("festivals" = "festival").
   const words = q.split(/\s+/).filter((w) => w.length >= 2).map((w) => (w.length > 4 ? w.replace(/(es|s)$/, '') : w));
-  return items.filter((i) => {
-    const hay = [i.title, i.where, i.description, i.look.label, i.city, i.priceText].map((t) => (t ?? '').toLowerCase()).join(' | ');
-    return words.every((w) => hay.includes(w));
+  const hayOf = (i: Item) => [i.title, i.where, i.description, i.look.label, i.city, i.priceText].map((t) => (t ?? '').toLowerCase()).join(' | ');
+  const exact = items.filter((i) => { const hay = hayOf(i); return words.every((w) => hay.includes(w)); });
+  if (exact.length >= 3) return exact;
+  // Mało wyników: dokładamy pozycje z literówką (tylko tytuł, miejsce i kategoria, żeby było szybko).
+  const extra = items.filter((i) => {
+    if (exact.includes(i)) return false;
+    const hay = hayOf(i);
+    const tokens = [i.title, i.where, i.look.label].join(' ').toLowerCase().split(/[^a-z0-9\u00c0-\u024f]+/).filter((t) => t.length >= 3);
+    return words.every((w) => hay.includes(w) || fuzzyWord(w, tokens));
   });
+  return [...exact, ...extra];
 }

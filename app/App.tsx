@@ -46,6 +46,8 @@ const FAVS_KEY = 'outtoday.favs.v1';
 const VISIT_KEY = 'outtoday.lastVisit.v1';
 // Mapa na Androidzie wymaga klucza Google Maps w buildzie (app.json) – do tego czasu tylko iPhone (Apple Maps).
 const MAP_OK = Platform.OS === 'ios';
+// Listopad–marzec: sezon na wyjścia, więc "Outdoor" idzie pierwsze. Latem pierwsze jest "Indoor (AC)".
+const OUTDOOR_SEASON = [10, 11, 0, 1, 2].includes(new Date().getMonth());
 const INTERESTS_KEY = 'outtoday.interests.v1';
 // Kategorie eventów do wyboru przy pierwszym uruchomieniu (ekran Dziś pokazuje je wyżej).
 const INTEREST_KEYS = ['music', 'culture', 'sport', 'food', 'family', 'nightlife', 'festivals', 'classes', 'nature', 'community', 'market'];
@@ -85,6 +87,7 @@ function Main() {
   const [inOut, setInOut] = useState<InOut>('all');
   const [cap, setCap] = useState<number | null>(null);
   const [evening, setEvening] = useState(false);
+  const [lastChance, setLastChance] = useState(false); // tylko eventy, które wkrótce się kończą
   const [interests, setInterests] = useState<string[] | null>(null); // null = jeszcze nie wybrano
   const [showInterests, setShowInterests] = useState(false);
 
@@ -260,6 +263,7 @@ function Main() {
         .filter((i) => !ladies || i.ladies)
         .filter((i) => t !== 'events' || inRange(i.event!, range))
         .filter((i) => t !== 'events' || !evening || (i.event!.start_time ?? '') >= '17:00')
+        .filter((i) => t !== 'events' || !lastChance || i.endsSoon)
         .filter((i) => t !== 'places' || inOut === 'all' || i.indoor === (inOut === 'in'))
         .filter((i) => t !== 'places' || !topOnly || !hasTop10(city) || i.top != null)
         .filter((i) => t !== 'places' || !openOnly || placeOpen(i.place)?.open === true)
@@ -268,7 +272,7 @@ function Main() {
       if (t === 'places' && topOnly && hasTop10(city) && sorts[t] === 'default') return [...filtered].sort((a, b) => (a.top ?? 99) - (b.top ?? 99));
       return sortItems(filtered, sorts[t]);
     },
-    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, openOnly, city, evening],
+    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, openOnly, city, evening, lastChance],
   );
 
   const list = useMemo(() => (tab === 'today' ? [] : listFor(tab)), [tab, listFor]);
@@ -292,22 +296,23 @@ function Main() {
   }, [tab, local]);
 
   const activeCount =
-    Number(free) + Number(kid) + Number(pet) + Number(ladies) + (tab === 'events' && evening ? 1 : 0) +
+    Number(free) + Number(kid) + Number(pet) + Number(ladies) + (tab === 'events' && evening ? 1 : 0) + (tab === 'events' && lastChance ? 1 : 0) +
     (tab !== 'today' && cats[tab] ? 1 : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) + (tab === 'places' && openOnly ? 1 : 0) +
     (tab === 'deals' && cap !== null ? 1 : 0);
 
   const clearFilters = () => {
-    setFree(false); setKid(false); setPet(false); setLadies(false); setEvening(false); setInOut('all'); setCap(null); setTopOnly(false); setOpenOnly(false);
+    setFree(false); setKid(false); setPet(false); setLadies(false); setEvening(false); setLastChance(false); setInOut('all'); setCap(null); setTopOnly(false); setOpenOnly(false);
     setCats({ events: null, places: null, deals: null });
   };
 
   // Przejście z ekranu Today albo z wyszukiwarki do gotowej listy.
-  const jump = (s: { tab: ListTab; key?: string | null; day?: string; dealDay?: number | null; free?: boolean }) => {
+  const jump = (s: { tab: ListTab; key?: string | null; day?: string; dealDay?: number | null; free?: boolean; ending?: boolean }) => {
     clearFilters();
     setCats({ events: null, places: null, deals: null, [s.tab]: s.key ?? null } as Record<ListTab, string | null>);
     if (s.day) setDay(s.day);
     if (s.dealDay !== undefined) setDealDay(s.dealDay);
     if (s.free) setFree(true);
+    if (s.ending) setLastChance(true);
     setShowSearch(false);
     setQuery('');
     setTab(s.tab);
@@ -392,6 +397,7 @@ function Main() {
               <Chip label="Free" icon="pricetag-outline" active={free} onPress={() => { setFree(!free); count('filter', 'quick:free', city); }} />
               <Chip label="Kids" icon="happy-outline" active={kid} onPress={() => { setKid(!kid); count('filter', 'quick:kids', city); }} />
               <Chip label="Evening" icon="moon-outline" active={evening} onPress={() => { setEvening(!evening); count('filter', 'quick:evening', city); }} />
+              <Chip label="Last chance" icon="hourglass-outline" active={lastChance} onPress={() => { setLastChance(!lastChance); count('filter', 'quick:last', city); }} />
             </ScrollView>
             </View>
           )}
@@ -400,6 +406,10 @@ function Main() {
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRowIn}>
               <Chip label="All places" active={!topOnly && !openOnly} onPress={() => { setTopOnly(false); setOpenOnly(false); }} />
               <Chip label="Open now" icon="time-outline" active={openOnly} onPress={() => setOpenOnly(!openOnly)} />
+              {(OUTDOOR_SEASON ? (['out', 'in'] as const) : (['in', 'out'] as const)).map((v) => (
+                <Chip key={v} label={v === 'out' ? 'Outdoor' : 'Indoor (AC)'} icon={v === 'out' ? 'sunny-outline' : 'snow-outline'}
+                  active={inOut === v} onPress={() => { setInOut(inOut === v ? 'all' : v); count('filter', `quick:${v}`, city); }} />
+              ))}
               {hasTop10(city) && (
                 <Chip label={`Top 10 in ${city}`} icon="trophy-outline" active={topOnly} onPress={() => setTopOnly(!topOnly)} />
               )}
@@ -621,7 +631,7 @@ function Main() {
   );
 }
 
-type Jump = (s: { tab: ListTab; key?: string | null; day?: string; dealDay?: number | null; free?: boolean }) => void;
+type Jump = (s: { tab: ListTab; key?: string | null; day?: string; dealDay?: number | null; free?: boolean; ending?: boolean }) => void;
 
 // Duże, znane miejsca i wydarzenia idą na górę ekranu Today (stała lista, bez śledzenia użytkowników).
 const BIG = /etihad arena|etihad park|coca[- ]cola arena|space ?42|louvre|guggenheim|dubai opera|expo city|global village|yas marina|yas island|yas bay|ferrari world|warner bros|qasr al watan|sheikh zayed festival|liwa|al dhafra festival|mother of the nation|motn|zayed sports city|hazza bin zayed|mohammed bin zayed stadium|dubai sevens|the sevens|museum of the future|cultural foundation|manarat al saadiyat|sharjah light|al majaz|al qasba|dp world|meydan|grand prix|formula 1|f1 |marathon|festival|national day|eid al etihad/i;
@@ -677,7 +687,10 @@ function TodayScreen(props: {
   const deals = props.local.filter((i) => i.deal && dealOnDay(i.deal, now.getDay()));
   const rank = (i: Item) => (dealOnNow(i.deal!, now) ? 0 : dealEndedToday(i.deal!, now) ? 2 : 1);
   const dealsSorted = sortItems(deals, 'default').sort((a, b) => rank(a) - rank(b));
-  const ending = sortItems(props.local.filter((i) => i.kind === 'event' && i.endsSoon), 'default');
+  // "Last chance": wystawy, festiwale i promocje, które kończą się w ciągu tygodnia (najpierw te, które kończą się najszybciej).
+  const endOf = (i: Item) => i.event?.end_date ?? i.deal?.valid_until ?? '9999';
+  const ending = sortItems(props.local.filter((i) => (i.kind === 'event' || i.kind === 'deal') && i.endsSoon), 'default')
+    .sort((a, b) => endOf(a).localeCompare(endOf(b)));
   // Od czwartku: najlepsze rzeczy na weekend (piątek–niedziela). Duże wydarzenia i krótkie eventy najpierw.
   const dow = now.getDay();
   const wk = rangeFor('weekend', now);
@@ -705,9 +718,9 @@ function TodayScreen(props: {
     section('For you this week', forYou, 5, () => props.jump({ tab: 'events', day: 'all', key: props.interests.length === 1 ? props.interests[0] : null })),
     section(tonight.length ? 'Also on today' : 'On today', onToday, tonight.length ? 3 : 5, () => props.jump({ tab: 'events', day: 'today' })),
     section('This weekend', byInterest(weekend), 5, () => props.jump({ tab: 'events', day: 'weekend' })),
+    section('Last chance', ending, 4, () => props.jump({ tab: 'events', day: 'all', ending: true })),
     section('Free today', freeToday, 4, () => props.jump({ tab: 'events', day: 'today', free: true })),
     section('Deals today', dealsSorted, 5, () => props.jump({ tab: 'deals', dealDay: now.getDay() })),
-    section('Ends soon', ending, 4, () => props.jump({ tab: 'events', day: 'all' })),
   ].filter(Boolean);
 
   return (
