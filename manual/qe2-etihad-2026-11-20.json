@@ -1,0 +1,19 @@
+{"note": "Theatre by QE2: nazwy z oficjalnej strony whats-on (20.11), duplikaty z Instagrama i strony. Etihad Arena: newsletter przesłany przez właściciela 20.11.",
+ "events": [
+  {"title": "Hussam Al-Rassam & Aseel Hameem: Hikayat Sawtain (in Arabic)", "category": "music", "start_date": "2026-12-26",
+   "venue": "Etihad Arena, Yas Island", "city": "Abu Dhabi",
+   "description": "An Iraqi music night at Etihad Arena with singers Hussam Al-Rassam and Aseel Hameem.",
+   "status": "approved", "source_name": "Etihad Arena newsletter", "note": "newsletter Etihad Arena (zrzut)"}
+ ],
+ "reject_event_ids": [
+  "4a252d0d-d228-42b7-b497-db62b594438a",
+  "927058d9-25e8-47de-a79b-05f341f9c688",
+  "e3642c11-af3a-48e8-94f9-0fb6db0ca959",
+  "1e3b3d3c-f723-4517-95fd-f116fb815fa6",
+  "b7ff6d26-196d-4162-b5f3-e1c53df84e09"
+ ],
+ "update_event_ids": [
+  {"id": "16c7d6a5-b7bc-48be-978f-abfba96c053b", "set": {"title": "Fabulously Festive Party"}},
+  {"id": "2163e35b-a470-412f-af52-b67302c545f6", "set": {"start_time": "14:00"}}
+ ]
+}
