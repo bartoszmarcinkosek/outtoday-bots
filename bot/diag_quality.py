@@ -64,3 +64,23 @@ for row, tab in [(e, "ev") for e in ev] + [(d, "deal") for d in de]:
     t = (row.get("title") or "").lower() + " " + (row.get("venue") or "").lower()
     if any(w in t for w in WATCH):
         out("WATCH-" + tab, {k: row.get(k) for k in ("id", "title", "venue", "start_date", "status", "source_name", "deal_type")})
+
+# Podobne (nie identyczne) duplikaty eventów: to samo miasto, nakładające się daty, podobne tytuły.
+def toks(t):
+    return {w for w in R.norm(t).split() if len(w) > 2 and not w.isdigit() and w not in {"the", "and", "with", "live", "presents", "abu", "dhabi", "dubai"}}
+seen = set()
+for i, a in enumerate(ev):
+    ta, ea = toks(a["title"]), a.get("end_date") or a["start_date"]
+    for b in ev[i + 1:]:
+        if (a.get("city") or "") != (b.get("city") or ""):
+            continue
+        eb = b.get("end_date") or b["start_date"]
+        if a["start_date"] > eb or b["start_date"] > ea:
+            continue
+        tb = toks(b["title"])
+        if not ta or not tb:
+            continue
+        j = len(ta & tb) / len(ta | tb)
+        if j >= 0.5 and R.norm(a["title"]) != R.norm(b["title"]):
+            out("NEAR-EV", {"j": round(j, 2), "a": [a["id"], a["title"], a.get("venue"), a["start_date"], a["status"]],
+                            "b": [b["id"], b["title"], b.get("venue"), b["start_date"], b["status"]]})
