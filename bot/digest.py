@@ -156,13 +156,27 @@ def run_cost(summary: dict) -> float:
     return u.get("input", 0) * PRICE_IN + u.get("output", 0) * PRICE_OUT + u.get("searches", 0) * PRICE_SEARCH
 
 
+AI_LIMIT = float(os.environ.get("AI_MONTHLY_LIMIT_USD", "15"))
+
+
+def cost_day_month(runs: list[dict]) -> tuple[float, float]:
+    """Koszt z wierszy summary.kind = 'cost' (zapisywane przez bot/cachefix.py po każdym skrypcie)."""
+    now = dt.datetime.now(dt.timezone.utc)
+    m0 = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0).isoformat()
+    d0 = (now - dt.timedelta(hours=26)).isoformat()
+    rows = [r for r in runs if (r.get("summary") or {}).get("kind") == "cost"]
+    usd = lambda r: float(r["summary"].get("usd") or 0)
+    return (sum(usd(r) for r in rows if r["finished_at"] >= d0), sum(usd(r) for r in rows if r["finished_at"] >= m0))
+
+
 def health(runs: list[dict]) -> tuple[str, list[str]]:
     """Koszt (wczoraj, 30 dni) i źródła, które dziś nic nie dały, choć zwykle dają."""
     now = dt.datetime.now(dt.timezone.utc)
-    day = [r for r in runs if r["finished_at"] >= (now - dt.timedelta(hours=26)).isoformat()]
-    c_day = sum(run_cost(r["summary"]) for r in day)
-    c_month = sum(run_cost(r["summary"]) for r in runs)
-    line = f"Koszt AI: ostatnia doba {c_day:.2f} USD, ostatnie 30 dni {c_month:.2f} USD (limit konta 25 USD/mies.)."
+    c_day, c_month = cost_day_month(runs)
+    pct = c_month / AI_LIMIT * 100
+    line = f"Koszt AI: ostatnia doba {c_day:.2f} USD, ten miesiąc {c_month:.2f} z {AI_LIMIT:.0f} USD ({pct:.0f}%). Boty same się zatrzymują po przekroczeniu limitu."
+    if pct >= 80:
+        line = "UWAGA: wykorzystano ponad 80% miesięcznego limitu AI. " + line
     # Źródła: ostatni przebieg z danym źródłem vs. wcześniejsze przebiegi.
     hist: dict[str, list[int]] = {}
     last: dict[str, dict] = {}
@@ -379,7 +393,9 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
         + f'<p style="color:{C["muted"]};font-size:12px;margin-top:24px">Linki są ważne {TOKEN_DAYS} dni. '
           f'Nie przekazuj tego e-maila dalej: przyciski działają bez logowania.</p></div></div>'
     )
-    subject = (f"OutToday: {len(sugg)} {plural(len(sugg), 'zgłoszenie', 'zgłoszenia', 'zgłoszeń')}, " if sugg else "OutToday: ") + f"{len(ready) + len(gaps)} do sprawdzenia" + (f", {len(changes)} {plural(len(changes), 'zmiana', 'zmiany', 'zmian')}" if changes else "") + f" · {today.day} {MONTHS_PL[today.month - 1]}"
+    _d, _m = cost_day_month(data.get("runs", []))
+    warn = "⚠ AI 80% limitu · " if _m >= 0.8 * AI_LIMIT else ""
+    subject = warn + (f"OutToday: {len(sugg)} {plural(len(sugg), 'zgłoszenie', 'zgłoszenia', 'zgłoszeń')}, " if sugg else "OutToday: ") + f"{len(ready) + len(gaps)} do sprawdzenia" + (f", {len(changes)} {plural(len(changes), 'zmiana', 'zmiany', 'zmian')}" if changes else "") + f" · {today.day} {MONTHS_PL[today.month - 1]}"
     text = (f"OutToday {today.isoformat()}: {len(ready)} gotowe, {len(gaps)} do uzupełnienia, {len(changes)} zmian. "
             "Otwórz ten e-mail w widoku HTML, żeby zobaczyć przyciski.")
     return subject, body, text, total

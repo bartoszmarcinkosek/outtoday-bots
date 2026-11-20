@@ -2,6 +2,10 @@ name: Fill links
 on:
   workflow_dispatch:
     inputs:
+      allow_search:
+        description: "Płatne wyszukiwanie w sieci (tylko po zgodzie właściciela): wpisz 1"
+        type: string
+        default: ""
       limit:
         type: string
         default: "160"
@@ -26,6 +30,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ALLOW_SEARCH: ${{ github.event.inputs.allow_search }}
           LIMIT: ${{ github.event.inputs.limit }}
           ONLY: ${{ github.event.inputs.only }}
           DRY: ${{ github.event.inputs.dry }}

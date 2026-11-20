@@ -34,6 +34,9 @@ from urllib.parse import urljoin, urlparse
 
 import requests
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import cachefix  # noqa: E402  (prompt caching + miesięczny limit AI + blokada wyszukiwania)
+
 MODEL = os.environ.get("BOT_MODEL", "claude-haiku-5-5")
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -107,7 +110,7 @@ def parse_time(s) -> str | None:
 
 _ROBOTS_CACHE: dict[str, tuple[int, str]] = {}
 _DB = None  # ustawiane w main(); pamięć wyszukiwań (tabela bot_pages, klucz "search:...")
-MAX_SEARCH_CALLS = int(os.environ.get("MAX_SEARCH_CALLS", "15"))  # limit płatnych wyszukiwań na jedno uruchomienie
+MAX_SEARCH_CALLS = int(os.environ.get("MAX_SEARCH_CALLS", "0"))  # strategia 20.11: domyślnie bez wyszukiwania  # limit płatnych wyszukiwań na jedno uruchomienie
 _search_calls = 0
 
 
@@ -465,6 +468,7 @@ def run_batch(client) -> None:
     if not reqs:
         return
     print(f"Paczka: {len(reqs)} zapytań do AI (Batch API, połowa ceny)")
+    cachefix.guard()
     try:
         b = client.messages.batches.create(requests=[{"custom_id": k, "params": v} for k, v in reqs.items()])
     except Exception as e:
@@ -524,6 +528,7 @@ def call_model(client, text: str, links: list[tuple[str, str]], source: dict, pa
             usage["input"] += round(res.usage.input_tokens / 2)
             usage["output"] += round(res.usage.output_tokens / 2)
             usage["calls"] += 1
+            cachefix.add_cost(res.usage.input_tokens / 2, res.usage.output_tokens / 2)
             for block in res.content:
                 if block.type == "tool_use":
                     return clean_output(block.input)

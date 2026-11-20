@@ -325,7 +325,9 @@ def main() -> int:
                 today = dt.datetime.now(dt.timezone(dt.timedelta(hours=4))).date().isoformat()
                 rows = db.get(table, {"select": cols, "status": "eq.approved", "order": "start_date.asc", "limit": "3000"})
                 # tylko nadchodzące, którym brakuje godziny (wydarzenia jednodniowe) albo ceny, i które mają stronę
-                rows = [r for r in rows if (r.get("end_date") or r["start_date"]) >= today
+                soon = (dt.datetime.now(dt.timezone(dt.timedelta(hours=4))).date() + dt.timedelta(days=14)).isoformat()
+                # strategia kosztów 20.11: tylko eventy w najbliższych 14 dniach
+                rows = [r for r in rows if (r.get("end_date") or r["start_date"]) >= today and r["start_date"] <= soon
                         and (r.get("official_url") or r.get("url"))
                         and ((not r.get("start_time") and not r.get("end_date")) or not r.get("price_text"))]
                 for r in rows:

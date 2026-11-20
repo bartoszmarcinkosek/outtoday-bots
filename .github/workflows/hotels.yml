@@ -3,6 +3,10 @@ name: Hotel offers (all UAE)
 on:
   workflow_dispatch:
     inputs:
+      allow_search:
+        description: "Płatne wyszukiwanie w sieci (tylko po zgodzie właściciela): wpisz 1"
+        type: string
+        default: ""
       only_new:
         description: "Skan: tylko nowe miejsca"
         type: boolean
@@ -56,6 +60,7 @@ jobs:
       - name: Hotele
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ALLOW_SEARCH: ${{ github.event.inputs.allow_search }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           IN_MODE: ${{ inputs.mode }}
