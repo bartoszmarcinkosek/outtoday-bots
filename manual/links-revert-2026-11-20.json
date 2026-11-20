@@ -1,0 +1,7 @@
+{"note": "Cofnięte złe linki z Fill links (20.11): ADIPEC zamiast Rakish Expo, ogólne strony festiwalu i NYUAD.",
+ "update_event_ids": [
+  {"id": "372bca9a-9602-422b-8afa-6f426b239195", "set": {"official_url": null}},
+  {"id": "9225d7b6-dea3-47e4-9401-2ec248589d57", "set": {"official_url": null}},
+  {"id": "da544776-c8ef-453b-b0ce-b33a771e93d7", "set": {"official_url": null}},
+  {"id": "e1400cc7-268c-4360-ad2a-c7681c2076fa", "set": {"official_url": null}}
+ ]}
