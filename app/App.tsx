@@ -565,7 +565,7 @@ function Main() {
       )}
 
       <SearchScreen visible={showSearch} onClose={() => { setShowSearch(false); setQuery(''); }} query={query} setQuery={setQuery}
-        items={all.filter((i) => i.city === city)} card={card} jump={jump}
+        items={all} city={city} card={card} jump={jump}
         detail={
           <DetailSheet item={showSearch ? selected : null} fav={!!selected && favs.includes(selected.key)}
             onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
@@ -755,14 +755,20 @@ function InterestsSheet(props: { visible: boolean; initial: string[]; onSave: (k
 
 function SearchScreen(props: {
   visible: boolean; onClose: () => void; query: string; setQuery: (q: string) => void;
-  items: Item[]; card: (i: Item) => React.ReactNode; jump: Jump; detail: React.ReactNode;
+  items: Item[]; city: string; card: (i: Item) => React.ReactNode; jump: Jump; detail: React.ReactNode;
 }) {
   const shortcuts: Shortcut[] = shortcutsFor(props.query);
+  // Wyszukiwarka szuka w całej bazie: najpierw wybrane miasto (bez filtra dzielnic), potem reszta ZEA z nazwą miasta.
   const results = sortItems(searchItems(props.items, props.query), 'default');
+  const here = results.filter((i) => i.city === props.city);
+  const elsewhere = results
+    .filter((i) => i.city !== props.city)
+    .map((i) => ({ ...i, where: i.where && !i.where.includes(i.city) ? `${i.where}, ${i.city}` : i.city }));
   const groups: [string, Item[]][] = [
-    ['Events', results.filter((i) => i.kind === 'event')],
-    ['Places', results.filter((i) => i.kind === 'place')],
-    ['Deals', results.filter((i) => i.kind === 'deal')],
+    ['Events', here.filter((i) => i.kind === 'event')],
+    ['Places', here.filter((i) => i.kind === 'place')],
+    ['Deals', here.filter((i) => i.kind === 'deal')],
+    ['Elsewhere in the UAE', elsewhere],
   ];
   const go = (s: Shortcut) => props.jump({ tab: s.tab, key: s.key, day: s.tab === 'events' ? 'all' : undefined, dealDay: s.tab === 'deals' ? null : undefined });
   return (
