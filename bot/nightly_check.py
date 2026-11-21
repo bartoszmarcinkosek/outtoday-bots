@@ -99,6 +99,8 @@ if not os.environ.get("DRY"):
         else:
             db.update(table_of[d["kind"]], {"id": d["id"]}, {"status": "pending"})
             fixed.append(f"ukryte do sprawdzenia (strona zniknęła): {d['title']}")
+    import fix_titles  # wielkie/małe litery w tytułach (bez AI)
+    fixed += [f"tytuł poprawiony: {c}" for c in fix_titles.run(db)]
     for f in fixed:
         print("L|FIX", f)
 if not os.environ.get("DRY"):
