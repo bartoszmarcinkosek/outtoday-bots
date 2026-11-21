@@ -43,10 +43,14 @@ def fixed(t: str | None) -> str | None:
             else:
                 out.append(p)
         new = "".join(out)
-    m = re.search(r"[A-Za-z]", new)
-    if m and new[m.start()].islower() and not (m.start() + 1 < len(new) and new[m.start() + 1].isupper()):
-        new = new[: m.start()] + new[m.start()].upper() + new[m.start() + 1:]
+    first_word = new.split()[0] if new.split() else ""
+    # tylko gdy tytuł zaczyna się małą literą i pierwsze słowo nie ma wielkich liter (teamLab, iPhone, eBay zostają)
+    if new[:1].islower() and not any(ch.isupper() for ch in first_word):
+        new = new[0].upper() + new[1:]
     return new if new != t else None
+
+
+MANUAL = {"thejamjar": "The Jam Jar", "the psychology of the Qur'an": "The Psychology of the Qur'an"}
 
 
 def run(db, dry: bool = False) -> list[str]:
@@ -54,7 +58,7 @@ def run(db, dry: bool = False) -> list[str]:
     for table, col in (("events", "title"), ("places", "name"), ("deals", "title")):
         rows = db.get(table, {"select": f"id,{col}", "status": "in.(approved,pending)", "limit": "20000"})
         for r in rows:
-            n = fixed(r.get(col))
+            n = MANUAL.get(r.get(col) or "") or fixed(r.get(col))
             if n:
                 changes.append(f"{table}: {r[col]!r} -> {n!r}")
                 if not dry:
