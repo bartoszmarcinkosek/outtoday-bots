@@ -40,7 +40,18 @@ def candidates(venue: str, city: str) -> list[str]:
     out = [f"{v}, {city}"]
     if len(parts) > 1:  # "Outlet, Hotel" -> spróbuj samego hotelu / ostatniej części
         out += [f"{parts[-1]}, {city}", f"{parts[0]}, {city}"]
-    return list(dict.fromkeys(out))
+    # zbyt ogólne zapytania (samo miasto/kraj/dzielnica) dają środek miasta zamiast miejsca – nie używamy ich
+    return [q for q in dict.fromkeys(out) if not too_generic(q.rsplit(",", 1)[0], city)]
+
+
+GENERIC = {"ae", "uae", "united arab emirates", "dubai", "abu dhabi", "sharjah", "ajman", "ras al khaimah", "rak",
+           "fujairah", "umm al quwain", "al ain", "outdoor area", "various locations", "multiple locations", "tbc", "tba",
+           "downtown", "downtown dubai", "dubai marina", "saadiyat island", "yas island", "jlt", "al marjan island"}
+
+
+def too_generic(head: str, city: str) -> bool:
+    h = re.sub(r"[^a-z ]", "", head.lower()).strip()
+    return h in GENERIC or h == city.lower() or len(h) < 3
 
 
 def lookup(q: str, cache: dict) -> list | None:
