@@ -135,7 +135,7 @@ def _():
     print("ageRating attrs:", json.dumps(d["attributes"]))
     out = {}
     for k, v in d["attributes"].items():
-        if k in ("ageRatingOverride", "ageRatingOverrideV2", "koreaAgeRatingOverride", "kidsAgeBand", "developerAgeRatingInfoUrl"):
+        if any(x in k.lower() for x in ("override", "korea", "grac", "url", "kidsageband", "classification")):
             continue
         if k == "alcoholTobaccoOrDrugUseOrReferences":
             out[k] = "FREQUENT_OR_INTENSE"
