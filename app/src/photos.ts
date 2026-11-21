@@ -21,6 +21,7 @@ const LANDMARKS: [RegExp, string][] = [
   [/palm jumeirah|\bthe palm\b|atlantis/i, 'lm_palm'],
   [/arts cent(er|re).*nyu|nyuad arts|(blue hall|red theat(er|re)|black box|east plaza).*nyu/i, 'lm_nyuad'],
   [/saadiyat/i, 'lm_saadiyat'],
+  [/polonia (polish|restaurant)|poloniadubai/i, 'lm_polonia'],
   [/reem island|\bal reem\b|reem mall|shams abu dhabi|gate towers|reem central park/i, 'lm_reem'],
   [/corniche/i, 'lm_corniche'],
   [/museum of the future/i, 'lm_museum_future'],
