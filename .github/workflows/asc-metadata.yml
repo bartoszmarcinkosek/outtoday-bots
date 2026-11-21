@@ -2,6 +2,11 @@ name: App Store – wpisz dane strony (bez wysyłki do przeglądu)
 
 on:
   workflow_dispatch:
+    inputs:
+      only:
+        description: "tylko kroki zawierające ten tekst (puste = wszystkie)"
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -14,6 +19,7 @@ jobs:
       EXPO_ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
       EXPO_ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
       ASC_APP_ID: "6837590273"
+      ONLY: ${{ inputs.only }}
     steps:
       - uses: actions/checkout@v4
       - name: Klucz

@@ -4,7 +4,7 @@ Uzupełnia: kategorie, nazwę/podtytuł/politykę prywatności, opis, słowa klu
 adresy, copyright, kategorię wiekową, dane dla recenzenta, zrzuty ekranu, cenę (darmowa)
 i dostępność (wszystkie kraje poza Chinami). Każdy krok jest osobno – błąd jednego nie zatrzymuje reszty.
 """
-import glob, hashlib, json, os, sys, time, traceback
+import glob, hashlib, json, os, re, sys, time, traceback
 import jwt, requests
 
 APP_ID = os.environ["ASC_APP_ID"]
@@ -65,6 +65,9 @@ def api(method, path, **kw):
 
 def step(name):
     def deco(fn):
+        only = os.environ.get("ONLY", "").strip()
+        if only and only.lower() not in name.lower():
+            return fn
         try:
             fn()
             results.append(f"OK    {name}")
@@ -143,7 +146,18 @@ def _():
         elif v is None or isinstance(v, str):
             out[k] = "NONE"
     out["alcoholTobaccoOrDrugUseOrReferences"] = "FREQUENT_OR_INTENSE"
-    api("PATCH", f"ageRatingDeclarations/{d['id']}", json={"data": {"type": "ageRatingDeclarations", "id": d["id"], "attributes": out}})
+    # Apple nie mówi z góry, które pola są tak/nie, a które mają skalę – poprawiamy po komunikacie błędu.
+    for _ in range(40):
+        try:
+            api("PATCH", f"ageRatingDeclarations/{d['id']}", json={"data": {"type": "ageRatingDeclarations", "id": d["id"], "attributes": out}})
+            return
+        except RuntimeError as e:
+            m = re.search(r"attribute '(\w+)'\. Expected an? (\w+)", str(e))
+            if not m:
+                raise
+            out[m.group(1)] = False if m.group(2) == "BOOLEAN" else "NONE"
+            print("  poprawka typu:", m.group(1), "->", out[m.group(1)])
+    raise RuntimeError("za dużo poprawek typów")
 
 
 @step("dane dla recenzenta (kontakt + uwagi)")
