@@ -30,6 +30,7 @@ export const ZONES: Zone[] = [
   { city: 'Dubai', key: 'dxb_jumeirah', label: 'Jumeirah & City Walk', match: ['jumeirah', 'la mer', 'kite beach', 'city walk', 'burj al arab', 'madinat jumeirah', 'umm suqeim', 'al wasl road', 'coca-cola arena', 'sunset beach', 'jumeira ', 'jumeira,', 'theatre of digital art', 'toda'] },
   { city: 'Dubai', key: 'dxb_hills', label: 'Dubai Hills & Al Khail', match: ['dubai hills', 'meydan', 'al khail', 'motor city', 'sports city', 'global village', 'arabian ranches', 'al habtoor polo', 'damac hills'] },
   { city: 'Dubai', key: 'dxb_south', label: 'Expo City & Dubai South', match: ['expo city', 'al wasl plaza', 'jubilee park', 'terra, ', 'surreal', 'dubai south', 'jebel ali', 'dubai parks', 'legoland', 'motiongate', 'jafza', 'riverland'] },
+  { city: 'Dubai', key: 'dxb_east', label: 'Mirdif & Silicon Oasis', match: ['silicon oasis', 'mirdif', 'mirdiff', 'al warqa', 'international city', 'academic city', 'dragon mart', 'al rashidiya', 'al khawaneej', 'muhaisnah', 'al qusais', 'al nahda'] },
   { city: 'Dubai', key: 'dxb_hatta', label: 'Hatta', match: ['hatta'] },
   // Sharjah
   { city: 'Sharjah', key: 'shj_center', label: 'Al Majaz & Al Qasba', match: ['majaz', 'qasba', 'khalid lagoon', 'al noor island', 'buhaira'] },
@@ -111,6 +112,7 @@ export const ZONE_CENTER: Record<string, [number, number]> = {
   dxb_jumeirah: [25.2, 55.245],
   dxb_hills: [25.08, 55.26],
   dxb_south: [24.96, 55.12],
+  dxb_east: [25.17, 55.42],
   dxb_hatta: [24.8, 56.12],
   shj_center: [25.325, 55.385],
   shj_heritage: [25.36, 55.385],
