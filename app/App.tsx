@@ -1,5 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { noteItemOpened } from './src/review';
 import * as Location from 'expo-location';
 import { StatusBar } from 'expo-status-bar';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -268,7 +269,7 @@ function Main() {
         .filter((i) => t !== 'places' || !topOnly || !hasTop10(city) || i.top != null)
         .filter((i) => t !== 'places' || !openOnly || placeOpen(i.place)?.open === true)
         .filter((i) => t !== 'deals' || dealDay === null || dealOnDay(i.deal!, dealDay))
-        .filter((i) => t !== 'deals' || cap === null || (i.price !== null && i.price <= cap));
+        .filter((i) => t === 'places' || cap === null || (i.price !== null && i.price <= cap));
       if (t === 'places' && topOnly && hasTop10(city) && sorts[t] === 'default') return [...filtered].sort((a, b) => (a.top ?? 99) - (b.top ?? 99));
       return sortItems(filtered, sorts[t]);
     },
@@ -298,7 +299,7 @@ function Main() {
   const activeCount =
     Number(free) + Number(kid) + Number(pet) + Number(ladies) + (tab === 'events' && evening ? 1 : 0) + (tab === 'events' && lastChance ? 1 : 0) +
     (tab !== 'today' ? cats[tab].length : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) + (tab === 'places' && openOnly ? 1 : 0) +
-    (tab === 'deals' && cap !== null ? 1 : 0);
+    ((tab === 'deals' || tab === 'events') && cap !== null ? 1 : 0);
 
   const clearFilters = () => {
     setFree(false); setKid(false); setPet(false); setLadies(false); setEvening(false); setLastChance(false); setInOut('all'); setCap(null); setTopOnly(false); setOpenOnly(false);
@@ -329,7 +330,7 @@ function Main() {
     const photo = photoFor(item, prev ? photoFor(prev) : null);
     return (
       <ItemCard key={item.key} item={item} photo={photo} fav={favs.includes(item.key)}
-        onFav={() => toggleFav(item.key)} onPress={() => { setSelPhoto(photo); setSelected(item); count('item', `${item.kind}:${item.catKey ?? ''}`, city); }} />
+        onFav={() => toggleFav(item.key)} onPress={() => { setSelPhoto(photo); setSelected(item); count('item', `${item.kind}:${item.catKey ?? ''}`, city); noteItemOpened(); }} />
     );
   };
   const refreshControl = (
@@ -518,7 +519,7 @@ function Main() {
             </>
           )}
 
-          {tab === 'deals' && (
+          {(tab === 'deals' || tab === 'events') && (
             <>
               <Text style={styles.section}>Price</Text>
               <View style={styles.wrap}>
