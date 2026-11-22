@@ -52,9 +52,19 @@ function parse(d: string): Date {
   return new Date(y, m - 1, day);
 }
 
-export function fmtDate(d: string): string {
+export function fmtDate(d: string, withYear = false): string {
   const x = parse(d);
-  return `${DAYS[x.getDay()]} ${x.getDate()} ${MONTHS[x.getMonth()]}`;
+  const y = withYear || x.getFullYear() !== new Date().getFullYear() ? ` ${x.getFullYear()}` : '';
+  return `${DAYS[x.getDay()]} ${x.getDate()} ${MONTHS[x.getMonth()]}${y}`;
+}
+
+/** Zakres dat: trwające już wydarzenie -> "Until Sun 25 Apr 2027"; rok przy datach spoza bieżącego roku. */
+function fmtRange(start: string, end: string): string {
+  const today = new Date();
+  const iso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  if (start < iso) return `Until ${fmtDate(end)}`;
+  const span = start.slice(0, 4) !== end.slice(0, 4);
+  return `${fmtDate(start, span)} to ${fmtDate(end, span)}`;
 }
 
 export function fmtTime(t: string | null): string | null {
@@ -87,7 +97,7 @@ export function fmtCardWhen(e: EventRow, now: Date = new Date()): string {
 export function fmtWhen(e: EventRow): string {
   const date =
     e.end_date && e.end_date !== e.start_date
-      ? `${fmtDate(e.start_date)} to ${fmtDate(e.end_date)}`
+      ? fmtRange(e.start_date, e.end_date)
       : fmtDate(e.start_date);
   const s = fmtTime(e.start_time);
   const en = fmtTime(e.end_time);
