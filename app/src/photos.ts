@@ -106,7 +106,7 @@ function hash(s: string): number {
 
 function pool(item: Item): number[] {
   let keys: string[] | undefined;
-  const placeText = `${item.title} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
+  const placeText = `${(item.rawTitle ?? item.title)} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
   let lm = LANDMARKS.find(([re]) => re.test(placeText));
   // Całe dzielnice/wyspy (Palm, Saadiyat, Corniche, Reem): ich zdjęcie tylko dla miejsc. Event albo oferta w hotelu
   // na Palmie dostaje zdjęcie swojego rodzaju (koncert, brunch), a nie widok wyspy z lotu ptaka.
@@ -115,7 +115,7 @@ function pool(item: Item): number[] {
   // dostaje zdjęcie rodzaju, a zdjęcie budynku tylko gdy rodzaju nie widać – żeby wieczór w arenie nie miał 5 takich samych kart.
   // Rodzaj z tytułu wygrywa ze znanym miejscem (Kayaking at Louvre -> kajaki, Swan Lake w Operze -> teatr).
   // (nazwę samego miejsca wycinamy z tytułu, żeby "Museum of the Future" nie stało się zwykłym "museum")
-  const rest = lm ? item.title.replace(new RegExp(lm[0].source, 'gi'), ' ') : item.title;
+  const rest = lm ? (item.rawTitle ?? item.title).replace(new RegExp(lm[0].source, 'gi'), ' ') : (item.rawTitle ?? item.title);
   const typeHit = item.kind !== 'deal' && lm ? RULES.find(([re]) => re.test(rest)) : undefined;
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
   // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
@@ -125,7 +125,7 @@ function pool(item: Item): number[] {
   }
   if (lm) return PHOTO_FILES[lm[1]] ? [...PHOTO_FILES[lm[1]]] : []; // znane miejsce bez zdjęcia: ikonka, nie obce zdjęcie
   if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
-    const hit = RULES.find(([re]) => re.test(item.title));
+    const hit = RULES.find(([re]) => re.test((item.rawTitle ?? item.title)));
     if (hit && PHOTO_FILES[hit[1]]) keys = [hit[1]];
     else if (hit && NO_FALLBACK.has(hit[1])) return [];
   }

@@ -16,6 +16,7 @@ export type Item = {
   key: string; // np. "event:1234"
   kind: Kind;
   title: string;
+  rawTitle?: string; // tytuł bez nazwy miejsca (do doboru zdjęć)
   catKey: string;
   look: CategoryStyle;
   icon: IconName;
@@ -59,6 +60,17 @@ const ICONS: Record<string, IconName> = {
   day_pass: 'sunny', ladies_night: 'wine', brunch: 'cafe', happy_hour: 'beer', night_out: 'mic',
   quiz: 'help-circle', lunch: 'briefcase', dinner: 'restaurant', breakfast: 'cafe-outline', staycation: 'bed',
 };
+
+const VENUE_STOP = new Set(['the','hotel','resort','and','spa','beach','club','by','at','al','abu','dhabi','dubai','ain','sharjah','ras','khaimah','restaurant','bar','lounge']);
+/** Deals often have generic titles ("Day Pass", "Brunch") - put the venue first. */
+export function withVenue(title: string, venue?: string | null): string {
+  const v = (venue ?? '').split(',')[0].trim();
+  if (!v || v.length > 45) return title;
+  const t = title.toLowerCase();
+  const words = v.toLowerCase().split(/[^a-z0-9\u00c0-\u024f]+/).filter((w) => w.length >= 3 && !VENUE_STOP.has(w));
+  if (!words.length || words.some((w) => t.includes(w))) return title;
+  return `${v} · ${title}`;
+}
 
 export function iconFor(key: string | null | undefined): IconName {
   return ICONS[key ?? ''] ?? 'pricetag';
@@ -180,7 +192,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       ? (d.valid_until ? `Book by ${fmtDate(d.valid_until)}` : 'Hotel stay offer') : fmtDays(d.days_of_week);
     const when = `${daysTxt}${times ? ` · ${times}` : ''}`;
     out.push({
-      key: `deal:${d.id}`, kind: 'deal', title: d.title, catKey: d.deal_type ?? '', look: dealStyle(d.deal_type),
+      key: `deal:${d.id}`, kind: 'deal', title: withVenue(d.title, d.venue), rawTitle: d.title, catKey: d.deal_type ?? '', look: dealStyle(d.deal_type),
       icon: iconFor(d.deal_type), when, whenFull: when, where: placeLine(d.venue, d.area),
       mapQuery: `${d.venue ?? d.title}, ${d.city}`, description: d.details, priceText: d.price_text, price,
       free: price === 0, kid: d.kid_friendly === true, pet: d.pet_friendly === true,
