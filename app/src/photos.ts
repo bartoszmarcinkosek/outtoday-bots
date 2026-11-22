@@ -39,6 +39,7 @@ const VENUES = new Set(['lm_etihad_arena', 'lm_coca_cola_arena', 'lm_dubai_opera
 const RULES: [RegExp, string][] = [
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|bungee|\bifly\b|jais flight|aerobatic|flying (lesson|experience)|scenic flight/i, 'flying'],
   [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating|on ice\b/i, 'snow'],
+  [/ceramic|pottery|sculpt|painting|paint (and|&) sip|art (class|studio|workshop)|calligraph|drawing|sketch|craft workshop|woodwork|jewell?ery making|candle making|printmaking|textile/i, 'studios'],
   [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower|polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
   [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing|rowing|aquafit/i, 'watersports'],
@@ -66,6 +67,7 @@ const RULES: [RegExp, string][] = [
   [/\bbooks?\b|book (club|fair|launch|presentation)|library|reading|poetry/i, 'books'],
   [/\btalk\b|lecture|panel|in conversation|seminar/i, 'talk'],
   [/night market|flea|bazaar|farmers'? market|winter market|christmas market|craft market|food market|urban market|souq|souk/i, 'market'],
+  [/teamlab|immersive|digital art|museum|art gallery|exhibition|biennial|art fair/i, 'museums'],
   // na końcu: bieg w parku archeologicznym to nadal bieg
   [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
 ];
@@ -106,7 +108,10 @@ function pool(item: Item): number[] {
   const lm = LANDMARKS.find(([re]) => re.test(placeText));
   // Areny i sale (Etihad Arena, Coca-Cola Arena, Opera...): event z rozpoznanym rodzajem (komedia, koncert DJ, teatr)
   // dostaje zdjęcie rodzaju, a zdjęcie budynku tylko gdy rodzaju nie widać – żeby wieczór w arenie nie miał 5 takich samych kart.
-  const typeHit = item.kind === 'event' && lm && VENUES.has(lm[1]) ? RULES.find(([re]) => re.test(item.title)) : undefined;
+  // Rodzaj z tytułu wygrywa ze znanym miejscem (Kayaking at Louvre -> kajaki, Swan Lake w Operze -> teatr).
+  // (nazwę samego miejsca wycinamy z tytułu, żeby "Museum of the Future" nie stało się zwykłym "museum")
+  const rest = lm ? item.title.replace(new RegExp(lm[0].source, 'gi'), ' ') : item.title;
+  const typeHit = item.kind !== 'deal' && lm ? RULES.find(([re]) => re.test(rest)) : undefined;
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
   // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
   if (lm && item.kind === 'event' && VENUES.has(lm[1])) {
