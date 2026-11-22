@@ -8,8 +8,11 @@
   "cinema-2": "MAHbin-9I4A",
   "lm_museum_future-1": "MAHbnZFtK1E",
   "lm_jebel_jais-1": "MAHbntz5A5M",
-  "lm_etihad_arena_in-1": "MAHbn0LrXXE"
+  "lm_etihad_arena_in-1": "MAHbn0LrXXE",
+  "artfair-1": "MAHboAA8D9s"
  },
- "in_app": [],
+ "in_app": [
+  "artfair-1"
+ ],
  "last_at": "2026-11-22T07:48:39Z"
 }

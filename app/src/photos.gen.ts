@@ -2,6 +2,7 @@
 export const PHOTO_FILES: Record<string, number[]> = {
   'active': [require('../assets/photos/active-1.jpg')],
   'arabic': [require('../assets/photos/arabic-1.jpg')],
+  'artfair': [require('../assets/photos/artfair-1.jpg')],
   'attractions': [require('../assets/photos/attractions-1.jpg')],
   'beaches': [require('../assets/photos/beaches-1.jpg'), require('../assets/photos/beaches-2.jpg')],
   'books': [require('../assets/photos/books-1.jpg')],
@@ -71,6 +72,7 @@ export const PHOTO_FILES: Record<string, number[]> = {
 export const PHOTO_FULL = new Map<number, number>([
   [require('../assets/photos/active-1.jpg'), require('../assets/photos/full/active-1.jpg')],
   [require('../assets/photos/arabic-1.jpg'), require('../assets/photos/full/arabic-1.jpg')],
+  [require('../assets/photos/artfair-1.jpg'), require('../assets/photos/full/artfair-1.jpg')],
   [require('../assets/photos/attractions-1.jpg'), require('../assets/photos/full/attractions-1.jpg')],
   [require('../assets/photos/beaches-1.jpg'), require('../assets/photos/full/beaches-1.jpg')],
   [require('../assets/photos/beaches-2.jpg'), require('../assets/photos/full/beaches-2.jpg')],

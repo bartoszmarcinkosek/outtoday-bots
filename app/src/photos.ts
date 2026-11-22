@@ -69,6 +69,7 @@ const RULES: [RegExp, string][] = [
   [/\btalk\b|lecture|panel|in conversation|seminar/i, 'talk'],
   [/night market|flea|bazaar|farmers'? market|winter market|christmas market|craft market|food market|urban market|souq|souk/i, 'market'],
   [/workshop|arts (and|&) crafts/i, 'studios'], // ogólne warsztaty – po tańcu, jodze itd.
+  [/frieze|art fair|art week|art dubai|art abu dhabi|abu dhabi art|art exhibition|gallery/i, 'artfair'],
   [/teamlab|immersive|digital art|museum|art gallery|biennial/i, 'museums'],
   // na końcu: bieg w parku archeologicznym to nadal bieg
   [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
