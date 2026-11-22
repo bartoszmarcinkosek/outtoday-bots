@@ -37,4 +37,4 @@ for kind, title, place, cat in rows:
     g[key].append(f"{kind[0]}:{cat}:{title[:55]}")
 for k in sorted(g):
     v = g[k]
-    print(f"A|{k} ({len(v)})|" + " ; ".join(v[:25]))
+    print(f"A|{k} ({len(v)})|" + " ; ".join(v[:60]))
