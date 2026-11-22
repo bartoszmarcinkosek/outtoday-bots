@@ -1,5 +1,7 @@
 1 | lm_coca_cola_arena-1 | (gotowe)
 15 | lm_jebel_jais-1 | Jebel Jais mountain road winding through rocky peaks in Ras Al Khaimah at sunrise.
+19 | lm_etihad_arena-2 | Etihad Arena on Yas Island at dusk, illuminated exterior by the waterfront.
+30 | comedy-2 | Stand-up comedian on a small stage with microphone, laughing audience, spotlight.
 2 | lm_dubai_opera-1 | Dubai Opera building shaped like a dhow, Downtown Dubai at blue hour.
 3 | lm_burj_al_arab-1 | Burj Al Arab sail-shaped hotel seen from Jumeirah beach at golden hour.
 4 | lm_museum_future-1 | Museum of the Future in Dubai, silver torus building with Arabic calligraphy windows, at night (calligraphy as pattern, not readable text).
@@ -16,7 +18,6 @@
 16 | lm_burj_khalifa-2 | Burj Khalifa at night with the Dubai Fountain show in the foreground.
 17 | lm_louvre-2 | Louvre Abu Dhabi interior under the lattice dome, rain of light on the water, people walking.
 18 | lm_grand_mosque-2 | Sheikh Zayed Grand Mosque courtyard at blue hour, white marble and reflecting pools.
-19 | lm_etihad_arena-2 | Etihad Arena on Yas Island at dusk, illuminated exterior by the waterfront.
 20 | lm_coca_cola_arena-2 | Coca-Cola Arena building at City Walk Dubai at night, modern illuminated facade, no logos.
 21 | lm_dubai_opera-2 | Inside a modern opera house auditorium, warm lights, audience seated before a show.
 22 | active-2 | Group of friends at an indoor climbing or trampoline park, energetic.
@@ -27,7 +28,6 @@
 27 | camel-2 | Camel caravan walking across red desert dunes at sunset.
 28 | candlelight-2 | String quartet playing in a dark venue lit by hundreds of candles.
 29 | cinema-2 | Outdoor cinema on a beach at night, people on beanbags watching a screen.
-30 | comedy-2 | Stand-up comedian on a small stage with microphone, laughing audience, spotlight.
 31 | community-2 | Volunteers and neighbours at a community beach clean-up, morning.
 32 | cricket-2 | Cricket match under floodlights in the UAE, batsman mid-shot.
 33 | dance-2 | Couples dancing salsa in a lively dance studio, motion and colour.

@@ -34,6 +34,8 @@ const LANDMARKS: [RegExp, string][] = [
   [/jebel jais/i, 'lm_jebel_jais'],
 ];
 
+const VENUES = new Set(['lm_etihad_arena', 'lm_coca_cola_arena', 'lm_dubai_opera', 'lm_nyuad', 'lm_expo_city']);
+
 const RULES: [RegExp, string][] = [
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|bungee|\bifly\b|jais flight|aerobatic|flying (lesson|experience)|scenic flight/i, 'flying'],
   [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating|on ice\b/i, 'snow'],
@@ -102,6 +104,10 @@ function pool(item: Item): number[] {
   let keys: string[] | undefined;
   const placeText = `${item.title} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
   const lm = LANDMARKS.find(([re]) => re.test(placeText));
+  // Areny i sale (Etihad Arena, Coca-Cola Arena, Opera...): event z rozpoznanym rodzajem (komedia, koncert DJ, teatr)
+  // dostaje zdjęcie rodzaju, a zdjęcie budynku tylko gdy rodzaju nie widać – żeby wieczór w arenie nie miał 5 takich samych kart.
+  const typeHit = item.kind === 'event' && lm && VENUES.has(lm[1]) ? RULES.find(([re]) => re.test(item.title)) : undefined;
+  if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
   if (lm) return PHOTO_FILES[lm[1]] ? [...PHOTO_FILES[lm[1]]] : []; // znane miejsce bez zdjęcia: ikonka, nie obce zdjęcie
   if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
     const hit = RULES.find(([re]) => re.test(item.title));
