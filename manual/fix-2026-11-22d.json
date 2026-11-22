@@ -1,0 +1,11 @@
+{"note": "SmokeBreakers BBQ (Cove Rotana RAK) – ceny z plakatu i posta rak_guide_tour 22.11.",
+ "update_deals": [
+  {"title": "Beach BBQ – SmokeBreakers", "venue": "Breakers, The Cove Rotana Resort", "set": {
+    "days_of_week": [5], "start_time": "18:00", "end_time": "22:00",
+    "price_text": "AED 179 non-alcoholic, AED 219 house beverages; kids 6–12 AED 100 (incl. service charge, VAT and destination fee)",
+    "details": "Friday Classic BBQ night on the beach with live entertainment. In-house guests get exclusive rates. Reservations +971 50 463 7216 or fb.cove@rotana.com."}},
+  {"title": "Seafood Beach BBQ – SmokeBreakers", "venue": "Breakers, The Cove Rotana Resort", "set": {
+    "days_of_week": [6], "start_time": "18:00", "end_time": "22:00",
+    "price_text": "AED 199 non-alcoholic, AED 219 house beverages; kids 6–12 AED 100 (incl. service charge, VAT and destination fee)",
+    "details": "Saturday Seafood BBQ night on the beach with live entertainment. In-house guests get exclusive rates. Reservations +971 50 463 7216 or fb.cove@rotana.com."}}
+ ]}

@@ -29,6 +29,8 @@ import hotels as H  # noqa: E402
 
 ACCOUNT = "outtodayapp.uae@gmail.com"
 FOLDER = "Newsletters"
+SKIP_DOMAINS = ("google.com", "apple.com", "expo.dev", "github.com", "supabase.com", "supabase.io", "anthropic.com",
+                "canva.com", "nma.gov.ae", "accounts.google.com", "youtube.com")
 CHAIN_DOMAINS = {d for _, ds in H.BRANDS for d in ds} | {"accor.com", "gmail.com", "mailchimp.com", "sendgrid.net"}
 SECOND = {"co", "com", "net", "org", "gov", "ac"}
 
@@ -186,8 +188,9 @@ def main() -> int:
     src_doms = {base_domain(urlparse(u).netloc) for s_ in ev_srcs for u in s_.get("urls", [])}
     for raw in msgs:
         msg = email.message_from_bytes(raw)
-        if ACCOUNT in (email.utils.parseaddr(msg.get("From") or "")[1].lower()):
-            continue  # nasze własne maile
+        frm = email.utils.parseaddr(msg.get("From") or "")[1].lower()
+        if ACCOUNT in frm or frm.split("@")[-1].endswith(SKIP_DOMAINS):
+            continue  # nasze własne maile i sprawy konta (Google, Apple, Expo itd.) – bez AI
         mid = (msg.get("Message-ID") or "").strip() or hashlib.sha1(raw[:2000]).hexdigest()
         key = "newsletter:" + hashlib.sha1(mid.encode()).hexdigest()
         subject = str(make_header(decode_header(msg.get("Subject") or "")))[:200]
