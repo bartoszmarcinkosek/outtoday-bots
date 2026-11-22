@@ -85,8 +85,9 @@ export function placeLine(venue: string | null, area: string | null): string | n
 // Pierwsza kwota w tekście ceny. "Free" daje 0, brak kwoty daje null.
 export function parsePrice(text: string | null | undefined): number | null {
   if (!text) return null;
-  if (/^\s*free\b/i.test(text)) return 0;
   const m = text.match(/AED\s*([\d,]+(?:\.\d+)?)/i);
+  // "Free" tylko gdy darmowe dla wszystkich: "Free for ladies…", "Free before 9pm", "Free with…" + kwota AED to NIE jest darmowe.
+  if (/^\s*free\b/i.test(text) && !m && !/^\s*free\s+(for|with|before|until|till|on|if|to|after|when)\b/i.test(text)) return 0;
   if (!m) return null;
   const n = Number(m[1].replace(/,/g, ''));
   return Number.isFinite(n) ? n : null;
