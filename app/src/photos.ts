@@ -81,6 +81,13 @@ const CAT: Record<string, string[]> = {
 
 // Zdjęcia z widokiem miasta: klucz_miasto (np. day_pass_dubai) – dodawane do puli tylko w tym mieście.
 const CITY_SUFFIX: Record<string, string> = { Dubai: 'dubai', 'Abu Dhabi': 'abudhabi', Sharjah: 'sharjah', 'Ras Al Khaimah': 'rak' };
+// ...i tylko w dzielnicach, z których ten widok jest prawdziwy (Yas, Saadiyat, Hatta itd. nie dostają panoramy Corniche/Marina).
+const SKYLINE_ZONES: Record<string, Set<string> | null> = {
+  'Abu Dhabi': new Set(['corniche', 'bateen', 'downtown', 'maryah', 'reem', 'mina']),
+  Dubai: new Set(['dxb_marina', 'dxb_palm', 'dxb_downtown', 'dxb_jumeirah', 'dxb_creek', 'dxb_oldtown']),
+  Sharjah: new Set(['shj_center', 'shj_heritage']),
+  'Ras Al Khaimah': null, // całe miasto
+};
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
 const NO_FALLBACK = new Set(['flying', 'watersports', 'heritage', 'dance', 'snow']);
@@ -95,14 +102,15 @@ function pool(item: Item): number[] {
   let keys: string[] | undefined;
   const placeText = `${item.title} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
   const lm = LANDMARKS.find(([re]) => re.test(placeText));
-  if (lm && PHOTO_FILES[lm[1]]) return [...PHOTO_FILES[lm[1]]];
+  if (lm) return PHOTO_FILES[lm[1]] ? [...PHOTO_FILES[lm[1]]] : []; // znane miejsce bez zdjęcia: ikonka, nie obce zdjęcie
   if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
     const hit = RULES.find(([re]) => re.test(item.title));
     if (hit && PHOTO_FILES[hit[1]]) keys = [hit[1]];
     else if (hit && NO_FALLBACK.has(hit[1])) return [];
   }
   if (!keys) keys = CAT[item.catKey] ?? [];
-  const suf = CITY_SUFFIX[item.city];
+  const zones = SKYLINE_ZONES[item.city];
+  const suf = zones === null || (zones && item.zone && zones.has(item.zone)) ? CITY_SUFFIX[item.city] : undefined;
   const out: number[] = [];
   for (const k of keys) {
     out.push(...(PHOTO_FILES[k] ?? []));
