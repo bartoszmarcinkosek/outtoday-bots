@@ -1,0 +1,13 @@
+{"note": "Zgłoszenia właściciela 22.11 (zrzuty z apki): Aloft day pass niejasny opis i brak linku (Kidzapp, strona oferty), Bungee at Yas Bay za długie godziny.",
+ "update_deal_ids": [
+  {"id": "e0f8c0db-4f01-4494-8753-c4af3121e0d7", "set": {
+    "title": "Full-Day Pool Access: Aloft Abu Dhabi",
+    "details": "Full-day access to the Aloft Abu Dhabi pool. The fee is fully redeemable on food and drinks. Booked through SupperClub on Kidzapp; at least one adult per booking.",
+    "price_text": "AED 50 per adult, AED 25 kids 6-12, under 6 free (fully redeemable on F&B)",
+    "kid_friendly": true,
+    "official_url": "https://kidzapp.com/kids-activities/abu-dhabi/water-fun/full-day-pool-access-at-aloft-abu-dhabi-for-aed-50-special-offer-with-supperclub-119564"}}
+ ],
+ "update_place_ids": [
+  {"id": "4b0c69d2-2b7e-47eb-affd-621b2dc9434f", "set": {
+    "hours_text": "Tue-Sun 13:00-22:00 (1 Nov-3 Dec 2026, 10 Jan-28 Feb 2027)"}}
+ ]}
