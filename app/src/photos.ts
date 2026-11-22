@@ -108,6 +108,11 @@ function pool(item: Item): number[] {
   // dostaje zdjęcie rodzaju, a zdjęcie budynku tylko gdy rodzaju nie widać – żeby wieczór w arenie nie miał 5 takich samych kart.
   const typeHit = item.kind === 'event' && lm && VENUES.has(lm[1]) ? RULES.find(([re]) => re.test(item.title)) : undefined;
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
+  // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
+  if (lm && item.kind === 'event' && VENUES.has(lm[1])) {
+    const both = [...(PHOTO_FILES[`${lm[1]}_in`] ?? []), ...(PHOTO_FILES[lm[1]] ?? [])];
+    return both;
+  }
   if (lm) return PHOTO_FILES[lm[1]] ? [...PHOTO_FILES[lm[1]]] : []; // znane miejsce bez zdjęcia: ikonka, nie obce zdjęcie
   if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
     const hit = RULES.find(([re]) => re.test(item.title));

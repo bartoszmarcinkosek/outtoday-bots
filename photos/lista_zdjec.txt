@@ -1,5 +1,8 @@
 1 | lm_coca_cola_arena-1 | (gotowe)
 15 | lm_jebel_jais-1 | Jebel Jais mountain road winding through rocky peaks in Ras Al Khaimah at sunrise.
+74 | lm_etihad_arena_in-1 | Inside a large modern indoor arena in Abu Dhabi during a concert: tiered seating full of audience, big stage with lights and screens, view from the upper seats.
+75 | lm_etihad_arena_in-2 | Inside a large modern indoor arena during a stand-up comedy night: single performer on a wide stage under a spotlight, big screens, full seated audience in the dark.
+76 | lm_coca_cola_arena_in-1 | Inside a modern indoor arena in Dubai seen from the floor during a pop concert: confetti, coloured lights, crowd with raised hands, no branding.
 19 | lm_etihad_arena-2 | Etihad Arena on Yas Island at dusk, illuminated exterior by the waterfront.
 30 | comedy-2 | Stand-up comedian on a small stage with microphone, laughing audience, spotlight.
 2 | lm_dubai_opera-1 | Dubai Opera building shaped like a dhow, Downtown Dubai at blue hour.
