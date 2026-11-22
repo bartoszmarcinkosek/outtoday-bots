@@ -1,0 +1,73 @@
+1 | lm_coca_cola_arena-1 | (gotowe)
+2 | lm_dubai_opera-1 | Dubai Opera building shaped like a dhow, Downtown Dubai at blue hour.
+3 | lm_burj_al_arab-1 | Burj Al Arab sail-shaped hotel seen from Jumeirah beach at golden hour.
+4 | lm_museum_future-1 | Museum of the Future in Dubai, silver torus building with Arabic calligraphy windows, at night (calligraphy as pattern, not readable text).
+5 | lm_dubai_frame-1 | Dubai Frame, giant golden picture-frame landmark in Zabeel Park, clear evening sky.
+6 | lm_ain_dubai-1 | Ain Dubai giant observation wheel on Bluewaters Island at dusk, seen from JBR beach.
+7 | lm_palm-1 | Aerial view of Palm Jumeirah island fronds and turquoise sea, sunny day.
+8 | lm_madinat-1 | Souk Madinat Jumeirah waterways with abra boats and wind towers at sunset.
+9 | lm_expo_city-1 | Al Wasl Dome at Expo City Dubai lit with colourful projections at night.
+10 | lm_global_village-1 | Global Village Dubai at night, colourful country pavilions, lights and strolling crowds.
+11 | lm_corniche-1 | Abu Dhabi Corniche beach, palm trees and city skyline at sunset.
+12 | lm_saadiyat-1 | Saadiyat Island beach in Abu Dhabi, white sand dunes, calm turquoise sea, morning light.
+13 | lm_qasr_al_watan-1 | Qasr Al Watan presidential palace in Abu Dhabi, white granite facade and central dome, late afternoon.
+14 | lm_yas_marina_circuit-1 | Yas Marina Circuit at night, illuminated hotel bridging over the race track, light trails.
+15 | lm_jebel_jais-1 | Jebel Jais mountain road winding through rocky peaks in Ras Al Khaimah at sunrise.
+16 | lm_burj_khalifa-2 | Burj Khalifa at night with the Dubai Fountain show in the foreground.
+17 | lm_louvre-2 | Louvre Abu Dhabi interior under the lattice dome, rain of light on the water, people walking.
+18 | lm_grand_mosque-2 | Sheikh Zayed Grand Mosque courtyard at blue hour, white marble and reflecting pools.
+19 | lm_etihad_arena-2 | Etihad Arena on Yas Island at dusk, illuminated exterior by the waterfront.
+20 | lm_coca_cola_arena-2 | Coca-Cola Arena building at City Walk Dubai at night, modern illuminated facade, no logos.
+21 | lm_dubai_opera-2 | Inside a modern opera house auditorium, warm lights, audience seated before a show.
+22 | active-2 | Group of friends at an indoor climbing or trampoline park, energetic.
+23 | arabic-2 | Arabic music performance with oud player on stage, warm stage lights.
+24 | attractions-2 | Family enjoying a theme park ride in the UAE, bright daylight.
+25 | books-2 | Cosy book club meeting in a cafe, people with books and coffee.
+26 | breakfast-2 | Hotel breakfast table by the pool, coffee, fruit and pastries, morning sun.
+27 | camel-2 | Camel caravan walking across red desert dunes at sunset.
+28 | candlelight-2 | String quartet playing in a dark venue lit by hundreds of candles.
+29 | cinema-2 | Outdoor cinema on a beach at night, people on beanbags watching a screen.
+30 | comedy-2 | Stand-up comedian on a small stage with microphone, laughing audience, spotlight.
+31 | community-2 | Volunteers and neighbours at a community beach clean-up, morning.
+32 | cricket-2 | Cricket match under floodlights in the UAE, batsman mid-shot.
+33 | dance-2 | Couples dancing salsa in a lively dance studio, motion and colour.
+34 | day_pass_abudhabi-2 | Hotel pool day with loungers and Abu Dhabi skyline in the background.
+35 | day_pass_rak-2 | Beach resort pool in Ras Al Khaimah with mountains in the background.
+36 | daytrips-2 | 4x4 cars driving through a desert wadi with mountains, adventure day trip.
+37 | dinner-2 | Elegant restaurant dinner table with candles and city lights through the window.
+38 | dj-2 | DJ behind decks at a rooftop party at night, hands up crowd, lights.
+39 | festivals-2 | Outdoor festival at night with food stalls, fairy lights and crowds.
+40 | flying-2 | Paraglider or skydiver over the coastline on a clear day.
+41 | football-2 | Amateur football match on a floodlit pitch at night.
+42 | golf-2 | Golf course fairway with palm trees and lake at golden hour.
+43 | heritage-2 | Traditional Emirati heritage village with mud-brick houses and falconry display.
+44 | horse-2 | Horse riders galloping along a desert track at sunrise.
+45 | jazz-2 | Jazz trio with saxophone in a dim lounge, warm light.
+46 | lunch-2 | Business lunch plates on a terrace table, shade and greenery.
+47 | motorsport-2 | Race cars on a track at speed, motion blur, grandstand.
+48 | museums-2 | Visitors in a modern art museum gallery with large installations.
+49 | nature-2 | Mangrove kayaking channel, green mangroves and calm water.
+50 | night_out-2 | Friends toasting with mocktails at a stylish rooftop lounge at night.
+51 | padel-2 | Padel match in a glass court under lights.
+52 | quiz-2 | Pub quiz night, teams at tables writing answers, cheerful mood.
+53 | rock-2 | Rock band performing live, guitarist in red stage lights, crowd.
+54 | snow-2 | People skiing and sledging on an indoor snow slope.
+55 | staycation-2 | Luxury hotel room with sea view balcony and white bedding.
+56 | studios-2 | Pottery or painting workshop, hands shaping clay on a wheel.
+57 | swimming-2 | Open-water swimmers in calm sea at sunrise.
+58 | talk-2 | Speaker on stage at a cultural talk, audience in a modern auditorium.
+59 | theatre-2 | Theatre stage with actors in costume under spotlights, audience silhouettes.
+60 | watersports-2 | Jet ski and paddleboarders on turquoise water near the beach.
+61 | yoga-2 | Sunrise yoga class on the beach, people on mats.
+62 | music-3 | Large outdoor concert crowd at night with stage lights and confetti.
+63 | food-3 | Street food market stalls with grills and steam at night.
+64 | brunch-3 | Lavish weekend brunch buffet with seafood and desserts, bright room.
+65 | nightlife-3 | Busy beach club at sunset with music and people dancing.
+66 | family-3 | Parents and children having a picnic in a green park.
+67 | kids-3 | Children at a hands-on science workshop, excited faces.
+68 | culture-3 | Traditional dancers performing at a cultural festival, colourful costumes.
+69 | market-3 | Weekend artisan market with handmade crafts under shade sails.
+70 | ladies_night-3 | Group of women laughing at a stylish bar, evening.
+71 | happy_hour-3 | Bar counter with drinks and snacks at golden hour, terrace view.
+72 | beaches-3 | Quiet public beach with families, umbrellas and clear water.
+73 | parks-3 | Green urban park with lake, jogging path and palm trees, late afternoon.

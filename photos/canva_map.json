@@ -1,0 +1,12 @@
+{
+ "note": "Zdjęcia OutToday w Canvie (folder FAHba6nrlVM). Klucz = nazwa z photos/lista_zdjec.txt, wartość = ID obrazu w Canvie. Uzupełnia zadanie co godzinę.",
+ "done": {
+  "lm_coca_cola_arena-1": "MAHbbUPNZVg",
+  "lm_dubai_opera-1": "MAHbcKZLkBw",
+  "lm_burj_al_arab-1": "MAHbcvpBSC0",
+  "lm_saadiyat-1": "MAHbiZwpC00",
+  "cinema-2": "MAHbin-9I4A",
+  "lm_museum_future-1": "MAHbnZFtK1E"
+ },
+ "in_app": []
+}
