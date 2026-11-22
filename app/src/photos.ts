@@ -72,7 +72,7 @@ const RULES: [RegExp, string][] = [
 
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów
 const CAT: Record<string, string[]> = {
-  music: ['music'], culture: ['culture'], sport: [], food: ['food'],
+  music: ['music'], culture: ['culture'], sport: ['sport'], food: ['food'],
   festivals: ['festivals'], festival: ['festivals'], nightlife: ['nightlife'], classes: ['classes'], nature: ['nature'],
   community: ['community'], business: ['talk'], family: ['family'], market: ['market'],
   beaches: ['beaches'], parks: ['parks'], museums: ['museums'], attractions: ['attractions'], active: ['active'],
