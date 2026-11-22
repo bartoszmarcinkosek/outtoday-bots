@@ -3,7 +3,7 @@
 import { Platform } from 'react-native';
 import { SUPABASE_KEY, SUPABASE_URL } from './config';
 
-export const STATS_ON = false;
+export const STATS_ON = true;
 
 type Name = 'open' | 'tab' | 'item' | 'share' | 'new' | 'report' | 'plan' | 'interests' | 'suggest' | 'search' | 'filter' | 'map';
 

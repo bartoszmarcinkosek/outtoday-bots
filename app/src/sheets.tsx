@@ -227,14 +227,14 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
       <View style={styles.actions}>
         <Action icon={props.fav ? 'heart' : 'heart-outline'} label={props.fav ? 'Saved' : 'Save'} onPress={props.onFav} />
         <Action icon="share-outline" label="Share" onPress={share} />
-        <Action icon="map-outline" label="Google Maps" onPress={() => open(`https://www.google.com/maps/dir/?api=1&destination=${item.geo ? `${item.geo[0]},${item.geo[1]}` : q}`)} />
-        <Action icon="navigate-outline" label="Waze" onPress={() => open(item.geo ? `https://waze.com/ul?ll=${item.geo[0]},${item.geo[1]}&navigate=yes` : `https://waze.com/ul?q=${q}&navigate=yes`)} />
+        <Action icon="map-outline" label="Google Maps" onPress={() => { count('map', `gmaps:${item.kind}`, item.city); open(`https://www.google.com/maps/dir/?api=1&destination=${item.geo ? `${item.geo[0]},${item.geo[1]}` : q}`); }} />
+        <Action icon="navigate-outline" label="Waze" onPress={() => { count('map', `waze:${item.kind}`, item.city); open(item.geo ? `https://waze.com/ul?ll=${item.geo[0]},${item.geo[1]}&navigate=yes` : `https://waze.com/ul?q=${q}&navigate=yes`); }} />
         {item.kind === 'event' && <Action icon="alarm-outline" label="Remind me" onPress={() => addToCalendar(item)} />}
-        {!!digits && <Action icon="call-outline" label="Call" onPress={() => open(`tel:${digits}`)} />}
+        {!!digits && <Action icon="call-outline" label="Call" onPress={() => { count('map', `call:${item.kind}`, item.city); open(`tel:${digits}`); }} />}
         {!!digits && <Action icon="logo-whatsapp" label="WhatsApp" onPress={() => open(`https://wa.me/${digits.replace('+', '')}`)} />}
       </View>
       {!!item.officialUrl && (
-        <BigButton label={isTicketing ? 'Tickets and booking' : 'Open official page'} icon="open-outline" onPress={() => open(item.officialUrl!)} />
+        <BigButton label={isTicketing ? 'Tickets and booking' : 'Open official page'} icon="open-outline" onPress={() => { open(item.officialUrl!); count('item', `${isTicketing ? 'tickets' : 'official'}:${item.kind}:${item.catKey ?? ''}`, item.city); }} />
       )}
       {!!props.nearby?.length && (
         <View style={{ marginTop: 8 }}>

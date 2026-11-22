@@ -132,8 +132,15 @@ def load(db: DB) -> dict:
         suggestions = db.get("suggestions", {"select": "*", "created_at": f"gte.{day_ago}", "order": "created_at.asc", "limit": "50"})
     except Exception:
         suggestions = []
+    try:  # anonimowy licznik z apki: wczoraj (UTC) i 7 dni
+        y = (dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=1)).isoformat()
+        w = (dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=7)).isoformat()
+        stats = db.get("app_stats", {"select": "day,name,value,city,platform", "day": f"gte.{w}", "limit": "50000"})
+        stats = [dict(r, _y=r["day"] == y) for r in stats if r["day"] <= y]
+    except Exception:
+        stats = []
     return {"pending": pending, "changes": changes, "events_by_id": titles, "sample": sample, "auto_changes": auto_changes,
-            "runs": runs, "suggestions": suggestions}
+            "runs": runs, "suggestions": suggestions, "stats": stats}
 
 
 def suggestion_row(s: dict) -> str:
@@ -352,6 +359,28 @@ def health_html(runs: list[dict]) -> str:
             f'<div style="color:{C["muted"]};font-size:13px">{line}</div>{al_html}')
 
 
+def stats_html(stats: list[dict]) -> str:
+    """Kto klika na co: wczoraj i ostatnie 7 dni (anonimowo, bez identyfikatora)."""
+    if not stats:
+        return (f'<h2 style="font-size:17px;color:{C["text"]};margin:26px 0 4px">Użycie apki</h2>'
+                f'<div style="color:{C["muted"]};font-size:13px">Brak danych z wczoraj.</div>')
+    from collections import Counter
+    def block(rows: list[dict], label: str) -> str:
+        n = Counter(r["name"] for r in rows)
+        plat = Counter(r["platform"] for r in rows if r["name"] == "open")
+        top = lambda name, k=6: ", ".join(f"{v} ({c})" for v, c in Counter(
+            f'{r.get("value") or ""}{" · " + r["city"] if r.get("city") else ""}' for r in rows if r["name"] == name and not (r.get("value") or "").startswith(("official:", "tickets:"))).most_common(k)) or "–"
+        links = Counter(r["value"].split(":")[0] for r in rows if r["name"] == "item" and (r.get("value") or "").startswith(("official:", "tickets:")))
+        return (f'<div style="color:{C["text"]};font-size:13px;margin-top:8px"><b>{label}</b>: '
+                f'otwarcia apki {n["open"]} (iPhone {plat["ios"]}, Android {plat["android"]}, web {plat["web"]}), '
+                f'kliknięcia w karty {n["item"] - sum(links.values())}, strona oficjalna {links["official"]}, bilety {links["tickets"]}, '
+                f'mapy/telefon {n["map"]}, udostępnienia {n["share"]}, zgłoszenia {n["report"]}.<br>'
+                f'<span style="color:{C["muted"]}">Top karty: {top("item")}<br>Zakładki: {top("tab")}<br>Filtry: {top("filter")}</span></div>')
+    yd = [r for r in stats if r["_y"]]
+    return (f'<h2 style="font-size:17px;color:{C["text"]};margin:26px 0 4px">Użycie apki (anonimowo)</h2>'
+            + block(yd, "Wczoraj") + block(stats, "Ostatnie 7 dni"))
+
+
 def build(data: dict, key: str) -> tuple[str, str, str, int]:
     ready = [e for e in data["pending"] if not e.get("gaps")]
     gaps = [e for e in data["pending"] if e.get("gaps")]
@@ -388,6 +417,7 @@ def build(data: dict, key: str) -> tuple[str, str, str, int]:
         + section("5. Uzupełnione automatycznie w tym tygodniu", "Telefony i godziny z oficjalnych stron, potwierdzone cytatem.",
                   [auto_change_row(c, data["events_by_id"].get(c["row_id"])) for c in data.get("auto_changes", [])[:40]],
                   max(0, len(data.get("auto_changes", [])) - 40))
+        + stats_html(data.get("stats", []))
         + nightly_html(data.get("runs", []))
         + health_html(data.get("runs", []))
         + f'<p style="color:{C["muted"]};font-size:12px;margin-top:24px">Linki są ważne {TOKEN_DAYS} dni. '
