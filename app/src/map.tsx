@@ -6,6 +6,20 @@ import { colors } from './theme';
 import { Empty } from './ui';
 import { CITY_CENTER, ZONES, ZONE_CENTER } from './zones';
 
+// Android (Google Maps): ciemna mapa bez obcych punktów (restauracje, sklepy, przystanki) – tylko pinezki OutToday.
+const ANDROID_STYLE = [
+  { elementType: 'geometry', stylers: [{ color: '#1d2c4d' }] },
+  { elementType: 'labels.text.fill', stylers: [{ color: '#8ec3b9' }] },
+  { elementType: 'labels.text.stroke', stylers: [{ color: '#1a3646' }] },
+  { featureType: 'poi', stylers: [{ visibility: 'off' }] },
+  { featureType: 'transit', stylers: [{ visibility: 'off' }] },
+  { featureType: 'road', elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+  { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#304a7d' }] },
+  { featureType: 'road', elementType: 'labels.text.fill', stylers: [{ color: '#98a5be' }] },
+  { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#0e1626' }] },
+  { featureType: 'landscape.natural', elementType: 'geometry', stylers: [{ color: '#023e58' }] },
+];
+
 // Mapa: dokładna pinezka dla każdego miejsca ze współrzędnymi; reszta zbiorczo jako pinezka dzielnicy.
 export function ZoneMap(props: { items: Item[]; city: string; card: (i: Item) => React.ReactNode }) {
   const [picked, setPicked] = useState<string | null>(null);
@@ -29,7 +43,7 @@ export function ZoneMap(props: { items: Item[]; city: string; card: (i: Item) =>
   return (
     <View style={{ flex: 1 }}>
       <MapView key={props.city} style={styles.map} initialRegion={region} showsUserLocation userInterfaceStyle="dark"
-        showsPointsOfInterest={false} showsBuildings={false} toolbarEnabled={false}
+        showsPointsOfInterest={false} showsBuildings={false} toolbarEnabled={false} customMapStyle={ANDROID_STYLE}
         onPress={() => { setPicked(null); setPickedItem(null); }}>
         {exact.map((i) => (
           <Marker key={i.key} coordinate={{ latitude: i.geo![0], longitude: i.geo![1] }} tracksViewChanges={false}
