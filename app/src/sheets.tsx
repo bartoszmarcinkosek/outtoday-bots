@@ -160,7 +160,7 @@ function ratioOf(src: number): number {
 
 const REPORT_REASONS = ['Wrong date or time', 'Wrong price', 'Cancelled or sold out', 'Wrong place', 'Photo does not fit', 'Something else'];
 
-export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void }) {
+export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void; nearby?: Item[]; onPick?: (i: Item) => void }) {
   const [reporting, setReporting] = useState<'closed' | 'open' | 'sending' | 'sent'>('closed');
   const [reportFor, setReportFor] = useState<string | null>(null);
   const item = props.item;
@@ -236,6 +236,21 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
       {!!item.officialUrl && (
         <BigButton label={isTicketing ? 'Tickets and booking' : 'Open official page'} icon="open-outline" onPress={() => open(item.officialUrl!)} />
       )}
+      {!!props.nearby?.length && (
+        <View style={{ marginTop: 8 }}>
+          <Text style={styles.section}>Before or after</Text>
+          {props.nearby.map((n) => (
+            <Pressable key={n.key} onPress={() => props.onPick?.(n)} style={styles.nearRow}>
+              <Ionicons name={n.icon} size={20} color={n.look.accent} />
+              <View style={{ flex: 1, marginLeft: 10 }}>
+                <Text style={styles.nearTitle} numberOfLines={1}>{n.title}</Text>
+                <Text style={styles.nearSub} numberOfLines={1}>{[n.when, n.where].filter(Boolean).join(' · ')}</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={16} color={colors.muted} />
+            </Pressable>
+          ))}
+        </View>
+      )}
       {item.verified && (
         <Text style={styles.note}>Verified with the organiser{item.checked ? ` · ${item.checked}` : ''}</Text>
       )}
@@ -301,5 +316,8 @@ const styles = StyleSheet.create({
   },
   actionText: { color: colors.text, fontSize: 14, marginLeft: 7 },
   note: { color: colors.muted, fontSize: 12, marginTop: 12, lineHeight: 17 },
+  nearRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 10, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.muted },
+  nearTitle: { color: colors.text, fontSize: 15, fontWeight: '600' },
+  nearSub: { color: colors.muted, fontSize: 13, marginTop: 2 },
   report: { color: colors.muted, fontSize: 13, textDecorationLine: 'underline' },
 });

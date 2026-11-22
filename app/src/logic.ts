@@ -390,3 +390,21 @@ export function searchItems(items: Item[], query: string): Item[] {
   });
   return [...exact, ...extra];
 }
+
+/** "Before or after": 2–3 oferty (happy hour, kolacja, wieczór) w tej samej dzielnicy w dniu eventu. */
+const NEARBY_TYPES = new Set(['happy_hour', 'dinner', 'night_out', 'ladies_night']);
+export function nearbyDeals(ev: Item, all: Item[], max = 3): Item[] {
+  if (ev.kind !== 'event' || !ev.event) return [];
+  const today = todayIso();
+  const day = ev.event.start_date > today ? ev.event.start_date : today;
+  const [y, m, d] = day.split('-').map(Number);
+  const dow = new Date(y, m - 1, d).getDay();
+  const near = (x: Item) => {
+    if (ev.geo && x.geo) return distanceKm(ev.geo, x.geo) <= 3;
+    return !!ev.zone && x.zone === ev.zone;
+  };
+  return all
+    .filter((x) => x.kind === 'deal' && x.city === ev.city && NEARBY_TYPES.has(x.catKey) && !!x.deal && dealOnDay(x.deal, dow) && near(x))
+    .sort((a, b) => (ev.geo && a.geo && b.geo ? distanceKm(ev.geo, a.geo) - distanceKm(ev.geo, b.geo) : 0))
+    .slice(0, max);
+}

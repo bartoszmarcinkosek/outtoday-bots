@@ -14,7 +14,7 @@ import { count } from './src/stats';
 import { DOW_CHIPS, fmtDate, inRange, rangeFor } from './src/dates';
 import {
   Item, SORT_LABEL, Shortcut, SortKey, buildItems, dealEndedToday, dealOnDay, dealOnNow, searchItems, shortcutsFor, sortItems, todayIso,
-  placeOpen,
+  placeOpen, nearbyDeals,
 } from './src/logic';
 import { ZoneMap } from './src/map';
 import { SuggestSheet } from './src/suggest';
@@ -205,6 +205,7 @@ function Main() {
   const openFilters = () => { setUsageSnap(usage); setShowFilters(true); };
 
   const all = useMemo(() => (data ? buildItems(data, me) : []), [data, me]);
+  const nearDeals = useMemo(() => (selected ? nearbyDeals(selected, all) : []), [selected, all]);
 
   // Rejony dostępne w każdym mieście (tylko te, w których coś jest).
   const available = useMemo(() => {
@@ -570,7 +571,8 @@ function Main() {
         items={all} city={city} card={card} jump={jump}
         detail={
           <DetailSheet item={showSearch ? selected : null} fav={!!selected && favs.includes(selected.key)}
-            onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
+            onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)}
+            nearby={nearDeals} onPick={(n) => { setSelPhoto(photoFor(n)); setSelected(n); }} />
         } />
 
       <AboutSheet visible={showAbout} onClose={() => setShowAbout(false)} onSuggest={() => setShowSuggest(true)} />
@@ -598,7 +600,8 @@ function Main() {
               ListEmptyComponent={<Empty text="Nothing saved yet. Tap the heart on any card to keep it here." />}
             />
             <DetailSheet item={showFavs ? selected : null} fav={!!selected && favs.includes(selected.key)}
-              onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
+              onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)}
+            nearby={nearDeals} onPick={(n) => { setSelPhoto(photoFor(n)); setSelected(n); }} />
           </SafeAreaView>
         </SafeAreaProvider>
       </Modal>
@@ -622,13 +625,15 @@ function Main() {
               ListEmptyComponent={<Empty text="Nothing new since your last visit." />}
             />
             <DetailSheet item={showNew ? selected : null} fav={!!selected && favs.includes(selected.key)}
-              onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
+              onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)}
+            nearby={nearDeals} onPick={(n) => { setSelPhoto(photoFor(n)); setSelected(n); }} />
           </SafeAreaView>
         </SafeAreaProvider>
       </Modal>
 
       <DetailSheet item={showFavs || showSearch || showNew ? null : selected} fav={!!selected && favs.includes(selected.key)}
-        onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)} />
+        onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)}
+            nearby={nearDeals} onPick={(n) => { setSelPhoto(photoFor(n)); setSelected(n); }} />
     </SafeAreaView>
   );
 }
