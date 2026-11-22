@@ -34,6 +34,7 @@ const LANDMARKS: [RegExp, string][] = [
   [/jebel jais/i, 'lm_jebel_jais'],
 ];
 
+const AREAS = new Set(['lm_palm', 'lm_saadiyat', 'lm_corniche', 'lm_reem']);
 const VENUES = new Set(['lm_etihad_arena', 'lm_coca_cola_arena', 'lm_dubai_opera', 'lm_nyuad', 'lm_expo_city', 'lm_louvre', 'lm_museum_future']);
 
 const RULES: [RegExp, string][] = [
@@ -45,7 +46,7 @@ const RULES: [RegExp, string][] = [
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing|rowing|aquafit/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian/i, 'comedy'],
-  [/theat(re|er)|musical\b|ballet|\bplay\b|pantomime|swan lake|nutcracker/i, 'theatre'],
+  [/theat(re|er)|musical\b|ballet|\bplay\b|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
   [/cinema|film|screening|movie/i, 'cinema'],
   [/\bjazz\b/i, 'jazz'],
   [/\bdj\b|techno|afro ?house|\bedm\b|rave|club night/i, 'dj'],
@@ -67,7 +68,8 @@ const RULES: [RegExp, string][] = [
   [/\bbooks?\b|book (club|fair|launch|presentation)|library|reading|poetry/i, 'books'],
   [/\btalk\b|lecture|panel|in conversation|seminar/i, 'talk'],
   [/night market|flea|bazaar|farmers'? market|winter market|christmas market|craft market|food market|urban market|souq|souk/i, 'market'],
-  [/teamlab|immersive|digital art|museum|art gallery|exhibition|biennial|art fair/i, 'museums'],
+  [/workshop|arts (and|&) crafts/i, 'studios'], // ogólne warsztaty – po tańcu, jodze itd.
+  [/teamlab|immersive|digital art|museum|art gallery|biennial/i, 'museums'],
   // na końcu: bieg w parku archeologicznym to nadal bieg
   [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
 ];
@@ -75,7 +77,7 @@ const RULES: [RegExp, string][] = [
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów
 const CAT: Record<string, string[]> = {
   music: ['music'], culture: ['culture'], sport: ['sport'], food: ['food'],
-  festivals: ['festivals'], festival: ['festivals'], nightlife: ['nightlife'], classes: ['classes'], nature: ['nature'],
+  festivals: ['festivals'], festival: ['festivals'], nightlife: ['nightlife'], classes: ['studios'], nature: ['nature'],
   community: ['community'], business: ['talk'], family: ['family'], market: ['market'],
   beaches: ['beaches'], parks: ['parks'], museums: ['museums'], attractions: ['attractions'], active: ['active'],
   kids: ['kids'], markets: ['souk'], studios: ['studios'], daytrips: ['daytrips'],
@@ -105,7 +107,10 @@ function hash(s: string): number {
 function pool(item: Item): number[] {
   let keys: string[] | undefined;
   const placeText = `${item.title} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
-  const lm = LANDMARKS.find(([re]) => re.test(placeText));
+  let lm = LANDMARKS.find(([re]) => re.test(placeText));
+  // Całe dzielnice/wyspy (Palm, Saadiyat, Corniche, Reem): ich zdjęcie tylko dla miejsc. Event albo oferta w hotelu
+  // na Palmie dostaje zdjęcie swojego rodzaju (koncert, brunch), a nie widok wyspy z lotu ptaka.
+  if (lm && AREAS.has(lm[1]) && item.kind !== 'place') lm = undefined;
   // Areny i sale (Etihad Arena, Coca-Cola Arena, Opera...): event z rozpoznanym rodzajem (komedia, koncert DJ, teatr)
   // dostaje zdjęcie rodzaju, a zdjęcie budynku tylko gdy rodzaju nie widać – żeby wieczór w arenie nie miał 5 takich samych kart.
   // Rodzaj z tytułu wygrywa ze znanym miejscem (Kayaking at Louvre -> kajaki, Swan Lake w Operze -> teatr).

@@ -19,6 +19,8 @@ g = defaultdict(list)
 for kind, title, place, cat in rows:
     key = None
     lm = next((k for re_, k in LM if re_.search(f"{title} {place}")), None)
+    if lm in ("lm_palm", "lm_saadiyat", "lm_corniche", "lm_reem") and kind != "place":
+        lm = None
     if lm:
         lre = next(re_ for re_, k in LM if k == lm)
         rest = lre.sub(" ", title)
