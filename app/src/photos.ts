@@ -43,25 +43,26 @@ const RULES: [RegExp, string][] = [
   [/ceramic|pottery|sculpt|painting|paint (and|&) sip|art (class|studio|workshop)|calligraph|drawing|sketch|craft workshop|woodwork|jewell?ery making|candle making|printmaking|textile/i, 'studios'],
   [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower|polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
   [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
-  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing|rowing|aquafit/i, 'watersports'],
+  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing (?!the)|rowing|aquafit/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian/i, 'comedy'],
   [/theat(re|er)|musical\b|ballet|\bplay\b|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
   [/cinema|film|screening|movie/i, 'cinema'],
   [/\bjazz\b/i, 'jazz'],
   [/\bdj\b|techno|afro ?house|\bedm\b|rave|club night/i, 'dj'],
-  [/arabic music|tarab|\boud\b|khaleeji|eid concert/i, 'arabic'],
+  [/arabic music|tarab|\boud\b(?! exhibition| and perfume|.*perfume)|khaleeji|eid concert/i, 'arabic'],
+  [/rock republic|climbing|bouldering/i, 'active'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
   [/horse|equestrian|racecourse|endurance ride|show jumping|polo\b/i, 'horse'],
   [/cycl|\bbike ride|\bbicycle|velo\b/i, 'cycling'],
   [/swim|triathlon|aquathlon|open water/i, 'swimming'],
   [/\brun\b|running|marathon|\b(3|5|10|21)k\b|\d+ ?km\b|parkrun|race run|trail race|relay/i, 'running'],
-  [/yoga|pilates|fitness|bootcamp|hiit|workout/i, 'yoga'],
+  [/tennis|padel|squash|pickleball/i, 'padel'],
+  [/yoga|pilates|meditat|breathwork|sound bath|sound healing|fitness|bootcamp|hiit|workout/i, 'yoga'],
   [/cricket|\bt10\b|\bt20\b|ilt20|knight riders|dubai capitals|desert vipers|gulf giants|mi emirates|sharjah warriorz/i, 'cricket'],
   [/football|soccer|super cup|\bfc\b|pro league|manchester city/i, 'football'],
-  [/tennis|padel|squash|pickleball/i, 'padel'],
   [/golf/i, 'golf'],
-  [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|rally|drift|baja|desert challenge|nitro circus|car show|car and bike|bike week|driving experience/i, 'motorsport'],
+  [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|rally|drift(?! beach)|baja|desert challenge|nitro circus|car show|car and bike|bike week|driving experience/i, 'motorsport'],
   [/\bcamels?\b/i, 'camel'],
   [/karaoke/i, 'night_out'],
   [/\bquiz\b/i, 'quiz'],
@@ -112,6 +113,8 @@ function pool(item: Item): number[] {
   // Całe dzielnice/wyspy (Palm, Saadiyat, Corniche, Reem): ich zdjęcie tylko dla miejsc. Event albo oferta w hotelu
   // na Palmie dostaje zdjęcie swojego rodzaju (koncert, brunch), a nie widok wyspy z lotu ptaka.
   if (lm && AREAS.has(lm[1]) && item.kind !== 'place') lm = undefined;
+  // Oferty (ladies night, brunch, quiz) w znanym miejscu: zdjęcie rodzaju oferty. Budynek tylko dla staycation / day pass.
+  if (lm && item.kind === 'deal' && item.catKey !== 'staycation' && item.catKey !== 'day_pass' && CAT[item.catKey]) lm = undefined;
   // Areny i sale (Etihad Arena, Coca-Cola Arena, Opera...): event z rozpoznanym rodzajem (komedia, koncert DJ, teatr)
   // dostaje zdjęcie rodzaju, a zdjęcie budynku tylko gdy rodzaju nie widać – żeby wieczór w arenie nie miał 5 takich samych kart.
   // Rodzaj z tytułu wygrywa ze znanym miejscem (Kayaking at Louvre -> kajaki, Swan Lake w Operze -> teatr).

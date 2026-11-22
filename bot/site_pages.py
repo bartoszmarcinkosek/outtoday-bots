@@ -186,7 +186,9 @@ def card(x: dict) -> str:
         when += f" · {hm(x['start_time'])}"
     price = (x.get("price_text") or "Free") if x.get("is_free") else (x.get("price_text") or "")
     sub = " · ".join(v for v in (x.get("venue"), price) if v)
-    pic = f'<img src="img/{img}" alt="" loading="lazy">' if img else '<span class="noimg"></span>'
+    emo = {"music": "🎵", "nightlife": "🌙", "sport": "🏅", "family": "👨‍👩‍👧", "culture": "🎭", "food": "🍽️", "festivals": "🎉",
+           "community": "🤝", "classes": "🎨", "market": "🛍️", "nature": "🌿", "wellness": "🧘"}.get(x.get("category") or "", "✨")
+    pic = f'<img src="img/{img}" alt="" loading="lazy">' if img else f'<span class="noimg">{emo}</span>'
     return (f'<a class="ev" href="e/event-{x["id"]}.html">{pic}<span><b>{e(x["title"])}</b>'
             f'<small>{e(when)}</small><small>{e(sub)}</small></span></a>')
 
