@@ -41,7 +41,7 @@ const RULES: [RegExp, string][] = [
   [/bungee/i, 'bungee'],
   // miejsca o konkretnym charakterze: bez własnego zdjęcia lepiej ikonka niż obce (kolejka górska przy akwarium)
   [/aquarium|dolphin|sea ?world|underwater zoo/i, 'aquarium'],
-  [/\bzoo\b|safari park|sharjah safari|crocodile|wildlife park|green planet|butterfly/i, 'zoo'],
+  [/\bzoo\b|safari park|sharjah safari|crocodile|wildlife park|green planet|butterfly garden/i, 'zoo'],
   [/water ?park|waterworld|aquaventure|wild wadi|aqua ?park|laguna|montazah/i, 'waterpark'],
   [/observation deck|sky views|at the top|the view at|\bview(ing)? deck/i, 'viewpoint'],
   [/\bmosque\b/i, 'mosque'],
@@ -87,7 +87,7 @@ const RULES: [RegExp, string][] = [
   [/\bfarm\b|oasis|\babra\b/i, 'farm'],
   [/desert (safari|reserve|conservation|park)|marmoom|al qudra|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
   [/jebel|hatta|\bwadi\b|mountain|mubazzarah/i, 'daytrips'],
-  [/\bbeach\b/i, 'beaches'],
+  [/\bbeach\b(?! hotel)/i, 'beaches'],
 ];
 
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów

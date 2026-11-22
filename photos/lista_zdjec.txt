@@ -1,5 +1,11 @@
 1 | lm_coca_cola_arena-1 | (gotowe)
 162 | bungee-1 | Person bungee jumping from a tall platform over a calm marina at golden hour, waterfront buildings and yachts below, Abu Dhabi.
+163 | aquarium-1 | Families looking at a huge aquarium tank with sharks, rays and colourful fish, blue light, modern aquarium in the UAE.
+164 | zoo-1 | Giraffes and antelopes in a sunny safari park with acacia trees and a family on a safari truck, UAE.
+165 | waterpark-1 | Colourful water slides and a wave pool full of people in a sunny water park, palm trees, Dubai.
+166 | viewpoint-1 | People at a glass observation deck high above Dubai looking at the skyline at sunset.
+167 | mosque-1 | Small historic white mosque with a simple minaret and palm trees under blue sky, UAE.
+168 | farm-1 | Green date palm oasis with irrigation channels (falaj) and a shaded path, Al Ain, UAE.
 15 | lm_jebel_jais-1 | Jebel Jais mountain road winding through rocky peaks in Ras Al Khaimah at sunrise.
 74 | lm_etihad_arena_in-1 | Inside a large modern indoor arena in Abu Dhabi during a concert: tiered seating full of audience, big stage with lights and screens, view from the upper seats.
 75 | lm_etihad_arena_in-2 | Inside a large modern indoor arena during a stand-up comedy night: single performer on a wide stage under a spotlight, big screens, full seated audience in the dark.
