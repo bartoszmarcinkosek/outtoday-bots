@@ -43,7 +43,7 @@ export function ZoneMap(props: { items: Item[]; city: string; card: (i: Item) =>
   return (
     <View style={{ flex: 1 }}>
       <MapView key={props.city} style={styles.map} initialRegion={region} showsUserLocation userInterfaceStyle="dark"
-        showsPointsOfInterest={false} showsBuildings={false} toolbarEnabled={false} customMapStyle={ANDROID_STYLE}
+        showsPointsOfInterests={false} showsBuildings={false} toolbarEnabled={false} customMapStyle={ANDROID_STYLE}
         onPress={() => { setPicked(null); setPickedItem(null); }}>
         {exact.map((i) => (
           <Marker key={i.key} coordinate={{ latitude: i.geo![0], longitude: i.geo![1] }} tracksViewChanges={false}

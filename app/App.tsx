@@ -78,7 +78,7 @@ function Main() {
   const [dealDay, setDealDay] = useState<number | null>(null);
   const [topOnly, setTopOnly] = useState(false);
   const [openOnly, setOpenOnly] = useState(false);
-  const [cats, setCats] = useState<Record<ListTab, string | null>>({ events: null, places: null, deals: null });
+  const [cats, setCats] = useState<Record<ListTab, string[]>>({ events: [], places: [], deals: [] }); // kilka kategorii naraz
   const [sorts, setSorts] = useState<Record<ListTab, SortKey>>({ events: 'default', places: 'default', deals: 'default' });
   const [free, setFree] = useState(false);
   const [kid, setKid] = useState(false);
@@ -256,7 +256,7 @@ function Main() {
       const base = wholeCity || (t === 'places' && topOnly && hasTop10(city)) ? all.filter((i) => i.city === city) : local;
       const filtered = base
         .filter((i) => i.kind === KIND_OF[t])
-        .filter((i) => !cats[t] || i.catKey === cats[t])
+        .filter((i) => cats[t].length === 0 || (i.catKey != null && cats[t].includes(i.catKey)))
         .filter((i) => !free || i.free)
         .filter((i) => !kid || i.kid)
         .filter((i) => !pet || i.pet)
@@ -297,18 +297,18 @@ function Main() {
 
   const activeCount =
     Number(free) + Number(kid) + Number(pet) + Number(ladies) + (tab === 'events' && evening ? 1 : 0) + (tab === 'events' && lastChance ? 1 : 0) +
-    (tab !== 'today' && cats[tab] ? 1 : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) + (tab === 'places' && openOnly ? 1 : 0) +
+    (tab !== 'today' ? cats[tab].length : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) + (tab === 'places' && openOnly ? 1 : 0) +
     (tab === 'deals' && cap !== null ? 1 : 0);
 
   const clearFilters = () => {
     setFree(false); setKid(false); setPet(false); setLadies(false); setEvening(false); setLastChance(false); setInOut('all'); setCap(null); setTopOnly(false); setOpenOnly(false);
-    setCats({ events: null, places: null, deals: null });
+    setCats({ events: [], places: [], deals: [] });
   };
 
   // Przejście z ekranu Today albo z wyszukiwarki do gotowej listy.
   const jump = (s: { tab: ListTab; key?: string | null; day?: string; dealDay?: number | null; free?: boolean; ending?: boolean }) => {
     clearFilters();
-    setCats({ events: null, places: null, deals: null, [s.tab]: s.key ?? null } as Record<ListTab, string | null>);
+    setCats({ events: [], places: [], deals: [], [s.tab]: s.key ? [s.key] : [] } as Record<ListTab, string[]>);
     if (s.day) setDay(s.day);
     if (s.dealDay !== undefined) setDealDay(s.dealDay);
     if (s.free) setFree(true);
@@ -447,8 +447,8 @@ function Main() {
             <View style={{ flex: 1 }} />
             <Text style={styles.count}>{list.length} {list.length === 1 ? 'result' : 'results'}</Text>
           </View>
-          {cats[tab] && (
-            <Text style={styles.activeCat}>Showing: {labelFor(tab, cats[tab]!).label}</Text>
+          {cats[tab].length > 0 && (
+            <Text style={styles.activeCat}>Showing: {cats[tab].map((k) => labelFor(tab, k).label).join(', ')}</Text>
           )}
 
           {MAP_OK && view === 'map' ? (
@@ -537,10 +537,11 @@ function Main() {
             const chip = (k: string) => {
               const c = labelFor(tab, k);
               return (
-                <Chip key={k} label={c.label} color={c.accent} active={cats[tab] === k}
+                <Chip key={k} label={c.label} color={c.accent} active={cats[tab].includes(k)}
                   onPress={() => {
-                    if (cats[tab] !== k) bump(`${tab}:${k}`);
-                    setCats({ ...cats, [tab]: cats[tab] === k ? null : k });
+                    const on = cats[tab].includes(k);
+                    if (!on) bump(`${tab}:${k}`);
+                    setCats({ ...cats, [tab]: on ? cats[tab].filter((x) => x !== k) : [...cats[tab], k] });
                   }} />
               );
             };
@@ -554,7 +555,7 @@ function Main() {
                 )}
                 <Text style={styles.section}>{tab === 'deals' ? 'All types' : 'All categories'}</Text>
                 <View style={styles.wrap}>
-                  <Chip label="All" active={!cats[tab]} onPress={() => setCats({ ...cats, [tab]: null })} />
+                  <Chip label="All" active={cats[tab].length === 0} onPress={() => setCats({ ...cats, [tab]: [] })} />
                   {rest.map(chip)}
                 </View>
               </>
