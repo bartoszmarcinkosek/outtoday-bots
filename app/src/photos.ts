@@ -49,7 +49,9 @@ const RULES: [RegExp, string][] = [
   [/trampoline|bounce|flip ?out|air maniax|ninja|tepfactor|ropes course|aventura|high ropes/i, 'active'],
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|flying (lesson|experience)|scenic flight/i, 'flying'],
   [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating|on ice\b/i, 'snow'],
-  [/ceramic|pottery|sculpt|painting|paint (and|&) sip|art (class|studio|workshop)|calligraph|drawing|sketch|craft workshop|woodwork|jewell?ery making|candle making|printmaking|textile/i, 'studios'],
+  [/ceramic|pottery|sculpt|\bclay\b/i, 'studios'],
+  [/painting|paint (and|&) sip|\bpaints?\b|art (class|studio|workshop)|art cent(re|er)|calligraph|drawing|\bdraw\b|sketch|watercolou?r|printmaking|al marsam/i, 'painting'],
+  [/cooking|chocolate|baking|\bbake\b|gingerbread|culinary|chef/i, 'cooking'],
   [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower|polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
   [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing (?!the)|rowing|aquafit/i, 'watersports'],
@@ -78,7 +80,7 @@ const RULES: [RegExp, string][] = [
   [/\bbooks?\b|book (club|fair|launch|presentation)|library|reading|poetry/i, 'books'],
   [/\btalk\b|lecture|panel|in conversation|seminar/i, 'talk'],
   [/night market|flea|bazaar|farmers'? market|winter market|christmas market|craft market|food market|urban market|souq|souk/i, 'market'],
-  [/workshop|arts (and|&) crafts/i, 'studios'], // ogólne warsztaty – po tańcu, jodze itd.
+  [/workshop|arts (and|&) crafts|craft/i, 'workshop'], // ogólne warsztaty – po tańcu, jodze itd.
   [/frieze|art fair|art week|art dubai|art abu dhabi|abu dhabi art|art exhibition|gallery|alserkal|jameel arts|421 arts|art foundation|art museum|tashkeel/i, 'artfair'],
   [/teamlab|immersive|digital art|museum|art gallery|biennial/i, 'museums'],
   // na końcu: bieg w parku archeologicznym to nadal bieg
@@ -93,10 +95,10 @@ const RULES: [RegExp, string][] = [
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów
 const CAT: Record<string, string[]> = {
   music: ['music'], culture: ['culture'], sport: ['sport'], food: ['food'],
-  festivals: ['festivals'], festival: ['festivals'], nightlife: ['nightlife'], classes: ['studios'], nature: ['nature'],
+  festivals: ['festivals'], festival: ['festivals'], nightlife: ['nightlife'], classes: [], nature: ['nature'],
   community: ['community'], business: ['talk'], family: ['family'], market: ['market'],
   beaches: ['beaches'], parks: ['parks'], museums: ['museums'], attractions: [], active: [],
-  kids: ['kids'], markets: ['souk'], studios: ['studios'], daytrips: [],
+  kids: ['kids'], markets: ['souk'], studios: [], daytrips: [],
   day_pass: ['day_pass'], ladies_night: ['ladies_night'], brunch: ['brunch'], happy_hour: ['happy_hour'], night_out: ['night_out'], lunch: ['lunch'],
   dinner: ['dinner'], quiz: ['quiz'], breakfast: ['breakfast'], staycation: ['staycation'],
 };
@@ -112,7 +114,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;
