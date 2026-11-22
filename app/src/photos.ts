@@ -39,6 +39,14 @@ const VENUES = new Set(['lm_etihad_arena', 'lm_coca_cola_arena', 'lm_dubai_opera
 
 const RULES: [RegExp, string][] = [
   [/bungee/i, 'bungee'],
+  // miejsca o konkretnym charakterze: bez własnego zdjęcia lepiej ikonka niż obce (kolejka górska przy akwarium)
+  [/aquarium|dolphin|sea ?world|underwater zoo/i, 'aquarium'],
+  [/\bzoo\b|safari park|sharjah safari|crocodile|wildlife park|green planet|butterfly/i, 'zoo'],
+  [/water ?park|waterworld|aquaventure|wild wadi|aqua ?park|laguna|montazah/i, 'waterpark'],
+  [/observation deck|sky views|at the top|the view at|\bview(ing)? deck/i, 'viewpoint'],
+  [/\bmosque\b/i, 'mosque'],
+  [/warner bros|img worlds|ferrari world|motiongate|legoland|theme park|real madrid world/i, 'attractions'],
+  [/trampoline|bounce|flip ?out|air maniax|ninja|tepfactor|ropes course|aventura|high ropes/i, 'active'],
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|flying (lesson|experience)|scenic flight/i, 'flying'],
   [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating|on ice\b/i, 'snow'],
   [/ceramic|pottery|sculpt|painting|paint (and|&) sip|art (class|studio|workshop)|calligraph|drawing|sketch|craft workshop|woodwork|jewell?ery making|candle making|printmaking|textile/i, 'studios'],
@@ -47,10 +55,10 @@ const RULES: [RegExp, string][] = [
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing (?!the)|rowing|aquafit/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian/i, 'comedy'],
-  [/theat(re|er)|musical\b|ballet|\bplay\b|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
+  [/theat(re|er)|musical\b|ballet|\bplay\b(?! ?(&|and) feast| area)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
   [/cinema|film|screening|movie/i, 'cinema'],
   [/\bjazz\b/i, 'jazz'],
-  [/\bdj\b|techno|afro ?house|\bedm\b|rave|club night/i, 'dj'],
+  [/\bdj\b|techno|afro ?house|\bedm\b|\brave\b|club night/i, 'dj'],
   [/arabic music|tarab|\boud\b(?! exhibition| and perfume|.*perfume)|khaleeji|eid concert/i, 'arabic'],
   [/rock republic|climbing|bouldering/i, 'active'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
@@ -59,7 +67,7 @@ const RULES: [RegExp, string][] = [
   [/swim|triathlon|aquathlon|open water/i, 'swimming'],
   [/\brun\b|running|marathon|\b(3|5|10|21)k\b|\d+ ?km\b|parkrun|race run|trail race|relay/i, 'running'],
   [/tennis|padel|squash|pickleball/i, 'padel'],
-  [/yoga|pilates|meditat|breathwork|sound bath|sound healing|fitness|bootcamp|hiit|workout/i, 'yoga'],
+  [/yoga|pilates|meditat(e|ion\b|ing)|breathwork|sound bath|sound healing|fitness|bootcamp|hiit|workout/i, 'yoga'],
   [/cricket|\bt10\b|\bt20\b|ilt20|knight riders|dubai capitals|desert vipers|gulf giants|mi emirates|sharjah warriorz/i, 'cricket'],
   [/football|soccer|super cup|\bfc\b|pro league|manchester city/i, 'football'],
   [/golf/i, 'golf'],
@@ -71,10 +79,15 @@ const RULES: [RegExp, string][] = [
   [/\btalk\b|lecture|panel|in conversation|seminar/i, 'talk'],
   [/night market|flea|bazaar|farmers'? market|winter market|christmas market|craft market|food market|urban market|souq|souk/i, 'market'],
   [/workshop|arts (and|&) crafts/i, 'studios'], // ogólne warsztaty – po tańcu, jodze itd.
-  [/frieze|art fair|art week|art dubai|art abu dhabi|abu dhabi art|art exhibition|gallery/i, 'artfair'],
+  [/frieze|art fair|art week|art dubai|art abu dhabi|abu dhabi art|art exhibition|gallery|alserkal|jameel arts|421 arts|art foundation|art museum|tashkeel/i, 'artfair'],
   [/teamlab|immersive|digital art|museum|art gallery|biennial/i, 'museums'],
   // na końcu: bieg w parku archeologicznym to nadal bieg
   [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
+  // na samym końcu, tylko gdy nic innego nie pasuje (koncert na plaży to koncert)
+  [/\bfarm\b|oasis|\babra\b/i, 'farm'],
+  [/desert (safari|reserve|conservation|park)|marmoom|al qudra|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
+  [/jebel|hatta|\bwadi\b|mountain|mubazzarah/i, 'daytrips'],
+  [/\bbeach\b/i, 'beaches'],
 ];
 
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów
@@ -82,8 +95,8 @@ const CAT: Record<string, string[]> = {
   music: ['music'], culture: ['culture'], sport: ['sport'], food: ['food'],
   festivals: ['festivals'], festival: ['festivals'], nightlife: ['nightlife'], classes: ['studios'], nature: ['nature'],
   community: ['community'], business: ['talk'], family: ['family'], market: ['market'],
-  beaches: ['beaches'], parks: ['parks'], museums: ['museums'], attractions: ['attractions'], active: ['active'],
-  kids: ['kids'], markets: ['souk'], studios: ['studios'], daytrips: ['daytrips'],
+  beaches: ['beaches'], parks: ['parks'], museums: ['museums'], attractions: [], active: [],
+  kids: ['kids'], markets: ['souk'], studios: ['studios'], daytrips: [],
   day_pass: ['day_pass'], ladies_night: ['ladies_night'], brunch: ['brunch'], happy_hour: ['happy_hour'], night_out: ['night_out'], lunch: ['lunch'],
   dinner: ['dinner'], quiz: ['quiz'], breakfast: ['breakfast'], staycation: ['staycation'],
 };
@@ -99,7 +112,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;
