@@ -74,7 +74,9 @@ const RULES: [RegExp, string][] = [
   [/cricket|\bt10\b|\bt20\b|ilt20|knight riders|dubai capitals|desert vipers|gulf giants|mi emirates|sharjah warriorz/i, 'cricket'],
   [/football|soccer|super cup|\bfc\b|pro league|manchester city/i, 'football'],
   [/golf/i, 'golf'],
-  [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|rally|drift(?! beach)|baja|desert challenge|nitro circus|car show|car and bike|bike week|driving experience/i, 'motorsport'],
+  [/desert challenge|rally|baja|dakar|off-?road|dune bash|drift(?! beach)/i, 'rally'],
+  [/car show|car and bike|bike week|custom show|car meet/i, 'carshow'],
+  [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|nitro circus|driving experience/i, 'motorsport'],
   [/\bcamels?\b/i, 'camel'],
   [/karaoke/i, 'night_out'],
   [/\bquiz\b/i, 'quiz'],
@@ -115,7 +117,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;
