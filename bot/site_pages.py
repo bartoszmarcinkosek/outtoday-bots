@@ -64,6 +64,8 @@ def photo_for(kind: str, key: str, title: str, place_text: str, cat: str, city: 
                 keys = [hit]
             elif hit in NO_FALLBACK:
                 return None
+        if not keys and kind == "event":
+            return None  # jak w apce: event bez rozpoznanego rodzaju = ikonka, nie zdjęcie kategorii
         keys = keys or CAT.get(cat, [])
         suf = CITY_SUFFIX.get(city)
         pool = []
