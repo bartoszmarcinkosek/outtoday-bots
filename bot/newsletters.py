@@ -165,23 +165,30 @@ def main() -> int:
 
     im = imaplib.IMAP4_SSL("imap.gmail.com")
     im.login(ACCOUNT, pw)
-    typ, _ = im.select(f'"{FOLDER}"', readonly=True)
-    if typ != "OK":
-        print(f"Brak folderu {FOLDER}")
-        return 1
     since = (dt.date.today() - dt.timedelta(days=a.days)).strftime("%d-%b-%Y")
-    _, data = im.search(None, "SINCE", since)
-    ids = data[0].split()
-    print(f"Maile w '{FOLDER}' od {since}: {len(ids)}")
+    # Czytamy WSZYSTKO, co przychodzi na skrzynkę OutToday (decyzja właściciela 22.11): Odebrane + etykieta Newsletters.
+    # "All Mail" daje każdą wiadomość raz, także zarchiwizowaną; wysłane przez nas pomijamy po nadawcy.
+    msgs = []
+    for folder in ('"[Gmail]/All Mail"', "INBOX", f'"{FOLDER}"'):
+        typ, _ = im.select(folder, readonly=True)
+        if typ != "OK":
+            continue
+        _, data = im.search(None, "SINCE", since)
+        for i in data[0].split():
+            _, md = im.fetch(i, "(BODY.PEEK[])")
+            msgs.append(md[0][1])
+        print(f"Maile w {folder} od {since}: {len(data[0].split())}")
+        break
     stats = {"maile": 0, "pominiete_nadawca": 0, "juz_byly": 0, "oferty": 0, "auto": 0}
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
 
     ev_srcs = event_sources()
     src_doms = {base_domain(urlparse(u).netloc) for s_ in ev_srcs for u in s_.get("urls", [])}
-    for i in ids:
-        _, md = im.fetch(i, "(BODY.PEEK[])")
-        msg = email.message_from_bytes(md[0][1])
-        mid = (msg.get("Message-ID") or "").strip() or hashlib.sha1(md[0][1][:2000]).hexdigest()
+    for raw in msgs:
+        msg = email.message_from_bytes(raw)
+        if ACCOUNT in (email.utils.parseaddr(msg.get("From") or "")[1].lower()):
+            continue  # nasze własne maile
+        mid = (msg.get("Message-ID") or "").strip() or hashlib.sha1(raw[:2000]).hexdigest()
         key = "newsletter:" + hashlib.sha1(mid.encode()).hexdigest()
         subject = str(make_header(decode_header(msg.get("Subject") or "")))[:200]
         doms = []
@@ -213,8 +220,31 @@ def main() -> int:
                     db.upsert("bot_pages", {"url": f"search:due:{u}", "content_hash": "1", "last_fetched_at": now_iso,
                                             "last_status": "search"}, "url")
         elif not place:
-            print(f"- pominięty ({dom}): {subject[:80]}")
-            stats["pominiete_nadawca"] += 1
+            # Nadawca spoza naszych list: AI wypisuje eventy z treści; trafiają jako 'pending' do porannego maila.
+            hints = ask_event_hints(client, f"SUBJECT: {subject}\n{text}", usage)
+            sender = email.utils.parseaddr(msg.get("From") or "")[0] or dom
+            n_new = 0
+            for h in hints:
+                d = (h.get("date") or "")[:10]
+                if not re.match(r"\d{4}-\d{2}-\d{2}$", d) or d < dt.date.today().isoformat():
+                    continue
+                if db.get("events", {"select": "id", "title": f"eq.{h['title'][:200]}", "start_date": f"eq.{d}"}):
+                    continue
+                row = {"title": h["title"][:200], "start_date": d, "venue": h.get("venue"), "city": h.get("city") or "Dubai",
+                       "category": "community", "status": "pending", "bot_key": key, "gaps": ["start_time", "price"],
+                       "last_seen_at": now_iso, "source_name": f"Newsletter: {sender}"[:120],
+                       "evidence": {"page": f"newsletter {dom}", "note": subject[:200]}}
+                row = {k: v for k, v in row.items() if v not in (None, "")}
+                if not a.dry_run:
+                    try:
+                        db.insert("events", row)
+                    except Exception as e:
+                        print(f"   błąd zapisu: {str(e)[:120]}")
+                        continue
+                n_new += 1
+            print(f"~ nowy nadawca ({dom}): {subject[:60]} – eventów do zatwierdzenia {n_new}")
+            stats["nowi_nadawcy"] = stats.get("nowi_nadawcy", 0) + 1
+            stats["eventy_pending"] = stats.get("eventy_pending", 0) + n_new
         else:
             print(f"+ {place['name']} ({dom}): {subject[:80]}")
             page_norm = R.norm(f"{subject}\n{text}")
