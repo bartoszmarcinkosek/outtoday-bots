@@ -1162,6 +1162,418 @@
   {
    "username": "nhm_abudhabi",
    "city": "Abu Dhabi"
+  },
+  {
+   "username": "72hotel",
+   "city": "Sharjah",
+   "venue": "72 Hotel Sharjah"
+  },
+  {
+   "username": "abudhabidesertchallenge",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "abudhabifestival",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "abudhabimarathon",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "admediaoffice",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "adnecad",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "adventureparkdubai",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "ajmanwaterpark_bygladiators",
+   "city": "Ajman",
+   "venue": "Ajman Water Park"
+  },
+  {
+   "username": "alain_sportplex",
+   "city": "Al Ain",
+   "venue": "Al Ain Sportsplex"
+  },
+  {
+   "username": "alainadventure",
+   "city": "Al Ain",
+   "venue": "Al Ain Adventure"
+  },
+  {
+   "username": "alhamraofficial",
+   "city": "Ras Al Khaimah",
+   "venue": "Al Hamra Residence"
+  },
+  {
+   "username": "barperlageae",
+   "city": "Abu Dhabi",
+   "venue": "Perlage (The Galleria Al Maryah Island)"
+  },
+  {
+   "username": "bentleykitchen",
+   "city": "Abu Dhabi",
+   "venue": "Bentley Kitchen"
+  },
+  {
+   "username": "blackspoonme",
+   "city": "Abu Dhabi",
+   "venue": "Ibn AlBahr"
+  },
+  {
+   "username": "burj2burj",
+   "city": "Dubai"
+  },
+  {
+   "username": "burjkhalifa",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "cafedelmarabudhabi",
+   "city": "Abu Dhabi",
+   "venue": "Café del Mar Beach Club Abu Dhabi"
+  },
+  {
+   "username": "chevalcollection",
+   "city": "Dubai",
+   "venue": "Cheval Maison – The Palm Dubai"
+  },
+  {
+   "username": "clap.riyadh",
+   "city": "Dubai",
+   "venue": "CLAP"
+  },
+  {
+   "username": "clapbeirut",
+   "city": "Dubai",
+   "venue": "CLAP"
+  },
+  {
+   "username": "clapdxb",
+   "city": "Dubai",
+   "venue": "CLAP"
+  },
+  {
+   "username": "claplondon",
+   "city": "Dubai",
+   "venue": "CLAP"
+  },
+  {
+   "username": "cocorestaurants_dubai",
+   "city": "Dubai",
+   "venue": "COCO Restaurant & Shisha Lounge"
+  },
+  {
+   "username": "covebeachdubai",
+   "city": "Dubai",
+   "venue": "Cove Beach"
+  },
+  {
+   "username": "d3dubai",
+   "city": "Dubai"
+  },
+  {
+   "username": "ddftennis",
+   "city": "Dubai"
+  },
+  {
+   "username": "dubai7s",
+   "city": "Dubai"
+  },
+  {
+   "username": "dubaiaquarium",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "dubaiautodrome",
+   "city": "Dubai"
+  },
+  {
+   "username": "dubaidcgolf",
+   "city": "Dubai"
+  },
+  {
+   "username": "dubaifestivalcity",
+   "city": "Dubai"
+  },
+  {
+   "username": "dubaiicerink",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "dubaiworldtradecentre",
+   "city": "Dubai"
+  },
+  {
+   "username": "emaarentertainment",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "fimc.ae",
+   "city": "Fujairah",
+   "venue": "Fujairah International Marine Club"
+  },
+  {
+   "username": "flippedpark",
+   "city": "Ras Al Khaimah",
+   "venue": "Flipped Park Ras Al Khaimah"
+  },
+  {
+   "username": "fujairahadventurepark",
+   "city": "Fujairah",
+   "venue": "Fujairah Adventure Park"
+  },
+  {
+   "username": "gymnation_me",
+   "city": "Abu Dhabi",
+   "venue": "GymNation Reem Island"
+  },
+  {
+   "username": "happyfun.ae",
+   "city": "Ajman",
+   "venue": "Happy Fun Festival Land Ajman"
+  },
+  {
+   "username": "hojo",
+   "city": "Abu Dhabi",
+   "venue": "Howard Johnson by Wyndham Abu Dhabi"
+  },
+  {
+   "username": "ibnalbahr.ae",
+   "city": "Abu Dhabi",
+   "venue": "Ibn AlBahr"
+  },
+  {
+   "username": "kempinski",
+   "city": "Abu Dhabi",
+   "venue": "Kempinski Hotel Emirates Palace"
+  },
+  {
+   "username": "kidszonedubai",
+   "city": "Dubai",
+   "venue": "Kids Zone Souk Al Bahar"
+  },
+  {
+   "username": "kidzaniaae",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "laquintahotels",
+   "city": "Abu Dhabi",
+   "venue": "La Quinta by Wyndham Abu Dhabi Al Wahda"
+  },
+  {
+   "username": "lockstockabudhabi",
+   "city": "Abu Dhabi",
+   "venue": "Lock, Stock & Barrel Yas Bay (Ladies Night)"
+  },
+  {
+   "username": "lumibeachuaq",
+   "city": "Umm Al Quwain",
+   "venue": "Umm Al Quwain Beach Hotel (Lumi Beach)"
+  },
+  {
+   "username": "mamashelterdubai",
+   "city": "Dubai",
+   "venue": "Mama Shelter Dubai"
+  },
+  {
+   "username": "mamshabeachsaadiyat",
+   "city": "Abu Dhabi",
+   "venue": "Mamsha Beach (Soul Beach)"
+  },
+  {
+   "username": "marcella.abudhabi",
+   "city": "Abu Dhabi",
+   "venue": "Marcella"
+  },
+  {
+   "username": "marinabybloshotel",
+   "city": "Dubai",
+   "venue": "Marina Byblos Hotel"
+  },
+  {
+   "username": "matchaalbateen",
+   "city": "Abu Dhabi",
+   "venue": "Al Bateen Ladies Club by Matcha"
+  },
+  {
+   "username": "paradisoabudhabi",
+   "city": "Abu Dhabi",
+   "venue": "Paradiso"
+  },
+  {
+   "username": "parkregisbusinessbay",
+   "city": "Dubai",
+   "venue": "Park Regis Business Bay"
+  },
+  {
+   "username": "playdxbbyemaar",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "premierinngulf",
+   "city": "Abu Dhabi",
+   "venue": "Premier Inn Abu Dhabi Capital Centre"
+  },
+  {
+   "username": "pullmanhotels",
+   "city": "Sharjah",
+   "venue": "Pullman Sharjah"
+  },
+  {
+   "username": "qasralwatantour",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "qodeinteractive",
+   "city": "Abu Dhabi",
+   "venue": "Al Bateen Ladies Club by Matcha"
+  },
+  {
+   "username": "racingdubai",
+   "city": "Dubai"
+  },
+  {
+   "username": "raffleshotels",
+   "city": "Dubai",
+   "venue": "Raffles Dubai"
+  },
+  {
+   "username": "reelcinemas",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "reemmall",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "rixoshotels",
+   "city": "Ras Al Khaimah",
+   "venue": "Rixos Al Mairid Ras Al Khaimah"
+  },
+  {
+   "username": "shangrilahotels",
+   "city": "Abu Dhabi",
+   "venue": "Shangri-La Qaryat Al Beri, Abu Dhabi"
+  },
+  {
+   "username": "sharjahbookauthority",
+   "city": "Sharjah"
+  },
+  {
+   "username": "sharjahwanderers",
+   "city": "Sharjah",
+   "venue": "Sharjah Wanderers Sports Club"
+  },
+  {
+   "username": "shjladiesclub",
+   "city": "Sharjah",
+   "venue": "Sharjah Ladies Club"
+  },
+  {
+   "username": "siddhartalounge_abudhabi",
+   "city": "Abu Dhabi",
+   "venue": "Siddharta Lounge by Buddha-Bar"
+  },
+  {
+   "username": "skyviewsobservatory",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "sobharealty",
+   "city": "Umm Al Quwain",
+   "venue": "Sobha Siniya Island clubhouse and 18-hole golf course"
+  },
+  {
+   "username": "spartanmiddleeast",
+   "city": "Dubai"
+  },
+  {
+   "username": "spartanrace",
+   "city": "Dubai"
+  },
+  {
+   "username": "sprinklesplay",
+   "city": "Ajman",
+   "venue": "Sprinkles Play Ajman"
+  },
+  {
+   "username": "stelladimaredubaimarina",
+   "city": "Dubai",
+   "venue": "Stella Di Mare Dubai Marina Hotel"
+  },
+  {
+   "username": "th8palm",
+   "city": "Dubai",
+   "venue": "Th8 Palm Dubai Beach Resort, Vignette Collection by IHG"
+  },
+  {
+   "username": "the.act.hotel",
+   "city": "Sharjah",
+   "venue": "The Act Hotel Sharjah"
+  },
+  {
+   "username": "thebeachdubai",
+   "city": "Dubai",
+   "venue": "Bla Bla Dubai (at The Beach JBR)"
+  },
+  {
+   "username": "thedubaimarathon",
+   "city": "Dubai"
+  },
+  {
+   "username": "therakhalfmarathon",
+   "city": "Ras Al Khaimah"
+  },
+  {
+   "username": "thestormcoaster",
+   "city": "Dubai",
+   "venue": "Play DXB Dubai Mall"
+  },
+  {
+   "username": "trump",
+   "city": "Dubai",
+   "venue": "Stoke House Dubai (Trump International Golf Club)"
+  },
+  {
+   "username": "tryphotels",
+   "city": "Abu Dhabi",
+   "venue": "TRYP by Wyndham Abu Dhabi City Center"
+  },
+  {
+   "username": "whfl_bangalore",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "wyndham",
+   "city": "Dubai",
+   "venue": "Wyndham Downtown Dubai"
+  },
+  {
+   "username": "ymcofficial",
+   "city": "Abu Dhabi"
+  },
+  {
+   "username": "zumaabudhabi",
+   "city": "Abu Dhabi",
+   "venue": "Zuma Abu Dhabi (Yashoku Night Brunch, Wednesdays)"
   }
  ]
 }
