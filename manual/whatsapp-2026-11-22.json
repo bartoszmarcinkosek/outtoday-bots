@@ -1,11 +1,31 @@
-{"note": "Wiadomości WhatsApp przesłane przez właściciela 22.11 (rak_guide_tour). Ogłoszenie castingu Wynn/Punchdrunk pominięte – to nabór, nie wydarzenie.",
+{"note": "Wiadomości i plakaty z WhatsApp przesłane przez właściciela 22.11 (rak_guide_tour i inne). Pominięte: casting Wynn/Punchdrunk (nabór), RAK EISC 2027 (konkurs dla szkół), komunikat o dniach wolnych, wydarzenia już minione (Oman National Day 21.11, Serenata DJ Night 21.11, Kalba 20–22.11). Większość plakatów Eid Al Etihad była już w bazie.",
  "events": [
-  {"title": "Falcon Season Festival", "category": "festivals", "start_date": "2026-11-29", "start_time": "16:00", "end_time": "19:30",
-   "venue": "Falcon Island, Al Hamra", "city": "Ras Al Khaimah",
+  {"title": "A Falcon Tale at Falcon Island", "category": "festivals", "start_date": "2026-11-29", "start_time": "16:00", "end_time": "19:30",
+   "venue": "Falcon Island by Al Hamra", "city": "Ras Al Khaimah",
    "description": "A community afternoon at Falcon Island with a falcon display, Arabic food and BBQ, beach games, children's activities, ice cream and a live DJ.",
    "kid_friendly": true, "status": "approved", "source_name": "Al Hamra (WhatsApp, rak_guide_tour)"},
-  {"title": "RAK Eats Festival (Restaurant Village Festival) – Season 8", "category": "food", "start_date": "2026-12-01", "end_date": "2026-12-31",
-   "venue": "Waterfront, Manar Mall", "city": "Ras Al Khaimah",
-   "description": "The eighth season of the Restaurant Village Festival on the Manar Mall waterfront, with food from many cuisines and entertainment, running through December alongside the 55th Eid Al Etihad celebrations.",
-   "kid_friendly": true, "status": "approved", "source_name": "RAK Eats Festival (WhatsApp, rak_guide_tour)"}
+  {"title": "Mother of the Emirates Festival", "category": "festivals", "start_date": "2026-11-28", "end_date": "2026-12-02",
+   "venue": "Al Jahili Garden", "city": "Al Ain",
+   "description": "A festival at Al Jahili Garden in Al Ain as part of the 55th Eid Al Etihad celebrations.",
+   "kid_friendly": true, "status": "approved", "source_name": "Eid Al Etihad 2026 (WhatsApp, rak_guide_tour)"},
+  {"title": "SUNKSSD National Holiday Festival", "category": "music", "start_date": "2026-11-28", "end_date": "2026-12-02", "start_time": "15:00", "end_time": "00:00",
+   "venue": "Lumi Beach", "city": "Umm Al Quwain",
+   "price_text": "5-day pass AED 250 (early bird, camping included); day pass AED 100 early bird, AED 150 at the door",
+   "price_min_aed": 100,
+   "description": "A five-day beach music festival over the National Day holiday with 24 DJs and live acts from 15:00 to midnight each day, a cold plunge daily from 11:00 to 20:00, a wellness session on 2 December and free camping with the festival pass.",
+   "status": "approved", "source_name": "SUNKSSD / Lumi Beach (WhatsApp)"}
+ ],
+ "deals": [
+  {"title": "Karma Session – Live Grill & Live Sushi", "venue": "Karma by Buddha-Bar", "city": "Ras Al Khaimah", "deal_type": "night_out",
+   "days_of_week": [5], "start_time": "20:00", "end_time": "00:00", "price_text": "From AED 35",
+   "details": "Friday nights with a live grill, live sushi station, resident DJ and live performance. Reservations: 07 209 0099 or 050 410 4901.",
+   "status": "approved", "source_name": "Karma RAK by Buddha-Bar (WhatsApp)"}
+ ],
+ "reject": [
+  {"title": "Falcon Season Festival", "start_date": "2026-11-29"},
+  {"title": "RAK Eats Festival (Restaurant Village Festival) – Season 8", "start_date": "2026-12-01"}
+ ],
+ "update_event_ids": [
+  {"id": "b5d626d9-c842-4d37-bb7a-c767045e05f6", "set": {"venue": "Manar Mall Promenade (waterfront)",
+    "description": "The eighth season of the Restaurant Village Festival on the Manar Mall waterfront promenade, with food from many cuisines, stage shows and entertainment every evening, running through December alongside the 55th Eid Al Etihad celebrations."}}
  ]}
