@@ -1,0 +1,11 @@
+{"note": "Wiadomości WhatsApp przesłane przez właściciela 22.11 (rak_guide_tour). Ogłoszenie castingu Wynn/Punchdrunk pominięte – to nabór, nie wydarzenie.",
+ "events": [
+  {"title": "Falcon Season Festival", "category": "festivals", "start_date": "2026-11-29", "start_time": "16:00", "end_time": "19:30",
+   "venue": "Falcon Island, Al Hamra", "city": "Ras Al Khaimah",
+   "description": "A community afternoon at Falcon Island with a falcon display, Arabic food and BBQ, beach games, children's activities, ice cream and a live DJ.",
+   "kid_friendly": true, "status": "approved", "source_name": "Al Hamra (WhatsApp, rak_guide_tour)"},
+  {"title": "RAK Eats Festival (Restaurant Village Festival) – Season 8", "category": "food", "start_date": "2026-12-01", "end_date": "2026-12-31",
+   "venue": "Waterfront, Manar Mall", "city": "Ras Al Khaimah",
+   "description": "The eighth season of the Restaurant Village Festival on the Manar Mall waterfront, with food from many cuisines and entertainment, running through December alongside the 55th Eid Al Etihad celebrations.",
+   "kid_friendly": true, "status": "approved", "source_name": "RAK Eats Festival (WhatsApp, rak_guide_tour)"}
+ ]}
