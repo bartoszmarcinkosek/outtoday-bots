@@ -54,7 +54,8 @@ const RULES: [RegExp, string][] = [
   [/cooking|chocolate(?! factory)|baking|\bbake\b|gingerbread|culinary|top chef/i, 'cooking'],
   [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower|polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
   [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
-  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing (?!the)|rowing|aquafit/i, 'watersports'],
+  [/aqua ?fit|aqua ?aerobic|aqua ?zumba|water aerobic|aqua ?gym/i, 'aquafit'],
+  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing (?!the)|rowing/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian/i, 'comedy'],
   [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b|ballet|\bplay\b(?! ?(&|and) feast| area)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
@@ -114,7 +115,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;
