@@ -129,6 +129,8 @@ function pool(item: Item): number[] {
     if (hit && PHOTO_FILES[hit[1]]) keys = [hit[1]];
     else if (hit && NO_FALLBACK.has(hit[1])) return [];
   }
+  // Event bez rozpoznanego rodzaju z tytułu: ikonka zamiast ogólnego zdjęcia kategorii (to ono dawało złe zdjęcia).
+  if (!keys && item.kind === 'event') return [];
   if (!keys) keys = CAT[item.catKey] ?? [];
   const zones = SKYLINE_ZONES[item.city];
   const suf = zones === null || (zones && item.zone && zones.has(item.zone)) ? CITY_SUFFIX[item.city] : undefined;
