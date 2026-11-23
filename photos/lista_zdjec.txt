@@ -1,4 +1,32 @@
 1 | lm_coca_cola_arena-1 | (gotowe)
+176 | lm_downtown-1 | Rooftop hotel infinity pool at sunset with a clear view of Burj Khalifa and the Downtown Dubai skyline, loungers and palm trees.
+177 | lm_downtown-2 | View from a hotel balcony at night over the Dubai Fountain lake with Burj Khalifa lit up, city lights.
+178 | lm_marina-1 | Hotel pool deck overlooking Dubai Marina skyscrapers and yachts at dusk, warm lights reflecting on the water.
+179 | lm_marina-2 | JBR beach in Dubai with turquoise sea, sun loungers and the Dubai Marina towers behind, sunny afternoon.
+180 | lm_yas-1 | Yas Bay waterfront in Abu Dhabi at dusk: promenade with restaurants, palm trees and a modern arena lit up across the water.
+181 | lm_yas-2 | Resort pool with palm trees on Yas Island, Abu Dhabi, calm lagoon and low modern buildings in the background, sunny day.
+182 | lm_maryah-1 | Al Maryah Island promenade in Abu Dhabi at night: glass towers, waterfront walkway and reflections on the water.
+183 | lm_creek-1 | Al Seef heritage waterfront on Dubai Creek at golden hour: traditional wind-tower buildings and wooden abra boats on the water.
+184 | lm_sharjah_water-1 | Al Majaz waterfront in Sharjah at dusk: lagoon promenade, fountain and a white mosque with domes reflected in the water.
+185 | lm_jebel_hafeet-1 | Winding mountain road up Jebel Hafeet near Al Ain at sunset, rocky desert peaks and city lights in the valley below.
+186 | lm_marjan-1 | Aerial view of Al Marjan Island in Ras Al Khaimah: beach resorts, turquoise sea and sandy coves on a sunny day.
+7 | lm_palm-1 | Aerial view of Palm Jumeirah island fronds and turquoise sea, sunny day.
+109 | lm_palm-2 | Palm Jumeirah crescent hotels seen from the beach at sunset.
+20 | lm_coca_cola_arena-2 | Coca-Cola Arena building at City Walk Dubai at night, modern illuminated facade, no logos.
+21 | lm_dubai_opera-2 | Inside a modern opera house auditorium, warm lights, audience seated before a show.
+11 | lm_corniche-1 | Abu Dhabi Corniche beach, palm trees and city skyline at sunset.
+154 | lm_corniche-2 | Abu Dhabi Corniche promenade with cyclists and joggers at sunrise.
+8 | lm_madinat-1 | Souk Madinat Jumeirah waterways with abra boats and wind towers at sunset.
+159 | lm_madinat-2 | Souk Madinat Jumeirah lantern-lit souk alleys at night.
+17 | lm_louvre-2 | Louvre Abu Dhabi interior under the lattice dome, rain of light on the water, people walking.
+9 | lm_expo_city-1 | Al Wasl Dome at Expo City Dubai lit with colourful projections at night.
+14 | lm_yas_marina_circuit-1 | Yas Marina Circuit at night, illuminated hotel bridging over the race track, light trails.
+10 | lm_global_village-1 | Global Village Dubai at night, colourful country pavilions, lights and strolling crowds.
+5 | lm_dubai_frame-1 | Dubai Frame, giant golden picture-frame landmark in Zabeel Park, clear evening sky.
+6 | lm_ain_dubai-1 | Ain Dubai giant observation wheel on Bluewaters Island at dusk, seen from JBR beach.
+13 | lm_qasr_al_watan-1 | Qasr Al Watan presidential palace in Abu Dhabi, white granite facade and central dome, late afternoon.
+16 | lm_burj_khalifa-2 | Burj Khalifa at night with the Dubai Fountain show in the foreground.
+18 | lm_grand_mosque-2 | Sheikh Zayed Grand Mosque courtyard at blue hour, white marble and reflecting pools.
 169 | concert-1 | Outdoor concert at night seen from the crowd: big stage with coloured lights and smoke, silhouettes of people with raised hands, no logos, UAE.
 170 | concert-2 | Singer performing on a large indoor arena stage, warm spotlights, band behind, audience with phone lights, no logos or text.
 171 | nye-1 | New Year's Eve fireworks over a modern waterfront skyline at night, people celebrating on a terrace with glasses raised, no text.
@@ -58,12 +86,10 @@
 103 | music-4 | Singer performing on a big outdoor stage at night with crowd and lights.
 104 | music-5 | Acoustic guitarist performing in an intimate venue, warm spotlight.
 105 | music-6 | Concert crowd from behind with hands up and colourful stage lasers.
-7 | lm_palm-1 | Aerial view of Palm Jumeirah island fronds and turquoise sea, sunny day.
 63 | food-3 | Street food market stalls with grills and steam at night.
 106 | food-4 | Food festival stalls with chefs grilling and crowds sampling dishes.
 107 | food-5 | Close-up of gourmet tasting menu plates in a fine dining restaurant.
 108 | food-6 | Food truck park at night with fairy lights and people eating outdoors.
-109 | lm_palm-2 | Palm Jumeirah crescent hotels seen from the beach at sunset.
 110 | lm_palm-3 | Palm Jumeirah boardwalk with palm trees and sea view in the morning.
 111 | lm_palm-4 | Aerial view of Palm Jumeirah fronds at night with lights.
 112 | lm_palm-5 | Beach club on Palm Jumeirah with loungers and turquoise water.
@@ -103,7 +129,6 @@
 73 | parks-3 | Green urban park with lake, jogging path and palm trees, late afternoon.
 135 | kids-4 | Kids playing in a colourful indoor soft play centre.
 136 | parks-4 | Families picnicking on a lawn in a city park at golden hour.
-20 | lm_coca_cola_arena-2 | Coca-Cola Arena building at City Walk Dubai at night, modern illuminated facade, no logos.
 69 | market-3 | Weekend artisan market with handmade crafts under shade sails.
 137 | market-4 | Evening outdoor market with lanterns, handmade goods and street food.
 138 | lm_coca_cola_arena-3 | Modern indoor arena exterior in Dubai at night with illuminated facade and crowds arriving, no logos.
@@ -112,7 +137,6 @@
 141 | sport-3 | Tennis match on a hard court under floodlights.
 142 | sport-4 | Boxing or MMA event, ring under spotlights, crowd in the dark.
 2 | lm_dubai_opera-1 | Dubai Opera building shaped like a dhow, Downtown Dubai at blue hour.
-21 | lm_dubai_opera-2 | Inside a modern opera house auditorium, warm lights, audience seated before a show.
 36 | daytrips-2 | 4x4 cars driving through a desert wadi with mountains, adventure day trip.
 143 | comedy-3 | Comedian with microphone in a small comedy club, brick wall, laughing audience.
 144 | comedy-4 | Comedy show audience laughing, view from the stage.
@@ -128,27 +152,20 @@
 151 | beaches-4 | Public beach with lifeguard tower and families swimming, morning.
 152 | attractions-3 | Indoor theme park ride with lights and excited visitors.
 153 | attractions-4 | Aquarium tunnel with sharks and rays swimming above visitors.
-11 | lm_corniche-1 | Abu Dhabi Corniche beach, palm trees and city skyline at sunset.
-154 | lm_corniche-2 | Abu Dhabi Corniche promenade with cyclists and joggers at sunrise.
 155 | lm_corniche-3 | Abu Dhabi Corniche beach with turquoise water and city towers at midday.
 156 | lm_corniche-4 | Abu Dhabi Corniche at night with illuminated skyline reflected in water.
 25 | books-2 | Cosy book club meeting in a cafe, people with books and coffee.
 157 | books-3 | Book fair hall with stalls and visitors browsing books.
 158 | books-4 | Author reading to a small audience in a cosy bookshop.
-8 | lm_madinat-1 | Souk Madinat Jumeirah waterways with abra boats and wind towers at sunset.
 52 | quiz-2 | Pub quiz night, teams at tables writing answers, cheerful mood.
-159 | lm_madinat-2 | Souk Madinat Jumeirah lantern-lit souk alleys at night.
 43 | heritage-2 | Traditional Emirati heritage village with mud-brick houses and falconry display.
-17 | lm_louvre-2 | Louvre Abu Dhabi interior under the lattice dome, rain of light on the water, people walking.
 56 | studios-2 | Pottery or painting workshop, hands shaping clay on a wheel.
 22 | active-2 | Group of friends at an indoor climbing or trampoline park, energetic.
 47 | motorsport-2 | Race cars on a track at speed, motion blur, grandstand.
 40 | flying-2 | Paraglider or skydiver over the coastline on a clear day.
 33 | dance-2 | Couples dancing salsa in a lively dance studio, motion and colour.
 60 | watersports-2 | Jet ski and paddleboarders on turquoise water near the beach.
-9 | lm_expo_city-1 | Al Wasl Dome at Expo City Dubai lit with colourful projections at night.
 160 | lm_expo_city-2 | Expo City Dubai gardens and modern pavilions in daylight.
-14 | lm_yas_marina_circuit-1 | Yas Marina Circuit at night, illuminated hotel bridging over the race track, light trails.
 42 | golf-2 | Golf course fairway with palm trees and lake at golden hour.
 44 | horse-2 | Horse riders galloping along a desert track at sunrise.
 49 | nature-2 | Mangrove kayaking channel, green mangroves and calm water.
@@ -158,7 +175,6 @@
 51 | padel-2 | Padel match in a glass court under lights.
 61 | yoga-2 | Sunrise yoga class on the beach, people on mats.
 4 | lm_museum_future-1 | Museum of the Future in Dubai, silver torus building with Arabic calligraphy windows, at night (calligraphy as pattern, not readable text).
-10 | lm_global_village-1 | Global Village Dubai at night, colourful country pavilions, lights and strolling crowds.
 41 | football-2 | Amateur football match on a floodlit pitch at night.
 54 | snow-2 | People skiing and sledging on an indoor snow slope.
 57 | swimming-2 | Open-water swimmers in calm sea at sunrise.
@@ -166,10 +182,5 @@
 27 | camel-2 | Camel caravan walking across red desert dunes at sunset.
 38 | dj-2 | DJ behind decks at a rooftop party at night, hands up crowd, lights.
 3 | lm_burj_al_arab-1 | Burj Al Arab sail-shaped hotel seen from Jumeirah beach at golden hour.
-5 | lm_dubai_frame-1 | Dubai Frame, giant golden picture-frame landmark in Zabeel Park, clear evening sky.
-6 | lm_ain_dubai-1 | Ain Dubai giant observation wheel on Bluewaters Island at dusk, seen from JBR beach.
-13 | lm_qasr_al_watan-1 | Qasr Al Watan presidential palace in Abu Dhabi, white granite facade and central dome, late afternoon.
-16 | lm_burj_khalifa-2 | Burj Khalifa at night with the Dubai Fountain show in the foreground.
-18 | lm_grand_mosque-2 | Sheikh Zayed Grand Mosque courtyard at blue hour, white marble and reflecting pools.
 45 | jazz-2 | Jazz trio with saxophone in a dim lounge, warm light.
 53 | rock-2 | Rock band performing live, guitarist in red stage lights, crowd.
