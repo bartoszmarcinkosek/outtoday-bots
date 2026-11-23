@@ -145,6 +145,10 @@ function hash(s: string): number {
 function pool(item: Item): number[] {
   let keys: string[] | undefined;
   const placeText = `${(item.rawTitle ?? item.title)} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
+  // Polonia (polska restauracja): oferty i eventy tam -> polskie dania (pierogi, schabowy), miejsce -> szyld + polskie dania
+  if (/polonia|polish (cuisine|restaurant|food)|pierogi/i.test(placeText) && PHOTO_FILES.polish_food) {
+    return item.kind === 'place' ? [...(PHOTO_FILES.lm_polonia ?? []), ...PHOTO_FILES.polish_food] : [...PHOTO_FILES.polish_food];
+  }
   let lm = LANDMARKS.find(([re]) => re.test(placeText));
   // Całe dzielnice/wyspy (Palm, Saadiyat, Corniche, Reem): ich zdjęcie tylko dla miejsc. Event albo oferta w hotelu
   // na Palmie dostaje zdjęcie swojego rodzaju (koncert, brunch), a nie widok wyspy z lotu ptaka.

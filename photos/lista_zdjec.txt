@@ -1,4 +1,7 @@
 1 | lm_coca_cola_arena-1 | (gotowe)
+210 | polish_food-1 | Traditional Polish dinner on a rustic wooden table: plate of pierogi with fried onions and sour cream, a bowl of red borscht and rye bread, warm restaurant light.
+211 | polish_food-2 | Polish restaurant dish: breaded pork cutlet (schabowy) with mashed potatoes, dill and cabbage salad, a bowl of żurek soup in bread beside it.
+212 | polish_food-3 | Polish dessert and coffee: slices of sernik cheesecake and apple szarlotka with cream, cups of coffee on a café table.
 176 | lm_downtown-1 | Rooftop hotel infinity pool at sunset with a clear view of Burj Khalifa and the Downtown Dubai skyline, loungers and palm trees.
 177 | lm_downtown-2 | View from a hotel balcony at night over the Dubai Fountain lake with Burj Khalifa lit up, city lights.
 178 | lm_marina-1 | Hotel pool deck overlooking Dubai Marina skyscrapers and yachts at dusk, warm lights reflecting on the water.
