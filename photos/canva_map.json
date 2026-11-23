@@ -54,7 +54,8 @@
     "lm_sharjah_water-1": "MAHbvUNwnSA",
     "lm_jebel_hafeet-1": "MAHbvufpov8",
     "fitness-1": "MAHbvrFFfEE",
-    "fitness-2": "MAHbvlSIXZ8"
+    "fitness-2": "MAHbvlSIXZ8",
+    "lm_marjan-1": "MAHbv6YgS04"
   },
   "in_app": [
     "aquafit-1",
@@ -85,5 +86,5 @@
     "waterpark-1",
     "zoo-1"
   ],
-  "last_at": "2026-11-23T14:55:04Z"
+  "last_at": "2026-11-23T15:17:26Z"
 }
