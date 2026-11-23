@@ -867,6 +867,23 @@ def titles_match(a: str, b: str) -> bool:
     return len(small) >= 3 and len(small & big) / len(small) >= 0.8
 
 
+def link_for_title(title: str, links: list, page_url: str) -> str | None:
+    """Darmowo (bez AI): link z tej samej strony, którego tekst pasuje do tytułu eventu,
+    gdy model nie podał detail_url. Bez stron ogólnych (/, /events, /whats-on) i bez strony, z której czytamy."""
+    base = (page_url or "").rstrip("/")
+    hits = []
+    for label, href in links:
+        p = urlparse(href or "")
+        if not href or href.rstrip("/") == base or p.path in ("", "/") or "#" in href:
+            continue
+        if re.search(r"/(event/list|shows|festival|events?|whats-on|calendar)/?$", p.path):
+            continue
+        if label and titles_match(label, title):
+            hits.append(href)
+    hits = list(dict.fromkeys(hits))
+    return hits[0] if len(hits) == 1 else None
+
+
 def same_running(e: dict, it: dict) -> bool:
     """Ten sam trwający event (wystawa, pakiet, cykl) widziany kolejnego dnia z przesuniętą datą początku:
     ten sam tytuł, zakresy dat się nakładają i ten sam link albo to samo miejsce."""
@@ -1058,6 +1075,8 @@ def main() -> int:
                             item, why = check_item(raw, page_norm, link_urls, src, page["final_url"])
                             if item and raw.get("organiser_url") in ext_urls:
                                 item["organiser_url"] = raw["organiser_url"]
+                            if item and not item.get("detail_url"):
+                                item["detail_url"] = link_for_title(item["title"], links, page["final_url"])
                             if not item:
                                 report.append({"source": src["name"], "title": raw.get("title"), "action": f"odrzucone: {why}"})
                                 continue

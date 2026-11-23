@@ -26,6 +26,28 @@ if os.environ.get("ONLY") == "national":
 if os.environ.get("ONLY") == "december":
     bad = [e for e in bad if "2026-12-01" <= e["start_date"] <= "2026-12-31" and "platinumlist" not in (e.get("source_name") or "").lower()]
 if os.environ.get("DRY"): print(f"L|DRY {len(bad)}"); sys.exit(0)
+if os.environ.get("FREE"):
+    # bez AI: otwiera stronę źródła eventu i bierze link, którego tekst pasuje do tytułu
+    pages, fixed = {}, 0
+    with R.Browser() as br:
+        for e in bad:
+            src = e.get("url") if not generic(e.get("url")) else None
+            src = src or db.get("events", {"select": "source_url", "id": f"eq.{e['id']}"})[0].get("source_url")
+            if not src:
+                continue
+            if src not in pages:
+                try:
+                    pg = br.fetch(src); pages[src] = (pg["links"], pg["final_url"])
+                except Exception:
+                    pages[src] = ([], src)
+                time.sleep(1)
+            links, final = pages[src]
+            u = R.link_for_title(e["title"], links, final)
+            if u and not generic(u):
+                db.update("events", {"id": e["id"]}, {"official_url": u}); fixed += 1
+                print(f"L|OK {e['title'][:60]} -> {u}")
+    print(f"L|FREE poprawione {fixed} z {len(bad)} (stron {len(pages)}), koszt $0")
+    sys.exit(0)
 print(f"L|do sprawdzenia {len(bad)}")
 STOP = {"the", "and", "with", "for", "live", "abu", "dhabi", "dubai", "uae", "2026", "2027", "edition", "festival", "event"}
 usage = {"input": 0, "output": 0, "calls": 0, "searches": 0}

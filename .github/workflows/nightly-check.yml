@@ -12,7 +12,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,3 +22,13 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           DRY: ${{ github.event.inputs.dry }}
+      - name: Free link fix (no AI)
+        if: ${{ github.event.inputs.dry == '' }}
+        continue-on-error: true
+        timeout-minutes: 25
+        run: python -m playwright install --with-deps chromium >/dev/null && python bot/fill_links.py
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          ANTHROPIC_API_KEY: "unused"
+          FREE: "1"

@@ -15,6 +15,10 @@ on:
       dry:
         type: string
         default: ""
+      free:
+        description: "1 = darmowo, bez AI (linki ze strony źródła)"
+        type: string
+        default: ""
 permissions:
   contents: read
 jobs:
@@ -34,3 +38,4 @@ jobs:
           LIMIT: ${{ github.event.inputs.limit }}
           ONLY: ${{ github.event.inputs.only }}
           DRY: ${{ github.event.inputs.dry }}
+          FREE: ${{ github.event.inputs.free }}
