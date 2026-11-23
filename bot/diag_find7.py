@@ -9,4 +9,4 @@ for d in rep["dupes"]:
     if d["kind"] != "event":
         continue
     rows = db.get("events", {"select": "id,title,start_time,venue,status", "id": "in.(" + ",".join(d["ids"]) + ")"})
-    print("F7|" + d["date"] + "|" + " || ".join(f"{r['status'][:3]} {r.get('start_time') or ''} {r['title'][:45]} @{(r.get('venue') or '')[:20]} #{r['id'][:8]}" for r in rows))
+    print("F7|" + d["date"] + "|" + " || ".join(f"{r['status'][:3]} {r.get('start_time') or ''} {r['title'][:45]} @{(r.get('venue') or '')[:20]} #{r["id"]}" for r in rows))
