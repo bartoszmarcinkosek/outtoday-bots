@@ -878,7 +878,12 @@ def link_for_title(title: str, links: list, page_url: str) -> str | None:
             continue
         if re.search(r"/(event/list|shows|festival|events?|whats-on|calendar)/?$", p.path):
             continue
-        if label and titles_match(label, title):
+        lw = [w for w in _tokens(label or "") if w not in STOP]
+        tw = [w for w in _tokens(title) if len(w) > 3 and w not in STOP]
+        slug = p.path.lower()
+        # tekst linku musi mieć min. 2 znaczące słowa, a adres musi zawierać słowo z tytułu (nie /tags/abu-dhabi)
+        if len(lw) >= 2 and label and titles_match(label, title) and any(w in slug for w in tw) \
+                and not re.search(r"/(tags?|category|topics?|author)/", slug):
             hits.append(href)
     hits = list(dict.fromkeys(hits))
     return hits[0] if len(hits) == 1 else None
