@@ -1,4 +1,6 @@
 1 | lm_coca_cola_arena-1 | (gotowe)
+213 | fitness-1 | Outdoor bootcamp workout in a park at sunset: group doing lunges and kettlebell swings on the grass, trainer with a whistle, palm trees.
+214 | fitness-2 | Group HIIT class on a beach in the morning: people doing burpees and battle ropes on the sand, sea behind.
 210 | polish_food-1 | Traditional Polish dinner on a rustic wooden table: plate of pierogi with fried onions and sour cream, a bowl of red borscht and rye bread, warm restaurant light.
 211 | polish_food-2 | Polish restaurant dish: breaded pork cutlet (schabowy) with mashed potatoes, dill and cabbage salad, a bowl of żurek soup in bread beside it.
 212 | polish_food-3 | Polish dessert and coffee: slices of sernik cheesecake and apple szarlotka with cream, cups of coffee on a café table.

@@ -1,0 +1,16 @@
+{
+  "note": "Duplikaty i złe daty ze zrzutów 23.11 (sprawdzone na Platinumlist/Yalla): Charlie 14-23.05.2027, Riverdance 19-20.11.2027",
+  "reject_event_ids": [
+    "9fb24340-c9e1-4660-9f1b-6892da16e5d8",
+    "8da9dbf9-3221-4964-8f3b-2cc80c7424ca",
+    "d7e03d69-6257-44cc-8dd4-db189eaabdfc",
+    "3b64a104-04ee-4074-872b-c4b085da7237",
+    "9ef1b130-914e-4ba2-8195-8e7a03e56cac",
+    "1a6fc14e-7e6b-49d2-b6e5-0a3b114f8286",
+    "885b7eff-61b1-4034-ae9c-dc59b082465d"
+  ],
+  "reject": [{"title": "Face Aux Murs - Cie Hors Surface (School Matinee)", "start_date": "2027-06-14"}],
+  "update_event_ids": [
+    {"id": "31f3650d-5cd1-4477-828b-c9096b0535f1", "set": {"official_url": "https://abu-dhabi.platinumlist.net/event-tickets/riverdance"}}
+  ]
+}
