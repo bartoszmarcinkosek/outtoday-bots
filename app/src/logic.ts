@@ -77,12 +77,14 @@ export function withVenue(title: string, venue?: string | null): string {
 const GENERIC_DEAL = new Set(['lunch', 'brunch', 'breakfast', 'dinner', 'happy', 'hour', 'hours', 'ladies', 'lady', 'night', 'nights',
   'quiz', 'day', 'pass', 'staycation', 'out', 'daily', 'weekday', 'weekdays', 'weekend', 'weekly', 'business', 'offer', 'offers', 'deal',
   'deals', 'special', 'specials', 'menu', 'set', 'buffet', 'the', 'and', 'with', 'at', 'a', 'an', 'our', 'of', 'all', 'evening', 'morning',
-  'friday', 'saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'every', 'pool', 'beach', 'access', 'package', 'promo', 'promotion']);
+  'friday', 'saturday', 'sunday', 'weekends', 'adult', 'adults', 'kids', 'only', 'hotel', 'resort', 'in', 'on', 'for', 'per', 'person', 'monday', 'tuesday', 'wednesday', 'thursday', 'every', 'pool', 'beach', 'access', 'package', 'promo', 'promotion']);
 export function dealTitle(title: string, venue?: string | null): { title: string; where: string | null } | null {
   const v = (venue ?? '').split(',')[0].trim();
   if (!v || v.length > 45) return null;
   const words = title.toLowerCase().split(/[^a-z0-9\u00c0-\u024f]+/).filter(Boolean);
-  if (!words.length || !words.every((w) => GENERIC_DEAL.has(w) || /^\d+$/.test(w))) return null;
+  // słowa z nazwy miejsca też nie są "własną nazwą" oferty: "Happy hour: Easy Tiger" -> "Easy Tiger"
+  const vw = new Set(v.toLowerCase().split(/[^a-z0-9\u00c0-\u024f]+/).filter(Boolean));
+  if (!words.length || !words.every((w) => GENERIC_DEAL.has(w) || vw.has(w) || /^\d+$/.test(w))) return null;
   const rest = (venue ?? '').split(',').slice(1).join(',').trim();
   return { title: v, where: rest || null };
 }
