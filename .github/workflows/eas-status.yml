@@ -1,0 +1,30 @@
+name: EAS – status buildu (tylko odczyt)
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_id:
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: Status
+        env:
+          BID: ${{ inputs.build_id }}
+        run: |
+          eas build:view "$BID" --json > b.json
+          python3 -c "import json;d=json.load(open('b.json'));a=d.get('artifacts') or {};print('ES|',d.get('status'),d.get('appBuildVersion'),a.get('buildUrl') or a.get('applicationArchiveUrl'))"
