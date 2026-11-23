@@ -18,7 +18,9 @@ import requests
 from anthropic.resources.messages import Messages
 
 # ---- Budżet AI (strategia 20.11.2026): twardy limit miesięczny + brak wyszukiwania w sieci bez zgody ----
-LIMIT_USD = float(os.environ.get("AI_MONTHLY_LIMIT_USD", "15"))
+# 15 USD do 30.11.2026, od 1.12.2026 plan Max: 50 USD (decyzja właściciela 23.11.2026)
+import datetime as _dt
+LIMIT_USD = float(os.environ.get("AI_MONTHLY_LIMIT_USD") or ("50" if _dt.date.today() >= _dt.date(2026, 12, 1) else "15"))
 P_IN, P_OUT, P_SEARCH = 0.10 / 1e6, 0.50 / 1e6, 0.01  # Haiku 5.5; wyszukiwanie 0,01 USD
 COST = {"usd": 0.0, "calls": 0, "searches": 0}
 _MONTH = {"spent": None}

@@ -163,7 +163,9 @@ def run_cost(summary: dict) -> float:
     return u.get("input", 0) * PRICE_IN + u.get("output", 0) * PRICE_OUT + u.get("searches", 0) * PRICE_SEARCH
 
 
-AI_LIMIT = float(os.environ.get("AI_MONTHLY_LIMIT_USD", "15"))
+# 15 USD do 30.11.2026, od 1.12.2026 plan Max: 50 USD (decyzja właściciela 23.11.2026)
+import datetime as _dt
+AI_LIMIT = float(os.environ.get("AI_MONTHLY_LIMIT_USD") or ("50" if _dt.date.today() >= _dt.date(2026, 12, 1) else "15"))
 
 
 def cost_day_month(runs: list[dict]) -> tuple[float, float]:
