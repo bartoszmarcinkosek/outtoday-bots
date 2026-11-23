@@ -1,3 +1,4 @@
+import * as Updates from 'expo-updates';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { noteItemOpened } from './src/review';
@@ -55,7 +56,25 @@ const INTEREST_KEYS = ['music', 'culture', 'sport', 'food', 'family', 'nightlife
 const USAGE_KEY = 'outtoday.filterUse.v1';
 const KIND_OF: Record<ListTab, Item['kind']> = { events: 'event', places: 'place', deals: 'deal' };
 
+// Pierwsze uruchomienie po instalacji ze sklepu działa na wersji wbudowanej w paczkę (starej, bez nowych zdjęć).
+// Wtedy od razu pobieramy najnowszą aktualizację i przeładowujemy, zamiast czekać do następnego otwarcia.
+function useFreshOnFirstLaunch() {
+  useEffect(() => {
+    if (__DEV__ || !Updates.isEnabled || !Updates.isEmbeddedLaunch) return;
+    (async () => {
+      try {
+        const r = await Updates.checkForUpdateAsync();
+        if (r.isAvailable) {
+          await Updates.fetchUpdateAsync();
+          await Updates.reloadAsync();
+        }
+      } catch { /* brak sieci – zostaje wersja wbudowana */ }
+    })();
+  }, []);
+}
+
 export default function App() {
+  useFreshOnFirstLaunch();
   return (
     <SafeAreaProvider>
       <Main />
