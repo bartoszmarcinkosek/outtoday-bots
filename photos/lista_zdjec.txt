@@ -10,6 +10,29 @@
 184 | lm_sharjah_water-1 | Al Majaz waterfront in Sharjah at dusk: lagoon promenade, fountain and a white mosque with domes reflected in the water.
 185 | lm_jebel_hafeet-1 | Winding mountain road up Jebel Hafeet near Al Ain at sunset, rocky desert peaks and city lights in the valley below.
 186 | lm_marjan-1 | Aerial view of Al Marjan Island in Ras Al Khaimah: beach resorts, turquoise sea and sandy coves on a sunny day.
+187 | day_pass-3 | Hotel beach in the UAE with sun loungers, white umbrellas and turquoise sea, towels rolled on the loungers, sunny morning.
+188 | day_pass-4 | Large lagoon-style resort pool with a swim-up bar and palm trees, guests relaxing, bright afternoon.
+189 | day_pass-5 | Close-up of a sun lounger by an infinity pool with a fresh juice and sunglasses on a side table, sea beyond.
+190 | day_pass-6 | Family beach club with a kids' splash pool, shaded cabanas and palm trees, sunny day in the UAE.
+191 | day_pass-7 | Spa relaxation area with a heated indoor pool, soft lighting, robes and towels on loungers.
+192 | day_pass-8 | Desert resort pool surrounded by sand dunes at golden hour, wooden loungers and lanterns.
+193 | happy_hour-7 | Two glasses of beer and a plate of chicken wings on a wooden pub table, evening light.
+194 | happy_hour-8 | Wine bar with glasses of red and white wine and a cheese board, cosy evening atmosphere.
+195 | happy_hour-9 | Beach bar at sunset with mojitos and nachos on a high table, sea in the background.
+196 | happy_hour-10 | Sports bar with friends holding pints in front of big screens showing a match, no logos.
+197 | brunch-9 | Afternoon brunch at a garden restaurant: grazing table with pastries, fruit and mocktails, sunny.
+198 | brunch-10 | Asian-style brunch with dim sum baskets, noodles and sushi platters on a long table.
+199 | dinner-7 | Indian dinner with curries, biryani and naan in copper bowls, warm restaurant lighting.
+200 | dinner-8 | Japanese teppanyaki chef cooking at a hot grill in front of diners, flames, evening.
+201 | dinner-9 | Romantic dinner for two on a terrace overlooking the sea at night, candles and lanterns.
+202 | ladies_night-7 | Bartender pouring colourful cocktails in front of a group of women at a bar, neon lights.
+203 | ladies_night-8 | Women chatting over sparkling drinks and sushi in a chic restaurant lounge.
+204 | ladies_night-9 | Women singing together at a karaoke night in a stylish bar, microphones and coloured lights.
+205 | breakfast-5 | Hotel breakfast table by the window: eggs benedict, avocado toast, fresh juice and coffee.
+206 | breakfast-6 | Arabic breakfast spread with labneh, foul, falafel, olives and flatbread, morning light.
+207 | staycation-5 | Luxury hotel room with a large bed and a balcony overlooking the sea at sunset.
+208 | staycation-6 | Breakfast tray on a hotel bed with a view of a city skyline through the window.
+209 | candlelight-5 | String quartet playing in a hall filled with hundreds of candles, audience in the dark.
 7 | lm_palm-1 | Aerial view of Palm Jumeirah island fronds and turquoise sea, sunny day.
 109 | lm_palm-2 | Palm Jumeirah crescent hotels seen from the beach at sunset.
 20 | lm_coca_cola_arena-2 | Coca-Cola Arena building at City Walk Dubai at night, modern illuminated facade, no logos.
