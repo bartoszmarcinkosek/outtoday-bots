@@ -1,0 +1,22 @@
+{
+ "update_event_ids": [
+  {
+   "id": "d2040caa-5429-45f0-a475-8db0f11b000e",
+   "set": {
+    "official_url": "https://www.thenationalnews.com/arts-culture/2026/10/12/comedy-shows-abu-dhabi-2026-to-2027-winter-season/"
+   }
+  },
+  {
+   "id": "249eaf95-24f8-4c82-bd7b-09cd0e51eddb",
+   "set": {
+    "official_url": "https://www.thenationalnews.com/arts-culture/2026/10/12/comedy-shows-abu-dhabi-2026-to-2027-winter-season/"
+   }
+  },
+  {
+   "id": "bf3280db-68df-4aa5-9aae-d70d8b2f6c4f",
+   "set": {
+    "official_url": "https://www.thenationalnews.com/arts-culture/2026/10/12/comedy-shows-abu-dhabi-2026-to-2027-winter-season/"
+   }
+  }
+ ]
+}
