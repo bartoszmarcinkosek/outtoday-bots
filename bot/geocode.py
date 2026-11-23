@@ -25,7 +25,7 @@ UA = "OutToday-app/1.0 (UAE events app; contact outtodayapp.uae@gmail.com)"
 CITY = {"Dubai": (25.20, 55.27), "Abu Dhabi": (24.45, 54.38), "Al Ain": (24.21, 55.74), "Sharjah": (25.34, 55.41),
         "Ajman": (25.40, 55.48), "Ras Al Khaimah": (25.79, 55.94), "Fujairah": (25.13, 56.33), "Umm Al Quwain": (25.56, 55.55)}
 VAGUE = re.compile(r"^(various|multiple|online|virtual|tbc|tba|-|uae|dubai|abu dhabi|sharjah|ajman|fujairah|al ain|"
-                   r"ras al khaimah|umm al quwain|united arab emirates)\b|various venues|across (the )?(city|emirate|uae)", re.I)
+                   r"ras al khaimah|umm al quwain|united arab emirates)\s*(region|desert|city|emirate)?\s*$|various venues|across (the )?(city|emirate|uae)", re.I)
 
 
 def km(a, b):
