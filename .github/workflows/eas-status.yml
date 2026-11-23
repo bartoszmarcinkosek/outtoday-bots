@@ -18,10 +18,16 @@ jobs:
         working-directory: app
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
       - uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
+      - run: npm ci
       - name: Status
         env:
           BID: ${{ inputs.build_id }}
