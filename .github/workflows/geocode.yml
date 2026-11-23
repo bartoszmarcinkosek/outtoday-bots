@@ -1,6 +1,8 @@
 name: Geocode (współrzędne miejsc z OpenStreetMap)
 
 on:
+  schedule:
+    - cron: "23 21 * * *"   # co noc 01:23 Dubaj – nowe wpisy dostają pinezki (darmowe, OpenStreetMap)
   workflow_dispatch:
     inputs:
       limit:
