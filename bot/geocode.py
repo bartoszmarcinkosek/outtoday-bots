@@ -83,6 +83,8 @@ def lookup(q: str, cache: dict) -> list | None:
         res = r.json() if r.status_code == 200 else None
     except (requests.RequestException, ValueError):
         return None
+    if res is None:  # błąd serwera / blokada – nie zapamiętujemy, spróbujemy następnej nocy
+        return None
     cache[q] = [float(res[0]["lat"]), float(res[0]["lon"])] if res else []
     return cache[q]
 
