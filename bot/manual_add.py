@@ -137,6 +137,12 @@ def main() -> int:
             gaps = [g for g in (cur[0].get("gaps") or []) if g not in fix]
             db.update("events", {"id": eid}, {**fix, "gaps": gaps, "status": "approved", "verified_at": now, "updated_at": now})
             print(f"✓ zatwierdzone id {eid} {fix or ''}")
+        # "restore_event_ids": przywróć odrzucone omyłkowo (rejected -> approved)
+        for eid in data.get("restore_event_ids", []):
+            cur = db.get("events", {"select": "status", "id": f"eq.{eid}"})
+            if cur and cur[0]["status"] == "rejected":
+                db.update("events", {"id": eid}, {"status": "approved", "updated_at": now})
+                print(f"↺ przywrócone id {eid}")
         for eid in data.get("reject_event_ids", []):
             cur = db.get("events", {"select": "status", "id": f"eq.{eid}"})
             if not cur or cur[0]["status"] == "rejected":

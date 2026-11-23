@@ -1,6 +1,6 @@
 {
  "note": "Przywr\u00f3cone 23.11: nocna kontrola b\u0142\u0119dnie po\u0142\u0105czy\u0142a r\u00f3\u017cne wydarzenia z tym samym og\u00f3lnym linkiem (Candlelight, restauracje Saadiyat Rotana, Eid RAK, Masfout).",
- "approve_event_ids": [
+ "restore_event_ids": [
   "69ee330d-a9fa-4636-a173-1796df50ee1c",
   "c592ee13-cc7e-416a-8369-d0d44a543333",
   "48d2c9c0-f305-43e7-9dd9-bb5654598880",
