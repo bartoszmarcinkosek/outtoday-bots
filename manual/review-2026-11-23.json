@@ -1,0 +1,185 @@
+{
+ "note": "Przegląd oczekujących 23.11 rano (Claude, bez AI): zatwierdzone konkretne wydarzenia w ZEA; odrzucone minione, online, ogólne spotkania Meetup bez miejsca, rejestracja na nagrody, duplikat daty Rahul Subramanian (26.11 bez szczegółów). Oferty: Yalla Abu Dhabi z listopada 2025 odrzucone jako nieaktualne.",
+ "approve": [
+  {
+   "title": "ISHQ by Chef Bhatia - Love by the Course",
+   "start_date": "2026-11-22"
+  },
+  {
+   "title": "Eid Al Etihad 55th Celebrations at Fujairah Historic Landmarks",
+   "start_date": "2026-11-23"
+  },
+  {
+   "title": "Mahjong",
+   "start_date": "2026-11-24"
+  },
+  {
+   "title": "Casual Sketch & Doodle Meetup!",
+   "start_date": "2026-11-25"
+  },
+  {
+   "title": "Gypsy Swing Project Live Jazz Evening",
+   "start_date": "2026-11-26",
+   "set": {
+    "venue": "Alliance Française Dubai, Oud Metha"
+   }
+  },
+  {
+   "title": "Storytelling Adventure: Once Upon a Time, There Were Dragons",
+   "start_date": "2026-11-29",
+   "set": {
+    "venue": "Alliance Française Dubai, Oud Metha"
+   }
+  },
+  {
+   "title": "Dubai 7s Finale Day featuring Chase & Status",
+   "start_date": "2026-11-29",
+   "set": {
+    "venue": "The Sevens Stadium"
+   }
+  },
+  {
+   "title": "Wadi Abadillah Beginner Hike / Level: Easy Beginners Friendly 2/10",
+   "start_date": "2026-11-29"
+  },
+  {
+   "title": "UAE National Day Special – Wadi Dahir/ Sulphar Pools / Fujairah / Beginner+ 3/10",
+   "start_date": "2026-12-02"
+  },
+  {
+   "title": "UAE National Day Special / Wadi Kub Sunset Hike / Beginner+ 2/10",
+   "start_date": "2026-12-02"
+  },
+  {
+   "title": "3rd December / Wadi Far Far Family & Beginners Sunset Hike / Easy 2/10",
+   "start_date": "2026-12-03"
+  },
+  {
+   "title": "Karaoke Knight",
+   "start_date": "2026-11-29"
+  },
+  {
+   "title": "The Laughter Factory's Festive Special",
+   "start_date": "2026-12-04",
+   "set": {
+    "category": "comedy"
+   }
+  },
+  {
+   "title": "Burj2Burj Run",
+   "start_date": "2027-01-24"
+  },
+  {
+   "title": "Don't Give Your Best - A Stand-up Comedy Show by Rahul Subramanian",
+   "start_date": "2027-03-21",
+   "set": {
+    "category": "comedy"
+   }
+  }
+ ],
+ "reject": [
+  {
+   "title": "Happy Tribe Musical Evening - Session 2",
+   "start_date": "2026-11-19"
+  },
+  {
+   "title": "Join Random Friends in UAE",
+   "start_date": "2026-11-20"
+  },
+  {
+   "title": "More Than Just Small Talk",
+   "start_date": "2026-11-21"
+  },
+  {
+   "title": "Make new friends india + singapore + malaysia",
+   "start_date": "2026-11-22"
+  },
+  {
+   "title": "Build an Agentic AI System: From Data to Decisions",
+   "start_date": "2026-11-22"
+  },
+  {
+   "title": "Join Random Friends @UAE",
+   "start_date": "2026-11-22"
+  },
+  {
+   "title": "The Psychology of the Qur'an",
+   "start_date": "2026-11-25"
+  },
+  {
+   "title": "(Women Only) The Pretty Little Evening",
+   "start_date": "2026-11-25"
+  },
+  {
+   "title": "Conversations That Brew: A Night of Connection",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Don't Give Your Best - A Stand-up Comedy Show by Rahul Subramanian",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Shakhbout City Meetup Group",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Sip, Chat, Connect: An Evening Together",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Coffee Connect: A Cozy Evening of Coffee, Community & Conversations",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Brew & Bond: Where Coffee Sparks New Connections",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "(Women Only) Girls' Night, Elevated",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Espresso Encounters: Authentic Moments in One Elegant Café",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Brunch & Bubbles Social: Sparkling Drinks and Even Better Company",
+   "start_date": "2026-11-27"
+  },
+  {
+   "title": "Mankool Karama Friends",
+   "start_date": "2026-11-27"
+  },
+  {
+   "title": "(Women Only) Girls' Night, Elevated",
+   "start_date": "2026-12-03"
+  },
+  {
+   "title": "20s 30s Social and Activities in Dubai",
+   "start_date": "2026-12-05"
+  },
+  {
+   "title": "Make an Agent Safer to Operate: Permissions, Tests and Traces",
+   "start_date": "2026-12-13"
+  },
+  {
+   "title": "What's On Abu Dhabi Awards 2027 - Registration",
+   "start_date": "2027-04-08"
+  }
+ ],
+ "approve_deal_ids": [
+  "a6a8f798-41f7-403e-a44e-d2ed756f608b",
+  "a09d56dc-0a6f-4a60-80db-25443cc0a630",
+  "2116d217-46e8-4406-94fb-7d59eb85fb4f",
+  "84ffdd90-5a94-4929-9571-b90df55f8638",
+  "2353a38d-fa08-4720-9c8c-0955c394276a",
+  "0112778b-3108-4f1c-b288-92fd10ea3564",
+  "875f88fd-ea39-4789-b2d3-2ab51d0eec2e",
+  "18196ee0-343b-4ca6-8793-8246ce9958e8",
+  "154768b8-f8ac-4425-ae3d-18e7f77932d5"
+ ],
+ "reject_deal_ids": [
+  "aa14d29b-8635-47d5-8211-c3916ba6fb09",
+  "2bafab17-7673-4879-8438-2065a8385f04"
+ ]
+}
