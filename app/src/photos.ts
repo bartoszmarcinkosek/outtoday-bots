@@ -88,6 +88,14 @@ const RULES: [RegExp, string][] = [
   [/teamlab|immersive|digital art|museum|art gallery|biennial/i, 'museums'],
   // na końcu: bieg w parku archeologicznym to nadal bieg
   [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
+  // jedzenie i święta (event: brunch świąteczny, kolacja sylwestrowa) – przed plażą/farmą na końcu
+  [/new year|\bnye\b|hogmanay/i, 'nye'],
+  [/\bbrunch\b(?! that burns)/i, 'brunch'],
+  [/breakfast/i, 'breakfast'],
+  [/dinner|buffet|\blunch\b|sunday roast|\broast\b|tasting menu|by the course|set menu|thanksgiving|turkey|iftar|suhoor/i, 'dinner'],
+  [/christmas|xmas|santa|festive|advent|gingerbread/i, 'xmas'],
+  [/\bexpo\b|trade (show|fair)|summit|conference|\bforum\b|(international|games|food|jewell?ery|perfumes?|watch|boat|motor|hunting)\b.*\b(exhibition|show)\b/i, 'expo'],
+  [/concert|world tour/i, 'concert'],
   // na samym końcu, tylko gdy nic innego nie pasuje (koncert na plaży to koncert)
   [/\bfarm\b|oasis|\babra\b/i, 'farm'],
   [/desert (safari|reserve|conservation|park)|marmoom|al qudra|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
@@ -153,7 +161,11 @@ function pool(item: Item): number[] {
     else if (hit && NO_FALLBACK.has(hit[1])) return [];
   }
   // Event bez rozpoznanego rodzaju z tytułu: ikonka zamiast ogólnego zdjęcia kategorii (to ono dawało złe zdjęcia).
-  if (!keys && item.kind === 'event') return [];
+  // wyjątek: event muzyczny bez rodzaju dostaje ogólne zdjęcie sceny koncertowej (gdy już jest)
+  if (!keys && item.kind === 'event') {
+    if (item.catKey === 'music' && PHOTO_FILES.concert) keys = ['concert'];
+    else return [];
+  }
   if (!keys) keys = CAT[item.catKey] ?? [];
   const zones = SKYLINE_ZONES[item.city];
   const suf = zones === null || (zones && item.zone && zones.has(item.zone)) ? CITY_SUFFIX[item.city] : undefined;

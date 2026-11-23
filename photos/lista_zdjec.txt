@@ -1,4 +1,11 @@
 1 | lm_coca_cola_arena-1 | (gotowe)
+169 | concert-1 | Outdoor concert at night seen from the crowd: big stage with coloured lights and smoke, silhouettes of people with raised hands, no logos, UAE.
+170 | concert-2 | Singer performing on a large indoor arena stage, warm spotlights, band behind, audience with phone lights, no logos or text.
+171 | nye-1 | New Year's Eve fireworks over a modern waterfront skyline at night, people celebrating on a terrace with glasses raised, no text.
+172 | nye-2 | Elegant New Year's Eve gala dinner table with candles, gold decorations and champagne glasses, fireworks visible through the window, no text.
+173 | xmas-1 | Festive Christmas dinner table with roast turkey, side dishes and candles, warm lights and a decorated tree in a hotel restaurant, no text.
+174 | xmas-2 | Family enjoying a Christmas celebration in a sunny hotel courtyard with a big decorated tree, string lights and palm trees, UAE winter, no text.
+175 | expo-1 | Busy modern exhibition hall at a trade show: visitors walking between stands with screens and displays, bright lights, no logos or readable text.
 162 | bungee-1 | Person bungee jumping from a tall platform over a calm marina at golden hour, waterfront buildings and yachts below, Abu Dhabi.
 163 | aquarium-1 | Families looking at a huge aquarium tank with sharks, rays and colourful fish, blue light, modern aquarium in the UAE.
 164 | zoo-1 | Giraffes and antelopes in a sunny safari park with acacia trees and a family on a safari truck, UAE.
