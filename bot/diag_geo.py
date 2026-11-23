@@ -15,6 +15,6 @@ for t, name in (("events", "title"), ("places", "name"), ("deals", "title")):
             if r.get("lat") is not None and (round(r["lat"], 4), round(r["lng"], 4)) == top[0][0]:
                 print(f"G|  {r[name][:50]} @{(r.get('venue') or '')[:30]}")
 for t, name in (("events", "title"), ("places", "name"), ("deals", "title")):
-    sel = f"id,{name},venue,lat" if t != "places" else f"id,{name},address,lat"
+    sel = f"id,{name},venue,lat" if t != "places" else f"id,{name},lat"
     for r in db.get(t, {"select": sel, "city": "eq.Al Ain", "status": "eq.approved", "lat": "is.null", "limit": "200"}):
         print(f"GN|{t}|{r[name][:50]}|{(r.get('venue') or r.get('address') or '')[:70]}|{r['id']}")
