@@ -38,7 +38,37 @@ for p in pl:
     groups.setdefault(("place", key(p["name"]), "", p["city"]), []).append(p)
 for d in dl:
     groups.setdefault(("deal", key(d["title"]), key(d.get("venue")), d["city"]), []).append(d)
+# ---- duplikaty "rozmyte" (23.11): ten sam dzień + miasto, tytuły podobne po zdjęciu roku, "in Abu Dhabi", "at Etihad Arena", "live", dat w nawiasie
+def clean_title(t: str) -> str:
+    t = re.sub(r"\((?:[^)]*\d[^)]*)\)", " ", t or "")
+    t = re.sub(r"\b20\d\d\b|\blive\b|\b(?:in|at)\s+(?:abu dhabi|dubai|sharjah|al ain|etihad arena|coca[- ]cola arena|dubai opera)\b", " ", t, flags=re.I)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def ct(e: dict) -> str:
+    t = e["title"] or ""
+    v = (e.get("venue") or "").split(",")[0].strip()
+    if v:
+        t = re.sub(r"\b(?:at|@)\s+" + re.escape(v), " ", t, flags=re.I)
+    return clean_title(t)
+
+
+by_day: dict[tuple, list] = {}
+for e in ev:
+    by_day.setdefault((e["start_date"], e["city"]), []).append(e)
+seen_fuzzy = set()
+for (day, city), rows in by_day.items():
+    for i, a in enumerate(rows):
+        for b in rows[i + 1:]:
+            if key(a["title"]) == key(b["title"]) or (a["id"], b["id"]) in seen_fuzzy:
+                continue
+            same_link = (a.get("official_url") or "x") == (b.get("official_url") or "y")
+            va, vb = key(a.get("venue"))[:12], key(b.get("venue"))[:12]
+            if same_link or (va and va == vb and R.titles_match(ct(a), ct(b))):
+                seen_fuzzy.add((a["id"], b["id"]))
+                groups.setdefault(("event", "fuzzy:" + a["id"], day, city), []).extend([a, b])
 for (kind, _, _, city), rows in groups.items():
+    rows[:] = list({r["id"]: r for r in rows}.values())
     if len(rows) > 1:
         dupes.append({"kind": kind, "title": rows[0].get("title") or rows[0].get("name"), "city": city,
                       "date": rows[0].get("start_date"), "ids": [r["id"] for r in rows]})
