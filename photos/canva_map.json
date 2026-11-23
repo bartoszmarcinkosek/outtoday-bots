@@ -31,10 +31,32 @@
  },
  "in_app": [
   "aquafit-1",
+  "aquarium-1",
   "artfair-1",
+  "bungee-1",
+  "cinema-2",
+  "comedy-2",
+  "farm-1",
+  "happy_hour-3",
+  "happy_hour-4",
+  "happy_hour-5",
+  "lm_burj_al_arab-1",
+  "lm_coca_cola_arena-1",
+  "lm_coca_cola_arena_in-1",
+  "lm_dubai_opera-1",
+  "lm_etihad_arena-2",
+  "lm_etihad_arena_in-1",
+  "lm_etihad_arena_in-2",
+  "lm_jebel_jais-1",
+  "lm_museum_future-1",
+  "lm_saadiyat-1",
+  "mosque-1",
   "painting-1",
   "rally-1",
-  "studios-1"
+  "studios-1",
+  "viewpoint-1",
+  "waterpark-1",
+  "zoo-1"
  ],
  "last_at": "2026-11-22T23:49:12Z"
 }
