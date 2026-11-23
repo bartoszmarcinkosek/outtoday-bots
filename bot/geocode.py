@@ -34,10 +34,28 @@ def km(a, b):
     return 6371 * 2 * math.asin(math.sqrt(d))
 
 
+# Nazwy, pod którymi OpenStreetMap zna miejsca (nazwa w ogłoszeniach -> nazwa w OSM)
+ALIAS = [
+    (r"adnec centre al ain|adnec al ain|al ain convention", "Al Ain Convention Centre"),
+    (r"al ain oasis", "Al Ain Oasis"),
+    (r"jahili", "Al Jahili Fort"),
+    (r"qattara", "Al Qattara Oasis"),
+    (r"al ain rotana", "Al Ain Rotana"),
+    (r"al ain palace", "Al Ain Palace Hotel"),
+    (r"radisson blu.*al ain", "Radisson Blu Hotel & Resort, Al Ain"),
+    (r"hili fun city", "Hili Fun City"),
+    (r"al ain zoo", "Al Ain Zoo"),
+    (r"jebel hafeet|jabal hafeet|jebel hafit", "Jebel Hafeet"),
+    (r"green mubazzarah|mubazzarah", "Green Mubazzarah"),
+    (r"telal resort", "Telal Resort"),
+]
+
+
 def candidates(venue: str, city: str) -> list[str]:
     v = re.sub(r"\s+", " ", venue).strip(" ,")
     parts = [p.strip() for p in v.split(",") if p.strip()]
-    out = [f"{v}, {city}"]
+    out = [f"{name}, Al Ain" if "Al Ain" not in name else name for rx, name in ALIAS if re.search(rx, v, re.I)]
+    out += [f"{v}, {city}"]
     if len(parts) > 1:  # "Outlet, Hotel" -> spróbuj samego hotelu / ostatniej części
         out += [f"{parts[-1]}, {city}", f"{parts[0]}, {city}"]
     # zbyt ogólne zapytania (samo miasto/kraj/dzielnica) dają środek miasta zamiast miejsca – nie używamy ich
