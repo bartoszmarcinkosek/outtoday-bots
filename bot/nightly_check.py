@@ -63,9 +63,8 @@ for (day, city), rows in by_day.items():
             if key(a["title"]) == key(b["title"]) or (a["id"], b["id"]) in seen_fuzzy \
                     or (a.get("start_time") and b.get("start_time") and a["start_time"] != b["start_time"]):  # inne godziny = osobne seanse
                 continue
-            same_link = (a.get("official_url") or "x") == (b.get("official_url") or "y")
             va, vb = key(a.get("venue"))[:12], key(b.get("venue"))[:12]
-            if same_link or (va and va == vb and R.titles_match(ct(a), ct(b))):
+            if va and va == vb and R.titles_match(ct(a), ct(b)):  # sam link nie wystarcza (linki ogólne łączyły różne występy)
                 seen_fuzzy.add((a["id"], b["id"]))
                 groups.setdefault(("event", "fuzzy:" + a["id"], day, city), []).extend([a, b])
 for (kind, _, _, city), rows in groups.items():
