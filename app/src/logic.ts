@@ -72,6 +72,21 @@ export function withVenue(title: string, venue?: string | null): string {
   return `${v} · ${title}`;
 }
 
+// Oferta o ogólnej nazwie ("Lunch", "Daily Business Lunch", "Happy Hour") – kategoria jest już na pigułce,
+// więc tytułem karty zostaje samo miejsce ("Bar du Port"). Nazwa z czymś własnym zostaje: "Rite of Siam Brunch".
+const GENERIC_DEAL = new Set(['lunch', 'brunch', 'breakfast', 'dinner', 'happy', 'hour', 'hours', 'ladies', 'lady', 'night', 'nights',
+  'quiz', 'day', 'pass', 'staycation', 'out', 'daily', 'weekday', 'weekdays', 'weekend', 'weekly', 'business', 'offer', 'offers', 'deal',
+  'deals', 'special', 'specials', 'menu', 'set', 'buffet', 'the', 'and', 'with', 'at', 'a', 'an', 'our', 'of', 'all', 'evening', 'morning',
+  'friday', 'saturday', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'every', 'pool', 'beach', 'access', 'package', 'promo', 'promotion']);
+export function dealTitle(title: string, venue?: string | null): { title: string; where: string | null } | null {
+  const v = (venue ?? '').split(',')[0].trim();
+  if (!v || v.length > 45) return null;
+  const words = title.toLowerCase().split(/[^a-z0-9\u00c0-\u024f]+/).filter(Boolean);
+  if (!words.length || !words.every((w) => GENERIC_DEAL.has(w) || /^\d+$/.test(w))) return null;
+  const rest = (venue ?? '').split(',').slice(1).join(',').trim();
+  return { title: v, where: rest || null };
+}
+
 export function iconFor(key: string | null | undefined): IconName {
   return ICONS[key ?? ''] ?? 'pricetag';
 }
@@ -191,9 +206,10 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
     const daysTxt = d.deal_type === 'staycation' && !(d.days_of_week ?? []).length
       ? (d.valid_until ? `Book by ${fmtDate(d.valid_until)}` : 'Hotel stay offer') : fmtDays(d.days_of_week);
     const when = `${daysTxt}${times ? ` · ${times}` : ''}`;
+    const dt = dealTitle(d.title, d.venue);
     out.push({
-      key: `deal:${d.id}`, kind: 'deal', title: withVenue(d.title, d.venue), rawTitle: d.title, catKey: d.deal_type ?? '', look: dealStyle(d.deal_type),
-      icon: iconFor(d.deal_type), when, whenFull: when, where: placeLine(d.venue, d.area),
+      key: `deal:${d.id}`, kind: 'deal', title: dt?.title ?? withVenue(d.title, d.venue), rawTitle: d.title, catKey: d.deal_type ?? '', look: dealStyle(d.deal_type),
+      icon: iconFor(d.deal_type), when, whenFull: when, where: dt ? placeLine(dt.where, d.area) : placeLine(d.venue, d.area),
       mapQuery: `${d.venue ?? d.title}, ${d.city}`, description: d.details, priceText: d.price_text, price,
       free: price === 0, kid: d.kid_friendly === true, pet: d.pet_friendly === true,
       ladies: d.ladies_only === true || d.deal_type === 'ladies_night', indoor: null, top: null, zone,
