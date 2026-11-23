@@ -33,7 +33,7 @@ export function ZoneMap(props: { items: Item[]; city: string; card: (i: Item) =>
   }, [props.items]);
 
   const zones = ZONES.filter((z) => counts[z.key] && ZONE_CENTER[z.key]);
-  const noZone = props.items.filter((i) => !i.zone && !i.geo).length;
+  const noZone = props.items.filter((i) => !i.geo).length;
   const [lat, lng, zoom] = CITY_CENTER[props.city] ?? CITY_CENTER['Abu Dhabi'];
   const region = { latitude: lat, longitude: lng, latitudeDelta: zoom, longitudeDelta: zoom };
   const list = pickedItem ? props.items.filter((i) => i.key === pickedItem)
@@ -51,15 +51,7 @@ export function ZoneMap(props: { items: Item[]; city: string; card: (i: Item) =>
             <View style={[styles.dot, pickedItem === i.key && styles.dotOn]} />
           </Marker>
         ))}
-        {zones.map((z) => (
-          <Marker key={z.key} coordinate={{ latitude: ZONE_CENTER[z.key][0], longitude: ZONE_CENTER[z.key][1] }}
-            onPress={(e) => { e.stopPropagation(); setPickedItem(null); setPicked(z.key); }}>
-            <View style={[styles.pin, picked === z.key && styles.pinOn]}>
-              <Text style={[styles.pinCount, picked === z.key && { color: colors.bg }]}>{counts[z.key]}</Text>
-              <Text style={[styles.pinLabel, picked === z.key && { color: colors.bg }]} numberOfLines={1}>{z.label}</Text>
-            </View>
-          </Marker>
-        ))}
+        {/* Bez dokładnej lokalizacji – bez pinezki (decyzja 23.11: lepiej brak niż pinezka na środku miasta) */}
       </MapView>
       {picked || pickedItem ? (
         <FlatList
@@ -71,7 +63,7 @@ export function ZoneMap(props: { items: Item[]; city: string; card: (i: Item) =>
         />
       ) : (
         <View style={styles.list}>
-          <Empty text={`Tap a pin to see what's there.${noZone ? ` ${noZone} without a known area are only in the list.` : ''}`} />
+          <Empty text={`Tap a pin to see what's there.${noZone ? ` ${noZone} without an exact location are only in the list.` : ''}`} />
         </View>
       )}
     </View>
