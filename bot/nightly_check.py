@@ -18,7 +18,7 @@ db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].
 today = dt.datetime.now(dt.timezone(dt.timedelta(hours=4))).date()
 day_slot = today.toordinal() % 7
 
-ev = [e for e in db.get("events", {"select": "id,title,start_date,end_date,city,venue,official_url,url", "status": "eq.approved",
+ev = [e for e in db.get("events", {"select": "id,title,start_date,end_date,start_time,city,venue,official_url,url", "status": "eq.approved",
                                    "start_date": f"gte.{(today - dt.timedelta(days=120)).isoformat()}", "limit": "8000"})
       if (e.get("end_date") or e["start_date"]) >= today.isoformat()]
 pl = db.get("places", {"select": "id,name,city,official_url", "status": "eq.approved", "limit": "5000"})
@@ -60,7 +60,8 @@ seen_fuzzy = set()
 for (day, city), rows in by_day.items():
     for i, a in enumerate(rows):
         for b in rows[i + 1:]:
-            if key(a["title"]) == key(b["title"]) or (a["id"], b["id"]) in seen_fuzzy:
+            if key(a["title"]) == key(b["title"]) or (a["id"], b["id"]) in seen_fuzzy \
+                    or (a.get("start_time") and b.get("start_time") and a["start_time"] != b["start_time"]):  # inne godziny = osobne seanse
                 continue
             same_link = (a.get("official_url") or "x") == (b.get("official_url") or "y")
             va, vb = key(a.get("venue"))[:12], key(b.get("venue"))[:12]
