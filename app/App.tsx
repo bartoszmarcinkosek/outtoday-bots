@@ -16,6 +16,7 @@ import { DOW_CHIPS, fmtDate, inRange, rangeFor } from './src/dates';
 import {
   Item, SORT_LABEL, Shortcut, SortKey, buildItems, dealEndedToday, dealOnDay, dealOnNow, searchItems, shortcutsFor, sortItems, todayIso,
   placeOpen, nearbyDeals,
+  endedToday,
 } from './src/logic';
 import { ZoneMap } from './src/map';
 import { SuggestSheet } from './src/suggest';
@@ -111,6 +112,7 @@ function Main() {
   const [inOut, setInOut] = useState<InOut>('all');
   const [cap, setCap] = useState<number | null>(null);
   const [evening, setEvening] = useState(false);
+  const [showEnded, setShowEnded] = useState(false); // widoki „Today”: pokaż też to, co dziś już się skończyło
   const [lastChance, setLastChance] = useState(false); // tylko eventy, które wkrótce się kończą
   const [interests, setInterests] = useState<string[] | null>(null); // null = jeszcze nie wybrano
   const [showInterests, setShowInterests] = useState(false);
@@ -294,6 +296,7 @@ function Main() {
     return () => sub.remove();
   }, [all]);
 
+  const isTodayView = (t: ListTab) => (t === 'events' && day === 'today') || (t === 'deals' && dealDay === new Date().getDay());
   const listFor = useCallback(
     (t: ListTab, wholeCity = false): Item[] => {
       const range = rangeFor(day);
@@ -315,12 +318,30 @@ function Main() {
         .filter((i) => t !== 'deals' || dealDay === null || dealOnDay(i.deal!, dealDay))
         .filter((i) => t === 'places' || cap === null || (i.price !== null && i.price <= cap));
       if (t === 'places' && topOnly && hasTop10(city) && sorts[t] === 'default') return [...filtered].sort((a, b) => (a.top ?? 99) - (b.top ?? 99));
-      return sortItems(filtered, sorts[t]);
+      const sorted = sortItems(filtered, sorts[t]);
+      // Widok „Today”: to, co dziś już się skończyło, znika; po „Show” wraca na sam dół listy (przygaszone).
+      if (isTodayView(t)) {
+        const now = new Date();
+        const live = sorted.filter((i) => !endedToday(i, now));
+        return showEnded ? [...live, ...sorted.filter((i) => endedToday(i, now))] : live;
+      }
+      return sorted;
     },
-    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, openOnly, city, evening, lastChance],
+    [local, all, cats, free, kid, pet, ladies, day, inOut, dealDay, cap, sorts, topOnly, openOnly, city, evening, lastChance, showEnded],
   );
 
   const list = useMemo(() => (tab === 'today' ? [] : listFor(tab)), [tab, listFor]);
+  // ile pozycji w tym widoku „Today” już się dziś skończyło (do linijki na dole listy)
+  const endedCount = useMemo(() => {
+    if (tab === 'today' || !isTodayView(tab)) return 0;
+    const now = new Date();
+    const range = rangeFor(day);
+    return local.filter((i) => i.kind === KIND_OF[tab])
+      .filter((i) => cats[tab].length === 0 || (i.catKey != null && cats[tab].includes(i.catKey)))
+      .filter((i) => (!free || i.free) && (!kid || i.kid) && (!pet || i.pet) && (!ladies || i.ladies))
+      .filter((i) => (tab === 'events' ? inRange(i.event!, range) : dealOnDay(i.deal!, now.getDay())))
+      .filter((i) => endedToday(i, now)).length;
+  }, [tab, local, cats, free, kid, pet, ladies, day, dealDay]);
   // Pusto w wybranej dzielnicy (np. Reem Island)? Pokaż to, co jest najbliżej (do 8 km), zamiast pustego ekranu.
   const nearby = useMemo(() => {
     if (tab === 'today' || list.length > 0 || zones.length === 0) return [];
@@ -511,9 +532,19 @@ function Main() {
             <FlatList
               data={list.length ? list : nearby}
               keyExtractor={(i) => i.key}
-              renderItem={({ item, index }) => card(item, index, list.length ? list : nearby)}
+              renderItem={({ item, index }) => (isTodayView(tab as ListTab) && endedToday(item) ? (
+                <View style={{ opacity: 0.5 }}>
+                  <Text style={styles.endedTag}>Ended</Text>
+                  {card(item, index, list.length ? list : nearby)}
+                </View>
+              ) : card(item, index, list.length ? list : nearby))}
               contentContainerStyle={styles.list}
               refreshControl={refreshControl}
+              ListFooterComponent={endedCount > 0 ? (
+                <Pressable onPress={() => setShowEnded((v) => !v)} hitSlop={10} style={{ paddingVertical: 14, alignItems: 'center' }}>
+                  <Text style={styles.endedLine}>{endedCount} ended earlier today · <Text style={styles.seeAll}>{showEnded ? 'Hide' : 'Show'}</Text></Text>
+                </Pressable>
+              ) : undefined}
               ListHeaderComponent={!list.length && nearby.length ? (
                 <Text style={styles.todayDate}>Nothing in {whereLabel.split(' · ')[1] ?? 'this area'} for these filters. Closest to it:</Text>
               ) : undefined}
@@ -731,7 +762,8 @@ function TodayScreen(props: {
   const byInterest = (xs: Item[]) => (props.interests.length ? xs.map((it, k) => ({ it, k })).sort((a, b) => liked(a.it) - liked(b.it) || a.k - b.k).map((x) => x.it) : xs);
   const events = sortItems(props.local.filter((i) => i.event && inRange(i.event, range)), 'default');
   const single = events.filter((i) => !i.endsSoon && i.event!.start_date === today);
-  const ranked = byInterest(rankToday([...single, ...events.filter((i) => !single.includes(i))], now));
+  // to, co dziś już się skończyło, nie pokazuje się na ekranie Today
+  const ranked = byInterest(rankToday([...single, ...events.filter((i) => !single.includes(i))], now)).filter((i) => !endedToday(i, now));
   // Od 15:00: osobno "Dziś wieczorem" – jednodniowe eventy, które jeszcze się nie zaczęły.
   const hm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
   const tonight = now.getHours() >= 15
@@ -744,7 +776,7 @@ function TodayScreen(props: {
     ? sortItems(props.local.filter((i) => i.event && props.interests.includes(i.catKey) && inRange(i.event, week)), 'default')
     : [];
   const freeToday = onToday.filter((i) => i.free);
-  const deals = props.local.filter((i) => i.deal && dealOnDay(i.deal, now.getDay()));
+  const deals = props.local.filter((i) => i.deal && dealOnDay(i.deal, now.getDay()) && !dealEndedToday(i.deal, now));
   const rank = (i: Item) => (dealOnNow(i.deal!, now) ? 0 : dealEndedToday(i.deal!, now) ? 2 : 1);
   const dealsSorted = sortItems(deals, 'default').sort((a, b) => rank(a) - rank(b));
   // "Last chance": wystawy, festiwale i promocje, które kończą się w ciągu tygodnia (najpierw te, które kończą się najszybciej).
@@ -931,6 +963,8 @@ const styles = StyleSheet.create({
   secHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 },
   secTitle: { color: colors.text, fontSize: 20, fontWeight: '800' },
   seeAll: { color: colors.primary, fontSize: 14, fontWeight: '600' },
+  endedLine: { color: colors.muted, fontSize: 14 },
+  endedTag: { color: colors.muted, fontSize: 12, fontWeight: '700', marginBottom: 4, marginLeft: 4, textTransform: 'uppercase' },
   strip: { backgroundColor: colors.surface, borderRadius: 16, padding: 12, marginBottom: 14 },
   stripBtn: { alignItems: 'center', paddingVertical: 8, borderRadius: 12, flex: 1, marginHorizontal: 2 },
   stripOn: { backgroundColor: colors.primary },

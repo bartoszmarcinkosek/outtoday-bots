@@ -229,27 +229,32 @@ export function dealOnDay(d: DealRow, dow: number): boolean {
 }
 
 // Promocja trwa w tej chwili: dziś jest jej dzień i mieścimy się w godzinach.
+// Zasada (24.11.2026): „On now” tylko gdy znamy godzinę końca. Day pass bez niej liczymy do 18:00; inne oferty bez końca – bez „On now”.
+function dealEnd(d: DealRow): string | null {
+  if (d.end_time) return d.end_time.slice(0, 5);
+  return d.deal_type === 'day_pass' && d.start_time ? '18:00' : null;
+}
 export function dealOnNow(d: DealRow, now: Date = new Date()): boolean {
   if (!dealOnDay(d, now.getDay()) || !d.start_time) return false;
+  const end = dealEnd(d);
+  if (!end) return false;
   const hm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-  const end = d.end_time ? d.end_time.slice(0, 5) : '23:59';
-  return d.start_time.slice(0, 5) <= hm && hm <= end;
+  const start = d.start_time.slice(0, 5);
+  return end > start ? start <= hm && hm <= end : hm >= start; // koniec po północy (22:00–02:00): trwa od startu do końca dnia
 }
-
-// Promocja była dziś, ale jej godziny już minęły (np. lunch 12–15, a jest 16:00).
 export function dealEndedToday(d: DealRow, now: Date = new Date()): boolean {
-  if (!dealOnDay(d, now.getDay()) || !d.end_time) return false;
+  const end = dealEnd(d);
+  if (!dealOnDay(d, now.getDay()) || !end) return false;
   const hm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-  const end = d.end_time.slice(0, 5);
   const start = d.start_time ? d.start_time.slice(0, 5) : '00:00';
   return end > start && hm > end; // end <= start = po północy (np. 22:00–02:00), wtedy nie uznajemy za zakończoną
 }
-
-// Event, który kończy się dziś i jego godzina już minęła (np. 09:30–11:00, a jest 18:00) – nie pokazujemy.
-// Bez godziny końca: jednodniowy event znika 3 godziny po starcie.
+// Czy na dziś to już koniec: jednodniowy event po godzinie końca (albo 3 h po starcie, gdy końca nie ma),
+// a także wielodniowy (wystawa, festiwal) po dzisiejszej godzinie zamknięcia.
 export function eventOverToday(e: EventRow, now: Date = new Date()): boolean {
+  const today = todayIso(now);
   const end = e.end_date ?? e.start_date;
-  if (end !== todayIso(now)) return false;
+  if (e.start_date > today || end < today) return false;
   const mins = now.getHours() * 60 + now.getMinutes();
   const toMin = (t: string) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3, 5));
   if (e.end_time) {
@@ -257,11 +262,16 @@ export function eventOverToday(e: EventRow, now: Date = new Date()): boolean {
     const st = e.start_time ? toMin(e.start_time) : 0;
     return et > st && mins > et; // koniec po północy (np. 22:00–02:00) – nie chowamy
   }
-  if (e.start_time && !e.end_date) return mins > toMin(e.start_time) + 180;
+  if (e.start_time && end === e.start_date) return mins > toMin(e.start_time) + 180;
+  return false;
+}
+/** Pozycja, która dziś już się skończyła (do chowania w widokach „Today”). */
+export function endedToday(i: Item, now: Date = new Date()): boolean {
+  if (i.deal) return dealEndedToday(i.deal, now);
+  if (i.event) return eventOverToday(i.event, now);
   return false;
 }
 
-// Czy miejsce jest teraz otwarte (z tabeli godzin). null = nie wiemy.
 export function placeOpen(p: PlaceRow | undefined, now: Date = new Date()): { open: boolean; until?: string } | null {
   const h = p?.hours;
   if (!h || !Object.keys(h).length) return null;
