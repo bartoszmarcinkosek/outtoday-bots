@@ -1,0 +1,17 @@
+{
+ "note": "Pierwszy przegląd pozycji zatwierdzonych automatycznie przez boty (23–24.11): odrzucone spoza ZEA, ogólne spotkania, duplikat, produkt zamiast wydarzenia; poprawione miasto.",
+ "reject_event_ids": [
+  "5e8471dd-3c9e-4721-86db-2f49943e5a2d",
+  "626e5afd-f050-4ac4-8f93-beb5fa776570",
+  "8b085cc6-206a-44fd-94d2-d8846dfb9dff",
+  "f2b87312-f4b7-4e0c-a5af-324bc8059df1",
+  "d5402154-6063-46f4-8164-309ebea5c2ed",
+  "2b53781c-1f9c-4c72-95b6-16451757d5b3",
+  "5dcd8e58-e86a-46ba-a77a-c2624209f305",
+  "7f15a4d1-3bd4-49bf-98db-ecfe9f35b34b",
+  "fd257630-b399-43ca-b9d7-3295755917b2"
+ ],
+ "update_event_ids": [
+  {"id": "3eee3bed-47ba-4bed-8929-9020e95a781a", "set": {"city": "Fujairah", "venue": "Wadi Dahir sulphur pools, Fujairah"}}
+ ]
+}
