@@ -1,0 +1,79 @@
+{
+ "note": "Audit batch 12 (events Abu Dhabi Dec-Apr): duplicates (Liwa Festival, Hikayat Sawtain, Tamaas), ticket package, takeaway product; recital categories to music; title/venue/link cleanups.",
+ "reject_event_ids": [
+  "5444a29a-e2a2-4157-8d14-b1123f15a9e3",
+  "dab54bb4-64a8-4cc5-af36-a9efa1956b41",
+  "43596ded-77a9-41e6-9fa4-d19bddbc0ac9",
+  "a725c4fd-a184-44bb-b6a5-cf7d69d22825",
+  "a72ce864-c606-4d87-ac30-bfa130fcee52"
+ ],
+ "update_event_ids": [
+  {
+   "id": "eb28d886-0a3c-438a-a58b-8b81b696a17f",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "51aca5b5-f832-4ba4-9ee0-0a1b73cc89df",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "da544776-c8ef-453b-b0ce-b33a771e93d7",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "439c07c5-da73-4041-a415-1029b594238f",
+   "set": {
+    "title": "Hikayat Sawtain: Hussam Al-Rassam & Aseel Hameem",
+    "description": "An Iraqi music night at Etihad Arena with singers Hussam Al-Rassam and Aseel Hameem."
+   }
+  },
+  {
+   "id": "82059491-b2c1-4e13-b393-35cc883fa0b8",
+   "set": {
+    "official_url": "https://www.meetup.com/abu-dhabi-salsa-vibez-meetup-group/events/317310602/"
+   }
+  },
+  {
+   "id": "54c099ee-580c-4076-88f1-ea797c4e04f1",
+   "set": {
+    "title": "AquaFit at Saadiyat Beach Club"
+   }
+  },
+  {
+   "id": "bf3280db-68df-4aa5-9aae-d70d8b2f6c4f",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "b56bb89d-37bc-4710-ae48-8b502007bfef",
+   "set": {
+    "venue": "Si Ristorante, Saadiyat Rotana Resort & Villas"
+   }
+  },
+  {
+   "id": "91ec8111-7c43-426b-97b1-2af4e2422d2a",
+   "set": {
+    "venue": "Ibn Al Bahr"
+   }
+  },
+  {
+   "id": "9623ac7c-b5d9-406b-93bd-329bb3e56937",
+   "set": {
+    "title": "Romeo & Juliet by Nujoom Theatre"
+   }
+  },
+  {
+   "id": "f700372f-e5ec-4a28-abe3-79bf6f84b4ad",
+   "set": {
+    "title": "ILT20 Qualifier 1: Seed 1 vs Seed 2"
+   }
+  }
+ ]
+}
