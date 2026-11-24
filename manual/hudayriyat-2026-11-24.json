@@ -1,0 +1,7 @@
+{
+ "note": "Zgłoszenie Bartosza 24.11: 'Hudayriyat Island beach and tracks' dublowało dwie inne karty (Hudayriyat cycle tracks + Hudayriyat Mar Vista Public Beach) – ukryte. Godziny Souk Qaryat Al Beri przepisane czytelnie.",
+ "reject_places": ["0b62c25e-aa6e-4fc6-b085-3d171fcf994f"],
+ "update_place_ids": [
+  {"id": "419b1b74-bcd1-4495-a691-fdfe081c1848", "set": {"hours_text": "Shops: weekdays 10:00 to 22:00, weekends 12:00 to midnight"}}
+ ]
+}
