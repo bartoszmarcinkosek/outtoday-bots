@@ -1,1 +1,14 @@
-{"cutoff": "2026-11-24T15:10:00", "size": 100, "next": 0, "done": [], "note": "Pełny przegląd wszystkich zatwierdzonych pozycji (zgoda Bartosza 24.11.2026). next = numer kolejnej paczki."}
+{
+ "cutoff": "2026-11-24T15:10:00",
+ "size": 100,
+ "next": 1,
+ "done": [
+  {
+   "batch": 0,
+   "date": "2026-11-24",
+   "fixed": 3,
+   "rejected": 0
+  }
+ ],
+ "note": "Pełny przegląd wszystkich zatwierdzonych pozycji (zgoda Bartosza 24.11.2026). next = numer kolejnej paczki."
+}

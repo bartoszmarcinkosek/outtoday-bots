@@ -1,0 +1,8 @@
+{
+ "note": "Pełny przegląd, paczka 0 (miejsca Abu Dhabi/Ajman/Al Ain): poprawki tekstu godzin, usunięta wygasła cena promocyjna.",
+ "update_place_ids": [
+  {"id": "c1f05eff-afa6-44de-a0cd-5b2bd3458e49", "set": {"hours_text": "Weekdays 05:00 to midnight"}},
+  {"id": "cdcb1b26-9d36-4222-9f3b-ae520d8cf31a", "set": {"price_text": "Ticketed"}},
+  {"id": "3567cc60-6fb0-43f0-b247-74b0abb6f9e1", "set": {"price_text": "Ticketed"}}
+ ]
+}
