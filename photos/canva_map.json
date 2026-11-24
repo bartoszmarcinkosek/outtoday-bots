@@ -90,7 +90,8 @@
     "lm_louvre-2": "MAHbzC6rJMw",
     "lm_expo_city-1": "MAHbzCofV3s",
     "lm_yas_marina_circuit-1": "MAHbzRatRCI",
-    "lm_global_village-1": "MAHbzcglSSU"
+    "lm_global_village-1": "MAHbzcglSSU",
+    "legoland-1": "MAHbzstR7B8"
   },
   "in_app": [
     "aquafit-1",
@@ -170,5 +171,5 @@
     "xmas-2",
     "zoo-1"
   ],
-  "last_at": "2026-11-24T05:36:08Z"
+  "last_at": "2026-11-24T06:08:05Z"
 }
