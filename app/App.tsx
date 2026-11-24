@@ -56,7 +56,7 @@ const QUICK_INTERESTS: [string, string, string][] = [
   ['music', '🎵', 'Music'], ['food', '🍽', 'Food'], ['family', '👨‍👩‍👧', 'Family'],
   ['nature', '🏖', 'Outdoors'], ['culture', '🎭', 'Culture'], ['sport', '⚽', 'Sport'],
 ];
-const INTEREST_KEYS = ['music', 'culture', 'sport', 'food', 'family', 'nightlife', 'festivals', 'classes', 'nature', 'community', 'market'];
+const INTEREST_KEYS = ['music', 'comedy', 'culture', 'sport', 'food', 'family', 'nightlife', 'festivals', 'classes', 'nature', 'community', 'market'];
 const USAGE_KEY = 'outtoday.filterUse.v1';
 const KIND_OF: Record<ListTab, Item['kind']> = { events: 'event', places: 'place', deals: 'deal' };
 

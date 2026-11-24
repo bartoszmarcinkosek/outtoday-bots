@@ -50,7 +50,7 @@ UAE_TZ = dt.timezone(dt.timedelta(hours=4))
 
 EVENT_CATEGORIES = [
     "music", "culture", "sport", "food", "festivals",
-    "nightlife", "classes", "nature", "community", "family", "market",
+    "nightlife", "classes", "nature", "community", "family", "market", "comedy",
 ]
 CITIES = [
     "Abu Dhabi", "Al Ain", "Dubai", "Sharjah", "Ajman",
@@ -366,7 +366,8 @@ ITEM_SCHEMA = {
     "properties": {
         "title": {"type": "string", "description": "Event name as written on the page. If it is not in English (e.g. Arabic or Russian), give an English translation, keeping proper names, and add ' (in Arabic)' / ' (in Russian)' when the event itself is held in that language. The original wording goes in evidence.title. Write titles in normal capitalisation, not ALL CAPS (e.g. 'CHICAGO THE MUSICAL' -> 'Chicago the Musical'), keeping acronyms like IIFA or UAE."},
         "category": {"type": "string", "enum": EVENT_CATEGORIES, "description": (
-            "music = concerts, DJ sets, opera, musicals, comedy and stage shows; "
+            "music = concerts, DJ sets, opera, musicals and stage shows; "
+            "comedy = stand-up comedy shows, comedians on tour, comedy nights, improv; "
             "culture = exhibitions, talks, film screenings, theatre plays, heritage; "
             "family = activities aimed at children or families (kids' shows, family days, games, storytelling, kids' workshops); "
             "classes = workshops and courses for adults; sport = matches, races, runs, fitness; "
