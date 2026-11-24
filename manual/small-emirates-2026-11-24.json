@@ -1,0 +1,23 @@
+{
+  "note": "Ręczne szukanie 24.11: mniejsze emiraty (sprawdzone na stronach organizatorów / źródłach podanych w source_name)",
+  "events": [
+    {"title": "Big Bad Wolf Book Sale Ajman 2026", "category": "market", "start_date": "2026-11-24", "end_date": "2026-12-01",
+     "start_time": "10:00", "end_time": "23:59", "venue": "Emirates Hall, Emirates Hospitality Center, Al Jurf 2", "city": "Ajman",
+     "description": "Huge discount book sale with titles for all ages, open daily from 10am to midnight. Free admission.",
+     "is_free": true, "kid_friendly": true, "official_url": "https://www.bigbadwolfbooks.com/blogs/events/big-bad-wolf-ajman-uae-2026",
+     "status": "approved", "source_name": "bigbadwolfbooks.com"},
+    {"title": "XCAT World Championship: Fujairah Grand Prix", "category": "sport", "start_date": "2026-12-04", "end_date": "2026-12-06",
+     "venue": "Fujairah International Marine Club, Corniche", "city": "Fujairah",
+     "description": "Opening round of the UIM XCAT powerboat world championship. Friday: practice, pole position and a boat parade at 4pm. Race 1 on Saturday at 3pm, Race 2 on Sunday at 3pm. Timetable is provisional.",
+     "official_url": "https://powerboat.news/xcat-fujairah-grand-prix-2026-everything-you-need-to-know/",
+     "status": "approved", "source_name": "powerboat.news (program XCAT)"},
+    {"title": "Wa'ad Luxury Event", "category": "market", "start_date": "2026-12-06", "end_date": "2026-12-09",
+     "venue": "ADNEC Centre Al Ain, Hall 2", "city": "Al Ain",
+     "description": "Shopping exhibition at ADNEC Centre Al Ain bringing together local and regional brands.",
+     "official_url": "https://www.adnecalain.ae/en/eventlisting", "status": "approved", "source_name": "adnecalain.ae"},
+    {"title": "Hili Archaeological Park Race Run", "category": "sport", "start_date": "2026-12-19",
+     "venue": "Hili Archaeological Park", "city": "Al Ain",
+     "description": "Community run through Hili Archaeological Park with 5 km, 3 km and 1500 m distances.",
+     "kid_friendly": true, "official_url": "https://my.raceresult.com/413036/", "status": "approved", "source_name": "running.life / raceresult"}
+  ]
+}
