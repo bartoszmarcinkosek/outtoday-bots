@@ -1632,6 +1632,89 @@
    "username": "fujairahfineartsacademy",
    "city": "Fujairah",
    "venue": "Fujairah Fine Arts Academy"
+  },
+  {
+   "username": "alainmuseum",
+   "city": "Al Ain",
+   "venue": "Al Ain Museum"
+  },
+  {
+   "username": "bararioutletmall",
+   "city": "Al Ain",
+   "venue": "Barari Outlet Mall"
+  },
+  {
+   "username": "bawadimallalain",
+   "city": "Al Ain",
+   "venue": "Bawadi Mall"
+  },
+  {
+   "username": "aljimimallalain",
+   "city": "Al Ain",
+   "venue": "Al Jimi Mall"
+  },
+  {
+   "username": "hilimall",
+   "city": "Al Ain",
+   "venue": "Hili Mall"
+  },
+  {
+   "username": "alfoahmall",
+   "city": "Al Ain",
+   "venue": "Al Foah Mall"
+  },
+  {
+   "username": "alzorah",
+   "city": "Ajman",
+   "venue": "Al Zorah"
+  },
+  {
+   "username": "ajmanmedia",
+   "city": "Ajman"
+  },
+  {
+   "username": "radissonbluajman",
+   "city": "Ajman",
+   "venue": "Radisson Blu Hotel Ajman"
+  },
+  {
+   "username": "questforadventureuae",
+   "city": "Ajman",
+   "venue": "Quest for Adventure, Al Zorah"
+  },
+  {
+   "username": "uaq_tad",
+   "city": "Umm Al Quwain"
+  },
+  {
+   "username": "mallofuaq",
+   "city": "Umm Al Quwain",
+   "venue": "Mall of UAQ"
+  },
+  {
+   "username": "vidaummalquwain",
+   "city": "Umm Al Quwain",
+   "venue": "Vida Beach Resort Umm Al Quwain"
+  },
+  {
+   "username": "dreamlandaquaparkuae",
+   "city": "Umm Al Quwain",
+   "venue": "Dreamland Aqua Park"
+  },
+  {
+   "username": "fujairahmalluae",
+   "city": "Fujairah",
+   "venue": "Fujairah Mall"
+  },
+  {
+   "username": "addressfujairah",
+   "city": "Fujairah",
+   "venue": "Address Beach Resort Fujairah"
+  },
+  {
+   "username": "lemeridien_alaqah",
+   "city": "Fujairah",
+   "venue": "Le Méridien Al Aqah Beach Resort"
   }
  ]
 }

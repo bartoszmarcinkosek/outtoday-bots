@@ -1,0 +1,102 @@
+{
+ "note": "Ręczne szukanie 24.11 (2): strony zapisów na zawody + hotele",
+ "events": [
+  {
+   "title": "Al Ain Duathlon Series: Race 1",
+   "category": "sport",
+   "start_date": "2026-11-29",
+   "venue": "Al Ain Cycle Track",
+   "city": "Al Ain",
+   "description": "First race of the 5th Al Ain Duathlon Series (run-bike-run). Entry includes timing, medal and T-shirt; register online.",
+   "official_url": "https://www.premieronline.com/event/al_ain_duathlon_series_5th_edition_race_1_8955",
+   "status": "approved",
+   "source_name": "premieronline.com",
+   "start_time": "06:30"
+  },
+  {
+   "title": "Presidential Guard Cycling Race: Elite Challenge",
+   "category": "sport",
+   "start_date": "2026-12-03",
+   "venue": "Umm Al Quwain",
+   "city": "Umm Al Quwain",
+   "description": "Road cycling race in Umm Al Quwain run by Endurance Sports Services. Check categories and the start point on the registration page.",
+   "official_url": "https://www.premieronline.com/event/presidential_guard_cycling_race_elite_challenge_8963",
+   "status": "approved",
+   "source_name": "premieronline.com",
+   "start_time": "07:30"
+  },
+  {
+   "title": "Presidential Guard Run 2026 Fujairah",
+   "category": "sport",
+   "start_date": "2026-12-04",
+   "venue": "Fujairah",
+   "city": "Fujairah",
+   "description": "Timed running event in Fujairah with medals for finishers. Register online; distances and the start point are on the registration page.",
+   "official_url": "https://www.premieronline.com/event/presidential_guard_run_fujairah_8966",
+   "status": "approved",
+   "source_name": "premieronline.com",
+   "start_time": "07:00"
+  },
+  {
+   "title": "Fujairah Tri Relay Challenge",
+   "category": "sport",
+   "start_date": "2026-12-12",
+   "venue": "Fujairah Beach",
+   "city": "Fujairah",
+   "description": "Team relay race the day before the Fujairah International Triathlon. Registration closes on 2 December.",
+   "official_url": "https://www.premieronline.com/event/fujairah_tri_relay_challenge_8889",
+   "status": "approved",
+   "source_name": "premieronline.com",
+   "start_time": "07:00"
+  },
+  {
+   "title": "UAE Road Run Championships & 1km Fun Run",
+   "category": "sport",
+   "start_date": "2026-12-20",
+   "venue": "Al Ain Cycle Track",
+   "city": "Al Ain",
+   "description": "2.5 km and 5 km UAE Road Run Championships plus a 1 km fun run. Entry includes timing, medal and T-shirt.",
+   "official_url": "https://www.premieronline.com/event/2.5_5km_uae_road_running_championships_8957",
+   "status": "approved",
+   "source_name": "premieronline.com",
+   "start_time": "06:45",
+   "kid_friendly": true
+  },
+  {
+   "title": "Umm Al Quwain Half Marathon 2027",
+   "category": "sport",
+   "start_date": "2027-01-10",
+   "venue": "Umm Al Quwain",
+   "city": "Umm Al Quwain",
+   "description": "The emirate's annual half marathon. Distances and fees are on the registration page.",
+   "official_url": "https://www.premieronline.com/event/umm_al_quwain_half_marathon_8506",
+   "status": "approved",
+   "source_name": "premieronline.com"
+  },
+  {
+   "title": "Masfout Trail Run 2027",
+   "category": "sport",
+   "start_date": "2027-01-31",
+   "venue": "Masfout Fort, Masfout",
+   "city": "Ajman",
+   "description": "Trail run in Ajman's mountain enclave of Masfout with 10 km and 24 km routes.",
+   "official_url": "https://www.premieronline.com/event/masfout_trail_run_2027_8532",
+   "status": "approved",
+   "source_name": "premieronline.com",
+   "start_time": "07:00"
+  },
+  {
+   "title": "Welcome 2027 at Vida Umm Al Quwain",
+   "category": "food",
+   "start_date": "2026-12-31",
+   "venue": "Vida Beach Resort Umm Al Quwain",
+   "city": "Umm Al Quwain",
+   "description": "New Year's Eve celebration at the beach resort, 7.30pm to 1am. Booking needed; price on request.",
+   "official_url": "https://www.vidahotels.com/en/resorts/vida-beach-resort-umm-al-quwain/",
+   "status": "approved",
+   "source_name": "vidahotels.com",
+   "start_time": "19:30",
+   "end_time": "01:00"
+  }
+ ]
+}
