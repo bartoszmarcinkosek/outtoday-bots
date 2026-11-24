@@ -206,8 +206,17 @@ function Main() {
     Share.share({ message: `Our plan 🗓\n\n${lines.join('\n\n')}\n\nFound on OutToday: https://outtodayapp.github.io` }).catch(() => undefined);
     count('plan', String(up.length), city);
   };
+  // anonimowo: co ludzie wpisują w wyszukiwarkę i ile wyników dostali ("0|..." = szukali czegoś, czego nie mamy)
+  const logSearch = (q: string) => {
+    const t = q.trim().toLowerCase();
+    if (t.length < 2) return;
+    count('search', `${searchItems(all, t).length > 0 ? 'ok' : '0'}|${t}`, city);
+  };
   const toggleFav = (key: string) => {
     setFavs((prev) => {
+      const adding = !prev.includes(key);
+      const it = adding ? all.find((i) => i.key === key) : undefined;
+      if (adding) count('item', `fav:${it ? `${it.kind}:${it.catKey ?? ''}` : key.split(':')[0]}`, city);
       const next = prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key];
       AsyncStorage.setItem(FAVS_KEY, JSON.stringify(next)).catch(() => undefined);
       return next;
@@ -317,7 +326,7 @@ function Main() {
   }, [tab, local]);
 
   const activeCount =
-    Number(free) + Number(kid) + Number(pet) + Number(ladies) + (tab === 'events' && evening ? 1 : 0) + (tab === 'events' && lastChance ? 1 : 0) +
+    (tab === 'events' ? 0 : Number(free) + Number(kid)) + Number(pet) + Number(ladies) + (tab === 'events' && evening ? 1 : 0) + (tab === 'events' && lastChance ? 1 : 0) +
     (tab !== 'today' ? cats[tab].length : 0) + (tab === 'places' && inOut !== 'all' ? 1 : 0) + (tab === 'places' && topOnly ? 1 : 0) + (tab === 'places' && openOnly ? 1 : 0) +
     ((tab === 'deals' || tab === 'events') && cap !== null ? 1 : 0);
 
@@ -415,8 +424,6 @@ function Main() {
               ))}
               <Chip label={isDate ? fmtDate(day) : 'Pick a date'} icon="calendar-outline" active={isDate} onPress={() => setShowCal(true)} />
               <View style={styles.chipSep} />
-              <Chip label="Free" icon="pricetag-outline" active={free} onPress={() => { setFree(!free); count('filter', 'quick:free', city); }} />
-              <Chip label="Kids" icon="happy-outline" active={kid} onPress={() => { setKid(!kid); count('filter', 'quick:kids', city); }} />
               <Chip label="Evening" icon="moon-outline" active={evening} onPress={() => { setEvening(!evening); count('filter', 'quick:evening', city); }} />
               <Chip label="Last chance" icon="hourglass-outline" active={lastChance} onPress={() => { setLastChance(!lastChance); count('filter', 'quick:last', city); }} />
             </ScrollView>
@@ -461,12 +468,22 @@ function Main() {
                 <Text style={styles.toolText}>Clear</Text>
               </Pressable>
             )}
-            {MAP_OK && <Pressable onPress={() => setView(view === 'list' ? 'map' : 'list')} style={styles.tool}>
+            {tab === 'events' && (['free', 'kids'] as const).map((k) => {
+              const on = k === 'free' ? free : kid;
+              return (
+                <Pressable key={k} style={[styles.tool, on && styles.toolOn]}
+                  onPress={() => { if (k === 'free') setFree(!free); else setKid(!kid); count('filter', `quick:${k}`, city); }}>
+                  <Ionicons name={k === 'free' ? 'pricetag-outline' : 'happy-outline'} size={17} color={on ? colors.bg : colors.text} />
+                  <Text style={[styles.toolText, on && { color: colors.bg, fontWeight: '700' }]}>{k === 'free' ? 'Free' : 'Kids'}</Text>
+                </Pressable>
+              );
+            })}
+            {MAP_OK && <Pressable onPress={() => setView(view === 'list' ? 'map' : 'list')} style={styles.tool} accessibilityLabel={view === 'list' ? 'Map' : 'List'}>
               <Ionicons name={view === 'list' ? 'map-outline' : 'list-outline'} size={19} color={colors.text} />
-              <Text style={styles.toolText}>{view === 'list' ? 'Map' : 'List'}</Text>
+              {tab !== 'events' && <Text style={styles.toolText}>{view === 'list' ? 'Map' : 'List'}</Text>}
             </Pressable>}
             <View style={{ flex: 1 }} />
-            <Text style={styles.count}>{list.length} {list.length === 1 ? 'result' : 'results'}</Text>
+            <Text style={styles.count}>{list.length}{tab === 'events' ? '' : list.length === 1 ? ' result' : ' results'}</Text>
           </View>
           {cats[tab].length > 0 && (
             <Text style={styles.activeCat}>Showing: {cats[tab].map((k) => labelFor(tab, k).label).join(', ')}</Text>
@@ -586,7 +603,7 @@ function Main() {
         </Sheet>
       )}
 
-      <SearchScreen visible={showSearch} onClose={() => { setShowSearch(false); setQuery(''); }} query={query} setQuery={setQuery}
+      <SearchScreen visible={showSearch} onClose={() => { logSearch(query); setShowSearch(false); setQuery(''); }} query={query} setQuery={setQuery}
         items={all} city={city} card={card} jump={jump}
         detail={
           <DetailSheet item={showSearch ? selected : null} fav={!!selected && favs.includes(selected.key)}

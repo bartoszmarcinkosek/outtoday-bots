@@ -81,6 +81,41 @@ def photo_for(kind: str, key: str, title: str, place_text: str, cat: str, city: 
     return pool[i]
 
 
+def _font(size: int):
+    from PIL import ImageFont
+    for f in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "/System/Library/Fonts/Helvetica.ttc"):
+        if os.path.exists(f):
+            return ImageFont.truetype(f, size)
+    return ImageFont.load_default(size=size)
+
+
+def share_card(src: str | None, out: str) -> None:
+    """Obrazek podglądu linku (WhatsApp, Instagram, Facebook): zdjęcie 1200x630 + logo OutToday w rogu."""
+    from PIL import Image, ImageDraw
+    W, H = 1200, 630
+    if src:
+        im = Image.open(src).convert("RGB")
+        k = max(W / im.width, H / im.height)
+        im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+        x, y = (im.width - W) // 2, (im.height - H) // 3
+        im = im.crop((x, y, x + W, y + H))
+    else:
+        im = Image.new("RGB", (W, H), (17, 24, 39))
+    shade = Image.new("L", (W, H), 0)
+    d = ImageDraw.Draw(shade)
+    for i in range(210):  # ciemny pasek u dołu pod logo
+        d.line([(0, H - i), (W, H - i)], fill=int(225 * (1 - i / 210)))
+    im = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), im, shade)
+    logo = Image.open(os.path.join(ROOT, "app/assets/icon.png")).convert("RGBA").resize((88, 88), Image.LANCZOS)
+    mask = Image.new("L", (88, 88), 0)
+    ImageDraw.Draw(mask).rounded_rectangle((0, 0, 87, 87), radius=20, fill=255)
+    im.paste(logo, (40, H - 128), mask)
+    dr = ImageDraw.Draw(im)
+    dr.text((146, H - 126), "OutToday", font=_font(46), fill=(255, 255, 255))
+    dr.text((148, H - 70), "What's on in the UAE · free app", font=_font(26), fill=(220, 226, 240))
+    im.save(out, "JPEG", quality=72, optimize=True, progressive=True)
+
+
 def get(table: str, cols: str, extra: str = "") -> list:
     out, off = [], 0
     while True:
@@ -144,7 +179,7 @@ for kind, rows in (("event", ev), ("place", pl), ("deal", dl)):
         off = x.get("official_url") or x.get("url") or ""
         rows_html = "".join(f'<p class="row"><b>{k}</b> {e(v)}</p>' for k, v in (("When", when), ("Where", where), ("Price", price)) if v)
         page = (TPL.replace("{{TITLE}}", e(title)).replace("{{OG_DESC}}", e((summary + (" — " + desc if desc else ""))[:280]))
-                .replace("{{OG_IMAGE}}", f"{SITE}/apple-touch-icon.png")
+                .replace("{{OG_IMAGE}}", f"{SITE}/img/og-{img}" if img else f"{SITE}/img/og-default.jpg")
                 .replace("{{URL}}", f"{SITE}/e/{kind}-{x['id']}.html").replace("{{LABEL}}", e(LABEL.get(cat, "OutToday")))
                 .replace("{{IMG}}", f'<img class="photo" src="../img/{img}" alt="">' if img else "")
                 .replace("{{ROWS}}", rows_html).replace("{{DESC}}", f'<p class="desc">{e(desc)}</p>' if desc else "")
@@ -222,4 +257,10 @@ for f in os.listdir(os.path.join(OUT, "e")):
 for f in used:
     src = os.path.join(photo_dir, "full", f) if os.path.exists(os.path.join(photo_dir, "full", f)) else os.path.join(photo_dir, f)
     shutil.copyfile(src, os.path.join(OUT, "img", f))
+    og = os.path.join(OUT, "img", "og-" + f)
+    if not os.path.exists(og) or os.path.getmtime(og) < os.path.getmtime(src):
+        share_card(src, og)
+og_def = os.path.join(OUT, "img", "og-default.jpg")
+if not os.path.exists(og_def):
+    share_card(None, og_def)
 print(json.dumps({"pages": len(keep), "images": len(used)}))
