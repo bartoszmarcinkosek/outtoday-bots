@@ -1,0 +1,41 @@
+{
+ "note": "Audit batch 13 (odd): generic meetups/book clubs, products/packs, duplicate ISHQ, B2B trade show, regular buffet, series item removed; titles cleaned.",
+ "reject_event_ids": [
+  "68f828c6-810b-41fb-96b0-1f78630c5825",
+  "117c942c-a50d-4ed3-a69f-c547238cc477",
+  "cfb5481c-655c-4bc4-9e49-94e8d33b57af",
+  "7d170d52-2c1d-4691-85fe-aa44a12728b5",
+  "f6feb9db-0501-4395-8ced-0e6d32c71ec1",
+  "6d0fe0f4-7b87-4dd8-933c-2c18c3be692d",
+  "8d127c88-6ced-488a-bb57-045a3644bbc6",
+  "7b385ac5-e8fc-4b79-b5f0-0941c16682d7",
+  "eb61a9ff-ca09-4ae3-9ad5-3f692a247437",
+  "4796f56f-30ff-40f5-a87e-8e588cb1ce3f",
+  "f6c759dd-47ba-4489-b191-b355b0011789",
+  "313a8dc4-f85f-4fd4-aa92-12f0ededd9c3",
+  "fac24f38-bc16-4235-a212-e63be8fd5680"
+ ],
+ "update_event_ids": [
+  {
+   "id": "e5246188-5757-42da-afd4-6d5e1d2084c7",
+   "set": {
+    "title": "Hamad Alameri at Ain Al Thuraya Festival",
+    "category": "music",
+    "description": "Concert by Emirati singer Hamad Alameri as part of the Ain Al Thuraya Festival at Al Ain Museum."
+   }
+  },
+  {
+   "id": "32a870f0-b298-4b28-83e4-9b0d12692562",
+   "set": {
+    "title": "Dubai Municipality 30x30 Fitness Village at Al Warqa'a Park"
+   }
+  },
+  {
+   "id": "5a0176de-3b8e-4db8-bcf9-62a55568e83d",
+   "set": {
+    "title": "Dubai International Boat Show 2026",
+    "category": "festivals"
+   }
+  }
+ ]
+}
