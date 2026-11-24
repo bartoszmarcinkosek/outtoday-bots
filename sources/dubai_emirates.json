@@ -735,6 +735,17 @@
    ],
    "trusted": true,
    "note": "Sprzedawca biletów (dodane 24.11.2026 – mniejsze emiraty)."
+  },
+  {
+   "id": "platinumlist_rak",
+   "name": "Platinumlist Ras Al Khaimah",
+   "city": "Ras Al Khaimah",
+   "single_venue": false,
+   "urls": [
+    "https://rak.platinumlist.net/event/list"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów (dodane 24.11.2026). Strona bywa prawie pusta – głównie atrakcje."
   }
  ]
 }
