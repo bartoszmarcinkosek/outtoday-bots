@@ -1,0 +1,84 @@
+{
+ "note": "Pełny przegląd, paczka 2 (miejsca Dubaj–UAQ, pierwsze deale Abu Dhabi): duplikaty The Jam Jar, uporządkowane godziny i ceny.",
+ "reject_places": [
+  "793aa7b8-5297-4441-b61f-e30a11c732c8",
+  "fb10a703-fbbd-4e1f-adc4-42437b8aba93"
+ ],
+ "update_place_ids": [
+  {
+   "id": "2ebbaef8-6ca6-4187-a2f4-d9ff36029fb9",
+   "set": {
+    "hours_text": "Temporarily closed"
+   }
+  },
+  {
+   "id": "3cc0ad93-6917-4d1f-83e7-08e67d3f2b27",
+   "set": {
+    "hours_text": "Daily 4pm–9pm",
+    "price_text": "AED 73.50 (Dinosaur Park + Fantasy Park)"
+   }
+  },
+  {
+   "id": "54e309c9-2bb2-410c-8a54-a4b837c53233",
+   "set": {
+    "hours_text": "Daily 9am–6pm (last entry 5:30pm)",
+    "price_text": "AED 52.50; UAE residents from AED 30 with UAE PASS"
+   }
+  },
+  {
+   "id": "8ab657e2-4ea7-4a45-b43d-ba2959bd95bc",
+   "set": {
+    "price_text": "Adults AED 105 · children 3–12 AED 84 (VAT incl.)"
+   }
+  },
+  {
+   "id": "46b5f442-c366-4bc2-9bfd-fa431301859e",
+   "set": {
+    "hours_text": "Daily from 8am; closes 10pm Mon–Thu, 11pm Fri–Sun"
+   }
+  },
+  {
+   "id": "a21cf10e-769c-47d1-ae6a-d65d773e00b7",
+   "set": {
+    "hours_text": "Wed–Sun and public holidays; slots 9:30am, 11:30am, 2pm"
+   }
+  },
+  {
+   "id": "c4836da2-6f98-4bfc-a40b-8ab2bded7b15",
+   "set": {
+    "hours_text": "Daily 10am–10pm",
+    "price_text": "AED 10 per station; private rental AED 150 (30 min) / AED 300 (60 min); under-2s free"
+   }
+  },
+  {
+   "id": "e619506b-038f-41e7-a21d-911c14c3a550",
+   "set": {
+    "hours_text": "Tue–Sun 8am–6pm (last entry 5:30pm); closed Mondays"
+   }
+  },
+  {
+   "id": "801b5a23-8788-4f99-83ae-857c77f11243",
+   "set": {
+    "hours_text": "Sun–Thu 8am–8pm · Fri–Sat 8am–11pm"
+   }
+  },
+  {
+   "id": "30f24cf6-6cb6-446b-ac27-6004913e8258",
+   "set": {
+    "hours_text": "Closed until further notice"
+   }
+  },
+  {
+   "id": "f04857cd-adf5-495b-8871-e2c0f400e297",
+   "set": {
+    "hours_text": "Sat–Thu 9am–8pm · Fri 4pm–8pm"
+   }
+  },
+  {
+   "id": "f1f7ce72-18f0-4996-accf-533ef47dbcd4",
+   "set": {
+    "hours_text": "Sat–Thu 8am–8pm · Fri 4pm–8pm (Ramadan: Sat–Thu 9am–2pm, Fri closed)"
+   }
+  }
+ ]
+}
