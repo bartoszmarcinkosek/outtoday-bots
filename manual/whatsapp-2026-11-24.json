@@ -1,0 +1,18 @@
+{
+  "events": [
+    {
+      "title": "Polski Piknik Dubaj 2026 (Polish Family Picnic)",
+      "category": "community",
+      "start_date": "2026-12-05",
+      "start_time": "09:30",
+      "end_time": "12:30",
+      "venue": "Al Barsha Pond Park (Gate 4)",
+      "city": "Dubai",
+      "description": "Annual picnic for Polish families in the UAE, organised by the Polish school community together with the Embassy of Poland in Abu Dhabi. Programme includes reading together, tongue twisters, speech-therapy games, movement challenges and an art corner. Held in Polish.",
+      "is_free": true,
+      "kid_friendly": true,
+      "status": "approved",
+      "source_name": "Organizatorzy (WhatsApp)"
+    }
+  ]
+}
