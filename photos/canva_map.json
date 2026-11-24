@@ -83,7 +83,8 @@
     "lm_palm-2": "MAHbyVP7cvk",
     "lm_coca_cola_arena-2": "MAHbybxjBkY",
     "lm_dubai_opera-2": "MAHbyp9B_p4",
-    "lm_corniche-1": "MAHbyqGRA2o"
+    "lm_corniche-1": "MAHbyqGRA2o",
+    "lm_corniche-2": "MAHby-dXMRQ"
   },
   "in_app": [
     "aquafit-1",
@@ -163,5 +164,5 @@
     "xmas-2",
     "zoo-1"
   ],
-  "last_at": "2026-11-24T02:51:34Z"
+  "last_at": "2026-11-24T03:13:28Z"
 }
