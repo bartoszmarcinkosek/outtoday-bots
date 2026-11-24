@@ -1,0 +1,70 @@
+{
+ "note": "Audit batch 3 (odd): Abu Dhabi deals A-I. Duplicates, plain buffets/products removed, small fixes.",
+ "reject_deal_ids": [
+  "4603c4f3-6596-4691-883c-7b768ad14052",
+  "e0220798-4543-40f4-939b-73acbfecac51",
+  "4b20b4d6-c085-4f01-b702-2cc1a068bb08",
+  "840b63b4-06be-41b2-99ec-2ce9d8a1d9b2",
+  "a3812b10-8ea8-45fe-bbfa-9a8f933ea11c"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "6c3ab9ad-d348-409e-851b-6fb9e22d3713",
+   "set": {
+    "venue": "Crafty Fox, Yas Links",
+    "price_text": "30% off selected drinks"
+   }
+  },
+  {
+   "id": "7625ae2d-303d-4ea0-9a34-37e61a29a4d5",
+   "set": {
+    "price_text": "AED 25 selected drinks"
+   }
+  },
+  {
+   "id": "e0f8c0db-4f01-4494-8753-c4af3121e0d7",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "a7e8bc1a-f8f8-4e8c-b4ed-23071cc6bf50",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "643cb4a2-611f-4bcc-8ccc-a18caf77c8fb",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "a4abddb7-c79d-4e61-9706-0b7032c1054e",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "d1168066-3c63-42a2-b96d-545a44d67d6a",
+   "set": {
+    "title": "Weekday Day Pass: Cafe del Mar",
+    "days_of_week": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "details": "Free for ladies Monday to Thursday; gents AED 100."
+   }
+  }
+ ]
+}
