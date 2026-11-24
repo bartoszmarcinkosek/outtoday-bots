@@ -163,7 +163,7 @@ def main() -> int:
     places = load_places()
     client, usage = H.client_usage()
     db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
-    deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,status", "limit": "10000"})
+    deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,start_time,status", "limit": "10000"})
 
     im = imaplib.IMAP4_SSL("imap.gmail.com")
     im.login(ACCOUNT, pw)

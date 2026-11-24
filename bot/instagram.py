@@ -101,7 +101,7 @@ def main() -> int:
     seen = {p["url"] for p in db.get("bot_pages", {"select": "url", "url": "like.https://www.instagram.com/*", "limit": "20000"})}
     if a.redo:
         seen = set()
-    deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,status", "limit": "10000"})
+    deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,start_time,status", "limit": "10000"})
     deals_added = 0
     ig = ig_user_id(tok)
 

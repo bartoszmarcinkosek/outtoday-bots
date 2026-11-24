@@ -96,6 +96,10 @@ OFFER_RULES = """You read one web page of a UAE venue (hotel, bar, pub, golf clu
 Skip: one-off holiday events (Christmas, New Year, Eid, Iftar, Valentine's), weddings, meetings, spa treatments, gift cards,
 loyalty-member-only rates, offers that ended, anything without an AED price (EXCEPT happy hours, quiz nights,
 ladies' nights and club nights: keep them without a price when the page states their days and times).
+Skip a restaurant's ordinary menu or its regular daily buffet at the normal price (e.g. "breakfast buffet AED 99", "lunch AED 129",
+"dinner buffet AED 149" served every day): that is not an offer. Keep breakfast/lunch/dinner only when there is something extra
+(theme night, drinks package, pool/beach access, kids eat free, discount, set menu at a special price).
+One offer = one entry: never list the same offer twice under two types.
 Use ONLY what PAGE TEXT says. Every price, day and time needs an exact verbatim quote in evidence. Null is better than a guess.
 Never copy sentences into "details": write your own short sentence."""
 
@@ -401,10 +405,24 @@ PLAIN_ROOM = re.compile(r"\b(room|suite|villa|chalet|apartment)s?\b", re.I)
 PACKAGE = re.compile(r"breakfast|brunch|dinner|lunch|half board|full board|all.inclusive|day pass|staycation|package|credit|\bf&b\b|spa credit|nights? stay|stay \d|% off|discount", re.I)
 
 
+MEAL_EXTRA = re.compile(r"theme|night|brunch|roast|bbq|barbecue|grill|package|unlimited|free.?flow|inclusive|drinks?\b|beverage|"
+                        r"pool|beach|floating|kids? (eat|dine)|% off|discount|1\s*\+\s*1|two for|for two|set menu|business|express|"
+                        r"special|seafood|steak|sushi|wine|grape|hops|beer|afternoon tea|tasting|couple|date", re.I)
+
+
+def plain_meal(o: dict, ev_offer: str = "") -> bool:
+    """Zwykła cena śniadania/lunchu/kolacji w restauracji (codzienny bufet bez niczego ekstra) – to nie jest oferta."""
+    if o.get("deal_type") not in ("breakfast", "lunch", "dinner"):
+        return False
+    return not MEAL_EXTRA.search(f"{o.get('title') or ''} {o.get('details') or ''} {o.get('price_text') or ''} {ev_offer}")
+
+
 def check_offer(o: dict, page_norm: str) -> tuple[dict | None, str]:
     ev = o.get("evidence") or {}
     if o.get("deal_type") not in TYPES:
         return None, "zły typ"
+    if plain_meal(o, ev.get("offer") or ""):
+        return None, "zwykła cena posiłku"
     if ONE_OFF.search(f"{o.get('title')} {ev.get('offer') or ''}"):
         return None, "jednorazowe (święto)"
     if PLAIN_ROOM.search(o.get("title") or "") and not PACKAGE.search(f"{o.get('title')} {o.get('details') or ''} {ev.get('offer') or ''}"):
@@ -442,6 +460,8 @@ def check_offer(o: dict, page_norm: str) -> tuple[dict | None, str]:
             out["end_time"] = et
     if out["details"] and R.copied_text(out["details"], page_norm):
         out["details"] = None
+    if not out.get("price_text") and not out.get("start_time"):
+        return None, "bez ceny i bez godziny"
     return out, ""
 
 
@@ -472,6 +492,10 @@ def is_dup(row: dict, deals: list[dict]) -> bool:
             if R.titles_match(d.get("title") or "", row["title"]) or (
                     d.get("deal_type") == row["deal_type"] and d.get("days_of_week") == row.get("days_of_week")):
                 return True
+            # ta sama oferta pod innym typem: to samo miejsce, ta sama godzina startu i te same dni
+            if (row.get("start_time") and d.get("start_time") == row.get("start_time")
+                    and (d.get("days_of_week") or []) == (row.get("days_of_week") or [])):
+                return True
     return False
 
 
@@ -485,7 +509,7 @@ def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = 
         seen = {r["url"] for r in db.get("bot_pages", {"select": "url", "limit": "50000"})}
         hotels = [h for h in hotels if h["url"] not in seen]
         print(f"Nowe miejsca do skanu: {len(hotels)}")
-    deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,status", "limit": "10000"})
+    deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,start_time,status", "limit": "10000"})
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
     report, added, approved = [], 0, 0
     with R.Browser() as br:

@@ -1,0 +1,16 @@
+{
+ "note": "Porządki w ofertach 24.11 (zgłoszenie Bartosza, Fujairah): zwykłe codzienne ceny śniadań/bufetów to nie oferty; oferty bez ceny i bez godziny; ta sama oferta dwa razy pod innym typem. Odwracalne (status rejected).",
+ "reject_deal_ids": [
+  "148d5b7a-a746-4c96-bd75-553ef71da0da","1d668ae0-3187-4015-a14e-ac5b6c638306","1f8133b7-b814-4160-867b-7c0379123d71","2044f4b0-fd7b-4c2f-abb2-69293bacec2d",
+  "4154bb61-38fd-4235-8bf7-051fbced66dc","4c7b5cb0-68c0-43b2-a9e1-0c79290eb9ee","4ebc067d-afdb-48d9-9109-ed8cc6b5d034","68ec0e60-bd6c-499f-a7cc-d9c9749669c1",
+  "79d398a4-9e50-4c0d-8732-88cff7cecf80","90ebed0d-57c8-4a4d-9ae6-d2fe9b33f829","984c87fb-f29e-4d10-ad56-fe94e15f9be6","9ae64ef6-cb5a-4eab-aa5d-a715468eaf37",
+  "af47158c-580d-445c-9c3c-bb79d70000bf","b0fbd593-3851-44f7-80d0-92ca2d811925","d29a27b8-8719-4a71-8d4a-629b4ace2e3c","e9d2b0d3-20b2-4d9f-b885-94dbe22ce5c6",
+  "ea0eb02c-c092-49cf-a778-094a5e6ae8a9","ee1bf349-98a7-4daa-a2a1-c16b7822eca4",
+  "154768b8-f8ac-4425-ae3d-18e7f77932d5","32b573e8-a6b6-48ca-a0b8-06ffc45c8481","42e9a590-11e2-4497-9c1f-aef9c8421e12","4871a91a-27e8-47a7-9e5a-2dcb91df5aa2",
+  "4bbe5388-18fe-4441-b59d-c8c9b7c98672","62b276d4-2204-4cbe-baa6-5951f71d1b4c","63b1f117-2fc3-427d-8777-9d96b82099a4","7e777d64-145f-409a-b9bd-9862f56007a3",
+  "938f2437-ec44-4f39-a991-2e8c69a36f9b","ce3cc0ef-92ef-4f75-8bda-aac334eaf9a9","d29a7667-cac6-439d-836d-9469f1c86ca2","e8e2a529-dd2d-4c23-8c2d-9b6c756eb6b7",
+  "f76df88b-500e-4b77-8fc4-31cebaba9904",
+  "fb48d157-ea15-45af-ac74-d776e5b628a1","91c6d0a6-493d-4d98-9b99-9fdaafff446f","c9292976-c6f5-4189-b455-11c9d38566c5"
+ ],
+ "reject_deals": [{"title": "*lunch*", "venue_like": "Mozaique"}]
+}
