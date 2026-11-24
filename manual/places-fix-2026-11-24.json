@@ -1,0 +1,71 @@
+{
+ "note": "Zgłoszenie Bartosza 24.11 (zrzut Places, Abu Dhabi): niechlujne godziny skopiowane ze stron i 'See schedule' w miejscu ceny.",
+ "update_place_ids": [
+  {
+   "id": "00b1d305-35b2-467b-90b4-0bca1c50ba54",
+   "set": {
+    "hours_text": "Daily 10:00 to 20:00"
+   }
+  },
+  {
+   "id": "5f0d4b47-583e-4a3f-95d3-2af0ac55ef78",
+   "set": {
+    "price_text": "Workshop prices vary"
+   }
+  },
+  {
+   "id": "f5df304d-c88b-4f20-8fdf-50f3f223660b",
+   "set": {
+    "price_text": "Workshop prices vary"
+   }
+  },
+  {
+   "id": "20f94d04-ea7d-406f-aa7a-647d59bd3386",
+   "set": {
+    "price_text": "Workshop prices vary"
+   }
+  },
+  {
+   "id": "06647fcb-a732-422b-a362-6d4b0855c18c",
+   "set": {
+    "price_text": "Workshop prices vary"
+   }
+  },
+  {
+   "id": "6538789c-305c-4a2d-95b3-6f4162df1627",
+   "set": {
+    "hours_text": "Daily 10:00 to 22:00"
+   }
+  },
+  {
+   "id": "95939f8f-a172-4094-8564-487af1df7291",
+   "set": {
+    "hours_text": "Usually 10:00 to 19:00; check the day"
+   }
+  },
+  {
+   "id": "bed7b43d-841c-40b1-8a20-6bba8be3ba5a",
+   "set": {
+    "hours_text": "Daily until 22:00"
+   }
+  },
+  {
+   "id": "81386fc8-c41b-4830-b0fe-84ba52e92ad1",
+   "set": {
+    "hours_text": "Daily 10:00 to 20:00"
+   }
+  },
+  {
+   "id": "3d07da26-2cc9-479c-9f2b-7de68b0f32a3",
+   "set": {
+    "hours_text": "Tue to Sun 10:00 to 20:00; closed Mon"
+   }
+  },
+  {
+   "id": "9c36f3bb-8d0c-4aeb-aa51-56a1f04a21f9",
+   "set": {
+    "hours_text": "Daily 15:00 to 23:00"
+   }
+  }
+ ]
+}

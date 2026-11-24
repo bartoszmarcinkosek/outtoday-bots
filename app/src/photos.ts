@@ -158,6 +158,13 @@ function pool(item: Item): number[] {
   // na Palmie dostaje zdjęcie swojego rodzaju (koncert, brunch), a nie widok wyspy z lotu ptaka.
   // Wyjątek: hotelowy day pass / staycation w dzielnicy z widokiem dostaje widok (Burj, Marina) obok zdjęć day passu.
   const hotelDeal = item.kind === 'deal' && (item.catKey === 'day_pass' || item.catKey === 'staycation');
+  // Miejsce w dzielnicy z widokiem (np. muzeum albo pracownia na Saadiyat): widok wyspy/plaży tylko dla plaż i miejsc
+  // bez własnego rodzaju zdjęcia. Muzeum dostaje zdjęcie muzeum, pracownia ceramiki – ceramikę.
+  if (lm && AREAS.has(lm[1]) && item.kind === 'place' && item.catKey !== 'beaches') {
+    const t = RULES.find(([re]) => re.test(item.rawTitle ?? item.title));
+    if (t && PHOTO_FILES[t[1]]) return [...PHOTO_FILES[t[1]]];
+    if ((CAT[item.catKey] ?? []).some((k) => PHOTO_FILES[k])) lm = undefined;
+  }
   if (lm && AREAS.has(lm[1]) && (!PHOTO_FILES[lm[1]] || (item.kind !== 'place' && !hotelDeal))) lm = undefined;
   if (lm && hotelDeal && AREAS.has(lm[1])) return [...PHOTO_FILES[lm[1]], ...(PHOTO_FILES[item.catKey] ?? [])];
   // Oferty (ladies night, brunch, quiz) w znanym miejscu: zdjęcie rodzaju oferty. Budynek tylko dla staycation / day pass.
