@@ -1,0 +1,1 @@
+# Pary id sprawdzone ręcznie: to NIE są powtórki (kontrola spójności ich nie zgłasza). Format: idA idB  # opis

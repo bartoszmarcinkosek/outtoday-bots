@@ -1,0 +1,10 @@
+{
+ "note": "Zasada Bartosza 24.11: żadnych powtórek. Przegląd całej bazy pod kątem tego samego wydarzenia/oferty/miejsca dwa razy. Zostaje wpis z dokładniejszymi danymi.",
+ "reject_event_ids": ["43b6e712-4c0f-4c12-bf44-526bf0ae93a7", "56b48c66-d632-420f-a34e-5a73463d6aa3", "29367e30-75de-4dd1-b830-f2655c9bb8d2", "7f66b9fb-0b68-48bd-891f-0fea5c4d2b80", "81bdcd7e-8918-47a2-a17d-9600364cbdef", "97240443-f0a0-460c-b9ee-d048090655fb", "98b94030-01b9-4010-a83d-45ee58952a5f", "300dda2f-bf80-4cc3-8a21-c5e7fac93bfb", "a8e70dc5-c801-4441-9dea-a3a47ef865ac", "3cb31b31-4fc1-46de-a431-8457126d509b", "c7ec8e0f-1271-4979-8c93-046f3af694d8", "dad56697-a426-40b2-936b-bfd87a04beef", "10ba9f60-e6d7-4b23-89be-b372a822da36", "f9a3485d-d195-4297-9680-0687a6904d54", "b1bf86e2-6d73-4957-9e47-7e400def6bcd"],
+ "reject_deal_ids": ["4d8b6ae1-6a3e-4b07-953d-646b1a73df21", "6f9b4f32-c1af-4a2b-8668-fd7804079b34", "8bf69a66-d9fd-413f-996d-6ed4a4003152"],
+ "update_deal_ids": [{"id": "cb8d4372-4eff-4bdd-bcfb-7f91802047e3", "set": {"deal_type": "other"}}],
+ "reject_places": ["6c3530f9-7d88-4603-8a22-0fa225612692", "7227c431-8041-43aa-81f9-d8d4a1734f2f", "e5906d16-abea-4184-a327-52755e9556df"],
+ "update_place_ids": [
+  {"id": "e4f16211-67b2-40f8-82fc-fb7a6c905e0a", "set": {"hours_text": "Mon and Wed 18:00 to 22:00; ladies only Tue 18:00 to 22:00; TrainAM cycling Tue, Thu, Fri 05:00 to 08:00", "description": "Free open-track sessions for running, walking and cycling on the Formula 1 circuit, with a ladies-only evening and early-morning cycling sessions. Registration required."}}
+ ]
+}

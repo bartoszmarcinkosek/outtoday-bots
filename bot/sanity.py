@@ -116,9 +116,24 @@ for k, vs in pins.items():
         add("PIN_SHARED", table, r, f"{k} x{len(vs)}: " + "; ".join(sorted(vs)[:6]))
 
 # ---- POWTÓRKI (zasada właściciela 24.11.2026: to samo wydarzenie, oferta ani miejsce nie może być dwa razy) ----
-VSTOP = set("the a an at by in of and hotel resort restaurant bar lounge cafe club beach spa dubai abu dhabi sharjah ajman fujairah ras al khaimah umm quwain ain island city centre center mall".split())
+VSTOP = set("the a an at by in of and for with hotel resort restaurant bar lounge cafe spa dubai abu dhabi sharjah ajman fujairah ras al khaimah umm quwain ain city centre center mall uae".split())
+# słowa zbyt ogólne, żeby po nich rozpoznawać to samo (święta, rodzaje miejsc)
+GEN = set("christmas eve day new year years brunch dinner lunch buffet night party festive live concert show museum park beach souk garden fort corniche club island pass happy hour ladies special edition 2026 2027".split())
+# pary sprawdzone ręcznie jako RÓŻNE rzeczy (audit/not_dups.txt: 'idA idB' w linii) – nie zgłaszamy ich ponownie
+try:
+    NOT_DUP = {frozenset(l.split()[:2]) for l in open(os.path.join(os.path.dirname(__file__), "..", "audit", "not_dups.txt")) if len(l.split()) >= 2}
+except OSError:
+    NOT_DUP = set()
+_add = add
+def add(code, table, r, detail=""):
+    if code.startswith("DUP_"):
+        m = re.search(r"same as ([0-9a-f-]{36})", str(detail))
+        if m and frozenset((r["id"], m.group(1))) in NOT_DUP:
+            return
+    _add(code, table, r, detail)
 def toks(x):
-    return {w for w in re.findall(r"[a-z0-9]+", R.norm(x or "")) if len(w) > 2 and w not in VSTOP}
+    t = {w for w in re.findall(r"[a-z0-9]+", R.norm(x or "")) if len(w) > 2 and w not in VSTOP}
+    return (t - GEN) or t
 def nums(x):
     return set(re.findall(r"\d{2,5}", x or ""))
 def same_venue(a, b):
