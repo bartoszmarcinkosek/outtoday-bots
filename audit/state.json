@@ -1,7 +1,6 @@
 {
  "cutoff": "2026-11-24T15:10:00",
  "size": 100,
- "next": 1,
  "done": [
   {
    "batch": 0,
@@ -10,5 +9,7 @@
    "rejected": 0
   }
  ],
- "note": "Pełny przegląd wszystkich zatwierdzonych pozycji (zgoda Bartosza 24.11.2026). next = numer kolejnej paczki."
+ "note": "Pełny przegląd (zgoda Bartosza 24.11.2026). Dwa zadania: A robi paczki parzyste (next_even), B nieparzyste (next_odd); każde zwiększa swój licznik o 2. Postęp: audit/done_even.json i audit/done_odd.json.",
+ "next_even": 2,
+ "next_odd": 1
 }

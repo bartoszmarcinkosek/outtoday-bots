@@ -6,7 +6,9 @@ sys.path.insert(0, os.path.dirname(__file__))
 import run as R
 st = json.load(open(os.path.join(os.path.dirname(__file__), "..", "audit", "state.json")))
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
-cut, n, size = st["cutoff"], int(os.environ.get("BATCH", st["next"])), st["size"]
+PAR = os.environ.get("PARITY", "")
+cut, size = st["cutoff"], st["size"]
+n = int(os.environ.get("BATCH") or st["next_" + PAR])
 today = (dt.datetime.utcnow() + dt.timedelta(hours=4)).date().isoformat()
 def cell(x, k=150):
     return str(x if x is not None else "").replace("|", "/").replace("\n", " ")[:k]
