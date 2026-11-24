@@ -1,3 +1,6 @@
+220 | mangrove-1 | Wooden boardwalk winding through dense green mangrove forest over shallow turquoise tidal water, Abu Dhabi, soft morning light, no buildings.
+221 | mangrove-2 | Two kayaks gliding along a narrow channel between mangrove trees, calm clear water, seen from behind, golden hour.
+222 | mangrove-3 | Aerial view of mangrove wetlands and winding tidal creeks with a few flamingos in shallow water, Gulf coast.
 218 | cinema_indoor-1 | Indoor auditorium film screening seen from the back rows, audience silhouettes facing a glowing screen with an abstract blurred image, warm dim lights.
 219 | cinema_indoor-2 | Small arthouse cinema hall, rows of red seats half filled, projector beam through the dark, blurred abstract picture on the screen.
 1 | lm_coca_cola_arena-1 | (gotowe)

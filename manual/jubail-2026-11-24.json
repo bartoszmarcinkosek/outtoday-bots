@@ -1,0 +1,12 @@
+{
+ "note": "Jubail Mangrove Park: 'Book online' to nie godziny – pole godzin wyczyszczone, informacja o rezerwacji w cenie.",
+ "update_place_ids": [
+  {
+   "id": "e997c10b-a09f-484a-81b7-06d788af6014",
+   "set": {
+    "hours_text": null,
+    "price_text": "Ticketed, book online; kayaking from AED 89"
+   }
+  }
+ ]
+}
