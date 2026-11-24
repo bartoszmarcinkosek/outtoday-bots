@@ -1,0 +1,33 @@
+{
+  "note": "Audit batch 11 (Abu Dhabi events 25 Nov - 6 Dec): removed generic social/language meetups, trips abroad, a Geneva concert, a hospitality package, a kart registration competition and duplicates (Algarabia, Verdi, AEDEN, Yasalam Friday, F1 season finale); fixed venue/titles/links.",
+  "reject_event_ids": [
+    "9612a425-5c8d-499e-9b38-cf8b64829597",
+    "4adbf520-5147-4ade-95b5-6f1992c8a431",
+    "bf7bd160-6d28-420a-9511-62ae432e0347",
+    "68c70ab8-a872-44de-8123-b21554049b09",
+    "7f7669ca-7ed6-44c3-a3ff-26c2d3defb38",
+    "cb5b0ab0-50c0-4e56-972f-cf6cfcbec2b1",
+    "50adceef-26dd-467e-863c-46864bc50371",
+    "34e4733c-cf77-43a2-a994-937b862f3699",
+    "d0b9632d-749e-4688-828b-9551025d104b",
+    "f595dc24-0bf5-4fae-87b3-9393d693bf58",
+    "e04ab53a-739a-4a37-b3f7-5f2a85d2fff5",
+    "6ee179bd-3283-4be8-a9e7-e5c3d901579b",
+    "8ebfd30c-9ede-4340-b13e-1c741be9c4bd",
+    "24dc473e-b969-4436-b139-f4b68dae05fb",
+    "84587387-cebe-44de-9951-c92201bfa2e6",
+    "e7c686f5-0544-4662-ba06-d7bb123d6a58",
+    "2c602cb5-b1df-485e-bfc2-45e6f84d4d50"
+  ],
+  "update_event_ids": [
+    {"id": "d0fdde27-542c-43ec-a631-68f96886c03c", "set": {"title": "Abu Dhabi Festival: Algarabía featuring Naseer Shamma", "description": "Arab World premiere mixing Arab and Spanish traditions through oud, flamenco dance and poetry, with oud master Naseer Shamma, as part of Abu Dhabi Festival."}},
+    {"id": "e1f3a0f2-b4d8-493a-a062-99450bfc2265", "set": {"description": "Abu Dhabi Festival gala of Verdi works by the Qatar Philharmonic Orchestra under David Crescenzi, with soprano Maria Agresta and tenor Giorgio Berrugi."}},
+    {"id": "39055a65-a002-46cc-8405-4cb6a608a585", "set": {"title": "Anyma presents ÆDEN – Official Abu Dhabi GP Afterparty", "venue": "Gateway Park North, Yas Island"}},
+    {"id": "128ac841-86d3-471a-a623-48c564130db8", "set": {"title": "Yasalam After-Race Concert: Jennifer Lopez & Alex Warren"}},
+    {"id": "edb524bc-4fbf-4631-b209-af106509315a", "set": {"venue": "Alliance Française Abu Dhabi, Al Bateen"}},
+    {"id": "51ef6445-e8cf-44a7-8b18-190f60752f44", "set": {"official_url": "https://www.abudhabigp.com/en/yasalam-after-race-concerts"}},
+    {"id": "6d804991-bf6c-4a44-98de-9de742b2f531", "set": {"official_url": null, "price_text": null}},
+    {"id": "78ea2ef1-b073-430f-b928-535369a92e7e", "set": {"official_url": null}},
+    {"id": "9d430fd5-90e0-45ef-8e9c-115e438e4afa", "set": {"price_text": "AED 220"}}
+  ]
+}
