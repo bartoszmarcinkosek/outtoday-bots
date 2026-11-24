@@ -492,6 +492,11 @@ def is_dup(row: dict, deals: list[dict]) -> bool:
             if R.titles_match(d.get("title") or "", row["title"]) or (
                     d.get("deal_type") == row["deal_type"] and d.get("days_of_week") == row.get("days_of_week")):
                 return True
+            # ta sama oferta drugi raz pod innym tytułem: ten sam typ, wspólne dni i te same kwoty (np. "Weekday Dinner Buffet" / "Weekdays Dinner Buffet")
+            pa, pb = set(re.findall(r"\d{2,5}", d.get("price_text") or "")), set(re.findall(r"\d{2,5}", row.get("price_text") or ""))
+            da, db_ = set(d.get("days_of_week") or []), set(row.get("days_of_week") or [])
+            if d.get("deal_type") == row["deal_type"] and pa and pa == pb and (not da or not db_ or da & db_):
+                return True
             # ta sama oferta pod innym typem: to samo miejsce, ta sama godzina startu i te same dni
             if (row.get("start_time") and d.get("start_time") == row.get("start_time")
                     and (d.get("days_of_week") or []) == (row.get("days_of_week") or [])):
@@ -509,7 +514,7 @@ def scan(city: str | None, limit: int, dry: bool, force: bool, list_file: str = 
         seen = {r["url"] for r in db.get("bot_pages", {"select": "url", "limit": "50000"})}
         hotels = [h for h in hotels if h["url"] not in seen]
         print(f"Nowe miejsca do skanu: {len(hotels)}")
-    deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,start_time,status", "limit": "10000"})
+    deals = db.get("deals", {"select": "title,venue,city,deal_type,days_of_week,start_time,price_text,status", "limit": "10000"})
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
     report, added, approved = [], 0, 0
     with R.Browser() as br:
