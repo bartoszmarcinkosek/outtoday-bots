@@ -1,0 +1,16 @@
+{
+  "note": "Audit batch 8 (deals, Dubai M–T): rejected plain buffets/menu items, fixed missing times, prices and wrong links.",
+  "reject_deal_ids": [
+    "a5001735-3faf-42b0-b094-017d3ee9d2c1",
+    "9c93a818-4f9c-4440-9563-3f05f846bd14",
+    "65a484a3-ac8a-46fe-8c01-42925a42912c",
+    "e378fade-5d6f-49ff-86b5-08d42b8cff46"
+  ],
+  "update_deal_ids": [
+    {"id": "a4112846-3817-4aaa-a07b-e6262b778cf8", "set": {"days_of_week": [1, 2, 3, 4, 5], "start_time": "16:00:00", "end_time": "19:00:00"}},
+    {"id": "681d4b04-729a-4805-81ac-b8145a914c50", "set": {"price_text": "From AED 299", "details": "Saturday brunch at Taste, run with Candypants."}},
+    {"id": "1957a1ce-8872-4065-9185-2780c22b76c3", "set": {"price_text": "Free entry"}},
+    {"id": "4ed854a3-f3c8-4bb3-85d6-aae7b8a2d1ff", "set": {"official_url": "https://nikkibeach.com/dubai/"}},
+    {"id": "6386e8e7-814c-428b-9809-1712fb9a5d89", "set": {"official_url": "https://nikkibeach.com/dubai/"}}
+  ]
+}
