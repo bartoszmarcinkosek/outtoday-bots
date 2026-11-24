@@ -1,0 +1,85 @@
+{
+ "note": "Audit batch 7 (deals Dubai G–McG): duplicate Grayton coffee offer, plain daily buffet and an ordinary coffee+pastry set rejected; venue names normalised, sunbed days fixed, placeholder price removed.",
+ "reject_deal_ids": [
+  "6af50da7-7d72-41e7-b939-15c375c683f1",
+  "e4327598-42f7-49cf-afe8-6de01ef22d21",
+  "20c76df7-818e-44f6-a7b5-8fbf9b415c15"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "ba08398e-ccbc-4951-8038-4de0c8ae9b8f",
+   "set": {
+    "venue": "Gigi Rigolatto, J1 Beach",
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "05ad1646-d54a-4445-ab7e-ebe6e819b6b0",
+   "set": {
+    "venue": "Kempinski Central Avenue Dubai"
+   }
+  },
+  {
+   "id": "df0202a4-f4fc-4ddc-a162-dee8059aeafc",
+   "set": {
+    "venue": "La Brasserie Sur Le Boulevard, Kempinski The Boulevard Dubai"
+   }
+  },
+  {
+   "id": "62cde5be-3673-48c8-81d6-c42793a35b77",
+   "set": {
+    "venue": "Lounge at Atelier M (Pier 7, Dubai Marina)"
+   }
+  },
+  {
+   "id": "e880d5d3-bb64-43ea-a456-147c610888e8",
+   "set": {
+    "venue": "Lounge at Atelier M (Pier 7, Dubai Marina)"
+   }
+  },
+  {
+   "id": "da207ed0-7399-426d-8ef6-7689988f7481",
+   "set": {
+    "venue": "Lounge at Atelier M (Pier 7, Dubai Marina)"
+   }
+  },
+  {
+   "id": "ed7b7f41-58fb-4423-80fa-3b9381ad16a6",
+   "set": {
+    "venue": "Iris Dubai"
+   }
+  },
+  {
+   "id": "2100b1b7-2f59-415d-92f4-eafb04df1372",
+   "set": {
+    "venue": "McG's by McGettigan's Al Barsha"
+   }
+  },
+  {
+   "id": "4998c8e6-4c8a-4792-b20d-043630c43787",
+   "set": {
+    "venue": "McG's by McGettigan's Al Barsha"
+   }
+  },
+  {
+   "id": "cabfb3d4-df4b-432a-8be7-0e8695c5d3e2",
+   "set": {
+    "venue": "McG's by McGettigan's Al Barsha"
+   }
+  },
+  {
+   "id": "f62c10ab-440b-4e18-8573-db962d90f5d7",
+   "set": {
+    "price_text": null
+   }
+  }
+ ]
+}
