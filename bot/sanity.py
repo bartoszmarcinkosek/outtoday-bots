@@ -115,6 +115,59 @@ for k, vs in pins.items():
         table, r = ref[k]
         add("PIN_SHARED", table, r, f"{k} x{len(vs)}: " + "; ".join(sorted(vs)[:6]))
 
+# ---- POWTÓRKI (zasada właściciela 24.11.2026: to samo wydarzenie, oferta ani miejsce nie może być dwa razy) ----
+VSTOP = set("the a an at by in of and hotel resort restaurant bar lounge cafe club beach spa dubai abu dhabi sharjah ajman fujairah ras al khaimah umm quwain ain island city centre center mall".split())
+def toks(x):
+    return {w for w in re.findall(r"[a-z0-9]+", R.norm(x or "")) if len(w) > 2 and w not in VSTOP}
+def nums(x):
+    return set(re.findall(r"\d{2,5}", x or ""))
+def same_venue(a, b):
+    ta, tb = toks(a), toks(b)
+    return bool(ta and tb and (ta <= tb or tb <= ta or len(ta & tb) >= max(2, min(len(ta), len(tb)) - 1)))
+bycity = collections.defaultdict(list)
+for r in dl:
+    bycity[r.get("city")].append(r)
+for c, rows in bycity.items():
+    for i, a in enumerate(rows):
+        for b in rows[i + 1:]:
+            va, vb = a.get("venue") or a.get("title"), b.get("venue") or b.get("title")
+            if not same_venue(va, vb):
+                continue
+            da, dbb = set(a.get("days_of_week") or []), set(b.get("days_of_week") or [])
+            days_ok = not da or not dbb or bool(da & dbb)
+            same_type = a.get("deal_type") == b.get("deal_type")
+            price_eq = bool(nums(a.get("price_text")) and nums(a.get("price_text")) == nums(b.get("price_text")))
+            title_eq = toks(a.get("title")) and toks(b.get("title")) and len(toks(a["title"]) & toks(b["title"])) / min(len(toks(a["title"])), len(toks(b["title"]))) >= 0.6
+            time_eq = bool(a.get("start_time")) and a.get("start_time") == b.get("start_time")
+            if days_ok and ((same_type and (price_eq or title_eq)) or (price_eq and time_eq) or (title_eq and price_eq)):
+                add("DUP_DEAL", "deals", b, f"same as {a['id']} '{(a.get('title') or '')[:40]}' @ {str(va)[:35]} | {a.get('deal_type')}/{b.get('deal_type')} | {(a.get('price_text') or '')[:30]} / {(b.get('price_text') or '')[:30]}")
+pc = collections.defaultdict(list)
+for r in pl:
+    pc[r.get("city")].append(r)
+for c, rows in pc.items():
+    for i, a in enumerate(rows):
+        for b in rows[i + 1:]:
+            ta, tb = toks(a["name"]), toks(b["name"])
+            if not ta or not tb:
+                continue
+            near = a.get("lat") is not None and b.get("lat") is not None and km((a["lat"], a["lng"]), (b["lat"], b["lng"])) < 0.4
+            share = len(ta & tb) / min(len(ta), len(tb))
+            if ta == tb or (share >= 0.99 and min(len(ta), len(tb)) >= 2) or (near and share >= 0.5) or (share >= 0.67 and a.get("category") == b.get("category")):
+                add("DUP_PLACE", "places", b, f"same as {a['id']} '{a['name'][:45]}' ({a.get('category')}/{b.get('category')}){' <400 m' if near else ''}")
+ec = collections.defaultdict(list)
+for r in ev:
+    ec[(r.get("city"), r["start_date"])].append(r)
+for k, rows in ec.items():
+    for i, a in enumerate(rows):
+        for b in rows[i + 1:]:
+            ta, tb = toks(a["title"]), toks(b["title"])
+            if not ta or not tb:
+                continue
+            share = len(ta & tb) / min(len(ta), len(tb))
+            st_ok = not a.get("start_time") or not b.get("start_time") or a["start_time"] == b["start_time"]
+            if st_ok and (share >= 0.75 or (share >= 0.5 and same_venue(a.get("venue"), b.get("venue")) and min(len(ta), len(tb)) >= 2)):
+                add("DUP_EVENT", "events", b, f"same as {a['id']} '{a['title'][:45]}' {a.get('start_time') or ''}/{b.get('start_time') or ''} @ {(a.get('venue') or '')[:30]} / {(b.get('venue') or '')[:30]}")
+
 cnt = collections.Counter(o[0] for o in out)
 print("SA|" + " ".join(f"{k}={v}" for k, v in sorted(cnt.items())))
 for o in sorted(out):
