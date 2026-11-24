@@ -3,8 +3,8 @@ import os, re, sys, datetime as dt
 sys.path.insert(0, os.path.dirname(__file__))
 import run as R
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
-RX = re.compile(r"comedy|stand[- ]?up|comedian|comic\b|improv\b|laugh", re.I)
-NOT = re.compile(r"paddle|sup\b|stand[- ]?up paddl|musical comedy|comedy of errors|workshop|class\b|course|open mic night music", re.I)
+RX = re.compile(r"comedy|stand[- ]?up|comedian|improv\b|laugh", re.I)
+NOT = re.compile(r"comic con|based on the play|paddle|sup\b|stand[- ]?up paddl|musical comedy|comedy of errors|workshop|class\b|course|open mic night music", re.I)
 today = dt.date.today().isoformat()
 n = 0
 for e in db.get("events", {"select": "id,title,category,description,start_date,end_date", "status": "in.(approved,pending)", "limit": "8000"}):
