@@ -3,7 +3,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import run as R
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
-KW = ["cats the musical", "chocolate factory", "riverdance", "tarkan", "aquafit", "face aux murs", "jewels of emirates", "bootcamp", "youssou", "little christmas makers", "phantom", "mamma mia", "lion king", "wicked"]
+KW = ["half marathon", "big bad wolf", "xcat", "triathlon", "hili", "wa'ad", "waad", "sajaya", "masfout", "art uaq", "khor waterfront", "thuraya", "motor festival", "powerboat"]
 for k in KW:
     for r in db.get("events", {"select": "id,title,start_date,end_date,start_time,venue,city,status,source_url,official_url", "title": f"ilike.*{k}*",
                                "start_date": "gte.2026-11-01", "status": "eq.approved", "limit": "40"}):
