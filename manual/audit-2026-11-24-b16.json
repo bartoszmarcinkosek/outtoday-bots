@@ -1,0 +1,32 @@
+{
+ "note": "Audit batch 16 (even): Dubai events 25 Dec 2026 - 31 Jan 2027.",
+ "reject_event_ids": [
+  "71e4472a-c235-4a3d-b1b6-031c07f19a95",
+  "6d68a27c-20ac-4d8f-b72a-f546f8eeeb4b",
+  "a1eefec2-f586-4cda-86c4-f8bb4ca992ba",
+  "886bab43-bbcc-481d-a44b-69da644db6d2",
+  "27c5afd4-5671-4f42-a39d-959bae7601e7",
+  "302ab7d3-0bc1-45b6-a2f0-93bbfbd74d58",
+  "690c5999-a457-44bf-b66a-843d1ccea370"
+ ],
+ "update_event_ids": [
+  {
+   "id": "d1fcd50c-4c19-4f89-a205-5cebc2262ae4",
+   "set": {
+    "description": "New Year's Eve fireworks at Bluewaters to welcome 2027."
+   }
+  },
+  {
+   "id": "82a3eb73-a758-4b99-925b-3262bc24aee9",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "724b2623-fedb-4a3c-806f-7dcc5ad5393e",
+   "set": {
+    "category": "music"
+   }
+  }
+ ]
+}
