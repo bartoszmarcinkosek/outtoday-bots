@@ -160,6 +160,26 @@ function ratioOf(src: number): number {
 
 const REPORT_REASONS = ['Wrong date or time', 'Wrong price', 'Cancelled or sold out', 'Wrong place', 'Photo does not fit', 'Something else'];
 
+// Na przycisku widać, dokąd prowadzi link (prośba testera: Instagram bywa zablokowany w pracy).
+const SOCIAL: [RegExp, string, string][] = [
+  [/instagram\.com/i, 'Instagram', 'logo-instagram'], [/facebook\.com|fb\.me/i, 'Facebook', 'logo-facebook'],
+  [/tiktok\.com/i, 'TikTok', 'logo-tiktok'], [/(twitter|x)\.com/i, 'X (Twitter)', 'logo-twitter'],
+  [/youtube\.com|youtu\.be/i, 'YouTube', 'logo-youtube'], [/wa\.me|whatsapp\.com/i, 'WhatsApp', 'logo-whatsapp'],
+  [/linkedin\.com/i, 'LinkedIn', 'logo-linkedin'], [/meetup\.com/i, 'Meetup', 'people-outline'],
+];
+function host(url: string): string {
+  const h = (url.match(/^https?:\/\/([^/?#]+)/i)?.[1] ?? url).replace(/^www\./i, '').toLowerCase();
+  return h.length > 26 ? h.slice(0, 25) + '…' : h;
+}
+export function linkLabel(url: string, ticketing: boolean): string {
+  const soc = SOCIAL.find(([re]) => re.test(url));
+  if (soc) return `Open on ${soc[1]}`;
+  return `${ticketing ? 'Tickets' : 'Website'} · ${host(url)}`;
+}
+function linkIcon(url: string): any {
+  return SOCIAL.find(([re]) => re.test(url))?.[2] ?? 'open-outline';
+}
+
 export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void; nearby?: Item[]; onPick?: (i: Item) => void }) {
   const [reporting, setReporting] = useState<'closed' | 'open' | 'sending' | 'sent'>('closed');
   const [reportFor, setReportFor] = useState<string | null>(null);
@@ -234,7 +254,7 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
         {!!digits && <Action icon="logo-whatsapp" label="WhatsApp" onPress={() => open(`https://wa.me/${digits.replace('+', '')}`)} />}
       </View>
       {!!item.officialUrl && (
-        <BigButton label={isTicketing ? 'Tickets and booking' : 'Open official page'} icon="open-outline" onPress={() => { open(item.officialUrl!); count('item', `${isTicketing ? 'tickets' : 'official'}:${item.kind}:${item.catKey ?? ''}`, item.city); }} />
+        <BigButton label={linkLabel(item.officialUrl!, isTicketing)} icon={linkIcon(item.officialUrl!)} onPress={() => { open(item.officialUrl!); count('item', `${isTicketing ? 'tickets' : 'official'}:${item.kind}:${item.catKey ?? ''}`, item.city); }} />
       )}
       {!!props.nearby?.length && (
         <View style={{ marginTop: 8 }}>

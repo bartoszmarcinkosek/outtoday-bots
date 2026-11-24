@@ -52,6 +52,10 @@ const MAP_OK = Platform.OS === 'ios';
 const OUTDOOR_SEASON = [10, 11, 0, 1, 2].includes(new Date().getMonth());
 const INTERESTS_KEY = 'outtoday.interests.v1';
 // Kategorie eventów do wyboru przy pierwszym uruchomieniu (ekran Dziś pokazuje je wyżej).
+const QUICK_INTERESTS: [string, string, string][] = [
+  ['music', '🎵', 'Music'], ['food', '🍽', 'Food'], ['family', '👨‍👩‍👧', 'Family'],
+  ['nature', '🏖', 'Outdoors'], ['culture', '🎭', 'Culture'], ['sport', '⚽', 'Sport'],
+];
 const INTEREST_KEYS = ['music', 'culture', 'sport', 'food', 'family', 'nightlife', 'festivals', 'classes', 'nature', 'community', 'market'];
 const USAGE_KEY = 'outtoday.filterUse.v1';
 const KIND_OF: Record<ListTab, Item['kind']> = { events: 'event', places: 'place', deals: 'deal' };
@@ -110,6 +114,7 @@ function Main() {
   const [lastChance, setLastChance] = useState(false); // tylko eventy, które wkrótce się kończą
   const [interests, setInterests] = useState<string[] | null>(null); // null = jeszcze nie wybrano
   const [showInterests, setShowInterests] = useState(false);
+  const [strip, setStrip] = useState(false); // wiersz „What do you like?” na Today (tylko gdy jeszcze nic nie wybrano)
 
   // Okna
   const [selected, setSelected] = useState<Item | null>(null);
@@ -155,7 +160,7 @@ function Main() {
         if (Array.isArray(f)) setFavs(f);
         // "Co nowego": licznik wpisów dodanych od poprzedniej wizyty.
         const ints = JSON.parse((await AsyncStorage.getItem(INTERESTS_KEY)) ?? 'null');
-        if (Array.isArray(ints)) setInterests(ints); else setShowInterests(true);
+        if (Array.isArray(ints)) setInterests(ints); else setStrip(true);
         const lv = Number(await AsyncStorage.getItem(VISIT_KEY));
         if (lv > 0) setPrevVisit(lv);
         AsyncStorage.setItem(VISIT_KEY, String(Date.now())).catch(() => undefined);
@@ -191,6 +196,16 @@ function Main() {
     setCity(c);
     setZones(z);
     AsyncStorage.setItem(PREFS_KEY, JSON.stringify({ city: c, zones: z })).catch(() => undefined);
+  };
+  const pickInterest = (k: string) => {
+    const next = (interests ?? []).includes(k) ? (interests ?? []).filter((x) => x !== k) : [...(interests ?? []), k];
+    setInterests(next);
+    AsyncStorage.setItem(INTERESTS_KEY, JSON.stringify(next)).catch(() => undefined);
+    count('interests', next.join(',') || 'none');
+  };
+  const closeStrip = () => {
+    setStrip(false);
+    if (interests === null) { setInterests([]); AsyncStorage.setItem(INTERESTS_KEY, '[]').catch(() => undefined); count('interests', 'skip'); }
   };
   const saveInterests = (keys: string[]) => {
     setInterests(keys);
@@ -413,7 +428,8 @@ function Main() {
       {!data ? (
         <ActivityIndicator color={colors.primary} style={{ marginTop: 60 }} />
       ) : tab === 'today' ? (
-        <TodayScreen local={local} card={card} jump={jump} refreshControl={refreshControl} interests={interests ?? []} onInterests={() => setShowInterests(true)} />
+        <TodayScreen local={local} card={card} jump={jump} refreshControl={refreshControl} interests={interests ?? []} onInterests={() => setShowInterests(true)}
+          strip={strip} onPick={pickInterest} onCloseStrip={closeStrip} />
       ) : (
         <>
           {tab === 'events' && (
@@ -705,6 +721,7 @@ function rankToday(items: Item[], now: Date): Item[] {
 function TodayScreen(props: {
   local: Item[]; card: (i: Item) => React.ReactNode; jump: Jump; refreshControl: React.ReactElement<any>;
   interests: string[]; onInterests: () => void;
+  strip: boolean; onPick: (k: string) => void; onCloseStrip: () => void;
 }) {
   const now = new Date();
   const today = todayIso(now);
@@ -768,6 +785,27 @@ function TodayScreen(props: {
 
   return (
     <ScrollView contentContainerStyle={styles.list} refreshControl={props.refreshControl}>
+      {props.strip && (
+        <View style={styles.strip}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
+            <Text style={[styles.secTitle, { flex: 1 }]}>What do you like?</Text>
+            <Pressable onPress={props.onCloseStrip} hitSlop={12} accessibilityLabel="Close">
+              <Ionicons name="close" size={20} color={colors.muted} />
+            </Pressable>
+          </View>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            {QUICK_INTERESTS.map(([k, emoji, label]) => {
+              const on = props.interests.includes(k);
+              return (
+                <Pressable key={k} onPress={() => props.onPick(k)} style={[styles.stripBtn, on && styles.stripOn]} accessibilityLabel={label}>
+                  <Text style={{ fontSize: 26 }}>{emoji}</Text>
+                  <Text style={[styles.stripLabel, on && { color: colors.bg, fontWeight: '700' }]}>{label}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        </View>
+      )}
       <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
         <Text style={[styles.todayDate, { flex: 1, marginBottom: 0 }]}>{fmtDate(today)}</Text>
         <Pressable onPress={props.onInterests} hitSlop={10}>
@@ -893,6 +931,10 @@ const styles = StyleSheet.create({
   secHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 },
   secTitle: { color: colors.text, fontSize: 20, fontWeight: '800' },
   seeAll: { color: colors.primary, fontSize: 14, fontWeight: '600' },
+  strip: { backgroundColor: colors.surface, borderRadius: 16, padding: 12, marginBottom: 14 },
+  stripBtn: { alignItems: 'center', paddingVertical: 8, borderRadius: 12, flex: 1, marginHorizontal: 2 },
+  stripOn: { backgroundColor: colors.primary },
+  stripLabel: { color: colors.text, fontSize: 11, marginTop: 4 },
   searchBar: {
     flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surface, margin: 16, marginBottom: 6,
     borderRadius: 14, paddingHorizontal: 12, borderWidth: 1, borderColor: colors.border,
