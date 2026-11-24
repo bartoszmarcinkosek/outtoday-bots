@@ -1,15 +1,5 @@
 {
  "cutoff": "2026-11-24T15:10:00",
  "size": 100,
- "done": [
-  {
-   "batch": 0,
-   "date": "2026-11-24",
-   "fixed": 3,
-   "rejected": 0
-  }
- ],
- "note": "Pełny przegląd (zgoda Bartosza 24.11.2026). Dwa zadania: A robi paczki parzyste (next_even), B nieparzyste (next_odd); każde zwiększa swój licznik o 2. Postęp: audit/done_even.json i audit/done_odd.json.",
- "next_even": 2,
- "next_odd": 1
+ "note": "Pełny przegląd (zgoda Bartosza 24.11.2026). Zadanie A: paczki parzyste (audit/next_even.txt, postęp audit/done_even.json); zadanie B: nieparzyste (audit/next_odd.txt, audit/done_odd.json). Każde po paczce zwiększa swój licznik o 2. Paczka 0 zrobiona ręcznie (wpis w done_odd.json dla wygody)."
 }
