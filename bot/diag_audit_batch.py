@@ -7,8 +7,10 @@ import run as R
 st = json.load(open(os.path.join(os.path.dirname(__file__), "..", "audit", "state.json")))
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
 PAR = os.environ.get("PARITY", "")
-cut, size = st["cutoff"], st["size"]
-n = int(os.environ.get("BATCH") or open(os.path.join(os.path.dirname(__file__), "..", "audit", f"next_{PAR}.txt")).read().strip())
+ROLL = os.environ.get("ROLL") == "1"   # ciągły przegląd: bez daty granicznej, licznik audit/roll_next.txt, po końcu od zera
+cut, size = ("2999-01-01" if ROLL else st["cutoff"]), st["size"]
+_f = os.path.join(os.path.dirname(__file__), "..", "audit", "roll_next.txt" if ROLL else f"next_{PAR}.txt")
+n = int(os.environ.get("BATCH") or open(_f).read().strip())
 today = (dt.datetime.utcnow() + dt.timedelta(hours=4)).date().isoformat()
 def cell(x, k=150):
     return str(x if x is not None else "").replace("|", "/").replace("\n", " ")[:k]
@@ -25,6 +27,8 @@ ev = [r for r in ev if (r.get("end_date") or r["start_date"]) >= today]
 for r in sorted(ev, key=lambda r: (r["city"] or "", r["start_date"], r["title"] or "")):
     items.append("AE|" + "|".join(cell(r.get(k)) for k in ("id", "city", "start_date", "end_date", "start_time", "category", "title", "venue", "price_text", "is_free", "official_url", "source_name", "description")))
 batches = (len(items) + size - 1) // size
+if ROLL and n >= batches:
+    n = 0
 print(f"AB|batch {n} of {batches} (0-based) | total {len(items)} | size {size}")
 for line in items[n * size:(n + 1) * size]:
     print(line)
