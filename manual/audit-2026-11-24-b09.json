@@ -1,0 +1,43 @@
+{
+ "note": "Audit batch 9 (deals Dubai T\u2013Z, Fujairah A\u2013F): duplicates and a plain buffet removed, titles/types cleaned.",
+ "reject_deal_ids": [
+  "9cb85fe1-343b-46fa-a38f-6d4266705380",
+  "ba916af6-25e2-4aa4-8435-d072d035918e",
+  "1b697276-830c-4e19-8781-c63bdf57725c",
+  "7f2ee7cf-2cb0-4cb3-9423-a3c0347fb949"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "bd58fdcb-2584-4314-b437-3680cae7de61",
+   "set": {
+    "days_of_week": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "f1129947-0ff8-4a40-8764-270e00d42ccc",
+   "set": {
+    "price_text": "From AED 199 (soft drinks)"
+   }
+  },
+  {
+   "id": "3a500aaf-7e08-41ef-8f50-ac375c44fa24",
+   "set": {
+    "deal_type": "lunch"
+   }
+  },
+  {
+   "id": "c5c0cf71-fcc6-4604-b187-a2fd6a31e0d3",
+   "set": {
+    "title": "Happy Hour \u2013 50% Off"
+   }
+  },
+  {
+   "id": "003c5342-f4d9-48d3-a42f-e9414c106b1f",
+   "set": {
+    "title": "Dutty Wine Brunch"
+   }
+  }
+ ]
+}
