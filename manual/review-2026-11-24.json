@@ -1,0 +1,22 @@
+{
+ "note": "Przegląd pending 24.11 przez Claude: konkretne eventy (wędrówki Alpine Trekkers, Platinumlist, Visit Abu Dhabi) zatwierdzone; ogólne Meetup socials, online/radio i spoza UAE odrzucone; niejasne zostawione dla właściciela.",
+ "approve": [
+  {"title": "Wadi Danha (Rainbow Valley) & Beyond Hike", "start_date": "2026-11-29", "set": {"venue": "Wadi Danha (Rainbow Valley)"}},
+  {"title": "ISHQ by Chef Bhatia - Love by the Course", "start_date": "2026-11-24"},
+  {"title": "UAE National Day Special – Wadi Dahir/ Sulphar Pools / Fujairah / Beginner+ 3/10", "start_date": "2026-12-02", "set": {"venue": "Wadi Dahir sulphur pools"}},
+  {"title": "Face Aux Murs - Cie Hors Surface", "start_date": "2027-05-22"},
+  {"title": "Shabab Al Ahli FC (UAE) vs Al Qadsiah Club (KSA) - AFC Champions League Elite", "start_date": "2026-11-24"},
+  {"title": "Challenge Peak", "start_date": "2026-12-12"},
+  {"title": "Wadi Abadillah Beginner Hike / Level: Easy Beginners Friendly 2/10", "start_date": "2026-11-29", "set": {"venue": "Wadi Abadillah"}},
+  {"title": "3rd December / Wadi Far Far Family & Beginners Sunset Hike / Easy 2/10", "start_date": "2026-12-03", "set": {"venue": "Wadi Far Far"}},
+  {"title": "UAE National Day Special / Wadi Kub Sunset Hike / Beginner+ 2/10", "start_date": "2026-12-02", "set": {"venue": "Wadi Kub"}}
+ ],
+ "reject": [
+  {"title": "Celebrating Cultures, Sparking Lives: Cheerful Exchange", "start_date": "2026-12-06"},
+  {"title": "Saturday Quran Chat", "start_date": "2026-11-28"},
+  {"title": "Istanbul Saturday Free Guided Meditation- Beginners and Above", "start_date": "2026-11-28"},
+  {"title": "XXL (2026) by Sofiane Chalal", "start_date": "2026-11-29"}
+ ],
+ "approve_deal_ids": ["1957a1ce-8872-4065-9185-2780c22b76c3", "a2396899-2ab5-4923-9798-6fe5e92909d4"],
+ "reject_deal_ids": ["920632d1-107a-4c84-ba26-1e014844426f"]
+}
