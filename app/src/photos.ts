@@ -70,7 +70,9 @@ const RULES: [RegExp, string][] = [
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian/i, 'comedy'],
   [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b|ballet|\bplay\b(?! ?(&|and) feast| area)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
-  [/cinema|film|screening|movie/i, 'cinema'],
+  // kino plenerowe (plaża, dach, pod gwiazdami) -> zdjęcie pleneru; zwykły seans w sali -> sala kinowa (albo ikonka, póki zdjęcia nie ma)
+  [/(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)\b.*(cinema|film|screening|movie)|(cinema|film|screening|movie).*\b(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)/i, 'cinema'],
+  [/cinema|film|screening|movie/i, 'cinema_indoor'],
   [/\bjazz\b/i, 'jazz'],
   [/\bdj\b|techno|afro ?house|\bedm\b|\brave\b|club night/i, 'dj'],
   [/arabic music|tarab|\boud\b(?! exhibition| and perfume|.*perfume)|khaleeji|eid concert/i, 'arabic'],
@@ -138,7 +140,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;

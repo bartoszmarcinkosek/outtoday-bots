@@ -1,3 +1,5 @@
+218 | cinema_indoor-1 | Indoor auditorium film screening seen from the back rows, audience silhouettes facing a glowing screen with an abstract blurred image, warm dim lights.
+219 | cinema_indoor-2 | Small arthouse cinema hall, rows of red seats half filled, projector beam through the dark, blurred abstract picture on the screen.
 1 | lm_coca_cola_arena-1 | (gotowe)
 215 | legoland-1 | Family theme park for young children with giant colourful toy-brick style sculptures of animals and buildings, small kids' rides, sunny day, palm trees, no logos or brand names.
 216 | trampoline-1 | Indoor trampoline park: rows of connected blue and orange trampolines, kids and adults jumping mid-air, foam pit, bright hall.
