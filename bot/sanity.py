@@ -29,7 +29,7 @@ print(f"SA|events {len(ev)} deals {len(dl)} places {len(pl)}")
 AED = re.compile(r"(aed|dhs?|dirham)\s*\d|\d\s*(aed|dhs?|dirham)", re.I)
 FREEWORD = re.compile(r"\bfree\b|no charge|complimentary", re.I)
 CAPS = lambda t: len(t) > 12 and sum(c.isupper() for c in t) / max(1, sum(c.isalpha() for c in t)) > 0.8
-AGG = tuple(getattr(R, "AGGREGATORS", ())) + ("timeoutdubai", "timeoutabudhabi", "cobone", "groupon", "yalla", "whatson.ae", "tripadvisor", "visitdubai.com/en/whats-on")
+AGG = ("yallaabudhabi", "timeoutdubai", "timeoutabudhabi", "cobone", "groupon", "whatson.ae", "tripadvisor", "wow-rak", "koobit", "google.", "facebook.com/events/search")
 
 for r in ev:
     sd, ed = r["start_date"], r.get("end_date")
@@ -83,6 +83,21 @@ for table, rows, dcol in (("events", ev, "description"), ("deals", dl, "details"
         near, nd = min(((c, km(pt, xy)) for c, xy in CITY.items()), key=lambda x: x[1])
         if near != r["city"] and own > 25 and own - nd > 12:
             add("GEO_OTHER_EMIRATE", table, r, f"{r.get('venue') or ''} | pin near {near} ({nd:.0f} km), {own:.0f} km from {r['city']}")
+
+# to samo miejsce (ta sama nazwa i miasto) z pinezkami oddalonymi o ponad 2 km
+byv = collections.defaultdict(list)
+for table, rows in (("events", ev), ("deals", dl), ("places", pl)):
+    for r in rows:
+        v = re.sub(r"[^a-z0-9 ]", "", (r.get("venue") or r.get("name") or "").lower()).strip()
+        if r.get("lat") is not None and len(v) > 5:
+            byv[(r.get("city"), v)].append((table, r))
+for (c, v), lst in byv.items():
+    a = lst[0][1]
+    for table, b in lst[1:]:
+        d = km((a["lat"], a["lng"]), (b["lat"], b["lng"]))
+        if d > 2:
+            add("PIN_MISMATCH", table, b, f"{v}: {d:.1f} km from the pin of another item at the same venue ({a['id']})")
+            break
 
 # ta sama pinezka dla wielu różnych miejsc (geokoder trafił w środek dzielnicy)
 pins = collections.defaultdict(set)

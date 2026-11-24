@@ -1,0 +1,174 @@
+{
+ "note": "Kontrola spójności 24.11: linki do portalu Yalla usunięte (zasada: tylko strona organizatora; nocne uzupełnianie linków spróbuje znaleźć oficjalną), Taste of Dubai 2026 z błędną datą 2027 (odbyło się 6-8.02.2026), wpis-seria Baja obok pojedynczych rund, wygasła oferta Hakkasan, FREE przy dwóch darmowych koncertach.",
+ "reject_event_ids": [
+  "eab813e9-78a6-45ca-9e17-dcb21eefa7e3",
+  "8082dcda-ea27-45bf-afd2-0b731a44204b"
+ ],
+ "reject_deal_ids": [
+  "9e498a42-f3ca-402b-b9f5-f65d1dfac478"
+ ],
+ "update_event_ids": [
+  {
+   "id": "05dd608f-73d5-492c-80b1-6a21d088577b",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "14ab0fa9-bfa3-46f3-a1e5-fabdcf11c2e4",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "3798a03e-976a-4591-8bf1-ae769bbe4ca1",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "3b5f30a9-123e-432f-ada4-68c479b464b5",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "3cf05b0e-e81e-4f72-9d40-8becaa3f565c",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "51aca5b5-f832-4ba4-9ee0-0a1b73cc89df",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "5c2503b0-ae02-4ab5-8af0-7b91820c0b31",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "68501f40-bb1f-49ea-8a28-ea8f7c9bb152",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "68ccd24e-5ac5-4b27-9999-fb0413c2d192",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "6adaa426-9238-4366-a6fe-4bb22da1eaeb",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "6c3119ff-9ea1-4443-b61e-fc3bb7086370",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "92b11cd2-65fe-48f8-8205-142e299d8552",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "9636df89-5ef5-448f-acb9-10641c925cfe",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "98b94030-01b9-4010-a83d-45ee58952a5f",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "a21c70bc-c06e-4438-9ab0-99190ec3d836",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "a72ce864-c606-4d87-ac30-bfa130fcee52",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "a850a1ea-41d7-41c4-b71a-0d6ad0c811dc",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "b1bf86e2-6d73-4957-9e47-7e400def6bcd",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "bab6e402-b970-4e3b-a035-dd601b26e762",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "d1da93b6-27b1-499b-ac39-acf9a4fb1ba3",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "d51f2e74-23d4-4951-bfd4-d96d10a27602",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "de490f98-8adf-4dfa-a485-56cc5a2de273",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "ec1ad952-dfdb-426f-afa0-1918a2935893",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "fa329d81-5f42-429a-80d6-6a3aa70c16ba",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "fb498157-60dc-4e48-b3f8-5d783c0c8870",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "91c84e77-f2ce-4aa5-b8df-b2a81a7f4efb",
+   "set": {
+    "is_free": true
+   }
+  },
+  {
+   "id": "dfcb9490-2810-44fb-8ecb-26491bd6c4d2",
+   "set": {
+    "is_free": true
+   }
+  }
+ ]
+}
