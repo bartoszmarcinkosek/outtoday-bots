@@ -702,6 +702,39 @@
    ],
    "trusted": true,
    "note": "Sprzedawca biletów: wydarzenia w Szardży i Khor Fakkan (dodane 18.11.2026)."
+  },
+  {
+   "id": "platinumlist_ain",
+   "name": "Platinumlist Al Ain",
+   "city": "Al Ain",
+   "single_venue": false,
+   "urls": [
+    "https://al-ain.platinumlist.net/event/list"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów (dodane 24.11.2026 – mniejsze emiraty)."
+  },
+  {
+   "id": "platinumlist_ajm",
+   "name": "Platinumlist Ajman",
+   "city": "Ajman",
+   "single_venue": false,
+   "urls": [
+    "https://ajman.platinumlist.net/event/list"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów (dodane 24.11.2026 – mniejsze emiraty)."
+  },
+  {
+   "id": "platinumlist_fuj",
+   "name": "Platinumlist Fujairah",
+   "city": "Fujairah",
+   "single_venue": false,
+   "urls": [
+    "https://fujairah.platinumlist.net/event/list"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów (dodane 24.11.2026 – mniejsze emiraty)."
   }
  ]
 }

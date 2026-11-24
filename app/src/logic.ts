@@ -349,7 +349,6 @@ const SHORTCUTS: [string[], Shortcut][] = [
   [['ladies night', "ladies' night", 'ladies'], { tab: 'deals', key: 'ladies_night', label: "Ladies' nights" }],
   [['quiz'], { tab: 'deals', key: 'quiz', label: 'Quiz nights' }],
   [['business lunch', 'lunch'], { tab: 'deals', key: 'lunch', label: 'Business lunches' }],
-  [['comedy', 'stand-up', 'stand up', 'standup', 'comedian'], { tab: 'events', key: 'comedy', label: 'Comedy shows' }],
   [['karaoke', 'night out'], { tab: 'deals', key: 'night_out', label: 'Nights out' }],
   [['dinner'], { tab: 'deals', key: 'dinner', label: 'Dinner deals' }],
   [['beach', 'beaches', 'pool'], { tab: 'places', key: 'beaches', label: 'Beaches & Pools' }],

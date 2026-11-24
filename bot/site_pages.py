@@ -133,7 +133,7 @@ ev = get("events", "id,title,category,start_date,end_date,start_time,end_time,ve
 pl = get("places", "id,name,category,area,city,hours_text,price_text,is_free,description,official_url")
 dl = get("deals", "id,title,deal_type,venue,area,city,price_text,details,start_time,end_time,official_url")
 
-LABEL = {"comedy": "Comedy", "music": "Music & Shows", "culture": "Culture & Art", "sport": "Sport & Fitness", "food": "Food & Drinks", "festivals": "Festivals",
+LABEL = {"music": "Music & Shows", "culture": "Culture & Art", "sport": "Sport & Fitness", "food": "Food & Drinks", "festivals": "Festivals",
          "nightlife": "Nightlife", "classes": "Classes & Workshops", "nature": "Nature & Outdoors", "community": "Community", "family": "Family",
          "market": "Markets", "beaches": "Beaches & Pools", "parks": "Parks & Nature", "museums": "Museums & Culture", "attractions": "Attractions",
          "active": "Sport & Active", "kids": "Kids & Play", "markets": "Markets & Malls", "studios": "Classes & Studios", "daytrips": "Day Trips",

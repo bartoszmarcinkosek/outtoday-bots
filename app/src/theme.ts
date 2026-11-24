@@ -28,7 +28,6 @@ export const categories: Record<string, CategoryStyle> = {
   sport: { label: 'Sport & Fitness', card: '#0F5A44', title: '#E6FBF3', sub: '#A8E8D0', accent: '#8FE3C3' },
   food: { label: 'Food & Drinks', card: '#7A2327', title: '#FFECEC', sub: '#FFC4C6', accent: '#FFB3B6' },
   festivals: { label: 'Festivals', card: '#7A1F5C', title: '#FFEAF6', sub: '#FFBFE3', accent: '#FFADDB' },
-  comedy: { label: 'Comedy', card: '#8A4B00', title: '#FFF3DE', sub: '#FFD9A0', accent: '#FFC978' },
   nightlife: { label: 'Nightlife', card: '#5A1E86', title: '#F6EBFF', sub: '#DDBFFF', accent: '#D2ABFF' },
   classes: { label: 'Classes & Workshops', card: '#6B4A00', title: '#FFF6E0', sub: '#FFE2A6', accent: '#FFD98A' },
   nature: { label: 'Nature & Outdoors', card: '#3A5F0E', title: '#F0FADF', sub: '#CDEBA0', accent: '#BFE38A' },

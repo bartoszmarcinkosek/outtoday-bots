@@ -1574,6 +1574,64 @@
    "username": "zumaabudhabi",
    "city": "Abu Dhabi",
    "venue": "Zuma Abu Dhabi (Yashoku Night Brunch, Wednesdays)"
+  },
+  {
+   "username": "danatalainresort",
+   "city": "Al Ain",
+   "venue": "Danat Al Ain Resort"
+  },
+  {
+   "username": "aylahotels",
+   "city": "Al Ain"
+  },
+  {
+   "username": "adnecalain",
+   "city": "Al Ain",
+   "venue": "ADNEC Centre Al Ain"
+  },
+  {
+   "username": "radissonblualain",
+   "city": "Al Ain",
+   "venue": "Radisson Blu Hotel & Resort, Al Ain"
+  },
+  {
+   "username": "bahiajmanpalace",
+   "city": "Ajman",
+   "venue": "Bahi Ajman Palace Hotel"
+  },
+  {
+   "username": "wyndhamgardenajman",
+   "city": "Ajman",
+   "venue": "Wyndham Garden Ajman Corniche"
+  },
+  {
+   "username": "ramadabeachajman",
+   "city": "Ajman",
+   "venue": "Ramada by Wyndham Beach Hotel Ajman"
+  },
+  {
+   "username": "ajmanclub",
+   "city": "Ajman"
+  },
+  {
+   "username": "uaqmarineclub",
+   "city": "Umm Al Quwain",
+   "venue": "UAQ Marine Club"
+  },
+  {
+   "username": "intercontinentalfujairah",
+   "city": "Fujairah",
+   "venue": "InterContinental Fujairah Resort"
+  },
+  {
+   "username": "palacefujairah",
+   "city": "Fujairah",
+   "venue": "Palace Beach Resort Fujairah"
+  },
+  {
+   "username": "fujairahfineartsacademy",
+   "city": "Fujairah",
+   "venue": "Fujairah Fine Arts Academy"
   }
  ]
 }
