@@ -1,0 +1,13 @@
+{
+ "note": "Audit batch 5 (deals Abu Dhabi–Dubai B): shopping offer, plain buffets/menus and a long-stay room rate rejected; day-pass days fixed where weekend prices are listed.",
+ "reject_deal_ids": [
+  "9201aabc-2f70-4239-9ffa-70f996851daf",
+  "b8d0c607-2b4b-4887-bc10-48d192463b4b",
+  "000e4034-19ab-4167-a6cc-0368f20b632b",
+  "512f57cf-dd20-40a1-b4b6-bf63785288e0"
+ ],
+ "update_deal_ids": [
+  {"id": "7f779286-80bc-4f67-b66d-7d3caf365c42", "set": {"days_of_week": [0, 1, 2, 3, 4, 5, 6]}},
+  {"id": "fa7dc844-a8b4-4a6b-8b2c-020b2e19a90f", "set": {"days_of_week": [0, 1, 2, 3, 4, 5, 6]}}
+ ]
+}
