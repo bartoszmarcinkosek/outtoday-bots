@@ -1,0 +1,9 @@
+{
+  "places": [
+    {"name": "Arabian Desert Camel Riding Centre", "status": "approved",
+     "description": "Dubai's first dedicated camel riding school: riding classes, relaxed desert and social rides, camel treks, a kids' camel club and camel encounters.",
+     "category": "active", "area": "Lisaili, Al Marmoom", "city": "Dubai",
+     "official_url": "https://adcrc.me", "kid_friendly": true, "is_indoor": false,
+     "source_name": "adcrc.me"}
+  ]
+}

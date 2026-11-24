@@ -54,8 +54,10 @@ const RULES: [RegExp, string][] = [
   [/water ?park|waterworld|aquaventure|wild wadi|aqua ?park|laguna|montazah/i, 'waterpark'],
   [/observation deck|sky views|at the top|the view at|\bview(ing)? deck/i, 'viewpoint'],
   [/\bmosque\b/i, 'mosque'],
-  [/warner bros|img worlds|ferrari world|motiongate|legoland|theme park|real madrid world/i, 'attractions'],
-  [/trampoline|bounce|flip ?out|air maniax|ninja|tepfactor|ropes course|aventura|high ropes/i, 'active'],
+  [/legoland/i, 'legoland'],
+  [/warner bros|img worlds|ferrari world|motiongate|theme park|real madrid world/i, 'attractions'],
+  [/trampoline|bounce|flip ?out|air maniax/i, 'trampoline'],
+  [/ninja|tepfactor|ropes course|aventura|high ropes/i, 'active'],
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|flying (lesson|experience)|scenic flight/i, 'flying'],
   [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating|on ice\b/i, 'snow'],
   [/ceramic|pottery|sculpt|\bclay\b/i, 'studios'],
@@ -108,7 +110,8 @@ const RULES: [RegExp, string][] = [
   [/concert|world tour/i, 'concert'],
   // na samym końcu, tylko gdy nic innego nie pasuje (koncert na plaży to koncert)
   [/\bfarm\b|oasis|\babra\b/i, 'farm'],
-  [/desert (safari|reserve|conservation|park)|marmoom|al qudra|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
+  [/al qudra|love lake/i, 'lakes'],
+  [/desert (safari|reserve|conservation|park)|marmoom|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
   [/jebel|hatta|\bwadi\b|mountain|mubazzarah/i, 'daytrips'],
   [/\bbeach\b(?! hotel)/i, 'beaches'],
 ];
@@ -135,7 +138,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;

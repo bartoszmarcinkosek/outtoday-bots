@@ -1,4 +1,7 @@
 1 | lm_coca_cola_arena-1 | (gotowe)
+215 | legoland-1 | Family theme park for young children with giant colourful toy-brick style sculptures of animals and buildings, small kids' rides, sunny day, palm trees, no logos or brand names.
+216 | trampoline-1 | Indoor trampoline park: rows of connected blue and orange trampolines, kids and adults jumping mid-air, foam pit, bright hall.
+217 | lakes-1 | Al Qudra desert lake near Dubai at sunset: calm water among sand dunes, flamingos and swans on the shore, ghaf trees, golden light.
 213 | fitness-1 | Outdoor bootcamp workout in a park at sunset: group doing lunges and kettlebell swings on the grass, trainer with a whistle, palm trees.
 214 | fitness-2 | Group HIIT class on a beach in the morning: people doing burpees and battle ropes on the sand, sea behind.
 210 | polish_food-1 | Traditional Polish dinner on a rustic wooden table: plate of pierogi with fried onions and sour cream, a bowl of red borscht and rye bread, warm restaurant light.
