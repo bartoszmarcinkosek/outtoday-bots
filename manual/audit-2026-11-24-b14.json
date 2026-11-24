@@ -1,0 +1,55 @@
+{
+ "note": "Audit batch 14 (events Dubai 26.11–03.12): removed language/coffee/book-club/friends meetups, paid cinema screening, cancelled book club, duplicate dragon storytelling (Instagram copy) and duplicate Anantara market, 7s inflatable-race registration and two Hopasports participant-registration championships; Khorfakkan run moved to Sharjah; free runs marked free.",
+ "reject_event_ids": [
+  "6904a0de-8aba-4c64-9a02-f6aa86ea98c3",
+  "2917f6f6-63eb-4cf0-96e8-3644462db832",
+  "07bc2bc5-2d19-45fe-9001-64abf4366986",
+  "78dfe2c0-c9c8-4271-b959-b09f09b0a95c",
+  "a66190e9-f515-486d-a89e-65daf8478524",
+  "a0324b59-8d45-44b1-aba5-c6cdf819150f",
+  "93c8e968-cb64-4fb2-a4f0-db2416330afb",
+  "e994e838-d9ff-4d6f-8140-72ea836dd9f1",
+  "00dc2325-2a37-4dc4-9d04-2f0bc5a5eaec",
+  "a68bced2-2762-4d33-a88f-faed97c43e3c",
+  "a9960ad4-3d81-4a03-a9bb-1eca465ddd90",
+  "44e341c3-3f8b-4d03-9002-439482479b62",
+  "f6f90c8c-e549-49b8-b485-dba0b613a685"
+ ],
+ "update_event_ids": [
+  {
+   "id": "b8652154-98b5-4631-88a2-c2b570bb052d",
+   "set": {
+    "city": "Sharjah",
+    "title": "Saturday Run – Khorfakkan Beach",
+    "is_free": true,
+    "price_text": "Free"
+   }
+  },
+  {
+   "id": "65df8954-a91d-460d-ab5b-686f62213442",
+   "set": {
+    "is_free": true,
+    "price_text": "Free"
+   }
+  },
+  {
+   "id": "9c3a9ca9-24d4-40f7-82e8-a2ff09751a31",
+   "set": {
+    "venue": "Alliance Française Dubai, Oud Metha",
+    "description": "A French-language storytelling show for young children, with an actor bringing illustrated books about dragons to life."
+   }
+  },
+  {
+   "id": "f27e9d5d-5455-46d8-8568-fb596edc3f33",
+   "set": {
+    "venue": "The Sevens Stadium, Dubai–Al Ain Road"
+   }
+  },
+  {
+   "id": "bf4c2e3a-06bc-4cd4-898b-40d3884d52f1",
+   "set": {
+    "title": "The Game's Afoot at The Junction"
+   }
+  }
+ ]
+}
