@@ -89,6 +89,39 @@ def lookup(q: str, cache: dict) -> list | None:
     return cache[q]
 
 
+GKEY = os.environ.get("GOOGLE_GEOCODE_KEY", "").strip()
+G_MAX = int(os.environ.get("G_MAX", "1500"))  # bezpiecznik: darmowe 10 000 zapytań miesięcznie
+_g_used = 0
+COARSE = {"locality", "political", "country", "administrative_area_level_1", "administrative_area_level_2", "colloquial_area"}
+
+
+def lookup_google(q: str, cache: dict) -> list | None:
+    """Zapas dla miejsc, których OpenStreetMap nie zna (hotelowe restauracje, bary). Tylko trafienia w konkretne miejsce."""
+    global _g_used
+    k = "g:" + q
+    if k in cache:
+        return cache[k]
+    if not GKEY or _g_used >= G_MAX:
+        return None
+    _g_used += 1
+    try:
+        r = requests.get("https://maps.googleapis.com/maps/api/geocode/json",
+                         params={"address": q, "region": "ae", "components": "country:AE", "key": GKEY}, timeout=30).json()
+    except (requests.RequestException, ValueError):
+        return None
+    st = r.get("status")
+    if st not in ("OK", "ZERO_RESULTS"):
+        print(f"[google] {st}: {r.get('error_message', '')[:120]}", flush=True)
+        return None
+    res = (r.get("results") or [None])[0]
+    if not res or set(res.get("types", [])) <= COARSE:
+        cache[k] = []  # nic albo tylko miasto/emirat – to nie jest dokładna lokalizacja
+    else:
+        loc = res["geometry"]["location"]
+        cache[k] = [loc["lat"], loc["lng"]]
+    return cache[k]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=1500)
@@ -115,6 +148,12 @@ def main() -> int:
             if res and km(res, CITY[city]) <= 70:
                 hit = res
                 break
+        if not hit and GKEY:
+            for q in candidates(venue, city)[:2]:
+                res = lookup_google(q, cache)
+                if res and km(res, CITY[city]) <= 70:
+                    hit = res
+                    break
         if not hit:
             miss += 1
             continue
@@ -124,7 +163,7 @@ def main() -> int:
             json.dump(cache, open(CACHE, "w", encoding="utf-8"), ensure_ascii=False)
             print(f"... {done} gotowe", flush=True)
     json.dump(cache, open(CACHE, "w", encoding="utf-8"), ensure_ascii=False)
-    print(f"\nZ współrzędnymi: {done}. Nie znaleziono / zbyt ogólne: {miss}. Pamięć podręczna: {len(cache)} zapytań.")
+    print(f"\nZ współrzędnymi: {done}. Nie znaleziono / zbyt ogólne: {miss}. Pamięć podręczna: {len(cache)} zapytań. Google: {_g_used} zapytań.")
     return 0
 
 

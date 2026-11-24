@@ -32,6 +32,7 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          GOOGLE_GEOCODE_KEY: ${{ secrets.GOOGLE_GEOCODE_KEY }}
           IN_LIMIT: ${{ inputs.limit || '1500' }}
         run: python bot/geocode.py --limit "$IN_LIMIT"
       - name: Zapis pamięci podręcznej
