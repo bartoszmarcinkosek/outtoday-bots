@@ -88,7 +88,8 @@
     "lm_madinat-1": "MAHbyxwMTKk",
     "lm_madinat-2": "MAHbzIk2tHg",
     "lm_louvre-2": "MAHbzC6rJMw",
-    "lm_expo_city-1": "MAHbzCofV3s"
+    "lm_expo_city-1": "MAHbzCofV3s",
+    "lm_yas_marina_circuit-1": "MAHbzRatRCI"
   },
   "in_app": [
     "aquafit-1",
@@ -168,5 +169,5 @@
     "xmas-2",
     "zoo-1"
   ],
-  "last_at": "2026-11-24T04:52:05Z"
+  "last_at": "2026-11-24T05:14:19Z"
 }
