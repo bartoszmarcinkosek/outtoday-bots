@@ -1,0 +1,22 @@
+{
+  "note": "Audit batch 10 (even): 100 lines checked (78 deals, 22 events). Duplicates and regular buffets removed, prices/titles/venues cleaned.",
+  "reject_deal_ids": [
+    "6324354d-b948-4568-b5a5-54650977548e",
+    "40202e5c-55fa-46e8-8eef-07a94f3f0dbc",
+    "e2229b47-15f2-4148-bce0-948fec2b05f6"
+  ],
+  "update_deal_ids": [
+    {"id": "b0b05d58-0931-42e6-9e1f-fb2ac0419d99", "set": {"price_text": "AED 400"}},
+    {"id": "177b3e93-287c-4f24-872c-8f45c83179f5", "set": {"venue": "Palace Beach Resort Fujairah"}},
+    {"id": "03cbe2cd-469a-4e23-a5a6-88cfd3f5c9a9", "set": {"deal_type": "other"}},
+    {"id": "bd83ea46-7f81-4992-8aa3-c7c1351a63e9", "set": {"deal_type": "other"}},
+    {"id": "12a2ee7f-6d95-43fd-b802-8010d691c130", "set": {"title": "Coastal Brunch at Basilico"}},
+    {"id": "a508b7d8-d8a7-49ce-96fe-0f0281191dde", "set": {"title": "WAKA Night Brunch"}},
+    {"id": "03fb0dfb-22ea-46b2-9a0f-967eb2110369", "set": {"price_text": "AED 70 per person"}},
+    {"id": "3993a849-9067-4cec-a279-c30ec09e9ee2", "set": {"price_text": "AED 290"}},
+    {"id": "cb1c81a7-6b72-4639-a558-d6b787feb71f", "set": {"days_of_week": [0, 1, 2, 3, 4, 5, 6]}}
+  ],
+  "reject_event_ids": [
+    "de490f98-8adf-4dfa-a485-56cc5a2de273"
+  ]
+}
