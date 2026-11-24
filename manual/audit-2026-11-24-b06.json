@@ -1,0 +1,14 @@
+{
+  "note": "Audit batch 6 (deals Dubai B–F): duplicate pool pass, plain breakfast/café combos, a product listing and a regular daily buffet lunch removed; price texts cleaned.",
+  "reject_deal_ids": [
+    "0560798c-f17f-45a7-b2f9-0340edfe4f52",
+    "dba8c646-528d-4de3-800d-7a4a939e4105",
+    "7902ac86-0620-4e05-ac44-15c2502c6d1e",
+    "5cf218f3-5efa-42f6-87bd-34ff48003ded",
+    "0013792a-64b0-4c59-9805-5f61197c1ead"
+  ],
+  "update_deal_ids": [
+    {"id": "82448ce8-468d-4d14-91d4-d5fa606f39f0", "set": {"price_text": "AED 120"}},
+    {"id": "ab0e9259-1bcb-422e-9bb6-8a967bbd49f8", "set": {"price_text": "AED 100 / AED 160"}}
+  ]
+}
