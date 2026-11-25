@@ -1835,6 +1835,16 @@
    "username": "zayedsportscity",
    "city": "Abu Dhabi",
    "venue": "Zayed Sports City"
+  },
+  {
+   "username": "dubaimiraclegarden",
+   "city": "Dubai",
+   "venue": "Dubai Miracle Garden"
+  },
+  {
+   "username": "gulfphotoplus",
+   "city": "Dubai",
+   "venue": "Gulf Photo Plus"
   }
  ]
 }
