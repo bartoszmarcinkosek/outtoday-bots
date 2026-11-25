@@ -30,6 +30,21 @@ def site(u):
     return urlparse(u).netloc.lower().removeprefix("www.")
 
 
+def sane(old: str, new: str) -> bool:
+    """Nowy adres nie może być blogiem/aktualnością, stroną z minionym rokiem, adresem innego źródła ani tym samym adresem inną wielkością liter."""
+    if new.lower().rstrip("/") == old.lower().rstrip("/") or new.rstrip("/") in ALL:
+        return False
+    if BAD.search(urlparse(new).path):
+        return False
+    return not any(int(y) < dt.date.today().year for y in re.findall(r"20\d\d", urlparse(new).path))
+
+
+ALL = set()
+for f in glob.glob(os.path.join(os.path.dirname(__file__), "..", "sources", "*.json")):
+    try:
+        ALL |= {u.rstrip("/") for x in json.load(open(f)).get("sources", []) for u in x.get("urls") or []}
+    except Exception:
+        pass
 fixed, ask, n = [], [], 0
 for f in sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "sources", "*.json"))):
     d = json.load(open(f))
@@ -46,7 +61,7 @@ for f in sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "sources
             if code in (200, 403, 401, 429, -1) or code >= 500:
                 # 200: działa (przeniesienie w tej samej domenie zapisujemy, gdy ścieżka naprawdę inna)
                 if code == 200 and site(final) == site(url) and urlparse(final).path.rstrip("/") != urlparse(url).path.rstrip("/") \
-                        and urlparse(final).path.strip("/") and WORDS.search(final):
+                        and urlparse(final).path.strip("/") and WORDS.search(final) and sane(url, final):
                     s["urls"][i] = final; changed = True
                     fixed.append((s["id"], url, final, "przeniesiona"))
                 continue
@@ -66,7 +81,7 @@ for f in sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "sources
                         cands.append((len(urlparse(href).path), href))
                 for _, href in sorted(set(cands))[:4]:
                     c2, f2, b2 = get(href)
-                    if c2 == 200 and len(BeautifulSoup(b2, "html.parser").get_text(" ", strip=True)) > 400:
+                    if c2 == 200 and sane(url, f2) and len(BeautifulSoup(b2, "html.parser").get_text(" ", strip=True)) > 400:
                         best = f2; break
             if best:
                 s["urls"][i] = best; changed = True
