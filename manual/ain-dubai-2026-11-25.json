@@ -1,0 +1,6 @@
+{
+ "note": "Zgłoszenie z apki (24.11, 'Something else') do karty Ain Dubai: karta nie miała godzin ani ceny. Uzupełnione z oficjalnej strony aindubai.com (plan-your-visit, bilety).",
+ "update_place_ids": [
+  {"id": "ee6fe91c-9cf0-4062-96b4-5bc9df5cfc70", "set": {"hours_text": "Daily 10:00 to 21:00; last admission 20:15", "price_text": "From AED 145", "description": "Giant observation wheel on Bluewaters Island with enclosed cabins and views over Dubai Marina and the Palm. Tickets include up to 4 hours of parking on the island."}}
+ ]
+}
