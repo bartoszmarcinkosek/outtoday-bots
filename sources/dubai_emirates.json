@@ -301,7 +301,7 @@
    "city": "Dubai",
    "single_venue": false,
    "urls": [
-    "https://www.afdubai.org/events-learning-french-with-alliance-francaise"
+    "https://www.afdubai.org/events-learning-french-with-alliance-francaise-dubai/"
    ],
    "trusted": true
   },
@@ -475,10 +475,11 @@
    "single_venue": true,
    "default_venue": "Global Village",
    "urls": [
-    "https://globalvillage.ae/en/celebrate-eid-al-eithad-global-village",
+    "https://www.globalvillage.ae/en/shows-and-events",
     "https://globalvillage.ae/en/events"
    ],
-   "trusted": true
+   "trusted": true,
+   "note": "Adres naprawiony automatycznie 2026-11-25 (stary: https://globalvillage.ae/en/celebrate-eid-al-eithad-global-village)."
   },
   {
    "id": "eidaletihad_official",
@@ -698,7 +699,7 @@
    "urls": [
     "https://sharjah.platinumlist.net/event/list",
     "https://sharjah.platinumlist.net/event/list?page=2",
-    "https://sharjah.platinumlist.net/event/list?page=3"
+    "https://sharjah.platinumlist.net/event"
    ],
    "trusted": true,
    "note": "Sprzedawca biletów: wydarzenia w Szardży i Khor Fakkan (dodane 18.11.2026)."
@@ -962,7 +963,7 @@
    "city": "Dubai",
    "single_venue": false,
    "urls": [
-    "https://www.visitdubai.com/en/whats-on/dubai-events-calendar"
+    "https://www.visitdubai.com/en/festivals-and-events/dubai-events-calendar"
    ],
    "trusted": true,
    "note": "Oficjalny kalendarz Dubaju; strona może blokować roboty."

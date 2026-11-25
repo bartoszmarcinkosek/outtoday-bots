@@ -336,8 +336,9 @@
    "default_venue": "Reem Mall, Al Reem Island",
    "trusted": true,
    "urls": [
-    "https://www.reemmall.ae/event-offers/"
-   ]
+    "https://www.reemmall.ae/offers-events/"
+   ],
+   "note": "Adres naprawiony automatycznie 2026-11-25 (stary: https://www.reemmall.ae/event-offers/)."
   },
   {
    "id": "zayed_sports_city",
