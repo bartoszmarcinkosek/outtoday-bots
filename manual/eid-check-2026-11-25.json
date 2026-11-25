@@ -1,0 +1,170 @@
+{
+ "note": "Przegląd Eid Al Etihad 25.11.2026: brakujące punkty oficjalnego programu Szardży (Sharjah24, 17.11) i Dubaju (WAM, 20.11); Sheikh Zayed Festival przedłużony do 5.12 (WAM, 23.11). Drone show w Dubaju był odrzucony – dodany ponownie z godzinami z WAM.",
+ "events": [
+  {
+   "title": "Eid Al Etihad at Al Seyouh Family Park",
+   "category": "festivals",
+   "start_date": "2026-11-19",
+   "venue": "Al Seyouh Family Park",
+   "city": "Sharjah",
+   "description": "Sharjah's Eid Al Etihad celebrations at Al Seyouh Family Park: an Emirati Family Village, a Children's Oasis, a youth village, the Souq Ahluna market, interactive programmes and folk troupes.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)",
+   "end_date": "2026-12-03"
+  },
+  {
+   "title": "Eid Al Etihad at Al Nouf 1 Park",
+   "category": "festivals",
+   "start_date": "2026-11-19",
+   "venue": "Al Nouf 1 Park",
+   "city": "Sharjah",
+   "description": "Interactive programmes, folk troupes and displays by local productive families for Eid Al Etihad at Al Nouf 1 Park in Sharjah.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)",
+   "end_date": "2026-12-03"
+  },
+  {
+   "title": "Eid Al Etihad at Sharjah National Park and Al Layyah Canal",
+   "category": "festivals",
+   "start_date": "2026-11-28",
+   "venue": "Sharjah National Park and Al Layyah Canal",
+   "city": "Sharjah",
+   "description": "National celebrations with competitions and family activities at Sharjah National Park and along Al Layyah Canal.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)",
+   "end_date": "2026-12-03"
+  },
+  {
+   "title": "Eid Al Etihad at Khor Al Hamriyah Heritage Village",
+   "category": "festivals",
+   "start_date": "2026-11-26",
+   "venue": "Khor Al Hamriyah Heritage Village, Al Hamriyah",
+   "city": "Sharjah",
+   "description": "Folk songs, school performances, competitions, workshops, local food and a classic car exhibition in Al Hamriyah; 28 November is dedicated to events for women.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)",
+   "end_date": "2026-11-28"
+  },
+  {
+   "title": "Fakhr Al Watan – Eid Al Etihad operetta at Khorfakkan Amphitheatre",
+   "category": "music",
+   "start_date": "2026-11-26",
+   "venue": "Khorfakkan Amphitheatre",
+   "city": "Sharjah",
+   "description": "The national operetta Fakhr Al Watan with the Al Mazyood harbiya troupe and folk groups, plus a showcase of local family products and an exhibition of works by people of determination.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)",
+   "end_date": "2026-11-27"
+  },
+  {
+   "title": "Eid Al Etihad at Mleiha Heritage Village",
+   "category": "festivals",
+   "start_date": "2026-11-26",
+   "venue": "Mleiha Heritage Village",
+   "city": "Sharjah",
+   "description": "Community, cultural and heritage events for Eid Al Etihad in Mleiha.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)",
+   "end_date": "2026-11-27"
+  },
+  {
+   "title": "Eid Al Etihad at Al Batayeh Public Park",
+   "category": "festivals",
+   "start_date": "2026-11-26",
+   "venue": "Al Batayeh Public Park",
+   "city": "Sharjah",
+   "description": "Eid Al Etihad celebrations for the Al Batayeh community, with more activities in Al Barair and Bin Rashid parks.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)",
+   "end_date": "2026-11-27"
+  },
+  {
+   "title": "Eid Al Etihad at Al Dhaid Fort",
+   "category": "festivals",
+   "start_date": "2026-11-28",
+   "venue": "Al Dhaid Fort",
+   "city": "Sharjah",
+   "description": "A national parade, patriotic songs, stands by productive families and government entities, workshops and heritage competitions at Al Dhaid Fort.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)"
+  },
+  {
+   "title": "Eid Al Etihad at Al Khrouss Park",
+   "category": "festivals",
+   "start_date": "2026-11-27",
+   "venue": "Al Khrouss Park",
+   "city": "Sharjah",
+   "description": "A national parade with cultural and heritage activities at Al Khrouss Park in Sharjah.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)",
+   "end_date": "2026-11-28"
+  },
+  {
+   "title": "Eid Al Etihad Drone Show (1,600 drones)",
+   "category": "festivals",
+   "start_date": "2026-12-02",
+   "venue": "Bluewaters and The Beach, JBR",
+   "city": "Dubai",
+   "description": "1,600 drones draw the UAE flag and national symbols over the Dubai waterfront for the 55th Eid Al Etihad. Shows at 8 pm and 10 pm on both nights, visible from Bluewaters and The Beach near JBR.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Dubai Festivals and Retail Establishment (WAM)",
+   "end_date": "2026-12-03",
+   "start_time": "20:00"
+  },
+  {
+   "title": "Al Fursan Eid Al Etihad Airshow at Kite Beach",
+   "category": "festivals",
+   "start_date": "2026-11-29",
+   "venue": "Kite Beach",
+   "city": "Dubai",
+   "description": "The UAE Air Force aerobatic team Al Fursan performs a display over Kite Beach as part of Dubai's Eid Al Etihad programme.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Dubai Festivals and Retail Establishment (WAM)"
+  },
+  {
+   "title": "Eid Al Etihad at Mohammed Bin Rashid Library",
+   "category": "festivals",
+   "start_date": "2026-11-27",
+   "venue": "Mohammed Bin Rashid Library, Al Jaddaf",
+   "city": "Dubai",
+   "description": "Family activities, cultural sessions and traditional Emirati food in the library's outdoor plaza for Eid Al Etihad.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Dubai Festivals and Retail Establishment (WAM)",
+   "start_time": "16:00",
+   "end_time": "21:00"
+  }
+ ],
+ "update_event_ids": [
+  {
+   "id": "3ba6500f-f1d5-4a90-aa94-b89cc63a173b",
+   "set": {
+    "end_date": "2026-12-05",
+    "description": "Five days of Eid Al Etihad celebrations at Sheikh Zayed Festival in Al Wathba: drone shows with 5,000 drones, nightly fireworks, heritage parades, international performances and daily prize draws, with a car giveaway on 2 December."
+   }
+  }
+ ]
+}
