@@ -1,1 +1,45 @@
-# miasto | kandydat na konto | miejsce ("-" = organizator/festiwal bez stałego miejsca)   sesja ręczna 2 (25.11.2026): sport, kultura, sale, atrakcje
+# miasto | kandydat na konto | miejsce ("-" = bez stałego miejsca)   sesja 3 (25.11.2026): nazwy wzięte z oficjalnych stron (diag_ighandles), bez zgadywania
+Abu Dhabi | yaswaterworldyasisland | Yas Waterworld
+Abu Dhabi | wbworldyasisland | Warner Bros. World Abu Dhabi
+Abu Dhabi | wbworldad | Warner Bros. World Abu Dhabi
+Abu Dhabi | thenationalaq | The National Aquarium
+Abu Dhabi | yasskydivearena | CLYMB Yas Island
+Abu Dhabi | abrahamicfh | Abrahamic Family House
+Abu Dhabi | alforsanresort | Al Forsan International Sports Resort
+Abu Dhabi | 421.online | 421 Arts Campus
+Abu Dhabi | abudhabimall | Abu Dhabi Mall
+Abu Dhabi | marinamallad | Marina Mall Abu Dhabi
+Abu Dhabi | dalmamallsocial | Dalma Mall
+Abu Dhabi | alwahdamall | Al Wahda Mall
+Abu Dhabi | deerfieldsmall | Deerfields Mall
+Abu Dhabi | adrenarkuae | Adrenark Adventure
+Abu Dhabi | brassmonkeyabudhabi | Brass Monkey Abu Dhabi
+Dubai | imgworldss | IMG Worlds of Adventure
+Dubai | wildwadiwaterpark | Wild Wadi Waterpark
+Dubai | aindxbofficial | Ain Dubai
+Dubai | museumofillusions_dubai | Museum of Illusions Dubai
+Dubai | dolphinariumdubai | Dubai Dolphinarium
+Dubai | dubaicomedyfest | -
+Dubai | dubaifestivalcitymall | Dubai Festival City Mall
+Dubai | dubaihillsmall | Dubai Hills Mall
+Dubai | waficitydubai | WAFI City
+Dubai | mercatomall | Mercato Mall
+Dubai | timessquaredxb | Times Square Center
+Dubai | woohoouae | Woo-hoo Kids Museum
+Dubai | bouncemideast | BOUNCE
+Dubai | airmaniax | Air Maniax
+Dubai | chaoskartsuae | Chaos Karts
+Dubai | aventuraparks | Aventura Parks
+Dubai | tr88house | Tr88house
+Dubai | icdbrookfieldplace | ICD Brookfield Place
+Dubai | thesustainablecity | The Sustainable City
+Dubai | brassmonkeysocial | Brass Monkey
+Dubai | mcgettiganspubs | -
+Sharjah | sharjahhow | House of Wisdom
+Sharjah | aradaliving | -
+Sharjah | marayaartcentre | Maraya Art Centre
+Sharjah | megamallsharjah | Mega Mall Sharjah
+Ras Al Khaimah | alhamramallrak | Al Hamra Mall
+Ras Al Khaimah | suwaidi_pearls | Suwaidi Pearl Farm
+Ras Al Khaimah | beargryllscamp | Bear Grylls Explorers Camp
+Ras Al Khaimah | rakheritage | -
