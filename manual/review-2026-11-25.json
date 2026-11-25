@@ -1,0 +1,73 @@
+{
+ "note": "Przegląd 25.11 przez Claude: pending – 4 Meetupy bez miejsca/przeszłe i duplikat Polskiego Pikniku odrzucone, business lunch Jumeirah Al Qasr zatwierdzony; auto-zatwierdzone – linki-portale wyczyszczone; spójność – duplikaty WAKA Night Brunch, Le Brunch, Mama pool pass, Festive Afternoon Tea at Sama, Bolshoi/Symphonic Orchestra, Your Fort O Nation/Sing for the Nation usunięte, pozostałe pary oznaczone w audit/not_dups.txt.",
+ "approve": [],
+ "reject": [
+  {
+   "title": "Indoor Padel Game (WhatsApp booking)",
+   "start_date": "2026-11-24"
+  },
+  {
+   "title": "Sports Knight: Badminton",
+   "start_date": "2026-11-26"
+  },
+  {
+   "title": "Board Game Knight - November",
+   "start_date": "2026-11-28"
+  },
+  {
+   "title": "The Psychology of the Qur'an",
+   "start_date": "2026-12-02"
+  },
+  {
+   "title": "Polski Piknik Dubaj",
+   "start_date": "2026-12-05"
+  }
+ ],
+ "approve_deal_ids": [
+  "736c79ac-1376-4219-bcbf-3b55c2e4dfe6"
+ ],
+ "reject_deal_ids": [
+  "49fe007c-aa76-4d96-b0a8-d82035f8133e",
+  "df0202a4-f4fc-4ddc-a162-dee8059aeafc",
+  "f0b7d6cb-f8e5-4e04-afb5-d053cc294b01"
+ ],
+ "reject_event_ids": [
+  "5444a29a-e2a2-4157-8d14-b1123f15a9e3",
+  "21427572-eb25-4f20-b343-c52954f3e346",
+  "c5ce7413-2cdc-49d8-bbc4-506138d8e58a"
+ ],
+ "reject_places": [],
+ "update_event_ids": [
+  {
+   "id": "bdf87932-298a-4d53-aa52-a4469b85316d",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "cab8c08c-03fe-4513-9ace-536f0efdae54",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "7020ec55-f475-4145-8343-727f55bba13d",
+   "set": {
+    "start_time": "20:00:00"
+   }
+  }
+ ],
+ "update_deal_ids": [
+  {
+   "id": "a508b7d8-d8a7-49ce-96fe-0f0281191dde",
+   "set": {
+    "days_of_week": [
+     5
+    ],
+    "start_time": "19:00:00",
+    "price_text": "AED 230 soft, AED 375 bubbly, AED 575 champagne"
+   }
+  }
+ ],
+ "update_place_ids": []
+}

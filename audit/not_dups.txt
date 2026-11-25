@@ -1,1 +1,44 @@
 # Pary id sprawdzone ręcznie: to NIE są powtórki (kontrola spójności ich nie zgłasza). Format: idA idB  # opis
+22caf23c-75b3-4213-8766-9911610e3b07 03b1c0a5-7e1f-4c40-8d0c-e244eb81e554  # Yas Beach vs Yas Acres Golf – different venues
+40a3ba08-f7e3-484f-90ac-e6ce230867f4 3be8db28-7055-4b44-87a7-949f3832b86b  # Revo Cafe vs 7 Sports Bar – different bars in one hotel
+89cff76e-b686-4737-97fd-7576a22ad3a5 26ec4b9d-291c-4b9c-a5d8-81a033649cf5  # Mama night swim vs brunch after party – different offers
+9727d0a8-495b-42e1-bfe3-555d30678347 717a0180-c041-4436-8ebd-ddce93affd35  # Socials: Hotelier's Day vs Teachers' Day – different offers
+9b84cfcc-beed-4497-b2b3-5d3ac36148b0 39ba5a56-9be8-4b1f-b022-f2f46180d878  # Majdolin: Turkish Night vs Meet Your Meat Match – different nights
+a740b9b1-bc0a-48b2-a367-6d42cc3a2fbe 5cd5c02e-8654-4641-8aff-11720ced978e  # The Croft vs Observatory Lounge – different bars
+b3321c50-15a3-4a6f-a0bf-cc78960a7e00 22caf23c-75b3-4213-8766-9911610e3b07  # Crowne Plaza Yas vs Yas Beach – different venues
+c764cb19-a9e2-478b-a37c-87bc92e3f09c 2876eedc-fb38-4b05-b299-34ca0648c19d  # Saadiyat Beach Club vs Jumeirah Saadiyat – different venues
+c764cb19-a9e2-478b-a37c-87bc92e3f09c 91609456-29c3-4da0-b36d-de7f2a091dd6  # Saadiyat Beach Club vs Rixos – different venues
+c764cb19-a9e2-478b-a37c-87bc92e3f09c c5767edd-38f4-4011-a3c1-07b24bae3407  # Saadiyat Beach Club vs St. Regis – different venues
+ed41f36a-ece8-4497-bd57-e9450cf1d9a3 bcbc7baf-92e9-4670-aead-246564fb5dc2  # Fahid: ladies' day vs ladies' night – different offers
+f55fb0e6-dd34-4d79-abfd-d4cf1fdeec44 2785ea09-a6d0-4229-918f-078c3d91bbe9  # SBC early-bird general vs early-bird ladies
+f55fb0e6-dd34-4d79-abfd-d4cf1fdeec44 c764cb19-a9e2-478b-a37c-87bc92e3f09c  # SBC early-bird vs regular day pass
+f6fbf9a8-a938-4e70-b6f4-0442193358ef 74cbf1d9-1a3f-425b-9bb3-43b5aec65e09  # Spritz & Sips vs gingerbread decorating – different
+f7dcc306-982f-4d0c-9a4b-87f5da304dc4 2876eedc-fb38-4b05-b299-34ca0648c19d  # SBC ladies' day vs Jumeirah Saadiyat
+f7dcc306-982f-4d0c-9a4b-87f5da304dc4 91609456-29c3-4da0-b36d-de7f2a091dd6  # SBC ladies' day vs Rixos
+f7dcc306-982f-4d0c-9a4b-87f5da304dc4 c5767edd-38f4-4011-a3c1-07b24bae3407  # SBC ladies' day vs St. Regis
+f7dcc306-982f-4d0c-9a4b-87f5da304dc4 c764cb19-a9e2-478b-a37c-87bc92e3f09c  # SBC ladies' day vs regular day pass
+f7dcc306-982f-4d0c-9a4b-87f5da304dc4 f55fb0e6-dd34-4d79-abfd-d4cf1fdeec44  # SBC ladies' day vs early-bird
+f91619fb-4cd2-4d1f-ba45-355258021432 9b84cfcc-beed-4497-b2b3-5d3ac36148b0  # Majdolin: Arabian vs Turkish night – different nights
+f9f796b5-9aac-409f-8b33-8a51ad8f02d8 cf34e1de-a2d1-4bf8-a76a-8c37d048e41e  # Black Sheep: draught beer all day vs happy hour – different offers
+fa3053fc-4598-431a-878c-87b4857e2d44 c67e918a-08cd-48cf-8d3a-8f8335a683b1  # Kanpai Hours vs Garden on 8 happy hour – different outlets
+ff8865df-379f-4c26-b6b6-db41135ae045 22caf23c-75b3-4213-8766-9911610e3b07  # Hilton Yas vs Yas Beach – different venues
+32a870f0-b298-4b28-83e4-9b0d12692562 0b7653df-b4c3-47ac-aa5e-4efa941a54dc  # fitness village vs padel challenge in it – different
+e6608d78-ba4e-49a0-b6fa-09544c721f2c 0b7653df-b4c3-47ac-aa5e-4efa941a54dc  # DP World village vs Municipality padel challenge
+e6608d78-ba4e-49a0-b6fa-09544c721f2c 32a870f0-b298-4b28-83e4-9b0d12692562  # DP World village vs Al Warqa'a village – different sites
+63d2542c-60fe-448e-a024-afa282659f09 5a0176de-3b8e-4db8-bcf9-62a55568e83d  # Nikki Beach pop-up vs boat show itself
+80d6780d-3ee5-42cf-a964-e822b82ad10f 52ee117a-629f-41e9-820b-f1eab133a20d  # Artist's Room – different artists
+e11c0b88-545e-4e89-b7f7-808dfb51d998 52ee117a-629f-41e9-820b-f1eab133a20d  # Artist's Room – different artists
+e11c0b88-545e-4e89-b7f7-808dfb51d998 80d6780d-3ee5-42cf-a964-e822b82ad10f  # Artist's Room – different artists
+8229077f-5ddc-4c1f-bca1-bf8f537bfbd8 5ca055ed-cbe4-48ed-88a6-e0861d03d7f8  # SAF: DIY postcard vs RISO station – different activities
+c592ee13-cc7e-416a-8369-d0d44a543333 a936a7c2-313e-4474-b1ec-c3230b20f563  # Candlelight – different programmes
+de7c5c2b-348e-4634-8feb-9326ac4b943e 51ef6445-e8cf-44a7-8b18-190f60752f44  # Yasalam – different artists
+623aa9d3-d53d-44f0-a8bf-19738a73ad1a 4ed357df-f079-4fe0-a785-1f818634b716  # Jebel Hafit Desert Park vs mountain drive
+806bae58-0da8-45c8-b6bc-68e1ab847d91 58999e62-eda0-41cb-9903-216f41cdec90  # kayaking vs museum
+9f6ca0c0-8c15-4ee8-9d43-9a60dd384793 109f4919-43b0-47b3-b563-47d34875afe5  # Qasr Al Hosn fort vs House of Artisans – separate buildings
+a65b1742-99ec-45d5-aa94-7a92ee32a165 a21cf10e-769c-47d1-ae6a-d65d773e00b7  # Jais Flight vs Jais Sky Tour – different ziplines
+b99bc8bc-dcb9-4f93-8796-1b3a9ec58714 00b1d305-35b2-467b-90b4-0bca1c50ba54  # ceramics studio vs Manarat gallery
+c5cf693f-84c1-4c5b-b49f-0c7406713381 13b64412-c7e8-4e62-8e3c-1ac78bff423a  # DDCR vs Al Marmoom – different reserves
+d3b712b6-1cdd-46f2-af20-8b12e1d18959 b7f07333-9556-4c05-8fc6-47acf13ef1bb  # Al Bateen public vs ladies beach
+d94ef222-c2aa-4071-98f0-5f4ff9778a5b 3339794c-db3e-47f2-b468-97e4c0882334  # Emirates Palace visit vs Corniche/Lulu boat itinerary
+e4f16211-67b2-40f8-82fc-fb7a6c905e0a 48650433-0c3e-4ebc-83b8-0ca52867957f  # TrainYAS free track vs driving experience
+ebaadc2b-8b47-401b-b96f-c674de35b67f cfa828f3-2330-4b95-8eb9-1d40d9997885  # Khor Fakkan fort vs Sharjah Fort – different forts
