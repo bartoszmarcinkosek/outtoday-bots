@@ -1,0 +1,91 @@
+# Kandydaci na nowe źródła wydarzeń (25.11.2026). Format: id | miasto | nazwa | url
+visit_dubai_calendar | Dubai | Visit Dubai – Dubai Calendar | https://www.visitdubai.com/en/whats-on/dubai-events-calendar
+dubai_culture | Dubai | Dubai Culture | https://dubaiculture.gov.ae/en/events
+dubai_sports_council | Dubai | Dubai Sports Council | https://www.dubaisc.ae/en/events
+mbr_library | Dubai | Mohammed Bin Rashid Library | https://www.mbrl.ae/en/events
+zabeel_theatre | Dubai | Zabeel Theatre | https://www.zabeeltheatre.com/whats-on
+laughter_factory | Dubai | The Laughter Factory | https://www.thelaughterfactory.com/
+toda | Dubai | Theatre of Digital Art | https://toda.ae/en/events
+cinema_akil | Dubai | Cinema Akil | https://www.cinemaakil.com/
+the_fridge | Dubai | The Fridge | https://www.thefridgedubai.com/
+ripe_market | Dubai | Ripe Market | https://www.ripeme.com/
+city_walk | Dubai | City Walk | https://www.citywalk.ae/en/whats-on
+la_mer | Dubai | La Mer | https://www.lamerdubai.ae/en/whats-on
+the_beach_jbr | Dubai | The Beach JBR | https://www.thebeach.ae/en/whats-on
+ibn_battuta | Dubai | Ibn Battuta Mall | https://www.ibnbattutamall.com/en/events
+dubai_hills_mall | Dubai | Dubai Hills Mall | https://www.dubaihillsmall.ae/en/whats-on
+dubai_safari | Dubai | Dubai Safari Park | https://www.dubaisafari.ae/
+atlantis_whatson | Dubai | Atlantis The Palm | https://www.atlantis.com/dubai/whats-on
+ski_dubai | Dubai | Ski Dubai | https://www.skidxb.com/en-ae/events
+olioli | Dubai | OliOli | https://olioli.ae/
+the_agenda | Dubai | The Agenda | https://www.theagenda.ae/
+art_dubai | Dubai | Art Dubai | https://www.artdubai.ae/
+emirates_litfest | Dubai | Emirates LitFest | https://www.emirateslitfest.com/
+gulf_photo_plus | Dubai | Gulf Photo Plus | https://gulfphotoplus.com/events
+tashkeel | Dubai | Tashkeel | https://tashkeel.org/events
+courtyard_playhouse | Dubai | The Courtyard Playhouse | https://www.courtyardplayhouse.com/
+goethe_gulf | Dubai | Goethe-Institut Gulf | https://www.goethe.de/ins/ae/en/ver.cfm
+cervantes_dubai | Dubai | Instituto Cervantes Dubai | https://dubai.cervantes.es/en/culture/cultural_activities.htm
+dsf | Dubai | Dubai Shopping Festival | https://www.mydsf.ae/
+dubai_fitness | Dubai | Dubai Fitness Challenge | https://www.dubaifitnesschallenge.com/
+meydan | Dubai | Meydan | https://www.meydan.ae/
+supersports | Dubai | Super Sports Run Series | https://www.supersportsuae.com/
+premieronline | Dubai | Premier Online (zapisy na zawody) | https://www.premieronline.com/
+raceme | Dubai | RaceME | https://www.raceme.ae/
+ticketmaster_ae | Dubai | Ticketmaster UAE | https://www.ticketmaster.ae/
+livenation_me | Dubai | Live Nation Middle East | https://www.livenation.me/
+virgin_tickets | Dubai | Virgin Megastore Tickets | https://tickets.virginmegastore.me/
+dubai_garden_glow | Dubai | Dubai Garden Glow | https://www.dubaigardenglow.com/
+miracle_garden | Dubai | Dubai Miracle Garden | https://www.dubaimiraclegarden.com/
+dubai_festival_plaza | Dubai | Festival Plaza | https://www.dubaifestivalplaza.com/en/events
+nakheel_mall | Dubai | Nakheel Mall | https://www.nakheelmall.ae/en/whats-on
+ad_culture | Abu Dhabi | Abu Dhabi Culture (DCT) | https://abudhabiculture.ae/en/experience/events
+ad_sports_council | Abu Dhabi | Abu Dhabi Sports Council | https://www.adsc.ae/en/events/
+zayed_sports_city | Abu Dhabi | Zayed Sports City | https://www.zsc.ae/en/events
+berklee_ad | Abu Dhabi | Berklee Abu Dhabi | https://abudhabi.berklee.edu/events
+ad_art | Abu Dhabi | Abu Dhabi Art | https://www.abudhabiart.ae/en/
+qasr_al_hosn | Abu Dhabi | Qasr Al Hosn | https://qasralhosn.ae/en/whats-on
+zayed_festival | Abu Dhabi | Sheikh Zayed Festival | https://www.zayedfestival.ae/
+motn | Abu Dhabi | Mother of the Nation Festival | https://www.motn.ae/
+bfaf | Abu Dhabi | Bassam Freiha Art Foundation | https://www.bfaf.ae/
+umm_al_emarat | Abu Dhabi | Umm Al Emarat Park | https://www.ummalemaratpark.ae/en/events
+al_qana | Abu Dhabi | Al Qana | https://www.alqana.ae/whats-on
+hudayriyat | Abu Dhabi | Hudayriyat Island | https://www.hudayriyatisland.ae/en/events
+al_maryah | Abu Dhabi | Al Maryah Island | https://www.almaryahisland.ae/en/whats-on
+saadiyat_island | Abu Dhabi | Saadiyat Island | https://www.saadiyatisland.ae/en/whats-on
+ad_cricket | Abu Dhabi | Abu Dhabi Cricket & Sports Hub | https://www.abudhabicricket.ae/events
+mubadala_open | Abu Dhabi | Mubadala Abu Dhabi Open | https://www.mubadalaabudhabiopen.com/
+ad_gp | Abu Dhabi | Abu Dhabi Grand Prix | https://www.abudhabigp.com/
+emirates_palace | Abu Dhabi | Emirates Palace Mandarin Oriental | https://www.mandarinoriental.com/en/abu-dhabi/emirates-palace/offers
+teamlab_ad | Abu Dhabi | teamLab Phenomena | https://www.teamlab.art/e/phenomena_abudhabi/
+marina_mall_ad | Abu Dhabi | Marina Mall | https://www.marinamall.ae/en/whats-on
+adnec_alain | Al Ain | ADNEC Centre Al Ain | https://www.adnecalain.ae/en/eventlisting
+al_ain_raceway | Al Ain | Al Ain Raceway | https://www.alainraceway.com/
+hbz_stadium | Al Ain | Hazza Bin Zayed Stadium | https://www.hbzstadium.ae/
+al_ain_mall | Al Ain | Al Ain Mall | https://www.alainmall.com/events
+sharjah_events | Sharjah | Sharjah Events | https://www.sharjahevents.ae/en
+house_of_wisdom | Sharjah | House of Wisdom | https://houseofwisdom.ae/en/events
+maraya | Sharjah | Maraya Art Centre | https://maraya.ae/
+africa_institute | Sharjah | The Africa Institute | https://theafricainstitute.org/events/
+al_noor_island | Sharjah | Al Noor Island | https://www.alnoorisland.ae/en/events
+spaa | Sharjah | Sharjah Performing Arts Academy | https://www.spaa.ae/events
+xposure | Sharjah | Xposure | https://www.xposure.ae/
+scrf | Sharjah | Sharjah Children's Reading Festival | https://www.scrf.ae/
+al_montazah | Sharjah | Al Montazah Parks | https://www.almontazah.ae/
+aljada | Sharjah | Aljada | https://www.aljada.com/whats-on
+sharjah_heritage | Sharjah | Sharjah Institute for Heritage | https://www.sih.gov.ae/en/events
+rak_expo | Ras Al Khaimah | RAK Exhibition Centre | https://www.rakexpo.ae/
+al_hamra | Ras Al Khaimah | Al Hamra | https://www.alhamra.ae/whats-on
+manar_mall | Ras Al Khaimah | Manar Mall | https://www.manarmall.com/en/events
+highlander | Ras Al Khaimah | Highlander Adventure | https://highlanderadventure.com/
+visit_ajman_calendar | Ajman | Visit Ajman – kalendarz | https://visit-ajman.ae/en/things-to-do/event-calendar
+al_zorah_events | Ajman | Al Zorah | https://www.alzorah.ae/
+cc_ajman | Ajman | City Centre Ajman | https://www.citycentreajman.com/en/events
+fujairah_adventures | Fujairah | Fujairah Adventures | https://fujairahadventures.ae/
+fimc | Fujairah | Fujairah International Marine Club | https://fimc.ae/
+fujairah_fine_arts | Fujairah | Fujairah Fine Arts Academy | https://www.ffaa.ae/
+cc_fujairah | Fujairah | City Centre Fujairah | https://www.citycentrefujairah.com/en/events
+emirates_motorplex | Umm Al Quwain | Emirates Motorplex | https://www.emiratesmotorplex.com/
+uaq_marine_club | Umm Al Quwain | UAQ Marine Club | http://www.uaqmarineclub.com/
+uae_triathlon | Dubai | UAE Triathlon Federation | https://uaetriathlon.ae/events
+uae_cycling | Dubai | UAE Cycling Federation | https://uaecf.ae/en/events
