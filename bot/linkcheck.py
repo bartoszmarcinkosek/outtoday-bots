@@ -52,6 +52,8 @@ for table, r, title, venue in items:
         code, detail = "NOT_FOUND", st
     elif st >= 400:
         code, detail = "BLOCKED_OR_ERROR", st      # często blokada robotów – tylko informacyjnie
+    elif p1.netloc.startswith("queue."):
+        code, detail = "BLOCKED_OR_ERROR", "waiting room"   # kolejka biletowni (Platinumlist) – strona istnieje
     elif len(p0.path.strip("/")) > 3 and len(p1.path.strip("/")) <= 3 and p0.netloc.split(".")[-2:] == p1.netloc.split(".")[-2:]:
         code, detail = "REDIRECT_HOME", fin
     else:

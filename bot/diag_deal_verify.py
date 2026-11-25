@@ -13,8 +13,16 @@ def cell(x, k=220):
     return str(x if x is not None else "").replace("|", "/").replace("\n", " ")[:k]
 rows = [r for r in db.get("deals", {"select": "id,title,venue,city,deal_type,days_of_week,start_time,end_time,price_text,valid_until,official_url,details,created_at",
                                     "status": "eq.approved", "limit": "3000"}) if (r.get("official_url") or "").startswith("http")]
-rows.sort(key=lambda r: (seen.get(r["id"], "0"), r.get("created_at") or ""))
+# audit/deal_priority.txt: id-ki ofert, których strona zniknęła w kontroli linków – idą pierwsze (dopóki nie zostaną sprawdzone)
+try:
+    prio = {l.split()[0] for l in open(os.path.join(os.path.dirname(__file__), "..", "audit", "deal_priority.txt")) if l.strip() and not l.startswith("#")}
+except Exception:
+    prio = set()
+prio = {i for i in prio if i not in seen}
+rows.sort(key=lambda r: (r["id"] not in prio, seen.get(r["id"], "0"), r.get("created_at") or ""))
 never = sum(1 for r in rows if r["id"] not in seen)
 print(f"DA|deals with link {len(rows)} | never verified {never}")
+if prio:
+    print(f"DN|the first {min(n, len(prio))} deals below had a dead or wrong link in the weekly link check (page 404 or another offer)")
 for r in rows[:n]:
     print("DV|" + "|".join(cell(r.get(k)) for k in ("id", "city", "venue", "deal_type", "title", "days_of_week", "start_time", "end_time", "price_text", "valid_until", "official_url", "details")))

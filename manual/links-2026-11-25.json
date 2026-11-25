@@ -1,0 +1,35 @@
+{
+ "note": "Kontrola linków 24–25.11: strona programów edukacyjnych abudhabiculture.ae już nie istnieje (404) – link usunięty, żeby karta nie prowadziła donikąd.",
+ "update_place_ids": [
+  {
+   "id": "06647fcb-a732-422b-a362-6d4b0855c18c",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "20f94d04-ea7d-406f-aa7a-647d59bd3386",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "414493c8-c73f-4b93-90d2-4a5a7c930b9d",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "5f0d4b47-583e-4a3f-95d3-2af0ac55ef78",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "f5df304d-c88b-4f20-8fdf-50f3f223660b",
+   "set": {
+    "official_url": null
+   }
+  }
+ ]
+}

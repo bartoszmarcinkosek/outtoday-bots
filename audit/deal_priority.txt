@@ -1,0 +1,21 @@
+0112778b-3108-4f1c-b288-92fd10ea3564  # NOT_FOUND Rite of Siam Brunch
+18196ee0-343b-4ca6-8793-8246ce9958e8  # NOT_FOUND Cedar Brunch
+1957a1ce-8872-4065-9185-2780c22b76c3  # NOT_FOUND Quiz Night
+2116d217-46e8-4406-94fb-7d59eb85fb4f  # NOT_FOUND Day pass: Fairmont Bab Al Bahr
+2353a38d-fa08-4720-9c8c-0955c394276a  # NOT_FOUND Friday Brunch at The Hide
+4a94da3c-32fd-46f6-ad7a-ec355f9db908  # NOT_FOUND Quiz night: McGettigan's
+4cb25c73-830c-4165-a4e4-233f559cd013  # REDIRECT_HOME Day pass: Al Maya Island & Resort
+84ffdd90-5a94-4929-9571-b90df55f8638  # NOT_FOUND Day pass: Sheraton Abu Dhabi Hotel & Resort
+875f88fd-ea39-4789-b2d3-2ab51d0eec2e  # NOT_FOUND Vista Brunch
+a09d56dc-0a6f-4a60-80db-25443cc0a630  # NOT_FOUND Brunch: The Grand Brunch at Fairmont Bab Al Bahr
+a2396899-2ab5-4923-9798-6fe5e92909d4  # NOT_FOUND Brunch: Siddharta Lounge by Buddha-Bar
+a5001735-3faf-42b0-b094-017d3ee9d2c1  # NOT_FOUND Unlimited Breakfast Buffet
+a6a8f798-41f7-403e-a44e-d2ed756f608b  # NOT_FOUND Brunch: Mazaj Bab Al Bahr
+ac397440-7841-4b04-9ea8-107e9e907c2e  # NOT_FOUND Brunch at Prime68
+c3688366-78c8-45ae-802c-e89c70e5e5ba  # NOT_FOUND Ladies' Night at Hamilton's Gastropub
+cad49a3a-a126-4082-928c-89d5f9320d40  # NOT_FOUND Brunch: McCafferty's Irish Pub
+ce3dfc4b-ea55-48c9-a8df-e3dc76667688  # NOT_FOUND Wanderlust Brunch
+db744180-ce5a-406d-843a-315434e994d7  # NOT_FOUND Day pass: ILIOS Beach Club
+e10e2736-2d86-4814-9f6f-1c47ed2bca8d  # NOT_FOUND Happy hour: Belgian Cafe
+4ed854a3-f3c8-4bb3-85d6-aae7b8a2d1ff  # NO_MATCH Weekday Beach & Pool Pass
+6386e8e7-814c-428b-9809-1712fb9a5d89  # NO_MATCH Weekend Beach & Pool Pass
