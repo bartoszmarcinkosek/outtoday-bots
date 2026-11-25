@@ -25,6 +25,8 @@ async function all(table: string, select: string, extra = ''): Promise<any[]> {
     deals: await all('deals', '*'),
   };
   const items = buildItems(data, null);
+  const days = Number(process.env.DAYS || 0);   // DAYS=2 → linie PA tylko dla pozycji dodanych w ostatnich 2 dniach (PC zawsze z całej bazy)
+  const since = days ? new Date(Date.now() - days * 86400000).toISOString() : '';
   const count: Record<string, number> = {};
   const clean = (s: unknown) => String(s ?? '').replace(/[|\n]/g, ' ').slice(0, 70);
   for (const i of items) {
@@ -32,7 +34,7 @@ async function all(table: string, select: string, extra = ''): Promise<any[]> {
     const name = p ? p.replace(/^.*\//, '').replace(/\.jpg$/, '') : '-';
     count[name] = (count[name] ?? 0) + 1;
     const row: any = i.event ?? i.deal ?? i.place ?? {};
-    console.log(`PA|${i.kind}|${row.id}|${clean(row.city)}|${clean(i.catKey)}|${name}|${clean((i as any).rawTitle ?? i.title)}|${clean(i.where)}`);
+    if (!since || String(row.created_at ?? '') >= since) console.log(`PA|${i.kind}|${row.id}|${clean(row.city)}|${clean(i.catKey)}|${name}|${clean((i as any).rawTitle ?? i.title)}|${clean(i.where)}`);
   }
   for (const [k, n] of Object.entries(count).sort((a, b) => b[1] - a[1])) console.log(`PC|${k}|${n}`);
 })().catch((e) => { console.error(e); process.exit(1); });
