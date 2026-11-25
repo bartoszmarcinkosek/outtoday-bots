@@ -92,3 +92,5 @@ Sharjah | saharacentre | Sahara Centre
 Sharjah | kalbawaterfront | Kalba Waterfront
 Sharjah | sharjahcollection | -
 Sharjah | thechedialbait | The Chedi Al Bait
+Abu Dhabi | nyuadartscenter | The Arts Center at NYU Abu Dhabi
+Abu Dhabi | adrea.ae | Abu Dhabi Royal Equestrian Arts

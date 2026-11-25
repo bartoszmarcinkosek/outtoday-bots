@@ -1,0 +1,65 @@
+{
+ "note": "Materiały właściciela 25.11.2026 (WhatsApp + wklejony opis). W bazie były już: Hekayah, Superheroes in Concert, Diamonds Ballet Gala, Paula Comitre – uzupełnione dane; błędny drugi wpis Hekayah (26.11, Black Box) odrzucony. Kurs medytacji Inner Space pominięty – tylko online.",
+ "events": [
+  {
+   "title": "ADREA Anniversary Book Fair",
+   "category": "culture",
+   "start_date": "2026-11-26",
+   "end_date": "2026-11-29",
+   "start_time": "16:00",
+   "end_time": "22:00",
+   "venue": "Abu Dhabi Royal Equestrian Arts, Al Jubail Island",
+   "city": "Abu Dhabi",
+   "description": "Four days of books, talks, workshops and experiences on the horse's place in culture, with cultural institutions, publishers, archives and museums, closing ADREA's first-anniversary month. Programme includes bookbinding, zine-making and sketching workshops, children's workshops, talks, and the launch of ADREA's first two books: Furusiyya – The Noble Connection Between Horse and Man (28 Nov, 6 pm) and the children's book Little Heroes' Quest (29 Nov, 5 pm). Workshops and talks are booked separately on ADREA's website.",
+   "kid_friendly": true,
+   "official_url": "https://store.adrea.ae/",
+   "status": "approved",
+   "source_name": "Abu Dhabi Royal Equestrian Arts (Instagram, WhatsApp)"
+  },
+  {
+   "title": "Emirati Film Month",
+   "category": "culture",
+   "start_date": "2026-12-11",
+   "end_date": "2027-01-14",
+   "venue": "Cultural Foundation",
+   "city": "Abu Dhabi",
+   "is_free": true,
+   "price_text": "Free",
+   "description": "A curated selection of Emirati feature films, short films and documentaries at the Cultural Foundation, presented in partnership with Image Nation Studios. Screening schedule on the Cultural Foundation website.",
+   "official_url": "https://culturalfoundation.ae/en/calendar",
+   "status": "approved",
+   "source_name": "Cultural Foundation Abu Dhabi"
+  }
+ ],
+ "update_event_ids": [
+  {
+   "id": "14a9b3a3-c96d-44a5-9b1d-ce5ecf8fc5a2",
+   "set": {
+    "is_free": true,
+    "price_text": "Free",
+    "description": "The 12th Hekayah | The Story by The Arts Center at NYU Abu Dhabi: an evening of spoken word poetry, music, dance and theatre by artists from across the UAE's communities, sharing stories of home and belonging for Eid Al Etihad. Hosted by Reem Al Zaidi. This year it takes place on the Public Art Abu Dhabi Biennial stage at Souq Al Mina (Mina Zayed), not at The Arts Center."
+   }
+  },
+  {
+   "id": "c667a5de-c9ea-417a-ab2f-77a2a9976d16",
+   "set": {
+    "title": "Super Heroes in Concert – The Youth Philharmonic & Choir",
+    "price_text": "AED 50",
+    "description": "The Youth Philharmonic & Choir perform their Super Heroes in Concert programme in the Cultural Foundation Auditorium."
+   }
+  },
+  {
+   "id": "d1da93b6-27b1-499b-ac39-acf9a4fb1ba3",
+   "set": {
+    "title": "Diamonds Ballet Gala – Italian and International Dance Stars",
+    "start_time": "20:00",
+    "price_text": "From AED 200",
+    "official_url": "https://abu-dhabi.platinumlist.net/event-tickets/109281/diamonds-ballet-gala-led-by-italian-and-international-dance-stars",
+    "description": "Classical ballet gala with dancers from Teatro alla Scala in Milan and other leading international companies – solos and pas de deux from the great repertoire. Presented in partnership with the Embassy of Italy. Doors open 7:30 pm."
+   }
+  }
+ ],
+ "reject_event_ids": [
+  "fb696278-c27d-468d-9a0f-791f1e260d21"
+ ]
+}
