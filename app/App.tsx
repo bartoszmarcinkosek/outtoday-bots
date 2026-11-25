@@ -800,9 +800,12 @@ function TodayScreen(props: {
       <View key={title} style={{ marginBottom: 10 }}>
         <View style={styles.secHead}>
           <Text style={styles.secTitle}>{title}</Text>
-          <Pressable onPress={onAll} hitSlop={10}>
-            <Text style={styles.seeAll}>See all {items.length}</Text>
-          </Pressable>
+          {/* 25.11.2026: link tylko gdy coś jest ukryte, z liczbą ukrytych pozycji */}
+          {items.length > max && (
+            <Pressable onPress={onAll} hitSlop={10}>
+              <Text style={styles.seeAll}>+{items.length - max} more</Text>
+            </Pressable>
+          )}
         </View>
         {items.slice(0, max).map(props.card)}
       </View>
