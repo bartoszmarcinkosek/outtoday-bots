@@ -1,0 +1,165 @@
+{
+ "note": "Pełny przegląd małych emiratów (RAK, Ajman, UAQ, Fujairah, Al Ain) 25.11.2026 na prośbę Bartosza: 256 pozycji, treść + zdjęcia; wybrane oferty sprawdzone na stronie źródłowej.",
+ "reject_event_ids": [
+  "dbf08d30-5fd3-42aa-aacd-027425f1fae5",
+  "70703601-33c8-4e30-a935-2d8049ec3ef8",
+  "29efbd22-5376-4e8c-b601-f7485c7ac140"
+ ],
+ "reject_deal_ids": [
+  "0064cb56-9c41-44a8-a959-9c191f610d3e",
+  "fd02da39-4410-430c-934d-2e5c214c1f2e",
+  "741d0579-dcc6-4e23-9449-d497bbe38cd5",
+  "8165a58d-879c-4897-a7b1-f7fe5eb8abb5",
+  "a851b8be-62e7-40f0-9075-44fd427cb02e"
+ ],
+ "update_event_ids": [
+  {
+   "id": "b33ca189-4d37-4f01-8b31-93af61ff5e67",
+   "set": {
+    "venue": "Masfout Museum",
+    "price_text": "Free",
+    "is_free": true
+   }
+  },
+  {
+   "id": "9e1452c8-1635-4162-b924-72ff1abe5524",
+   "set": {
+    "venue": "Masfout Museum",
+    "price_text": "AED 105 to 315"
+   }
+  },
+  {
+   "id": "425a9fde-79de-48af-8b08-045c800fbef4",
+   "set": {
+    "venue": "Al Safia Park",
+    "description": "The sixth edition of the duathlon at Al Safia Park in Ajman, suited to beginners and experienced athletes."
+   }
+  },
+  {
+   "id": "31a9a1ca-5d78-4e30-8866-2047c4318811",
+   "set": {
+    "price_text": "AED 210 to 567"
+   }
+  }
+ ],
+ "update_deal_ids": [
+  {
+   "id": "17420161-1b21-488a-b6f8-d7ce4c8bc7d5",
+   "set": {
+    "price_text": "AED 55 per person plus 5% VAT (regular price AED 120)"
+   }
+  },
+  {
+   "id": "d1d3d7fa-0146-4bda-87d5-65b7a04afc73",
+   "set": {
+    "price_text": "40% off all beverages"
+   }
+  },
+  {
+   "id": "2ab82a9a-d7d6-4b32-b696-efe48486304b",
+   "set": {
+    "price_text": "30% off mixed grills"
+   }
+  },
+  {
+   "id": "947c145e-b534-44e7-9d8b-c8fa26c39cbe",
+   "set": {
+    "price_text": "30% off Josper-grilled steak and selected wines"
+   }
+  },
+  {
+   "id": "d3f79568-8b8a-42cb-9763-60d854fa2562",
+   "set": {
+    "deal_type": "day_pass"
+   }
+  },
+  {
+   "id": "ae7da70e-4ca1-4127-8d56-04e947de7e38",
+   "set": {
+    "venue": "Danat Al Ain Resort"
+   }
+  },
+  {
+   "id": "52345d63-0ed2-4c89-97d4-5d5068e30cbc",
+   "set": {
+    "price_text": "AED 179"
+   }
+  },
+  {
+   "id": "424e610e-2a59-46cf-bbe9-597cfdb72359",
+   "set": {
+    "price_text": "AED 275 soft · AED 395 house · AED 650 with Champagne"
+   }
+  },
+  {
+   "id": "8ad7a31a-dc4e-44fe-a72f-c716f6bfd2d5",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  }
+ ],
+ "update_place_ids": [
+  {
+   "id": "8f9d6d1c-82fb-434e-8665-291eefc4bec3",
+   "set": {
+    "name": "Al Ain Adventure",
+    "official_url": "https://alainadventure.com/",
+    "hours_text": "Mon to Fri 12:00 to 18:00; Sat and Sun 10:00 to 19:00",
+    "description": "White-water rafting, kayaking and surf park at the foot of Jebel Hafeet (formerly Wadi Adventure)."
+   }
+  },
+  {
+   "id": "5bd63aea-eae8-495b-b144-5db837e3cc29",
+   "set": {
+    "price_text": null,
+    "description": "UNESCO-listed oasis of about 147,000 date palms with shaded walking paths and the traditional falaj irrigation channels."
+   }
+  },
+  {
+   "id": "c04bbd7b-5891-47a1-ae16-da61e0323805",
+   "set": {
+    "price_text": null,
+    "official_url": "https://abudhabiculture.ae/en/cultural-sites/historic-buildings-and-cultural-landscapes/al-jahili-fort"
+   }
+  },
+  {
+   "id": "27516dcc-eb40-4083-93ea-825f78003ead",
+   "set": {
+    "price_text": "Ticketed",
+    "description": "Large organic farm with guided tours, a farm shop and a restaurant; open in the cooler months."
+   }
+  },
+  {
+   "id": "623aa9d3-d53d-44f0-a8bf-19738a73ad1a",
+   "set": {
+    "description": "Desert park at the foot of Jebel Hafit with Bronze Age beehive tombs, hiking and cycling trails and camping."
+   }
+  },
+  {
+   "id": "414493c8-c73f-4b93-90d2-4a5a7c930b9d",
+   "set": {
+    "price_text": null
+   }
+  },
+  {
+   "id": "f94f3152-6972-4e1e-9193-146af4f72dae",
+   "set": {
+    "description": "Produce, spices, dates and sweets."
+   }
+  },
+  {
+   "id": "dac1bc45-9212-4362-81d8-a4c84ace7a83",
+   "set": {
+    "description": "Spices, lamps, perfumes and Arabic outfits."
+   }
+  }
+ ]
+}

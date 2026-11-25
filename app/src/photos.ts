@@ -116,7 +116,7 @@ const RULES: [RegExp, string][] = [
   [/\bbrunch\b(?! that burns)/i, 'brunch'],
   [/breakfast/i, 'breakfast'],
   [/dinner|buffet|\blunch\b|sunday roast|\broast\b|tasting menu|by the course|set menu|thanksgiving|turkey|iftar|suhoor/i, 'dinner'],
-  [/christmas|xmas|santa|festive|advent|gingerbread/i, 'xmas'],
+  [/christmas|xmas|santa|festive|\badvent\b|gingerbread/i, 'xmas'],
   [/\bexpo\b|trade (show|fair)|summit|conference|\bforum\b|(international|games|food|jewell?ery|perfumes?|watch|boat|motor|hunting)\b.*\b(exhibition|show)\b/i, 'expo'],
   [/concert|world tour/i, 'concert'],
   // na samym końcu, tylko gdy nic innego nie pasuje (koncert na plaży to koncert)
@@ -169,6 +169,8 @@ function pool(item: Item): number[] {
     return item.kind === 'place' ? [...(PHOTO_FILES.lm_polonia ?? []), ...PHOTO_FILES.polish_food] : [...PHOTO_FILES.polish_food];
   }
   let lm = LANDMARKS.find(([re]) => re.test(placeText));
+  // zdjęcia Corniche i Wielkiego Meczetu to Abu Dhabi – „Ajman Corniche” czy meczet Szejka Zajeda w Fudżajrze ich nie dostają
+  if (lm && (lm[1] === 'lm_corniche' || lm[1] === 'lm_grand_mosque') && item.city !== 'Abu Dhabi') lm = undefined;
   // Całe dzielnice/wyspy (Palm, Saadiyat, Corniche, Reem): ich zdjęcie tylko dla miejsc. Event albo oferta w hotelu
   // na Palmie dostaje zdjęcie swojego rodzaju (koncert, brunch), a nie widok wyspy z lotu ptaka.
   // Wyjątek: hotelowy day pass / staycation w dzielnicy z widokiem dostaje widok (Burj, Marina) obok zdjęć day passu.
@@ -189,8 +191,9 @@ function pool(item: Item): number[] {
   // Rodzaj z tytułu wygrywa ze znanym miejscem (Kayaking at Louvre -> kajaki, Swan Lake w Operze -> teatr).
   // (nazwę samego miejsca wycinamy z tytułu, żeby "Museum of the Future" nie stało się zwykłym "museum")
   const rest = lm ? (item.rawTitle ?? item.title).replace(new RegExp(lm[0].source, 'gi'), ' ') : (item.rawTitle ?? item.title);
-  // góry Jais: rodzaj z tytułu (park linowy, taras) NIE wygrywa – to zawsze góry, nie hala wspinaczkowa
-  const typeHit = item.kind !== 'deal' && lm && lm[1] !== 'lm_jebel_jais' ? RULES.find(([re]) => re.test(rest)) : undefined;
+  // góry Jais: rodzaj z tytułu (park linowy, taras) NIE wygrywa – to zawsze góry, nie hala wspinaczkowa (wyjątek: sylwester, koncert, festiwal)
+  const typeHit0 = item.kind !== 'deal' && lm ? RULES.find(([re]) => re.test(rest)) : undefined;
+  const typeHit = lm && lm[1] === 'lm_jebel_jais' && typeHit0 && !/^(nye|fireworks|concert|festival)/.test(typeHit0[1]) ? undefined : typeHit0;
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
   // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
   if (lm && item.kind === 'event' && VENUES.has(lm[1])) {
