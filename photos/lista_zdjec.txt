@@ -1,3 +1,10 @@
+310 | concert-3 | Open-air concert at night seen from the middle of the crowd: silhouettes with raised hands, big stage with colourful beams of light and haze, warm festive mood, no faces visible.
+311 | concert-4 | Band performing on stage in a modern concert hall seen from the audience seats: guitarist, drummer and singer as small backlit figures, blue and amber stage lights, rows of heads in the foreground.
+312 | concert-5 | Intimate acoustic concert in a small venue: a musician with a guitar on a low stage seen from behind the audience, warm spotlights, candles on tables, cosy atmosphere.
+313 | xmas-3 | Tall decorated Christmas tree with warm fairy lights in a resort courtyard at dusk, palm trees and sand-coloured arches in the background, festive garlands, Gulf winter evening.
+314 | xmas-4 | Outdoor Christmas market in the evening in the Gulf: wooden stalls with strings of warm lights, hot drinks and gingerbread on the counters, palm trees wrapped in lights, people as soft blurred figures.
+315 | lm_nyuad-2 | NYU Abu Dhabi campus on Saadiyat Island: modern white buildings with shaded walkways and palm trees around a central plaza, students as small distant figures, late afternoon light.
+316 | lm_coca_cola_arena_in-2 | Inside a large modern indoor arena in Dubai during a show: steep tiers of seats full of spectators, a brightly lit stage in the centre, light beams and big screens, wide view from the upper tier.
 300 | lm_khorfakkan_amph-1 | Khorfakkan Amphitheatre in Sharjah: sand-coloured Roman-style open-air amphitheatre with rows of arches on a rocky hillside above a blue bay, man-made waterfall cascading down the cliff beside it, clear sky.
 301 | lm_khorfakkan_amph-2 | Khorfakkan Amphitheatre at dusk, warm lights on the arched stone facade, the illuminated waterfall on the mountain next to it, palm trees and the corniche road in front.
 302 | lm_khorfakkan_beach-1 | Khorfakkan Beach on the UAE east coast: wide sandy bay with calm turquoise water, palm-lined promenade, rugged Hajar mountains closing the bay and a small rocky island offshore.
