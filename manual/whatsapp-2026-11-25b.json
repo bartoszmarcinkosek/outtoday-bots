@@ -1,0 +1,131 @@
+{
+ "note": "Materiały właściciela 25.11.2026 – druga paczka (WhatsApp, grupy RAK): 42 zdjęcia, 7 filmów, 2 wklejone wiadomości. Większość była już w bazie (SUNKSSD, Falcon Tale, New Year Mix-Up, RAK Eats, SmokeBreakers, Socials, Eid Al Etihad w emiratach). Tu tylko to, czego brakowało. 'Your Fort, O Nation' zostaje odrzucone – to ten sam koncert co 'Sing for the Nation' (1.12, RAK).",
+ "events": [
+  {
+   "title": "Peter Pan – WellSpring Private School musical (9–10 Dec)",
+   "category": "music",
+   "start_date": "2026-12-09",
+   "end_date": "2026-12-10",
+   "start_time": "18:00",
+   "venue": "RAK Cultural Creative Center",
+   "city": "Ras Al Khaimah",
+   "description": "A musical based on the play by J.M. Barrie, performed by students of The WellSpring Private School and presented in partnership with the Ministry of Culture. Directed by Lori Grimes. Shows on 9 and 10 December start at 6 pm, on 11 and 12 December at 7 pm. For tickets contact the school.",
+   "kid_friendly": true,
+   "official_url": "https://tws-rak.org/",
+   "status": "approved",
+   "source_name": "The WellSpring Private School (WhatsApp)"
+  },
+  {
+   "title": "Peter Pan – WellSpring Private School musical (11–12 Dec)",
+   "category": "music",
+   "start_date": "2026-12-11",
+   "end_date": "2026-12-12",
+   "start_time": "19:00",
+   "venue": "RAK Cultural Creative Center",
+   "city": "Ras Al Khaimah",
+   "description": "A musical based on the play by J.M. Barrie, performed by students of The WellSpring Private School and presented in partnership with the Ministry of Culture. Directed by Lori Grimes. Shows on 9 and 10 December start at 6 pm, on 11 and 12 December at 7 pm. For tickets contact the school.",
+   "kid_friendly": true,
+   "official_url": "https://tws-rak.org/",
+   "status": "approved",
+   "source_name": "The WellSpring Private School (WhatsApp)"
+  },
+  {
+   "title": "RAK Energy Summit 2026",
+   "category": "community",
+   "start_date": "2026-11-25",
+   "end_date": "2026-11-27",
+   "start_time": "09:00",
+   "end_time": "17:00",
+   "venue": "RAK Expo Center",
+   "city": "Ras Al Khaimah",
+   "registration_required": true,
+   "price_text": "Registration on the summit website",
+   "description": "Third edition of Ras Al Khaimah's sustainable-energy summit, hosted by Ras Al Khaimah Municipality with Etihad Water & Electricity: three days of talks, panels and an exhibition on the energy transition, energy-water planning and efficiency.",
+   "official_url": "https://rakenergysummit.rak.ae/",
+   "status": "approved",
+   "source_name": "RAK Energy Summit (WhatsApp)"
+  },
+  {
+   "title": "EDBF Euro Cup Dragon Boat Race 2026",
+   "category": "sport",
+   "start_date": "2026-11-27",
+   "end_date": "2026-11-29",
+   "venue": "Abu Dhabi International Marine Sports Club",
+   "city": "Abu Dhabi",
+   "description": "Three days of international dragon boat racing in Abu Dhabi – the European Dragon Boat Federation's Euro Cup, organised with the UAE Marine Sports Federation. Crews register through the organiser.",
+   "official_url": "https://sirendragonboat.com/race-calendar/",
+   "status": "approved",
+   "source_name": "UAE Marine Sports Federation poster (WhatsApp), Siren Dragon Boat"
+  },
+  {
+   "title": "Watan Yajmaona Festival – Eid Al Etihad family evening",
+   "category": "festivals",
+   "start_date": "2026-11-27",
+   "start_time": "18:00",
+   "end_time": "21:00",
+   "venue": "Emirates Association for Social Development, Al Rams branch",
+   "city": "Ras Al Khaimah",
+   "kid_friendly": true,
+   "description": "Community festival for Eid Al Etihad by the Emirates Association for Social Development: a school performance (6:10 pm), Al Habous folk arts with razfa and nadba (7 pm), sports contests for children with prizes (8 pm), free traditional Emirati food, a classic car photo corner and a stamp-collecting raffle with cash prizes drawn at 9 pm. Info: 07 235 1351.",
+   "status": "approved",
+   "source_name": "Emirates Association for Social Development (WhatsApp)"
+  },
+  {
+   "title": "Sing for the Nation – UAE National Orchestra",
+   "category": "music",
+   "start_date": "2026-11-28",
+   "start_time": "20:00",
+   "venue": "Fujairah Cultural Center Theatre",
+   "city": "Fujairah",
+   "price_text": "Ticketed (Ticketmaster)",
+   "description": "The UAE National Orchestra and Choir bring their sing-along concert of patriotic songs to Fujairah as part of a four-city tour ahead of Eid Al Etihad. Tickets through Ticketmaster.",
+   "status": "approved",
+   "source_name": "UAE National Orchestra tour (WAM, Ticketmaster)"
+  },
+  {
+   "title": "Ladies' Night with Mixtura Duo (live music)",
+   "category": "music",
+   "start_date": "2026-11-26",
+   "start_time": "19:30",
+   "venue": "Serenata Restaurant & Bar, Pacific, Al Marjan Island",
+   "city": "Ras Al Khaimah",
+   "price_text": "1 free drink for ladies",
+   "description": "Thursday ladies' night at Serenata with live music by Mixtura Duo and one free drink for ladies. Table bookings: +971 50 230 5170.",
+   "status": "approved",
+   "source_name": "Serenata Restaurant & Bar (WhatsApp)"
+  },
+  {
+   "title": "Eid Al Etihad Weekend at Al Marjan Island (18–20 Dec)",
+   "category": "festivals",
+   "start_date": "2026-12-18",
+   "end_date": "2026-12-20",
+   "start_time": "16:00",
+   "end_time": "19:00",
+   "venue": "Al Marjan Island Entrance",
+   "city": "Ras Al Khaimah",
+   "description": "National Day celebrations at the entrance to Al Marjan Island, 4:00 to 7:00 PM on weekends until 20 December.",
+   "status": "approved",
+   "source_name": "Eid Al Etihad 2026 posters (WhatsApp)"
+  }
+ ],
+ "deals": [
+  {
+   "title": "Pink Wednesdays – Ladies Night",
+   "venue": "Karma Kafé",
+   "area": "Hampton by Hilton Marjan Island, Al Marjan Island",
+   "city": "Ras Al Khaimah",
+   "days_of_week": [
+    3
+   ],
+   "start_time": "19:00",
+   "end_time": "23:00",
+   "price_text": "3 free drinks + 30% off food for ladies",
+   "deal_type": "ladies_night",
+   "ladies_only": true,
+   "details": "Every Wednesday from 7 pm to 11 pm ladies get three complimentary drinks and 30% off food. Bookings: +971 7 209 0099.",
+   "official_url": "https://www.hilton.com/en/hotels/rktmahx-hampton-marjan-island/dining/",
+   "status": "approved",
+   "source_name": "Karma Kafé RAK (WhatsApp), Visit Ras Al Khaimah"
+  }
+ ]
+}
