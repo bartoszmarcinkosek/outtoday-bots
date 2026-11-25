@@ -29,6 +29,8 @@ HUBS = ["dubai_calendar", "visitdubai", "dubaiculture", "visitabudhabi", "abudha
         "visit.hatta", "eidaletihad", "dubaifitnesschallenge", "thegalleriauae", "marjanrak", "alainzoouae"]
 EXTRA_HUBS = ["khorfakkanbeach", "khorfakkanamphitheatre", "almajazwaterfront", "alnoorisland", "discovermleiha", "shurooqsharjah",
               "citycentrefujairah", "fujairahmalluae", "albaharhotelandresort", "sharjahgsc", "shjladiesclub", "sharjahart"]
+PLAIN = re.compile(r"(?<![\w@./-])([a-z0-9]{2,}(?:[._][a-z0-9]{2,}){1,3}|[a-z]{4,24}(?:dubai|uae|abudhabi|dxb|auh|rak|shj|sharjah|ajman|fujairah|alain|hotel|resort|mall|beach|club|events|festival)\b)(?![\w/-])")
+JUNK = re.compile(r"^www\.|\.(com|net|org|co|io|me|ly|info|gov)$|^\d|\.\d+$", re.I)
 MENTION = re.compile(r"(?<![\w.])@([A-Za-z0-9_.]{3,30})")
 CITY = [("Abu Dhabi", r"abu ?dhabi|abudhabi|yas island|saadiyat|\bauh\b"), ("Al Ain", r"al ?ain"),
         ("Ras Al Khaimah", r"ras al khaimah|\brak\b|al hamra|marjan"), ("Sharjah", r"sharjah|\bshj\b"),
@@ -72,7 +74,12 @@ def main() -> int:
             continue
         print(f"  @{h}: {len((bd.get('media') or {}).get('data', []))} postów", flush=True)
         for p in (bd.get("media") or {}).get("data", []):
-            for m in MENTION.findall(p.get("caption") or ""):
+            cap = p.get("caption") or ""
+            # API Instagrama usuwa znak @ z opisów cudzych postów (zostaje sama nazwa konta jako zwykłe słowo),
+            # więc oprócz @nazwa łapiemy też słowa wyglądające jak nazwa konta: z kropką/podkreśleniem
+            # albo jedno małe słowo zakończone typową końcówką (…dubai, …uae, …hotel, …mall).
+            found = set(MENTION.findall(cap)) | {t for t in PLAIN.findall(cap) if not JUNK.search(t)}
+            for m in found:
                 m = m.rstrip(".").lower()
                 if m not in have and m not in SKIP:
                     counts[m] += 1
