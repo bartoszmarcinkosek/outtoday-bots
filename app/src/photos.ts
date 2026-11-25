@@ -32,6 +32,7 @@ const LANDMARKS: [RegExp, string][] = [
   [/burj al arab/i, 'lm_burj_al_arab'],
   [/ain dubai/i, 'lm_ain_dubai'],
   [/jebel jais|\bjais\b/i, 'lm_jebel_jais'],
+  [/\bal rams\b|\brams (beach|village|coast)/i, 'lm_rams'],
   // dzielnice z widokiem (tylko miejsca i hotelowe day pass / staycation): hotel w Downtown -> widok na Burj, w Marinie -> Marina
   [/downtown dubai|business bay|dubai mall|address (downtown|boulevard|sky view|dubai mall)|vida downtown|palace downtown|armani hotel|burj (park|views)|souk al bahar|opera district/i, 'lm_downtown'],
   [/dubai marina|\bjbr\b|jumeirah beach residence|the walk\b|bluewaters|marina (mall|walk) dubai|dubai harbour/i, 'lm_marina'],
@@ -43,7 +44,7 @@ const LANDMARKS: [RegExp, string][] = [
   [/al marjan|marjan island/i, 'lm_marjan'],
 ];
 
-const AREAS = new Set(['lm_palm', 'lm_saadiyat', 'lm_corniche', 'lm_reem', 'lm_downtown', 'lm_marina', 'lm_yas', 'lm_maryah', 'lm_creek', 'lm_sharjah_water', 'lm_jebel_hafeet', 'lm_marjan']);
+const AREAS = new Set(['lm_rams', 'lm_palm', 'lm_saadiyat', 'lm_corniche', 'lm_reem', 'lm_downtown', 'lm_marina', 'lm_yas', 'lm_maryah', 'lm_creek', 'lm_sharjah_water', 'lm_jebel_hafeet', 'lm_marjan']);
 const VENUES = new Set(['lm_etihad_arena', 'lm_coca_cola_arena', 'lm_dubai_opera', 'lm_nyuad', 'lm_expo_city', 'lm_louvre', 'lm_museum_future']);
 
 const RULES: [RegExp, string][] = [
