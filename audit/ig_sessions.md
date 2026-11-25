@@ -14,10 +14,12 @@ Wynik sprawdzenia zapisuje `python bot/ig_apply.py <log> [--skip konto,konto]` (
 | 25.11 | sesja ręczna 1: restauracje, bary, puby, beach cluby | Dubaj, Abu Zabi, RAK, Fudżajra (87 nazw) | +31 |
 | 25.11 | sesja ręczna 2: sport, muzea i galerie, sale i festiwale, atrakcje | Dubaj, Abu Zabi, Szardża, RAK, Al Ain (141 nazw) | +12 (pierwsza tura) i +37 (druga tura) = +49; sprawdzone w całości. Razem kont po sesji: 492 |
 | 25.11 | konta z materiałów właściciela (WhatsApp): ADREA, NYUAD Arts Center, Socials RAK, Masala by Socials | Abu Zabi, RAK | w tym +4 (wliczone wyżej) |
+| 25.11 | sesja 3: nazwy z oficjalnych stron (`diag_ighandles` czyta `audit/ig_sites.txt`: miasto / miejsce / strona) – atrakcje, centra handlowe, dzieci, teatry | 143 strony: 44 nowe nazwy, 42 istniały (przy zgadywaniu ok. 40%) | +38 |
 
 ## Jeszcze nieprzeszukane (pomysły na kolejne sesje)
 - WAŻNE: w sesjach 1–2 połowa zgadywanych nazw nie istniała (m.in. duże atrakcje: Yas Waterworld, SeaWorld, Warner Bros. World, Zayed National Museum, teamLab Phenomena, IMG Worlds, Wild Wadi, KidZania, Dubai Parks, Ain Dubai, Sky Views, Museum of Illusions, Jubail Mangrove Park, House of Wisdom, Sharjah Safari, Aljada, Al Hamra Mall). Nie zgadywać – prawdziwą nazwę konta brać z oficjalnej strony miejsca albo z wyszukiwarki i dopiero wtedy sprawdzać przez API.
-- hotele i resorty z własnym programem (brunche, noce tematyczne) – wg emiratów
+- hotele i resorty z własnym programem (brunche, noce tematyczne) – wg emiratów; strony sieci hotelowych blokują pobieranie, więc nazwy kont brać z wyszukiwarki
+- miejsca, których strony nie dały nazwy konta w sesji 3 (blokada lub brak linku): Zayed National Museum, teamLab Phenomena, Jubail Mangrove Park, KidZania, Mall of the Emirates, City Centre Mirdif / Al Zahia / Ajman, Sky Views, Dubai Aquarium, Fun City, Magic Planet, Sharjah Safari, Al Montazah, 06 Mall, RAK Mall, Hili Fun City, Al Ain Mall, Al Ain Adventure, Umbrella Beach, UAQ Marine Club – nazwę znaleźć w wyszukiwarce
 - centra handlowe i dzielnice (wydarzenia rodzinne, jarmarki)
 - dzieci i rodzina: sale zabaw, edutainment, warsztaty
 - teatry, kluby komediowe, kina plenerowe, organizatorzy koncertów
