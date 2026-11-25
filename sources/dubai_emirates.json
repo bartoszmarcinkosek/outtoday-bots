@@ -746,6 +746,17 @@
    ],
    "trusted": true,
    "note": "Sprzedawca biletów (dodane 24.11.2026). Strona bywa prawie pusta – głównie atrakcje."
+  },
+  {
+   "id": "visit_sharjah",
+   "name": "Visit Sharjah (oficjalny kalendarz)",
+   "city": "Sharjah",
+   "single_venue": false,
+   "urls": [
+    "https://www.visitsharjah.com/en/events/"
+   ],
+   "trusted": true,
+   "note": "Oficjalna strona turystyki Szardży (SCTDA), dodane 25.11.2026. Lista ładuje resztę przyciskiem 'Load more'; miejsca są na podstronach wydarzeń."
   }
  ]
 }
