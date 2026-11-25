@@ -87,7 +87,7 @@ def main() -> int:
     if a.only:
         want = {x.strip().lstrip("@").lower() for x in a.only.split(",") if x.strip()}
         accounts = [x for x in accounts if x["username"].lower() in want]
-    accounts = accounts[: a.limit]
+    accounts = accounts[: max(a.limit, 1000)]   # 25.11.2026: kont jest ponad 500 – codzienne zadanie podaje limit 500, a czytać trzeba wszystkie (koszt AI rośnie tylko z nowymi postami)
 
     import anthropic
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=6)
