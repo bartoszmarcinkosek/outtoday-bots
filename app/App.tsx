@@ -39,7 +39,6 @@ const TABS: { key: Tab; label: string; icon: React.ComponentProps<typeof Ionicon
 ];
 const DAY_CHIPS = [
   { key: 'today', label: 'Today' },
-  { key: 'tomorrow', label: 'Tomorrow' },
   { key: 'weekend', label: 'Weekend' },
   { key: 'all', label: 'All upcoming' },
 ];
@@ -375,7 +374,7 @@ function Main() {
   const jump = (s: { tab: ListTab; key?: string | null; day?: string; dealDay?: number | null; free?: boolean; ending?: boolean }) => {
     clearFilters();
     setCats({ events: [], places: [], deals: [], [s.tab]: s.key ? [s.key] : [] } as Record<ListTab, string[]>);
-    if (s.day) setDay(s.day);
+    if (s.day) setDay(s.day === 'tomorrow' ? 'today' : s.day);
     if (s.dealDay !== undefined) setDealDay(s.dealDay);
     if (s.free) setFree(true);
     if (s.ending) setLastChance(true);
@@ -456,10 +455,14 @@ function Main() {
           {tab === 'events' && (
             <View style={styles.chipRow}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRowIn}>
-              {DAY_CHIPS.map((d) => (
+              {/* 25.11.2026: bez Tomorrow; Pick a date zaraz po Today */}
+              {DAY_CHIPS.slice(0, 1).map((d) => (
                 <Chip key={d.key} label={d.label} active={day === d.key} onPress={() => setDay(d.key)} />
               ))}
               <Chip label={isDate ? fmtDate(day) : 'Pick a date'} icon="calendar-outline" active={isDate} onPress={() => setShowCal(true)} />
+              {DAY_CHIPS.slice(1).map((d) => (
+                <Chip key={d.key} label={d.label} active={day === d.key} onPress={() => setDay(d.key)} />
+              ))}
               <View style={styles.chipSep} />
               <Chip label="Evening" icon="moon-outline" active={evening} onPress={() => { setEvening(!evening); count('filter', 'quick:evening', city); }} />
               <Chip label="Last chance" icon="hourglass-outline" active={lastChance} onPress={() => { setLastChance(!lastChance); count('filter', 'quick:last', city); }} />
