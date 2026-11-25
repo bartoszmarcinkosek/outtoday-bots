@@ -21,7 +21,7 @@ on:
         default: ""
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: instagram
@@ -57,3 +57,11 @@ jobs:
           if [ "$IN_REDO" = "true" ]; then ARGS+=(--redo); fi
           if [ -n "$IN_ONLY" ]; then ARGS+=(--only "$IN_ONLY"); fi
           python bot/instagram.py "${ARGS[@]}"
+      - name: Zapis stanu kont (konta uśpione)
+        if: ${{ always() && inputs.dry_run != true }}
+        run: |
+          git config user.name "outtoday-bot"
+          git config user.email "outtoday-bot@users.noreply.github.com"
+          git add audit/ig_state.json
+          git commit -m "Instagram: stan kont" || exit 0
+          git pull --rebase origin main && git push origin HEAD:main

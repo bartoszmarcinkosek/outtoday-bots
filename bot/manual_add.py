@@ -17,6 +17,7 @@ EVENT_FIELDS = ("title", "category", "start_date", "end_date", "start_time", "en
 
 def main() -> int:
     db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
+    db.guard = False  # ręczne wpisy są sprawdzone – ocena źródeł ich nie wstrzymuje
     now = dt.datetime.now(dt.timezone.utc).isoformat()
     added = skipped = 0
     # WAŻNE (25.11.2026): każdy plik stosujemy RAZ – tylko pliki z bieżącego pusha (env FILES).

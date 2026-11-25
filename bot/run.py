@@ -755,6 +755,16 @@ def bot_key(source_id: str, item: dict) -> str:
 # ---------------------------------------------------------------- Supabase
 
 
+PROBATION_MIN, PROBATION_SHARE = 5, 0.4
+
+
+def src_key(name: str | None) -> str:
+    """Klucz źródła do oceny: konto Instagram osobno (@konto), reszta po nazwie źródła."""
+    n = name or ""
+    m = re.search(r"@([\w.]+)", n)
+    return f"ig:{m.group(1).lower()}" if ("Instagram" in n and m) else n
+
+
 class DB:
     def __init__(self, url: str, key: str):
         self.base = url.rstrip("/") + "/rest/v1"
@@ -794,7 +804,43 @@ class DB:
             start = end + 1
         return out
 
+    # --- REGUŁA (25.11.2026, decyzja właściciela): OCENA ŹRÓDEŁ ---
+    # Źródło, z którego przy kontroli odrzucono co najmniej 40% ocenionych pozycji (minimum 5 ocenionych),
+    # traci automatyczne zatwierdzanie: jego nowe pozycje czekają na przegląd (pending).
+    # Liczone na bieżąco z bazy, więc źródło samo wraca do łask, gdy jego pozycje znów przechodzą kontrolę.
+    guard = True  # manual_add wyłącza: ręczne wpisy są już sprawdzone
+
+    def probation(self) -> set:
+        if getattr(self, "_prob", None) is None:
+            self._prob = set()
+            try:
+                import collections
+                sc = collections.defaultdict(collections.Counter)
+                for t in ("events", "deals"):
+                    for r in self.get(t, {"select": "source_name,status", "status": "in.(approved,rejected)", "limit": "60000"}):
+                        sc[src_key(r.get("source_name"))][r["status"]] += 1
+                for k, c in sc.items():
+                    judged = c["approved"] + c["rejected"]
+                    if k and judged >= PROBATION_MIN and c["rejected"] / judged >= PROBATION_SHARE:
+                        self._prob.add(k)
+                if self._prob:
+                    print(f"[ocena źródeł] bez automatycznego zatwierdzania: {len(self._prob)} źródeł")
+            except Exception as e:  # ocena nie może zatrzymać bota
+                print(f"[ocena źródeł] nie udało się policzyć ({e})")
+        return self._prob
+
+    def _guard(self, table: str, row: dict) -> dict:
+        if self.guard and table in ("events", "deals") and row.get("status") == "approved" \
+                and src_key(row.get("source_name")) in self.probation():
+            row = {**row, "status": "pending"}
+            row.pop("verified_at", None)
+            if isinstance(row.get("evidence"), dict):
+                row["evidence"] = {k: v for k, v in row["evidence"].items() if k != "auto"}
+            print(f"   [ocena źródeł] {row.get('source_name')}: do przeglądu zamiast od razu do apki")
+        return row
+
     def insert(self, table: str, rows: list | dict) -> list:
+        rows = [self._guard(table, x) for x in rows] if isinstance(rows, list) else self._guard(table, rows)
         r = requests.post(f"{self.base}/{table}", headers={**self.h, "Prefer": "return=representation"}, json=rows, timeout=30)
         if r.status_code == 409 and "bot_key" in r.text:
             print(f"   już jest w bazie (bot_key), pomijam")
@@ -1190,7 +1236,7 @@ def main() -> int:
                     upd["evidence"] = it["evidence"]
                     if it.get("ticket_url"):
                         upd["url"] = it["ticket_url"]
-                if auto_ok(it, src):
+                if auto_ok(it, src) and src_key(src["name"]) not in db.probation():
                     upd.update({"status": "approved", "verified_at": now_iso,
                                 "evidence": {**it["evidence"], "auto": True}})
             else:
@@ -1248,7 +1294,7 @@ def auto_approve_pending(db: "DB", sources: list[dict], now_iso: str) -> int:
             item["gaps"] = [g for g in item["gaps"] if g != "price"]
             ev["price"] = f"{fe['quote']} ({fe['url']})"
             upd.update(price_text="Free entry", is_free=True, price_min_aed=0, gaps=item["gaps"], evidence=ev)
-        if auto_ok(item, src):
+        if auto_ok(item, src) and src_key(src["name"]) not in db.probation():
             ev["auto"] = True
             upd.update(status="approved", verified_at=now_iso, evidence=ev)
             n += 1

@@ -28,6 +28,7 @@ import hotels as H  # noqa: E402
 G = "https://graph.facebook.com/v21.0"
 MAX_AGE_DAYS = 30
 POSTS_PER_ACCOUNT = 12
+DORMANT_DAYS = 60
 HINT = re.compile(r"\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b|\b\d{1,2}(st|nd|rd|th)\b|\b\d{1,2}[./]\d{1,2}\b|"
                   r"\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*day\b|tonight|this weekend|aed|tickets?|book now|\bpm\b", re.I)
 
@@ -87,6 +88,46 @@ def main() -> int:
     if a.only:
         want = {x.strip().lstrip("@").lower() for x in a.only.split(",") if x.strip()}
         accounts = [x for x in accounts if x["username"].lower() in want]
+    # --- REGUŁA (25.11.2026, decyzja właściciela): KONTA UŚPIONE ---
+    # Konto, które nic nie daje, czytamy raz w tygodniu (w poniedziałek) zamiast codziennie:
+    #  a) jego najnowszy post jest starszy niż 30 dni (bot i tak nie czyta starszych postów), albo
+    #  b) jest na liście od co najmniej 60 dni i przez 60 dni nie dało ani jednego wydarzenia ani oferty.
+    # Stan kont: audit/ig_state.json (first = od kiedy na liście, last_post = data najnowszego posta).
+    state_path = os.path.join(os.path.dirname(__file__), "..", "audit", "ig_state.json")
+    try:
+        state = json.load(open(state_path))
+    except Exception:
+        state = {}
+    today0 = R.today_uae()
+    last_yield: dict = {}
+    try:
+        db0 = R.DB(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SECRET_KEY"].strip())
+        for t in ("events", "deals"):
+            for r in db0.get(t, {"select": "source_name,created_at", "source_name": "like.*Instagram bot*", "limit": "40000"}):
+                k = R.src_key(r.get("source_name"))
+                if k.startswith("ig:"):
+                    last_yield[k[3:]] = max(last_yield.get(k[3:], ""), (r.get("created_at") or "")[:10])
+    except Exception as e:
+        print(f"[konta uśpione] nie mogę policzyć wyników kont ({e}) – czytam wszystkie")
+        last_yield = None
+
+    def dormant(u: str) -> bool:
+        if last_yield is None:
+            return False
+        st = state.get(u.lower()) or {}
+        ago = lambda d: (today0 - dt.date.fromisoformat(d)).days
+        if st.get("last_post") and ago(st["last_post"]) > MAX_AGE_DAYS:
+            return True
+        ly = last_yield.get(u.lower())
+        return bool(st.get("first")) and ago(st["first"]) >= DORMANT_DAYS and (not ly or ago(ly) >= DORMANT_DAYS)
+
+    for x in accounts:
+        state.setdefault(x["username"].lower(), {"first": today0.isoformat()})
+    if not a.only and not a.redo and today0.weekday() != 0:   # poniedziałek: czytamy wszystkie
+        asleep = [x["username"] for x in accounts if dormant(x["username"])]
+        if asleep:
+            print(f"[konta uśpione] pomijam dziś {len(asleep)} kont (czytane w poniedziałki): {', '.join(asleep[:40])}{' …' if len(asleep) > 40 else ''}")
+            accounts = [x for x in accounts if x["username"] not in set(asleep)]
     accounts = accounts[: max(a.limit, 1000)]   # 25.11.2026: kont jest ponad 500 – codzienne zadanie podaje limit 500, a czytać trzeba wszystkie (koszt AI rośnie tylko z nowymi postami)
 
     import anthropic
@@ -118,6 +159,8 @@ def main() -> int:
             bad_accounts.append((u, f"za mało obserwujących ({bd.get('followers_count')}), pewnie nie oficjalne"))
             continue
         posts = (bd.get("media") or {}).get("data", [])
+        stamps = sorted((p.get("timestamp") or "")[:10] for p in posts if p.get("timestamp"))
+        state[u.lower()]["last_post"] = stamps[-1] if stamps else "2000-01-01"
         name = bd.get("name") or u
         new_here = 0
         for p in posts:
@@ -207,6 +250,11 @@ def main() -> int:
             time.sleep(1)
         print(f"@{u} ({name}): postów {len(posts)}, nowych eventów/ofert {new_here}")
 
+    if not a.dry_run:
+        try:
+            json.dump(state, open(state_path, "w"), indent=0, sort_keys=True)
+        except Exception as e:
+            print(f"[konta uśpione] nie zapisano stanu: {e}")
     print("\n| Konto | Event | Wynik |\n|---|---|---|")
     for u, t, res in report:
         print(f"| @{u} | {t} | {res} |")

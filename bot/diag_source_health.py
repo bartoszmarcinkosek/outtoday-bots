@@ -25,3 +25,5 @@ for (n, u), ss in sorted(st.items()):
     if real and all(("ZABRANIA" in x or "pusta lub błąd" in x or "błąd pobierania" in x or "nie odpowiada" in x or "błąd serwera" in x) for x in real):
         print(f"SB|{n}|{u}|{real[0][:60]}|{len(real)}x")
 print(f"SR|runs {len(runs)}|source urls {len(st)}")
+for k in sorted(db.probation()):
+    print(f"SP|{k}")
