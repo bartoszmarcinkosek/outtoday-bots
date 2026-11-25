@@ -1715,6 +1715,26 @@
    "username": "lemeridien_alaqah",
    "city": "Fujairah",
    "venue": "Le Méridien Al Aqah Beach Resort"
+  },
+  {
+   "username": "khorfakkanbeach",
+   "city": "Sharjah",
+   "venue": "Khorfakkan Beach"
+  },
+  {
+   "username": "khorfakkanamphitheatre",
+   "city": "Sharjah",
+   "venue": "Khorfakkan Amphitheatre"
+  },
+  {
+   "username": "najdalmeqsar",
+   "city": "Sharjah",
+   "venue": "Najd Al Meqsar, Khor Fakkan"
+  },
+  {
+   "username": "railway.ae",
+   "city": "Sharjah",
+   "venue": "Railway Café, Resistance Monument, Khor Fakkan"
   }
  ]
 }
