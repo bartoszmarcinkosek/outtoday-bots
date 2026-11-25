@@ -150,7 +150,8 @@
     "lm_palm-5": "MAHb5DBVQIU",
     "lm_rams-1": "MAHb5HVYpGQ",
     "lm_rams-2": "MAHb5SvXxsI",
-    "fort-1": "MAHb5WKXijk"
+    "fort-1": "MAHb5WKXijk",
+    "fort-2": "MAHb5ouvN_g"
   },
   "in_app": [
     "aquafit-1",
@@ -290,5 +291,5 @@
     "xmas-2",
     "zoo-1"
   ],
-  "last_at": "2026-11-25T05:47:12Z"
+  "last_at": "2026-11-25T06:09:33Z"
 }
