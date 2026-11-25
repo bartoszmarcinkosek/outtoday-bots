@@ -1,0 +1,44 @@
+{
+ "note": "Linki r\u0119cznie 25.11 (porcja 2): oficjalne strony lub komunikaty WAM; Mansour Festival 26\u201329.11 na Yas Island (WAM 15.11.2026); Sheikh Zayed Festival do 14.03.2027.",
+ "update_event_ids": [
+  {
+   "id": "fb5397fd-245e-4f2d-8a04-27098728f7f8",
+   "set": {
+    "official_url": "https://zayedfestival.ae/",
+    "end_date": "2027-03-14"
+   }
+  },
+  {
+   "id": "6adaa426-9238-4366-a6fe-4bb22da1eaeb",
+   "set": {
+    "official_url": "https://www.wam.ae/en/article/c39nyzg-mansour-festival-2026-strengthens-presence-through",
+    "end_date": "2026-11-29",
+    "venue": "Yas Island"
+   }
+  },
+  {
+   "id": "cad3bef3-4d65-4dc5-9b51-b08bbd73919c",
+   "set": {
+    "official_url": "https://www.wam.ae/en/article/c2zjljm-uae-national-orchestra-announces-sing-for-the"
+   }
+  },
+  {
+   "id": "cd1a33ee-ed72-4391-8e47-9ccd33dd9a94",
+   "set": {
+    "official_url": "https://www.wam.ae/en/article/c3347ew-emirates-villages-run-series-attracts-4000"
+   }
+  },
+  {
+   "id": "2e760bdb-6e43-4f0e-984e-96b75b15d159",
+   "set": {
+    "official_url": "https://www.wam.ae/en/article/c3347ew-emirates-villages-run-series-attracts-4000"
+   }
+  },
+  {
+   "id": "8b7f5b56-0b8e-4e17-b435-bea525e9dd9d",
+   "set": {
+    "official_url": "https://www.wam.ae/en/article/c132qw2-under-patronage-uae-president-20th-dhafra-festival"
+   }
+  }
+ ]
+}
