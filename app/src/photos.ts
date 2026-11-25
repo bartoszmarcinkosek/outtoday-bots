@@ -47,6 +47,8 @@ const AREAS = new Set(['lm_palm', 'lm_saadiyat', 'lm_corniche', 'lm_reem', 'lm_d
 const VENUES = new Set(['lm_etihad_arena', 'lm_coca_cola_arena', 'lm_dubai_opera', 'lm_nyuad', 'lm_expo_city', 'lm_louvre', 'lm_museum_future']);
 
 const RULES: [RegExp, string][] = [
+  // wszystko na Jebel Jais (park linowy, taras, tyrolka, sanki) pokazuje góry Jais, nie halę wspinaczkową ani miasto
+  [/\bjais\b/i, 'lm_jebel_jais'],
   [/bungee/i, 'bungee'],
   // miejsca o konkretnym charakterze: bez własnego zdjęcia lepiej ikonka niż obce (kolejka górska przy akwarium)
   [/aquarium|dolphin|sea ?world|underwater zoo/i, 'aquarium'],
@@ -104,7 +106,9 @@ const RULES: [RegExp, string][] = [
   [/frieze|art fair|art week|art dubai|art abu dhabi|abu dhabi art|art exhibition|gallery|alserkal|jameel arts|421 arts|art foundation|art museum|tashkeel/i, 'artfair'],
   [/teamlab|immersive|digital art|museum|art gallery|biennial/i, 'museums'],
   // na końcu: bieg w parku archeologicznym to nadal bieg
-  [/heritage village|heritage area|old village|pearling village|abandoned village|\bfort\b|castle|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
+  // fort/zamek ma własne zdjęcie (albo ikonkę) – nie uliczkę starego miasta z wieżą wiatrową
+  [/\bfort\b|castle|\bhisn\b|qasr al hosn/i, 'fort'],
+  [/heritage village|heritage area|old village|pearling village|abandoned village|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
   // jedzenie i święta (event: brunch świąteczny, kolacja sylwestrowa) – przed plażą/farmą na końcu
   [/new year|\bnye\b|hogmanay/i, 'nye'],
   [/\bbrunch\b(?! that burns)/i, 'brunch'],
@@ -117,7 +121,8 @@ const RULES: [RegExp, string][] = [
   // farma pereł i rejsy łodzią mają własne zdjęcia (albo ikonkę) – nie gaj palmowy
   [/pearl (farm|diving|journey)|\bpearls?\b.*\b(farm|tour|trip)/i, 'pearl'],
   [/\babra\b|\bdhow\b|boat (ride|trip|tour|cruise)|creek cruise|ferry/i, 'boat'],
-  [/\bfarm\b|oasis/i, 'farm'],
+  [/oasis/i, 'farm'],          // zdjęcie 'farm' to gaj palmowy z falajem = oaza
+  [/\bfarm\b/i, 'cropfarm'],  // prawdziwa farma: szklarnie, grządki, zwierzęta
   [/al qudra|love lake/i, 'lakes'],
   [/desert (safari|reserve|conservation|park)|marmoom|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
   [/jebel|hatta|\bwadi\b|mountain|mubazzarah/i, 'daytrips'],
@@ -146,7 +151,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;

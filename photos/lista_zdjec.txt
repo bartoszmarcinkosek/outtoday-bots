@@ -1,3 +1,8 @@
+235 | fort-1 | Small mud-brick fort with two round towers on top of a steep rocky hill, long stone staircase leading up, date palm groves and distant sea below, golden light.
+236 | fort-2 | Restored Arabian coastal fort with thick sand-coloured walls, round corner towers and a wooden gate, old cannon in front, clear sky.
+237 | fort-3 | Inner courtyard of an old Arabian fort with crenellated walls, wooden doors and a watchtower, a few visitors seen from behind.
+238 | cropfarm-1 | Small desert farm with rows of green vegetables, a greenhouse tunnel and solar panels, sandy hills behind, bright morning.
+239 | cropfarm-2 | Family-friendly farm in the Emirates: goats and chickens near a wooden fence, vegetable beds and a shaded barn, warm light.
 232 | boat-1 | Traditional wooden abra water taxi with a small canopy crossing a calm creek in a Gulf town, low white buildings and palm trees on the bank, morning light.
 233 | boat-2 | Traditional wooden dhow sailing on calm turquoise Gulf water near a rocky coast at golden hour.
 234 | pearl-1 | Traditional wooden pearl-diving boat moored in a shallow lagoon with rugged mountains behind, an open oyster with a pearl on a wooden tray in the foreground.
