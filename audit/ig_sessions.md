@@ -15,6 +15,7 @@ Wynik sprawdzenia zapisuje `python bot/ig_apply.py <log> [--skip konto,konto]` (
 | 25.11 | sesja ręczna 2: sport, muzea i galerie, sale i festiwale, atrakcje | Dubaj, Abu Zabi, Szardża, RAK, Al Ain (141 nazw) | +12 (pierwsza tura) i +37 (druga tura) = +49; sprawdzone w całości. Razem kont po sesji: 492 |
 | 25.11 | konta z materiałów właściciela (WhatsApp): ADREA, NYUAD Arts Center, Socials RAK, Masala by Socials | Abu Zabi, RAK | w tym +4 (wliczone wyżej) |
 | 25.11 | sesja 3: nazwy z oficjalnych stron (`diag_ighandles` czyta `audit/ig_sites.txt`: miasto / miejsce / strona) – atrakcje, centra handlowe, dzieci, teatry | 143 strony: 44 nowe nazwy, 42 istniały (przy zgadywaniu ok. 40%) | +38 |
+| 25.11 | sesja 4: hotele małych emiratów, Al Ain, RAK, społeczności – 74 strony (`diag_ighandles`) + wyszukiwarka | strony hoteli i sieci w większości blokują pobieranie (robots), większość kont już była | wynik poniżej |
 
 ## Jeszcze nieprzeszukane (pomysły na kolejne sesje)
 - Kalba i Dibba Al Hisn (dodane jako miejsca 25.11): konta EPAA Sharjah (centra w Kalbie), Mysk Kingfisher Retreat, gmina Kalby / Dibby – nazwy z oficjalnych stron (epaashj.ae, myskhotels) albo wyszukiwarki
