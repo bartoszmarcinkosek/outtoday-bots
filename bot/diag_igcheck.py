@@ -2,12 +2,17 @@
 import os, sys, datetime as dt
 sys.path.insert(0, os.path.dirname(__file__))
 import instagram as I
-C = {
- "Al Ain": ["alainmall", "bawadimall", "hilifuncity", "danatalainresort", "aylahotels", "alainfc", "adnecalain", "alainoasis", "jimimall", "alainequestrian", "radissonblualain", "alainpalacehotel", "remalmall", "alainclub", "greenmubazzarah", "alaincityae", "visitalain", "ayla_grand_hotel", "herirooms"],
- "Ajman": ["ajmansaray", "bahiajmanpalace", "ajmanhotel", "wyndhamgardenajman", "ajmantourism", "alzorah", "oberoialzorah", "ajmanmarina", "ajmanmuseum", "ramadabeachajman", "radissonblu_ajman", "ajmanstud", "ajman_events", "ajmanmediacity", "ajmanclub", "thecornerajman"],
- "Umm Al Quwain": ["vidabeachresortuaq", "kitebeachcenter", "dreamlanduae", "uaqmarineclub", "pearlhoteluaq", "barracudabeachresort", "uaq.tourism", "uaqtourism", "kitebeachuaq", "mangrovebeachuaq", "casadelmaruaq", "uaqgov", "royalbeachuaq"],
- "Fujairah": ["lemeridienalaqah", "intercontinentalfujairah", "addressbeachresortfujairah", "palacefujairah", "royalmfujairah", "fujairahfort", "umbrellabeachfujairah", "albaharbeach", "fujairahmall", "luluhypermarketfujairah", "dibbabayoysters", "snoopyislandfujairah", "fujairah_fc", "fujairahgov", "alaqahbeachresort", "miramaralaqah", "fujairahcrownprince_award", "fujairahfineartsacademy", "novotelfujairah", "concordefujairah"],
-}
+import json, collections
+B = os.path.join(os.path.dirname(__file__), "..")
+have = {x["username"].lower() for x in json.load(open(os.path.join(B, "sources", "instagram.json")))["accounts"]}
+C, VEN = collections.defaultdict(list), {}
+for l in open(os.path.join(B, "audit", "ig_candidates.txt")):
+    p = [x.strip() for x in l.split("|")]
+    if l.startswith("#") or len(p) < 2:
+        continue
+    if p[1].lower() in have:
+        print(f"IG|{p[0]}|{p[1]}|JUŻ JEST"); continue
+    C[p[0]].append(p[1]); VEN[p[1]] = p[2] if len(p) > 2 else ""
 tok = os.environ["IG_ACCESS_TOKEN"].strip()
 import requests, time
 ig = I.ig_user_id(tok)

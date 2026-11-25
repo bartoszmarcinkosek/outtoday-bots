@@ -1,0 +1,88 @@
+# miasto | kandydat na konto | miejsce   (sesja ręczna 25.11.2026: restauracje, bary, beach cluby, kluby)
+Dubai | zumadubai | Zuma Dubai
+Dubai | coyadubai | COYA Dubai
+Dubai | nobudubai | Nobu Dubai
+Dubai | hakkasandubai | Hakkasan Dubai
+Dubai | lpmdubai | LPM Dubai
+Dubai | nammosdubai | Nammos Dubai
+Dubai | twiggybylamer | Twiggy by La Cantine
+Dubai | covebeachdubai | Cove Beach Dubai
+Dubai | cloud22dubai | Cloud 22
+Dubai | auraskypool.dubai | AURA Skypool
+Dubai | sohogardendxb | Soho Garden
+Dubai | whitedubai | WHITE Dubai
+Dubai | basedubai | BASE Dubai
+Dubai | zerogravitydubai | Zero Gravity
+Dubai | barastibeach | Barasti Beach
+Dubai | mcgettigansdxb | McGettigan's Dubai
+Dubai | pierchicdubai | Pierchic
+Dubai | bussoladubai | Bussola
+Dubai | theirishvillage | The Irish Village
+Dubai | reformdubai | Reform Social & Grill
+Dubai | salvajedubai | Salvaje Dubai
+Dubai | amazonicodubai | Amazónico Dubai
+Dubai | clapdubai | CLAP Dubai
+Dubai | attikodubai | Attiko
+Dubai | celavidubai | CÉ LA VI Dubai
+Dubai | sushisambadubai | SUSHISAMBA Dubai
+Dubai | tresinddubai | Trèsind
+Dubai | opadubai | OPA Dubai
+Dubai | blabladubai | Bla Bla Dubai
+Dubai | kymabeachdubai | Kyma Beach
+Dubai | beachbyfive | Beach by FIVE
+Dubai | driftbeachdubai | Drift Beach
+Dubai | summersaltbeachclub | Summersalt Beach Club
+Dubai | lsbdubai | Lock, Stock & Barrel
+Dubai | gardenon8 | Garden on 8
+Dubai | publiquedubai | Publique
+Dubai | fibbersdubai | Fibber Magee's
+Dubai | irisdubai | Iris Dubai
+Dubai | thescenedubai | The Scene by Simon Rimmer
+Dubai | wavehouse | Wavehouse
+Dubai | bluemarlinibiza_uae | Blue Marlin Ibiza UAE
+Dubai | nikkibeachdubai | Nikki Beach Dubai
+Dubai | sandancedubai | Sandance
+Dubai | bohemiabyfive | Bohemia by FIVE
+Dubai | thepenthousedubai | The Penthouse
+Dubai | jazzatpizzaexpress | PizzaExpress Live
+Dubai | hardrockcafedubai | Hard Rock Cafe Dubai
+Dubai | mcgettigansjlt | McGettigan's JLT
+Dubai | ninive.dubai | Ninive
+Dubai | billionairedubai | Billionaire Dubai
+Abu Dhabi | zumaabudhabi | Zuma Abu Dhabi
+Abu Dhabi | coyaabudhabi | COYA Abu Dhabi
+Abu Dhabi | hakkasanabudhabi | Hakkasan Abu Dhabi
+Abu Dhabi | lpmabudhabi | LPM Abu Dhabi
+Abu Dhabi | buddhabarbeachabudhabi | Buddha-Bar Beach Abu Dhabi
+Abu Dhabi | saadiyatbeachclub | Saadiyat Beach Club
+Abu Dhabi | kaibeachsaadiyat | Kai Beach
+Abu Dhabi | covebeachabudhabi | Cove Beach Abu Dhabi
+Abu Dhabi | whiteabudhabi | WHITE Abu Dhabi
+Abu Dhabi | mcgettigansauh | McGettigan's Abu Dhabi
+Abu Dhabi | pjoreillysabudhabi | PJ O'Reilly's
+Abu Dhabi | cafedelmarabudhabi | Café del Mar Abu Dhabi
+Abu Dhabi | raysbarabudhabi | Ray's Bar
+Abu Dhabi | starsnbarsabudhabi | Stars 'N' Bars
+Abu Dhabi | belgiancafeauh | Belgian Café Abu Dhabi
+Abu Dhabi | irisyasisland | Iris Yas Island
+Abu Dhabi | siddhartaloungeabudhabi | Siddharta Lounge Abu Dhabi
+Abu Dhabi | yasbeach | Yas Beach
+Abu Dhabi | zayanuraiisland | Zaya Nurai Island
+Abu Dhabi | almayaislandresort | Al Maya Island & Resort
+Abu Dhabi | barduportabudhabi | Bar du Port Abu Dhabi
+Abu Dhabi | mamshaalsaadiyat | Mamsha Al Saadiyat
+Abu Dhabi | soulbeachae | Soul Beach
+Abu Dhabi | thirdplacecafead | The Third Place
+Abu Dhabi | nurigrillbar | Nuri Grill & Bar
+Abu Dhabi | mccaffertysyas | McCafferty's Yas
+Abu Dhabi | stillsbarabudhabi | Stills Bar
+Ras Al Khaimah | bdpbeachrak | Bar du Port Beach RAK
+Ras Al Khaimah | bananbeach | Banan Beach
+Ras Al Khaimah | 1484bypuro | 1484 by Puro
+Ras Al Khaimah | puro.ae | Puro
+Ras Al Khaimah | mcgettigansrak | McGettigan's RAK
+Ras Al Khaimah | thebayalhamra | The Bay, Al Hamra Golf Club
+Ajman | mcgettigansajman | McGettigan's Ajman
+Fujairah | mcgettigansfujairah | McGettigan's Fujairah
+Sharjah | oceanickhorfakkan | Oceanic Khorfakkan Resort & Spa
+Sharjah | oceanic_khorfakkan | Oceanic Khorfakkan Resort & Spa
