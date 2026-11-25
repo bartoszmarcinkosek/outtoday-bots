@@ -762,6 +762,19 @@ class DB:
         if not key.startswith("sb_"):  # stare klucze JWT potrzebują też nagłówka Authorization
             self.h["Authorization"] = f"Bearer {key}"
 
+    @staticmethod
+    def _retry(fn):
+        """Odczyt i aktualizacja są bezpieczne do powtórzenia: przy chwilowym braku odpowiedzi z bazy próbujemy 3 razy."""
+        for attempt in range(3):
+            try:
+                r = fn()
+                if r.status_code < 500 or attempt == 2:
+                    return r
+            except (requests.Timeout, requests.ConnectionError):
+                if attempt == 2:
+                    raise
+            time.sleep(5 * (attempt + 1))
+
     def get(self, table: str, params: dict) -> list:
         # Supabase zwraca max 1000 wierszy na zapytanie, więc pobieramy stronami
         want = int(params.get("limit", 1000))
@@ -771,8 +784,8 @@ class DB:
         out, start = [], 0
         while start < want:
             end = min(start + 1000, want) - 1
-            r = requests.get(f"{self.base}/{table}", headers={**self.h, "Range": f"{start}-{end}"},
-                             params=p, timeout=30)
+            r = self._retry(lambda: requests.get(f"{self.base}/{table}", headers={**self.h, "Range": f"{start}-{end}"},
+                                                 params=p, timeout=30))
             r.raise_for_status()
             page = r.json()
             out += page
@@ -792,7 +805,7 @@ class DB:
 
     def update(self, table: str, match: dict, values: dict) -> None:
         params = {k: f"eq.{v}" for k, v in match.items()}
-        r = requests.patch(f"{self.base}/{table}", headers=self.h, params=params, json=values, timeout=30)
+        r = self._retry(lambda: requests.patch(f"{self.base}/{table}", headers=self.h, params=params, json=values, timeout=30))
         if r.status_code >= 400:
             raise RuntimeError(f"update {table}: {r.status_code} {r.text[:300]}")
 
