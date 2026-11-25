@@ -1,0 +1,107 @@
+{
+ "note": "Linki do oficjalnych programów dla pozycji dodanych bez linku (Szardża – program Sharjah Government Media Bureau, Dubaj – Visit Dubai, Public Art Abu Dhabi – strona biennale).",
+ "update_event_ids": [
+  {
+   "id": "1b76bcce-e8c6-42ed-9b91-8f0992b354a9",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "35d577b8-8fea-4aec-82db-20644134ec15",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "40d9d67c-b132-4cff-aaaa-cfb7403882d8",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "46a0797c-6311-4c69-9c5f-42b4ef7eb1d9",
+   "set": {
+    "official_url": "https://abudhabiculture.ae/en/cultural-programmes/public-art-abu-dhabi/public-art-abu-dhabi-biennial"
+   }
+  },
+  {
+   "id": "47b606e0-0d00-49b4-bd2f-7ec4cc5a5aa0",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "5e0ff538-f322-42c6-99df-9a8c0b2f9c58",
+   "set": {
+    "official_url": "https://www.visitdubai.com/en/festivals-and-events/uae-national-day"
+   }
+  },
+  {
+   "id": "6c398092-e8f7-42b2-b59a-f597626c3f14",
+   "set": {
+    "official_url": "https://www.visitdubai.com/en/festivals-and-events/uae-national-day"
+   }
+  },
+  {
+   "id": "6f609a6c-2128-4827-8ca8-f544b3584e66",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "7e840994-8f95-4a4a-92f7-7d78f17c6818",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "b0ecdbe4-ea92-4294-8835-df7c131680bb",
+   "set": {
+    "official_url": "https://abudhabiculture.ae/en/cultural-programmes/public-art-abu-dhabi/public-art-abu-dhabi-biennial"
+   }
+  },
+  {
+   "id": "c5297f30-d431-492a-8b5a-675ab519f4e3",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "d4540d1e-476e-4862-a9d8-9cf84e3a4bf8",
+   "set": {
+    "official_url": "https://www.visitdubai.com/en/festivals-and-events/uae-national-day"
+   }
+  },
+  {
+   "id": "e1d462a9-70d3-425d-9b1e-41b4db5baeca",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "e76627c7-1bc7-47ab-9db6-8e911eef24c9",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "e76a0a9f-cd49-4af3-8cd8-cf5eb0557829",
+   "set": {
+    "official_url": "https://sharjah24.ae/en/Articles/2026/11/17/AL014"
+   }
+  },
+  {
+   "id": "fde54015-473d-4815-a216-7ab881f00855",
+   "set": {
+    "official_url": "https://abudhabiculture.ae/en/cultural-programmes/public-art-abu-dhabi/public-art-abu-dhabi-biennial"
+   }
+  },
+  {
+   "id": "feff26fc-2654-4e2a-9f09-4da2f8bb65b2",
+   "set": {
+    "official_url": "https://abudhabiculture.ae/en/cultural-programmes/public-art-abu-dhabi/public-art-abu-dhabi-biennial"
+   }
+  }
+ ]
+}
