@@ -1,0 +1,17 @@
+{
+ "note": "25.11.2026: stand-upy z pozostałą kategorią comedy przeniesione do Music & Shows (klucz music) – decyzja właściciela.",
+ "update_event_ids": [
+  {
+   "id": "7b8a0a89-b3d2-4a15-b5fb-c37bd2e2c9d8",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "97572ecc-a059-40fc-98d5-8fb8e9f6b9aa",
+   "set": {
+    "category": "music"
+   }
+  }
+ ]
+}
