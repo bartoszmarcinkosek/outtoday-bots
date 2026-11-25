@@ -4,6 +4,7 @@
 // 3) zdjęcia z widokiem konkretnego miasta tylko dla tego miasta, 4) ten sam wpis = zawsze to samo zdjęcie,
 // 5) sąsiednie karty dostają różne wersje, gdy jest z czego wybierać.
 import { Item } from './logic';
+import { PHOTO_OFF } from './photoOff';
 import { PHOTO_FILES } from './photos.gen';
 
 // Konkretne miejsca (najważniejsze): event/miejsce/oferta w tym miejscu dostaje zdjęcie tego miejsca (klucz lm_*).
@@ -221,6 +222,8 @@ function pool(item: Item): number[] {
 
 /** Zdjęcie dla karty albo null (wtedy karta pokazuje ikonkę). `avoid` = zdjęcie poprzedniej karty. */
 export function photoFor(item: Item, avoid?: number | null): number | null {
+  const row: any = item.event ?? item.deal ?? item.place;
+  if (row?.id && PHOTO_OFF.has(String(row.id))) return null;
   const p = pool(item);
   if (!p.length) return null;
   let i = hash(item.key) % p.length;
