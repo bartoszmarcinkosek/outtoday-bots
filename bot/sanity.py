@@ -18,11 +18,11 @@ def add(code, table, r, detail=""):
     out.append((code, table, r["id"], r.get("city") or "", str(title).replace("|", "/")[:70], str(detail).replace("|", "/").replace("\n", " ")[:120]))
 
 
-ev = db.get("events", {"select": "id,title,start_date,end_date,start_time,venue,city,category,price_text,is_free,official_url,description,lat,lng",
+ev = db.get("events", {"select": "id,title,start_date,end_date,start_time,end_time,venue,city,category,price_text,is_free,official_url,description,lat,lng",
                        "status": "eq.approved", "or": f"(end_date.gte.{T},start_date.gte.{T})", "limit": "5000"})
 dl = db.get("deals", {"select": "id,title,venue,city,deal_type,days_of_week,start_time,end_time,price_text,valid_until,official_url,details,lat,lng",
                       "status": "eq.approved", "limit": "5000"})
-pl = db.get("places", {"select": "id,name,city,category,hours_text,price_text,is_free,official_url,description,lat,lng",
+pl = db.get("places", {"select": "id,name,area,city,category,hours_text,price_text,is_free,official_url,description,lat,lng",
                        "status": "eq.approved", "limit": "5000"})
 print(f"SA|events {len(ev)} deals {len(dl)} places {len(pl)}")
 
@@ -185,5 +185,116 @@ for k, rows in ec.items():
 
 cnt = collections.Counter(o[0] for o in out)
 print("SA|" + " ".join(f"{k}={v}" for k, v in sorted(cnt.items())))
+# ---------- tekst kontra pola (25.11.2026): dni, godziny, ceny, daty, emirat, "free" ----------
+# Pary ocenione jako w porządku: audit/ok_flags.txt, linie "KOD id  # powód" – nie są zgłaszane ponownie.
+try:
+    OKF = {tuple(l.split()[:2]) for l in open(os.path.join(os.path.dirname(__file__), "..", "audit", "ok_flags.txt")) if l.strip() and not l.startswith("#")}
+except Exception:
+    OKF = set()
+def add2(code, table, r, detail=""):
+    if (code, r["id"]) not in OKF:
+        add(code, table, r, detail)
+_N = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
+_FULL = {"sunday": 0, "monday": 1, "tuesday": 2, "wednesday": 3, "thursday": 4, "friday": 5, "saturday": 6}
+def days_named(t):
+    t = (t or "").lower(); o = set()
+    for w, i in _FULL.items():
+        if re.search(rf"\b{w}s?\b", t):
+            o.add(i)
+    for a, b in re.findall(r"\b(sun|mon|tue|wed|thu|fri|sat)[a-z]*\s*(?:-|–|to|till|until|through)\s*(sun|mon|tue|wed|thu|fri|sat)[a-z]*\b", t):
+        k, j = _N.index(a), _N.index(b)
+        while True:
+            o.add(k)
+            if k == j:
+                break
+            k = (k + 1) % 7
+    if re.search(r"\bweekdays?\b", t):
+        o |= {1, 2, 3, 4}
+    if re.search(r"\b(daily|every ?day|all week|7 days)\b", t):
+        o |= set(range(7))
+    return o
+def mins(h, m, ap):
+    h, m = int(h), int(m or 0)
+    ap = (ap or "").lower().replace(".", "")
+    if ap == "pm" and h < 12: h += 12
+    if ap == "am" and h == 12: h = 0
+    return h * 60 + m if h < 25 and m < 60 else None
+_TR = re.compile(r"\b(\d{1,2})(?:[:.](\d{2}))?\s*(a\.?m\.?|p\.?m\.?)?\s*(?:-|–|—|to|till|until)\s*(\d{1,2})(?:[:.](\d{2}))?\s*(a\.?m\.?|p\.?m\.?)\b", re.I)
+def ranges(t):
+    o = []
+    for h1, m1, a1, h2, m2, a2 in _TR.findall(t or ""):
+        b = mins(h2, m2, a2)
+        a = mins(h1, m1, a1 or a2)
+        if a1 == "" and a is not None and b is not None and a > b:   # "11-2pm" → 11am
+            a = mins(h1, m1, "am")
+        if a is not None and b is not None:
+            o.append((a, b % 1440))
+    return o
+def tm(x):
+    return int(x[:2]) * 60 + int(x[3:5]) if x else None
+_AEDN = re.compile(r"(?:aed|dhs?)\.?\s*([\d,]+(?:\.\d+)?)|([\d,]+(?:\.\d+)?)\s*(?:aed|dhs?)\b", re.I)
+def prices(t):
+    o = set()
+    for a, b in _AEDN.findall(t or ""):
+        try:
+            v = float((a or b).replace(",", ""))
+            if v >= 5: o.add(round(v))
+        except ValueError:
+            pass
+    return o
+_MON = {m: i + 1 for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"])}
+_DT = re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+(?:of\s+)?(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*|\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+(\d{1,2})(?:st|nd|rd|th)?\b", re.I)
+_SKIPD = re.compile(r"(until|by|before|register|registration|closes?|deadline|early bird|book|since|from|opens?|valid|listed|sale|tickets?|after|last)\W+(\w+\W+){0,3}$", re.I)
+def dates_named(t):
+    o = []
+    for m in _DT.finditer(t or ""):
+        if _SKIPD.search((t or "")[max(0, m.start() - 45):m.start()]):
+            continue
+        d, mo = (m.group(1), m.group(2)) if m.group(1) else (m.group(4), m.group(3))
+        if 1 <= int(d) <= 31:
+            o.append((_MON[mo.lower()[:3]], int(d)))
+    return o
+_EM = [("Ajman", r"\bajman\b"), ("Fujairah", r"\bfujairah\b"), ("Umm Al Quwain", r"umm al qu?wain|\buaq\b"), ("Ras Al Khaimah", r"ras al khaimah|\brak\b"),
+       ("Sharjah", r"\bsharjah\b"), ("Al Ain", r"\bal ain\b"), ("Abu Dhabi", r"\babu dhabi\b"), ("Dubai", r"\bdubai\b")]
+def emirate_named(t):
+    return {c for c, rx in _EM if re.search(rx, (t or "").lower())}
+
+for r in dl:
+    days = set(r.get("days_of_week") or [])
+    tt = days_named(r.get("title"))
+    al = tt | days_named(r.get("details")) | days_named(r.get("price_text"))
+    if days and ((tt and not tt <= days) or (al and not (al & days))):
+        add2("DAY_MISMATCH", "deals", r, f"stored {sorted(days)} (0=Sun) vs text {sorted(al)}: {(r.get('details') or '')[:60]}")
+    if not days and al and r.get("deal_type") != "staycation":
+        add2("DAY_MISSING", "deals", r, f"text names days {sorted(al)}: {(r.get('details') or '')[:70]}")
+for table, rows, dcol in (("events", ev, "description"), ("deals", dl, "details")):
+    for r in rows:
+        txt = f"{r.get('title') or ''}. {r.get(dcol) or ''}"
+        st, en = tm(r.get("start_time")), tm(r.get("end_time"))
+        rg = ranges(txt)
+        if st is not None and len(rg) == 1 and (abs(rg[0][0] - st) > 15 or (en is not None and abs(rg[0][1] - en % 1440) > 15)):
+            add2("TIME_MISMATCH", table, r, f"stored {r.get('start_time')}-{r.get('end_time') or ''} vs text {rg[0][0]//60:02d}:{rg[0][0]%60:02d}-{rg[0][1]//60:02d}:{rg[0][1]%60:02d}")
+        pp, pt = prices(r.get("price_text")), prices(r.get(dcol))
+        if pp and pt and not (pp & pt):
+            add2("PRICE_MISMATCH", table, r, f"price field {sorted(pp)} vs text {sorted(pt)}")
+for r in ev:
+    sd = dt.date.fromisoformat(r["start_date"]); ed = dt.date.fromisoformat(r.get("end_date") or r["start_date"])
+    dn = dates_named(f"{r.get('title') or ''}. {r.get('description') or ''}")
+    if dn:
+        span = set(); d = sd
+        while d <= ed and len(span) < 400:
+            span.add((d.month, d.day)); d += dt.timedelta(days=1)
+        if not any(x in span for x in dn):
+            add2("DATE_MISMATCH", "events", r, f"stored {r['start_date']}..{r.get('end_date') or ''} vs text {dn[:3]}")
+    d = r.get("description") or ""
+    if not r.get("is_free") and re.search(r"free (entry|admission|to attend|for all)|admission is free|entry is free", d, re.I) and prices(r.get("price_text")):
+        add2("FREE_TEXT_BUT_PRICE", "events", r, r.get("price_text"))
+for table, rows, cols in (("events", ev, ("venue",)), ("deals", dl, ("venue",)), ("places", pl, ("name", "area"))):
+    for r in rows:
+        em = emirate_named(" ".join(str(r.get(c) or "") for c in cols))
+        c = r.get("city")
+        if em and c and c not in em and not (c == "Al Ain" and em == {"Abu Dhabi"}):
+            add2("CITY_IN_NAME", table, r, f"city {c}, name says {sorted(em)}: {' / '.join(str(r.get(x) or '') for x in cols)[:70]}")
+
 for o in sorted(out):
     print("S|" + "|".join(str(x) for x in o))
