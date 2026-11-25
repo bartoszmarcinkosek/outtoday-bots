@@ -12,7 +12,8 @@ Wynik sprawdzenia zapisuje `python bot/ig_apply.py <log> [--skip konto,konto]` (
 | 25.11 | `ig-discover` – linki do Instagrama na oficjalnych stronach wszystkich naszych źródeł | wszystkie emiraty | +22 |
 | 25.11 | `ig-mentions` – nazwy kont w opisach postów kont-węzłów (urzędy turystyki, areny, dzielnice + konta bez miejsca) | wszystkie emiraty | 139 kandydatów, +26 |
 | 25.11 | sesja ręczna 1: restauracje, bary, puby, beach cluby | Dubaj, Abu Zabi, RAK, Fudżajra (87 nazw) | +31 |
-| 25.11 | sesja ręczna 2: sport, muzea i galerie, sale i festiwale, atrakcje | Dubaj, Abu Zabi, Szardża, RAK, Al Ain (141 nazw) | +12, reszta w `audit/ig_candidates.txt` |
+| 25.11 | sesja ręczna 2: sport, muzea i galerie, sale i festiwale, atrakcje | Dubaj, Abu Zabi, Szardża, RAK, Al Ain (141 nazw) | +12 (pierwsza tura) i +44 (druga tura, 16:10) = +56; sprawdzone w całości |
+| 25.11 | konta z materiałów właściciela (WhatsApp): ADREA, NYUAD Arts Center, Socials RAK, Masala by Socials | Abu Zabi, RAK | w tym +4 (wliczone wyżej) |
 
 ## Jeszcze nieprzeszukane (pomysły na kolejne sesje)
 - hotele i resorty z własnym programem (brunche, noce tematyczne) – wg emiratów
