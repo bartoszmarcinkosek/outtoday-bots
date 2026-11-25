@@ -1023,6 +1023,17 @@
    ],
    "trusted": true,
    "note": "Wydarzenia Shurooq: Khorfakkan Beach, Al Heera Beach, Al Majaz Waterfront, Mleiha (dodane 25.11.2026)."
+  },
+  {
+   "id": "mydubai_communities",
+   "name": "MyDubai Communities",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://mydubaicommunities.com/"
+   ],
+   "trusted": true,
+   "note": "Platforma Rządu Dubaju dla społeczności mieszkańców (sport, kultura, hobby). Dodane 25.11.2026."
   }
  ]
 }
