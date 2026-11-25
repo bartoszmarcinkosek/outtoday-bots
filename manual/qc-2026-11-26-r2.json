@@ -1,0 +1,29 @@
+{
+ "note": "QC night run 2 (2026-11-26): 100 events reviewed. Source pages could not be opened in this run, so no link checks and no deal changes.",
+ "reject_event_ids": [
+  "9d430fd5-90e0-45ef-8e9c-115e438e4afa",
+  "7ddff2fa-dbf6-49a4-84da-705a2b3e487b",
+  "c0cd26c7-2933-4da8-b136-e6933332de1d",
+  "c1906f50-128a-496a-a182-b02fa0d76372"
+ ],
+ "update_event_ids": [
+  {
+   "id": "ad3db8f5-4c7b-489f-93e2-e0c1449fba9b",
+   "set": {
+    "price_text": "From AED 150"
+   }
+  },
+  {
+   "id": "90a96cf0-c19d-47b9-86ae-e25ec81a8583",
+   "set": {
+    "price_text": "From AED 249"
+   }
+  },
+  {
+   "id": "ac464fee-e8c3-4d8f-baf5-d1b8099f8ee9",
+   "set": {
+    "city": "Fujairah"
+   }
+  }
+ ]
+}
