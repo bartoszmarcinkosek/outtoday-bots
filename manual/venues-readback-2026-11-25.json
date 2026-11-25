@@ -1,0 +1,33 @@
+{
+ "note": "25.11.2026: ujednolicona pisownia miejsc; godziny Night Beach przywrócone po nadpisaniu przez stary plik (odczyt po zapisie).",
+ "update_deal_ids": [
+  {
+   "id": "59b0e89e-b4bc-4d64-9fa3-f3043f66a2dc",
+   "set": {
+    "venue": "Akira Back, W Dubai – The Palm"
+   }
+  }
+ ],
+ "update_event_ids": [
+  {
+   "id": "91ec8111-7c43-426b-97b1-2af4e2422d2a",
+   "set": {
+    "venue": "Ibn AlBahr"
+   }
+  },
+  {
+   "id": "a9062935-3045-401e-b94d-ce29398f5e4f",
+   "set": {
+    "venue": "Al Majlis, Madinat Jumeirah Mina A'Salam"
+   }
+  }
+ ],
+ "update_place_ids": [
+  {
+   "id": "583aa87f-98d3-447b-b5f2-cb738796bbe6",
+   "set": {
+    "hours_text": "Open daily; lit for night swimming until midnight"
+   }
+  }
+ ]
+}
