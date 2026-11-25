@@ -999,6 +999,29 @@
    ],
    "trusted": true,
    "note": "Sprzedawca biletów, całe ZEA; strona może blokować roboty."
+  },
+  {
+   "id": "khorfakkan_amphitheatre",
+   "name": "Khorfakkan Amphitheatre",
+   "city": "Sharjah",
+   "single_venue": true,
+   "urls": [
+    "https://khorfakkanamphitheatre.ae/en"
+   ],
+   "trusted": true,
+   "default_venue": "Khorfakkan Amphitheatre",
+   "note": "Koncerty i wydarzenia w amfiteatrze w Khor Fakkan (dodane 25.11.2026)."
+  },
+  {
+   "id": "discover_shurooq",
+   "name": "Discover Shurooq",
+   "city": "Sharjah",
+   "single_venue": false,
+   "urls": [
+    "https://discovershurooq.ae/events/"
+   ],
+   "trusted": true,
+   "note": "Wydarzenia Shurooq: Khorfakkan Beach, Al Heera Beach, Al Majaz Waterfront, Mleiha (dodane 25.11.2026)."
   }
  ]
 }

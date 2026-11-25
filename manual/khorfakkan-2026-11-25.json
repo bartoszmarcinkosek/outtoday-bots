@@ -1,0 +1,122 @@
+{
+ "note": "25.11.2026: Khor Fakkan – Bartosz zauważył, że jest tam mało pozycji (było 1 miejsce, 6 wydarzeń, 0 ofert). Dodane miejsca z oficjalnych stron i prasy (visitsharjah.com, khorfakkanamphitheatre.ae, The National, Gulf News, Sharjah24) oraz wyścig z przeszkodami.",
+ "places": [
+  {
+   "city": "Sharjah",
+   "area": "Khor Fakkan",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Khorfakkan Beach",
+   "category": "beaches",
+   "is_free": true,
+   "kid_friendly": true,
+   "description": "Long sandy public beach in a sheltered bay on the east coast, with a promenade, cafés, play areas and water sports. Shark Island lies just off the shore, a popular snorkelling spot."
+  },
+  {
+   "city": "Sharjah",
+   "area": "Khor Fakkan",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Khorfakkan Amphitheatre and Waterfall",
+   "category": "attractions",
+   "is_free": true,
+   "kid_friendly": true,
+   "hours_text": "Sat to Wed 09:00 to 23:00; Thu and Fri 09:00 to 01:00 (event days may differ)",
+   "official_url": "https://khorfakkanamphitheatre.ae/en",
+   "description": "Roman-style open-air amphitheatre on a hillside above the bay, next to a man-made waterfall cut into the mountain; lit up after dark. Concerts are held here in the cooler months."
+  },
+  {
+   "city": "Sharjah",
+   "area": "Khor Fakkan",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Al Suhub Rest House",
+   "category": "attractions",
+   "is_free": true,
+   "kid_friendly": true,
+   "description": "Flying-saucer-shaped viewpoint about 600 m above sea level, the highest public lookout in Khor Fakkan, with a restaurant, a playground and 360-degree views of the bay and the Hajar Mountains. Reached by a winding mountain road or a 3 km trail from Al Rafisah Dam."
+  },
+  {
+   "city": "Sharjah",
+   "area": "Khor Fakkan",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Al Rafisah Dam",
+   "category": "daytrips",
+   "is_free": true,
+   "kid_friendly": true,
+   "official_url": "https://www.visitsharjah.com/al-rafisah-dam/",
+   "description": "Mountain reservoir on the Sharjah–Khor Fakkan road with a palm-shaded lakeside promenade, boat and kayak hire, a playground, a restaurant and a marked hiking trail up to Al Suhub Rest House."
+  },
+  {
+   "city": "Sharjah",
+   "area": "Khor Fakkan",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Shees Park",
+   "category": "parks",
+   "is_free": true,
+   "kid_friendly": true,
+   "description": "Family park in Wadi Shees, tucked between the Hajar Mountains, with a man-made waterfall, shaded picnic and barbecue areas, a playground and a viewing terrace."
+  },
+  {
+   "city": "Sharjah",
+   "area": "Khor Fakkan",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Najd Al Maqsar Heritage Village",
+   "category": "museums",
+   "is_free": true,
+   "description": "Restored mountain village of 13 stone-and-mud houses more than a century old, watched over by a 300-year-old tower on the hilltop above."
+  },
+  {
+   "city": "Sharjah",
+   "area": "Khor Fakkan",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Al Rabi Tower and Hiking Trail",
+   "category": "active",
+   "is_free": true,
+   "description": "Watchtower from 1915 on a hill above the town and the start of a well-marked mountain trail to a 395 m summit with wide views over the bay. Bring water; there is no shade on the way."
+  },
+  {
+   "city": "Sharjah",
+   "area": "Khor Fakkan",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Resistance Monument",
+   "category": "museums",
+   "description": "Helmet-shaped hilltop monument and small museum near Khorfakkan Square, telling the story of the town's resistance to the Portuguese invasion of 1507 through a film and artefacts, with a view over the city."
+  }
+ ],
+ "events": [
+  {
+   "title": "Tigers Obstacle Race Khorfakkan 2027",
+   "category": "sport",
+   "start_date": "2027-01-30",
+   "venue": "Khorfakkan Amphitheatre",
+   "city": "Sharjah",
+   "description": "Obstacle race starting from Khorfakkan Amphitheatre, with categories for children, amateurs and professionals and a sports festival alongside. Organised by the Sharjah Government Media Bureau.",
+   "kid_friendly": true,
+   "official_url": "https://khorfakkanamphitheatre.ae/en",
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau"
+  }
+ ],
+ "update_event_ids": [
+  {
+   "id": "3b3b2703-038d-49dd-9e19-97e59dd020a8",
+   "set": {
+    "venue": "Khorfakkan Amphitheatre"
+   }
+  }
+ ],
+ "update_place_ids": [
+  {
+   "id": "ebaadc2b-8b47-401b-b96f-c674de35b67f",
+   "set": {
+    "hours_text": "Sat to Thu 08:00 to 20:00; Fri 16:00 to 20:00"
+   }
+  }
+ ]
+}

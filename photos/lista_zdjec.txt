@@ -1,3 +1,9 @@
+300 | lm_khorfakkan_amph-1 | Khorfakkan Amphitheatre in Sharjah: sand-coloured Roman-style open-air amphitheatre with rows of arches on a rocky hillside above a blue bay, man-made waterfall cascading down the cliff beside it, clear sky.
+301 | lm_khorfakkan_amph-2 | Khorfakkan Amphitheatre at dusk, warm lights on the arched stone facade, the illuminated waterfall on the mountain next to it, palm trees and the corniche road in front.
+302 | lm_khorfakkan_beach-1 | Khorfakkan Beach on the UAE east coast: wide sandy bay with calm turquoise water, palm-lined promenade, rugged Hajar mountains closing the bay and a small rocky island offshore.
+303 | lm_khorfakkan_beach-2 | Families walking on the palm-lined promenade of Khorfakkan Beach at golden hour, sandy beach and calm sea on one side, dry rocky mountains behind the town.
+304 | lm_suhub-1 | Al Suhub Rest House in Khorfakkan: round flying-saucer-shaped building on a mountain top with a viewing terrace, winding road below, panoramic view of the coast and the Hajar mountains.
+305 | lm_rafisah-1 | Al Rafisah Dam near Khorfakkan: calm green mountain reservoir between bare rocky hills, small pedal boats on the water, palm-shaded lakeside promenade and a stone tower on the hill.
 240 | lm_rams-1 | Wild natural beach at Al Rams, Ras Al Khaimah: sandy track through low dry coastal grass towards a calm blue sea, rugged Hajar mountains on the horizon, big sky with scattered clouds.
 241 | lm_rams-2 | Quiet fishing village coast at Al Rams, Ras Al Khaimah: a few small wooden fishing boats on a sandy shore, shallow turquoise lagoon and bare mountains behind, soft morning light.
 235 | fort-1 | Small mud-brick fort with two round towers on top of a steep rocky hill, long stone staircase leading up, date palm groves and distant sea below, golden light.

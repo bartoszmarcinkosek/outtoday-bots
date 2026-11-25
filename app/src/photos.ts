@@ -33,6 +33,10 @@ const LANDMARKS: [RegExp, string][] = [
   [/burj al arab/i, 'lm_burj_al_arab'],
   [/ain dubai/i, 'lm_ain_dubai'],
   [/jebel jais|\bjais\b/i, 'lm_jebel_jais'],
+  [/khor ?fakkan amphitheat|khor ?fakkan waterfall/i, 'lm_khorfakkan_amph'],
+  [/al suhub/i, 'lm_suhub'],
+  [/al rafisah/i, 'lm_rafisah'],
+  [/khor ?fakkan beach/i, 'lm_khorfakkan_beach'],
   [/\bal rams\b|\brams (beach|village|coast)/i, 'lm_rams'],
   // dzielnice z widokiem (tylko miejsca i hotelowe day pass / staycation): hotel w Downtown -> widok na Burj, w Marinie -> Marina
   [/downtown dubai|business bay|dubai mall|address (downtown|boulevard|sky view|dubai mall)|vida downtown|palace downtown|armani hotel|burj (park|views)|souk al bahar|opera district/i, 'lm_downtown'],
