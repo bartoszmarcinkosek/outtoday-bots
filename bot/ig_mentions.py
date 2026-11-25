@@ -20,6 +20,7 @@ import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
 import instagram as IG  # noqa: E402
+import ig_seen  # noqa: E402
 
 IG_FILE = os.path.join(os.path.dirname(__file__), "..", "sources", "instagram.json")
 HUBS = ["dubai_calendar", "visitdubai", "dubaiculture", "visitabudhabi", "abudhabiculture", "yasisland", "saadiyatae",
@@ -62,6 +63,7 @@ def main() -> int:
     ig = IG.ig_user_id(tok)
     data = json.load(open(IG_FILE, encoding="utf-8"))
     have = {x["username"].lower() for x in data["accounts"]}
+    rejected = ig_seen.load()  # sprawdzone wcześniej i odrzucone – nie pytamy o nie drugi raz
     counts, by = collections.Counter(), collections.defaultdict(set)
     # 25.11.2026: węzłami są też wszystkie nasze konta bez przypisanego miejsca (urzędy, kalendarze, organizatorzy, dzielnice)
     # oraz konta dzielnic i centrów – one najczęściej oznaczają lokale i organizatorów.
@@ -81,7 +83,7 @@ def main() -> int:
             found = set(MENTION.findall(cap)) | {t for t in PLAIN.findall(cap) if not JUNK.search(t)}
             for m in found:
                 m = m.rstrip(".").lower()
-                if m not in have and m not in SKIP:
+                if m not in have and m not in SKIP and m not in rejected:
                     counts[m] += 1
                     by[m].add(h)
         time.sleep(1)
@@ -111,6 +113,8 @@ def main() -> int:
     print("\n| Konto | Oznaczeń | Wynik |\n|---|---|---|")
     for u, n, res in rep:
         print(f"| @{u} | {n} | {res} |")
+    if a.save:
+        ig_seen.add([(u, res) for u, n, res in rep if not res.startswith("✓") and "limit" not in res])
     if a.save and added:
         data["accounts"].extend(added)
         json.dump(data, open(IG_FILE, "w", encoding="utf-8"), indent=1, ensure_ascii=False)

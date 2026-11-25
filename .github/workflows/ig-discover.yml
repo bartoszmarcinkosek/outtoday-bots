@@ -43,6 +43,6 @@ jobs:
         run: |
           git config user.name "outtoday-bot"
           git config user.email "outtoday-bot@users.noreply.github.com"
-          git add sources/instagram.json
+          git add sources/instagram.json audit/ig_rejected.txt 2>/dev/null || git add sources/instagram.json
           git commit -m "Instagram: nowe konta z oficjalnych stron" || exit 0
           git pull --rebase origin main && git push origin HEAD:main

@@ -3,8 +3,10 @@ import os, sys, datetime as dt
 sys.path.insert(0, os.path.dirname(__file__))
 import instagram as I
 import json, collections
+import ig_seen
 B = os.path.join(os.path.dirname(__file__), "..")
 have = {x["username"].lower() for x in json.load(open(os.path.join(B, "sources", "instagram.json")))["accounts"]}
+REJ = ig_seen.load(hard_only=True)
 C, VEN = collections.defaultdict(list), {}
 for l in open(os.path.join(B, "audit", "ig_candidates.txt")):
     p = [x.strip() for x in l.split("|")]
@@ -12,6 +14,8 @@ for l in open(os.path.join(B, "audit", "ig_candidates.txt")):
         continue
     if p[1].lower() in have:
         print(f"IG|{p[0]}|{p[1]}|JUŻ JEST"); continue
+    if p[1].lower() in REJ:
+        print(f"IG|{p[0]}|{p[1]}|JUŻ ODRZUCONE"); continue
     C[p[0]].append(p[1]); VEN[p[1]] = p[2] if len(p) > 2 else ""
 tok = os.environ["IG_ACCESS_TOKEN"].strip()
 import requests, time

@@ -25,6 +25,7 @@ import requests
 sys.path.insert(0, os.path.dirname(__file__))
 import run as R  # noqa: E402
 import instagram as IG  # noqa: E402
+import ig_seen  # noqa: E402
 
 SRC = os.path.join(os.path.dirname(__file__), "..", "sources")
 IG_FILE = os.path.join(SRC, "instagram.json")
@@ -93,8 +94,9 @@ def main() -> int:
             print(f"{p['name']} ({p['city']}): {', '.join(sorted(hs)) or '-'}")
     ig = IG.ig_user_id(tok)
     added, report = [], []
+    rejected = ig_seen.load()  # sprawdzone wcześniej i odrzucone – nie pytamy o nie drugi raz
     for h, ps in sorted(where.items()):
-        if h in have:
+        if h in have or h.lower() in rejected:
             continue
         names = {R.norm(x["name"] or "") for x in ps}
         if len(names) > 2:
@@ -124,6 +126,8 @@ def main() -> int:
     print("\n| Konto | Wynik |\n|---|---|")
     for h, res in report:
         print(f"| @{h} | {res} |")
+    if not a.dry_run:
+        ig_seen.add([(h, res) for h, res in report if res.startswith(("niedostępne", "za mało")) and "limit" not in res])
     if added and not a.dry_run:
         data["accounts"].extend(added)
         json.dump(data, open(IG_FILE, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
