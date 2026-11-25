@@ -89,3 +89,4 @@ emirates_motorplex | Umm Al Quwain | Emirates Motorplex | https://www.emiratesmo
 uaq_marine_club | Umm Al Quwain | UAQ Marine Club | http://www.uaqmarineclub.com/
 uae_triathlon | Dubai | UAE Triathlon Federation | https://uaetriathlon.ae/events
 uae_cycling | Dubai | UAE Cycling Federation | https://uaecf.ae/en/events
+art_421 | Abu Dhabi | 421 Arts Campus (dawniej Warehouse421) | https://www.421.online/
