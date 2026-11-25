@@ -19,7 +19,14 @@ def main() -> int:
     db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
     now = dt.datetime.now(dt.timezone.utc).isoformat()
     added = skipped = 0
-    for path in sorted(glob.glob("manual/*.json")):
+    # WAŻNE (25.11.2026): każdy plik stosujemy RAZ – tylko pliki z bieżącego pusha (env FILES).
+    # Wcześniej każdy push stosował od nowa wszystkie pliki w kolejności alfabetycznej: stare poprawki nadpisywały
+    # nowsze, a pozycje, którym zmieniono nazwę, były dodawane drugi raz.
+    files = [f for f in os.environ.get("FILES", "").split() if f.startswith("manual/") and f.endswith(".json") and os.path.exists(f)]
+    if os.environ.get("ALL") == "1":
+        files = sorted(glob.glob("manual/*.json"))
+    print(f"files: {files}")
+    for path in files:
         data = json.load(open(path, encoding="utf-8"))
         for e in data.get("events", []):
             key = "manual:" + hashlib.sha1(f"{R.norm(e['title'])}|{e['start_date']}|{R.norm(e.get('venue'))}".encode()).hexdigest()[:20]

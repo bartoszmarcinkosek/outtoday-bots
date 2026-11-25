@@ -1,13 +1,23 @@
 name: Manual add
 
+# Stosuje pliki manual/*.json – każdy plik RAZ, tylko te dodane lub zmienione w danym pushu.
 on:
   push:
     branches: [main]
     paths: ["manual/*.json"]
   workflow_dispatch:
+    inputs:
+      files:
+        description: "Pliki do ponownego zastosowania (np. manual/x.json manual/y.json)"
+        type: string
+        default: ""
 
 permissions:
   contents: read
+
+concurrency:
+  group: manual-add
+  cancel-in-progress: false
 
 jobs:
   add:
@@ -15,11 +25,24 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 100
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install requests anthropic
+      - name: Which files
+        id: f
+        env:
+          BEFORE: ${{ github.event.before }}
+          INPUT: ${{ inputs.files }}
+        run: |
+          if [ -n "$INPUT" ]; then FILES="$INPUT";
+          elif [ -n "$BEFORE" ] && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then FILES=$(git diff --name-only --diff-filter=AM "$BEFORE" "$GITHUB_SHA" -- 'manual/*.json' | tr '\n' ' ');
+          else FILES=$(git diff-tree --no-commit-id --name-only --diff-filter=AM -r "$GITHUB_SHA" -- 'manual/*.json' | tr '\n' ' '); fi
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"; echo "Files: $FILES"
       - env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          FILES: ${{ steps.f.outputs.files }}
         run: python bot/manual_add.py
