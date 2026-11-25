@@ -270,9 +270,14 @@ class Browser:
                 )
                 status = resp.status if resp else 0
                 final_url = page.url
+                try:  # dane strukturalne (JSON-LD) – do sprawdzenia dat bez AI
+                    ld = page.eval_on_selector_all('script[type="application/ld+json"]', "els => els.map(e => e.textContent)")
+                except Exception:
+                    ld = []
             finally:
                 ctx.close()
-            return {"status": status, "text": text, "full_text": full, "links": links, "final_url": final_url}
+            return {"status": status, "text": text, "full_text": full, "links": links, "final_url": final_url,
+                    "structured": structured_events(ld)}
 
         r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=45)
         from bs4 import BeautifulSoup
@@ -304,6 +309,76 @@ def slim_text(t: str) -> str:
             continue
         out.append(x)
     return "\n".join(out)
+
+
+# --- REGUŁA (25.11.2026, decyzja właściciela): DANE BEZ AI ---
+# Gdy strona podaje wydarzenia w gotowej postaci (JSON-LD schema.org/Event), data i godzina pochodzą stamtąd,
+# a nie z odczytu AI – bez pomyłek w datach. (Pomiar 25.11: takie dane ma 17 ze 133 źródeł.)
+def structured_events(blocks: list) -> list[dict]:
+    out: list[dict] = []
+
+    def walk(o):
+        if isinstance(o, list):
+            for x in o:
+                walk(x)
+        elif isinstance(o, dict):
+            t = o.get("@type")
+            ts = t if isinstance(t, list) else [t]
+            if any(isinstance(x, str) and x.endswith("Event") for x in ts) and o.get("startDate") and o.get("name"):
+                out.append({"name": str(o["name"])[:200], "start": str(o["startDate"]), "end": str(o.get("endDate") or "")})
+            for v in o.values():
+                if isinstance(v, (list, dict)):
+                    walk(v)
+
+    for b in blocks or []:
+        try:
+            walk(json.loads((b or "").strip()))
+        except Exception:
+            continue
+    return out[:300]
+
+
+def _ld_when(s: str):
+    """ISO z JSON-LD -> (data, 'HH:MM' albo None) w czasie ZEA."""
+    try:
+        if len(s) <= 10:
+            return dt.date.fromisoformat(s[:10]), None
+        d = dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
+        if d.tzinfo:
+            d = d.astimezone(dt.timezone(dt.timedelta(hours=4))).replace(tzinfo=None)
+        hm = d.strftime("%H:%M")
+        return d.date(), (None if hm == "00:00" else hm)
+    except Exception:
+        return None, None
+
+
+def apply_structured(item: dict, structured: list | None) -> str | None:
+    """Poprawia datę/godzinę wpisu według danych strukturalnych strony. Zwraca opis zmiany albo None."""
+    hits = [x for x in (structured or []) if titles_match(x["name"], item["title"])]
+    if len(hits) != 1 or not item.get("start_date"):   # kilka terminów o tym samym tytule: nie zgadujemy
+        return None
+    d, hm = _ld_when(hits[0]["start"])
+    if not d:
+        return None
+    ch = []
+    if d != item["start_date"] and d >= today_uae() and abs((d - item["start_date"]).days) <= 370:
+        ch.append(f"data {item['start_date']} -> {d}")
+        shift = d - item["start_date"]
+        item["start_date"] = d
+        if item.get("end_date"):
+            item["end_date"] = item["end_date"] + shift
+    if d == item["start_date"] and hm and item.get("start_time") != hm:
+        ch.append(f"godzina {item.get('start_time')} -> {hm}")
+        item["start_time"] = hm
+        item["gaps"] = [g for g in item.get("gaps") or [] if g != "start_time"]
+    ed, _ = _ld_when(hits[0]["end"]) if hits[0]["end"] else (None, None)
+    if ed and ed > item["start_date"] and ed != item.get("end_date") and (ed - item["start_date"]).days <= 370:
+        ch.append(f"koniec {item.get('end_date')} -> {ed}")
+        item["end_date"] = ed
+    if ch:
+        item.setdefault("evidence", {})["structured"] = f"JSON-LD: {hits[0]['start']}"
+        return ", ".join(ch)
+    return None
 
 
 TICKET_SELLERS = ("district.ae", "platinumlist.net", "ticketmaster", "livenation.me", "ticketsmarche", "800tickets", "q-tickets",
@@ -1137,6 +1212,13 @@ def main() -> int:
                         for raw in out.get("events", []):
                             log["found"] += 1
                             item, why = check_item(raw, page_norm, link_urls, src, page["final_url"])
+                            if item:
+                                try:
+                                    fix = apply_structured(item, page.get("structured"))
+                                    if fix:
+                                        print(f"   [dane strony] {item['title']}: {fix}")
+                                except Exception as e:
+                                    print(f"   [dane strony] pominięte ({e})")
                             if item and raw.get("organiser_url") in ext_urls:
                                 item["organiser_url"] = raw["organiser_url"]
                             if item and not item.get("detail_url"):
@@ -1240,6 +1322,20 @@ def main() -> int:
                     upd.update({"status": "approved", "verified_at": now_iso,
                                 "evidence": {**it["evidence"], "auto": True}})
             else:
+                # --- REGUŁA (25.11.2026, decyzja właściciela): PIERWSZEŃSTWO ORGANIZATORA ---
+                # To samo wydarzenie jest już w apce ze sprzedawcy biletów lub portalu, a teraz podaje je sam organizator:
+                # link w apce prowadzi do organizatora (link do biletów zostaje w polu url), a puste pola uzupełniamy z jego strony.
+                try:
+                    low = lambda u: any(t in urlparse(u or "").netloc.lower() for t in TICKET_SELLERS + AGGREGATORS)
+                    org_page = it.get("organiser_url") or it.get("detail_url") or it["evidence"]["page"]
+                    if match["status"] == "approved" and low(match.get("official_url")) and not low(org_page) and not low(src["urls"][0]) and not src.get("gov_tourism"):
+                        upd["official_url"] = org_page
+                        upd["source_name"] = src["name"]
+                        upd.update({f: it.get(f) for f in ("start_time", "price_text", "price_min_aed")
+                                    if it.get(f) is not None and match.get(f) in (None, "")})
+                        print(f"   [organizator] {it['title']}: link {match.get('official_url')} -> {org_page}")
+                except Exception as e:
+                    print(f"   [organizator] pominięte ({e})")
                 for f, o, n in diffs:
                     # Miejsce: zgłaszamy tylko, gdy w apce go brakuje albo jest "do potwierdzenia".
                     # Inne nazwy tego samego miejsca (Space42 / Space 42, nazwa festiwalu zamiast miejsca) to szum.

@@ -1,0 +1,34 @@
+name: Source repair (dead source addresses, weekly)
+
+# REGUŁA (25.11.2026): raz w tygodniu bot sam naprawia adresy źródeł, których strona zniknęła lub się przeniosła.
+# Bez AI, bezpłatne. Czego nie umie naprawić, wypisuje w logu (linie RX|) – trafia do niedzielnego raportu.
+on:
+  schedule:
+    - cron: "23 3 * * 6"   # sobota 07:23 czasu ZEA, przed niedzielnym raportem
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Naprawa adresów
+        env:
+          REPAIR_WRITE: "1"
+        run: python bot/source_repair.py
+      - name: Zapis
+        run: |
+          git config user.name "outtoday-bot"
+          git config user.email "outtoday-bot@users.noreply.github.com"
+          git add sources/
+          git commit -m "Sources: adresy naprawione automatycznie" || exit 0
+          git pull --rebase origin main && git push origin HEAD:main
