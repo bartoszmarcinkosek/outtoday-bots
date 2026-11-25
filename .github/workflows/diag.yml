@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: pip install -r requirements.txt && python -m playwright install --with-deps chromium >/dev/null && python bot/${{ github.event.inputs.script || 'diag' }}.py
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
