@@ -90,3 +90,5 @@ uaq_marine_club | Umm Al Quwain | UAQ Marine Club | http://www.uaqmarineclub.com
 uae_triathlon | Dubai | UAE Triathlon Federation | https://uaetriathlon.ae/events
 uae_cycling | Dubai | UAE Cycling Federation | https://uaecf.ae/en/events
 art_421 | Abu Dhabi | 421 Arts Campus (dawniej Warehouse421) | https://www.421.online/
+fujairah_gov_calendar | Fujairah | Fujairah Government portal – events calendar | https://fujairah.ae/en/pages/default.aspx
+mydubai_communities | Dubai | MyDubai Communities (Dubai government) | https://mydubaicommunities.com
