@@ -296,5 +296,78 @@ for table, rows, cols in (("events", ev, ("venue",)), ("deals", dl, ("venue",)),
         if em and c and c not in em and not (c == "Al Ain" and em == {"Abu Dhabi"}):
             add2("CITY_IN_NAME", table, r, f"city {c}, name says {sorted(em)}: {' / '.join(str(r.get(x) or '') for x in cols)[:70]}")
 
+# ---------- powroty odrzuconych i warianty nazw miejsc (25.11.2026) ----------
+# CAME_BACK: zatwierdzona pozycja dodana PÓŹNIEJ niż bardzo podobna odrzucona (bot dodał znów to, co już ukryliśmy).
+def _sim(a, b):
+    ta, tb = toks(a), toks(b)
+    return len(ta & tb) / min(len(ta), len(tb)) if ta and tb else 0
+try:
+    rej_e = db.get("events", {"select": "id,title,start_date,venue,city,created_at", "status": "eq.rejected", "start_date": f"gte.{T}", "limit": "5000"})
+    rej_d = db.get("deals", {"select": "id,title,venue,city,deal_type,created_at", "status": "eq.rejected", "limit": "5000"})
+    rej_p = db.get("places", {"select": "id,name,city,created_at", "status": "eq.rejected", "limit": "5000"})
+    cr = {}
+    for t, rows in (("events", ev), ("deals", dl), ("places", pl)):
+        for i in range(0, len(rows), 150):
+            for x in db.get(t, {"select": "id,created_at", "id": "in.(" + ",".join(r["id"] for r in rows[i:i + 150]) + ")"}):
+                cr[x["id"]] = x.get("created_at") or ""
+    rk = collections.defaultdict(list)
+    for x in rej_e:
+        rk[(x.get("city"), x["start_date"])].append(x)
+    for r in ev:
+        for x in rk.get((r.get("city"), r["start_date"]), []):
+            if cr.get(r["id"], "") > (x.get("created_at") or "") and _sim(r.get("title"), x.get("title")) >= 0.75:
+                add2("CAME_BACK", "events", r, f"like rejected {x['id']} '{(x.get('title') or '')[:45]}' (rejected one added {x['created_at'][:10]}, this one {cr[r['id']][:10]})"); break
+    rk = collections.defaultdict(list)
+    for x in rej_d:
+        rk[(x.get("city"), x.get("deal_type"))].append(x)
+    for r in dl:
+        for x in rk.get((r.get("city"), r.get("deal_type")), []):
+            if cr.get(r["id"], "") > (x.get("created_at") or "") and same_venue(r.get("venue") or "", x.get("venue") or "") and _sim(r.get("title"), x.get("title")) >= 0.75:
+                add2("CAME_BACK", "deals", r, f"like rejected {x['id']} '{(x.get('title') or '')[:45]}' @ {(x.get('venue') or '')[:30]} (added {x['created_at'][:10]} / {cr[r['id']][:10]})"); break
+    rn = {(x.get("city"), R.norm(x.get("name") or "")): x for x in rej_p}
+    for r in pl:
+        x = rn.get((r.get("city"), R.norm(r.get("name") or "")))
+        if x and cr.get(r["id"], "") > (x.get("created_at") or ""):
+            add2("CAME_BACK", "places", r, f"same name as rejected {x['id']} (added {x['created_at'][:10]} / {cr[r['id']][:10]})")
+except Exception as e:  # kontrola dodatkowa – nie może zatrzymać reszty
+    print(f"SA|came_back check failed: {str(e)[:120]}")
+# VENUE_VARIANT: to samo miejsce zapisane różnie (wielkość liter, znaki, literówka) – psuje wyszukiwanie i wykrywanie duplikatów.
+def _vk(v):
+    return re.sub(r"[^a-z0-9]+", "", (v or "").lower().replace("&", "and"))
+vg = collections.defaultdict(lambda: collections.Counter())
+for t, rows in (("events", ev), ("deals", dl)):
+    for r in rows:
+        if r.get("venue") and r.get("city"):
+            vg[(r["city"], _vk(r["venue"]))][r["venue"]] += 1
+best = {k: c.most_common(1)[0][0] for k, c in vg.items()}
+def _near(a, b):   # jedna literówka: zamiana, brak albo nadmiar jednego znaku
+    if abs(len(a) - len(b)) > 1 or a == b:
+        return False
+    i = 0
+    while i < min(len(a), len(b)) and a[i] == b[i]:
+        i += 1
+    return a[i + 1:] == b[i + 1:] or a[i:] == b[i + 1:] or a[i + 1:] == b[i:]
+keys = collections.defaultdict(list)
+for (c, k), cnt in vg.items():
+    keys[c].append((k, sum(cnt.values())))
+typo = {}
+for c, lst in keys.items():
+    for k, n in lst:
+        if len(k) < 9:
+            continue
+        for k2, n2 in lst:
+            if n2 > n and len(k2) >= 9 and _near(k, k2):
+                typo[(c, k)] = best[(c, k2)]
+for t, rows in (("events", ev), ("deals", dl)):
+    for r in rows:
+        v, c = r.get("venue"), r.get("city")
+        if not v or not c:
+            continue
+        k = (c, _vk(v))
+        if k in typo:
+            add2("VENUE_VARIANT", t, r, f"venue '{v[:45]}' looks like a typo of '{typo[k][:45]}'")
+        elif best[k] != v and len(vg[k]) > 1:
+            add2("VENUE_VARIANT", t, r, f"venue '{v[:45]}' is also written '{best[k][:45]}' ({vg[k][best[k]]}x) – use one spelling")
+
 for o in sorted(out):
     print("S|" + "|".join(str(x) for x in o))
