@@ -30,7 +30,9 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    # 25.11.2026: kont jest ponad 500, a Instagram pozwala na ok. 200 zapytań na godzinę (bot czeka przy limicie) –
+    # pełny przebieg trwa ponad 3,5 godziny; przy 180 minutach byłby ucinany przed końcem listy. Repo jest publiczne, minuty są bezpłatne.
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
