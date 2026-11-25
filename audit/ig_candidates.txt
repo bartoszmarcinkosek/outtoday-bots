@@ -1,88 +1,142 @@
-# miasto | kandydat na konto | miejsce   (sesja ręczna 25.11.2026: restauracje, bary, beach cluby, kluby)
-Dubai | zumadubai | Zuma Dubai
-Dubai | coyadubai | COYA Dubai
-Dubai | nobudubai | Nobu Dubai
-Dubai | hakkasandubai | Hakkasan Dubai
-Dubai | lpmdubai | LPM Dubai
-Dubai | nammosdubai | Nammos Dubai
-Dubai | twiggybylamer | Twiggy by La Cantine
-Dubai | covebeachdubai | Cove Beach Dubai
-Dubai | cloud22dubai | Cloud 22
-Dubai | auraskypool.dubai | AURA Skypool
-Dubai | sohogardendxb | Soho Garden
-Dubai | whitedubai | WHITE Dubai
-Dubai | basedubai | BASE Dubai
-Dubai | zerogravitydubai | Zero Gravity
-Dubai | barastibeach | Barasti Beach
-Dubai | mcgettigansdxb | McGettigan's Dubai
-Dubai | pierchicdubai | Pierchic
-Dubai | bussoladubai | Bussola
-Dubai | theirishvillage | The Irish Village
-Dubai | reformdubai | Reform Social & Grill
-Dubai | salvajedubai | Salvaje Dubai
-Dubai | amazonicodubai | Amazónico Dubai
-Dubai | clapdubai | CLAP Dubai
-Dubai | attikodubai | Attiko
-Dubai | celavidubai | CÉ LA VI Dubai
-Dubai | sushisambadubai | SUSHISAMBA Dubai
-Dubai | tresinddubai | Trèsind
-Dubai | opadubai | OPA Dubai
-Dubai | blabladubai | Bla Bla Dubai
-Dubai | kymabeachdubai | Kyma Beach
-Dubai | beachbyfive | Beach by FIVE
-Dubai | driftbeachdubai | Drift Beach
-Dubai | summersaltbeachclub | Summersalt Beach Club
-Dubai | lsbdubai | Lock, Stock & Barrel
-Dubai | gardenon8 | Garden on 8
-Dubai | publiquedubai | Publique
-Dubai | fibbersdubai | Fibber Magee's
-Dubai | irisdubai | Iris Dubai
-Dubai | thescenedubai | The Scene by Simon Rimmer
-Dubai | wavehouse | Wavehouse
-Dubai | bluemarlinibiza_uae | Blue Marlin Ibiza UAE
-Dubai | nikkibeachdubai | Nikki Beach Dubai
-Dubai | sandancedubai | Sandance
-Dubai | bohemiabyfive | Bohemia by FIVE
-Dubai | thepenthousedubai | The Penthouse
-Dubai | jazzatpizzaexpress | PizzaExpress Live
-Dubai | hardrockcafedubai | Hard Rock Cafe Dubai
-Dubai | mcgettigansjlt | McGettigan's JLT
-Dubai | ninive.dubai | Ninive
-Dubai | billionairedubai | Billionaire Dubai
-Abu Dhabi | zumaabudhabi | Zuma Abu Dhabi
-Abu Dhabi | coyaabudhabi | COYA Abu Dhabi
-Abu Dhabi | hakkasanabudhabi | Hakkasan Abu Dhabi
-Abu Dhabi | lpmabudhabi | LPM Abu Dhabi
-Abu Dhabi | buddhabarbeachabudhabi | Buddha-Bar Beach Abu Dhabi
-Abu Dhabi | saadiyatbeachclub | Saadiyat Beach Club
-Abu Dhabi | kaibeachsaadiyat | Kai Beach
-Abu Dhabi | covebeachabudhabi | Cove Beach Abu Dhabi
-Abu Dhabi | whiteabudhabi | WHITE Abu Dhabi
-Abu Dhabi | mcgettigansauh | McGettigan's Abu Dhabi
-Abu Dhabi | pjoreillysabudhabi | PJ O'Reilly's
-Abu Dhabi | cafedelmarabudhabi | Café del Mar Abu Dhabi
-Abu Dhabi | raysbarabudhabi | Ray's Bar
-Abu Dhabi | starsnbarsabudhabi | Stars 'N' Bars
-Abu Dhabi | belgiancafeauh | Belgian Café Abu Dhabi
-Abu Dhabi | irisyasisland | Iris Yas Island
-Abu Dhabi | siddhartaloungeabudhabi | Siddharta Lounge Abu Dhabi
-Abu Dhabi | yasbeach | Yas Beach
-Abu Dhabi | zayanuraiisland | Zaya Nurai Island
-Abu Dhabi | almayaislandresort | Al Maya Island & Resort
-Abu Dhabi | barduportabudhabi | Bar du Port Abu Dhabi
-Abu Dhabi | mamshaalsaadiyat | Mamsha Al Saadiyat
-Abu Dhabi | soulbeachae | Soul Beach
-Abu Dhabi | thirdplacecafead | The Third Place
-Abu Dhabi | nurigrillbar | Nuri Grill & Bar
-Abu Dhabi | mccaffertysyas | McCafferty's Yas
-Abu Dhabi | stillsbarabudhabi | Stills Bar
-Ras Al Khaimah | bdpbeachrak | Bar du Port Beach RAK
-Ras Al Khaimah | bananbeach | Banan Beach
-Ras Al Khaimah | 1484bypuro | 1484 by Puro
-Ras Al Khaimah | puro.ae | Puro
-Ras Al Khaimah | mcgettigansrak | McGettigan's RAK
-Ras Al Khaimah | thebayalhamra | The Bay, Al Hamra Golf Club
-Ajman | mcgettigansajman | McGettigan's Ajman
-Fujairah | mcgettigansfujairah | McGettigan's Fujairah
-Sharjah | oceanickhorfakkan | Oceanic Khorfakkan Resort & Spa
-Sharjah | oceanic_khorfakkan | Oceanic Khorfakkan Resort & Spa
+# miasto | kandydat na konto | miejsce ("-" = organizator/festiwal bez stałego miejsca)   sesja ręczna 2 (25.11.2026): sport, kultura, sale, atrakcje
+Dubai | dubaisc | -
+Dubai | emiratesgolfclub | Emirates Golf Club
+Dubai | dubaicreekresort | Dubai Creek Golf & Yacht Club
+Dubai | jumeirahgolfestates | Jumeirah Golf Estates
+Dubai | theelsclubdubai | The Els Club
+Dubai | dubaipoloclub | Dubai Polo & Equestrian Club
+Dubai | alhabtoorpoloresort | Al Habtoor Polo Resort
+Dubai | dubaiautodrome | Dubai Autodrome
+Dubai | dubai7s | -
+Dubai | ddftennis | -
+Dubai | dubaiworldcup | -
+Dubai | dubairacingclub | Meydan Racecourse
+Dubai | skydivedubai | Skydive Dubai
+Dubai | deepdivedubai | Deep Dive Dubai
+Dubai | xdubai | -
+Dubai | skidxb | Ski Dubai
+Dubai | dubaifitnesschallenge | -
+Dubai | dubaidcgolf | -
+Dubai | dpwtc | -
+Dubai | ilt20official | -
+Dubai | dubaimarathon | -
+Dubai | spartanarabia | -
+Abu Dhabi | abudhabisc | -
+Abu Dhabi | adnocabudhabimarathon | -
+Abu Dhabi | abudhabicricket | Abu Dhabi Cricket & Sports Hub
+Abu Dhabi | abudhabigolfresort | Abu Dhabi Golf Resort
+Abu Dhabi | saadiyatbeachgolfclub | Saadiyat Beach Golf Club
+Abu Dhabi | yaslinksabudhabi | Yas Links Abu Dhabi
+Abu Dhabi | alforsan_uae | Al Forsan International Sports Resort
+Abu Dhabi | abudhabigp | Yas Marina Circuit
+Abu Dhabi | abudhabit10 | -
+Abu Dhabi | uaejjf | -
+Abu Dhabi | adgolfchamps | -
+Abu Dhabi | uae_tour | -
+Abu Dhabi | trainyas | Yas Marina Circuit
+Al Ain | alainfc | -
+Sharjah | sharjahfc | -
+Sharjah | sharjahcricket | Sharjah Cricket Stadium
+Ras Al Khaimah | rakhalfmarathon | -
+Ras Al Khaimah | alhamragolfclub | Al Hamra Golf Club
+Ras Al Khaimah | towerlinksgolfclub | Tower Links Golf Club
+Dubai | museumofthefuture | Museum of the Future
+Dubai | jameelartscentre | Jameel Arts Centre
+Dubai | etihadmuseum | Etihad Museum
+Dubai | alshindaghamuseum | Al Shindagha Museum
+Dubai | thethirdline | The Third Line
+Dubai | carbon12dubai | Carbon 12
+Dubai | leilahellergallery | Leila Heller Gallery
+Dubai | greenartgallery | Green Art Gallery
+Dubai | lawrieshabibi | Lawrie Shabibi
+Dubai | tashkeelstudio | Tashkeel
+Dubai | theatreofdigitalart | Theatre of Digital Art
+Dubai | infinitedeslumieres | Infinity des Lumières
+Dubai | ayauniverse | AYA Universe
+Dubai | museumofillusionsdubai | Museum of Illusions Dubai
+Dubai | cinemaakil | Cinema Akil
+Dubai | thejunctiondubai | The Junction
+Dubai | courtyardplayhouse | The Courtyard Playhouse
+Dubai | theatrebyqe2 | Theatre by QE2
+Dubai | zabeeltheatre | Zabeel Theatre
+Dubai | mbrlae | Mohammed Bin Rashid Library
+Dubai | emirateslitfest | -
+Dubai | dubaidesignweek | -
+Dubai | d3dubai | Dubai Design District
+Abu Dhabi | louvreabudhabi | Louvre Abu Dhabi
+Abu Dhabi | manaratalsaadiyat | Manarat Al Saadiyat
+Abu Dhabi | qasralhosn | Qasr Al Hosn
+Abu Dhabi | qasralwatan | Qasr Al Watan
+Abu Dhabi | 421artscampus | 421 Arts Campus
+Abu Dhabi | nyuadartgallery | NYUAD Art Gallery
+Abu Dhabi | nyuadartscenter | The Arts Center at NYU Abu Dhabi
+Abu Dhabi | abudhabiart | -
+Abu Dhabi | abudhabifestival | -
+Abu Dhabi | berkleeabudhabi | Berklee Abu Dhabi
+Abu Dhabi | zayednationalmuseum | Zayed National Museum
+Abu Dhabi | teamlabphenomena | teamLab Phenomena Abu Dhabi
+Abu Dhabi | abrahamicfamilyhouse | Abrahamic Family House
+Abu Dhabi | cinemaspacead | Cinema Space, Manarat Al Saadiyat
+Abu Dhabi | saadiyatculturaldistrict | -
+Abu Dhabi | etihadmodernartgallery | Etihad Modern Art Gallery
+Sharjah | maraya_art_centre | Maraya Art Centre
+Sharjah | houseofwisdomshj | House of Wisdom
+Sharjah | spaa.ae | Sharjah Performing Arts Academy
+Sharjah | heartofsharjah | Heart of Sharjah
+Dubai | cocacolaarena | Coca-Cola Arena
+Dubai | dubaiopera | Dubai Opera
+Dubai | dwtcofficial | Dubai World Trade Centre
+Dubai | madinattheatre | Madinat Theatre
+Dubai | theagendadubai | The Agenda
+Dubai | thelaughterfactory | -
+Dubai | dubaicomedyfestival | -
+Dubai | thefridgedubai | The Fridge
+Dubai | terrasolisdubai | Terra Solis
+Dubai | untolddubai | -
+Abu Dhabi | etihadarena.ae | Etihad Arena
+Abu Dhabi | space42arena | Space42 Arena
+Abu Dhabi | yasalamae | -
+Abu Dhabi | offlimitsae | -
+Abu Dhabi | saadiyatnights | -
+Abu Dhabi | clubsocialae | -
+Abu Dhabi | adnecgroup | ADNEC Centre Abu Dhabi
+Dubai | dubaiparksandresorts | Dubai Parks and Resorts
+Dubai | motiongatedubai | MOTIONGATE Dubai
+Dubai | legolanddubai | LEGOLAND Dubai
+Dubai | realmadridworld | Real Madrid World
+Dubai | imgworlds | IMG Worlds of Adventure
+Dubai | aquaventureworld | Aquaventure World
+Dubai | wildwadi | Wild Wadi Waterpark
+Dubai | theviewpalm | The View at The Palm
+Dubai | aindubai | Ain Dubai
+Dubai | skyviewsdubai | Sky Views Dubai
+Dubai | burjkhalifa | Burj Khalifa
+Dubai | dubaiaquarium | Dubai Aquarium & Underwater Zoo
+Dubai | thegreenplanetdubai | The Green Planet
+Dubai | dubaidolphinarium | Dubai Dolphinarium
+Dubai | dubaigardenglow | Dubai Garden Glow
+Dubai | kidzaniadubai | KidZania Dubai
+Dubai | dubaicrocodilepark | Dubai Crocodile Park
+Dubai | houseofhype | House of Hype
+Abu Dhabi | ferrariworldyasisland | Ferrari World Yas Island
+Abu Dhabi | wbworldabudhabi | Warner Bros. World Abu Dhabi
+Abu Dhabi | yaswaterworld | Yas Waterworld
+Abu Dhabi | seaworldabudhabi | SeaWorld Abu Dhabi
+Abu Dhabi | clymbabudhabi | CLYMB Abu Dhabi
+Abu Dhabi | thenationalaquarium | The National Aquarium
+Abu Dhabi | emiratesparkzoo | Emirates Park Zoo
+Abu Dhabi | jubailmangrovepark | Jubail Mangrove Park
+Abu Dhabi | snowabudhabi | Snow Abu Dhabi
+Abu Dhabi | ummalemaratpark | Umm Al Emarat Park
+Ras Al Khaimah | visitjebeljais | Jebel Jais
+Ras Al Khaimah | manarmall | Manar Mall
+Ras Al Khaimah | alhamramall | Al Hamra Mall
+Sharjah | sharjahsafari | Sharjah Safari
+Sharjah | alqasba | Al Qasba
+Sharjah | aljadasharjah | Aljada
+Sharjah | madarataljada | Madar at Aljada
+Sharjah | zawayawalk | Zawaya Walk
+Sharjah | saharacentre | Sahara Centre
+Sharjah | kalbawaterfront | Kalba Waterfront
+Sharjah | sharjahcollection | -
+Sharjah | thechedialbait | The Chedi Al Bait
