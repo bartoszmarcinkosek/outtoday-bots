@@ -1,31 +1,8 @@
 # miasto | kandydat na konto | miejsce ("-" = organizator/festiwal bez stałego miejsca)   sesja ręczna 2 (25.11.2026): sport, kultura, sale, atrakcje
-Dubai | dubaisc | -
-Dubai | emiratesgolfclub | Emirates Golf Club
-Dubai | dubaicreekresort | Dubai Creek Golf & Yacht Club
-Dubai | jumeirahgolfestates | Jumeirah Golf Estates
-Dubai | theelsclubdubai | The Els Club
-Dubai | dubaipoloclub | Dubai Polo & Equestrian Club
-Dubai | alhabtoorpoloresort | Al Habtoor Polo Resort
-Dubai | dubaiautodrome | Dubai Autodrome
-Dubai | dubai7s | -
-Dubai | ddftennis | -
-Dubai | dubaiworldcup | -
-Dubai | dubairacingclub | Meydan Racecourse
-Dubai | skydivedubai | Skydive Dubai
-Dubai | deepdivedubai | Deep Dive Dubai
-Dubai | xdubai | -
-Dubai | skidxb | Ski Dubai
-Dubai | dubaifitnesschallenge | -
-Dubai | dubaidcgolf | -
-Dubai | dpwtc | -
-Dubai | ilt20official | -
-Dubai | dubaimarathon | -
-Dubai | spartanarabia | -
 Abu Dhabi | abudhabisc | -
 Abu Dhabi | adnocabudhabimarathon | -
 Abu Dhabi | abudhabicricket | Abu Dhabi Cricket & Sports Hub
 Abu Dhabi | abudhabigolfresort | Abu Dhabi Golf Resort
-Abu Dhabi | saadiyatbeachgolfclub | Saadiyat Beach Golf Club
 Abu Dhabi | yaslinksabudhabi | Yas Links Abu Dhabi
 Abu Dhabi | alforsan_uae | Al Forsan International Sports Resort
 Abu Dhabi | abudhabigp | Yas Marina Circuit
@@ -38,40 +15,21 @@ Al Ain | alainfc | -
 Sharjah | sharjahfc | -
 Sharjah | sharjahcricket | Sharjah Cricket Stadium
 Ras Al Khaimah | rakhalfmarathon | -
-Ras Al Khaimah | alhamragolfclub | Al Hamra Golf Club
 Ras Al Khaimah | towerlinksgolfclub | Tower Links Golf Club
-Dubai | museumofthefuture | Museum of the Future
-Dubai | jameelartscentre | Jameel Arts Centre
-Dubai | etihadmuseum | Etihad Museum
-Dubai | alshindaghamuseum | Al Shindagha Museum
-Dubai | thethirdline | The Third Line
-Dubai | carbon12dubai | Carbon 12
-Dubai | leilahellergallery | Leila Heller Gallery
-Dubai | greenartgallery | Green Art Gallery
-Dubai | lawrieshabibi | Lawrie Shabibi
-Dubai | tashkeelstudio | Tashkeel
-Dubai | theatreofdigitalart | Theatre of Digital Art
-Dubai | infinitedeslumieres | Infinity des Lumières
-Dubai | ayauniverse | AYA Universe
 Dubai | museumofillusionsdubai | Museum of Illusions Dubai
 Dubai | cinemaakil | Cinema Akil
 Dubai | thejunctiondubai | The Junction
 Dubai | courtyardplayhouse | The Courtyard Playhouse
-Dubai | theatrebyqe2 | Theatre by QE2
 Dubai | zabeeltheatre | Zabeel Theatre
 Dubai | mbrlae | Mohammed Bin Rashid Library
 Dubai | emirateslitfest | -
 Dubai | dubaidesignweek | -
-Dubai | d3dubai | Dubai Design District
-Abu Dhabi | louvreabudhabi | Louvre Abu Dhabi
-Abu Dhabi | manaratalsaadiyat | Manarat Al Saadiyat
 Abu Dhabi | qasralhosn | Qasr Al Hosn
 Abu Dhabi | qasralwatan | Qasr Al Watan
 Abu Dhabi | 421artscampus | 421 Arts Campus
 Abu Dhabi | nyuadartgallery | NYUAD Art Gallery
 Abu Dhabi | nyuadartscenter | The Arts Center at NYU Abu Dhabi
 Abu Dhabi | abudhabiart | -
-Abu Dhabi | abudhabifestival | -
 Abu Dhabi | berkleeabudhabi | Berklee Abu Dhabi
 Abu Dhabi | zayednationalmuseum | Zayed National Museum
 Abu Dhabi | teamlabphenomena | teamLab Phenomena Abu Dhabi
@@ -83,8 +41,6 @@ Sharjah | maraya_art_centre | Maraya Art Centre
 Sharjah | houseofwisdomshj | House of Wisdom
 Sharjah | spaa.ae | Sharjah Performing Arts Academy
 Sharjah | heartofsharjah | Heart of Sharjah
-Dubai | cocacolaarena | Coca-Cola Arena
-Dubai | dubaiopera | Dubai Opera
 Dubai | dwtcofficial | Dubai World Trade Centre
 Dubai | madinattheatre | Madinat Theatre
 Dubai | theagendadubai | The Agenda
@@ -93,7 +49,6 @@ Dubai | dubaicomedyfestival | -
 Dubai | thefridgedubai | The Fridge
 Dubai | terrasolisdubai | Terra Solis
 Dubai | untolddubai | -
-Abu Dhabi | etihadarena.ae | Etihad Arena
 Abu Dhabi | space42arena | Space42 Arena
 Abu Dhabi | yasalamae | -
 Abu Dhabi | offlimitsae | -
@@ -110,8 +65,6 @@ Dubai | wildwadi | Wild Wadi Waterpark
 Dubai | theviewpalm | The View at The Palm
 Dubai | aindubai | Ain Dubai
 Dubai | skyviewsdubai | Sky Views Dubai
-Dubai | burjkhalifa | Burj Khalifa
-Dubai | dubaiaquarium | Dubai Aquarium & Underwater Zoo
 Dubai | thegreenplanetdubai | The Green Planet
 Dubai | dubaidolphinarium | Dubai Dolphinarium
 Dubai | dubaigardenglow | Dubai Garden Glow
@@ -128,7 +81,6 @@ Abu Dhabi | emiratesparkzoo | Emirates Park Zoo
 Abu Dhabi | jubailmangrovepark | Jubail Mangrove Park
 Abu Dhabi | snowabudhabi | Snow Abu Dhabi
 Abu Dhabi | ummalemaratpark | Umm Al Emarat Park
-Ras Al Khaimah | visitjebeljais | Jebel Jais
 Ras Al Khaimah | manarmall | Manar Mall
 Ras Al Khaimah | alhamramall | Al Hamra Mall
 Sharjah | sharjahsafari | Sharjah Safari
