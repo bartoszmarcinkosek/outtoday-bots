@@ -46,5 +46,11 @@
   "date": "2026-11-24",
   "fixed": 8,
   "rejected": 10
+ },
+ {
+  "batch": 17,
+  "date": "2026-11-24",
+  "fixed": 5,
+  "rejected": 7
  }
 ]

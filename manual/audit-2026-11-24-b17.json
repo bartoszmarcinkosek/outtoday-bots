@@ -1,0 +1,45 @@
+{
+ "note": "Audit batch 17 (odd): events Dubai Mar-Jun 2027, Fujairah, RAK, Sharjah. Rejected shopping sales/furniture shows at Expo Centre Sharjah and a community social evening; fixed venue typo, category, free run, titles.",
+ "reject_event_ids": [
+  "5cbe1587-6da6-48bd-b522-3fc52fcfd3e4",
+  "5ef607a6-2caf-4115-b25d-2417b66398e5",
+  "a38fb839-641a-4261-adbd-c9a346b84114",
+  "9a7cb100-028f-4ba9-bb6a-5377280b6908",
+  "c855ca8f-f5c1-4f20-9ed8-75f822ec1108",
+  "de240985-be9a-4d0f-bb24-871124e8c02e",
+  "ce4a4a03-0aea-457d-a54c-91f339a547ed"
+ ],
+ "update_event_ids": [
+  {
+   "id": "31a9a1ca-5d78-4e30-8866-2047c4318811",
+   "set": {
+    "venue": "Fujairah"
+   }
+  },
+  {
+   "id": "6a20c886-28d3-48d6-8091-2a3dfee8f3c1",
+   "set": {
+    "category": "food"
+   }
+  },
+  {
+   "id": "4fe8308f-d467-49d0-a266-15e11deefa94",
+   "set": {
+    "price_text": "Free",
+    "is_free": true
+   }
+  },
+  {
+   "id": "22a08180-ba05-4d28-ad1f-afdbb0ea70e3",
+   "set": {
+    "title": "RAK Art Festival 2027"
+   }
+  },
+  {
+   "id": "7189767f-02b9-410b-82c4-57dfafedd41d",
+   "set": {
+    "title": "The Way Back Home – Live on Stage"
+   }
+  }
+ ]
+}
