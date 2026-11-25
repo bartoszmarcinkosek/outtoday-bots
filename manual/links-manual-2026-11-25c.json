@@ -1,0 +1,36 @@
+{
+ "note": "Ręczne sprawdzenie linków 25.11: BRIDGE Summit 2026 przełożony na koniec 2027 (WAM 16.08.2026) – odrzucony; „Mother of the Emirates Festival” to duplikat MOTN (Al Jahili Park, 28.11–2.12) – odrzucony; oficjalne linki dla MOTN, SailGP, Run for the Nation (rejestracja bezpłatna), Ain Al Thuraya.",
+ "reject_event_ids": [
+  "05dd608f-73d5-492c-80b1-6a21d088577b",
+  "1372b4b6-96f4-4b03-80a3-64e968f5ce01"
+ ],
+ "update_event_ids": [
+  {
+   "id": "5bb54907-6ded-49d7-b40a-9de4fe04ba1b",
+   "set": {
+    "official_url": "https://www.motn.ae/",
+    "end_date": "2026-12-02"
+   }
+  },
+  {
+   "id": "6d804991-bf6c-4a44-98de-9de742b2f531",
+   "set": {
+    "official_url": "https://tickets.sailgp.com/abu-dhabi"
+   }
+  },
+  {
+   "id": "3798a03e-976a-4591-8bf1-ae769bbe4ca1",
+   "set": {
+    "official_url": "https://www.mediaoffice.abudhabi/en/sport/2nd-run-for-the-nation-to-take-place-in-abu-dhabi/",
+    "is_free": true,
+    "price_text": "Free registration"
+   }
+  },
+  {
+   "id": "bdf87932-298a-4d53-aa52-a4469b85316d",
+   "set": {
+    "official_url": "https://www.mediaoffice.abudhabi/en/arts-culture/under-the-patronage-of-shamma-bint-mohammed-bin-khalid-1st-ain-al-thuraya-exhibition-to-take-place-in-al-ain-region/"
+   }
+  }
+ ]
+}
