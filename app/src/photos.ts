@@ -114,7 +114,10 @@ const RULES: [RegExp, string][] = [
   [/\bexpo\b|trade (show|fair)|summit|conference|\bforum\b|(international|games|food|jewell?ery|perfumes?|watch|boat|motor|hunting)\b.*\b(exhibition|show)\b/i, 'expo'],
   [/concert|world tour/i, 'concert'],
   // na samym końcu, tylko gdy nic innego nie pasuje (koncert na plaży to koncert)
-  [/\bfarm\b|oasis|\babra\b/i, 'farm'],
+  // farma pereł i rejsy łodzią mają własne zdjęcia (albo ikonkę) – nie gaj palmowy
+  [/pearl (farm|diving|journey)|\bpearls?\b.*\b(farm|tour|trip)/i, 'pearl'],
+  [/\babra\b|\bdhow\b|boat (ride|trip|tour|cruise)|creek cruise|ferry/i, 'boat'],
+  [/\bfarm\b|oasis/i, 'farm'],
   [/al qudra|love lake/i, 'lakes'],
   [/desert (safari|reserve|conservation|park)|marmoom|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
   [/jebel|hatta|\bwadi\b|mountain|mubazzarah/i, 'daytrips'],
@@ -143,7 +146,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;

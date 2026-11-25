@@ -1,3 +1,6 @@
+232 | boat-1 | Traditional wooden abra water taxi with a small canopy crossing a calm creek in a Gulf town, low white buildings and palm trees on the bank, morning light.
+233 | boat-2 | Traditional wooden dhow sailing on calm turquoise Gulf water near a rocky coast at golden hour.
+234 | pearl-1 | Traditional wooden pearl-diving boat moored in a shallow lagoon with rugged mountains behind, an open oyster with a pearl on a wooden tray in the foreground.
 229 | lm_jebel_jais-2 | Mountain viewing terraces with railings and a few visitors on Jebel Jais, looking over layers of bare rocky Hajar peaks at golden hour, no city.
 230 | lm_jebel_jais-3 | Aerial view of the switchback road climbing the rugged brown Jebel Jais mountains in Ras Al Khaimah, deep valleys, clear sky.
 231 | lm_jebel_jais-4 | Zipline rider far above a deep rocky canyon in the Jebel Jais mountains, seen from behind, dramatic peaks.
