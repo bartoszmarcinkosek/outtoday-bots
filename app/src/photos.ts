@@ -188,7 +188,8 @@ function pool(item: Item): number[] {
   // Rodzaj z tytułu wygrywa ze znanym miejscem (Kayaking at Louvre -> kajaki, Swan Lake w Operze -> teatr).
   // (nazwę samego miejsca wycinamy z tytułu, żeby "Museum of the Future" nie stało się zwykłym "museum")
   const rest = lm ? (item.rawTitle ?? item.title).replace(new RegExp(lm[0].source, 'gi'), ' ') : (item.rawTitle ?? item.title);
-  const typeHit = item.kind !== 'deal' && lm ? RULES.find(([re]) => re.test(rest)) : undefined;
+  // góry Jais: rodzaj z tytułu (park linowy, taras) NIE wygrywa – to zawsze góry, nie hala wspinaczkowa
+  const typeHit = item.kind !== 'deal' && lm && lm[1] !== 'lm_jebel_jais' ? RULES.find(([re]) => re.test(rest)) : undefined;
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
   // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
   if (lm && item.kind === 'event' && VENUES.has(lm[1])) {

@@ -1,0 +1,25 @@
+name: Photo audit (tylko odczyt)
+
+# Darmowa kontrola: jakie zdjęcie dostaje każda karta w apce (ta sama logika co w telefonie).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - name: Photo audit
+        run: npx --yes tsx --require ./scripts/jpg-hook.cjs scripts/photo_audit.ts
