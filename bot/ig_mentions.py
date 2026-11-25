@@ -27,6 +27,8 @@ HUBS = ["dubai_calendar", "visitdubai", "dubaiculture", "visitabudhabi", "abudha
         "dubaiharbour", "bluewatersdubai", "yasbayuae", "expocitydubai", "globalvillageuae", "dubaimall", "livenationme",
         "etihadarena.ae", "cocacolaarena", "dubaiopera", "alserkalavenue", "madinatjumeirah", "soukmadinatjumeirah",
         "visit.hatta", "eidaletihad", "dubaifitnesschallenge", "thegalleriauae", "marjanrak", "alainzoouae"]
+EXTRA_HUBS = ["khorfakkanbeach", "khorfakkanamphitheatre", "almajazwaterfront", "alnoorisland", "discovermleiha", "shurooqsharjah",
+              "citycentrefujairah", "fujairahmalluae", "albaharhotelandresort", "sharjahgsc", "shjladiesclub", "sharjahart"]
 MENTION = re.compile(r"(?<![\w.])@([A-Za-z0-9_.]{3,30})")
 CITY = [("Abu Dhabi", r"abu ?dhabi|abudhabi|yas island|saadiyat|\bauh\b"), ("Al Ain", r"al ?ain"),
         ("Ras Al Khaimah", r"ras al khaimah|\brak\b|al hamra|marjan"), ("Sharjah", r"sharjah|\bshj\b"),
@@ -59,7 +61,11 @@ def main() -> int:
     data = json.load(open(IG_FILE, encoding="utf-8"))
     have = {x["username"].lower() for x in data["accounts"]}
     counts, by = collections.Counter(), collections.defaultdict(set)
-    for h in HUBS:
+    # 25.11.2026: węzłami są też wszystkie nasze konta bez przypisanego miejsca (urzędy, kalendarze, organizatorzy, dzielnice)
+    # oraz konta dzielnic i centrów – one najczęściej oznaczają lokale i organizatorów.
+    hubs = list(dict.fromkeys(HUBS + [x["username"] for x in data["accounts"] if not x.get("venue")] + EXTRA_HUBS))
+    print(f"Węzłów: {len(hubs)}")
+    for h in hubs:
         bd, err = IG.recent_posts(tok, ig, h)
         if not bd:
             print(f"  @{h}: brak ({err})", flush=True)
