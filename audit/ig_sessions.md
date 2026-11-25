@@ -12,10 +12,11 @@ Wynik sprawdzenia zapisuje `python bot/ig_apply.py <log> [--skip konto,konto]` (
 | 25.11 | `ig-discover` – linki do Instagrama na oficjalnych stronach wszystkich naszych źródeł | wszystkie emiraty | +22 |
 | 25.11 | `ig-mentions` – nazwy kont w opisach postów kont-węzłów (urzędy turystyki, areny, dzielnice + konta bez miejsca) | wszystkie emiraty | 139 kandydatów, +26 |
 | 25.11 | sesja ręczna 1: restauracje, bary, puby, beach cluby | Dubaj, Abu Zabi, RAK, Fudżajra (87 nazw) | +31 |
-| 25.11 | sesja ręczna 2: sport, muzea i galerie, sale i festiwale, atrakcje | Dubaj, Abu Zabi, Szardża, RAK, Al Ain (141 nazw) | +12 (pierwsza tura) i +44 (druga tura, 16:10) = +56; sprawdzone w całości |
+| 25.11 | sesja ręczna 2: sport, muzea i galerie, sale i festiwale, atrakcje | Dubaj, Abu Zabi, Szardża, RAK, Al Ain (141 nazw) | +12 (pierwsza tura) i +37 (druga tura) = +49; sprawdzone w całości. Razem kont po sesji: 492 |
 | 25.11 | konta z materiałów właściciela (WhatsApp): ADREA, NYUAD Arts Center, Socials RAK, Masala by Socials | Abu Zabi, RAK | w tym +4 (wliczone wyżej) |
 
 ## Jeszcze nieprzeszukane (pomysły na kolejne sesje)
+- WAŻNE: w sesjach 1–2 połowa zgadywanych nazw nie istniała (m.in. duże atrakcje: Yas Waterworld, SeaWorld, Warner Bros. World, Zayed National Museum, teamLab Phenomena, IMG Worlds, Wild Wadi, KidZania, Dubai Parks, Ain Dubai, Sky Views, Museum of Illusions, Jubail Mangrove Park, House of Wisdom, Sharjah Safari, Aljada, Al Hamra Mall). Nie zgadywać – prawdziwą nazwę konta brać z oficjalnej strony miejsca albo z wyszukiwarki i dopiero wtedy sprawdzać przez API.
 - hotele i resorty z własnym programem (brunche, noce tematyczne) – wg emiratów
 - centra handlowe i dzielnice (wydarzenia rodzinne, jarmarki)
 - dzieci i rodzina: sale zabaw, edutainment, warsztaty
