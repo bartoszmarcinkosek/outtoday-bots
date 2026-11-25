@@ -6,14 +6,10 @@ import run as R
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
 since = (dt.datetime.utcnow() - dt.timedelta(days=14)).strftime("%Y-%m-%dT%H:%M:%S")
 tot, rec = collections.Counter(), collections.Counter()
-for off in range(0, 40000, 1000):
-    page = db.get("events", {"select": "source_name,created_at", "order": "id", "limit": "1000", "offset": str(off)})
-    for r in page:
-        tot[r.get("source_name") or ""] += 1
-        if (r.get("created_at") or "") >= since:
-            rec[r.get("source_name") or ""] += 1
-    if len(page) < 1000:
-        break
+for r in db.get("events", {"select": "source_name,created_at", "limit": "40000"}):
+    tot[r.get("source_name") or ""] += 1
+    if (r.get("created_at") or "") >= since:
+        rec[r.get("source_name") or ""] += 1
 srcs = []
 for f in sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "sources", "*.json"))):
     d = json.load(open(f))
