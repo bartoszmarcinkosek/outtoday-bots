@@ -1,144 +1,75 @@
-# miasto | miejsce | oficjalna strona – sesja 3 (25.11.2026): atrakcje, centra handlowe, dzieci, teatry, hotele i resorty
-Abu Dhabi | Yas Waterworld | https://www.yaswaterworld.com/en
-Abu Dhabi | SeaWorld Abu Dhabi | https://www.seaworldabudhabi.com/en
-Abu Dhabi | Warner Bros. World Abu Dhabi | https://www.wbworldabudhabi.com/en
-Abu Dhabi | Zayed National Museum | https://www.zayednationalmuseum.ae/en
-Abu Dhabi | teamLab Phenomena Abu Dhabi | https://www.teamlabphenomena.ae/en
-Abu Dhabi | Jubail Mangrove Park | https://park.jubailisland.ae/
-Abu Dhabi | The National Aquarium | https://thenationalaquarium.ae/
-Abu Dhabi | CLYMB Yas Island | https://www.clymbabudhabi.com/en
-Abu Dhabi | Abrahamic Family House | https://www.abrahamicfamilyhouse.ae/
-Abu Dhabi | Qasr Al Watan | https://www.qasralwatan.ae/en
-Abu Dhabi | Al Forsan International Sports Resort | https://www.alforsan.com/
-Abu Dhabi | 421 Arts Campus | https://421.online/
-Abu Dhabi | Hudayriyat Island | https://hudayriyatisland.ae/
-Abu Dhabi | Reem Mall | https://www.reemmall.ae/
-Abu Dhabi | Snow Abu Dhabi | https://www.snowabudhabi.com/
-Abu Dhabi | Yas Mall | https://www.yasmall.ae/
-Abu Dhabi | Abu Dhabi Mall | https://www.abudhabi-mall.com/
-Abu Dhabi | Marina Mall Abu Dhabi | https://www.marinamall.ae/
-Abu Dhabi | Dalma Mall | https://www.dalmamall.ae/
-Abu Dhabi | Al Wahda Mall | https://www.alwahda-mall.com/
-Abu Dhabi | Deerfields Mall | https://www.deerfieldsmall.com/
-Abu Dhabi | Yas Links Abu Dhabi | https://www.viyagolf.com/yas-links
-Abu Dhabi | Abu Dhabi Golf Club | https://www.viyagolf.com/abu-dhabi-golf-club
-Abu Dhabi | Saadiyat Beach Club | https://www.saadiyatbeachclub.ae/
-Abu Dhabi | Soul Beach, Mamsha Al Saadiyat | https://www.soulbeach.ae/
-Abu Dhabi | Emirates Heritage Club | https://www.ehcl.ae/
-Abu Dhabi | Bait Al Oud / Abu Dhabi Culture | https://abudhabiculture.ae/en
-Abu Dhabi | Circuit X Hudayriyat | https://www.circuitx.ae/
-Abu Dhabi | Pixoul Gaming | https://www.pixoulgaming.com/
-Abu Dhabi | Adrenark Adventure | https://www.adrenark.com/
-Abu Dhabi | Erth Abu Dhabi | https://www.erthabudhabi.ae/
-Abu Dhabi | Zaya Nurai Island | https://www.zayanuraiisland.com/
-Abu Dhabi | Emirates National Auto Museum | https://www.enam.ae/
-Al Ain | Al Ain Adventure (Wadi Adventure) | https://www.wadiadventure.ae/
-Al Ain | Hili Fun City | https://www.hilifuncity.ae/
-Al Ain | Al Ain Mall | https://www.alainmall.com/
-Al Ain | Al Jimi Mall | https://www.aljimimall.com/
-Al Ain | Bawadi Mall | https://www.bawadimall.com/
-Al Ain | Telal Resort | https://www.telalresort.ae/
-Al Ain | Al Ain Equestrian, Shooting & Golf Club | https://www.aesgc.ae/
-Dubai | IMG Worlds of Adventure | https://www.imgworlds.com/
-Dubai | Wild Wadi Waterpark | https://www.wildwadi.com/
-Dubai | KidZania Dubai | https://www.kidzania.ae/
-Dubai | Dubai Parks and Resorts | https://www.dubaiparksandresorts.com/en
-Dubai | Ain Dubai | https://www.aindubai.com/en
-Dubai | Sky Views Dubai | https://www.skyviewsdubai.com/
-Dubai | Museum of Illusions Dubai | https://museumofillusions.ae/
-Dubai | Dubai Dolphinarium | https://www.dubaidolphinarium.ae/
-Dubai | Dubai Aquarium & Underwater Zoo | https://www.thedubaiaquarium.com/
-Dubai | The Junction | https://www.thejunctiondubai.com/
-Dubai | Theatre by QE2 | https://www.theatrebyqe2.com/
-Dubai | The Fridge | https://www.thefridgedubai.com/
-Dubai | Dubai Comedy Festival | https://www.dubaicomedyfest.ae/
-Dubai | Dubai Festival City Mall | https://www.dubaifestivalcitymall.com/
-Dubai | Mall of the Emirates | https://www.malloftheemirates.com/
-Dubai | City Centre Mirdif | https://www.citycentremirdif.com/
-Dubai | Ibn Battuta Mall | https://www.ibnbattutamall.com/
-Dubai | Dubai Hills Mall | https://www.dubaihillsmall.ae/
-Dubai | City Walk | https://www.citywalk.ae/
-Dubai | The Beach JBR | https://www.thebeach.ae/
-Dubai | WAFI City | https://www.wafi.com/
-Dubai | Mercato Mall | https://www.mercatoshoppingmall.com/
-Dubai | Times Square Center | https://www.timessquarecenter.ae/
-Dubai | Dubai Marina Mall | https://www.dubaimarinamall.com/
-Dubai | OliOli | https://olioli.ae/
-Dubai | Fun City | https://www.funcity.ae/
-Dubai | Magic Planet | https://www.magicplanetmena.com/
-Dubai | Woo-hoo Kids Museum | https://www.woo-hoo.ae/
-Dubai | BOUNCE Middle East | https://www.bounce.ae/
-Dubai | Air Maniax | https://www.airmaniax.com/
-Dubai | Chaos Karts | https://www.chaoskarts.ae/
-Dubai | Aventura Parks | https://www.aventuraparks.com/
-Dubai | Tr88house | https://www.tr88house.com/
-Dubai | Topgolf Dubai | https://www.topgolfdubai.ae/
-Dubai | Jameel Arts Centre | https://jameelartscentre.org/
-Dubai | ICD Brookfield Place | https://www.icdbrookfieldplace.com/
-Dubai | The Sustainable City | https://www.thesustainablecity.ae/
-Dubai | Dubai Safari Park | https://www.dubaisafari.ae/
-Dubai | Dubai Butterfly Garden | https://www.dubaibutterflygarden.com/
-Dubai | Hatta Resorts & Wadi Hub | https://www.visithatta.com/
-Dubai | Al Marmoom / Dubai Camel Racing Club | https://www.dcrc.ae/
-Dubai | Dubai Ice Rink | https://www.dubaiicerink.com/
-Dubai | The Storm Coaster / Dubai Hills Mall Roxy | https://www.roxycinemas.com/
-Dubai | Reel Cinemas | https://www.reelcinemas.com/
-Dubai | The Smash Room | https://www.thesmashroom.com/
-Dubai | Brass Monkey | https://www.brassmonkeysocial.com/
-Dubai | Wavehouse Atlantis | https://www.wavehouse.com/
-Dubai | The Irish Village | https://www.theirishvillage.com/
-Dubai | McGettigan's | https://www.mcgettigans.com/
-Dubai | Barasti Beach | https://www.barastibeach.com/
-Dubai | Riverland Dubai | https://www.riverlanddubai.com/
-Dubai | Dubai Racing Club (Meydan) | https://www.dubairacingclub.com/
-Sharjah | House of Wisdom | https://houseofwisdom.ae/
-Sharjah | Sharjah Safari | https://sharjahsafari.ae/
-Sharjah | Aljada | https://www.aljada.com/
-Sharjah | Maraya Art Centre | https://maraya.ae/
-Sharjah | Sharjah Performing Arts Academy | https://www.spaa.ae/
-Sharjah | Heart of Sharjah | https://www.heartofsharjah.ae/
-Sharjah | Al Montazah Parks | https://www.almontazah.ae/
-Sharjah | City Centre Al Zahia | https://www.citycentrealzahia.com/
-Sharjah | Mega Mall Sharjah | https://www.megamall.ae/
-Sharjah | 06 Mall | https://www.06mall.com/
-Sharjah | Sharjah Book Authority | https://www.sba.gov.ae/
-Sharjah | Sharjah Events | https://www.sharjahevents.ae/
-Sharjah | Sharjah Cricket Stadium | https://www.sharjahcricket.com/
-Sharjah | Arada / Madar | https://www.arada.com/
-Sharjah | Sharjah Aquarium & museums | https://www.sharjahmuseums.ae/
-Sharjah | Sharjah Institute for Heritage | https://www.sih.gov.ae/
-Sharjah | Rain Room Sharjah / SAF | https://sharjahart.org/
-Sharjah | Sharjah National Park / Parks | https://www.sharjahparks.ae/
-Ras Al Khaimah | Al Hamra Mall | https://www.alhamramall.com/
-Ras Al Khaimah | RAK Mall | https://www.rakmall.com/
-Ras Al Khaimah | Tower Links Golf Club | https://www.towerlinks.com/
-Ras Al Khaimah | Al Hamra Golf Club | https://www.alhamragolf.com/
-Ras Al Khaimah | Jebel Jais attractions | https://visitjebeljais.com/
-Ras Al Khaimah | Suwaidi Pearls | https://www.suwaidipearls.ae/
-Ras Al Khaimah | Longbeach Campground | https://www.longbeachcampground.com/
-Ras Al Khaimah | Bear Grylls Explorers Camp | https://www.beargryllscamp.ae/
-Ras Al Khaimah | RAK Art | https://www.rakart.ae/
-Ras Al Khaimah | Al Marjan Island | https://www.almarjanisland.com/
-Ras Al Khaimah | Al Hamra (Falcon Island, Al Hamra Village) | https://www.alhamra.ae/
-Ras Al Khaimah | The WellSpring Private School | https://tws-rak.org/
-Ras Al Khaimah | RAK Exhibition Centre | https://www.rakexpo.ae/
-Ras Al Khaimah | Ras Al Khaimah National Museum / RAK Antiquities | https://www.rakheritage.rak.ae/
-Fujairah | Sandy Beach Hotel & Resort | https://www.sandybeachhotel.ae/
-Fujairah | Umbrella Beach Fujairah | https://www.umbrellabeach.ae/
-Fujairah | Fujairah Adventures | https://www.fujairahadventures.ae/
-Fujairah | Fujairah International Marine Club | https://www.fimc.ae/
-Fujairah | Fujairah Culture & Media Authority | https://www.fcma.gov.ae/
-Fujairah | Fujairah Tourism | https://www.fujairahtourism.ae/
-Fujairah | Al Aqah / Snoopy Island (Sandy Beach diving) | https://www.sandybeachdiving.com/
-Ajman | Al Zorah | https://www.alzorah.ae/
-Ajman | City Centre Ajman | https://www.citycentreajman.com/
-Ajman | Ajman China Mall | https://www.ajmanchinamall.ae/
-Ajman | ZOYA Health & Wellbeing Resort | https://www.zoyawellbeing.com/
-Ajman | Ajman Hotel | https://www.ajmanhotel.com/
-Ajman | Ajman Tourism | https://ajman.travel/
-Ajman | Al Zorah Golf Club | https://www.alzorahgolfclub.ae/
-Umm Al Quwain | Dreamland Aqua Park | https://www.dreamlanduae.com/
-Umm Al Quwain | Kite Beach Center UAQ | https://www.kitebeachcenter.ae/
-Umm Al Quwain | Barracuda Beach Resort | https://www.barracuda.ae/
-Umm Al Quwain | UAQ Marine Club | https://www.uaqmarineclub.ae/
-Umm Al Quwain | UAQ Tourism | https://visituaq.ae/
+# miasto | miejsce | oficjalna strona – sesja 4 (25.11.2026): hotele i resorty małych emiratów, Al Ain, RAK; miejsca dla dzieci; społeczności
+Fujairah | Fairmont Fujairah Beach Resort | https://www.fairmont.com/fujairah/
+Fujairah | Miramar Al Aqah Beach Resort | https://www.miramaralaqah.com/
+Fujairah | Royal M Hotel & Resort Abu Dhabi/Fujairah | https://www.royalmhotels.com/
+Fujairah | Fujairah Rotana Resort | https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/fujairah/fujairahrotanaresortandspa
+Fujairah | Novotel Fujairah | https://www.novotelfujairah.com/
+Fujairah | Al Bahar Hotel & Resort | https://www.albaharhotelandresort.com/
+Fujairah | Sandy Beach Diving Centre | https://www.sandybeachhotel.ae/diving/
+Fujairah | Fujairah Fort / Fujairah Museum | https://www.fujairahtourism.ae/
+Fujairah | Al Hayl Castle / Wadi Wurayah | https://www.fujairahadventures.com/
+Ajman | Fairmont Ajman | https://www.fairmont.com/ajman/
+Ajman | Bahi Ajman Palace | https://www.bahiajmanpalace.com/
+Ajman | The Oberoi Beach Resort Al Zorah | https://www.oberoihotels.com/hotels-in-al-zorah-ajman/
+Ajman | Ramada Beach Hotel Ajman | https://www.ramadabeachajman.com/
+Ajman | Coral Beach Ajman / Ajman Beach Hotel | https://www.ajmanbeachhotel.com/
+Ajman | Ajman Museum / Ajman Tourism | https://www.ajmantourism.ae/
+Ajman | Marsa Ajman | https://www.marsaajman.ae/
+Ajman | Ajman Saray | https://www.ajmansaray.com/
+Umm Al Quwain | Palma Beach Hotel | https://www.palmabeachhotel.com/
+Umm Al Quwain | Flamingo Beach Resort | https://www.flamingoresort.ae/
+Umm Al Quwain | Royal Beach Resort UAQ | https://www.royalbeachuaq.com/
+Umm Al Quwain | Pearl Hotel UAQ | https://www.pearlhoteluaq.com/
+Umm Al Quwain | Umm Al Quwain Beach Hotel | https://www.uaqbeachhotel.com/
+Umm Al Quwain | Al Siniyah Island / UAQ Tourism | https://www.uaqtourism.ae/
+Umm Al Quwain | Mangrove Beach Hotel UAQ | https://www.mangrovebeachhotel.com/
+Umm Al Quwain | Kite Beach Center UAQ (Barracuda) | https://www.kitebeachcenter.com/
+Ras Al Khaimah | Rixos Bab Al Bahr | https://www.rixos.com/en/hotel-resort/rixos-bab-al-bahr
+Ras Al Khaimah | Mövenpick Resort Al Marjan Island | https://movenpick.accor.com/en/middle-east/uae/ras-al-khaimah/resort-al-marjan-island.html
+Ras Al Khaimah | Anantara Mina Al Arab | https://www.anantara.com/en/mina-al-arab-ras-al-khaimah
+Ras Al Khaimah | Sofitel Al Hamra Beach Resort | https://www.sofitel-al-hamra.com/
+Ras Al Khaimah | Al Hamra Village / Al Hamra Mall | https://www.alhamra.ae/
+Ras Al Khaimah | Bin Majid Hotels & Resorts | https://www.binmajidhotels.com/
+Ras Al Khaimah | Marjan Island Resort & Spa | https://www.marjanislandresort.com/
+Ras Al Khaimah | Pullman Resort Al Marjan Island | https://www.pullman-almarjan.com/
+Ras Al Khaimah | Jebel Jais Flight / Toroverde | https://www.visitjebeljais.com/toroverde
+Ras Al Khaimah | Ice Land Water Park | https://www.icelandwaterpark.com/
+Ras Al Khaimah | Saqr Park / RAK Municipality parks | https://www.mun.rak.ae/
+Ras Al Khaimah | RAK Tourism (visitrasalkhaimah) | https://visitrasalkhaimah.com/
+Ras Al Khaimah | Manar Mall | https://www.manarmall.com/
+Ras Al Khaimah | Dhayah Fort / RAK Museums | https://www.rakmuseum.ae/
+Al Ain | Hili Rayhaan by Rotana | https://www.rotana.com/rayhaanhotels/unitedarabemirates/alain/hilirayhaanbyrotana
+Al Ain | Danat Al Ain Resort | https://www.danathotels.com/en/al-ain
+Al Ain | Al Ain Rotana | https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/alain/alainrotana
+Al Ain | Mercure Grand Jebel Hafeet | https://www.mercure-jebelhafeet.com/
+Al Ain | Al Ain Zoo | https://www.alainzoo.ae/
+Al Ain | Al Ain Oasis / Qasr Al Muwaiji / DCT Al Ain | https://www.visitabudhabi.ae/en/where-to-go/al-ain
+Al Ain | Jebel Hafeet Desert Park | https://www.jebelhafeetdesertpark.ae/
+Al Ain | Al Ain Raceway | https://www.alainraceway.com/
+Al Ain | Al Qattara Arts Centre | https://abudhabiculture.ae/en/discover/arts-and-culture/al-qattara-arts-centre
+Dubai | Dubai Road Runners (running club) | https://www.dubairoadrunners.com/
+Dubai | ABRAS running club | https://www.abrasrunning.com/
+Dubai | Ripe Market | https://www.ripemarket.com/
+Dubai | Dubai Flea Market | https://www.dubai-fleamarket.com/
+Dubai | Alserkal Avenue | https://alserkal.online/
+Dubai | Goethe-Institut Gulf Region | https://www.goethe.de/ins/ae/en/index.html
+Dubai | Institut français Dubai | https://www.institutfrancais.ae/
+Dubai | Dubai Opera | https://www.dubaiopera.com/
+Dubai | The Courtyard (Al Quoz) / Courtyard Playhouse | https://www.courtyardplayhouse.com/
+Abu Dhabi | Abu Dhabi Striders (running club) | https://www.abudhabistriders.com/
+Abu Dhabi | Manarat Al Saadiyat | https://www.manaratalsaadiyat.ae/
+Abu Dhabi | Mamsha Al Saadiyat | https://www.mamshaalsaadiyat.ae/
+Abu Dhabi | Al Qana | https://www.alqana.ae/
+Abu Dhabi | The Galleria Al Maryah Island | https://www.thegalleria.ae/
+Abu Dhabi | Yas Bay Waterfront | https://www.yasbay.ae/
+Abu Dhabi | Alliance Française Abu Dhabi | https://www.afabudhabi.org/
+Sharjah | Al Noor Island | https://www.alnoorisland.ae/
+Sharjah | Al Majaz Waterfront | https://www.almajazwaterfront.ae/
+Sharjah | Mleiha Archaeological Centre | https://www.discovermleiha.ae/
+Sharjah | Sharjah Art Foundation | https://www.sharjahart.org/
+Sharjah | Sharjah Performing Arts Academy | https://www.spa.ac.ae/
+Sharjah | Al Qasba | https://www.alqasba.ae/
+Sharjah | Mysk Kingfisher Retreat (Kalba) | https://www.myskhotels.com/kingfisher-retreat
+Sharjah | Mysk Al Badayer Retreat | https://www.myskhotels.com/al-badayer-retreat
+Sharjah | EPAA Sharjah (Kalba centres, Arabia's Wildlife Centre) | https://epaashj.ae/
+Sharjah | Khorfakkan Amphitheatre | https://khorfakkanamphitheatre.ae/en
