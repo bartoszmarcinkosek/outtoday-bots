@@ -338,6 +338,116 @@
    "urls": [
     "https://www.reemmall.ae/event-offers/"
    ]
+  },
+  {
+   "id": "zayed_sports_city",
+   "name": "Zayed Sports City",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.zsc.ae/en/events"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "ad_art",
+   "name": "Abu Dhabi Art",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.abudhabiart.ae/en/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "zayed_festival",
+   "name": "Sheikh Zayed Festival",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://zayedfestival.ae/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "bfaf",
+   "name": "Bassam Freiha Art Foundation",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://bfaf.ae/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "al_qana",
+   "name": "Al Qana",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://alqana.ae/whats-on/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "hudayriyat",
+   "name": "Hudayriyat Island",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.hudayriyatisland.ae/en/events"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "mubadala_open",
+   "name": "Mubadala Abu Dhabi Open",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.mubadalaabudhabiopen.com/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "motn",
+   "name": "Mother of the Nation Festival",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.motn.ae/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "adnec_alain",
+   "name": "ADNEC Centre Al Ain",
+   "city": "Al Ain",
+   "single_venue": false,
+   "urls": [
+    "https://www.adnecalain.ae/en/eventlisting"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "al_ain_raceway",
+   "name": "Al Ain Raceway",
+   "city": "Al Ain",
+   "single_venue": false,
+   "urls": [
+    "https://www.alainraceway.com/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
   }
  ]
 }

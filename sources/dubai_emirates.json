@@ -757,6 +757,248 @@
    ],
    "trusted": true,
    "note": "Oficjalna strona turystyki Szardży (SCTDA), dodane 25.11.2026. Lista ładuje resztę przyciskiem 'Load more'; miejsca są na podstronach wydarzeń."
+  },
+  {
+   "id": "city_walk",
+   "name": "City Walk",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.citywalk.ae/en/whats-on"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "the_beach_jbr",
+   "name": "The Beach JBR",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.thebeach.ae/en/whats-on"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "ibn_battuta",
+   "name": "Ibn Battuta Mall",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.ibnbattutamall.com/events"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "dubai_safari",
+   "name": "Dubai Safari Park",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://dubaisafari.ae/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "art_dubai",
+   "name": "Art Dubai",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.artdubai.ae/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "gulf_photo_plus",
+   "name": "Gulf Photo Plus",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://gulfphotoplus.com/blogs/events"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "premieronline",
+   "name": "Premier Online (zapisy na zawody)",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.premieronline.com/"
+   ],
+   "trusted": true,
+   "note": "Zapisy na biegi, triathlony i wyścigi w całych ZEA – miasto brać z wydarzenia, nie z tego wpisu."
+  },
+  {
+   "id": "raceme",
+   "name": "RaceME",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://raceme.ae/"
+   ],
+   "trusted": true,
+   "note": "Organizator zawodów w całych ZEA – miasto brać z wydarzenia."
+  },
+  {
+   "id": "livenation_me",
+   "name": "Live Nation Middle East",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.livenation.me/"
+   ],
+   "trusted": true,
+   "note": "Koncerty w całym regionie – brać tylko ZEA."
+  },
+  {
+   "id": "virgin_tickets",
+   "name": "Virgin Megastore Tickets",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://tickets.virginmegastore.me/ae"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów, całe ZEA – miasto brać z wydarzenia."
+  },
+  {
+   "id": "miracle_garden",
+   "name": "Dubai Miracle Garden",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.dubaimiraclegarden.com/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "supersports",
+   "name": "Super Sports Run Series",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://supersportsuae.com/"
+   ],
+   "trusted": true,
+   "note": "Seria biegów w całych ZEA – miasto brać z wydarzenia."
+  },
+  {
+   "id": "olioli",
+   "name": "OliOli",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://olioli.ae/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "sharjah_events",
+   "name": "Sharjah Events",
+   "city": "Sharjah",
+   "single_venue": false,
+   "urls": [
+    "https://www.sharjahevents.ae/en"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "africa_institute",
+   "name": "The Africa Institute",
+   "city": "Sharjah",
+   "single_venue": false,
+   "urls": [
+    "https://www.theafricainstitute.org/events/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "visit_ajman_calendar",
+   "name": "Visit Ajman – kalendarz",
+   "city": "Ajman",
+   "single_venue": false,
+   "urls": [
+    "https://visit-ajman.ae/en/things-to-do/event-calendar"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "fimc",
+   "name": "Fujairah International Marine Club",
+   "city": "Fujairah",
+   "single_venue": false,
+   "urls": [
+    "https://fimc.ae/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "highlander",
+   "name": "Highlander Adventure",
+   "city": "Ras Al Khaimah",
+   "single_venue": false,
+   "urls": [
+    "https://www.highlanderadventure.com/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "visit_dubai_calendar",
+   "name": "Visit Dubai – Dubai Calendar",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.visitdubai.com/en/whats-on/dubai-events-calendar"
+   ],
+   "trusted": true,
+   "note": "Oficjalny kalendarz Dubaju; strona może blokować roboty."
+  },
+  {
+   "id": "dubai_sports_council",
+   "name": "Dubai Sports Council",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.dubaisc.ae/en/events"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "courtyard_playhouse",
+   "name": "The Courtyard Playhouse",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.courtyardplayhouse.com/"
+   ],
+   "trusted": true,
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "ticketmaster_ae",
+   "name": "Ticketmaster UAE",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://www.ticketmaster.ae/"
+   ],
+   "trusted": true,
+   "note": "Sprzedawca biletów, całe ZEA; strona może blokować roboty."
   }
  ]
 }
