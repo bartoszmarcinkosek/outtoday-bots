@@ -31,7 +31,7 @@ const LANDMARKS: [RegExp, string][] = [
   [/dubai frame/i, 'lm_dubai_frame'],
   [/burj al arab/i, 'lm_burj_al_arab'],
   [/ain dubai/i, 'lm_ain_dubai'],
-  [/jebel jais/i, 'lm_jebel_jais'],
+  [/jebel jais|\bjais\b/i, 'lm_jebel_jais'],
   // dzielnice z widokiem (tylko miejsca i hotelowe day pass / staycation): hotel w Downtown -> widok na Burj, w Marinie -> Marina
   [/downtown dubai|business bay|dubai mall|address (downtown|boulevard|sky view|dubai mall)|vida downtown|palace downtown|armani hotel|burj (park|views)|souk al bahar|opera district/i, 'lm_downtown'],
   [/dubai marina|\bjbr\b|jumeirah beach residence|the walk\b|bluewaters|marina (mall|walk) dubai|dubai harbour/i, 'lm_marina'],
@@ -52,7 +52,8 @@ const RULES: [RegExp, string][] = [
   [/aquarium|dolphin|sea ?world|underwater zoo/i, 'aquarium'],
   [/\bzoo\b|safari park|sharjah safari|crocodile|wildlife park|green planet|butterfly garden/i, 'zoo'],
   [/water ?park|waterworld|aquaventure|wild wadi|aqua ?park|laguna|montazah/i, 'waterpark'],
-  [/observation deck|sky views|at the top|the view at|\bview(ing)? deck/i, 'viewpoint'],
+  // taras widokowy w wieżowcu (panorama miasta); górskie punkty widokowe (Jais, Hafeet, Hatta) dostają zdjęcie gór, nie miasta
+  [/^(?!.*\b(jais|jebel|jabal|mountain|hatta|hafeet|wadi|khor ?fakkan)\b).*(observation deck|sky views|at the top|the view at|\bview(ing)? deck)/i, 'viewpoint'],
   [/\bmosque\b/i, 'mosque'],
   [/legoland/i, 'legoland'],
   [/warner bros|img worlds|ferrari world|motiongate|theme park|real madrid world/i, 'attractions'],
