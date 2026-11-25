@@ -43,6 +43,9 @@ if os.environ.get("FREE"):
                 time.sleep(1)
             links, final = pages[src]
             u = R.link_for_title(e["title"], links, final)
+            # 25.11.2026: nigdy linków do agregatorów (Yalla, Time Out, Cobone, Groupon itp.) – tylko organizator, miejsce, sprzedawca biletów
+            if u and re.search(r"yalla|timeout|cobone|groupon|whatson|allevents|bayut|propertyfinder|tripadvisor|wego|trip\.com", u, re.I):
+                continue
             if u and not generic(u):
                 db.update("events", {"id": e["id"]}, {"official_url": u}); fixed += 1
                 print(f"L|OK {e['title'][:60]} -> {u}")
