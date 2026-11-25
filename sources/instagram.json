@@ -1735,6 +1735,106 @@
    "username": "railway.ae",
    "city": "Sharjah",
    "venue": "Railway Café, Resistance Monument, Khor Fakkan"
+  },
+  {
+   "username": "africainstitute",
+   "city": "Sharjah",
+   "venue": "The Africa Institute"
+  },
+  {
+   "username": "al_ain_raceway",
+   "city": "Al Ain",
+   "venue": "Al Ain Raceway"
+  },
+  {
+   "username": "almajazamphitheatre",
+   "city": "Sharjah",
+   "venue": "Al Majaz Amphitheatre, Al Majaz Waterfront"
+  },
+  {
+   "username": "alqana_ae",
+   "city": "Abu Dhabi",
+   "venue": "Al Qana"
+  },
+  {
+   "username": "artdubai",
+   "city": "Dubai",
+   "venue": "Art Dubai"
+  },
+  {
+   "username": "bassamfreihaartfoundation",
+   "city": "Abu Dhabi",
+   "venue": "Bassam Freiha Art Foundation"
+  },
+  {
+   "username": "citywalkdubai",
+   "city": "Dubai",
+   "venue": "City Walk"
+  },
+  {
+   "username": "discovershurooq",
+   "city": "Sharjah",
+   "venue": "Discover Shurooq"
+  },
+  {
+   "username": "dubaisafari",
+   "city": "Dubai",
+   "venue": "Dubai Safari Park"
+  },
+  {
+   "username": "highlander.adventure",
+   "city": "Ras Al Khaimah",
+   "venue": "Highlander Adventure"
+  },
+  {
+   "username": "hudayriyatislandad",
+   "city": "Abu Dhabi",
+   "venue": "Hudayriyat Island"
+  },
+  {
+   "username": "ibnbattutamall",
+   "city": "Dubai",
+   "venue": "Ibn Battuta Mall"
+  },
+  {
+   "username": "motnfestival",
+   "city": "Abu Dhabi",
+   "venue": "Mother of the Nation Festival"
+  },
+  {
+   "username": "mubadalaabudhabiopen",
+   "city": "Abu Dhabi",
+   "venue": "Mubadala Abu Dhabi Open"
+  },
+  {
+   "username": "olioliuae",
+   "city": "Dubai",
+   "venue": "OliOli"
+  },
+  {
+   "username": "racemeevents",
+   "city": "Dubai",
+   "venue": "RaceME"
+  },
+  {
+   "username": "sharjahevents",
+   "city": "Sharjah",
+   "venue": "Sharjah Events"
+  },
+  {
+   "username": "thesajhotel",
+   "city": "Ajman",
+   "venue": "The Saj Hotel"
+  },
+  {
+   "username": "virginmegastoretickets",
+   "city": "Dubai",
+   "venue": "Virgin Megastore Tickets"
+  },
+  {
+   "username": "zayedsportscity",
+   "city": "Abu Dhabi",
+   "venue": "Zayed Sports City"
   }
  ]
 }
