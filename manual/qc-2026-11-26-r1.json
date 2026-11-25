@@ -1,0 +1,66 @@
+{
+ "note": "QC night run 1 (2026-11-26): clean-up of categories, price text, venue and city in the reviewed batch. No link checks possible this run.",
+ "update_event_ids": [
+  {
+   "id": "50abccb0-baa6-4438-8a39-2b648d2e8071",
+   "set": {
+    "category": "culture"
+   }
+  },
+  {
+   "id": "05c57a45-9555-43cd-a620-c2d8c271495a",
+   "set": {
+    "category": "culture"
+   }
+  },
+  {
+   "id": "432a8dbb-7609-4967-abb5-fcda9a5dcc78",
+   "set": {
+    "price_text": "From AED 295"
+   }
+  },
+  {
+   "id": "0bdde117-c5f6-4d36-a0d6-5af299821761",
+   "set": {
+    "price_text": "From AED 150"
+   }
+  },
+  {
+   "id": "1dff9e1d-d3b0-47dc-a800-78847cfc9c06",
+   "set": {
+    "price_text": "From AED 149"
+   }
+  },
+  {
+   "id": "200a1b0b-14be-47b3-aa23-f7656967f64b",
+   "set": {
+    "price_text": "From AED 299"
+   }
+  },
+  {
+   "id": "2294ce43-b3c8-46a0-8b19-669cf10d9ec3",
+   "set": {
+    "price_text": "Park entry AED 5"
+   }
+  },
+  {
+   "id": "3dc9d077-1c59-4a72-b67a-8dc7d936e4dd",
+   "set": {
+    "venue": "25hours Hotel Dubai One Central"
+   }
+  },
+  {
+   "id": "13511412-06c6-4b57-abe8-96d6283cbc07",
+   "set": {
+    "description": "A single horse riding training session at Mleiha Archaeological Centre."
+   }
+  },
+  {
+   "id": "27914c38-cd40-47e9-be7d-8ece5fabe415",
+   "set": {
+    "city": "Al Ain",
+    "venue": "Qasr Al Muwaiji"
+   }
+  }
+ ]
+}

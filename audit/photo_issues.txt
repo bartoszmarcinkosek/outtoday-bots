@@ -1,1 +1,5 @@
 2026-11-25 | place | 8f9d6d1c-82fb-434e-8665-291eefc4bec3 | Al Ain Adventure | got lm_jebel_hafeet-1 | should show white-water rafting channel
+2026-11-26 | event | 35eb6532-27ab-47ad-abe4-edd5957234bd | Storytelling Tours | got theatre-1 | should show a guided tour in the Louvre Abu Dhabi galleries
+2026-11-26 | event | ca1bd774-a10b-4dd9-aac9-6388120a8873 | Book an Easel | got books-1 | should show a person drawing at an easel in a museum gallery
+2026-11-26 | event | cab8c08c-03fe-4513-9ace-536f0efdae54 | XCAT World Championship: Fujairah Grand Prix | got motorsport-1 | should show powerboats racing on the sea
+2026-11-26 | place | 1e9f88b3-4235-421d-b6d5-56456db9d39b | Ajman Fish Market | got souk-2 | should show a fish market with stalls of fresh fish
