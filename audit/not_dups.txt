@@ -42,3 +42,5 @@ d3b712b6-1cdd-46f2-af20-8b12e1d18959 b7f07333-9556-4c05-8fc6-47acf13ef1bb  # Al 
 d94ef222-c2aa-4071-98f0-5f4ff9778a5b 3339794c-db3e-47f2-b468-97e4c0882334  # Emirates Palace visit vs Corniche/Lulu boat itinerary
 e4f16211-67b2-40f8-82fc-fb7a6c905e0a 48650433-0c3e-4ebc-83b8-0ca52867957f  # TrainYAS free track vs driving experience
 ebaadc2b-8b47-401b-b96f-c674de35b67f cfa828f3-2330-4b95-8eb9-1d40d9997885  # Khor Fakkan fort vs Sharjah Fort – different forts
+66abb49d-fe05-45e5-a392-a3b162b37810 414493c8-c73f-4b93-90d2-4a5a7c930b9d  # souk and arts centre next door, different places
+de593fb3-9bbf-462e-84e8-439339709ee8 9f2ddb76-215e-4d83-875e-19ea07130526  # golf club and nature reserve in Al Zorah

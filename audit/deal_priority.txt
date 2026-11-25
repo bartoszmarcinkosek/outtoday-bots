@@ -19,3 +19,6 @@ db744180-ce5a-406d-843a-315434e994d7  # NOT_FOUND Day pass: ILIOS Beach Club
 e10e2736-2d86-4814-9f6f-1c47ed2bca8d  # NOT_FOUND Happy hour: Belgian Cafe
 4ed854a3-f3c8-4bb3-85d6-aae7b8a2d1ff  # NO_MATCH Weekday Beach & Pool Pass
 6386e8e7-814c-428b-9809-1712fb9a5d89  # NO_MATCH Weekend Beach & Pool Pass
+17f96b5e-b31f-4fd3-8d29-0e48ce76fdf7  # sources differ on price
+2876eedc-fb38-4b05-b299-34ca0648c19d  # sources differ on price
+d960a94f-fd30-494a-ab1f-c1ca315bc69f  # sources differ on price

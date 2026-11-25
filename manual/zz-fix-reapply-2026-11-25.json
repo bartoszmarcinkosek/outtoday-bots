@@ -1,0 +1,22 @@
+{
+ "note": "25.11.2026: skutki starego działania automatu (każdy push stosował od nowa wszystkie pliki): miejsce dodane drugi raz po zmianie nazwy oraz dwa linki do portali przywrócone przez stare pliki.",
+ "reject_places": [
+  "3fe8ba1e-2e61-4c48-903a-eaf463f3d6dd"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "e0f8c0db-4f01-4494-8753-c4af3121e0d7",
+   "set": {
+    "official_url": null
+   }
+  }
+ ],
+ "update_event_ids": [
+  {
+   "id": "bf3280db-68df-4aa5-9aae-d70d8b2f6c4f",
+   "set": {
+    "official_url": null
+   }
+  }
+ ]
+}

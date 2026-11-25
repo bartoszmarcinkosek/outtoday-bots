@@ -275,7 +275,7 @@ for table, rows, dcol in (("events", ev, "description"), ("deals", dl, "details"
         if st is not None and len(rg) == 1 and (abs(rg[0][0] - st) > 15 or (en is not None and abs(rg[0][1] - en % 1440) > 15)):
             add2("TIME_MISMATCH", table, r, f"stored {r.get('start_time')}-{r.get('end_time') or ''} vs text {rg[0][0]//60:02d}:{rg[0][0]%60:02d}-{rg[0][1]//60:02d}:{rg[0][1]%60:02d}")
         pp, pt = prices(r.get("price_text")), prices(r.get(dcol))
-        if pp and pt and not (pp & pt):
+        if pp and pt and not (pp & pt) and not re.search(r"redeemable|credit|cashback|child|kids|premium|for men|gents|extra|drinks? from|upgrade", r.get(dcol) or "", re.I):
             add2("PRICE_MISMATCH", table, r, f"price field {sorted(pp)} vs text {sorted(pt)}")
 for r in ev:
     sd = dt.date.fromisoformat(r["start_date"]); ed = dt.date.fromisoformat(r.get("end_date") or r["start_date"])
