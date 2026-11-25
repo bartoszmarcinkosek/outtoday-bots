@@ -21,6 +21,7 @@ except Exception:
 prio = {i for i in prio if i not in seen}
 rows.sort(key=lambda r: (r["id"] not in prio, seen.get(r["id"], "0"), r.get("created_at") or ""))
 never = sum(1 for r in rows if r["id"] not in seen)
+print("DN|days_of_week numbering in the database: 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday")
 print(f"DA|deals with link {len(rows)} | never verified {never}")
 if prio:
     print(f"DN|the first {min(n, len(prio))} deals below had a dead or wrong link in the weekly link check (page 404 or another offer)")

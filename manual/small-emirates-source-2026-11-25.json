@@ -1,0 +1,79 @@
+{
+ "note": "Małe emiraty 25.11.2026: oferty i wydarzenia porównane ze stronami źródłowymi (ok. 60 stron).",
+ "update_event_ids": [
+  {
+   "id": "4c0f9088-10a4-4299-b797-e4f083a28f81",
+   "set": {
+    "start_time": "19:00",
+    "price_text": "From AED 150"
+   }
+  },
+  {
+   "id": "b809dd87-914e-4b53-a585-31500be611d0",
+   "set": {
+    "end_time": "16:00"
+   }
+  },
+  {
+   "id": "3eee3bed-47ba-4bed-8929-9020e95a781a",
+   "set": {
+    "end_time": "13:00"
+   }
+  }
+ ],
+ "update_deal_ids": [
+  {
+   "id": "f3fb378a-6f77-4a77-9fda-82afe9b8d2fb",
+   "set": {
+    "days_of_week": [
+     6
+    ],
+    "start_time": "19:00",
+    "end_time": "22:00",
+    "details": "Surf and turf evening at the beach bar and grill, Saturdays 7–10pm."
+   }
+  },
+  {
+   "id": "f8535e00-204f-4a1b-a3fd-830028f0bfc8",
+   "set": {
+    "price_text": "Buy 1 get 1 free on selected drinks for teachers",
+    "details": "Every Tuesday evening teachers get a second selected drink free with each one they buy."
+   }
+  },
+  {
+   "id": "122af742-8451-4a7d-a9ae-bfce6106f864",
+   "set": {
+    "price_text": "Four free cocktails for ladies",
+    "details": "Every Friday evening ladies get four cocktails on the house."
+   }
+  },
+  {
+   "id": "c5c3bc6f-d9dc-4d38-b998-c924d408c4b3",
+   "set": {
+    "end_time": "00:00"
+   }
+  },
+  {
+   "id": "0809bd7e-fbae-43d9-afd6-5468e8e9803f",
+   "set": {
+    "start_time": "16:00",
+    "end_time": "19:00"
+   }
+  },
+  {
+   "id": "e0de8a90-94b9-4575-aa64-362657f504c6",
+   "set": {
+    "start_time": "16:00",
+    "end_time": "20:00"
+   }
+  },
+  {
+   "id": "a3c77ce4-510f-4265-862c-423ad383fe61",
+   "set": {
+    "start_time": "18:00",
+    "end_time": "22:00",
+    "details": "Three-course coastal dinner with soup or salad, catch of the day and dessert, with a glass of house wine per person."
+   }
+  }
+ ]
+}
