@@ -1,0 +1,27 @@
+{
+ "note": "Luki w małych emiratach 25.11: jedyna potwierdzona nowa pozycja w UAQ. Programy Eid Al Etihad Adżmanu, UAQ i Fudżajry na 2026 jeszcze nieogłoszone (są tylko z 2024–2025) – sprawdzenie 29.11.",
+ "deals": [
+  {
+   "title": "Festive Afternoon Tea",
+   "venue": "Vida Beach Resort Umm Al Quwain",
+   "city": "Umm Al Quwain",
+   "days_of_week": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "start_time": "12:00",
+   "end_time": "15:00",
+   "valid_until": "2026-12-31",
+   "deal_type": "other",
+   "details": "Seasonal afternoon tea at Vida Umm Al Quwain from 5 to 31 December, 12 pm to 3 pm. Advance booking recommended: +971 6 706 5000.",
+   "official_url": "https://www.vidahotels.com/en/offers/christmas-eve-dinner-buffet-4-2/?hotel=vida-beach-resort-umm-al-quwain",
+   "status": "approved",
+   "source_name": "Vida Hotels (official site)"
+  }
+ ]
+}
