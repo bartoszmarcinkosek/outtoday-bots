@@ -1,0 +1,127 @@
+{
+ "note": "Kalba i Dibba Al Hisn (wschodnie wybrzeże Szardży) – uzupełnienie jak Khor Fakkan, na prośbę właściciela 25.11.2026. Godziny otwarcia centrów EPAA w źródłach się różnią – nie wpisane.",
+ "places": [
+  {
+   "city": "Sharjah",
+   "area": "Kalba",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Khor Kalba Mangrove Centre",
+   "category": "parks",
+   "description": "Visitor centre in the Al Qurm protected area, among the oldest mangroves in Arabia. Boardwalks and exhibits on the mangrove's crabs, turtles and birds, including the rare collared kingfisher.",
+   "price_text": "About AED 15 for adults; children under 12 free",
+   "kid_friendly": true
+  },
+  {
+   "city": "Sharjah",
+   "area": "Kalba",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Al Hefaiyah Mountain Conservation Centre",
+   "category": "attractions",
+   "description": "Wildlife centre at the foot of the Hajar Mountains with around 30 native mountain and desert species, among them Arabian leopards, tahrs, wolves, caracals and gazelles, in indoor and outdoor enclosures.",
+   "price_text": "AED 25 for adults; children under 12 free",
+   "kid_friendly": true,
+   "official_url": "https://www.visitsharjah.com/regions/east-coast/al-hefaiyah-mountain-conservation-centre/"
+  },
+  {
+   "city": "Sharjah",
+   "area": "Kalba",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Kalba Bird of Prey Centre",
+   "category": "attractions",
+   "description": "Falcons, eagles, owls and vultures in walk-in aviaries, plus a free-flight demonstration of about an hour in an outdoor arena. Al Ghail Fort stands inside the grounds. Tickets at the gate.",
+   "price_text": "AED 15.75 per person",
+   "kid_friendly": true
+  },
+  {
+   "city": "Sharjah",
+   "area": "Kalba",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Kalba Corniche",
+   "category": "parks",
+   "description": "Seafront promenade with gardens, play areas and space for picnics, a favourite evening walk in Kalba.",
+   "is_free": true,
+   "kid_friendly": true
+  },
+  {
+   "city": "Sharjah",
+   "area": "Kalba",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Al Hefaiyah Lake",
+   "category": "parks",
+   "description": "Lake at the edge of the mountains near Kalba, with pedal boats, kayaks, a walking path and picnic spots.",
+   "kid_friendly": true
+  },
+  {
+   "city": "Sharjah",
+   "area": "Kalba",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Kalba Hanging Gardens",
+   "category": "parks",
+   "description": "Terraced gardens on a mountainside above Kalba with viewpoints over the town and the coast.",
+   "kid_friendly": true
+  },
+  {
+   "city": "Sharjah",
+   "area": "Kalba",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Bait Sheikh Saeed Bin Hamad Al Qasimi",
+   "category": "museums",
+   "description": "Restored early-20th-century residence of a former ruler of Kalba, now a small museum of local history and traditional architecture.",
+   "official_url": "https://www.visitsharjah.com/regions/east-coast/bait-sheikh-saeed-bin-hamad-al-qasimi/"
+  },
+  {
+   "city": "Sharjah",
+   "area": "Kalba",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Khor Kalba Fort",
+   "category": "museums",
+   "description": "Historic coastal fort of Khor Kalba, part of Sharjah's east-coast forts added to UNESCO's tentative World Heritage list.",
+   "official_url": "https://www.visitsharjah.com/regions/east-coast/khor-kalba-fort/"
+  },
+  {
+   "city": "Sharjah",
+   "area": "Dibba Al Hisn",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Dibba Al Hisn Fort",
+   "category": "museums",
+   "description": "Restored fort on 17th-century foundations that gave the town its name, with a watchtower looking over Dibba Bay. Part of the UNESCO tentative-list coastal forts.",
+   "official_url": "https://www.visitsharjah.com/regions/east-coast/dibba-al-hisn-fort/"
+  },
+  {
+   "city": "Sharjah",
+   "area": "Dibba Al Hisn",
+   "status": "approved",
+   "source_name": "visitsharjah.com / official pages",
+   "name": "Dibba Al Hisn Beach",
+   "category": "beaches",
+   "description": "Quiet white-sand beach and beach park next to the corniche, with clear water for swimming and snorkelling and views of the Musandam mountains.",
+   "is_free": true,
+   "kid_friendly": true,
+   "official_url": "https://www.visitsharjah.com/regions/east-coast/dibba-al-hisn/"
+  }
+ ],
+ "events": [
+  {
+   "title": "Eid Al Etihad Celebrations in Dibba Al Hisn",
+   "category": "festivals",
+   "start_date": "2026-11-27",
+   "end_date": "2026-11-28",
+   "venue": "Flagpole site, Dibba Al Hisn",
+   "city": "Sharjah",
+   "description": "Sharjah's Eid Al Etihad programme reaches Dibba Al Hisn with two days of celebrations at the town's flagpole site.",
+   "is_free": true,
+   "kid_friendly": true,
+   "status": "approved",
+   "source_name": "Sharjah Government Media Bureau (Sharjah24)"
+  }
+ ]
+}
