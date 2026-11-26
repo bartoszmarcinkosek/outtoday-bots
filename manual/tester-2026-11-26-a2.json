@@ -1,0 +1,4 @@
+{
+ "note": "Tester A 26.11.2026, poprawka po QA: Gulf Bar Show z błędną datą (1.04.2027) to duplikat poprawnej karty 3e309bca (30.11–1.12.2026) – odrzucony.",
+ "reject_event_ids": ["8c916262-b955-4114-b3d2-a604efb2d4d5"]
+}
