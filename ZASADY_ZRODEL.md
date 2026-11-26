@@ -25,6 +25,7 @@ Wszystkie reguły działają same, bez AI i bez kosztów (8 reguł, stan 26.11.2
    stronie głównej tej samej domeny. Nigdy nie przyjmuje bloga, strony z minionym rokiem ani adresu innego źródła.
    Czego nie naprawi, wypisuje (linie `RX|`) do decyzji.
 7. **Kontrola jakości po każdym wyszukiwaniu** (decyzja właściciela 26.11.2026) – `bot/qa_after_add.py`.
+   **Bramka (26.11.2026, „cokolwiek jest wstawiane musi od razu przejść kontrolę jakości”):** nowa pozycja z bota lub pliku manual/ trafia do bazy jako `pending` (niewidoczna) i staje się `approved` dopiero, gdy przejdzie kontrolę (`QA|PASSED`); nie przeszła → zostaje ukryta (`QA|HELD`). Kod: `DB.insert` w bot/run.py (lista QA_GATE_WORKFLOWS, plik qa_gate.jsonl → artefakt), manual_add.py (QA_GATE=1), qa_after_add.py (QA_GATE_FILE). Poprawki istniejących pozycji z błędem wracają do `pending` (QA_FIX=1).
    Działa w dwóch miejscach: ostatni krok `manual-add.yml` (każde ręczne dodanie: wyszukiwanie, WhatsApp, zrzuty)
    oraz `qa-after-bots.yml`, który startuje sam po każdym przebiegu bota dodającego lub poprawiającego wpisy
    (events, Instagram, hotele, newslettery, hints, uzupełnianie linków / godzin / opisów, nocna kontrola) i sprawdza
