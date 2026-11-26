@@ -1,0 +1,27 @@
+{
+ "note": "Koncerty Yasalam: bramy Etihad Live o 18:00 (organizator i przewodnik Etihad). Kings of Leon i Lewis Capaldi to jeden koncert 3.12 \u2013 drugi wpis odrzucony (duplikat).",
+ "update_event_ids": [
+  {
+   "id": "51ef6445-e8cf-44a7-8b18-190f60752f44",
+   "set": {
+    "title": "Yasalam After-Race Concert: Kings of Leon & Lewis Capaldi",
+    "start_time": "18:00"
+   }
+  },
+  {
+   "id": "128ac841-86d3-471a-a623-48c564130db8",
+   "set": {
+    "start_time": "18:00"
+   }
+  },
+  {
+   "id": "1402fd97-5c5b-4fad-9672-3408d1531e5d",
+   "set": {
+    "start_time": "18:00"
+   }
+  }
+ ],
+ "reject_event_ids": [
+  "de7c5c2b-348e-4634-8feb-9326ac4b943e"
+ ]
+}
