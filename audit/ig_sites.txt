@@ -1,75 +1,29 @@
-# miasto | miejsce | oficjalna strona – sesja 4 (25.11.2026): hotele i resorty małych emiratów, Al Ain, RAK; miejsca dla dzieci; społeczności
-Fujairah | Fairmont Fujairah Beach Resort | https://www.fairmont.com/fujairah/
-Fujairah | Miramar Al Aqah Beach Resort | https://www.miramaralaqah.com/
-Fujairah | Royal M Hotel & Resort Abu Dhabi/Fujairah | https://www.royalmhotels.com/
-Fujairah | Fujairah Rotana Resort | https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/fujairah/fujairahrotanaresortandspa
-Fujairah | Novotel Fujairah | https://www.novotelfujairah.com/
-Fujairah | Al Bahar Hotel & Resort | https://www.albaharhotelandresort.com/
-Fujairah | Sandy Beach Diving Centre | https://www.sandybeachhotel.ae/diving/
-Fujairah | Fujairah Fort / Fujairah Museum | https://www.fujairahtourism.ae/
-Fujairah | Al Hayl Castle / Wadi Wurayah | https://www.fujairahadventures.com/
-Ajman | Fairmont Ajman | https://www.fairmont.com/ajman/
-Ajman | Bahi Ajman Palace | https://www.bahiajmanpalace.com/
-Ajman | The Oberoi Beach Resort Al Zorah | https://www.oberoihotels.com/hotels-in-al-zorah-ajman/
-Ajman | Ramada Beach Hotel Ajman | https://www.ramadabeachajman.com/
-Ajman | Coral Beach Ajman / Ajman Beach Hotel | https://www.ajmanbeachhotel.com/
-Ajman | Ajman Museum / Ajman Tourism | https://www.ajmantourism.ae/
-Ajman | Marsa Ajman | https://www.marsaajman.ae/
-Ajman | Ajman Saray | https://www.ajmansaray.com/
-Umm Al Quwain | Palma Beach Hotel | https://www.palmabeachhotel.com/
-Umm Al Quwain | Flamingo Beach Resort | https://www.flamingoresort.ae/
-Umm Al Quwain | Royal Beach Resort UAQ | https://www.royalbeachuaq.com/
-Umm Al Quwain | Pearl Hotel UAQ | https://www.pearlhoteluaq.com/
-Umm Al Quwain | Umm Al Quwain Beach Hotel | https://www.uaqbeachhotel.com/
-Umm Al Quwain | Al Siniyah Island / UAQ Tourism | https://www.uaqtourism.ae/
-Umm Al Quwain | Mangrove Beach Hotel UAQ | https://www.mangrovebeachhotel.com/
-Umm Al Quwain | Kite Beach Center UAQ (Barracuda) | https://www.kitebeachcenter.com/
+# miasto | miejsce | oficjalna strona – sesja 6 (26.11.2026): bary i restauracje hotelowe małych emiratów
+Ras Al Khaimah | InterContinental RAK (NoHo, Amarbar, ShaSha) | https://icrasalkhaimah.com/en/
+Ras Al Khaimah | Belgian Beer Café Al Hamra | http://belgianbeercafealhamra.com/
+Ras Al Khaimah | Bin Majid / BM Beach Hotel (Pebbles) | https://www.binmajid.com/
+Ras Al Khaimah | BM Hotels | https://www.bmhotelsresorts.com/
+Ras Al Khaimah | Al Hamra Village Hotel | https://alhamra.ae/hospitality-al-hamra-village-hotel/
 Ras Al Khaimah | Rixos Bab Al Bahr | https://www.rixos.com/en/hotel-resort/rixos-bab-al-bahr
-Ras Al Khaimah | Mövenpick Resort Al Marjan Island | https://movenpick.accor.com/en/middle-east/uae/ras-al-khaimah/resort-al-marjan-island.html
+Ras Al Khaimah | Radisson Resort Marjan Island | https://www.radissonhotels.com/en-us/hotels/radisson-resort-marjan-island
+Ras Al Khaimah | Rove Al Marjan Island | https://www.rovehotels.com/en/hotels/rove-al-marjan-island/
+Ras Al Khaimah | ULA Ras Al Khaimah | https://ularasalkhaimah.com/pool-beach-pass/
+Ras Al Khaimah | Mövenpick Al Marjan Island | https://movenpick.accor.com/en/middle-east/uae/ras-al-khaimah/resort-al-marjan-island.html
+Ras Al Khaimah | Pullman Al Marjan Island | https://pullman.accor.com/en/hotels/A0D2.html
+Ras Al Khaimah | Ritz-Carlton RAK Al Hamra Beach | https://www.ritzcarlton.com/en/hotels/rktrz-the-ritz-carlton-ras-al-khaimah-al-hamra-beach/overview/
 Ras Al Khaimah | Anantara Mina Al Arab | https://www.anantara.com/en/mina-al-arab-ras-al-khaimah
-Ras Al Khaimah | Sofitel Al Hamra Beach Resort | https://www.sofitel-al-hamra.com/
-Ras Al Khaimah | Al Hamra Village / Al Hamra Mall | https://www.alhamra.ae/
-Ras Al Khaimah | Bin Majid Hotels & Resorts | https://www.binmajidhotels.com/
-Ras Al Khaimah | Marjan Island Resort & Spa | https://www.marjanislandresort.com/
-Ras Al Khaimah | Pullman Resort Al Marjan Island | https://www.pullman-almarjan.com/
-Ras Al Khaimah | Jebel Jais Flight / Toroverde | https://www.visitjebeljais.com/toroverde
-Ras Al Khaimah | Ice Land Water Park | https://www.icelandwaterpark.com/
-Ras Al Khaimah | Saqr Park / RAK Municipality parks | https://www.mun.rak.ae/
-Ras Al Khaimah | RAK Tourism (visitrasalkhaimah) | https://visitrasalkhaimah.com/
-Ras Al Khaimah | Manar Mall | https://www.manarmall.com/
-Ras Al Khaimah | Dhayah Fort / RAK Museums | https://www.rakmuseum.ae/
-Al Ain | Hili Rayhaan by Rotana | https://www.rotana.com/rayhaanhotels/unitedarabemirates/alain/hilirayhaanbyrotana
-Al Ain | Danat Al Ain Resort | https://www.danathotels.com/en/al-ain
-Al Ain | Al Ain Rotana | https://www.rotana.com/rotanahotelandresorts/unitedarabemirates/alain/alainrotana
-Al Ain | Mercure Grand Jebel Hafeet | https://www.mercure-jebelhafeet.com/
-Al Ain | Al Ain Zoo | https://www.alainzoo.ae/
-Al Ain | Al Ain Oasis / Qasr Al Muwaiji / DCT Al Ain | https://www.visitabudhabi.ae/en/where-to-go/al-ain
-Al Ain | Jebel Hafeet Desert Park | https://www.jebelhafeetdesertpark.ae/
-Al Ain | Al Ain Raceway | https://www.alainraceway.com/
-Al Ain | Al Qattara Arts Centre | https://abudhabiculture.ae/en/discover/arts-and-culture/al-qattara-arts-centre
-Dubai | Dubai Road Runners (running club) | https://www.dubairoadrunners.com/
-Dubai | ABRAS running club | https://www.abrasrunning.com/
-Dubai | Ripe Market | https://www.ripemarket.com/
-Dubai | Dubai Flea Market | https://www.dubai-fleamarket.com/
-Dubai | Alserkal Avenue | https://alserkal.online/
-Dubai | Goethe-Institut Gulf Region | https://www.goethe.de/ins/ae/en/index.html
-Dubai | Institut français Dubai | https://www.institutfrancais.ae/
-Dubai | Dubai Opera | https://www.dubaiopera.com/
-Dubai | The Courtyard (Al Quoz) / Courtyard Playhouse | https://www.courtyardplayhouse.com/
-Abu Dhabi | Abu Dhabi Striders (running club) | https://www.abudhabistriders.com/
-Abu Dhabi | Manarat Al Saadiyat | https://www.manaratalsaadiyat.ae/
-Abu Dhabi | Mamsha Al Saadiyat | https://www.mamshaalsaadiyat.ae/
-Abu Dhabi | Al Qana | https://www.alqana.ae/
-Abu Dhabi | The Galleria Al Maryah Island | https://www.thegalleria.ae/
-Abu Dhabi | Yas Bay Waterfront | https://www.yasbay.ae/
-Abu Dhabi | Alliance Française Abu Dhabi | https://www.afabudhabi.org/
-Sharjah | Al Noor Island | https://www.alnoorisland.ae/
-Sharjah | Al Majaz Waterfront | https://www.almajazwaterfront.ae/
-Sharjah | Mleiha Archaeological Centre | https://www.discovermleiha.ae/
-Sharjah | Sharjah Art Foundation | https://www.sharjahart.org/
-Sharjah | Sharjah Performing Arts Academy | https://www.spa.ac.ae/
-Sharjah | Al Qasba | https://www.alqasba.ae/
-Sharjah | Mysk Kingfisher Retreat (Kalba) | https://www.myskhotels.com/kingfisher-retreat
-Sharjah | Mysk Al Badayer Retreat | https://www.myskhotels.com/al-badayer-retreat
-Sharjah | EPAA Sharjah (Kalba centres, Arabia's Wildlife Centre) | https://epaashj.ae/
-Sharjah | Khorfakkan Amphitheatre | https://khorfakkanamphitheatre.ae/en
+Ras Al Khaimah | Puro 1484 Jebel Jais | https://visitjebeljais.com/
+Fujairah | Fujairah Hotel & Resort | https://www.fujairahresort.ae/
+Fujairah | Royal Beach Hotel | https://royalbeach.ae/
+Fujairah | Mirage Bab Al Bahr | https://www.miragebabalbahr.com/
+Fujairah | Radisson Blu Fujairah | https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-fujairah
+Fujairah | Novotel Fujairah | https://all.accor.com/hotel/7310/index.en.shtml
+Ajman | Ajman Hotel (Zanzibar, Blazon Lounge) | https://www.hotelajman.com/
+Ajman | Al Zorah Beach Resort | https://www.alzorahbeachresort.com/
+Ajman | Ajman Beach Hotel | https://ajmanbeachhotel.com/
+Ajman | Mermaid Beach Hotel | https://mermaidbeachhotelajman.com/
+Ajman | Oberoi Al Zorah | https://www.oberoihotels.com/hotels-in-al-zorah-ajman-resort/
+Umm Al Quwain | Barracuda Beach Resort | https://barracuda.ae/
+Umm Al Quwain | Flamingo Beach Resort | https://www.flamingoresortuae.com/
+Umm Al Quwain | Casa Mikoko | https://casamikoko.ae/
+Umm Al Quwain | The Beach Hotel UAQ | https://thebeachhoteluaq.com/
