@@ -14,3 +14,4 @@
 2026-11-26T17:37:10Z | quota_cooldown: Your credit usage is cooling down. Please try again later. (sport_ladies-1)
 2026-11-26T19:07:17Z | quota_cooldown: Your credit usage is cooling down. Please try again later. (horseriding-1)
 2026-11-26T20:37:24Z | quota_cooldown: Your credit usage is cooling down. Please try again later. (ice_rink-1)
+2026-11-26T22:07:16Z | quota_cooldown: Your credit usage is cooling down. Please try again later. (ruins-1)
