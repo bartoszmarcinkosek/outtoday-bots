@@ -1,0 +1,27 @@
+{
+ "note": "Linki ręcznie 26.11 (porcja 4): XCAT Fujairah 4–6.12 (WAM), choinka w The WB (strona hotelu), Abu Dhabi Desert Challenge 22–27.11 (Abu Dhabi Media Office).",
+ "update_event_ids": [
+  {
+   "id": "cab8c08c-03fe-4513-9ace-536f0efdae54",
+   "set": {
+    "official_url": "https://www.wam.ae/en/article/c2ycqqy-uae-host-new-season-xcat-world-championship",
+    "end_date": "2026-12-06"
+   }
+  },
+  {
+   "id": "c719799e-acf5-4c9e-832c-034f22b80a07",
+   "set": {
+    "official_url": "https://www.hilton.com/en/hotels/auhwbqq-the-wb-abu-dhabi-hotel/festive-season",
+    "price_text": "Free entry"
+   }
+  },
+  {
+   "id": "a850a1ea-41d7-41c4-b71a-0d6ad0c811dc",
+   "set": {
+    "official_url": "https://www.mediaoffice.abudhabi/en/sport/under-the-patronage-of-hamdan-bin-zayed-35th-abu-dhabi-desert-challenge-to-take-place/",
+    "end_date": "2026-11-27",
+    "venue": "Madinat Zayed, Al Dhafra"
+   }
+  }
+ ]
+}
