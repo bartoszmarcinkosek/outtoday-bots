@@ -111,6 +111,9 @@ export function placeLine(venue: string | null, area: string | null): string | n
   return `${venue} · ${area}`;
 }
 
+// Filtr „Ladies only” (zgłoszenie 26.11.2026: „Heels & Chair (Ladies Only)” nie wchodził do filtra, bo boty rzadko ustawiają ladies_only).
+const LADIES_RE = /\b(ladies|women|woman|girls)[' ]*(only|night|day|evening|morning)\b|\bfor (ladies|women)\b|\bwomen'?s (only|session|class|swim)|\bladies'? beach\b|\bsisterhood\b/i;
+
 // Pierwsza kwota w tekście ceny. "Free" daje 0, brak kwoty daje null.
 export function parsePrice(text: string | null | undefined): number | null {
   if (!text) return null;
@@ -178,7 +181,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       icon: iconFor(e.category), when: fmtCardWhen(e, now), whenFull: fmtWhen(e),
       where: placeLine(e.venue, e.area), mapQuery: `${e.venue ?? e.area ?? e.title}, ${e.city}`,
       description: e.description, priceText: e.price_text, price, free: e.is_free || price === 0,
-      kid: e.kid_friendly === true, pet: e.pet_friendly === true, ladies: e.ladies_only === true,
+      kid: e.kid_friendly === true, pet: e.pet_friendly === true, ladies: e.ladies_only === true || LADIES_RE.test(`${e.title} ${e.description ?? ''}`),
       indoor: null, top: null, zone, city: itemCity, km: kmFor(zone, me, geoOf(e)), geo: geoOf(e),
       officialUrl: e.official_url ?? null, phone: e.phone ?? null, sourceName: e.source_name,
       checked: monthYear(e.verified_at ?? e.updated_at ?? e.created_at), verified: !!e.verified_at, isNew: isNew(e.created_at, now), created: e.created_at ?? null,
@@ -194,7 +197,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       icon: iconFor(p.category), when: p.hours_text, whenFull: p.hours_text, where: p.area,
       mapQuery: `${p.name}, ${p.city}`, description: p.description, priceText: p.price_text, price,
       free: p.is_free || price === 0, kid: p.kid_friendly === true, pet: p.pet_friendly === true,
-      ladies: p.ladies_only === true, indoor: p.is_indoor ?? (OUT_CATS.includes(p.category ?? '') ? false : IN_CATS.includes(p.category ?? '') ? true : null), top: topRank(itemCity, p.name), zone, city: itemCity,
+      ladies: p.ladies_only === true || LADIES_RE.test(p.name), indoor: p.is_indoor ?? (OUT_CATS.includes(p.category ?? '') ? false : IN_CATS.includes(p.category ?? '') ? true : null), top: topRank(itemCity, p.name), zone, city: itemCity,
       km: kmFor(zone, me, geoOf(p)), geo: geoOf(p), officialUrl: p.official_url ?? null, phone: p.phone ?? null,
       sourceName: p.source_name, checked: monthYear(p.verified_at ?? p.updated_at ?? p.created_at), verified: !!p.verified_at,
       isNew: isNew(p.created_at, now), created: p.created_at ?? null, endsSoon: false, booking: false, place: p,
@@ -214,7 +217,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       icon: iconFor(d.deal_type), when, whenFull: when, where: dt ? placeLine(dt.where, d.area) : placeLine(d.venue, d.area),
       mapQuery: `${d.venue ?? d.title}, ${d.city}`, description: d.details, priceText: d.price_text, price,
       free: price === 0, kid: d.kid_friendly === true, pet: d.pet_friendly === true,
-      ladies: d.ladies_only === true || d.deal_type === 'ladies_night', indoor: null, top: null, zone,
+      ladies: d.ladies_only === true || d.deal_type === 'ladies_night' || LADIES_RE.test(d.title), indoor: null, top: null, zone,
       city: itemCity, km: kmFor(zone, me, geoOf(d)), geo: geoOf(d), officialUrl: d.official_url ?? null,
       phone: d.phone ?? null, sourceName: d.source_name, checked: monthYear(d.verified_at ?? d.updated_at ?? d.created_at), verified: !!d.verified_at,
       isNew: isNew(d.created_at, now), created: d.created_at ?? null,
