@@ -18,6 +18,27 @@ EVENT_FIELDS = ("title", "category", "start_date", "end_date", "start_time", "en
 def main() -> int:
     db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
     db.guard = False  # ręczne wpisy są sprawdzone – ocena źródeł ich nie wstrzymuje
+    # BRAMKA JAKOŚCI (decyzja właściciela 26.11.2026: „cokolwiek jest wstawiane musi od razu przejść kontrolę jakości”).
+    # Przy QA_GATE=1 nowe pozycje oznaczone "approved" trafiają do bazy jako "pending" (niewidoczne w apce);
+    # qa_after_add.py zatwierdza je dopiero, gdy przejdą kontrolę. Lista id → plik QA_GATE_FILE.
+    if os.environ.get("QA_GATE") == "1":
+        import atexit
+        gate = {"events": [], "deals": [], "places": []}
+        _ins = db.insert
+
+        def _gated(table, rows):
+            lst = [rows] if isinstance(rows, dict) else rows
+            want = [table in gate and r.get("status") == "approved" for r in lst]
+            for r, w in zip(lst, want):
+                if w:
+                    r["status"] = "pending"
+            res = _ins(table, rows)
+            for r, w in zip(res, want):
+                if w:
+                    gate[table].append(r["id"])
+            return res
+        db.insert = _gated
+        atexit.register(lambda: json.dump(gate, open(os.environ.get("QA_GATE_FILE", "/tmp/qa_gate.json"), "w")))
     now = dt.datetime.now(dt.timezone.utc).isoformat()
     added = skipped = 0
     # WAŻNE (25.11.2026): każdy plik stosujemy RAZ – tylko pliki z bieżącego pusha (env FILES).

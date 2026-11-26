@@ -100,11 +100,28 @@ if SINCE:
         changed("places", "id,name,city,official_url,status,category")
     print(f"QA|INFO|tryb SINCE {SINCE}: events {len(events)}, deals {len(deals)}, places {len(places)}")
 
+# bramka: nowe pozycje z pliku czekają jako "pending" i są sprawdzane jak zatwierdzone (także link)
+_gf = os.environ.get("QA_GATE_FILE", "")
+GATE = {}
+if _gf and os.path.exists(_gf):
+    if _gf.endswith(".jsonl"):
+        for _l in open(_gf):
+            if _l.strip():
+                _r = json.loads(_l); GATE.setdefault(_r["t"], []).append(_r["id"])
+    else:
+        GATE = json.load(open(_gf))
+GATE_IDS = {i for ids in GATE.values() for i in ids}
+for x in events + deals + places:
+    if x["id"] in GATE_IDS:
+        x["status"] = "approved"
+failed = set()
 _out = out
 
 
 def out(level, kind, ident, title, msg):  # noqa: F811 – przy FIX zatwierdzona pozycja z FAIL wraca do pending
     _out(level, kind, ident, title, msg)
+    if level == "FAIL":
+        failed.add(ident)
     if level == "FAIL" and FIX and ident not in fixed and STATUS.get(ident) == "approved":
         fixed.append(ident)
         db.update({"event": "events", "deal": "deals", "place": "places"}[kind], {"id": ident}, {"status": "pending"})
@@ -175,6 +192,13 @@ for p in {x["id"]: x for x in places}.values():
     check_link("place", p["id"], p["name"], p.get("official_url"), False)
     oks += 1
 
+for tbl, ids in GATE.items():
+    for i in ids:
+        if i in failed:
+            print(f"QA|HELD|{tbl}|{i}|nie przeszło kontroli – zostaje niewidoczne (pending)")
+        else:
+            db.update(tbl, {"id": i}, {"status": "approved"})
+            print(f"QA|PASSED|{tbl}|{i}|przeszło kontrolę – widoczne w apce")
 print(f"QA|SUMMARY|checked {oks}|fail {fails}|warn {warns}|back to pending {len(fixed)}")
 # w trybie botów błąd już naprawiony (pozycja ukryta) – run nie jest czerwony; ręczne dodanie – czerwony, poprawiam od razu
 sys.exit(1 if fails and not (SINCE and FIX) else 0)

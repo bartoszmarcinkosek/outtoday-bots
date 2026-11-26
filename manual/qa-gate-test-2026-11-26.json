@@ -1,0 +1,2 @@
+{"note": "TEST bramki jakości: wydarzenie z minioną datą musi zostać zatrzymane jako pending (potem odrzucone).",
+ "events": [{"title": "QA gate test – do not publish", "category": "community", "start_date": "2026-11-20", "start_time": "10:00", "venue": "Test", "city": "Dubai", "description": "Test.", "status": "approved", "source_name": "Test bramki"}]}

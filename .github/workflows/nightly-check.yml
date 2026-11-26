@@ -32,3 +32,11 @@ jobs:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           ANTHROPIC_API_KEY: "unused"
           FREE: "1"
+      - name: Bramka jakości – lista nowych pozycji do sprawdzenia (QA after bots)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-gate-${{ github.job }}-${{ strategy.job-index }}
+          path: qa_gate.jsonl
+          if-no-files-found: ignore
+          retention-days: 3

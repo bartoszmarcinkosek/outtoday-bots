@@ -840,6 +840,11 @@ def src_key(name: str | None) -> str:
     return f"ig:{m.group(1).lower()}" if ("Instagram" in n and m) else n
 
 
+QA_GATE_WORKFLOWS = {"Events bot", "Hotel offers (all UAE)", "Instagram (official accounts -> pending events)", "Newsletters (Gmail -> deals)",
+                     "Hints (Cobone/Groupon -> official pages)", "Fill time and price", "Fill links", "Nightly check (free, no AI)",
+                     "Fill descriptions", "Opening hours table (Open now)"}
+
+
 class DB:
     def __init__(self, url: str, key: str):
         self.base = url.rstrip("/") + "/rest/v1"
@@ -916,6 +921,24 @@ class DB:
 
     def insert(self, table: str, rows: list | dict) -> list:
         rows = [self._guard(table, x) for x in rows] if isinstance(rows, list) else self._guard(table, rows)
+        # BRAMKA JAKOŚCI (właściciel 26.11.2026: „cokolwiek jest wstawiane musi od razu przejść kontrolę jakości”):
+        # w botach z listy nowa pozycja "approved" trafia do bazy jako "pending"; workflow „QA after bots” zatwierdza ją,
+        # gdy przejdzie kontrolę. Lista id → qa_gate.jsonl (artefakt przebiegu).
+        gated = []
+        if os.environ.get("GITHUB_WORKFLOW") in QA_GATE_WORKFLOWS and table in ("events", "deals", "places"):
+            for x in (rows if isinstance(rows, list) else [rows]):
+                if x.get("status") == "approved":
+                    x["status"] = "pending"
+                    gated.append(x)
+        res = self._insert_raw(table, rows)
+        if gated:
+            with open(os.environ.get("QA_GATE_FILE", "qa_gate.jsonl"), "a") as fh:
+                for r in res:
+                    if any(g is r or g.get("title", g.get("name")) == r.get("title", r.get("name")) for g in gated):
+                        fh.write(json.dumps({"t": table, "id": r["id"]}) + "\n")
+        return res
+
+    def _insert_raw(self, table: str, rows: list | dict) -> list:
         r = requests.post(f"{self.base}/{table}", headers={**self.h, "Prefer": "return=representation"}, json=rows, timeout=30)
         if r.status_code == 409 and "bot_key" in r.text:
             print(f"   już jest w bazie (bot_key), pomijam")

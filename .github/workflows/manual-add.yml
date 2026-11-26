@@ -45,6 +45,8 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           FILES: ${{ steps.f.outputs.files }}
+          QA_GATE: "1"
+          QA_GATE_FILE: /tmp/qa_gate.json
         run: python bot/manual_add.py
       - name: Kontrola jakości po dodaniu (reguła 26.11.2026)
         if: ${{ steps.f.outputs.files != '' }}
@@ -52,4 +54,6 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           FILES: ${{ steps.f.outputs.files }}
+          QA_GATE_FILE: /tmp/qa_gate.json
+          QA_FIX: "1"
         run: python bot/qa_after_add.py

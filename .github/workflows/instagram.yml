@@ -65,3 +65,11 @@ jobs:
           git add audit/ig_state.json
           git commit -m "Instagram: stan kont" || exit 0
           git pull --rebase origin main && git push origin HEAD:main
+      - name: Bramka jakości – lista nowych pozycji do sprawdzenia (QA after bots)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-gate-${{ github.job }}-${{ strategy.job-index }}
+          path: qa_gate.jsonl
+          if-no-files-found: ignore
+          retention-days: 3
