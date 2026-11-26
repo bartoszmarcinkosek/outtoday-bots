@@ -68,8 +68,8 @@ const RULES: [RegExp, string][] = [
   [/warner bros|img worlds|ferrari world|motiongate|theme park|real madrid world/i, 'attractions'],
   [/trampoline|bounce|flip ?out|air maniax/i, 'trampoline'],
   [/ninja|tepfactor|ropes course|aventura|high ropes/i, 'active'],
-  [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|flying (lesson|experience)|scenic flight/i, 'flying'],
-  [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating|on ice\b/i, 'snow'],
+  [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|air ?show|flying (lesson|experience)|scenic flight/i, 'flying'],
+  [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating/i, 'snow'],
   [/ceramic|pottery|sculpt|\bclay\b/i, 'studios'],
   [/painting|paint (and|&) sip|\bpaints?\b|art (class|studio|workshop)|art cent(re|er)|calligraph|drawing|\bdraw\b|sketch|watercolou?r|printmaking|al marsam/i, 'painting'],
   [/cooking|chocolate(?! factory)|baking|\bbake\b|gingerbread|culinary|top chef/i, 'cooking'],
@@ -80,18 +80,19 @@ const RULES: [RegExp, string][] = [
   [/mangrove|wetland|nature reserve|bird sanctuary|flamingo/i, 'mangrove'],
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing (?!the)|rowing/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
-  [/comedy|stand[- ]?up|comedian/i, 'comedy'],
-  [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b|ballet|\bplay\b(?! ?(&|and) feast| area)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
+  [/comedy|stand[- ]?up|comedian|biswa kalyan|max angioni|paul chowdhry|sapan verma|varun grover|gursimran khamba|angad ranyal|bader saleh|paul de saint sernin|trevor noah|max amini|nurlan saburov|whitney cummings|chai with chandan|steve harvey|apurva in emirates/i, 'comedy'],  // znani komicy bez słowa „comedy” w tytule (przegląd 26.11)
+  [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
   // kino plenerowe (plaża, dach, pod gwiazdami) -> zdjęcie pleneru; zwykły seans w sali -> sala kinowa (albo ikonka, póki zdjęcia nie ma)
   [/(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)\b.*(cinema|film|screening|movie)|(cinema|film|screening|movie).*\b(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)/i, 'cinema'],
+  [/comic ?con\b/i, 'expo'],  // Film & Comic Con to targi, nie kino
   [/cinema|film|screening|movie/i, 'cinema_indoor'],
   [/\bjazz\b/i, 'jazz'],
-  [/\bdj\b|techno|afro ?house|\bedm\b|\brave\b|club night/i, 'dj'],
+  [/\bdj\b|techno|afro ?house|\bedm\b|\brave\b|club night|\bat (bohemia|be beach)\b/i, 'dj'],  // wieczory DJ w beach clubach: nie plaża
   [/arabic music|tarab|\boud\b(?! exhibition| and perfume|.*perfume)|khaleeji|eid concert/i, 'arabic'],
   [/rock republic|climbing|bouldering/i, 'active'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
   [/horse|equestrian|racecourse|endurance ride|show jumping|polo\b/i, 'horse'],
-  [/cycl|\bbike ride|\bbicycle|velo\b/i, 'cycling'],
+  [/cycling|cyclist|cycle (track|race|ride)|\bbike ride|\bbicycle|velo\b/i, 'cycling'],  // nie „Cycles” (spektakl)
   [/swim|triathlon|aquathlon|open water/i, 'swimming'],
   [/\brun\b|running|marathon|\b(3|5|10|21)k\b|\d+ ?km\b|parkrun|race run|trail race|relay/i, 'running'],
   [/tennis|padel|squash|pickleball/i, 'padel'],
@@ -114,8 +115,8 @@ const RULES: [RegExp, string][] = [
   [/teamlab|immersive|digital art|museum|art gallery|biennial/i, 'museums'],
   // na końcu: bieg w parku archeologicznym to nadal bieg
   // fort/zamek ma własne zdjęcie (albo ikonkę) – nie uliczkę starego miasta z wieżą wiatrową
-  [/\bfort\b|castle|\bhisn\b|qasr al hosn/i, 'fort'],
-  [/heritage village|heritage area|old village|pearling village|abandoned village|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|\bhisn\b/i, 'heritage'],
+  [/\bfort\b|castle|(?<!dibba al )\bhisn\b|qasr al hosn/i, 'fort'],  // Dibba Al Hisn to miasto, nie fort
+  [/heritage village|heritage area|old village|pearling village|abandoned village|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|(?<!dibba al )\bhisn\b/i, 'heritage'],
   // jedzenie i święta (event: brunch świąteczny, kolacja sylwestrowa) – przed plażą/farmą na końcu
   [/new year|\bnye\b|hogmanay/i, 'nye'],
   [/\bbrunch\b(?! that burns)/i, 'brunch'],

@@ -3,6 +3,7 @@
 // jedna linia = 'id pozycji', // tytuł – dlaczego
 // Gdy powstanie pasujące zdjęcie albo reguła w photos.ts, linię można usunąć.
 export const PHOTO_OFF = new Set<string>([
+  'e4c3816a-f278-4aad-915c-a5bb0ff762b7', // Orange Wheels – sala zabaw, a dostawała zdjęcie tańca (przegląd 26.11)
   '45aaab6f-5f3e-488d-874d-ffeb5227f53d', // La Perle – teatr z pokazem wodnym, a dostawała Burj Khalifę i fontanny (zgłoszenie testerki 26.11)
   '8f9d6d1c-82fb-434e-8665-291eefc4bec3', // Al Ain Adventure – park raftingu, a dostawał widok góry
   '35eb6532-27ab-47ad-abe4-edd5957234bd', // Storytelling Tours – oprowadzanie po muzeum, a dostawało scenę teatru
