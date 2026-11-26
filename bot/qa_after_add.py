@@ -165,6 +165,10 @@ for e in {x["id"]: x for x in events}.values():
         # ten sam dzień startu + podobny tytuł = duplikat; inny dzień to zwykle osobny punkt programu festiwalu
         if o["id"] != e["id"] and o["start_date"] == e["start_date"] and R.titles_match(o["title"], e["title"]):
             out("FAIL", "event", e["id"], e["title"], f"możliwy duplikat: {o['id']} '{o['title'][:50]}' {o['start_date']}")
+    # promocje sklepów i centrów handlowych to nie wydarzenia (zasada właściciela; „12-Day Super Sale” w Reem Mall, 26.11.2026)
+    if re.search(r"\b(super |mega |big |flash |mid[- ]season |year[- ]end )?sale\b|\d+\s?% off|\bdiscounts?\b|\bshopping festival offers?\b", e["title"], re.I) \
+            and not re.search(r"book (sale|fair)|garage sale|car boot|yard sale|charity", e["title"], re.I):
+        out("FAIL", "event", e["id"], e["title"], "promocja/wyprzedaż, nie wydarzenie")
     # długie wydarzenie, które jest stałym miejscem z apki (La Perle jako miejsce i jako „wydarzenie do 31.12”, zgłoszenie 26.11.2026)
     if (ed - sd).days >= 14:
         for o in _city("places", "id,name", e["city"]):

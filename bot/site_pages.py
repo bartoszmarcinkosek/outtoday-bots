@@ -103,16 +103,18 @@ def share_card(src: str | None, out: str) -> None:
         im = Image.new("RGB", (W, H), (17, 24, 39))
     shade = Image.new("L", (W, H), 0)
     d = ImageDraw.Draw(shade)
-    for i in range(210):  # ciemny pasek u dołu pod logo
-        d.line([(0, H - i), (W, H - i)], fill=int(225 * (1 - i / 210)))
+    for i in range(300):  # ciemny pasek u dołu pod logo
+        d.line([(0, H - i), (W, H - i)], fill=int(235 * (1 - i / 300)))
     im = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), im, shade)
-    logo = Image.open(os.path.join(ROOT, "app/assets/icon.png")).convert("RGBA").resize((88, 88), Image.LANCZOS)
-    mask = Image.new("L", (88, 88), 0)
-    ImageDraw.Draw(mask).rounded_rectangle((0, 0, 87, 87), radius=20, fill=255)
-    im.paste(logo, (40, H - 128), mask)
+    # logo większe (prośba właściciela 26.11.2026 – w podglądzie WhatsApp było za małe)
+    S = 170
+    logo = Image.open(os.path.join(ROOT, "app/assets/icon.png")).convert("RGBA").resize((S, S), Image.LANCZOS)
+    mask = Image.new("L", (S, S), 0)
+    ImageDraw.Draw(mask).rounded_rectangle((0, 0, S - 1, S - 1), radius=38, fill=255)
+    im.paste(logo, (44, H - S - 40), mask)
     dr = ImageDraw.Draw(im)
-    dr.text((146, H - 126), "OutToday", font=_font(46), fill=(255, 255, 255))
-    dr.text((148, H - 70), "What's on in the UAE · free app", font=_font(26), fill=(220, 226, 240))
+    dr.text((44 + S + 30, H - S - 30), "OutToday", font=_font(86), fill=(255, 255, 255))
+    dr.text((44 + S + 34, H - 92), "What's on in the UAE · free app", font=_font(38), fill=(225, 230, 242))
     im.save(out, "JPEG", quality=72, optimize=True, progressive=True)
 
 
@@ -303,6 +305,7 @@ weekend = (open(os.path.join(ROOT, "bot/site_weekend.html"), encoding="utf-8").r
 with open(os.path.join(OUT, "weekend.html"), "w", encoding="utf-8") as fh:
     fh.write(weekend)
 
+OG_MARK = os.path.join(OUT, "img", "og-v2.txt")  # zmiana wyglądu podglądu → wszystkie obrazki od nowa
 # usuń strony wpisów, które już się skończyły albo zostały wycofane
 for f in os.listdir(os.path.join(OUT, "e")):
     if f.endswith(".html") and f not in keep:
@@ -311,9 +314,10 @@ for f in used:
     src = os.path.join(photo_dir, "full", f) if os.path.exists(os.path.join(photo_dir, "full", f)) else os.path.join(photo_dir, f)
     shutil.copyfile(src, os.path.join(OUT, "img", f))
     og = os.path.join(OUT, "img", "og-" + f)
-    if not os.path.exists(og) or os.path.getmtime(og) < os.path.getmtime(src):
+    if not os.path.exists(og) or os.path.getmtime(og) < os.path.getmtime(src) or not os.path.exists(OG_MARK):
         share_card(src, og)
 og_def = os.path.join(OUT, "img", "og-default.jpg")
-if not os.path.exists(og_def):
+if not os.path.exists(og_def) or not os.path.exists(OG_MARK):
     share_card(None, og_def)
+open(OG_MARK, "w").write("v2 – większe logo 26.11.2026")
 print(json.dumps({"pages": len(keep), "images": len(used)}))
