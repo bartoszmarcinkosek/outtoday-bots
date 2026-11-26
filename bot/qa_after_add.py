@@ -19,7 +19,7 @@ import requests
 import run as R
 
 CITIES = {"Abu Dhabi", "Al Ain", "Dubai", "Sharjah", "Ajman", "Umm Al Quwain", "Ras Al Khaimah", "Fujairah"}
-AGGR = re.compile(r"yalla|timeout|whatson\.ae|cobone|groupon|allevents|bayut|propertyfinder|tripadvisor|wego|trip\.com|klook|headout|tiqets|ticketfairy|kidzapp|comingsoon\.ae|running\.life", re.I)
+AGGR = re.compile(r"yalla|timeout(?!market)|whatson\.ae|cobone|groupon|allevents|bayut|propertyfinder|tripadvisor|wego|trip\.com|klook|headout|tiqets|ticketfairy|kidzapp|comingsoon\.ae|running\.life", re.I)
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0 Safari/537.36"}
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
 today = R.today_uae()
