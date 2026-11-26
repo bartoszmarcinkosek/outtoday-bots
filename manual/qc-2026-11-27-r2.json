@@ -1,0 +1,308 @@
+{
+ "note": "QC night 27.11 run 2. Part A: 100 events reviewed. Rejected the general 'Sharjah Saturday Run' series entry (the concrete 28 Nov run at Al Heera Beach is listed). Fixes from organiser pages: Joke Hub now every Saturday 28 Nov to 26 Dec, Saturday Ritual is a yoga class on 28 Nov, Skafos brunch hours, Trevor Noah price, Clubhouse25 and Run for the Nation descriptions; cleaned raw Platinumlist price texts. Part B: 40 deals checked at source: 24 verified (hours added for Brunch Du Port, BDP Sunsets, Atelier M Lounge Brunch; price for House of Baoli), 15 unreadable (Hilton, IHG, Radisson, Ma's Irish Pub, AMOO, Nikki Beach block the browser), 1 not confirmed (Rose & Crown happy hour).",
+ "reject_event_ids": [
+  "5251b074-48f3-4df0-bcb6-14e1de0b5952"
+ ],
+ "update_event_ids": [
+  {
+   "id": "62959fc3-e1cc-4ead-9e21-7a853da06fe0",
+   "set": {
+    "official_url": "https://www.meetup.com/abu-dhabi-salsa-vibez-meetup-group/events/317297891/"
+   }
+  },
+  {
+   "id": "21030ea6-318e-4b35-9cb0-1c63d9ba8942",
+   "set": {
+    "price_text": "Registration required"
+   }
+  },
+  {
+   "id": "3798a03e-976a-4591-8bf1-ae769bbe4ca1",
+   "set": {
+    "price_text": "Free (registration required)",
+    "description": "Second edition of the Run for the Nation with 3 km, 5 km and 10 km distances, starting at Wahat Al Karama and finishing at ERTH Abu Dhabi."
+   }
+  },
+  {
+   "id": "6adaa426-9238-4366-a6fe-4bb22da1eaeb",
+   "set": {
+    "description": "Third edition of the family festival built around the cartoon Mansour: live stage shows, a daily character parade, a drone show and interactive activities."
+   }
+  },
+  {
+   "id": "60a85450-4c77-4d1e-a22c-85b56148d37b",
+   "set": {
+    "start_date": "2026-11-28",
+    "end_date": "2026-12-26",
+    "end_time": "22:30:00",
+    "price_text": "From AED 85",
+    "description": "Stand-up comedy night by MadCat Comedy with a rotating line-up of local comedians, every Saturday 20:30 to 22:30. The ticket includes two food or drink vouchers."
+   }
+  },
+  {
+   "id": "3103cf70-ed02-4c61-8b00-8a9489306806",
+   "set": {
+    "title": "Saturday Ritual: Yoga with POSTURE at Time Out Market Dubai",
+    "category": "sport",
+    "start_date": "2026-11-28",
+    "end_date": "2026-11-28",
+    "end_time": "09:30:00",
+    "venue": "Time Out Market Dubai terrace",
+    "description": "Vinyasa yoga class on the Time Out Market Dubai terrace with Burj Khalifa views, followed by breakfast (one dish and one drink)."
+   }
+  },
+  {
+   "id": "53ee3bdc-5bc5-4edd-9a9e-dae7bffceb6d",
+   "set": {
+    "price_text": "From AED 595",
+    "description": "Trevor Noah's new stand-up show at Dubai Opera. Shows start at 20:00."
+   }
+  },
+  {
+   "id": "3dc9d077-1c59-4a72-b67a-8dc7d936e4dd",
+   "set": {
+    "price_text": "From AED 85",
+    "description": "One-day movement festival at One Central Plaza: workouts, a hybrid challenge, dance and calisthenics battles, a recovery lounge, DJs, games and food. 18+, alcohol-free; the ticket includes a coffee or juice."
+   }
+  },
+  {
+   "id": "338df020-12be-441d-a923-387b59b39b13",
+   "set": {
+    "start_time": "13:00:00",
+    "end_time": "16:00:00",
+    "venue": "Skafos, Canopy by Hilton Dubai Al Seef",
+    "price_text": "From AED 74.70 (with the current 40% discount)",
+    "description": "Saturday brunch by Dubai Creek with unlimited Mediterranean dishes, live cooking stations and a DJ, 13:00 to 16:00."
+   }
+  },
+  {
+   "id": "63d2542c-60fe-448e-a024-afa282659f09",
+   "set": {
+    "venue": "Dubai International Boat Show, Dubai Harbour"
+   }
+  },
+  {
+   "id": "432a8dbb-7609-4967-abb5-fcda9a5dcc78",
+   "set": {
+    "price_text": "From AED 495"
+   }
+  },
+  {
+   "id": "53880a72-2a85-4bee-ae40-4b328215816a",
+   "set": {
+    "price_text": "From AED 15"
+   }
+  },
+  {
+   "id": "69871095-4a1e-4869-a830-77ed5d214644",
+   "set": {
+    "price_text": "From AED 15"
+   }
+  },
+  {
+   "id": "556680cd-b03c-4c2b-bbe2-d2b9028dc70f",
+   "set": {
+    "price_text": "From AED 15"
+   }
+  },
+  {
+   "id": "18f6bf53-c3ed-4043-9c1a-be7db8fd8e9f",
+   "set": {
+    "price_text": "From AED 799"
+   }
+  },
+  {
+   "id": "50113f46-697d-4e7d-a51b-34c859389db7",
+   "set": {
+    "price_text": "From AED 100"
+   }
+  },
+  {
+   "id": "5a0176de-3b8e-4db8-bcf9-62a55568e83d",
+   "set": {
+    "price_text": "From AED 75"
+   }
+  },
+  {
+   "id": "5d0398e7-2d51-4550-aafc-aa9b38f2fe98",
+   "set": {
+    "price_text": "From AED 1,500"
+   }
+  },
+  {
+   "id": "3febed80-6b7b-40b4-8e16-b9c85418071c",
+   "set": {
+    "price_text": "From AED 175"
+   }
+  },
+  {
+   "id": "3dad3daa-cec9-468e-9d76-8a3614ba9303",
+   "set": {
+    "price_text": "From AED 175"
+   }
+  },
+  {
+   "id": "2bcec51b-c1a2-4f48-87f7-5b094198e2a2",
+   "set": {
+    "price_text": "From AED 110"
+   }
+  },
+  {
+   "id": "444c2faf-d3aa-4b77-b875-e9ac8163aa11",
+   "set": {
+    "price_text": "From AED 199"
+   }
+  },
+  {
+   "id": "5430c46d-786b-4640-831b-99d6be625050",
+   "set": {
+    "price_text": "From AED 120"
+   }
+  },
+  {
+   "id": "5c487fe9-dacf-459f-9508-992852be70f1",
+   "set": {
+    "price_text": "From AED 200"
+   }
+  },
+  {
+   "id": "4cfcec72-d7ca-4d29-91ef-ef3a46577f1e",
+   "set": {
+    "price_text": "From AED 15"
+   }
+  },
+  {
+   "id": "67d9a6e7-40fd-404d-84cf-833129c589f3",
+   "set": {
+    "price_text": "From AED 15"
+   }
+  },
+  {
+   "id": "3c515cff-8a9e-4354-ab15-b834048b7c3b",
+   "set": {
+    "price_text": "From AED 15"
+   }
+  },
+  {
+   "id": "5c218787-f2f8-4481-972f-0dba5ddcd5dd",
+   "set": {
+    "price_text": "From AED 99"
+   }
+  },
+  {
+   "id": "674c8c8b-2010-4af6-8ad5-02e4545f370a",
+   "set": {
+    "price_text": "From AED 130"
+   }
+  },
+  {
+   "id": "3e309bca-b28d-4cd2-afd7-f32676a7a7a7",
+   "set": {
+    "price_text": "From AED 195"
+   }
+  },
+  {
+   "id": "54404af1-2388-4945-97b4-a9a62d56b995",
+   "set": {
+    "price_text": "From AED 180"
+   }
+  },
+  {
+   "id": "1b967a0f-2d08-4867-a85c-7f04957c474c",
+   "set": {
+    "price_text": "From AED 350"
+   }
+  },
+  {
+   "id": "66921cf7-326d-4d7e-b639-4d0b08e6ed95",
+   "set": {
+    "price_text": "From AED 99"
+   }
+  }
+ ],
+ "update_deal_ids": [
+  {
+   "id": "d0f98b91-ce01-444f-a3d0-0cf55e2bb7d2",
+   "set": {
+    "start_time": "13:00:00",
+    "end_time": "17:00:00"
+   }
+  },
+  {
+   "id": "4ef9d434-13e9-454c-a639-356c15b7b6ea",
+   "set": {
+    "start_time": "16:00:00",
+    "end_time": "20:00:00"
+   }
+  },
+  {
+   "id": "e880d5d3-bb64-43ea-a456-147c610888e8",
+   "set": {
+    "start_time": "14:00:00",
+    "end_time": "17:00:00"
+   }
+  },
+  {
+   "id": "25040f74-214b-4087-9f4f-e9441d7709a6",
+   "set": {
+    "price_text": "From AED 450 per person (AED 450 soft drinks, AED 650 house drinks, AED 750 champagne)"
+   }
+  },
+  {
+   "id": "da207ed0-7399-426d-8ef6-7689988f7481",
+   "set": {
+    "price_text": "50% off food and drinks"
+   }
+  },
+  {
+   "id": "f2655389-0f40-43b2-bc14-9af02525ce45",
+   "set": {
+    "price_text": "50% off selected drinks"
+   }
+  },
+  {
+   "id": "df5fc1d0-50de-487e-9a23-f855c73e83ec",
+   "set": {
+    "price_text": "Free drinks for ladies at the bar"
+   }
+  },
+  {
+   "id": "32d0caf4-df59-460c-956b-d381234c6509",
+   "set": {
+    "price_text": "All pizzas AED 50; all games 50% off"
+   }
+  },
+  {
+   "id": "00d7d708-7df4-4243-9486-23a7e5f575e5",
+   "set": {
+    "price_text": "AED 149 ladies / AED 249 men"
+   }
+  }
+ ],
+ "verified_deal_ids": [
+  "d0f98b91-ce01-444f-a3d0-0cf55e2bb7d2",
+  "e32b1c53-03e2-4948-8bfc-e8dad4e83ac6",
+  "e11a06f5-c69d-4088-90bf-cf0a66d7a7f5",
+  "4ef9d434-13e9-454c-a639-356c15b7b6ea",
+  "11e2d38b-6c08-4eef-90d2-ca39247a621a",
+  "0221c596-1f02-4083-8076-17c61bdf96eb",
+  "1326bdb3-939d-4a9f-815e-dc25b223bc61",
+  "21be8825-6fdb-4835-b64f-fb85e3157147",
+  "7f708a46-1af5-40ac-a640-89526bfbb96f",
+  "223c11dd-7df0-4805-8e60-3fd65a0e951d",
+  "5e9216bc-0a6b-4f35-8f67-9fbce45af319",
+  "da207ed0-7399-426d-8ef6-7689988f7481",
+  "e880d5d3-bb64-43ea-a456-147c610888e8",
+  "32d0caf4-df59-460c-956b-d381234c6509",
+  "00d7d708-7df4-4243-9486-23a7e5f575e5",
+  "1d76d208-baa3-4613-bd21-3f8cbc27bc70",
+  "25040f74-214b-4087-9f4f-e9441d7709a6",
+  "3fc55700-a13b-483b-a895-96393cde8885",
+  "1c48bc43-9796-45f6-b179-caab441fad81",
+  "df5fc1d0-50de-487e-9a23-f855c73e83ec",
+  "f2655389-0f40-43b2-bc14-9af02525ce45",
+  "a83dd95a-2a71-48f9-80a8-4521fd54ade9",
+  "60c556dd-65b9-46ab-b1a5-9b5829db087a",
+  "f3a62b3f-f1ae-428c-aed3-88770c217227"
+ ]
+}
