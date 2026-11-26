@@ -169,7 +169,8 @@ for e in {x["id"]: x for x in events}.values():
                              "start_date": f"lte.{ed.isoformat()}", "or": f"(end_date.gte.{sd.isoformat()},and(end_date.is.null,start_date.gte.{sd.isoformat()}))", "limit": "500"})
     for o in near:
         # ten sam dzień startu + podobny tytuł = duplikat; inny dzień to zwykle osobny punkt programu festiwalu
-        if o["id"] != e["id"] and o["start_date"] == e["start_date"] and R.titles_match(o["title"], e["title"]):
+        if o["id"] != e["id"] and o["start_date"] == e["start_date"] and R.titles_match(o["title"], e["title"]) \
+                and frozenset((o["id"], e["id"])) not in NOT_DUPES:
             out("FAIL", "event", e["id"], e["title"], f"możliwy duplikat: {o['id']} '{o['title'][:50]}' {o['start_date']}")
     # ten sam wydarzenie dwa razy z różnymi datami: ta sama strona biletów + podobny tytuł (Lamhayab ft. Yassar Lemghari:
     # 25.12 i 9.01 – strona Platinumlist podaje tylko 25.12; tester 27.11.2026). Druga data pochodzi z błędnego odczytu.
