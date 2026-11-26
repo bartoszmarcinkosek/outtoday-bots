@@ -21,3 +21,23 @@ e10e2736-2d86-4814-9f6f-1c47ed2bca8d  # NOT_FOUND Happy hour: Belgian Cafe
 6386e8e7-814c-428b-9809-1712fb9a5d89  # NO_MATCH Weekend Beach & Pool Pass
 2876eedc-fb38-4b05-b299-34ca0648c19d  # sources differ on price
 d960a94f-fd30-494a-ab1f-c1ca315bc69f  # sources differ on price
+0112778b-3108-4f1c-b288-92fd10ea3564  # dead link 26.11 (linkcheck)
+18196ee0-343b-4ca6-8793-8246ce9958e8  # dead link 26.11 (linkcheck)
+1957a1ce-8872-4065-9185-2780c22b76c3  # dead link 26.11 (linkcheck)
+2116d217-46e8-4406-94fb-7d59eb85fb4f  # dead link 26.11 (linkcheck)
+2353a38d-fa08-4720-9c8c-0955c394276a  # dead link 26.11 (linkcheck)
+3dfed9bc-849f-47c4-b201-8c1b1c159e22  # dead link 26.11 (linkcheck)
+4cb25c73-830c-4165-a4e4-233f559cd013  # dead link 26.11 (linkcheck)
+65986a71-7485-4fd6-bc7f-cab79b8da19c  # dead link 26.11 (linkcheck)
+736c79ac-1376-4219-bcbf-3b55c2e4dfe6  # dead link 26.11 (linkcheck)
+84ffdd90-5a94-4929-9571-b90df55f8638  # dead link 26.11 (linkcheck)
+875f88fd-ea39-4789-b2d3-2ab51d0eec2e  # dead link 26.11 (linkcheck)
+972d4364-1e7a-477f-bdd7-75d3587aebe2  # dead link 26.11 (linkcheck)
+a09d56dc-0a6f-4a60-80db-25443cc0a630  # dead link 26.11 (linkcheck)
+a2396899-2ab5-4923-9798-6fe5e92909d4  # dead link 26.11 (linkcheck)
+a6a8f798-41f7-403e-a44e-d2ed756f608b  # dead link 26.11 (linkcheck)
+ab8f3ae3-926f-4bc8-8104-c2ddd6ebf74e  # dead link 26.11 (linkcheck)
+b3b2b7df-6db9-475b-936b-76678f3d6b71  # dead link 26.11 (linkcheck)
+cad49a3a-a126-4082-928c-89d5f9320d40  # dead link 26.11 (linkcheck)
+db744180-ce5a-406d-843a-315434e994d7  # dead link 26.11 (linkcheck)
+e47ed724-65e9-44cb-b6c8-81fe765f9117  # dead link 26.11 (linkcheck)
