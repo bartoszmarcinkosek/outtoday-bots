@@ -1,2 +1,15 @@
 # Pary pozycji o podobnych nazwach, które są RÓŻNE (kontrola jakości nie zgłasza ich jako duplikatów)
 806bae58-0da8-45c8-b6bc-68e1ab847d91 58999e62-eda0-41cb-9903-216f41cdec90 # Kayaking at Louvre AD ≠ Louvre AD
+40d9d67c-b132-4cff-aaaa-cfb7403882d8 6f609a6c-2128-4827-8ca8-f544b3584e66 # Eid: Khor Al Hamriyah ≠ Mleiha heritage village
+be5cc7a9-094b-400d-9185-046bde4bd2d3 fcf6b43d-f934-4091-86e7-d66783e12943 # Eid: Al Heera Beach ≠ Khorfakkan Beach
+94f0c8fa-db9c-49c0-beb3-1a7f635258bd b3f31e57-5129-4440-bd6f-7a8ab8d8c548 # Stars N Bars: ladies night ≠ karaoke night
+bcbc7baf-92e9-4670-aead-246564fb5dc2 ed41f36a-ece8-4497-bd57-e9450cf1d9a3 # Fahid Beach Club: ladies night ≠ ladies day
+c764cb19-a9e2-478b-a37c-87bc92e3f09c f7dcc306-982f-4d0c-9a4b-87f5da304dc4 # Saadiyat Beach Club: day pass ≠ ladies day
+00b1d305-35b2-467b-90b4-0bca1c50ba54 b99bc8bc-dcb9-4f93-8796-1b3a9ec58714 # Manarat Al Saadiyat ≠ its ceramics studio
+0e06eed6-d7aa-43eb-99ab-e285ce3d4537 702e85fe-18fb-49bf-89d2-b5666d8f0143 # Gold Souk Madinat Zayed ≠ Old Souk
+183a94fa-18a3-4430-9979-5e97142e9e22 7b9fc27a-6bd8-4831-ba0e-16c221d4f20e # Kite Beach ≠ Kite Surf Beach Center
+312b1add-e8e3-4120-b977-2e498cd1f706 cb4cea26-0b77-4953-8545-5b0c37eb7fa8 # Al Ain Museum ≠ Al Ain Palace Museum
+423f893a-426f-45fa-9589-bbc5f3c8be21 d4d158f4-d419-4c4c-864c-5353315755cc # UAQ Mangrove Beach ≠ UAQ Open Beach
+4ed357df-f079-4fe0-a785-1f818634b716 623aa9d3-d53d-44f0-a8bf-19738a73ad1a # Jebel Hafit mountain ≠ Jebel Hafit Desert Park
+7b9d5eb7-b579-4cef-a795-7e3f384e16ce 8adde3f6-2757-47a6-9421-bea2c79216bb # Al Qawasim Corniche ≠ mangrove kayaking there
+b7f07333-9556-4c05-8fc6-47acf13ef1bb d3b712b6-1cdd-46f2-af20-8b12e1d18959 # Al Bateen Ladies Beach ≠ Al Bateen Beach

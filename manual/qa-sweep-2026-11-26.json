@@ -1,0 +1,12 @@
+{"note": "Przegląd całej bazy kontrolą jakości 26.11: duplikat, miasto, agregator, martwe linki wydarzeń (oferty z martwym linkiem → audit/deal_priority.txt, sprawdza nocna kontrola).",
+ "reject_event_ids": ["cf7288ad-51ae-4a9a-a7dd-f913f6ab13a2"],
+ "update_event_ids": [
+  {"id": "efae3202-5bb1-4cfc-9197-5fdedb68060d", "set": {"city": "Abu Dhabi"}},
+  {"id": "20144783-3a3d-4ae4-8224-82c6da88b65a", "set": {"official_url": "https://culturalfoundation.ae/en"}},
+  {"id": "25a98e94-3659-4831-bd92-be6fcf94778f", "set": {"official_url": "https://www.meetup.com/thecompoundingclub/"}},
+  {"id": "264b74fc-cb93-4f9c-933d-84145c42da88", "set": {"official_url": "https://www.dubaiicerink.com"}},
+  {"id": "5117e440-ccc5-4ce7-9207-950c145e7965", "set": {"official_url": "https://dubai-fleamarket.com"}},
+  {"id": "bade39d6-e0e9-4d88-9f0a-29d07f2d881b", "set": {"official_url": "https://dubai-fleamarket.com"}},
+  {"id": "da8664eb-c3c0-4f3e-86be-366f58eecbde", "set": {"official_url": "https://dubai-fleamarket.com"}},
+  {"id": "5134a330-3c3d-4f02-bde6-4de1c08a7e74", "set": {"official_url": "https://www.421.online/whats-on/"}}],
+ "update_place_ids": [{"id": "6ed15171-5df9-48ff-b009-dcd0620950e1", "set": {"official_url": "https://www.timeoutmarket.com/dubai/"}}]}
