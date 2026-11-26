@@ -9,3 +9,5 @@ bc28002b-1a82-45ec-b622-a2f2b27f75ed | Al Noor Island | official page from 2024,
 0a21b4c4-b95e-4458-abd6-bdb349b4dc54 | Dhayah Fort | open site, no official hours (daylight only) | 2026-11-26
 cbd8a965-95c5-4dda-9f33-d95384d145fc | Al Jazeera Al Hamra Heritage Village | open site, only suggested visiting times | 2026-11-26
 109f4919-43b0-47b3-b563-47d34875afe5 | Al Hosn grounds and House of Artisans | official page gives fort hours only, grounds/House of Artisans unclear | 2026-11-26
+6f902435-3e5d-4862-96ab-68cf5e5b2028 | Fujairah Museum | tourism page gives one templated daily range, Friday hours unconfirmed | 2026-11-27
+961ddc5a-39d0-4573-b3aa-8548d7f78317 | Madame Tussauds Dubai | official hours page broken (template text), no weekly hours | 2026-11-27
