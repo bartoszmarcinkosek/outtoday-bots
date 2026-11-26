@@ -1,0 +1,77 @@
+{
+ "note": "Tester A 27.11.2026 (nocny przegląd 140 kart: 80 wydarzeń, 40 ofert, 20 miejsc). Lamhayab ft. Yassar Lemghari: dwie karty z tą samą stroną Platinumlist – strona podaje tylko 25.12, karta z 9.01.2027 odrzucona. Harry Potter Film Concert Series: data poprawiona na 5–6.02.2027 wg Etihad Arena (było 10–28.03); osobna karta Prisoner of Azkaban (5.02) to część serii – odrzucona. Katy Perry NYE w Praia: cena 30 AED → od 6 500 AED wg Platinumlist. Dragon boating Capital Dragons: 29.11 odwołane, co niedzielę do 28.02. Odrzucone: Festive Package w Bedrock (pakiet dla grup, nie wydarzenie), World Majlis for Urban Intelligence (zamknięty szczyt dla burmistrzów), Coffee Morning Wednesdays w Kids Zone (oferty już nie ma na stronie), Gold Souk w centrum handlowym (sklepy). Typy ofert: The Art of Dim Sum to zajęcia (other), Yashoku Night Brunch to brunch. Tytuły z wyciętym separatorem.",
+ "update_event_ids": [
+  {
+   "id": "1c4e4152-7a32-47ee-8dd8-bcafe71e8db8",
+   "set": {
+    "start_date": "2027-02-05",
+    "end_date": "2027-02-06",
+    "description": "Two nights of Harry Potter film concerts at Etihad Arena with the UAE National Orchestra playing the score live to the film: Harry Potter and the Prisoner of Azkaban on Friday 5 February and Harry Potter and the Goblet of Fire on Saturday 6 February 2027."
+   }
+  },
+  {
+   "id": "1ad753c4-b906-4782-87b6-3e12979ae47a",
+   "set": {
+    "price_text": "From 6,500 AED",
+    "price_min_aed": 6500,
+    "is_free": false
+   }
+  },
+  {
+   "id": "2987faab-e28c-40da-bba5-02b6c32f7d72",
+   "set": {
+    "start_date": "2026-12-06",
+    "end_date": "2027-02-28",
+    "start_time": "06:00",
+    "end_time": "08:00",
+    "description": "Free introductory dragon boat session with the Capital Dragons team every Sunday at 6 am (the boat leaves on time) until 28 February 2027. Sign up on Meetup."
+   }
+  },
+  {
+   "id": "29d1316b-4965-41dc-88a2-c0db41cb92bf",
+   "set": {
+    "start_time": "11:00",
+    "kid_friendly": true
+   }
+  },
+  {
+   "id": "18d452fa-4fbe-46c2-8a2a-52a7c4e45b4a",
+   "set": {
+    "title": "Yaw Owusu – Where The Tide Flows, And The Dunes Gather"
+   }
+  },
+  {
+   "id": "1b384d60-d1fb-4fb9-af30-5b29f942749e",
+   "set": {
+    "title": "Tatiana Chalhoub – The Trees Now Stand Unpruned And Wild"
+   }
+  }
+ ],
+ "reject_event_ids": [
+  "19085730-557a-44d3-af12-a52eb4c02de8",
+  "3179f84a-c997-4c16-91bf-b1a1770ea9de",
+  "200a1b0b-14be-47b3-aa23-f7656967f64b",
+  "28ac37e9-9e85-4e78-937c-d58e801ce5de"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "0787600a-db89-4e69-90d2-63250206070d",
+   "set": {
+    "deal_type": "other",
+    "title": "The Art of Dim Sum – dim sum making class"
+   }
+  },
+  {
+   "id": "01c5a3cf-4b95-435c-b9e4-1001ab72dd50",
+   "set": {
+    "deal_type": "brunch"
+   }
+  }
+ ],
+ "reject_deal_ids": [
+  "0208a0b8-80dd-4573-b55e-3ef95ffb6409"
+ ],
+ "reject_places": [
+  "0e06eed6-d7aa-43eb-99ab-e285ce3d4537"
+ ]
+}

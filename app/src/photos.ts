@@ -5,7 +5,7 @@
 // 5) sąsiednie karty dostają różne wersje, gdy jest z czego wybierać.
 import { Item } from './logic';
 import { PHOTO_OFF } from './photoOff';
-import { PHOTO_FILES } from './photos.gen';
+import { PHOTO_FILES, PHOTO_NAMES } from './photos.gen';
 
 // Konkretne miejsca (najważniejsze): event/miejsce/oferta w tym miejscu dostaje zdjęcie tego miejsca (klucz lm_*).
 // Sprawdzane w tytule i w miejscu. Działa dopiero, gdy jest plik assets/photos/lm_<nazwa>-<n>.jpg.
@@ -66,10 +66,12 @@ const RULES: [RegExp, string][] = [
   [/\bmosque\b/i, 'mosque'],
   [/legoland/i, 'legoland'],
   [/warner bros|img worlds|ferrari world|motiongate|theme park|real madrid world/i, 'attractions'],
-  [/trampoline|bounce|flip ?out|air maniax/i, 'trampoline'],
+  [/trampoline|bounce|flip ?out|flipped park|air maniax/i, 'trampoline'],  // Flip Junior (Flipped Park RAK) dostawał basen na pustyni (tester 27.11)
   [/ninja|tepfactor|ropes course|aventura|high ropes/i, 'active'],
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|air ?show|flying (lesson|experience)|scenic flight/i, 'flying'],
-  [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating/i, 'snow'],
+  // lodowisko to nie stok narciarski (Dubai Ice Rink dostawał Ski Dubai – tester 27.11): własne zdjęcie albo ikonka
+  [/ice rink|ice skating|skating rink/i, 'ice_rink'],
+  [/\bski\b|ski dubai|snow abu dhabi|snow park/i, 'snow'],
   // twarze malowane dzieciom to nie malowanie na sztalugach (Splash Park Face Painting, tester 26.11)
   [/face ?paint/i, 'facepaint'],
   // „sculpt” tylko jako zajęcia; wystawa rzeźby (Alfred Basbous: Sculpting the Line) to nie koło garncarskie
@@ -90,7 +92,7 @@ const RULES: [RegExp, string][] = [
   // wyścig żaglówek / dhow (Dubai Offshore Sailing Club) – nie paddleboard wśród namorzynów (tester 26.11)
   [/dhow (sailing )?race|sailing race|dhow sailing|offshore sailing|sail ?gp|sail grand prix/i, 'sailing'],  // SailGP: katamarany, nie paddleboard (tester 26.11)
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|regatta|sailing (?!the)|rowing/i, 'watersports'],
-  [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
+  [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|\bbach\b|vivaldi|handel|mozart|beethoven|chopin|tchaikovsky|young maestro|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian|biswa kalyan|max angioni|paul chowdhry|sapan verma|varun grover|gursimran khamba|angad ranyal|bader saleh|paul de saint sernin|trevor noah|max amini|nurlan saburov|whitney cummings|chai with chandan|steve harvey|apurva in emirates/i, 'comedy'],  // znani komicy bez słowa „comedy” w tytule (przegląd 26.11)
   [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
   // kino plenerowe (plaża, dach, pod gwiazdami) -> zdjęcie pleneru; zwykły seans w sali -> sala kinowa (albo ikonka, póki zdjęcia nie ma)
@@ -183,13 +185,36 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)
 const CITY_ONLY = new Map<number, string>([
   [PHOTO_FILES.running?.[1], 'Dubai'],  // running-2
 ].filter(([f]) => f != null) as [number, string][]);
+
+// Zdjęcia o bardzo konkretnej treści w ogólnej puli kategorii (oferty biorą zdjęcie z puli typu oferty):
+// tylko dla kart, których tytuł/miejsce do nich pasuje. Inaczej każda „night out” miała karaoke, każda kolacja
+// – kuchnię indyjską albo teppanyaki, każdy day pass – basen wśród wydm (tester 27.11).
+const ONLY_IF = new Map<string, RegExp>([
+  ['night_out-5', /karaoke/i],
+  ['night_out-6', /shisha|hookah|arabic|lebanese|levant|majlis|turkish|moroccan|persian|emirati/i],
+  ['dinner-7', /indian|biryani|curry|tandoor|desi|pakistani|dawat|punjabi|bhatia|masala|kerala|thali|nepal|sri lankan|mughal/i],
+  ['dinner-8', /teppan|japanese|wagyu|hibachi|benihana|yakiniku|omakase|robata/i],
+  ['day_pass-8', /desert|bab al shams|al maha|qasr al sarab|telal|mleiha|al wadi|liwa|dunes?\b/i],
+  ['brunch-10', /asian|japanese|chinese|dim sum|sushi|zuma|thai|korean|vietnam|izakaya|yum cha|baikingu|cantonese|nobu|hakkasan|shanghai|noodle|ramen|sake|nikkei|peking|bao\b/i],
+]);
+// Zdjęcia z wieżowcami w ogólnej puli: tylko w miastach z wieżowcami (Ain Al Madhab Gardens w Fudżajrze dostawał park z wieżowcami – tester 27.11)
+const TOWERS = new Set(['Dubai', 'Abu Dhabi', 'Sharjah']);
+const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2']);
+function allowed(f: number, item: Item, text: string): boolean {
+  const n = PHOTO_NAMES.get(f);
+  if (!n) return true;
+  const re = ONLY_IF.get(n);
+  if (re && !re.test(text)) return false;
+  if (SKYLINE_FILES.has(n) && !TOWERS.has(item.city)) return false;
+  return true;
+}
 
 function hash(s: string): number {
   let h = 2166136261;
@@ -270,7 +295,8 @@ function pool(item: Item): number[] {
 export function photoFor(item: Item, avoid?: number | null): number | null {
   const row: any = item.event ?? item.deal ?? item.place;
   if (row?.id && PHOTO_OFF.has(String(row.id))) return null;
-  const p = pool(item);
+  const text = `${item.rawTitle ?? item.title} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
+  const p = pool(item).filter((f) => allowed(f, item, text));
   if (!p.length) return null;
   let i = hash(item.key) % p.length;
   if (p.length > 1 && p[i] === avoid) i = (i + 1) % p.length;

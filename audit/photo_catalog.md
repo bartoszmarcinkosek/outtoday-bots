@@ -80,3 +80,38 @@ padel-1 | gracz padla w wyskoku przy siatce na niebieskim korcie nocą
 parks-1 | miejski park: alejka, fontanna, palmy, wieżowce w tle
 parks-2 | park z fontanną, trawnikiem i palmami (bez wieżowców)
 talk-1 | sala konferencyjna: prelegent na scenie z ekranem, widownia
+attractions-1 | park rozrywki: żółty rollercoaster i diabelski młyn, alejka z latarniami
+beaches-1 | biała plaża z dwoma parasolami z liści palmowych, turkusowe morze (bez ludzi)
+brunch-10 | azjatycki stół: dim sum w bambusie, sushi, makaron, ramen (bez ludzi)
+cycling-2 | dwóch kolarzy szosowych (mężczyźni) na drodze z palmami, panorama miasta o zachodzie
+day_pass-1 | basen infinity nad morzem, leżaki z ręcznikami, palmy (bez ludzi)
+day_pass-5 | leżak przy basenie nad morzem, koktajl z pomarańczą i okulary na stoliku
+day_pass-6 | brodzik z fontannami przy plaży, kabany z zasłonami, palmy
+day_pass-8 | basen wśród wydm pustyni o zachodzie, leżaki i lampiony (pustynny resort)
+dinner-1 | stół na tarasie nocą: stek, makaron, czerwone wino, świece, girlanda żarówek
+dinner-7 | indyjskie dania w miedzianych misach: biryani, curry, palak, naan
+dinner-8 | kucharz teppanyaki przy płycie z wielkim płomieniem, bar w ciemnej restauracji
+happy_hour-1 | ręce stukają się piwem i koktajlami przy barze
+happy_hour-3 | spritz, drinki i deska wędlin/serów na tarasie nad śródziemnomorskim miasteczkiem o zachodzie
+happy_hour-5 | bar pubowy z nalewakami, dwa piwa, mecz piłki na ekranie TV
+happy_hour-7 | dwa piwa i skrzydełka kurczaka w pubie
+happy_hour-9 | mojito i nachos na stoliku w barze plażowym o zachodzie
+ladies_night-2 | dwa różowe koktajle na stoliku na tarasie, świeca, girlanda żarówek (bez ludzi)
+lm_creek-1 | Dubai Creek (Al Seef): abra przy nabrzeżu, domy z wieżami wiatrowymi o zachodzie
+lm_dubai_opera-2 | wnętrze Dubai Opera: widownia przed sceną z kurtyną, balkony
+lm_etihad_arena-1 | budynek Etihad Arena nocą, złota fasada odbita w wodzie
+lm_louvre-1 | Louvre Abu Dhabi z zewnątrz: kopuła nad wodą w dzień
+lm_saadiyat-1 | plaża Saadiyat: wydmy z trawą, turkusowe morze (bez ludzi)
+lunch-1 | ryba z warzywami na białym obrusie, woda, okno restauracji (lunch biznesowy)
+lunch-3 | łosoś, sałatka i zupa na białym obrusie, za oknem wieżowce
+lunch-6 | śródziemnomorski stół: szaszłyki, hummus, sałatki na tarasie nad morzem
+mosque-1 | mały biały meczet z minaretem wśród palm, piasek
+night_out-2 | ręce wznoszą kolorowe koktajle na dachu, nocna panorama miasta
+night_out-5 | karaoke: kobieta śpiewa z mikrofonem, przyjaciele, neonowy pokój
+night_out-6 | taras z szishą, lampionami i dywanami nocą (lounge arabski)
+snow-1 | kryty stok narciarski (Ski Dubai): narciarz, dzieci lepią bałwana, pontony
+souk-1 | kryty suk z lampionami, dywanami i przyprawami, ludzie w strojach emirackich
+staycation-1 | pokój hotelowy: łóżko ze szlafrokami, balkon z widokiem na morze o zachodzie
+staycation-5 | pokój hotelowy: łóżko, okno na morze o zachodzie
+swimming-1 | pływacy w czepkach na otwartym morzu o wschodzie (zawody pływackie)
+waterpark-1 | aquapark: kolorowe zjeżdżalnie, basen z falą i ludźmi na kółkach

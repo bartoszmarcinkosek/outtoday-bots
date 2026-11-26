@@ -15,5 +15,10 @@ for f in files:
     if os.path.exists(os.path.join(root, 'assets/photos/full', f)):
         out.append(f"  [require('../assets/photos/{f}'), require('../assets/photos/full/{f}')],")
 out.append(']);')
+# Nazwa pliku dla każdego zdjęcia (reguły w photos.ts: zdjęcie o konkretnej treści tylko dla pasujących kart)
+out.append('export const PHOTO_NAMES = new Map<number, string>([')
+for f in files:
+    out.append(f"  [require('../assets/photos/{f}'), '{f[:-4]}'],")
+out.append(']);')
 open(os.path.join(root, 'src/photos.gen.ts'), 'w').write('\n'.join(out) + '\n')
 print(len(files), 'zdjęć,', len(g), 'kluczy')

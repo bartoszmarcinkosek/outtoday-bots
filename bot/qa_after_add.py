@@ -171,6 +171,14 @@ for e in {x["id"]: x for x in events}.values():
         # ten sam dzień startu + podobny tytuł = duplikat; inny dzień to zwykle osobny punkt programu festiwalu
         if o["id"] != e["id"] and o["start_date"] == e["start_date"] and R.titles_match(o["title"], e["title"]):
             out("FAIL", "event", e["id"], e["title"], f"możliwy duplikat: {o['id']} '{o['title'][:50]}' {o['start_date']}")
+    # ten sam wydarzenie dwa razy z różnymi datami: ta sama strona biletów + podobny tytuł (Lamhayab ft. Yassar Lemghari:
+    # 25.12 i 9.01 – strona Platinumlist podaje tylko 25.12; tester 27.11.2026). Druga data pochodzi z błędnego odczytu.
+    if e.get("official_url") and re.search(r"platinumlist|virginmegastore|ticketmaster|coca-cola-arena|etihadarena|dubaiopera", e["official_url"], re.I):
+        for o in db.get("events", {"select": "id,title,start_date", "status": "eq.approved", "official_url": f"eq.{e['official_url']}", "limit": "20"}):
+            if o["id"] != e["id"] and o["start_date"] != e["start_date"] and R.titles_match(o["title"], e["title"]) \
+                    and frozenset((o["id"], e["id"])) not in NOT_DUPES:
+                out("FAIL", "event", e["id"], e["title"], f"ten sam bilet co {o['id']} ({o['start_date']}) – jedna z dat jest błędna albo połącz w jedną kartę")
+                break
     # wydarzenie za granicą (Highlander: Mount Macedon w Australii, Ehmej w Libanie, wpisane jako Ras Al Khaimah – tester 26.11.2026)
     _txt = f"{e['title']} {e.get('venue') or ''}"
     if re.search(FOREIGN_RE, e.get("venue") or "", re.I) or (re.search(GLOBAL_ORG_RE, e.get("official_url") or "", re.I)
@@ -190,6 +198,9 @@ for e in {x["id"]: x for x in events}.values():
                     and abs((dt.date.fromisoformat(o["start_date"]) - sd).days) <= 3):
                 out("FAIL", "event", e["id"], e["title"], f"ten sam spektakl jako osobna karta na każdy termin: {o['id']} {o['start_date']} – połącz w jedną kartę (od–do)")
                 break
+    # tytuł z wyciętym separatorem (kilka spacji: „Yaw Owusu   Where The Tide Flows”) – stare wpisy sprzed poprawki w run.py (tester 27.11.2026)
+    if re.search(r"\S {2,}\S", e["title"]):
+        out("FAIL", "event", e["id"], e["title"], "tytuł z kilkoma spacjami (wycięty separator) – wstaw „ – ”")
     # promocje sklepów i centrów handlowych to nie wydarzenia (zasada właściciela; „12-Day Super Sale” w Reem Mall, 26.11.2026)
     if re.search(r"\b(super |mega |big |flash |mid[- ]season |year[- ]end )?sale\b|\d+\s?% off|\bdiscounts?\b|\bshopping festival offers?\b", e["title"], re.I) \
             and not re.search(r"book (sale|fair)|garage sale|car boot|yard sale|charity", e["title"], re.I):

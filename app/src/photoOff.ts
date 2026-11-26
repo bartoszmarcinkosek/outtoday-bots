@@ -17,4 +17,5 @@ export const PHOTO_OFF = new Set<string>([
   'fd418970-2798-46d7-81a8-6126763a87eb', // Shees Park – park w górskiej wiosce, a dostawał park z wieżowcami (tester 26.11)
   'bc1e1651-5707-4411-a6b3-8bfff8ec25e6', // Resistance Monument – pomnik pod gołym niebem, a dostawał salę muzeum (tester 26.11)
   '0c4f5222-9e11-44fa-a2cf-18404a6123fd', // Abu Dhabi Festival 2026 – festiwal muzyki klasycznej i sztuki (cała jesień), a dostawał scenę z laserami (tester 26.11)
+  '04e99c0b-3477-47f3-bd64-c5dfd02f20e8', // ARTE Museum Dubai – cyfrowe projekcje (immersive), a dostawało salę z amforą (tester 27.11)
 ]);
