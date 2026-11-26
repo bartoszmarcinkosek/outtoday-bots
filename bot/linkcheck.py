@@ -32,6 +32,9 @@ def fetch(u):
         r = requests.get(u, headers=UA, timeout=25, allow_redirects=True)
         return u, r.status_code, r.url, re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", r.text[:600000], flags=re.S | re.I)
     except requests.RequestException as e:
+        # 26.11.2026: domena, która nie istnieje (DNS NXDOMAIN), to martwy link, nie blokada robotów
+        if re.search(r"NameResolution|getaddrinfo|Name or service not known|nodename nor servname|No address associated", str(e)):
+            return u, -404, u, "domain does not exist"
         return u, 0, u, type(e).__name__
 
 
@@ -46,7 +49,9 @@ for table, r, title, venue in items:
     st, fin, txt = pages[u]
     code = detail = ""
     p0, p1 = urlparse(u), urlparse(fin)
-    if st == 0:
+    if st == -404:
+        code, detail = "NOT_FOUND", "domain does not exist"
+    elif st == 0:
         code, detail = "NO_RESPONSE", txt
     elif st in (404, 410):
         code, detail = "NOT_FOUND", st

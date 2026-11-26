@@ -1,0 +1,28 @@
+{
+ "note": "Zgłoszenie testerki 26.11: Inside Burj Al Arab – hotel zamknięty na remont do października 2027, strona insideburjalarab.com nie istnieje → odrzucone; 1484 by Puro – domena puro.ae nie istnieje → link do strony Visit Ras Al Khaimah; dodane Al Wadi Desert (Ritz-Carlton, RAK).",
+ "reject_places": [
+  "9e41f1e8-1ab3-4abe-8441-95e030f06206"
+ ],
+ "update_place_ids": [
+  {
+   "id": "02e3cef9-91ba-4e4f-871e-89e35c43a734",
+   "set": {
+    "official_url": "https://visitrasalkhaimah.com/discover/activities/1484-by-puro/"
+   }
+  }
+ ],
+ "places": [
+  {
+   "name": "The Ritz-Carlton Ras Al Khaimah, Al Wadi Desert",
+   "category": "daytrips",
+   "area": "Wadi Khadeja, Al Mazraa",
+   "city": "Ras Al Khaimah",
+   "description": "Desert resort of private pool villas inside a protected reserve of dunes and ghaf trees, with a spa, an equestrian centre and desert activities such as falconry and nature drives.",
+   "is_indoor": false,
+   "status": "approved",
+   "source_name": "ritzcarlton.com",
+   "official_url": "https://www.ritzcarlton.com/en/hotels/uae/al-wadi-desert",
+   "kid_friendly": true
+  }
+ ]
+}
