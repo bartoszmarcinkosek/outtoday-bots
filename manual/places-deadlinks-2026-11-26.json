@@ -1,0 +1,56 @@
+{
+ "note": "Martwe linki miejsc 26.11 (linkcheck, nowa reguła: nieistniejąca domena = martwy link): Laguna Waterpark zamknięty na stałe → odrzucone; Jebel Hafit Desert Park → Visit Abu Dhabi; Jais Sledder → poprawny adres; Al Qasba, Al Majaz i 4 strony visitsharjah.com (wschodnie wybrzeże) bez działającej strony → link usunięty (lepiej brak linku niż martwy).",
+ "reject_places": [
+  "b569f337-a13b-4b08-875c-6aff6cd7d7ad"
+ ],
+ "update_place_ids": [
+  {
+   "id": "623aa9d3-d53d-44f0-a8bf-19738a73ad1a",
+   "set": {
+    "official_url": "https://visitabudhabi.ae/en/where-to-go/adventure-and-theme-parks/jebel-hafit-desert-park"
+   }
+  },
+  {
+   "id": "18355ae1-9afc-4aa7-9a19-ebb382fc88ce",
+   "set": {
+    "official_url": "https://visitrasalkhaimah.com/discover/activities/jais-sledder/"
+   }
+  },
+  {
+   "id": "bd4b1ae8-7916-4e1c-9164-5332e8cc60ee",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "f89c0c60-0d82-4889-9f66-fc043c0c2d4e",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "10830757-a6bb-46f9-bbac-b5d1c47a5256",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "4dbddc45-aa13-4d03-a8ff-638ee2f0a1a8",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "dee8396e-2a12-45e7-89d8-767c2fbbbe03",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "e0361c55-e921-43a6-bd4c-84fbf6cf94db",
+   "set": {
+    "official_url": null
+   }
+  }
+ ]
+}
