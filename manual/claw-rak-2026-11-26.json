@@ -1,0 +1,20 @@
+{
+ "note": "Zgłoszenie od właściciela 26.11 (link allevents.in = agregator, nieużyty). Ladies Night potwierdzony recenzjami z XI 2026; link do oficjalnej strony turystycznej RAK.",
+ "deals": [
+  {
+   "title": "Ladies Night at Claw BBQ RAK",
+   "deal_type": "ladies_night",
+   "venue": "CLAW BBQ RAK, Hampton by Hilton Marjan Island",
+   "area": "Al Marjan Island",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://visitrasalkhaimah.com/discover/food-drinks/claw-bbq-rak/",
+   "days_of_week": [2],
+   "start_time": "20:00",
+   "end_time": "00:00",
+   "price_text": "3 free drinks + 30% off food",
+   "details": "Every Tuesday for ladies: 3 drinks on the house from 8 to 9 pm (2 drinks 9-10 pm, 1 drink after 10 pm) and 30% off food. American-style diner with a terrace on Marjan Island.",
+   "status": "approved",
+   "source_name": "visitrasalkhaimah.com"
+  }
+ ]
+}
