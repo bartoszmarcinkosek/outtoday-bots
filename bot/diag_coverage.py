@@ -21,7 +21,10 @@ for t in TYPES:
     for city in CITIES:
         row = [c[(city, w, t)] for w in range(7)]
         print(f"CV|{t}|{city}|" + " ".join(f"{DAYS[w]}:{row[w]}" for w in range(7)))
-        # luka: typ istnieje w tym mieście w inne dni albo w ≥2 innych miastach tego dnia, a tu 0
-        for w in range(7):
-            if row[w] == 0 and sum(1 for o in CITIES if o != city and c[(o, w, t)] > 0) >= 2:
-                print(f"GAP|{city}|{DAYS[w]}|{t}")
+        # Szardża: bez alkoholu – ladies night i happy hour tam nie istnieją
+        if city == "Sharjah" and t in ("ladies_night", "happy_hour"):
+            continue
+        # luka: dni, w które ≥3 inne miasta mają ten typ, a tu 0 (jedna linia na miasto i typ)
+        zero = [DAYS[w] for w in range(7) if row[w] == 0 and sum(1 for o in CITIES if o != city and c[(o, w, t)] > 0) >= 3]
+        if zero:
+            print(f"GAP|{city}|{t}|week {sum(row)}|zero: {' '.join(zero)}")
