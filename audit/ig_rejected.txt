@@ -288,3 +288,7 @@ omnia_properties | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
 foto.uae | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
 dxbdragonsrfc.ae | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
 triforce.ae | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
+club55.rak | martwe konto (ostatni post 2019-06-13) | 2026-11-26
+fujairahresort | martwe konto (ostatni post 2026-05-19) | 2026-11-26
+streatculturefujairah | za mało obserwujących (658) | 2026-11-26
+bab.ajman_saray | za mało obserwujących (997) | 2026-11-26
