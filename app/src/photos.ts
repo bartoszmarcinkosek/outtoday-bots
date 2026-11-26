@@ -119,6 +119,7 @@ const RULES: [RegExp, string][] = [
   [/heritage village|heritage area|old village|pearling village|abandoned village|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|(?<!dibba al )\bhisn\b/i, 'heritage'],
   // jedzenie i święta (event: brunch świąteczny, kolacja sylwestrowa) – przed plażą/farmą na końcu
   [/new year|\bnye\b|hogmanay/i, 'nye'],
+  [/santa|christmas|xmas/i, 'xmas'],  // brunch z Mikołajem → zdjęcie świąteczne (zgłoszenie 26.11)
   [/\bbrunch\b(?! that burns)/i, 'brunch'],
   [/breakfast/i, 'breakfast'],
   [/dinner|buffet|\blunch\b|sunday roast|\broast\b|tasting menu|by the course|set menu|thanksgiving|turkey|iftar|suhoor/i, 'dinner'],
