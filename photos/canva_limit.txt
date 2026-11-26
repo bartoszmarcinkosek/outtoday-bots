@@ -8,3 +8,4 @@
 2026-11-26T11:53:07Z | quota_cooldown: Your credit usage is cooling down. Please try again later.
 2026-11-26T13:14:38Z | quota_cooldown: Your credit usage is cooling down. Please try again later. (festivals-3, 45 min after last)
 2026-11-26T13:28:49Z | quota_cooldown: Your credit usage is cooling down. Please try again later. (festivals-3)
+2026-11-26T14:35:38Z | quota_cooldown: Your credit usage is cooling down. Please try again later. (festivals-4)
