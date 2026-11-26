@@ -74,6 +74,8 @@ const RULES: [RegExp, string][] = [
   [/painting|paint (and|&) sip|\bpaints?\b|art (class|studio|workshop)|art cent(re|er)|calligraph|drawing|\bdraw\b|sketch|watercolou?r|printmaking|al marsam/i, 'painting'],
   [/cooking|chocolate(?! factory)|baking|\bbake\b|gingerbread|culinary|top chef/i, 'cooking'],
   [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower|polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
+  // ladies-only taniec: bez par z mężczyznami na zdjęciu (zgłoszenie testerki 26.11.2026) – własne zdjęcie albo ikonka
+  [/\b(ladies|women)[' ]*only\b.*\b(dance|dancing|heels|zumba|salsa|belly)\b|\b(dance|dancing|heels|zumba|salsa|belly)\b.*\b(ladies|women)[' ]*only\b/i, 'dance_ladies'],
   [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
   [/aqua ?fit|aqua ?aerobic|aqua ?zumba|water aerobic|aqua ?gym/i, 'aquafit'],
   // namorzyny, mokradła, rezerwaty przyrody: własne zdjęcie (albo ikonka), nigdy miejski park z fontanną
@@ -91,6 +93,7 @@ const RULES: [RegExp, string][] = [
   [/arabic music|tarab|\boud\b(?! exhibition| and perfume|.*perfume)|khaleeji|eid concert/i, 'arabic'],
   [/rock republic|climbing|bouldering/i, 'active'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
+  [/hunting (&|and) equestrian|hunting exhibition|adihex|aaihex/i, 'expo'],  // targi łowieckie, nie wyścigi konne
   [/horse|equestrian|racecourse|endurance ride|show jumping|polo\b/i, 'horse'],
   [/cycling|cyclist|cycle (track|race|ride)|\bbike ride|\bbicycle|velo\b/i, 'cycling'],  // nie „Cycles” (spektakl)
   [/swim|triathlon|aquathlon|open water/i, 'swimming'],
@@ -161,7 +164,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 function hash(s: string): number {
   let h = 2166136261;
@@ -192,6 +195,8 @@ function pool(item: Item): number[] {
   }
   if (lm && AREAS.has(lm[1]) && (!PHOTO_FILES[lm[1]] || (item.kind !== 'place' && !hotelDeal))) lm = undefined;
   if (lm && hotelDeal && AREAS.has(lm[1])) return [...PHOTO_FILES[lm[1]], ...(PHOTO_FILES[item.catKey] ?? [])];
+  // Afternoon tea (bywało oznaczone jako staycation/lunch): własne zdjęcie, a do czasu jego zrobienia ikonka (zgłoszenie 26.11.2026)
+  if (/afternoon tea|high tea|le go[uû]ter/i.test(item.rawTitle ?? item.title)) return [...(PHOTO_FILES.afternoon_tea ?? [])];
   // Staycation w hotelu przy plaży („Beach Resort”, Al Aqah, Fujairah): zdjęcie resortu z basenem i plażą (day pass),
   // a nie pokój – zgłoszenie testerki 26.11.2026 (Fairmont Fujairah Beach Resort).
   if (item.kind === 'deal' && item.catKey === 'staycation' && /beach (resort|hotel|club)|resort (&|and) spa|al aqah|beachfront/i.test(placeText) && PHOTO_FILES.day_pass) {

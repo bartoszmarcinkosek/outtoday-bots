@@ -1,3 +1,7 @@
+324 | afternoon_tea-1 | Elegant afternoon tea on a three-tier silver stand with finger sandwiches, scones, macarons and petits fours, porcelain teapot and cups on a marble table in a bright luxury hotel lounge with tall windows
+325 | dance_ladies-1 | Women-only heels dance class in a bright studio with mirrors: a group of women in black outfits and high heels dancing a choreography together, no men, warm studio lighting
+326 | afternoon_tea-2 | Close-up of an afternoon tea set by a sunny window: pastel macarons, mini cakes and scones on a tiered stand, tea being poured into a fine china cup, soft natural light
+327 | dance_ladies-2 | Ladies-only zumba or dance fitness class: smiling women of different ages dancing in a spacious studio with wooden floor and big windows, no men
 310 | concert-3 | Open-air concert at night seen from the middle of the crowd: silhouettes with raised hands, big stage with colourful beams of light and haze, warm festive mood, no faces visible.
 323 | lm_aura-1 | Curved 360-degree rooftop infinity pool on the 50th floor of a Dubai skyscraper, sun loungers on the deck, Palm Jumeirah fronds and the sea far below, clear sky.
 320 | desert-1 | Golden-red sand dunes with scattered green ghaf trees in a protected desert reserve, low mountains on the horizon, soft late-afternoon light.

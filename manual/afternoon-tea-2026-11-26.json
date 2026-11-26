@@ -1,0 +1,35 @@
+{
+ "note": "Afternoon tea to nie staycation ani night out (zg\u0142oszenie testerki 26.11) \u2013 typ lunch",
+ "update_deal_ids": [
+  {
+   "id": "d42faec5-ee76-4143-ae2e-c7a62cd3cfc0",
+   "set": {
+    "deal_type": "lunch"
+   }
+  },
+  {
+   "id": "613ab812-b742-4c85-9263-ea6dcf561ddb",
+   "set": {
+    "deal_type": "lunch"
+   }
+  },
+  {
+   "id": "30c5ef1f-4b4c-4511-9d12-8a544ec62795",
+   "set": {
+    "deal_type": "lunch"
+   }
+  },
+  {
+   "id": "cb8d4372-4eff-4bdd-bcfb-7f91802047e3",
+   "set": {
+    "deal_type": "lunch"
+   }
+  },
+  {
+   "id": "45940e40-3038-47b3-b6e6-79de0153c8d7",
+   "set": {
+    "deal_type": "lunch"
+   }
+  }
+ ]
+}
