@@ -750,13 +750,17 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     elif pmin is not None and quote_on_page(pq, page_norm) and number_in_quote(pmin, pq):
         item.update(is_free=False, price_text=clean_price(raw.get("price_text") or f"AED {pmin:g}"), price_min_aed=pmin)
         item["evidence"]["price"] = pq
-    elif free_entry_applies(source, item.get("start_date"), item.get("end_date")):
+    elif free_entry_applies(source, item.get("start_date"), item.get("end_date"), item.get("title") or "", item.get("category") or ""):
         fe = source["free_entry"]
         item.update(is_free=True, price_text="Free entry", price_min_aed=0)
         item["evidence"]["price"] = f"{fe['quote']} ({fe['url']})"
     else:
         item.update(is_free=False, price_text=None, price_min_aed=None)
         item["gaps"].append("price")
+
+    # Meetup pokazuje „Free”, gdy nie płaci się za zapis – kort, sala czy kawiarnia zwykle kosztują (zgłoszenie testera 26.11.2026).
+    if item.get("is_free") and "meetup" in (source.get("name") or "").lower():
+        item.update(is_free=False, price_text="Free to join on Meetup; venue or activity costs may apply", price_min_aed=None)
 
     # link do strony eventu
     du = raw.get("detail_url")
@@ -770,14 +774,21 @@ def check_item(raw: dict, page_norm: str, link_urls: set[str], source: dict, pag
     return item, ""
 
 
-def free_entry_applies(source: dict, sd, ed) -> bool:
+PAID_KIND = re.compile(r"\b(play|theatre|theater|musical|concert|comedy|stand[- ]?up|show|performance|screening|workshop|class|course|tour|dinner|brunch|tasting|festival)\b", re.I)
+
+
+def free_entry_applies(source: dict, sd, ed, title: str = "", category: str = "") -> bool:
     """Źródło ma na oficjalnej stronie 'wstęp wolny' (cytat + adres w sources/*.json).
-    scope 'all' = każdy wpis bez ceny, 'exhibitions' = tylko wpisy z zakresem dat (wystawy w galeriach)."""
+    scope 'all' = każdy wpis bez ceny, 'exhibitions' = tylko wpisy z zakresem dat (wystawy w galeriach).
+    Zgłoszenie testera 26.11.2026: spektakl w The Junction (Alserkal) dostał „Free entry”, a bilety są od AED 120 –
+    przy 'exhibitions' wolny wstęp tylko dla wystaw, nie dla spektakli, koncertów, warsztatów itp."""
     fe = source.get("free_entry")
     if not fe:
         return False
     if fe.get("scope") == "all":
         return True
+    if PAID_KIND.search(title or "") or (category or "") in ("music", "food", "classes", "sport"):
+        return False
     return bool(sd and ed and str(ed) > str(sd))
 
 
@@ -1398,7 +1409,7 @@ def main() -> int:
 def auto_approve_pending(db: "DB", sources: list[dict], now_iso: str) -> int:
     """Wpisy z bota, które czekają, a spełniają zasadę automatycznego zatwierdzenia (np. sprzed wprowadzenia tej zasady)."""
     by_name = {s["name"]: s for s in sources}
-    rows = db.get("events", {"select": "id,source_name,start_date,end_date,gaps,evidence",
+    rows = db.get("events", {"select": "id,title,category,source_name,start_date,end_date,gaps,evidence",
                              "status": "eq.pending", "bot_key": "not.is.null", "limit": "2000"})
     n = 0
     for r in rows:
@@ -1408,7 +1419,7 @@ def auto_approve_pending(db: "DB", sources: list[dict], now_iso: str) -> int:
             continue
         upd: dict = {}
         ev = r.get("evidence") or {}
-        if "price" in item["gaps"] and free_entry_applies(src, r["start_date"], r.get("end_date")):
+        if "price" in item["gaps"] and free_entry_applies(src, r["start_date"], r.get("end_date"), r.get("title") or "", r.get("category") or ""):
             fe = src["free_entry"]
             item["gaps"] = [g for g in item["gaps"] if g != "price"]
             ev["price"] = f"{fe['quote']} ({fe['url']})"
