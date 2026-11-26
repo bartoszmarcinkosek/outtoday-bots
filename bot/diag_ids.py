@@ -1,8 +1,9 @@
-import os, sys, json, re
+"""Tylko odczyt: tytuły pozycji o id z audit/show_event_ids.txt. Linie ID|tabela|id|status|miasto|data|tytuł|miejsce|źródło."""
+import os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import run as R
 db = R.DB(os.environ["SUPABASE_URL"].strip(), os.environ["SUPABASE_SECRET_KEY"].strip())
-ev = db.get("events", {"select": "id,title,start_date,end_date,venue,city,status", "status": "eq.approved", "start_date": "gte.2026-11-15", "limit": "8000"})
-for e in ev:
-    if re.search(r"RAK Night Market|Al Marjan Island|Eid Al Etihad|Kalba|Wadi Al Helo|Masfout|RAK EATS|Your Fort|Al Rams|Kshisha|Khawaneej|Eid al Etihad", e["title"], re.I):
-        print("D|" + json.dumps(e, ensure_ascii=False))
+ids = [l.split()[0] for l in open(os.path.join(os.path.dirname(__file__), "..", "audit", "show_event_ids.txt")) if l.strip() and not l.startswith("#")]
+for t, cols in (("events", "id,status,city,start_date,title,venue,source_name"), ("deals", "id,status,city,valid_until,title,venue,source_name")):
+    for r in db.get(t, {"select": cols, "id": f"in.({','.join(ids)})"}):
+        print("ID|" + "|".join([t] + [str(r.get(c) or "") for c in cols.split(",")]))
