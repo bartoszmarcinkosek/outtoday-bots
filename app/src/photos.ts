@@ -19,6 +19,7 @@ const LANDMARKS: [RegExp, string][] = [
   [/dubai opera/i, 'lm_dubai_opera'],
   [/madinat jumeirah|souk madinat/i, 'lm_madinat'],
   [/expo city|al wasl dome|al wasl plaza/i, 'lm_expo_city'],
+  [/aura sky ?pool/i, 'lm_aura'],  // basen na 50. piętrze, nie plaża (zgłoszenie 26.11); bez zdjęcia = ikonka
   [/palm jumeirah|\bthe palm\b|atlantis/i, 'lm_palm'],
   [/arts cent(er|re).*nyu|nyuad arts|(blue hall|red theat(er|re)|black box|east plaza).*nyu/i, 'lm_nyuad'],
   [/saadiyat/i, 'lm_saadiyat'],
