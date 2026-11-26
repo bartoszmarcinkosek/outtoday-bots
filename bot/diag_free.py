@@ -10,6 +10,8 @@ PAID = re.compile(r"\baed\s?\d|\d+\s?aed|\bdhs?\b|ticket|tickets|book(ing)? (now
 free = [e for e in ev if e.get("is_free") or (e.get("price_text") or "").strip().lower().startswith("free")]
 sus = [e for e in free if PAID.search(f"{e.get('price_text') or ''} {e.get('description') or ''}") or (e.get("price_min_aed") or 0) > 0]
 print(f"FS|upcoming {len(ev)}|free {len(free)}|suspicious {len(sus)}")
+for e in free:
+    print(f"FL|{e['id']}|{e['city']}|{e['title']}|{e.get('price_text')}|{e.get('source_name')}|{e.get('official_url') or ''}")
 for e in sus:
     d = (e.get("description") or "").replace("|", "/").replace("\n", " ")
     m = PAID.search(f"{e.get('price_text') or ''} {d}")
