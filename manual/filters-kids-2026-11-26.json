@@ -1,0 +1,35 @@
+{
+ "note": "Test filtr\u00f3w 26.11: rodzinne wydarzenia poza filtrem Kids",
+ "update_event_ids": [
+  {
+   "id": "1a5d9ac2-aeb5-4a65-9889-3e20777735ef",
+   "set": {
+    "kid_friendly": true
+   }
+  },
+  {
+   "id": "2c6cca6e-759f-4f0d-9b2c-a5bc84afe246",
+   "set": {
+    "kid_friendly": true
+   }
+  },
+  {
+   "id": "76f25db5-e801-45c7-b802-d91214059355",
+   "set": {
+    "kid_friendly": true
+   }
+  },
+  {
+   "id": "f3397eb2-bae4-422d-977e-e694e219553e",
+   "set": {
+    "kid_friendly": true
+   }
+  },
+  {
+   "id": "f5e08bd4-afeb-493e-b669-3a8eb01f410c",
+   "set": {
+    "kid_friendly": true
+   }
+  }
+ ]
+}

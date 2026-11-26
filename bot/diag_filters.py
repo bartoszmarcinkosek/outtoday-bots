@@ -63,11 +63,9 @@ for p in pl:
     txt = f"{p['name']} {p.get('description') or ''}"
     cat = p.get("category") or ""
     indoor = p.get("is_indoor") if p.get("is_indoor") is not None else (False if cat in ("beaches", "parks", "daytrips") else True if cat in ("museums", "markets", "studios") else None)
-    if indoor is True and cat in ("beaches", "parks", "daytrips"):
+    if p.get("is_indoor") is None and indoor is True and cat in ("beaches", "parks", "daytrips"):
         flag("indoor", "places", p, f"Indoor, a kategoria {cat}", p["name"])
-    if indoor is False and cat in ("museums", "studios"):
-        flag("indoor", "places", p, f"na zewnątrz, a kategoria {cat}", p["name"])
-    if indoor is True and re.search(r"\b(beach|outdoor|open[- ]air|park|desert|dunes?|wadi|hike|trail|safari)\b", p["name"], re.I):
+    if indoor is True and re.search(r"\b(beach|outdoor|open[- ]air|desert|dunes?|wadi|hike|trail|safari)\b", p["name"], re.I):
         flag("indoor", "places", p, "Indoor, a nazwa wskazuje na zewnątrz", p["name"])
     free = bool(p.get("is_free")) or parse_price(p.get("price_text")) == 0
     if free and (AED.search(p.get("price_text") or "") and float(AED.search(p["price_text"]).group(1).replace(",", "")) > 0):
@@ -79,10 +77,8 @@ for d in dl:
     txt = f"{d['title']} {d.get('details') or ''}"
     if parse_price(d.get("price_text")) == 0 and not re.search(r"\bfree\b", d.get("price_text") or "", re.I):
         flag("free", "deals", d, "oferta w Free bez słowa free", d["title"], d.get("price_text"))
-    if d.get("kid_friendly") and (ADULT.search(txt) or d.get("deal_type") in ("ladies_night", "happy_hour", "night_out")):
+    if d.get("kid_friendly") and (ADULT.search(txt) or d.get("deal_type") in ("ladies_night", "happy_hour")):
         flag("kids", "deals", d, f"w filtrze Kids, a to {d.get('deal_type')}", d["title"])
-    if (d.get("ladies_only") or d.get("deal_type") == "ladies_night" or LADIES_RE.search(d["title"])) and MEN.search(txt):
-        flag("ladies", "deals", d, "w Ladies only, a tekst mówi o mężczyznach", d["title"])
 
 print(f"FZ|events {len(ev)} places {len(pl)} deals {len(dl)}|" + " ".join(f"{k}={v}" for k, v in sorted(n.items())))
 print("\n".join(out))
