@@ -5,42 +5,30 @@ a3e8958c-4fb7-4d57-a49d-7b74a6fb8ac2  # szybkie sprawdzenie 26.11: AN nie ma ofe
 1174afc9-530f-4863-a067-38abf5471b68  # szybkie sprawdzenie 26.11: AX kwoty 125,250 nie ma na stronie
 2429f9a9-3d8a-4530-832e-50080dcd6e33  # szybkie sprawdzenie 26.11: AX kwoty 140 nie ma na stronie
 1957a1ce-8872-4065-9185-2780c22b76c3  # szybkie sprawdzenie 26.11: AD martwy link
-1c930a1d-3d3a-4914-b714-be108fc3b14b  # szybkie sprawdzenie 26.11: AX kwoty 85 nie ma na stronie
 20c038a6-0aeb-41b8-957f-4d16646d9737  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
-22caf23c-75b3-4213-8766-9911610e3b07  # szybkie sprawdzenie 26.11: AX kwoty 130,200 nie ma na stronie
-d1168066-3c63-42a2-b96d-545a44d67d6a  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
 241af6af-242a-43e6-9e16-e5ebc714b33e  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
 49a2fd75-5934-4eca-89a4-60d5f107eea4  # szybkie sprawdzenie 26.11: AX kwoty 35 nie ma na stronie
 cdbbcbb4-1b7d-4343-8ad6-77c66fc2b8cb  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
 681d4b04-729a-4805-81ac-b8145a914c50  # szybkie sprawdzenie 26.11: AX kwoty 299 nie ma na stronie
 2a9ff285-b871-43a9-95c5-ed9e3309b96e  # szybkie sprawdzenie 26.11: AX kwoty 100,12,179,219 nie ma na stronie
 d0ee4f93-c34f-46fa-963a-3e93d99483e7  # szybkie sprawdzenie 26.11: AX kwoty 100,12,199,219 nie ma na stronie
-2e9ac5c7-46ac-4b72-8bf9-527b32aa6c84  # szybkie sprawdzenie 26.11: AX kwoty 120 nie ma na stronie
 3099ec03-b92a-4eae-b5c6-9292ba445828  # szybkie sprawdzenie 26.11: AX kwoty 50 nie ma na stronie
 316be9b9-e90c-4c89-9bc6-2b6b6657323d  # szybkie sprawdzenie 26.11: AX kwoty 35 nie ma na stronie
 3341b243-7001-4a75-a787-c699cd68652d  # szybkie sprawdzenie 26.11: AX kwoty 150,200 nie ma na stronie
 8410e9ca-0bbc-4555-a5b4-f3619c87a82b  # szybkie sprawdzenie 26.11: AX kwoty 250 nie ma na stronie
 affd0f8e-28a0-4a78-b5e9-ee097d9aafbd  # szybkie sprawdzenie 26.11: AX kwoty 250 nie ma na stronie
-3cf6dc9f-3f71-4107-87b0-f145ed0c2a47  # szybkie sprawdzenie 26.11: AX kwoty 280 nie ma na stronie
 3e8af7e7-8899-4b28-91aa-1f4e54409a00  # szybkie sprawdzenie 26.11: AX kwoty 100,11,150,250 nie ma na stronie
 dd91ee92-1697-48cf-8376-fcfc329b1c52  # szybkie sprawdzenie 26.11: AX kwoty 210 nie ma na stronie
 47de9489-1ecf-4676-97b0-a82255fc0c02  # szybkie sprawdzenie 26.11: AX kwoty 45 nie ma na stronie
-4875b8d4-d98b-4ccf-ae0e-27732d930824  # szybkie sprawdzenie 26.11: AX kwoty 250 nie ma na stronie
 51d7ebe3-3cfa-4d51-9ddb-e3c47c865d9a  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
-810b4794-8122-46e1-8957-de07d003a790  # szybkie sprawdzenie 26.11: AX kwoty 99 nie ma na stronie
 54c4f745-44ce-4f14-80e0-e4ec1c36836b  # szybkie sprawdzenie 26.11: AX kwoty 12,799 nie ma na stronie
 b68da17c-03a2-4a67-b87d-02fc9789fbe0  # szybkie sprawdzenie 26.11: AX kwoty 12,150,375,599 nie ma na stronie
 5806d720-e595-490a-8be4-617cb82e2995  # szybkie sprawdzenie 26.11: AX kwoty 200,300 nie ma na stronie
 587ca82b-9c48-4428-939d-41340910965e  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny None nie ma na stronie
-5a99ac40-9a5e-4fc1-9f6c-3feaa8a4a449  # szybkie sprawdzenie 26.11: AX kwoty 149,99 nie ma na stronie
 5c4f584a-85d2-4309-aaff-be2bb70884b0  # szybkie sprawdzenie 26.11: AX kwoty 469,499 nie ma na stronie
 61b48a3e-1b64-4c28-889b-c2d509d69137  # szybkie sprawdzenie 26.11: AX kwoty 195 nie ma na stronie
 6a5c1a84-7aa0-41a5-8dba-6cc257ef60d6  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
 d188d1e8-be6f-42bb-8206-0dd0a506004e  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
-6ba350c4-c635-471d-bd8c-a1f5f72a4df9  # szybkie sprawdzenie 26.11: AX kwoty 410,510 nie ma na stronie
-6bfc823e-bc97-486a-a503-fee8429f4eda  # szybkie sprawdzenie 26.11: AX kwoty 345,415 nie ma na stronie
-6c6f857e-f3ae-4262-8d23-1e883c4aad41  # szybkie sprawdzenie 26.11: AX kwoty 50 nie ma na stronie
-6dcce764-3e47-4053-a346-bbe1c2157474  # szybkie sprawdzenie 26.11: AX kwoty 180 nie ma na stronie
 700b433d-a2a9-40cf-8d87-c636239259f2  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
 700c09ac-9007-4ddb-815f-30ca09c55176  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
 cb1adf77-9245-4f74-99cc-5eb655f4bc4f  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
@@ -53,62 +41,29 @@ f62c10ab-440b-4e18-8573-db962d90f5d7  # szybkie sprawdzenie 26.11: AX bez ceny, 
 d149fa45-4567-4493-aad2-e8cc73fc35c5  # szybkie sprawdzenie 26.11: AX kwoty 145 nie ma na stronie
 ab0e9259-1bcb-422e-9bb6-8a967bbd49f8  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
 8322b21d-a3a6-4425-a4bb-a1efa0c0f8e2  # szybkie sprawdzenie 26.11: AX kwoty 320,450 nie ma na stronie
-83283d55-0687-40d6-989d-9cccfa96ad25  # szybkie sprawdzenie 26.11: AX kwoty 50 nie ma na stronie
-84ffdd90-5a94-4929-9571-b90df55f8638  # szybkie sprawdzenie 26.11: AD martwy link
 8548f504-b12e-4682-bb8c-d342032de371  # szybkie sprawdzenie 26.11: AX kwoty 200 nie ma na stronie
-85979428-5de6-475a-b973-8b05c63cb8c2  # szybkie sprawdzenie 26.11: AX kwoty 318,388 nie ma na stronie
-8c76cf29-2c4c-486c-8cea-cefeaa4a60e7  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
 98f5b820-f42a-4c1a-bc0d-27065920b3fa  # szybkie sprawdzenie 26.11: AX kwoty 179,278,65 nie ma na stronie
 9a713394-b3f1-44aa-b6c1-1ab66e8df3fc  # szybkie sprawdzenie 26.11: AX kwoty 250,399 nie ma na stronie
 bef0d10e-69c6-420a-bdf3-9cc05d66a7b7  # szybkie sprawdzenie 26.11: AX kwoty 12,395,495,695 nie ma na stronie
 9e8f4e91-4c20-428c-819a-fd1560dc71dc  # szybkie sprawdzenie 26.11: AX kwoty 26 nie ma na stronie
 9fcb9ccf-08b4-4e85-9fc5-168da66625ee  # szybkie sprawdzenie 26.11: AX kwoty 495 nie ma na stronie
-a001290c-2d94-40ce-b718-7f82fd7f4f15  # szybkie sprawdzenie 26.11: AX kwoty 38 nie ma na stronie
-a2396899-2ab5-4923-9798-6fe5e92909d4  # szybkie sprawdzenie 26.11: AD martwy link
 a508b7d8-d8a7-49ce-96fe-0f0281191dde  # szybkie sprawdzenie 26.11: AX kwoty 230,375,575 nie ma na stronie
-a6a8f798-41f7-403e-a44e-d2ed756f608b  # szybkie sprawdzenie 26.11: AD martwy link
-a7d3d96e-a52c-4982-9046-942a0dfd3117  # szybkie sprawdzenie 26.11: AX kwoty 250 nie ma na stronie
 a8fd02e9-6b2c-4370-8427-261d3200a50b  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 18:00:00 nie ma na stronie
 ac397440-7841-4b04-9ea8-107e9e907c2e  # szybkie sprawdzenie 26.11: AD martwy link
 ce3dfc4b-ea55-48c9-a8df-e3dc76667688  # szybkie sprawdzenie 26.11: AD martwy link
-b26ef432-dc3d-4fc3-a270-720ea6756599  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 20:00:00 nie ma na stronie
 b61418b1-12a6-47bd-abd1-deed93d39844  # szybkie sprawdzenie 26.11: AX kwoty 159 nie ma na stronie
-b742baae-e6f9-47d3-b63e-879b9ef46e97  # szybkie sprawdzenie 26.11: AX kwoty 329,399 nie ma na stronie
-c3688366-78c8-45ae-802c-e89c70e5e5ba  # szybkie sprawdzenie 26.11: AD martwy link
 c3a230e2-cbf5-4422-ba37-91d715b87fc6  # szybkie sprawdzenie 26.11: AX kwoty 99 nie ma na stronie
-c5767edd-38f4-4011-a3c1-07b24bae3407  # szybkie sprawdzenie 26.11: AX kwoty 250,450 nie ma na stronie
-c764cb19-a9e2-478b-a37c-87bc92e3f09c  # szybkie sprawdzenie 26.11: AX kwoty 299,349 nie ma na stronie
-f55fb0e6-dd34-4d79-abfd-d4cf1fdeec44  # szybkie sprawdzenie 26.11: AX kwoty 125 nie ma na stronie
 f7dcc306-982f-4d0c-9a4b-87f5da304dc4  # szybkie sprawdzenie 26.11: AX kwoty 199 nie ma na stronie
-c84c9abb-c139-488e-a72b-cfb820e734ed  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 19:30:00 nie ma na stronie
-d5235606-fab7-4088-8753-8a618bf75ec3  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
-d72504ab-2baf-4f12-837c-c99202b74250  # szybkie sprawdzenie 26.11: AX kwoty 199,289 nie ma na stronie
-d960a94f-fd30-494a-ab1f-c1ca315bc69f  # szybkie sprawdzenie 26.11: AX kwoty 400,450 nie ma na stronie
-dacc3390-1591-4dc4-883b-add6e18bff02  # szybkie sprawdzenie 26.11: AX kwoty 125,175 nie ma na stronie
-db744180-ce5a-406d-843a-315434e994d7  # szybkie sprawdzenie 26.11: AD martwy link
-dfd287b7-b01f-4788-be4a-e658c1e33fe6  # szybkie sprawdzenie 26.11: AX kwoty 320,399 nie ma na stronie
 e00cd200-3b83-406c-955c-8608c447e4ad  # szybkie sprawdzenie 26.11: AX kwoty 17 nie ma na stronie
-e1d044f0-4330-4f56-9c7a-de6bf5f72e22  # szybkie sprawdzenie 26.11: AX kwoty 475 nie ma na stronie
-e54dca77-e1a5-4ec8-9391-241ddae9ff30  # szybkie sprawdzenie 26.11: AX kwoty 595 nie ma na stronie
-e79e506e-80bd-43c6-8ec8-b8a7047855a3  # szybkie sprawdzenie 26.11: AX kwoty 250,350 nie ma na stronie
 f01ad88e-bd43-41df-ac21-6fbd1016f31a  # szybkie sprawdzenie 26.11: AX kwoty 119,23,29 nie ma na stronie
-f3305766-4d13-4d83-a8b8-4732ec56389c  # szybkie sprawdzenie 26.11: AX kwoty 150,225 nie ma na stronie
 f3c58035-304d-4c73-80cd-9a17dd27c1db  # szybkie sprawdzenie 26.11: AX kwoty 30 nie ma na stronie
-f476a5b0-4ade-4ba5-9170-2c65d29e60c0  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 20:00:00 nie ma na stronie
 f4d901c5-b0e3-4fd2-a691-46eb4893fc4f  # szybkie sprawdzenie 26.11: AX kwoty 48 nie ma na stronie
-f680130f-0b92-4d65-933c-91a7e6ad786d  # szybkie sprawdzenie 26.11: AX kwoty 109 nie ma na stronie
 fc873a2b-9ff1-40dc-9c88-23963744ae19  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
 1957a1ce-8872-4065-9185-2780c22b76c3  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
 65986a71-7485-4fd6-bc7f-cab79b8da19c  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
 736c79ac-1376-4219-bcbf-3b55c2e4dfe6  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
-84ffdd90-5a94-4929-9571-b90df55f8638  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
-a2396899-2ab5-4923-9798-6fe5e92909d4  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
-a6a8f798-41f7-403e-a44e-d2ed756f608b  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
 ac397440-7841-4b04-9ea8-107e9e907c2e  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
-c3688366-78c8-45ae-802c-e89c70e5e5ba  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
-cad49a3a-a126-4082-928c-89d5f9320d40  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
 ce3dfc4b-ea55-48c9-a8df-e3dc76667688  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
-db744180-ce5a-406d-843a-315434e994d7  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
 2a9ff285-b871-43a9-95c5-ed9e3309b96e  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
 d0ee4f93-c34f-46fa-963a-3e93d99483e7  # przegląd całej bazy 26.11 (martwy link / możliwy duplikat)
 0112778b-3108-4f1c-b288-92fd10ea3564  # NOT_FOUND Rite of Siam Brunch
@@ -116,30 +71,18 @@ d0ee4f93-c34f-46fa-963a-3e93d99483e7  # przegląd całej bazy 26.11 (martwy link
 2116d217-46e8-4406-94fb-7d59eb85fb4f  # NOT_FOUND Day pass: Fairmont Bab Al Bahr
 4a94da3c-32fd-46f6-ad7a-ec355f9db908  # NOT_FOUND Quiz night: McGettigan's
 4cb25c73-830c-4165-a4e4-233f559cd013  # REDIRECT_HOME Day pass: Al Maya Island & Resort
-84ffdd90-5a94-4929-9571-b90df55f8638  # NOT_FOUND Day pass: Sheraton Abu Dhabi Hotel & Resort
 875f88fd-ea39-4789-b2d3-2ab51d0eec2e  # NOT_FOUND Vista Brunch
-a2396899-2ab5-4923-9798-6fe5e92909d4  # NOT_FOUND Brunch: Siddharta Lounge by Buddha-Bar
 a5001735-3faf-42b0-b094-017d3ee9d2c1  # NOT_FOUND Unlimited Breakfast Buffet
-a6a8f798-41f7-403e-a44e-d2ed756f608b  # NOT_FOUND Brunch: Mazaj Bab Al Bahr
 ac397440-7841-4b04-9ea8-107e9e907c2e  # NOT_FOUND Brunch at Prime68
-c3688366-78c8-45ae-802c-e89c70e5e5ba  # NOT_FOUND Ladies' Night at Hamilton's Gastropub
-cad49a3a-a126-4082-928c-89d5f9320d40  # NOT_FOUND Brunch: McCafferty's Irish Pub
 ce3dfc4b-ea55-48c9-a8df-e3dc76667688  # NOT_FOUND Wanderlust Brunch
-db744180-ce5a-406d-843a-315434e994d7  # NOT_FOUND Day pass: ILIOS Beach Club
 e10e2736-2d86-4814-9f6f-1c47ed2bca8d  # NOT_FOUND Happy hour: Belgian Cafe
 4ed854a3-f3c8-4bb3-85d6-aae7b8a2d1ff  # NO_MATCH Weekday Beach & Pool Pass
 6386e8e7-814c-428b-9809-1712fb9a5d89  # NO_MATCH Weekend Beach & Pool Pass
 2876eedc-fb38-4b05-b299-34ca0648c19d  # sources differ on price
-d960a94f-fd30-494a-ab1f-c1ca315bc69f  # sources differ on price
 0112778b-3108-4f1c-b288-92fd10ea3564  # dead link 26.11 (linkcheck)
 1957a1ce-8872-4065-9185-2780c22b76c3  # dead link 26.11 (linkcheck)
 2116d217-46e8-4406-94fb-7d59eb85fb4f  # dead link 26.11 (linkcheck)
 4cb25c73-830c-4165-a4e4-233f559cd013  # dead link 26.11 (linkcheck)
 65986a71-7485-4fd6-bc7f-cab79b8da19c  # dead link 26.11 (linkcheck)
 736c79ac-1376-4219-bcbf-3b55c2e4dfe6  # dead link 26.11 (linkcheck)
-84ffdd90-5a94-4929-9571-b90df55f8638  # dead link 26.11 (linkcheck)
 875f88fd-ea39-4789-b2d3-2ab51d0eec2e  # dead link 26.11 (linkcheck)
-a2396899-2ab5-4923-9798-6fe5e92909d4  # dead link 26.11 (linkcheck)
-a6a8f798-41f7-403e-a44e-d2ed756f608b  # dead link 26.11 (linkcheck)
-cad49a3a-a126-4082-928c-89d5f9320d40  # dead link 26.11 (linkcheck)
-db744180-ce5a-406d-843a-315434e994d7  # dead link 26.11 (linkcheck)

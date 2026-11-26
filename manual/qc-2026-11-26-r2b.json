@@ -1,0 +1,315 @@
+{
+ "note": "QC night run 2 (evening of 2026-11-26): 100 events reviewed (6 rejected, 31 fixed; 14 official pages opened). 40 deals with a dead or wrong link compared with the venue websites: 14 verified (7 unchanged, 7 corrected), 2 ended, 1 unreadable, 23 not confirmed and left as they are.",
+ "reject_event_ids": [
+  "e666bac5-8c0e-4a55-b97e-148f1d4884fc",
+  "4bcbfc12-97b4-40bb-a5e5-13396d2a09c0",
+  "c933e082-ae3c-40d6-a14a-a2a8eb8ccbea",
+  "5a315de5-f9b4-4017-a59a-1a4f53ea6eb1",
+  "cb4b5275-e90e-41bd-ae12-0502b6d341b7",
+  "d5b312e8-feae-4917-bc63-f251ab48b385"
+ ],
+ "update_event_ids": [
+  {
+   "id": "d867826f-e96e-4c96-b79e-106761cf6797",
+   "set": {
+    "start_time": "19:30:00"
+   }
+  },
+  {
+   "id": "db17405a-f331-4d6e-9da0-eb9c04e809dd",
+   "set": {
+    "title": "Kayan Wellness Festival 2027",
+    "venue": "Fahid Island",
+    "start_date": "2027-01-29",
+    "end_date": "2027-01-31",
+    "price_text": "From AED 95",
+    "description": "Three-day wellness festival on Fahid Island with talks, yoga and movement sessions, meditation, live music and a market."
+   }
+  },
+  {
+   "id": "21a3b8db-f977-436d-980b-c03754c08d47",
+   "set": {
+    "title": "Salon du Chocolat et de la Pâtisserie Dubai",
+    "end_date": "2026-12-02",
+    "price_text": "From AED 80",
+    "description": "Chocolate and pastry show at Madinat Jumeirah with chocolatiers, pastry chefs, live demos and a chocolate fashion show, 30 November to 2 December."
+   }
+  },
+  {
+   "id": "5d6de37f-5b72-4123-b0e5-1bdcbdceb192",
+   "set": {
+    "title": "Aladdin at Al Qasba Theatre",
+    "venue": "Al Qasba Theatre",
+    "start_date": "2026-12-04",
+    "end_date": "2026-12-06",
+    "description": "Family stage show of Aladdin at Al Qasba Theatre with music, costumes and interactive moments, 4 to 6 December."
+   }
+  },
+  {
+   "id": "02c64c07-4c73-444d-bd42-32d016ce370b",
+   "set": {
+    "start_date": "2026-12-31"
+   }
+  },
+  {
+   "id": "d599ee72-156a-4da1-8d8e-3e3ebdaba0ca",
+   "set": {
+    "venue": "Ajman Corniche",
+    "price_text": "Free",
+    "is_free": true
+   }
+  },
+  {
+   "id": "eb7fa6a4-510e-4893-803d-ebd82f1ab08c",
+   "set": {
+    "title": "Wadi Far Far Family & Beginners Sunset Hike",
+    "city": "Fujairah",
+    "end_time": "17:00:00"
+   }
+  },
+  {
+   "id": "c9945708-a69a-4b3a-bd96-fb8aaacba15e",
+   "set": {
+    "title": "Wine & Dine at Time Out Market",
+    "venue": "Time Out Market Dubai, Souk Al Bahar",
+    "price_text": "AED 550, four courses with paired wines",
+    "description": "Four-course dinner by a guest chef with eight wine tastings at Time Out Market Dubai; guests vote for the best pairing."
+   }
+  },
+  {
+   "id": "ca410aad-fca6-4d85-b9ac-96b21ec0adbd",
+   "set": {
+    "start_time": "12:30:00",
+    "end_time": "16:30:00",
+    "price_text": "From AED 108",
+    "venue": "UBK, Wyndham Residences The Palm",
+    "description": "Sunday roast with chicken, beef or lamb and all the trimmings plus one drink, every Sunday 12:30 to 16:30."
+   }
+  },
+  {
+   "id": "62746c5f-09c9-492e-96e8-71ca6fed6306",
+   "set": {
+    "price_text": "From AED 200",
+    "description": "Seafood dinner buffet at Giardino, Palazzo Versace, every Saturday 19:00 to 23:00."
+   }
+  },
+  {
+   "id": "c560fec4-60a8-44e7-a227-61c0975d5684",
+   "set": {
+    "price_text": "Spend AED 200 at Reem Mall to join the activities"
+   }
+  },
+  {
+   "id": "17752695-7608-4a45-b6c1-04ba35adf9a5",
+   "set": {
+    "price_text": "AED 80"
+   }
+  },
+  {
+   "id": "d0ab688c-8c5e-45bc-ab60-58405327a10b",
+   "set": {
+    "price_text": "AED 199 per person"
+   }
+  },
+  {
+   "id": "ec02ca8f-42a8-461c-9a22-8ad3d2eedc7d",
+   "set": {
+    "price_text": "From AED 295 (adults), AED 125 (children)"
+   }
+  },
+  {
+   "id": "ddeb0be1-31b0-4a5e-9aec-28294bd36a35",
+   "set": {
+    "venue": "Aisha Alabbar Gallery, Alserkal Avenue (WH 19)"
+   }
+  },
+  {
+   "id": "e3144088-7f3f-4a1a-bb7a-717a8c817551",
+   "set": {
+    "venue": "CARBON 12, Alserkal Avenue (WH 37)"
+   }
+  },
+  {
+   "id": "dbf9a55d-1e89-4424-b2c9-20334d041b9c",
+   "set": {
+    "price_text": "From AED 240"
+   }
+  },
+  {
+   "id": "0b730a31-0db5-4f2b-a94c-b89d41c47ae0",
+   "set": {
+    "price_text": "From AED 270"
+   }
+  },
+  {
+   "id": "cd00e815-16bf-4d16-bf2b-c782497ec7ac",
+   "set": {
+    "price_text": "From AED 800"
+   }
+  },
+  {
+   "id": "e18f510c-0783-41bf-9a1e-aeda83312a17",
+   "set": {
+    "price_text": "From AED 100"
+   }
+  },
+  {
+   "id": "c8ab97a4-ba4f-4a3c-933e-0c565ec66443",
+   "set": {
+    "price_text": "From AED 183.75"
+   }
+  },
+  {
+   "id": "be6e000f-ab2d-4502-9255-ba8c4c54fcbe",
+   "set": {
+    "price_text": "From AED 250"
+   }
+  },
+  {
+   "id": "6dc67fee-efaf-41bc-a445-149f09a0dda8",
+   "set": {
+    "price_text": "From AED 125"
+   }
+  },
+  {
+   "id": "c8686e29-5c6f-4874-8dd6-ff032170b35f",
+   "set": {
+    "price_text": "From AED 200"
+   }
+  },
+  {
+   "id": "d683fc77-098e-4dd3-bd77-88fab7103886",
+   "set": {
+    "price_text": "From AED 50"
+   }
+  },
+  {
+   "id": "d79be222-6487-499a-88c5-ad936e819efc",
+   "set": {
+    "price_text": "AED 75"
+   }
+  },
+  {
+   "id": "a62f6d1c-2f99-4ebb-9f5a-2ab0cb149442",
+   "set": {
+    "price_text": "From AED 200"
+   }
+  },
+  {
+   "id": "d9907180-7b52-479e-8ae0-0c4c7a8bf745",
+   "set": {
+    "price_text": "From AED 50"
+   }
+  },
+  {
+   "id": "e6e16693-3a54-433f-a851-4ce261023a7c",
+   "set": {
+    "price_text": "From AED 99"
+   }
+  },
+  {
+   "id": "64850fad-1cb5-4587-acfc-43f4a425ff36",
+   "set": {
+    "price_text": "From AED 125"
+   }
+  },
+  {
+   "id": "7c28d912-c451-40c8-bd5b-b36b2d609547",
+   "set": {
+    "price_text": "From AED 100"
+   }
+  }
+ ],
+ "reject_deal_ids": [
+  "5a99ac40-9a5e-4fc1-9f6c-3feaa8a4a449",
+  "c84c9abb-c139-488e-a72b-cfb820e734ed"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "a6a8f798-41f7-403e-a44e-d2ed756f608b",
+   "set": {
+    "official_url": "https://www.fairmont.com/en/hotels/abu-dhabi/fairmont-bab-al-bahr/dining/mazaj-bab-al.restaurant.html",
+    "details": "Lebanese brunch by the water, with pool and beach access included"
+   }
+  },
+  {
+   "id": "e1d044f0-4330-4f56-9c7a-de6bf5f72e22",
+   "set": {
+    "official_url": "https://www.saadiyatbeachclub.ae/offers/farm-to-beach-brunch/",
+    "details": "Buffet brunch at Safina; premium package AED 575, add AED 200 for a full day pass"
+   }
+  },
+  {
+   "id": "2e9ac5c7-46ac-4b72-8bf9-527b32aa6c84",
+   "set": {
+    "price_text": "AED 125",
+    "details": "Two tapas from the ladies' menu and three house drinks, with a live DJ"
+   }
+  },
+  {
+   "id": "a7d3d96e-a52c-4982-9046-942a0dfd3117",
+   "set": {
+    "price_text": "From AED 350 (soft drinks), AED 450 (house drinks)",
+    "details": "Greek-inspired Saturday brunch; champagne package AED 635"
+   }
+  },
+  {
+   "id": "f680130f-0b92-4d65-933c-91a7e6ad786d",
+   "set": {
+    "start_time": "18:00:00",
+    "end_time": "23:00:00",
+    "price_text": "AED 149",
+    "details": "Five selected drinks and 15 per cent off the a la carte menu, with live music"
+   }
+  },
+  {
+   "id": "a2396899-2ab5-4923-9798-6fe5e92909d4",
+   "set": {
+    "end_time": "22:00:00",
+    "official_url": "https://www.siddhartalounge-abudhabi.com/currentpromotions/sensory-brunch",
+    "details": "Sensory Brunch: evening brunch with a live DJ and dancers; sparkling package AED 459"
+   }
+  },
+  {
+   "id": "6bfc823e-bc97-486a-a503-fee8429f4eda",
+   "set": {
+    "start_time": "08:00:00",
+    "details": "AED 150 redeemable at Cabana Beach Bar & Grill; child (4 to 16) AED 95; couple AED 625 weekdays, AED 685 weekends"
+   }
+  },
+  {
+   "id": "a001290c-2d94-40ce-b718-7f82fd7f4f15",
+   "set": {
+    "title": "Guinness Hour at Cooper's",
+    "price_text": "AED 38 per Guinness pint",
+    "details": "Guinness pints at a special price every day from 6 to 8 pm",
+    "official_url": "https://www.coopersabudhabi.com/offers/guinness-hour-at-coopers"
+   }
+  },
+  {
+   "id": "f55fb0e6-dd34-4d79-abfd-d4cf1fdeec44",
+   "set": {
+    "title": "Ladies' early-bird beach access at Saadiyat Beach Club",
+    "price_text": "AED 130",
+    "details": "Full-day access for ladies arriving before 09:00, Monday to Friday, first come first served",
+    "official_url": "https://www.saadiyatbeachclub.ae/offers/ladies-offers/"
+   }
+  }
+ ],
+ "verified_deal_ids": [
+  "3cf6dc9f-3f71-4107-87b0-f145ed0c2a47",
+  "d1168066-3c63-42a2-b96d-545a44d67d6a",
+  "e54dca77-e1a5-4ec8-9391-241ddae9ff30",
+  "6ba350c4-c635-471d-bd8c-a1f5f72a4df9",
+  "8c76cf29-2c4c-486c-8cea-cefeaa4a60e7",
+  "a6a8f798-41f7-403e-a44e-d2ed756f608b",
+  "e1d044f0-4330-4f56-9c7a-de6bf5f72e22",
+  "2e9ac5c7-46ac-4b72-8bf9-527b32aa6c84",
+  "a7d3d96e-a52c-4982-9046-942a0dfd3117",
+  "f680130f-0b92-4d65-933c-91a7e6ad786d",
+  "a2396899-2ab5-4923-9798-6fe5e92909d4",
+  "6bfc823e-bc97-486a-a503-fee8429f4eda",
+  "a001290c-2d94-40ce-b718-7f82fd7f4f15",
+  "f55fb0e6-dd34-4d79-abfd-d4cf1fdeec44"
+ ]
+}
