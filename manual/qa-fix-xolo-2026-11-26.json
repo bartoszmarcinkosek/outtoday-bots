@@ -1,0 +1,4 @@
+{
+ "note": "Kontrola jakości: strona oferty Glam Hour (Fairmont Ajman) zwraca 404 – oferta wycofana, odrzucam.",
+ "reject_deal_ids": ["fcfb863b-ff16-4b20-91af-e8df503d7eda"]
+}
