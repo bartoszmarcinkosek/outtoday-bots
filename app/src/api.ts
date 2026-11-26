@@ -34,6 +34,7 @@ export type EventRow = {
 
 export type PlaceRow = {
   id: string;
+  verified_at?: string | null;
   name: string;
   description: string | null;
   category: string;
@@ -60,6 +61,7 @@ export type PlaceRow = {
 
 export type DealRow = {
   id: string;
+  verified_at?: string | null;
   deal_type: string | null;
   title: string;
   details: string | null;
@@ -107,8 +109,8 @@ async function getTable<T>(table: string, order: string, select: string, extra =
 }
 
 const EVENT_COLS = 'id,title,description,category,start_date,end_date,start_time,end_time,venue,area,city,price_text,is_free,kid_friendly,price_min_aed,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,registration_required,url,source_name,source_url,verified_at';
-const PLACE_COLS = 'id,name,description,category,area,city,hours_text,hours,price_text,is_free,kid_friendly,is_indoor,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,url,source_name';
-const DEAL_COLS = 'id,deal_type,title,details,venue,area,city,days_of_week,start_time,end_time,price_text,valid_until,kid_friendly,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,url,source_name';
+const PLACE_COLS = 'id,name,description,category,area,city,hours_text,hours,price_text,is_free,kid_friendly,is_indoor,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,url,source_name,verified_at';
+const DEAL_COLS = 'id,deal_type,title,details,venue,area,city,days_of_week,start_time,end_time,price_text,valid_until,kid_friendly,pet_friendly,ladies_only,official_url,lat,lng,phone,created_at,updated_at,url,source_name,verified_at';
 
 // Zapis w kawałkach po ~500 KB: na Androidzie jedna wartość powyżej ~2 MB nie da się odczytać,
 // a cała baza jest już większa. Dzięki temu apka startuje od razu z ostatnimi danymi.

@@ -1,4 +1,4 @@
-"""Tylko odczyt: N ofert (domyślnie 14) do porównania ze stroną źródłową – te najdawniej sprawdzone
+"""Tylko odczyt: N ofert (domyślnie 40) do porównania ze stroną źródłową – te najdawniej sprawdzone
 (audit/deal_verified.json {id: data}; brak wpisu = nigdy). Tylko oferty z linkiem."""
 import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
@@ -8,7 +8,7 @@ try:
     seen = json.load(open(os.path.join(os.path.dirname(__file__), "..", "audit", "deal_verified.json")))
 except Exception:
     seen = {}
-n = int(os.environ.get("N", "14"))
+n = int(os.environ.get("N", "40"))
 def cell(x, k=220):
     return str(x if x is not None else "").replace("|", "/").replace("\n", " ")[:k]
 rows = [r for r in db.get("deals", {"select": "id,title,venue,city,deal_type,days_of_week,start_time,end_time,price_text,valid_until,official_url,details,created_at",

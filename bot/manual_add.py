@@ -157,6 +157,14 @@ def main() -> int:
                 continue
             db.update("events", {"id": eid}, {"status": "rejected", "updated_at": now})
             print(f"- odrzucone id {eid}")
+        # "verified_deal_ids" / "verified_place_ids": ["uuid" lub {"id":..., "date": "YYYY-MM-DD"}] – pozycja porównana ze stroną
+        # źródłową i zgodna (po ewentualnej poprawce). Apka pokazuje wtedy "Verified with the organiser · <miesiąc>".
+        for tbl, key in (("deals", "verified_deal_ids"), ("places", "verified_place_ids")):
+            for r in data.get(key, []):
+                vid, day = (r, None) if isinstance(r, str) else (r["id"], r.get("date"))
+                db.update(tbl, {"id": vid}, {"verified_at": f"{day}T12:00:00+00:00" if day else now})
+            if data.get(key):
+                print(f"✓ {tbl} sprawdzone u źródła: {len(data[key])}")
         # "update_deal_ids" / "update_place_ids": [{"id":..., "set": {...}}] – poprawki nazw i miejsc
         for r in data.get("update_deal_ids", []):
             fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("title", "venue", "city", "details", "price_text", "deal_type", "days_of_week", "start_time", "end_time", "official_url")}

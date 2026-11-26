@@ -196,7 +196,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       free: p.is_free || price === 0, kid: p.kid_friendly === true, pet: p.pet_friendly === true,
       ladies: p.ladies_only === true, indoor: p.is_indoor ?? (OUT_CATS.includes(p.category ?? '') ? false : IN_CATS.includes(p.category ?? '') ? true : null), top: topRank(itemCity, p.name), zone, city: itemCity,
       km: kmFor(zone, me, geoOf(p)), geo: geoOf(p), officialUrl: p.official_url ?? null, phone: p.phone ?? null,
-      sourceName: p.source_name, checked: monthYear(p.updated_at ?? p.created_at), verified: false,
+      sourceName: p.source_name, checked: monthYear(p.verified_at ?? p.updated_at ?? p.created_at), verified: !!p.verified_at,
       isNew: isNew(p.created_at, now), created: p.created_at ?? null, endsSoon: false, booking: false, place: p,
     });
   }
@@ -216,7 +216,7 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       free: price === 0, kid: d.kid_friendly === true, pet: d.pet_friendly === true,
       ladies: d.ladies_only === true || d.deal_type === 'ladies_night', indoor: null, top: null, zone,
       city: itemCity, km: kmFor(zone, me, geoOf(d)), geo: geoOf(d), officialUrl: d.official_url ?? null,
-      phone: d.phone ?? null, sourceName: d.source_name, checked: monthYear(d.updated_at ?? d.created_at), verified: false,
+      phone: d.phone ?? null, sourceName: d.source_name, checked: monthYear(d.verified_at ?? d.updated_at ?? d.created_at), verified: !!d.verified_at,
       isNew: isNew(d.created_at, now), created: d.created_at ?? null,
       endsSoon: !!d.valid_until && d.valid_until >= today && d.valid_until <= soon, booking: false, deal: d,
     });
