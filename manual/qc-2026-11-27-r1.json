@@ -1,0 +1,168 @@
+{
+ "note": "QC night 27.11 run 1. Rejected: Anyma two-night entry (Live Nation shows one night, 4 Dec; kept the ticket-page entry), Laughter Factory festive special without venue (same tour as the Platinumlist entry), Ariana's Persian Kitchen lunch (ordinary restaurant set menu), second Aladdin at Al Qasba entry, general Sharjah 'UAE National Day Celebrations' entry (its four venues are listed separately). Fixes from organiser pages: Wadi Danha hike moved to 6 Dec 13:00, start times for AKS Dance Festival, Marsa Boulevard, Rhythms of Tradition, Al Qasba and Al Majaz; cleaned raw price texts.",
+ "reject_event_ids": [
+  "13ab1da6-00cb-46c2-adca-f0c3cc7359c8",
+  "97572ecc-a059-40fc-98d5-8fb8e9f6b9aa",
+  "0b730a31-0db5-4f2b-a94c-b89d41c47ae0",
+  "5d6de37f-5b72-4123-b0e5-1bdcbdceb192",
+  "7f4f1304-e035-400c-a3c0-dc6e91d36c76"
+ ],
+ "update_event_ids": [
+  {
+   "id": "39055a65-a002-46cc-8405-4cb6a608a585",
+   "set": {
+    "price_text": "From AED 295"
+   }
+  },
+  {
+   "id": "3151899a-f2ce-4792-9261-6111a0d48ee6",
+   "set": {
+    "title": "The Laughter Factory: The Ultimate Festive Tradition",
+    "category": "music",
+    "price_text": "From AED 140",
+    "description": "The Laughter Factory's festive stand-up comedy tour. Shows start at 20:30: 4 Dec at Radisson DAMAC Hills, 5 Dec at Studio One Hotel, 11 Dec at Jumeirah Golf Estates and 12 Dec at Dukes The Palm."
+   }
+  },
+  {
+   "id": "00cc8a9d-ad87-4419-b56e-b8173daaefe2",
+   "set": {
+    "title": "Afternoon Wadi Danha (Rainbow Valley) & Beyond Hike",
+    "start_date": "2026-12-06",
+    "start_time": "13:00:00",
+    "end_time": "17:00:00"
+   }
+  },
+  {
+   "id": "f567b475-92d6-41da-9f77-5526ca22c25c",
+   "set": {
+    "title": "UAE National Day Special: Wadi Kub Sunset Hike",
+    "city": "Ras Al Khaimah",
+    "end_time": "17:00:00"
+   }
+  },
+  {
+   "id": "f9aa11b5-b757-441f-b2b9-276ed99d85ee",
+   "set": {
+    "start_time": "18:00:00",
+    "price_text": "From AED 100"
+   }
+  },
+  {
+   "id": "fc5c82d5-bc85-471f-98b8-a184419bdbf8",
+   "set": {
+    "price_text": "From AED 15"
+   }
+  },
+  {
+   "id": "fb5397fd-245e-4f2d-8a04-27098728f7f8",
+   "set": {
+    "price_text": ""
+   }
+  },
+  {
+   "id": "5bb54907-6ded-49d7-b40a-9de4fe04ba1b",
+   "set": {
+    "price_text": ""
+   }
+  },
+  {
+   "id": "ff56c7bf-b513-44b2-93ca-cbea41821e05",
+   "set": {
+    "venue": "Al Dhafra"
+   }
+  },
+  {
+   "id": "d460ff7d-6979-44ea-ab8e-9ecec9ed257c",
+   "set": {
+    "price_text": "Ladies AED 169, men AED 229 (early bird AED 129 / AED 169)"
+   }
+  },
+  {
+   "id": "f179af70-77a9-4b65-91ae-4c3dee6408ce",
+   "set": {
+    "price_text": "From AED 350",
+    "description": "A late-night Friday brunch on The Penthouse terrace at FIVE Palm Jumeirah, 20:00 to 23:30, with unlimited Japanese dishes, free-flowing drinks and a DJ."
+   }
+  },
+  {
+   "id": "95c1b255-2e00-43e6-9045-ace600f24b31",
+   "set": {
+    "start_time": "16:00:00",
+    "end_time": "23:00:00"
+   }
+  },
+  {
+   "id": "f2a4cdcc-cc7f-4b3b-afde-6b3afce527a0",
+   "set": {
+    "price_text": "AED 10 (adults)"
+   }
+  },
+  {
+   "id": "f0b88061-ce3e-4fd2-9ee8-add35fbddd3a",
+   "set": {
+    "price_text": "From AED 140",
+    "description": "A guided horseback ride through the desert around Mleiha Archaeological Centre."
+   }
+  },
+  {
+   "id": "bb7ff2f1-e8c4-4362-9e0d-8d33cc6bcc27",
+   "set": {
+    "title": "CamelPhat at Be Beach",
+    "description": "CamelPhat play Be Beach alongside Rayan Woods for a night of DJ sets. Tickets are sold via Platinumlist."
+   }
+  },
+  {
+   "id": "cfd14291-76d0-4cb6-83fa-e35bc40b35d8",
+   "set": {
+    "end_time": "22:00:00",
+    "price_text": "From AED 25",
+    "description": "An evening of live music at Woodlem Park School in Al Qusais. Doors open at 17:00."
+   }
+  },
+  {
+   "id": "d683fc77-098e-4dd3-bd77-88fab7103886",
+   "set": {
+    "start_time": "16:00:00"
+   }
+  },
+  {
+   "id": "98c5a78f-1943-4d6f-8b4e-59b2f5748b67",
+   "set": {
+    "start_time": "17:05:00",
+    "end_time": "20:55:00",
+    "official_url": "https://discovershurooq.ae/events/uae-national-day-celebrations/"
+   }
+  },
+  {
+   "id": "6d32917f-240a-4ecb-b3af-a0f1044b2f63",
+   "set": {
+    "start_time": "17:05:00",
+    "end_time": "20:55:00",
+    "official_url": "https://discovershurooq.ae/events/uae-national-day-celebrations/"
+   }
+  },
+  {
+   "id": "be5cc7a9-094b-400d-9185-046bde4bd2d3",
+   "set": {
+    "end_time": "21:00:00",
+    "official_url": "https://discovershurooq.ae/events/uae-national-day-celebrations/"
+   }
+  },
+  {
+   "id": "fcf6b43d-f934-4091-86e7-d66783e12943",
+   "set": {
+    "end_time": "21:00:00",
+    "official_url": "https://discovershurooq.ae/events/uae-national-day-celebrations/"
+   }
+  },
+  {
+   "id": "f5e08bd4-afeb-493e-b669-3a8eb01f410c",
+   "set": {
+    "title": "Aladdin at Al Qasba Theatre",
+    "venue": "Al Qasba Theatre",
+    "price_text": "From AED 49",
+    "description": "A 75-minute family stage show of Aladdin at Al Qasba Theatre, 4 to 6 December."
+   }
+  }
+ ]
+}
