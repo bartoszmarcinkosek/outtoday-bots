@@ -168,7 +168,8 @@
     "lm_coca_cola_arena_in-2": "MAHb_G3qFMw",
     "lm_suhub-1": "MAHb_d9b_XY",
     "lm_rafisah-1": "MAHb_R8_opE",
-    "boat-1": "MAHb_R1Hznc"
+    "boat-1": "MAHb_R1Hznc",
+    "boat-2": "MAHb_mN91J0"
   },
   "in_app": [
     "aquafit-1",
@@ -334,5 +335,5 @@
     "xmas-3",
     "zoo-1"
   ],
-  "last_at": "2026-11-26T05:52:38Z"
+  "last_at": "2026-11-26T06:14:01Z"
 }
