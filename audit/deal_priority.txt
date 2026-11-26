@@ -19,22 +19,5 @@ db744180-ce5a-406d-843a-315434e994d7  # NOT_FOUND Day pass: ILIOS Beach Club
 e10e2736-2d86-4814-9f6f-1c47ed2bca8d  # NOT_FOUND Happy hour: Belgian Cafe
 4ed854a3-f3c8-4bb3-85d6-aae7b8a2d1ff  # NO_MATCH Weekday Beach & Pool Pass
 6386e8e7-814c-428b-9809-1712fb9a5d89  # NO_MATCH Weekend Beach & Pool Pass
-17f96b5e-b31f-4fd3-8d29-0e48ce76fdf7  # sources differ on price
 2876eedc-fb38-4b05-b299-34ca0648c19d  # sources differ on price
 d960a94f-fd30-494a-ab1f-c1ca315bc69f  # sources differ on price
-03a53ea0-8ef5-4c5e-b10d-7e73a040a6c8  # sanity 25.11: niepewny tekst lub dni
-0a10fd41-05a6-41c0-9f5b-d09cc30478cb  # sanity 25.11: niepewny tekst lub dni
-17f96b5e-b31f-4fd3-8d29-0e48ce76fdf7  # sanity 25.11: niepewny tekst lub dni
-209f6e8a-b4a3-4871-8ae9-c9e758b79f6b  # sanity 25.11: niepewny tekst lub dni
-3dc8b3d2-ba1a-4c21-8a48-b95b272a7269  # sanity 25.11: niepewny tekst lub dni
-5a1c170a-ba67-4e4b-ba94-f3b690a1bf6d  # sanity 25.11: niepewny tekst lub dni
-80ee88e9-07db-4fde-9c5a-a82feb5413a1  # sanity 25.11: niepewny tekst lub dni
-9153d44e-cb8a-452c-9e1c-f0dadb885c8b  # sanity 25.11: niepewny tekst lub dni
-b24c8c1b-fd0b-45bb-95a7-57be0e4c5938  # sanity 25.11: niepewny tekst lub dni
-e4b521c9-f79f-40fc-a9e3-a299ba0a2a04  # sanity 25.11: niepewny tekst lub dni
-28b5dcce-939d-4cf6-8c7c-2ac0c5bc4d06  # sanity 25.11: niepewny tekst lub dni
-4b5eec81-1cba-4479-9c09-ba24f20e6945  # sanity 25.11: niepewny tekst lub dni
-744dc045-75e0-4d0f-adb1-b72ad6331706  # sanity 25.11: niepewny tekst lub dni
-7d5c3424-7ca7-4afe-82f2-f1b41e88aabb  # sanity 25.11: niepewny tekst lub dni
-be9838c6-3c97-46f5-9ece-4139afda3cbf  # sanity 25.11: niepewny tekst lub dni
-de30b0d7-4c00-41b4-be53-5d23a6230687  # sanity 25.11: niepewny tekst lub dni
