@@ -1,0 +1,20 @@
+{
+ "note": "Luka z kontroli pokrycia: Fudżajra bez ladies night. Strona McGettigan's Fujairah (26.11.2026) podaje środy 18-21, 2 darmowe drinki. Stary wpis bez godziny i ceny (32b573e8) zostaje odrzucony.",
+ "deals": [
+  {
+   "title": "Ladies' Night at McGettigan's Fujairah",
+   "deal_type": "ladies_night",
+   "venue": "McGettigan's Fujairah",
+   "area": "Fujairah Tennis & Country Club",
+   "city": "Fujairah",
+   "official_url": "https://www.mcgettigans.com/fujairah",
+   "days_of_week": [3],
+   "start_time": "18:00",
+   "end_time": "21:00",
+   "price_text": "2 free drinks for ladies",
+   "details": "Every Wednesday at the Irish pub in the Fujairah Tennis & Country Club: two complimentary drinks for ladies.",
+   "status": "approved",
+   "source_name": "mcgettigans.com"
+  }
+ ]
+}

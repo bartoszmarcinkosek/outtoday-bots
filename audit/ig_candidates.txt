@@ -1,13 +1,2 @@
 # miasto | kandydat | miejsce – sesja 4 (25.11.2026), nazwy ze stron oficjalnych i z wyszukiwarki
-Ras Al Khaimah | intercontinentalrasalkhaimah | InterContinental Ras Al Khaimah Mina Al Arab Resort & Spa
-Ras Al Khaimah | bmhotelsresorts | BM Beach Hotel (Pebbles Sports Bar)
-Ras Al Khaimah | club55.rak | Club 55, Al Hamra
-Ras Al Khaimah | spaceae | Space Café, Corniche Al Qawasim
-Ras Al Khaimah | hoof.cafe | Hoof Café, Grove Village
-Ras Al Khaimah | thecommonroom.ae | Common Room, Al Dhait South
-Ras Al Khaimah | laalooca | La Loca Café & Lounge, The Old Market
-Fujairah | fujairahresort | Fujairah Hotel & Resort
-Fujairah | streatculturefujairah | StrEAT Culture Fujairah, DoubleTree by Hilton Fujairah City
-Ajman | ajman_saray | Ajman Saray, a Luxury Collection Resort
-Ajman | bab.ajman_saray | Bab Al Bahr Beach Bar & Grill, Ajman Saray
-Umm Al Quwain | casamikoko.uaq | Casa Mikoko, The Mangrove Beach
+Fujairah | mcgettigansfjr | McGettigan's Fujairah
