@@ -30,3 +30,4 @@ Wynik sprawdzenia zapisuje `python bot/ig_apply.py <log> [--skip konto,konto]` (
 - Ajman, Umm Al Quwain, Fudżajra, Al Ain – lokalne miejsca (najmniej kont)
 
 `ig-discover` i `ig-mentions` warto powtarzać dopiero, gdy dojdzie dużo nowych źródeł / kont-węzłów (same z siebie dają wtedy nowe nazwy).
+| 26.11 | sesja 5: `ig-mentions` (próba) – oznaczenia z 128 kont-węzłów, potem ręczny przegląd (bez osób, banków, marek spoza UAE) | 28 kandydatów, 8 wybranych (w tym 4 odrzucone przez filtr „brak UAE”, ale to znane miejsca UAE) | +8 (Dubaj 5, Abu Zabi 2, Fudżajra 1): Terra Expo City, The Club AD, Mawaheb, ATM, One Day Choir, Touch, Her Table, Fujairah Photography Award; razem 546 |
