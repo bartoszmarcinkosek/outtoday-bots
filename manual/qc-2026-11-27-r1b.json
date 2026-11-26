@@ -1,0 +1,5 @@
+{
+ "note": "QC night 27.11 run 1, fixes after the quality check: the ticket page of AD Knight Riders vs Sharjah Warriorz shows only 29 November 14:00, so the 7 December entry is a wrong date (rejected) and the 29 November one is approved again; Eid Al Etihad at Khorfakkan Beach is a different venue from Al Heera Beach (pair already listed in qa_not_dupes), approved again.",
+ "reject_event_ids": ["ea9db635-a0af-45e5-956d-a38be8b35e42"],
+ "approve_event_ids": ["fc5c82d5-bc85-471f-98b8-a184419bdbf8", "fcf6b43d-f934-4091-86e7-d66783e12943"]
+}
