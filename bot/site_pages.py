@@ -131,7 +131,7 @@ def get(table: str, cols: str, extra: str = "") -> list:
 ev = get("events", "id,title,category,start_date,end_date,start_time,end_time,venue,area,city,price_text,is_free,description,official_url,url",
          f"&or=(end_date.gte.{today},and(end_date.is.null,start_date.gte.{today}))")
 pl = get("places", "id,name,category,area,city,hours_text,price_text,is_free,description,official_url")
-dl = get("deals", "id,title,deal_type,venue,area,city,price_text,details,start_time,end_time,official_url")
+dl = get("deals", "id,title,deal_type,venue,area,city,price_text,details,start_time,end_time,official_url,days_of_week")
 
 LABEL = {"music": "Music & Shows", "culture": "Culture & Art", "sport": "Sport & Fitness", "food": "Food & Drinks", "festivals": "Festivals",
          "nightlife": "Nightlife", "classes": "Classes & Workshops", "nature": "Nature & Outdoors", "community": "Community", "family": "Family",
@@ -249,6 +249,59 @@ home = (open(os.path.join(ROOT, "bot/site_home.html"), encoding="utf-8").read()
         .replace("{{GETAPP}}", GETAPP).replace("{{DATE}}", td.strftime("%A %d %B %Y").replace(" 0", " ")).replace("{{TABS}}", "".join(tabs)).replace("{{PANELS}}", "".join(panels)))
 with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as fh:
     fh.write(home)
+
+# ---- "This weekend in the UAE" (weekend.html): tygodniowe podsumowanie piątek–niedziela, bez AI (pomysł właściciela 26.11.2026)
+from urllib.parse import quote
+wdays = {(d.weekday() + 1) % 7 for d in wk}  # 0 = niedziela, jak days_of_week w bazie
+rng_txt = f"{wk[0].strftime('%a %d %b').replace(' 0', ' ')} – {wk[-1].strftime('%a %d %b').replace(' 0', ' ')}"
+
+
+def deal_card(x: dict) -> str:
+    img = photo_for("deal", f"deal:{x['id']}", x["title"], f"{x['title']} {x.get('venue') or ''}", x.get("deal_type") or "", x.get("city") or "")
+    if img:
+        used.add(img)
+    days = ", ".join(["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d] for d in sorted(set(x.get("days_of_week") or []) & wdays, key=lambda d: (d + 2) % 7))
+    when = days + (f" · {hm(x['start_time'])}" if x.get("start_time") else "")
+    sub = " · ".join(v for v in (x.get("venue"), x.get("price_text")) if v)
+    pic = f'<img src="img/{img}" alt="" loading="lazy">' if img else '<span class="noimg">🥂</span>'
+    return f'<a class="ev" href="e/deal-{x["id"]}.html">{pic}<span><b>{e(x["title"])}</b><small>{e(when)}</small><small>{e(sub)}</small></span></a>'
+
+
+w_tabs, w_panels, wa_lines, top_img = [], [], [], None
+for city in CITIES:
+    mine = [x for x in ev if (x.get("city") or "") == city and any(on(x, d) for d in wk)]
+    top = sorted(mine, key=rank)[:8]
+    seen = {x["id"] for x in top}
+    free = sorted((x for x in mine if x.get("is_free") and x["id"] not in seen), key=rank)[:5]
+    seen |= {x["id"] for x in free}
+    fam = sorted((x for x in mine if (x.get("category") == "family") and x["id"] not in seen), key=rank)[:5]
+    br = sorted((x for x in dl if (x.get("city") or "") == city and x.get("deal_type") == "brunch" and set(x.get("days_of_week") or []) & wdays),
+                key=lambda x: x["title"])[:5]
+    if not top and not br:
+        continue
+    slug = city.lower().replace(" ", "-")
+    w_tabs.append(f'<button data-c="{slug}"{" class=on" if not w_tabs else ""}>{e(city)}</button>')
+    prev_img = None
+    body = ""
+    for head, lst in (("Top picks", top), ("Free this weekend", free), ("With the kids", fam)):
+        if lst:
+            body += f"<h3>{head}</h3>" + "".join(card(x) for x in lst)
+    if br:
+        body += "<h3>Weekend brunches</h3>" + "".join(deal_card(x) for x in br)
+    w_panels.append(f'<section id="{slug}"{"" if not w_panels else " hidden"}><h2>This weekend in {e(city)}</h2>{body}</section>')
+    if top and city in ("Dubai", "Abu Dhabi", "Sharjah"):
+        wa_lines.append(f"{city}: " + "; ".join(x["title"] for x in top[:3]))
+        if top_img is None:
+            top_img = photo_for("event", f"event:{top[0]['id']}", top[0]["title"], f"{top[0]['title']} {top[0].get('venue') or ''}", top[0].get("category") or "", city)
+            if top_img:
+                used.add(top_img)
+wa = quote(f"This weekend in the UAE ({rng_txt}):\n" + "\n".join(wa_lines) + f"\nMore: {SITE}/weekend.html")
+weekend = (open(os.path.join(ROOT, "bot/site_weekend.html"), encoding="utf-8").read()
+           .replace("{{GETAPP}}", GETAPP).replace("{{RANGE}}", e(rng_txt)).replace("{{TABS}}", "".join(w_tabs)).replace("{{PANELS}}", "".join(w_panels))
+           .replace("{{WA}}", f"https://wa.me/?text={wa}").replace("{{OGDESC}}", e(" · ".join(wa_lines)[:280] or "Things to do this weekend across the UAE."))
+           .replace("{{OGIMG}}", f"{SITE}/img/og-{top_img}" if top_img else f"{SITE}/img/og-default.jpg"))
+with open(os.path.join(OUT, "weekend.html"), "w", encoding="utf-8") as fh:
+    fh.write(weekend)
 
 # usuń strony wpisów, które już się skończyły albo zostały wycofane
 for f in os.listdir(os.path.join(OUT, "e")):
