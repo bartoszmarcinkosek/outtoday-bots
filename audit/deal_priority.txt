@@ -1,25 +1,4 @@
-3a500aaf-7e08-41ef-8f50-ac375c44fa24  # szybkie sprawdzenie 26.11: AX kwoty 125 nie ma na stronie
-dd91ee92-1697-48cf-8376-fcfc329b1c52  # szybkie sprawdzenie 26.11: AX kwoty 210 nie ma na stronie
-51d7ebe3-3cfa-4d51-9ddb-e3c47c865d9a  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
-54c4f745-44ce-4f14-80e0-e4ec1c36836b  # szybkie sprawdzenie 26.11: AX kwoty 12,799 nie ma na stronie
-b68da17c-03a2-4a67-b87d-02fc9789fbe0  # szybkie sprawdzenie 26.11: AX kwoty 12,150,375,599 nie ma na stronie
-587ca82b-9c48-4428-939d-41340910965e  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny None nie ma na stronie
-61b48a3e-1b64-4c28-889b-c2d509d69137  # szybkie sprawdzenie 26.11: AX kwoty 195 nie ma na stronie
-700b433d-a2a9-40cf-8d87-c636239259f2  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
-700c09ac-9007-4ddb-815f-30ca09c55176  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
-cb1adf77-9245-4f74-99cc-5eb655f4bc4f  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
-cfaafe28-4b4f-484c-9d53-f74afa287269  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 15:00:00 nie ma na stronie
-e83bbd70-ece3-4362-8106-6bf5719fa50c  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 17:00:00 nie ma na stronie
-7b0ccd34-abd7-4a35-a49a-d87b7fe04e72  # szybkie sprawdzenie 26.11: AX kwoty 250 nie ma na stronie
-d149fa45-4567-4493-aad2-e8cc73fc35c5  # szybkie sprawdzenie 26.11: AX kwoty 145 nie ma na stronie
-ab0e9259-1bcb-422e-9bb6-8a967bbd49f8  # szybkie sprawdzenie 26.11: AN nie ma oferty na stronie
-8322b21d-a3a6-4425-a4bb-a1efa0c0f8e2  # szybkie sprawdzenie 26.11: AX kwoty 320,450 nie ma na stronie
-9e8f4e91-4c20-428c-819a-fd1560dc71dc  # szybkie sprawdzenie 26.11: AX kwoty 26 nie ma na stronie
-9fcb9ccf-08b4-4e85-9fc5-168da66625ee  # szybkie sprawdzenie 26.11: AX kwoty 495 nie ma na stronie
-a8fd02e9-6b2c-4370-8427-261d3200a50b  # szybkie sprawdzenie 26.11: AX bez ceny, a godziny 18:00:00 nie ma na stronie
 f7dcc306-982f-4d0c-9a4b-87f5da304dc4  # szybkie sprawdzenie 26.11: AX kwoty 199 nie ma na stronie
-e00cd200-3b83-406c-955c-8608c447e4ad  # szybkie sprawdzenie 26.11: AX kwoty 17 nie ma na stronie
-f3c58035-304d-4c73-80cd-9a17dd27c1db  # szybkie sprawdzenie 26.11: AX kwoty 30 nie ma na stronie
 0112778b-3108-4f1c-b288-92fd10ea3564  # NOT_FOUND Rite of Siam Brunch
 2116d217-46e8-4406-94fb-7d59eb85fb4f  # NOT_FOUND Day pass: Fairmont Bab Al Bahr
 4a94da3c-32fd-46f6-ad7a-ec355f9db908  # NOT_FOUND Quiz night: McGettigan's
@@ -27,8 +6,6 @@ f3c58035-304d-4c73-80cd-9a17dd27c1db  # szybkie sprawdzenie 26.11: AX kwoty 30 n
 875f88fd-ea39-4789-b2d3-2ab51d0eec2e  # NOT_FOUND Vista Brunch
 a5001735-3faf-42b0-b094-017d3ee9d2c1  # NOT_FOUND Unlimited Breakfast Buffet
 e10e2736-2d86-4814-9f6f-1c47ed2bca8d  # NOT_FOUND Happy hour: Belgian Cafe
-4ed854a3-f3c8-4bb3-85d6-aae7b8a2d1ff  # NO_MATCH Weekday Beach & Pool Pass
-6386e8e7-814c-428b-9809-1712fb9a5d89  # NO_MATCH Weekend Beach & Pool Pass
 2876eedc-fb38-4b05-b299-34ca0648c19d  # sources differ on price
 0112778b-3108-4f1c-b288-92fd10ea3564  # dead link 26.11 (linkcheck)
 2116d217-46e8-4406-94fb-7d59eb85fb4f  # dead link 26.11 (linkcheck)
