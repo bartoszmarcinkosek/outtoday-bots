@@ -268,3 +268,23 @@ icelandwaterpark | nie istnieje pod tą nazwą | 2026-11-25
 ramada_beach_ajman | nie istnieje pod tą nazwą | 2026-11-25
 turtle_beach_restaurant_bar | nie istnieje pod tą nazwą | 2026-11-26
 wavecafe.ae | martwe konto (ostatni post 2022-01-02) | 2026-11-26
+comedyclubindubai | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
+emiratesnbd_ae | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
+ahmed_benzaied | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
+leicauae | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
+mbrf_news | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
+visit.dubai | osoba / duplikat / spoza miejsc (ig-mentions 26.11) | 2026-11-26
+brettlee_58 | osoba / duplikat / spoza miejsc (ig-mentions 26.11) | 2026-11-26
+sustainabledubai | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
+davide.cavallotto | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
+james_owen_racing | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
+haute_grandeur | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
+albadayer.retreat | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
+exploresharjah | za mało obserwujących (658) (ig-mentions 26.11) | 2026-11-26
+hotelsandresort | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
+alter.surfaces | za mało obserwujących (490) (ig-mentions 26.11) | 2026-11-26
+saeed_nassouri | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
+omnia_properties | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
+foto.uae | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
+dxbdragonsrfc.ae | niedostępne (Invalid user id) (ig-mentions 26.11) | 2026-11-26
+triforce.ae | brak UAE w opisie/stronie (ig-mentions 26.11) | 2026-11-26
