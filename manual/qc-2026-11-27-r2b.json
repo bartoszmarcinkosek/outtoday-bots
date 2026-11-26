@@ -1,0 +1,16 @@
+{
+ "note": "QC night 27.11 run 2, follow-up to the quality check: three events shared a ticket page with a second entry on another date. Ticket pages checked: Comedy Line Up is only on 26 Dec (rejected the 3 Dec entry), Trevor Noah plays 28-29 Nov (rejected the 30 Jan 2027 entry), Jaspreet Singh shows 28 Nov (rejected the 13 Dec entry). The correct entries are restored.",
+ "reject_event_ids": [
+  "66921cf7-326d-4d7e-b639-4d0b08e6ed95",
+  "93e5f94b-ea88-423f-a8ba-f116a1d922ab",
+  "e8885a45-3d68-4347-be2c-13bc8a084737"
+ ],
+ "approve_event_ids": [
+  "53ee3bdc-5bc5-4edd-9a9e-dae7bffceb6d",
+  "3dad3daa-cec9-468e-9d76-8a3614ba9303"
+ ],
+ "update_event_ids": [
+  {"id": "2ca07bb6-7f16-46b3-9438-3ea1929e2020", "set": {"price_text": "From AED 99"}},
+  {"id": "3dad3daa-cec9-468e-9d76-8a3614ba9303", "set": {"price_text": "From AED 125"}}
+ ]
+}
