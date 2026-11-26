@@ -1,0 +1,43 @@
+{
+ "note": "Oferty por\u00f3wnane ze \u017ar\u00f3d\u0142em 26.11 (przegl\u0105darka bot\u00f3w + strony hoteli). Bla Bla JBR przej\u0119te i przebudowane przez McGettigan's (2026) \u2013 strona nie podaje ju\u017c Claw BBQ, Mu-Kii ani Sports Bar, oferty odrzucone.",
+ "update_deal_ids": [
+  {
+   "id": "2353a38d-fa08-4720-9c8c-0955c394276a",
+   "set": {
+    "price_text": "AED 390 (3-course sharing menu) \u00b7 +AED 200 premium beverages",
+    "start_time": "18:30",
+    "end_time": "21:30",
+    "official_url": "https://www.jumeirah.com/en/offers/category-offers/dine/jumeirah-al-qasr-the-hide/the-hide-evening-brunch"
+   }
+  },
+  {
+   "id": "18196ee0-343b-4ca6-8793-8246ce9958e8",
+   "set": {
+    "price_text": "AED 350 soft \u00b7 AED 450 house \u00b7 AED 550 premium \u00b7 kids 5\u201312 AED 175",
+    "official_url": "https://www.jumeirah.com/en/offers/category-offers/dine/jumeirah-al-qasr-al-nafoorah/cedar-brunch-by-al-nafoorah"
+   }
+  },
+  {
+   "id": "a09d56dc-0a6f-4a60-80db-25443cc0a630",
+   "set": {
+    "official_url": "https://www.fairmont.com/en/hotels/abu-dhabi/fairmont-bab-al-bahr/experiences/Fairmont-Grand-Brunch.html"
+   }
+  }
+ ],
+ "reject_deal_ids": [
+  "3dfed9bc-849f-47c4-b201-8c1b1c159e22",
+  "ab8f3ae3-926f-4bc8-8104-c2ddd6ebf74e",
+  "e47ed724-65e9-44cb-b6c8-81fe765f9117",
+  "b3b2b7df-6db9-475b-936b-76678f3d6b71"
+ ],
+ "verified_deal_ids": [
+  "972d4364-1e7a-477f-bdd7-75d3587aebe2",
+  "14291540-8df5-4984-8c7b-347592b4b620",
+  "16458e2c-c634-474c-91bf-415775a72e94",
+  "27fed6f2-879a-48b0-9dad-a030567a5132",
+  "2bde99d6-490b-40f6-ba60-9650b93b1081",
+  "2353a38d-fa08-4720-9c8c-0955c394276a",
+  "18196ee0-343b-4ca6-8793-8246ce9958e8",
+  "a09d56dc-0a6f-4a60-80db-25443cc0a630"
+ ]
+}
