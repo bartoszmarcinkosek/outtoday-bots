@@ -103,6 +103,9 @@ export function fmtWhen(e: EventRow): string {
   const en = fmtTime(e.end_time);
   if (s && en) return `${date} · ${s} to ${en}`;
   if (s) return `${date} · from ${s}`;
+  // krótkie wydarzenie bez godziny: jasno, że organizator jej nie podał (decyzja 26.11.2026)
+  const days = e.end_date ? (parse(e.end_date).getTime() - parse(e.start_date).getTime()) / 86400000 : 0;
+  if (days <= 7) return `${date} · Time TBA`;
   return date;
 }
 
