@@ -14,3 +14,12 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 2026-11-26 | Niezrozumiały tytuł | „BWP 1” (gala MMA) | tytuł poprawiony ręcznie
 2026-11-26 | Rodzinne wydarzenie poza filtrem Kids | Aladdin at Al Qasba | diag_filters (niedziela)
 2026-11-26 | Brunch z Mikołajem bez świątecznego zdjęcia | Santa brunch Market Kitchen | photos.ts santa/christmas → xmas
+2026-11-26 | Wydarzenie za granicą wpisane jako ZEA | Highlander: Mount Macedon (Australia), Ehmej (Liban) jako Ras Al Khaimah | odrzucone; qa_after_add: miejsce za granicą / globalny organizator bez miejsca w ZEA → FAIL
+2026-11-26 | Ten sam spektakl jako osobna karta na każdy termin | Cléopâtre „29/1”, „30/1”, „31/1”; Peter Pan (9–10 Dec)/(11–12 Dec); Hansel & Gretel 9.12 i 10.12 | połączone (od–do); qa_after_add: numer terminu w tytule / ten sam tytuł w tym samym miejscu ≤3 dni → FAIL
+2026-11-26 | Tytuł z wyciętym separatorem (kilka spacji), WIELKIE LITERY | „RAFAEL   Skyline Saturdays”, „SVEN VÄTH   House Rules” | poprawione ręcznie; bot/run.py _guard: kilka spacji → „ – ”
+2026-11-26 | Zła data z portalu biletowego | Gulf Bar Show 2026 jako 1.04.2027 (naprawdę 30.11–1.12.2026) | poprawione ręcznie
+2026-11-26 | Strona z programem z zeszłego roku | Dubai Fitness Challenge 2025 (Bluewaters) jako wydarzenie 2026 | odrzucone (qa: rok w tytule ≠ rok wydarzenia to WARN)
+2026-11-26 | Mężczyźni na zdjęciu sportu dla kobiet | Ladies Football Social Game, Hudayriyat Women's Cycling Series | photos.ts klucz sport_ladies (ikonka do czasu zdjęcia)
+2026-11-26 | Zdjęcie innej czynności | Face painting → malowanie na sztalugach; wystawa rzeźby → koło garncarskie; wyścig dhow → paddleboard; Hurricane Heat → flamingi Al Qudra; zawody kulturystyczne → trening na plaży; Motor Show → bolid F1; ladies night z duetem → tłum festiwalowy | photos.ts: facepaint, studios tylko zajęcia, sailing, obstacle, bodybuilding, motor show → carshow, ladies night → ladies_night
+2026-11-26 | Panorama innego miasta w ogólnej puli | running-2 (Burj Khalifa) przy Sharjah Half Marathon / biegu w Abu Zabi | photos.ts CITY_ONLY: running-2 tylko Dubaj
+2026-11-26 | Zdjęcie jednego miejsca przy wydarzeniu w kilku miejscach | UAE National Day Celebrations (Al Majaz, Al Qasba, Al Heera, Chorfakkan) → plaża Chorfakkan | photoOff.ts

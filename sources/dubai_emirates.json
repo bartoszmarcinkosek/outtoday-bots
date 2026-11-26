@@ -955,7 +955,7 @@
     "https://www.highlanderadventure.com/"
    ],
    "trusted": true,
-   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+   "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł. UWAGA (tester 26.11.2026): organizator globalny – strona ma wędrówki z całego świata (Australia, Liban); tylko wydarzenia w ZEA, pilnuje qa_after_add."
   },
   {
    "id": "visit_dubai_calendar",

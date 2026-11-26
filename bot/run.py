@@ -921,6 +921,11 @@ class DB:
         return self._prob
 
     def _guard(self, table: str, row: dict) -> dict:
+        # tytuł ze strony z wyciętym separatorem („RAFAEL   Skyline Saturdays”, „PAWSA   New Year's Eve”, tester 26.11.2026):
+        # kilka spacji w środku → „ – ”, spacje na końcach precz
+        for k in ("title", "name"):
+            if isinstance(row.get(k), str) and re.search(r"\S\s{2,}\S|^\s|\s$", row[k]):
+                row = {**row, k: re.sub(r"(?<=\S)\s{2,}(?=\S)", " – ", row[k]).strip()}
         if self.guard and table in ("events", "deals") and row.get("status") == "approved" \
                 and src_key(row.get("source_name")) in self.probation():
             row = {**row, "status": "pending"}

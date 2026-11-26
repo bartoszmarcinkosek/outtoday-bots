@@ -142,6 +142,12 @@ STATUS = {x["id"]: x["status"] for x in events + deals + places}
 # pary sprawdzone ręcznie: podobne nazwy, ale to różne rzeczy (audit/qa_not_dupes.txt: "id1 id2 # opis")
 _nd = os.path.join(os.path.dirname(__file__), "..", "audit", "qa_not_dupes.txt")
 NOT_DUPES = {frozenset(l.split()[:2]) for l in (open(_nd) if os.path.exists(_nd) else []) if len(l.split()) >= 2 and not l.startswith("#")}
+# miejsca za granicą w tytule / miejscu wydarzenia; globalni organizatorzy wędrówek (dają wydarzenia z całego świata)
+FOREIGN_RE = r"\b(australia|melbourne|sydney|\bvic\b|lebanon|beirut|ehmej|macedon|amman|wadi rum|egypt|cairo|sinai|saudi|riyadh|jeddah|alula|bahrain|manama|kuwait|tbilisi|armenia|yerevan|nepal|kathmandu|kilimanjaro|tanzania|kenya|morocco|marrakech|atlas mountains|istanbul|cappadocia|croatia|zagreb)\b"
+GLOBAL_ORG_RE = r"highlanderadventure\.com"
+UAE_RE = r"\b(uae|emirates|dubai|abu dhabi|sharjah|ajman|ras al khaimah|rak|fujairah|umm al quwain|al ain|hatta|jebel jais|jais|khor ?fakkan|kalba|dibba|liwa|al dhafra|mleiha)\b"
+# numer terminu na końcu tytułu: „29/1”, „(9–10 Dec)”, „– 12 Dec”, „(Day 2)”, „Show 2”
+SESSION_RE = re.compile(r"\s*(\(\s*\d{1,2}(\s*[–-]\s*\d{1,2})?\s*[a-z]{3,9}\.?\s*\)|\(\s*[a-z]{3,9}\s+\d{1,2}(\s*[–-]\s*\d{1,2})?\s*\)|\b\d{1,2}/\d{1,2}(/\d{2,4})?|[–-]\s*\d{1,2}\s+[a-z]{3,9}|\(?\b(day|show|session|part)\s*\d\)?)\s*$", re.I)
 for e in {x["id"]: x for x in events}.values():
     if e["status"] not in ("approved", "pending") or (not SINCE and e["status"] != "approved"):
         continue
@@ -165,6 +171,25 @@ for e in {x["id"]: x for x in events}.values():
         # ten sam dzień startu + podobny tytuł = duplikat; inny dzień to zwykle osobny punkt programu festiwalu
         if o["id"] != e["id"] and o["start_date"] == e["start_date"] and R.titles_match(o["title"], e["title"]):
             out("FAIL", "event", e["id"], e["title"], f"możliwy duplikat: {o['id']} '{o['title'][:50]}' {o['start_date']}")
+    # wydarzenie za granicą (Highlander: Mount Macedon w Australii, Ehmej w Libanie, wpisane jako Ras Al Khaimah – tester 26.11.2026)
+    _txt = f"{e['title']} {e.get('venue') or ''}"
+    if re.search(FOREIGN_RE, e.get("venue") or "", re.I) or (re.search(GLOBAL_ORG_RE, e.get("official_url") or "", re.I)
+                                             and not re.search(UAE_RE, f"{_txt} {e.get('description') or ''}", re.I)):
+        out("FAIL", "event", e["id"], e["title"], "wydarzenie poza ZEA (miejsce za granicą albo globalny organizator bez miejsca w ZEA)")
+    # ten sam spektakl rozbity na osobne karty dla każdego terminu („… 29/1”, „… 30/1”; „Peter Pan (9–10 Dec)” i „(11–12 Dec)”)
+    _stem = SESSION_RE.sub("", e["title"]).strip(" –-")
+    # (też identyczny tytuł w tym samym miejscu 1–3 dni później: Hansel & Gretel 9.12 i 10.12 jako dwie karty)
+    same_venue = db.get("events", {"select": "id,title,start_date,venue", "status": "eq.approved", "city": f"eq.{e['city']}",
+                                   "venue": f"eq.{e.get('venue')}", "start_date": f"gte.{(sd - dt.timedelta(days=7)).isoformat()}", "limit": "200"}) if e.get("venue") else []
+    for o in same_venue:
+        if o["start_date"] > (sd + dt.timedelta(days=7)).isoformat():
+            continue
+        if o["id"] != e["id"] and o.get("venue") == e.get("venue") and o["start_date"] != e["start_date"] and frozenset((o["id"], e["id"])) not in NOT_DUPES:
+            _same = SESSION_RE.sub("", o["title"]).strip(" –-").lower() == _stem.lower()
+            if (_same and _stem.lower() != e["title"].strip().lower()) or (o["title"].strip().lower() == e["title"].strip().lower()
+                    and abs((dt.date.fromisoformat(o["start_date"]) - sd).days) <= 3):
+                out("FAIL", "event", e["id"], e["title"], f"ten sam spektakl jako osobna karta na każdy termin: {o['id']} {o['start_date']} – połącz w jedną kartę (od–do)")
+                break
     # promocje sklepów i centrów handlowych to nie wydarzenia (zasada właściciela; „12-Day Super Sale” w Reem Mall, 26.11.2026)
     if re.search(r"\b(super |mega |big |flash |mid[- ]season |year[- ]end )?sale\b|\d+\s?% off|\bdiscounts?\b|\bshopping festival offers?\b", e["title"], re.I) \
             and not re.search(r"book (sale|fair)|garage sale|car boot|yard sale|charity", e["title"], re.I):

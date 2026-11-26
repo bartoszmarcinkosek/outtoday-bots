@@ -70,16 +70,25 @@ const RULES: [RegExp, string][] = [
   [/ninja|tepfactor|ropes course|aventura|high ropes/i, 'active'],
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|air ?show|flying (lesson|experience)|scenic flight/i, 'flying'],
   [/\bski\b|ski dubai|snow abu dhabi|snow park|ice rink|ice skating/i, 'snow'],
-  [/ceramic|pottery|sculpt|\bclay\b/i, 'studios'],
+  // twarze malowane dzieciom to nie malowanie na sztalugach (Splash Park Face Painting, tester 26.11)
+  [/face ?paint/i, 'facepaint'],
+  // „sculpt” tylko jako zajęcia; wystawa rzeźby (Alfred Basbous: Sculpting the Line) to nie koło garncarskie
+  [/ceramic|pottery|sculpt\w* (class|workshop|course|session)|\bclay\b/i, 'studios'],
   [/painting|paint (and|&) sip|\bpaints?\b|art (class|studio|workshop)|art cent(re|er)|calligraph|drawing|\bdraw\b|sketch|watercolou?r|printmaking|al marsam/i, 'painting'],
   [/cooking|chocolate(?! factory)|baking|\bbake\b|gingerbread|culinary|top chef/i, 'cooking'],
   [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower|polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
   // ladies-only taniec: bez par z mężczyznami na zdjęciu (zgłoszenie testerki 26.11.2026) – własne zdjęcie albo ikonka
+  // ladies night jako wydarzenie (duet w restauracji): zdjęcie ladies night, nie tłum na festiwalu (tester 26.11)
+  [/ladies'? ?night/i, 'ladies_night'],
+  // sport dla kobiet (Ladies Football, Women's Cycling): bez mężczyzn na zdjęciu – własne zdjęcie albo ikonka (tester 26.11)
+  [/\b(ladies|women'?s?|girls)\b.*\b(football|soccer|cycling|cycle|cricket|basketball|volleyball|padel|tennis|run|running|boxing|swim)|\b(football|soccer|cycling|cricket|basketball|volleyball|padel|boxing)\b.*\b(ladies|women'?s?)\b/i, 'sport_ladies'],
   [/\b(ladies|women)[' ]*only\b.*\b(dance|dancing|heels|zumba|salsa|belly)\b|\b(dance|dancing|heels|zumba|salsa|belly)\b.*\b(ladies|women)[' ]*only\b/i, 'dance_ladies'],
   [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
   [/aqua ?fit|aqua ?aerobic|aqua ?zumba|water aerobic|aqua ?gym/i, 'aquafit'],
   // namorzyny, mokradła, rezerwaty przyrody: własne zdjęcie (albo ikonka), nigdy miejski park z fontanną
   [/mangrove|wetland|nature reserve|bird sanctuary|flamingo/i, 'mangrove'],
+  // wyścig żaglówek / dhow (Dubai Offshore Sailing Club) – nie paddleboard wśród namorzynów (tester 26.11)
+  [/dhow (sailing )?race|sailing race|dhow sailing|offshore sailing/i, 'sailing'],
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing (?!the)|rowing/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian|biswa kalyan|max angioni|paul chowdhry|sapan verma|varun grover|gursimran khamba|angad ranyal|bader saleh|paul de saint sernin|trevor noah|max amini|nurlan saburov|whitney cummings|chai with chandan|steve harvey|apurva in emirates/i, 'comedy'],  // znani komicy bez słowa „comedy” w tytule (przegląd 26.11)
@@ -97,15 +106,19 @@ const RULES: [RegExp, string][] = [
   [/horse|equestrian|racecourse|endurance ride|show jumping|polo\b/i, 'horse'],
   [/cycling|cyclist|cycle (track|race|ride)|\bbike ride|\bbicycle|velo\b/i, 'cycling'],  // nie „Cycles” (spektakl)
   [/swim|triathlon|aquathlon|open water/i, 'swimming'],
+  // bieg z przeszkodami (Spartan, Hurricane Heat, Tigers) – nie jezioro z flamingami w Al Qudra (tester 26.11)
+  [/spartan|hurricane heat|obstacle (race|run|course)|tough mudder|tigers? obstacle/i, 'obstacle'],
   [/\brun\b|running|marathon|\b(3|5|10|21)k\b|\d+ ?km\b|parkrun|race run|trail race|relay/i, 'running'],
   [/tennis|padel|squash|pickleball/i, 'padel'],
+  // zawody kulturystyczne na scenie – nie trening na plaży (tester 26.11); po biegach („Run ... Bodybuilding Federation” to bieg)
+  [/bodybuilding|physique|mr\.? olympia/i, 'bodybuilding'],
   [/yoga|pilates|meditat(e|ion\b|ing)|breathwork|sound bath|sound healing/i, 'yoga'],
   [/bootcamp|hiit|workout|fitness|crossfit|strength training|circuit training/i, 'fitness'],
   [/cricket|\bt10\b|\bt20\b|ilt20|knight riders|dubai capitals|desert vipers|gulf giants|mi emirates|sharjah warriorz/i, 'cricket'],
   [/football|soccer|super cup|\bfc\b|pro league|manchester city/i, 'football'],
   [/golf/i, 'golf'],
   [/desert challenge|\brally\b|\bbaja\b|dakar rally|rally dakar|off-?road|dune bash|drift(?! beach)/i, 'rally'],
-  [/car show|car and bike|bike week|custom show|car meet/i, 'carshow'],
+  [/car show|motor show|auto show|car and bike|bike week|custom show|car meet/i, 'carshow'],
   [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|nitro circus|driving experience/i, 'motorsport'],
   [/\bcamels?\b/i, 'camel'],
   [/karaoke/i, 'night_out'],
@@ -164,7 +177,13 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+
+// Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
+// (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)
+const CITY_ONLY = new Map<number, string>([
+  [PHOTO_FILES.running?.[1], 'Dubai'],  // running-2
+].filter(([f]) => f != null) as [number, string][]);
 
 function hash(s: string): number {
   let h = 2166136261;
@@ -235,7 +254,7 @@ function pool(item: Item): number[] {
   const suf = zones === null || (zones && item.zone && zones.has(item.zone)) ? CITY_SUFFIX[item.city] : undefined;
   const out: number[] = [];
   for (const k of keys) {
-    out.push(...(PHOTO_FILES[k] ?? []));
+    out.push(...(PHOTO_FILES[k] ?? []).filter((f) => !(CITY_ONLY.get(f) && CITY_ONLY.get(f) !== item.city)));
     if (suf) out.push(...(PHOTO_FILES[`${k}_${suf}`] ?? []));
   }
   return out;

@@ -1,3 +1,9 @@
+328 | sport_ladies-1 | Women-only amateur sports session outdoors in Dubai in the evening: a group of women in sports kit playing five-a-side football on a floodlit artificial pitch, smiling, no men, real-looking photo, no text, no logos
+329 | facepaint-1 | Children having their faces painted at an outdoor family festival: a smiling child with a colourful butterfly face paint, artist with brush and paint palette, sunny park, real-looking photo, no text, no logos
+330 | sailing-1 | Traditional wooden Arabian dhow sailing boats with big white triangular sails racing on the turquoise sea off Dubai, crews on deck, real-looking photo, no text, no logos
+331 | obstacle-1 | Obstacle course race in the desert: muddy runners climbing a wooden wall and crawling under ropes, sand dunes behind, team spirit, real-looking photo, no text, no logos
+332 | bodybuilding-1 | Bodybuilding and fitness competition on a stage: athletes posing under bright spotlights in front of judges and an audience, real-looking photo, no text, no logos
+333 | sport_ladies-2 | Women's cycling group ride at sunrise on a dedicated cycling track by the sea in Abu Dhabi: female cyclists in helmets and kit, no men, real-looking photo, no text, no logos
 324 | afternoon_tea-1 | Elegant afternoon tea on a three-tier silver stand with finger sandwiches, scones, macarons and petits fours, porcelain teapot and cups on a marble table in a bright luxury hotel lounge with tall windows
 325 | dance_ladies-1 | Women-only heels dance class in a bright studio with mirrors: a group of women in black outfits and high heels dancing a choreography together, no men, warm studio lighting
 326 | afternoon_tea-2 | Close-up of an afternoon tea set by a sunny window: pastel macarons, mini cakes and scones on a tiered stand, tea being poured into a fine china cup, soft natural light

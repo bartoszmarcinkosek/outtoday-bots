@@ -1,0 +1,30 @@
+{
+ "note": "Tester A 26.11.2026 (nocny przegląd kart, 140 nowych wydarzeń). Odrzucone: dwie wędrówki Highlander za granicą (Mount Macedon – Australia, Ehmej – Liban) wpisane jako Ras Al Khaimah; Dubai Fitness Challenge 2025 (strona Bluewaters pokazuje program z 2025). Połączone w jedną kartę: Rencontre de Cléopâtre (29–31.01), Peter Pan WellSpring (9–12.12), Hansel & Gretel ADDS (9–10.12). Gulf Bar Show: data poprawiona na 30.11–1.12.2026 wg Platinumlist (było 1.04.2027). Tytuły: wycięty separator (kilka spacji) zastąpiony ' – ', bez WIELKICH LITER; YE Live → kategoria music.",
+ "update_event_ids": [
+  {"id": "29029d25-fb77-4403-a29b-798e063fb527", "set": {"title": "Théâtre – Rencontre de Cléopâtre et de la reine de Saba", "end_date": "2027-01-31", "start_time": "20:00", "end_time": "21:00", "venue": "Alliance Française Dubai, Oud Metha", "description": "Play by Bernard Da Costa, in French, at Alliance Française Dubai. 29 and 30 January at 8 pm, 31 January at 7 pm. Tickets 150 AED (members 140 AED)."}},
+  {"id": "1822b6dc-371e-40fa-9d59-444a1eaa6165", "set": {"title": "Peter Pan – WellSpring Private School musical", "end_date": "2026-12-12", "description": "A musical based on the play by J.M. Barrie, performed by students of The WellSpring Private School and presented in partnership with the Ministry of Culture. Directed by Lori Grimes. Shows on 9 and 10 December start at 6 pm, on 11 and 12 December at 7 pm. For tickets contact the school."}},
+  {"id": "eae9260b-30e5-4f88-91ee-f2985c5f5e08", "set": {"end_date": "2026-12-10"}},
+  {"id": "8c916262-b955-4114-b3d2-a604efb2d4d5", "set": {"start_date": "2026-11-30", "end_date": "2026-12-01", "start_time": "12:00", "end_time": "21:00", "price_text": "From 195 AED", "price_min_aed": 195, "is_free": false, "description": "Bar and drinks trade show with 100+ exhibitors, tasting rooms, bar pop-ups and seminars, held alongside Salon du Chocolat at Madinat Jumeirah. 21+ only."}},
+  {"id": "c11eb3c9-3342-49a7-aeba-764329917961", "set": {"category": "music"}},
+  {"id": "a4a392a1-10de-45d5-82e8-4ca7e36c42e7", "set": {"title": "Romeo & Juliet by Nujoom Theatre Production"}},
+  {"id": "4bcbfc12-97b4-40bb-a5e5-13396d2a09c0", "set": {"title": "Expat Friday Social – Eat & Chat Meetup"}},
+  {"id": "6bdf96e4-a15d-4867-ba46-e5b5b65cdd48", "set": {"title": "Sven Väth – House Rules"}},
+  {"id": "6dad460f-926a-4df8-99fb-b24499e65dd1", "set": {"title": "Pawsa – New Year's Eve at Pacha ICONS"}},
+  {"id": "6db6f464-4bac-4987-b85b-324335384edc", "set": {"title": "Sonny Fodera at Bohemia – NYE Special Edition"}},
+  {"id": "7c28d912-c451-40c8-bd5b-b36b2d609547", "set": {"title": "Rafael – Skyline Saturdays"}},
+  {"id": "848c12c3-087e-4e1a-b3ef-a7b2d69b2094", "set": {"title": "Plus One – New Special by Mohamed Helmy"}},
+  {"id": "a62f6d1c-2f99-4ebb-9f5a-2ab0cb149442", "set": {"title": "Aitch – Mash-up Fridays"}},
+  {"id": "ed5946b1-055f-4443-a791-4293c630d61c", "set": {"title": "Crowd Gigs – Interactive Show by Mohamed Helmy"}},
+  {"id": "f008d078-445d-46f1-96a2-661b4c070152", "set": {"title": "Wrestlefest"}},
+  {"id": "fbc3ed68-a33d-43d9-9f1d-6087cf1f74a9", "set": {"title": "Indo Warehouse – New Year's Eve at the Penthouse Club"}}
+ ],
+ "reject_event_ids": [
+  "2ee4ca1a-7a14-4e3c-a61c-7d7d4596d5d4",
+  "65671580-b012-466e-9d01-d798bd1cc047",
+  "5a315de5-f9b4-4017-a59a-1a4f53ea6eb1",
+  "70adf88a-eede-4750-b586-85e755a3ca69",
+  "084ef067-6bf1-4cb6-811d-352ff509b4d1",
+  "b00c5796-9807-465a-8efd-cf2f082bfad2",
+  "a83a4ac9-6251-40f7-8ef3-a03ee691ea86"
+ ]
+}

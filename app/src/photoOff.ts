@@ -10,4 +10,5 @@ export const PHOTO_OFF = new Set<string>([
   'ca1bd774-a10b-4dd9-aac9-6388120a8873', // Book an Easel – rysowanie przy sztaludze w muzeum, a dostawało książkę w bibliotece
   'cab8c08c-03fe-4513-9ace-536f0efdae54', // XCAT World Championship: Fujairah Grand Prix – wyścig łodzi motorowych, a dostawał bolid F1
   '1e9f88b3-4235-421d-b6d5-56456db9d39b', // Ajman Fish Market – targ rybny, a dostawał suk z przyprawami
+  '7f4f1304-e035-400c-a3c0-dc6e91d36c76', // UAE National Day Celebrations – kilka miejsc w Szardży, a dostawało plażę Chorfakkan (tester 26.11)
 ]);
