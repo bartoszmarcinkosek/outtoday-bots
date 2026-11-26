@@ -276,7 +276,7 @@ for city in CITIES:
     seen |= {x["id"] for x in free}
     fam = sorted((x for x in mine if (x.get("category") == "family") and x["id"] not in seen), key=rank)[:5]
     br = sorted((x for x in dl if (x.get("city") or "") == city and x.get("deal_type") == "brunch" and set(x.get("days_of_week") or []) & wdays),
-                key=lambda x: x["title"])[:5]
+                key=lambda x: (len(x.get("days_of_week") or []) > 3, x["title"]))[:5]  # najpierw brunche tylko weekendowe
     if not top and not br:
         continue
     slug = city.lower().replace(" ", "-")
