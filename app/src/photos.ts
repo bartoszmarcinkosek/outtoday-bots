@@ -192,6 +192,11 @@ function pool(item: Item): number[] {
   }
   if (lm && AREAS.has(lm[1]) && (!PHOTO_FILES[lm[1]] || (item.kind !== 'place' && !hotelDeal))) lm = undefined;
   if (lm && hotelDeal && AREAS.has(lm[1])) return [...PHOTO_FILES[lm[1]], ...(PHOTO_FILES[item.catKey] ?? [])];
+  // Staycation w hotelu przy plaży („Beach Resort”, Al Aqah, Fujairah): zdjęcie resortu z basenem i plażą (day pass),
+  // a nie pokój – zgłoszenie testerki 26.11.2026 (Fairmont Fujairah Beach Resort).
+  if (item.kind === 'deal' && item.catKey === 'staycation' && /beach (resort|hotel|club)|resort (&|and) spa|al aqah|beachfront/i.test(placeText) && PHOTO_FILES.day_pass) {
+    return [...PHOTO_FILES.day_pass];
+  }
   // Oferty (ladies night, brunch, quiz) w znanym miejscu: zdjęcie rodzaju oferty. Budynek tylko dla staycation / day pass.
   if (lm && item.kind === 'deal' && item.catKey !== 'staycation' && item.catKey !== 'day_pass' && CAT[item.catKey]) lm = undefined;
   // Areny i sale (Etihad Arena, Coca-Cola Arena, Opera...): event z rozpoznanym rodzajem (komedia, koncert DJ, teatr)
