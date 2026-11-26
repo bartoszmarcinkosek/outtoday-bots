@@ -94,7 +94,7 @@ const RULES: [RegExp, string][] = [
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|regatta|sailing (?!the)|rowing/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|\bbach\b|vivaldi|handel|mozart|beethoven|chopin|tchaikovsky|young maestro|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian|biswa kalyan|max angioni|paul chowdhry|sapan verma|varun grover|gursimran khamba|angad ranyal|bader saleh|paul de saint sernin|trevor noah|max amini|nurlan saburov|whitney cummings|chai with chandan|steve harvey|apurva in emirates/i, 'comedy'],  // znani komicy bez słowa „comedy” w tytule (przegląd 26.11)
-  [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
+  [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b(?! night| evening| show)|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
   // kino plenerowe (plaża, dach, pod gwiazdami) -> zdjęcie pleneru; zwykły seans w sali -> sala kinowa (albo ikonka, póki zdjęcia nie ma)
   [/(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)\b.*(cinema|film|screening|movie)|(cinema|film|screening|movie).*\b(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)/i, 'cinema'],
   [/comic ?con\b/i, 'expo'],  // Film & Comic Con to targi, nie kino
@@ -202,6 +202,13 @@ const ONLY_IF = new Map<string, RegExp>([
   ['dinner-7', /indian|biryani|curry|tandoor|desi|pakistani|dawat|punjabi|bhatia|masala|kerala|thali|nepal|sri lankan|mughal/i],
   ['dinner-8', /teppan|japanese|wagyu|hibachi|benihana|yakiniku|omakase|robata/i],
   ['day_pass-8', /desert|bab al shams|al maha|qasr al sarab|telal|mleiha|al wadi|liwa|dunes?\b/i],
+  // tester B 27.11: świece Candlelight przy recitalu Yuja Wang; wydmy przy biegu na plaży Al Heera i w Ripe Market;
+  // stół z indykiem przy zapalaniu choinki; kameralny klub z gitarą przy koncertach w arenie (Home Alone, Encanto) i festiwalu na plaży
+  ['candlelight-5', /candlelight/i],
+  ['running-3', /desert|dunes?\b|trail|qudra|wadi|mountain|ultra|sand/i],
+  ['xmas-1', /brunch|dinner|lunch|feast|roast|turkey|buffet|menu|dining|supper|tea\b|meal|table|restaurant|grill|kitchen/i],
+  ['xmas-2', /brunch|dinner|lunch|feast|roast|turkey|buffet|menu|dining|supper|tea\b|meal|table|restaurant|grill|kitchen/i],
+  ['concert-5', /^(?![\s\S]*(arena|stadium|festival|beach|park\b|circuit|amphitheat|in concert|district))/i],
   ['brunch-10', /asian|japanese|chinese|dim sum|sushi|zuma|thai|korean|vietnam|izakaya|yum cha|baikingu|cantonese|nobu|hakkasan|shanghai|noodle|ramen|sake|nikkei|peking|bao\b/i],
 ]);
 // Zdjęcia z wieżowcami w ogólnej puli: tylko w miastach z wieżowcami (Ain Al Madhab Gardens w Fudżajrze dostawał park z wieżowcami – tester 27.11)
@@ -262,6 +269,8 @@ function pool(item: Item): number[] {
   // góry Jais: rodzaj z tytułu (park linowy, taras) NIE wygrywa – to zawsze góry, nie hala wspinaczkowa (wyjątek: sylwester, koncert, festiwal)
   const typeHit0 = item.kind !== 'deal' && lm ? RULES.find(([re]) => re.test(rest)) : undefined;
   const typeHit = lm && lm[1] === 'lm_jebel_jais' && typeHit0 && !/^(nye|fireworks|concert|festival)/.test(typeHit0[1]) ? undefined : typeHit0;
+  // świąteczny koncert w arenie (Mariah Carey's Christmastime w Etihad Arena): wnętrze areny, nie stół z indykiem (tester B 27.11)
+  if (typeHit && lm && VENUES.has(lm[1]) && /^(xmas|carols)$/.test(typeHit[1]) && PHOTO_FILES[`${lm[1]}_in`]) return [...PHOTO_FILES[`${lm[1]}_in`]];
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
   // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
   if (lm && item.kind === 'event' && VENUES.has(lm[1])) {

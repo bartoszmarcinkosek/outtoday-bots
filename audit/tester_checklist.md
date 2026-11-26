@@ -38,3 +38,8 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 2026-11-27 | Cena z portalu zupełnie zła | Katy Perry NYE gala (30 AED zamiast od 6 500 AED) | poprawione ręcznie
 2026-11-27 | Pakiet / zamknięty szczyt jako wydarzenie | Festive Package (Bedrock), World Majlis for Urban Intelligence | odrzucone
 2026-11-27 | Tytuł z kilkoma spacjami w starych wpisach | Yaw Owusu / Tatiana Chalhoub (Alserkal) | poprawione; qa_after_add: kilka spacji w tytule → FAIL (łapie też stare przy pełnym przebiegu)
+2026-11-27 | Wyprzedaż w liczbie mnogiej / wyprzedaż za rok | „Summer Sales (Back to School)” 2027, „Winter Clearance Sale” 2027 (Expo Centre Sharjah) | odrzucone; qa_after_add: sales? + summer/winter/clearance → FAIL
+2026-11-27 | Wystawa dwa razy: druga karta ma datę końca jako datę startu | Faris Alshafar, Yaw Owusu (Alserkal) | odrzucone / data poprawiona; łapie istniejąca reguła „ta sama strona biletów + inna data”
+2026-11-27 | Separator „|” lub „\” albo godzina w tytule | „Faris Alshafar | Everybody…”, „Saturday Run \ Al Heera Beach”, „Board game night…, 6 PM” | poprawione; qa_after_add: „|”/„\” → FAIL, godzina na końcu tytułu → WARN
+2026-11-27 | Cena = najdroższe miejsce | Max Amini, Coca-Cola Arena (1 795 zamiast od 195 AED) | poprawione ręcznie
+2026-11-27 | Zdjęcie innej czynności (3) | „Kuwaiti Musical Night” → balet; recital Yuja Wang → świece Candlelight; bieg na plaży → wydmy; zapalanie choinki → stół z indykiem; Mariah Carey w arenie → stół z indykiem; Home Alone/Encanto w arenie i festiwal na plaży → kameralny klub | photos.ts: „musical night” ≠ teatr; ONLY_IF candlelight-5, running-3, xmas-1/2, concert-5; święta w arenie → wnętrze areny

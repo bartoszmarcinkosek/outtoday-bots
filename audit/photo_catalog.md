@@ -115,3 +115,9 @@ staycation-1 | pokój hotelowy: łóżko ze szlafrokami, balkon z widokiem na mo
 staycation-5 | pokój hotelowy: łóżko, okno na morze o zachodzie
 swimming-1 | pływacy w czepkach na otwartym morzu o wschodzie (zawody pływackie)
 waterpark-1 | aquapark: kolorowe zjeżdżalnie, basen z falą i ludźmi na kółkach
+aquafit-1 | aqua aerobik: kobiety z hantlami w basenie, trenerka na brzegu, palmy
+jazz-1 | saksofonista i kontrabasista w ciemnym klubie jazzowym, świeca i whisky na stoliku
+lm_coca_cola_arena-1 | wnętrze areny: scena w kolorowych światłach, pełna widownia
+lm_etihad_arena-2 | budynek Etihad Arena o zmierzchu, złota fasada odbita w wodzie
+lm_madinat-1 | kanał Madinat Jumeirah z abrą, wieże wiatrowe, zachód słońca
+yoga-1 | joga na plaży o wschodzie słońca, kilka osób na matach

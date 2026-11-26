@@ -1,0 +1,17 @@
+{
+ "note": "Tester B 27.11.2026 (nocny przegląd 140 kart). Odrzucone: wyprzedaże w Expo Centre Sharjah (Summer Sales 2027, Winter Clearance Sale 2027) oraz zdublowane wystawy Alserkal z datą końca jako datą startu (Faris Alshafar 6a4dfb60, Yaw Owusu 68bf4209 – zostaje karta z poprawnym okresem). Max Amini w Coca-Cola Arena: cena od 195 AED (było 1 795 = najdroższe miejsce), 20:30. Dopa World: festiwal arabskiej muzyki 18–19.12 w Jubilee Park. Alaipayuthey: malajalamski wieczór muzyki, tańca i komedii. Tytuły z „|” / „\\” / godziną poprawione.",
+ "update_event_ids": [
+  {"id": "18d452fa-4fbe-46c2-8a2a-52a7c4e45b4a", "set": {"start_date": "2026-11-16", "end_date": "2027-01-10"}},
+  {"id": "ddeb0be1-31b0-4a5e-9aec-28294bd36a35", "set": {"title": "Faris Alshafar – Everybody Changes Underwater"}},
+  {"id": "4cb11f58-570b-482e-a114-1b8958d39569", "set": {"title": "Fabienne Verdier – From Song To Light"}},
+  {"id": "5e709d3c-f076-4547-982e-2c824d2f1e5f", "set": {"title": "The Days Go On – Group Exhibition"}},
+  {"id": "4fe8308f-d467-49d0-a266-15e11deefa94", "set": {"title": "Saturday Run – Al Heera Beach"}},
+  {"id": "64ea10a2-9bcd-40df-81f9-ada1de3ce3e3", "set": {"title": "Board Game Night at DNA Board Game Cafe"}},
+  {"id": "673cb373-5e80-4bb6-8206-fe1bdf0f3c70", "set": {"venue": "Cargo, Pier 7, Dubai Marina"}},
+  {"id": "3b62f351-dae2-4226-87c1-40e886fa0a3b", "set": {"start_time": "20:30", "price_text": "From AED 195", "price_min_aed": 195, "is_free": false, "description": "Stand-up comedian Max Amini brings his 'United Nations of Comedy' show to Coca-Cola Arena on Sunday 27 December 2026 at 8:30 pm (doors 7 pm). Ages 16+."}},
+  {"id": "60f36ea3-4688-4965-a357-ee14a151fd21", "set": {"title": "Dopa World – Arab Music Festival", "venue": "Jubilee Park, Expo City Dubai", "end_date": "2026-12-19", "category": "music", "description": "Two-day festival of new Arab music and culture at Jubilee Park, Expo City Dubai: Marwan Pablo, Shehab, Dizzy Dros and more on 18 December, Saint Levant, Nour, Ghassan and more on 19 December, plus streetwear, food and local brands. Tickets from AED 149."}},
+  {"id": "4982aa3d-dbf3-4a21-b964-abd212a7c119", "set": {"title": "Alaipayuthey Season 1 – Malayalam Music, Dance & Comedy Night", "category": "music", "description": "Malayalam entertainment night at Expo Centre Sharjah with Dileep, Nadir Shah, Anu Sithara and singers including Nithya Mammen and Anwar Sadath: live music, dance, comedy and mimicry. Saturday 12 December 2026, show 5 pm (doors 3 pm), ages 10+."}}
+ ],
+ "reject_event_ids": ["42210959-9a13-4a10-b927-d40eeac7b4fd", "5810e175-5381-4083-bd8b-036ec217ac35", "6a4dfb60-e9a8-44f4-b6ee-df2fa35be1a4", "68bf4209-d373-4d32-b282-f9854b87b461"],
+ "update_deal_ids": [], "reject_deal_ids": [], "update_place_ids": [], "reject_places": []
+}

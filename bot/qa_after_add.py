@@ -202,8 +202,14 @@ for e in {x["id"]: x for x in events}.values():
     # tytuł z wyciętym separatorem (kilka spacji: „Yaw Owusu   Where The Tide Flows”) – stare wpisy sprzed poprawki w run.py (tester 27.11.2026)
     if re.search(r"\S {2,}\S", e["title"]):
         out("FAIL", "event", e["id"], e["title"], "tytuł z kilkoma spacjami (wycięty separator) – wstaw „ – ”")
+    # separator „|” albo „\” w tytule (Alserkal „Faris Alshafar | Everybody…”, „Saturday Run \ Al Heera Beach” – tester B 27.11.2026)
+    if re.search(r"\s[|\\]\s|\s[|\\]|[|\\]\s", e["title"]):
+        out("FAIL", "event", e["id"], e["title"], "separator „|” lub „\\” w tytule – wstaw „ – ”")
+    # godzina w tytule („Board game night …, 6 PM”) – godzina należy do pola start_time (tester B 27.11.2026)
+    if re.search(r",?\s\d{1,2}(:\d{2})?\s?(am|pm)\s*$", e["title"], re.I):
+        out("WARN", "event", e["id"], e["title"], "godzina w tytule – przenieś do start_time")
     # promocje sklepów i centrów handlowych to nie wydarzenia (zasada właściciela; „12-Day Super Sale” w Reem Mall, 26.11.2026)
-    if re.search(r"\b(super |mega |big |flash |mid[- ]season |year[- ]end )?sale\b|\d+\s?% off|\bdiscounts?\b|\bshopping festival offers?\b", e["title"], re.I) \
+    if re.search(r"\b(super |mega |big |flash |mid[- ]season |year[- ]end |summer |winter |clearance )?sales?\b|\d+\s?% off|\bdiscounts?\b|\bshopping festival offers?\b", e["title"], re.I) \
             and not re.search(r"book (sale|fair)|garage sale|car boot|yard sale|charity", e["title"], re.I):
         out("FAIL", "event", e["id"], e["title"], "promocja/wyprzedaż, nie wydarzenie")
     # długie wydarzenie, które jest stałym miejscem z apki (La Perle jako miejsce i jako „wydarzenie do 31.12”, zgłoszenie 26.11.2026)
