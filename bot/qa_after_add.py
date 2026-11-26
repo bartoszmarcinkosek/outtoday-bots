@@ -139,6 +139,9 @@ def _city(table, cols, city):
 
 STATUS = {x["id"]: x["status"] for x in events + deals + places}
 
+# pary sprawdzone ręcznie: podobne nazwy, ale to różne rzeczy (audit/qa_not_dupes.txt: "id1 id2 # opis")
+_nd = os.path.join(os.path.dirname(__file__), "..", "audit", "qa_not_dupes.txt")
+NOT_DUPES = {frozenset(l.split()[:2]) for l in (open(_nd) if os.path.exists(_nd) else []) if len(l.split()) >= 2 and not l.startswith("#")}
 for e in {x["id"]: x for x in events}.values():
     if e["status"] not in ("approved", "pending") or (not SINCE and e["status"] != "approved"):
         continue
@@ -187,8 +190,6 @@ for d in {x["id"]: x for x in deals}.values():
     oks += 1
 
 # pary sprawdzone ręcznie: podobne nazwy, ale to różne miejsca (audit/qa_not_dupes.txt: "id1 id2 # opis")
-_nd = os.path.join(os.path.dirname(__file__), "..", "audit", "qa_not_dupes.txt")
-NOT_DUPES = {frozenset(l.split()[:2]) for l in (open(_nd) if os.path.exists(_nd) else []) if len(l.split()) >= 2 and not l.startswith("#")}
 for p in {x["id"]: x for x in places}.values():
     if p["status"] not in ("approved", "pending") or (not SINCE and p["status"] != "approved"):
         continue
