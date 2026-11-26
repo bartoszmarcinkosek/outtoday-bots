@@ -1,0 +1,36 @@
+{
+ "note": "Luki z kontroli pokrycia 26.11 (ladies night w małych emiratach). Neo – strona Mövenpick + kalendarz organizatora do 31.12.2026; XOLO – strona oferty Fairmont Ajman (bez daty końca).",
+ "deals": [
+  {
+   "title": "Neo Ladies Night",
+   "deal_type": "ladies_night",
+   "venue": "Neo Sky Bar, Mövenpick Resort Al Marjan Island",
+   "area": "Al Marjan Island",
+   "city": "Ras Al Khaimah",
+   "official_url": "https://movenpick.accor.com/en/middle-east/uae/ras-al-khaimah/resort-al-marjan-island/restaurants/neo-sky-bar.html",
+   "days_of_week": [4],
+   "start_time": "20:00",
+   "end_time": "00:00",
+   "price_text": "Buy 1, get 1 free drinks for ladies, from AED 26",
+   "details": "Every Thursday on the rooftop bar with 360° views of Marjan Island: buy-one-get-one-free drinks package for ladies and live DJ.",
+   "valid_until": "2026-12-31",
+   "status": "approved",
+   "source_name": "movenpick.accor.com"
+  },
+  {
+   "title": "Glam Hour Ladies Night at XOLO",
+   "deal_type": "ladies_night",
+   "venue": "XOLO Sports Bar, Fairmont Ajman",
+   "area": "Al Nakhil",
+   "city": "Ajman",
+   "official_url": "https://www.fairmont.com/en/hotels/ajman/fairmont-ajman/offers/glam-hour-ladies-night.html",
+   "days_of_week": [1, 2, 3, 4, 5],
+   "start_time": "20:00",
+   "end_time": "00:00",
+   "price_text": "First cocktail free for ladies",
+   "details": "Monday to Friday: one complimentary house cocktail for ladies (e.g. Espresso Martini, Margarita, Gin Basil). Sports bar with pool tables and live sports.",
+   "status": "approved",
+   "source_name": "fairmont.com"
+  }
+ ]
+}
