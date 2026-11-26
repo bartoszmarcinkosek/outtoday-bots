@@ -1,0 +1,53 @@
+name: QA after bots (rule 26.11.2026)
+# REGUŁA właściciela 26.11.2026: kontrola jakości po KAŻDYM wyszukiwaniu.
+# Po zakończeniu każdego bota, który dodaje lub poprawia wpisy, sprawdza wszystko, co zmieniło się od startu tego przebiegu.
+# Zatwierdzona pozycja z błędem (duplikat, minione daty, agregator, martwy link, brak ceny i godziny) wraca do 'pending'.
+# Ręczne dodania (manual-add.yml) mają tę samą kontrolę jako ostatni krok.
+
+on:
+  workflow_run:
+    workflows:
+      - "Events bot"
+      - "Hotel offers (all UAE)"
+      - "Instagram (official accounts -> pending events)"
+      - "Newsletters (Gmail -> deals)"
+      - "Hints (Cobone/Groupon -> official pages)"
+      - "Fill time and price"
+      - "Fill links"
+      - "Nightly check (free, no AI)"
+      - "Fill descriptions"
+      - "Opening hours table (Open now)"
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Sprawdź zmiany od (ISO, np. 2026-11-26T00:00:00Z)"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qa-after-bots
+  cancel-in-progress: false
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Kontrola jakości po przebiegu bota
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          SINCE: ${{ inputs.since || github.event.workflow_run.run_started_at }}
+          QA_FIX: "1"
+        run: |
+          echo "Po: ${{ github.event.workflow_run.name }} (${{ github.event.workflow_run.html_url }})"
+          python bot/qa_after_add.py

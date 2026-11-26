@@ -1,6 +1,10 @@
 """REGUŁA (26.11.2026, decyzja właściciela): KONTROLA JAKOŚCI PO KAŻDYM WYSZUKIWANIU.
-Uruchamiana automatycznie po każdym pliku manual/*.json (workflow manual-add.yml), czyli po każdym dodaniu
-lub poprawce z ręcznego wyszukiwania, WhatsAppa, zrzutów itd. Bez AI, bezpłatna.
+Uruchamiana automatycznie:
+  - po każdym pliku manual/*.json (workflow manual-add.yml): ręczne wyszukiwanie, WhatsApp, zrzuty itd.,
+  - po każdym przebiegu botów, które dodają lub poprawiają wpisy (workflow qa-after-bots.yml, tryb SINCE):
+    sprawdza wszystko, co powstało lub zmieniło się od startu tego przebiegu.
+    Zatwierdzona pozycja z błędem (FAIL) wraca do 'pending' (QA_FIX=1) – znika z apki do mojego przeglądu.
+Bez AI, bezpłatna.
 Dla każdej pozycji z pliku (nowej i poprawianej) sprawdza:
   - duplikat: to samo wydarzenie / oferta / miejsce już zatwierdzone pod inną nazwą (ten sam dzień i miasto),
   - daty: początek w przeszłości, koniec przed początkiem, rok w tytule inny niż rok wydarzenia,
@@ -30,13 +34,17 @@ def out(level, kind, ident, title, msg):
 
 def link_state(u):
     try:
-        r = requests.get(u, headers=UA, timeout=20, allow_redirects=True)
+        r = requests.get(u, headers=UA, timeout=12, allow_redirects=True)
         return r.status_code
     except requests.RequestException as e:
         return -404 if re.search(r"NameResolution|getaddrinfo|Name or service not known", str(e)) else 0
 
 
 def check_link(kind, ident, title, u, need):
+    if SINCE and STATUS.get(ident) != "approved":
+        if u and AGGR.search(urlparse(u).netloc):
+            out("FAIL", kind, ident, title, f"link do agregatora: {u}")
+        return  # oczekujące: link sprawdzam przy przeglądzie, tu tylko agregator
     if not u:
         if need:
             out("WARN", kind, ident, title, "brak linku do organizatora")
@@ -46,6 +54,20 @@ def check_link(kind, ident, title, u, need):
     st = link_state(u)
     if st in (404, 410, -404):
         out("FAIL", kind, ident, title, f"martwy link ({'domena nie istnieje' if st == -404 else st}): {u}")
+
+
+SINCE = os.environ.get("SINCE", "").strip()
+FIX = os.environ.get("QA_FIX") == "1"
+STAT = "in.(approved,pending)" if SINCE else "eq.approved"
+fixed = []
+
+
+def changed(table, cols):
+    """Tryb SINCE: wiersze dodane lub zmienione od startu przebiegu bota."""
+    try:
+        return db.get(table, {"select": cols, "status": STAT, "or": f"(created_at.gte.{SINCE},updated_at.gte.{SINCE})", "limit": "3000"})
+    except Exception:
+        return db.get(table, {"select": cols, "status": STAT, "created_at": f"gte.{SINCE}", "limit": "3000"})
 
 
 files = [f for f in os.environ.get("FILES", "").split() if f.startswith("manual/") and f.endswith(".json") and os.path.exists(f)]
@@ -72,8 +94,36 @@ places = db.get("places", {"select": "id,name,city,official_url,status,category"
 for p in new_pl:
     places += db.get("places", {"select": "id,name,city,official_url,status,category", "name": f"eq.{p['name']}"})
 
+EV_COLS = "id,title,city,venue,start_date,end_date,official_url,status,category"
+if SINCE:
+    events, deals, places = changed("events", EV_COLS), changed("deals", "id,title,city,venue,price_text,start_time,official_url,status"), \
+        changed("places", "id,name,city,official_url,status,category")
+    print(f"QA|INFO|tryb SINCE {SINCE}: events {len(events)}, deals {len(deals)}, places {len(places)}")
+
+_out = out
+
+
+def out(level, kind, ident, title, msg):  # noqa: F811 – przy FIX zatwierdzona pozycja z FAIL wraca do pending
+    _out(level, kind, ident, title, msg)
+    if level == "FAIL" and FIX and ident not in fixed and STATUS.get(ident) == "approved":
+        fixed.append(ident)
+        db.update({"event": "events", "deal": "deals", "place": "places"}[kind], {"id": ident}, {"status": "pending"})
+        print(f"QA|FIXED|{kind}|{ident}|wraca do pending")
+
+
+_cache = {}
+
+
+def _city(table, cols, city):
+    if (table, city) not in _cache:
+        _cache[(table, city)] = db.get(table, {"select": cols, "status": "eq.approved", "city": f"eq.{city}", "limit": "3000"})
+    return _cache[(table, city)]
+
+
+STATUS = {x["id"]: x["status"] for x in events + deals + places}
+
 for e in {x["id"]: x for x in events}.values():
-    if e["status"] != "approved":
+    if e["status"] not in ("approved", "pending") or (not SINCE and e["status"] != "approved"):
         continue
     try:
         sd = dt.date.fromisoformat(e["start_date"]); ed = dt.date.fromisoformat(e["end_date"]) if e.get("end_date") else sd
@@ -99,13 +149,13 @@ for e in {x["id"]: x for x in events}.values():
     oks += 1
 
 for d in {x["id"]: x for x in deals}.values():
-    if d["status"] != "approved":
+    if d["status"] not in ("approved", "pending") or (not SINCE and d["status"] != "approved"):
         continue
     if not d.get("price_text") and not d.get("start_time"):
         out("FAIL", "deal", d["id"], d["title"], "oferta bez ceny i bez godziny")
     if d.get("city") not in CITIES:
         out("FAIL", "deal", d["id"], d["title"], f"miasto spoza listy: {d.get('city')}")
-    same = db.get("deals", {"select": "id,title,venue", "status": "eq.approved", "city": f"eq.{d['city']}", "limit": "2000"})
+    same = _city("deals", "id,title,venue", d["city"])
     for o in same:
         if o["id"] != d["id"] and R.norm(o.get("venue") or "")[:20] == R.norm(d.get("venue") or "")[:20] and R.titles_match(o["title"], d["title"]):
             out("FAIL", "deal", d["id"], d["title"], f"możliwy duplikat: {o['id']} '{o['title'][:50]}'")
@@ -113,14 +163,15 @@ for d in {x["id"]: x for x in deals}.values():
     oks += 1
 
 for p in {x["id"]: x for x in places}.values():
-    if p["status"] != "approved":
+    if p["status"] not in ("approved", "pending") or (not SINCE and p["status"] != "approved"):
         continue
-    same = db.get("places", {"select": "id,name", "status": "eq.approved", "city": f"eq.{p['city']}", "limit": "2000"})
+    same = _city("places", "id,name", p["city"])
     for o in same:
         if o["id"] != p["id"] and R.titles_match(o["name"], p["name"]):
             out("FAIL", "place", p["id"], p["name"], f"możliwy duplikat: {o['id']} '{o['name'][:50]}'")
     check_link("place", p["id"], p["name"], p.get("official_url"), False)
     oks += 1
 
-print(f"QA|SUMMARY|checked {oks}|fail {fails}|warn {warns}")
-sys.exit(1 if fails else 0)
+print(f"QA|SUMMARY|checked {oks}|fail {fails}|warn {warns}|back to pending {len(fixed)}")
+# w trybie botów błąd już naprawiony (pozycja ukryta) – run nie jest czerwony; ręczne dodanie – czerwony, poprawiam od razu
+sys.exit(1 if fails and not (SINCE and FIX) else 0)
