@@ -266,3 +266,5 @@ aradaliving | odrzucone ręcznie (inne miejsce / nie pasuje) | 2026-11-25
 suwaidi_pearls | martwe konto (ostatni post 2024-07-29) | 2026-11-25
 icelandwaterpark | nie istnieje pod tą nazwą | 2026-11-25
 ramada_beach_ajman | nie istnieje pod tą nazwą | 2026-11-25
+turtle_beach_restaurant_bar | nie istnieje pod tą nazwą | 2026-11-26
+wavecafe.ae | martwe konto (ostatni post 2022-01-02) | 2026-11-26
