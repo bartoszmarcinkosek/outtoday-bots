@@ -1,0 +1,134 @@
+{
+ "note": "Extra QC run 2026-11-26: 120 deals compared with their source pages in three rounds. Verified 29 (19 unchanged, 10 corrected from the page), 6 ended or no longer listed, 43 unreadable (site blocks the bot browser and WebFetch), 42 not confirmed and left unchanged; 3 dead links replaced without verification.",
+ "reject_deal_ids": [
+  "f4d901c5-b0e3-4fd2-a691-46eb4893fc4f",
+  "241af6af-242a-43e6-9e16-e5ebc714b33e",
+  "cdbbcbb4-1b7d-4343-8ad6-77c66fc2b8cb",
+  "49a2fd75-5934-4eca-89a4-60d5f107eea4",
+  "8322b21d-a3a6-4425-a4bb-a1efa0c0f8e2",
+  "3a500aaf-7e08-41ef-8f50-ac375c44fa24"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "47de9489-1ecf-4676-97b0-a82255fc0c02",
+   "set": {
+    "price_text": "Selected cocktails AED 40",
+    "venue": "Orilla, Hotel Local Dubai"
+   }
+  },
+  {
+   "id": "316be9b9-e90c-4c89-9bc6-2b6b6657323d",
+   "set": {
+    "price_text": "AED 39 pints of Heineken from 7 to 9 pm"
+   }
+  },
+  {
+   "id": "5c4f584a-85d2-4309-aaff-be2bb70884b0",
+   "set": {
+    "price_text": "AED 300 soft · AED 600 house beverages · kids AED 150",
+    "details": "Carnival Day brunch with live entertainment, kids' activities and pool and beach access; after party AED 169"
+   }
+  },
+  {
+   "id": "2429f9a9-3d8a-4530-832e-50080dcd6e33",
+   "set": {
+    "title": "Pit Fire BBQ Brunch",
+    "price_text": "From AED 199 (soft drinks)",
+    "details": "Saturday BBQ brunch with live-fire cooking and BBQ flavours from around the world"
+   }
+  },
+  {
+   "id": "98f5b820-f42a-4c1a-bc0d-27065920b3fa",
+   "set": {
+    "title": "International Dinner Buffet at Salt & Pepper",
+    "price_text": "AED 111 per person · AED 59 per child",
+    "details": "Nightly international buffet with live stations and a different chef's special every night"
+   }
+  },
+  {
+   "id": "1174afc9-530f-4863-a067-38abf5471b68",
+   "set": {
+    "price_text": "AED 275 per person, food only; children 5-11 AED 135; under 5 free"
+   }
+  },
+  {
+   "id": "fc873a2b-9ff1-40dc-9c88-23963744ae19",
+   "set": {
+    "official_url": "https://www.marriott.com/en-us/hotels/dxbgh-sheraton-grand-hotel-dubai/dining/"
+   }
+  },
+  {
+   "id": "20c038a6-0aeb-41b8-957f-4d16646d9737",
+   "set": {
+    "official_url": "https://www.marriott.com/en-us/hotels/dxbmb-the-westin-dubai-mina-seyahi-beach-resort-and-marina/dining/"
+   }
+  },
+  {
+   "id": "1957a1ce-8872-4065-9185-2780c22b76c3",
+   "set": {
+    "official_url": "https://www.mcgettigans.com/jlt-dubai/whats-on.html"
+   }
+  },
+  {
+   "id": "3e8af7e7-8899-4b28-91aa-1f4e54409a00",
+   "set": {
+    "official_url": "https://www.anantara.com/en/palm-dubai/offers/pool-and-beach-day-pass",
+    "details": "Weekend and public-holiday pool and beach day pass; vouchers collected at the pool counter from 10:00"
+   }
+  },
+  {
+   "id": "681d4b04-729a-4805-81ac-b8145a914c50",
+   "set": {
+    "official_url": "https://world.nh-hotels.com/en/nh-collection-dubai-ibn-battuta/offers/daydream-saturday-brunch",
+    "price_text": "AED 299 soft · AED 399 house · AED 499 sparkling · children 6-11 AED 149",
+    "details": "Saturday buffet brunch at Taste with free-flow drinks and a children's corner"
+   }
+  },
+  {
+   "id": "9fcb9ccf-08b4-4e85-9fc5-168da66625ee",
+   "set": {
+    "price_text": "Starting from AED 295 per person (Kusa AED 295; Kesseki AED 395; Champagne & Sake upgrade AED 150 per person)"
+   }
+  },
+  {
+   "id": "dd91ee92-1697-48cf-8376-fcfc329b1c52",
+   "set": {
+    "title": "Eat Up at Besh",
+    "price_text": "AED 125 food only · AED 185 with three glasses of raki",
+    "end_time": "21:00:00",
+    "details": "Two hours of unlimited Turkish dishes from a set menu"
+   }
+  }
+ ],
+ "verified_deal_ids": [
+  "3099ec03-b92a-4eae-b5c6-9292ba445828",
+  "5806d720-e595-490a-8be4-617cb82e2995",
+  "f62c10ab-440b-4e18-8573-db962d90f5d7",
+  "047833ed-9521-44d9-8d9e-31cc5c45a4f6",
+  "a3e8958c-4fb7-4d57-a49d-7b74a6fb8ac2",
+  "47de9489-1ecf-4676-97b0-a82255fc0c02",
+  "316be9b9-e90c-4c89-9bc6-2b6b6657323d",
+  "5c4f584a-85d2-4309-aaff-be2bb70884b0",
+  "2429f9a9-3d8a-4530-832e-50080dcd6e33",
+  "98f5b820-f42a-4c1a-bc0d-27065920b3fa",
+  "1174afc9-530f-4863-a067-38abf5471b68",
+  "3e8af7e7-8899-4b28-91aa-1f4e54409a00",
+  "681d4b04-729a-4805-81ac-b8145a914c50",
+  "e00cd200-3b83-406c-955c-8608c447e4ad",
+  "587ca82b-9c48-4428-939d-41340910965e",
+  "e83bbd70-ece3-4362-8106-6bf5719fa50c",
+  "700c09ac-9007-4ddb-815f-30ca09c55176",
+  "cb1adf77-9245-4f74-99cc-5eb655f4bc4f",
+  "700b433d-a2a9-40cf-8d87-c636239259f2",
+  "cfaafe28-4b4f-484c-9d53-f74afa287269",
+  "ab0e9259-1bcb-422e-9bb6-8a967bbd49f8",
+  "a8fd02e9-6b2c-4370-8427-261d3200a50b",
+  "9fcb9ccf-08b4-4e85-9fc5-168da66625ee",
+  "dd91ee92-1697-48cf-8376-fcfc329b1c52",
+  "cf6fd9de-f5e0-4728-b9e8-fd505756dff6",
+  "d0270969-43aa-4f36-9fd4-e7937969731a",
+  "7c45f00c-f008-465e-8b9e-2cf391660b13",
+  "552db673-a830-4109-8b22-4da8615224ab",
+  "03256b0d-bc75-4f87-bd62-15546cc7f4bf"
+ ]
+}
