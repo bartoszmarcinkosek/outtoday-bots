@@ -1,0 +1,7 @@
+{
+ "note": "QC night run 2, fixes after the quality check: Kayan Wellness Festival entry was a duplicate of an existing one (rejected); the Saadiyat Beach Club early-bird offer is a different offer from Ladies' Day (approved again), and Ladies' Day price updated from the club's page.",
+ "reject_event_ids": ["db17405a-f331-4d6e-9da0-eb9c04e809dd"],
+ "approve_deal_ids": ["f55fb0e6-dd34-4d79-abfd-d4cf1fdeec44"],
+ "update_deal_ids": [{"id": "f7dcc306-982f-4d0c-9a4b-87f5da304dc4", "set": {"price_text": "AED 219", "details": "Full-day beach access with selected drinks and one snack served 12:00 to 16:00", "official_url": "https://www.saadiyatbeachclub.ae/offers/ladies-offers/"}}],
+ "verified_deal_ids": ["f7dcc306-982f-4d0c-9a4b-87f5da304dc4"]
+}

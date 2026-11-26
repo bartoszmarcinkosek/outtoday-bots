@@ -13,3 +13,4 @@ c764cb19-a9e2-478b-a37c-87bc92e3f09c f7dcc306-982f-4d0c-9a4b-87f5da304dc4 # Saad
 4ed357df-f079-4fe0-a785-1f818634b716 623aa9d3-d53d-44f0-a8bf-19738a73ad1a # Jebel Hafit mountain ≠ Jebel Hafit Desert Park
 7b9d5eb7-b579-4cef-a795-7e3f384e16ce 8adde3f6-2757-47a6-9421-bea2c79216bb # Al Qawasim Corniche ≠ mangrove kayaking there
 b7f07333-9556-4c05-8fc6-47acf13ef1bb d3b712b6-1cdd-46f2-af20-8b12e1d18959 # Al Bateen Ladies Beach ≠ Al Bateen Beach
+f55fb0e6-dd34-4d79-abfd-d4cf1fdeec44 f7dcc306-982f-4d0c-9a4b-87f5da304dc4 # Saadiyat Beach Club: ladies' early bird (Mon-Fri before 9) ≠ ladies day (Tue, Fri)
