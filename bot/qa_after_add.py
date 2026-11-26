@@ -146,8 +146,8 @@ NOT_DUPES = {frozenset(l.split()[:2]) for l in (open(_nd) if os.path.exists(_nd)
 FOREIGN_RE = r"\b(australia|melbourne|sydney|\bvic\b|lebanon|beirut|ehmej|macedon|amman|wadi rum|egypt|cairo|sinai|saudi|riyadh|jeddah|alula|bahrain|manama|kuwait|tbilisi|armenia|yerevan|nepal|kathmandu|kilimanjaro|tanzania|kenya|morocco|marrakech|atlas mountains|istanbul|cappadocia|croatia|zagreb)\b"
 GLOBAL_ORG_RE = r"highlanderadventure\.com"
 UAE_RE = r"\b(uae|emirates|dubai|abu dhabi|sharjah|ajman|ras al khaimah|rak|fujairah|umm al quwain|al ain|hatta|jebel jais|jais|khor ?fakkan|kalba|dibba|liwa|al dhafra|mleiha)\b"
-# numer terminu na końcu tytułu: „29/1”, „(9–10 Dec)”, „– 12 Dec”, „(Day 2)”, „Show 2”
-SESSION_RE = re.compile(r"\s*(\(\s*\d{1,2}(\s*[–-]\s*\d{1,2})?\s*[a-z]{3,9}\.?\s*\)|\(\s*[a-z]{3,9}\s+\d{1,2}(\s*[–-]\s*\d{1,2})?\s*\)|\b\d{1,2}/\d{1,2}(/\d{2,4})?|[–-]\s*\d{1,2}\s+[a-z]{3,9}|\(?\b(day|show|session|part)\s*\d\)?)\s*$", re.I)
+# numer terminu na końcu tytułu: „29/1”, „(9–10 Dec)”, „– 12 Dec”, „(Day 2)”, „Show 2”, „Ripe Market -4”
+SESSION_RE = re.compile(r"\s*(\(\s*\d{1,2}(\s*[–-]\s*\d{1,2})?\s*[a-z]{3,9}\.?\s*\)|\(\s*[a-z]{3,9}\s+\d{1,2}(\s*[–-]\s*\d{1,2})?\s*\)|\b\d{1,2}/\d{1,2}(/\d{2,4})?|[–-]\s*\d{1,2}\s+[a-z]{3,9}|\(?\b(day|show|session|part)\s*\d\)?|\s[–-]\s?\d{1,2})\s*$", re.I)
 for e in {x["id"]: x for x in events}.values():
     if e["status"] not in ("approved", "pending") or (not SINCE and e["status"] != "approved"):
         continue

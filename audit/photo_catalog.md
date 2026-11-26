@@ -43,3 +43,40 @@ watersports-1 | paddleboard i kajak w turkusowej wodzie wśród namorzynów
 xmas-1 | świąteczny stół: indyk, świece, choinka, elegancka sala
 xmas-2 | długi stół świąteczny na dziedzińcu z palmami, choinka, goście
 xmas-3 | wielka choinka na dziedzińcu arabskiego pałacu nocą, palmy
+beaches-2 | pusta plaża o różowym zachodzie słońca, fale
+brunch-1 | bufet z owocami morza i ciastami, szampan, widok na morze z palmami
+brunch-2 | pancakes z owocami, awokado, koktajl i kawa na stole (śniadaniowy brunch)
+brunch-3 | długi bufet hotelowy: homary, owoce morza, kwiaty, jasna sala
+brunch-4 | goście przy bufecie, kucharze w białych czapkach, jasna sala z palmami
+brunch-7 | bufet deserów z fontanną czekoladową, torty, makaroniki
+comedy-1 | pusta scena z mikrofonem na statywie przy ceglanej ścianie, widownia
+comedy-2 | komik z mikrofonem na scenie przy ceglanej ścianie, widownia
+community-1 | ludzie grają w grę planszową przy drewnianym stole z kawą
+cricket-1 | pałkarz w bieli uderza piłkę na stadionie krykietowym
+dance-1 | para tańczy salsę/bachatę (kobieta w czerwonej sukience), sala taneczna
+daytrips-1 | kręta górska droga przez wadi, terenówka, skaliste góry
+dinner-4 | stek z grilla, czerwone wino, ciemna restauracja steakhouse
+dinner-9 | stolik ze świecami na tarasie nad morzem nocą
+expo-1 | hala targowa ze stoiskami i ekranami, ludzie w strojach biznesowych
+fort-1 | zamek/forteca z wieżami na skalnym klifie nad morzem
+fort-2 | piaskowy fort z wieżami i armatą, niebieskie niebo
+horse-1 | wyścig konny – dżokeje na koniach w pyle, zbliżenie
+ladies_night-4 | toast różowymi koktajlami przy zachodzie słońca nad morzem
+ladies_night-7 | kobiety przy barze z neonami, kolorowe koktajle
+ladies_night-8 | kobieta przy stoliku z sushi i szampanem w eleganckim lokalu
+lm_dubai_opera-1 | budynek Dubai Opera wieczorem, odbicie w wodzie, wieżowce
+lm_etihad_arena_in-1 | wnętrze Etihad Arena podczas koncertu, pełna widownia, scena w światłach
+lm_expo_city-1 | wnętrze kopuły Al Wasl z kolorową projekcją kwiatów
+lm_jebel_jais-1 | serpentyny drogi na Jebel Jais o zachodzie słońca
+lm_khorfakkan_beach-2 | promenada Chorfakkan z palmami, plaża i góry o zachodzie
+lm_louvre-5 | kopuła Louvre Abu Dhabi od spodu – „deszcz światła”
+lm_louvre_in-1 | biała sala muzeum z antycznymi rzeźbami, zwiedzająca
+mangrove-2 | kajaki w kanale wśród namorzynów o zachodzie
+market-1 | gwarny nocny targ z lampionami, tłum
+museums-1 | ciemna sala muzeum z gablotami (amfora), zwiedzający
+nature-1 | wydmy pustyni o zachodzie, samotna postać na grzbiecie
+nye-1 | fajerwerki nad wodą i wieżowcami, ludzie od tyłu
+padel-1 | gracz padla w wyskoku przy siatce na niebieskim korcie nocą
+parks-1 | miejski park: alejka, fontanna, palmy, wieżowce w tle
+parks-2 | park z fontanną, trawnikiem i palmami (bez wieżowców)
+talk-1 | sala konferencyjna: prelegent na scenie z ekranem, widownia

@@ -1,0 +1,28 @@
+{
+ "note": "Tester A, dodatkowy przebieg 26.11.2026 (140 kart). Połączone w jedną kartę: Eid Al Etihad Weekends na Al Marjan (4 weekendy 27.11–20.12), RAK Night Market (27.11–6.12), OO! Oven-Organ (27–28.11), Comedy Box Office Jaspreet Singh 27 i 28.11 (z dwóch źródeł). Odrzucone: wystawa Malik Thomas Jalil Kydd drugi raz (WH 37), Sunday Roast Short Rib Special (danie dnia, nie wydarzenie). Tytuły: kilka spacji → ' – ', bez WIELKICH LITER, bez numerów edycji („Ripe Market -4”), pełny skład DJ-ów zamiast samego „Bohemia Presents”.",
+ "update_event_ids": [
+  {"id": "482f6ab8-95c9-4bc2-a9a4-2b32cad97fb9", "set": {"title": "Eid Al Etihad Weekends at Al Marjan Island", "end_date": "2026-12-20", "end_time": "19:00", "description": "National Day celebrations at the entrance to Al Marjan Island, 4:00 to 7:00 PM every weekend (Friday to Sunday) from 27 November until 20 December."}},
+  {"id": "92dbae1c-0a00-429e-bac3-7328151b3142", "set": {"title": "RAK Night Market", "end_date": "2026-12-06"}},
+  {"id": "fde54015-473d-4815-a216-7ab881f00855", "set": {"title": "OO! (Oven-Organ) – sonic performance and communal meal", "end_date": "2026-11-28"}},
+  {"id": "3dad3daa-cec9-468e-9d76-8a3614ba9303", "set": {"title": "Comedy Box Office by Jaspreet Singh", "end_date": "2026-11-28"}},
+  {"id": "0c6ca209-6402-471e-80bf-008e50d8cf71", "set": {"title": "Bohemia Presents: John Bowtie, Paul Svenson, Kori Hall & more"}},
+  {"id": "02364afe-f92e-441f-b6a1-78ee4fdd78b7", "set": {"title": "Community Run at The Ripe Market"}},
+  {"id": "65b48f61-6e04-446f-ab7f-7d3166257f1a", "set": {"title": "Community Run at The Ripe Market"}},
+  {"id": "c0a60172-2f64-4b36-a936-32f74e37506a", "set": {"title": "Community Run at The Ripe Market"}},
+  {"id": "8b21a6b3-7bef-48c4-b85d-c1560e57f9eb", "set": {"title": "Nature Hike with Lions Sports Center", "venue": "Lions Sports Center (meeting point)"}},
+  {"id": "fd5ea120-8a1b-4803-8e37-5e880a723cb3", "set": {"title": "Nic Fanciulli – House Rules at the Penthouse"}},
+  {"id": "05507ec2-5cec-44d4-90f9-3fbc3498bfb9", "set": {"title": "Malik Thomas Jalil Kydd – As I Bask In Your Light, It Seeps To My Soul"}},
+  {"id": "3a4d78a5-5b28-465f-a66e-bd64cb07c16f", "set": {"title": "Saturday Board Gaming at South Market (Gate Avenue, DIFC)"}},
+  {"id": "72fbcd20-52cc-4522-886f-742624a6ba80", "set": {"title": "Saturday Board Gaming at South Market (Gate Avenue, DIFC)"}}
+ ],
+ "reject_event_ids": [
+  "8349a153-73f7-486e-8753-cabe5638c13e",
+  "508faea0-5446-480c-93d3-e3d3133abc7b",
+  "247a1a8f-abe0-4235-b94a-cac79e506a22",
+  "9afe7594-3156-42e5-8553-53abc980191c",
+  "b0ecdbe4-ea92-4294-8835-df7c131680bb",
+  "35229cc3-8eeb-42e0-87a2-b8cf19f75712",
+  "e3144088-7f3f-4a1a-bb7a-717a8c817551",
+  "093c1976-f5c7-4bae-b3ea-b10beede99e0"
+ ]
+}

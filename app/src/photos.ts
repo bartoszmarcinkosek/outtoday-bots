@@ -88,8 +88,8 @@ const RULES: [RegExp, string][] = [
   // namorzyny, mokradła, rezerwaty przyrody: własne zdjęcie (albo ikonka), nigdy miejski park z fontanną
   [/mangrove|wetland|nature reserve|bird sanctuary|flamingo/i, 'mangrove'],
   // wyścig żaglówek / dhow (Dubai Offshore Sailing Club) – nie paddleboard wśród namorzynów (tester 26.11)
-  [/dhow (sailing )?race|sailing race|dhow sailing|offshore sailing/i, 'sailing'],
-  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|sail ?gp|sail grand prix|regatta|sailing (?!the)|rowing/i, 'watersports'],
+  [/dhow (sailing )?race|sailing race|dhow sailing|offshore sailing|sail ?gp|sail grand prix/i, 'sailing'],  // SailGP: katamarany, nie paddleboard (tester 26.11)
+  [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|regatta|sailing (?!the)|rowing/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian|biswa kalyan|max angioni|paul chowdhry|sapan verma|varun grover|gursimran khamba|angad ranyal|bader saleh|paul de saint sernin|trevor noah|max amini|nurlan saburov|whitney cummings|chai with chandan|steve harvey|apurva in emirates/i, 'comedy'],  // znani komicy bez słowa „comedy” w tytule (przegląd 26.11)
   [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
@@ -103,6 +103,8 @@ const RULES: [RegExp, string][] = [
   [/rock republic|climbing|bouldering/i, 'active'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
   [/hunting (&|and) equestrian|hunting exhibition|adihex|aaihex/i, 'expo'],  // targi łowieckie, nie wyścigi konne
+  // nauka jazdy konnej (Horse Riding Training Course w Mleiha) – nie wyścigi konne (tester 26.11)
+  [/horse ?riding (lesson|course|training|class|session|experience)|riding (lesson|school|course)|horse ?back rid|horse riding\b(?!.*(race|cup|championship))/i, 'horseriding'],
   [/horse|equestrian|racecourse|endurance ride|show jumping|polo\b/i, 'horse'],
   [/cycling|cyclist|cycle (track|race|ride)|\bbike ride|\bbicycle|velo\b/i, 'cycling'],  // nie „Cycles” (spektakl)
   [/swim|triathlon|aquathlon|open water/i, 'swimming'],
@@ -132,8 +134,12 @@ const RULES: [RegExp, string][] = [
   // na końcu: bieg w parku archeologicznym to nadal bieg
   // fort/zamek ma własne zdjęcie (albo ikonkę) – nie uliczkę starego miasta z wieżą wiatrową
   [/\bfort\b|castle|(?<!dibba al )\bhisn\b|qasr al hosn/i, 'fort'],  // Dibba Al Hisn to miasto, nie fort
+  // stanowisko archeologiczne / ruiny (Shimal, Pałac Królowej Saby) – nie zachowana uliczka z wieżą wiatrową (tester 26.11)
+  [/archaeolog\w* (site|park)|\bruins\b|queen of sheba|\btombs?\b/i, 'ruins'],
   [/heritage village|heritage area|old village|pearling village|abandoned village|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|(?<!dibba al )\bhisn\b/i, 'heritage'],
   // jedzenie i święta (event: brunch świąteczny, kolacja sylwestrowa) – przed plażą/farmą na końcu
+  // koncert kolęd / świąteczne śpiewanie – scena z chórem, nie stół z indykiem (tester 26.11)
+  [/\bcarols?\b|christmas (concert|sing|choir)|festive (concert|choir)|season of wonder/i, 'carols'],
   [/new year|\bnye\b|hogmanay/i, 'nye'],
   [/santa|christmas|xmas/i, 'xmas'],  // brunch z Mikołajem → zdjęcie świąteczne (zgłoszenie 26.11)
   [/\bbrunch\b(?! that burns)/i, 'brunch'],
@@ -177,7 +183,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
+const NO_FALLBACK = new Set(['horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)

@@ -23,3 +23,9 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 2026-11-26 | Zdjęcie innej czynności | Face painting → malowanie na sztalugach; wystawa rzeźby → koło garncarskie; wyścig dhow → paddleboard; Hurricane Heat → flamingi Al Qudra; zawody kulturystyczne → trening na plaży; Motor Show → bolid F1; ladies night z duetem → tłum festiwalowy | photos.ts: facepaint, studios tylko zajęcia, sailing, obstacle, bodybuilding, motor show → carshow, ladies night → ladies_night
 2026-11-26 | Panorama innego miasta w ogólnej puli | running-2 (Burj Khalifa) przy Sharjah Half Marathon / biegu w Abu Zabi | photos.ts CITY_ONLY: running-2 tylko Dubaj
 2026-11-26 | Zdjęcie jednego miejsca przy wydarzeniu w kilku miejscach | UAE National Day Celebrations (Al Majaz, Al Qasba, Al Heera, Chorfakkan) → plaża Chorfakkan | photoOff.ts
+2026-11-26 | Ten sam cykl jako osobna karta na każdy weekend / numer edycji w tytule | Eid Al Etihad Weekend at Al Marjan (4 karty), RAK Night Market (27–29 Nov)/(4–6 Dec), „Community Run at the Ripe Market -4” | połączone / tytuły poprawione; qa_after_add SESSION_RE łapie też „ -4”
+2026-11-26 | Ta sama wystawa dwa razy (różnie zapisane miejsce) | Malik Thomas Jalil Kydd: „CARBON 12, WH 37” i „WH 37” | odrzucony duplikat
+2026-11-26 | Danie dnia jako wydarzenie | Sunday Roast Short Rib Special (Topgolf) | odrzucone
+2026-11-26 | Tytuł bez treści | „Bohemia Presents” (bez składu) | tytuł z DJ-ami z opisu
+2026-11-26 | Zdjęcie innej czynności (2) | SailGP → paddleboard; kurs jazdy konnej → wyścigi; stanowisko archeologiczne → uliczka z wieżą wiatrową; koncert kolęd → stół z indykiem | photos.ts: sailing (+SailGP), horseriding, ruins, carols (ikonka do czasu zdjęć)
+2026-11-26 | Miejskie zdjęcie przy górskim/nadmorskim miejscu we wschodniej Szardży | Kalba Corniche, Al Hefaiyah Lake, Shees Park → park z wieżowcami; Resistance Monument → sala muzeum; Abu Dhabi Festival → scena z laserami | photoOff.ts
