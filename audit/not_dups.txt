@@ -44,3 +44,9 @@ e4f16211-67b2-40f8-82fc-fb7a6c905e0a 48650433-0c3e-4ebc-83b8-0ca52867957f  # Tra
 ebaadc2b-8b47-401b-b96f-c674de35b67f cfa828f3-2330-4b95-8eb9-1d40d9997885  # Khor Fakkan fort vs Sharjah Fort – different forts
 66abb49d-fe05-45e5-a392-a3b162b37810 414493c8-c73f-4b93-90d2-4a5a7c930b9d  # souk and arts centre next door, different places
 de593fb3-9bbf-462e-84e8-439339709ee8 9f2ddb76-215e-4d83-875e-19ea07130526  # golf club and nature reserve in Al Zorah
+6f609a6c-2128-4827-8ca8-f544b3584e66 40d9d67c-b132-4cff-aaaa-cfb7403882d8  # Eid Al Etihad in Mleiha vs Khor Al Hamriyah – different villages
+6cbc99d5-6655-431b-9376-124826d5528e 64a7dfc3-7295-4325-95f9-02a4d049063f  # Kalba Corniche vs Kalba Hanging Gardens – different places
+791ff1ca-cf2e-4aec-b015-a2710a84fc9a 10830757-a6bb-46f9-bbac-b5d1c47a5256  # Khor Kalba mangrove centre vs Khor Kalba fort
+791ff1ca-cf2e-4aec-b015-a2710a84fc9a 6cbc99d5-6655-431b-9376-124826d5528e  # Khor Kalba mangrove centre vs Kalba Corniche
+dee8396e-2a12-45e7-89d8-767c2fbbbe03 41a58f4e-dac0-4ae9-8611-add701c9a118  # Dibba Al Hisn fort vs beach
+dee8396e-2a12-45e7-89d8-767c2fbbbe03 cfa828f3-2330-4b95-8eb9-1d40d9997885  # Dibba Al Hisn fort vs Sharjah Fort – different forts

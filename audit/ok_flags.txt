@@ -47,3 +47,4 @@ CAME_BACK a4c2331a-2a9d-44c7-b6da-fcc62cf2bc4a  # 25.11 checked: the rejected on
 CAME_BACK a6547eb3-af24-4690-8f14-f510e183700b  # 25.11 checked: the rejected one was the poorer copy of this item
 CAME_BACK d8a28cd6-ccf6-4c2d-a93f-b925b7c9f786  # 25.11 checked: the rejected one was the poorer copy of this item
 CAME_BACK 1312d477-d20f-417b-9ab8-849e83db0721  # 25.11 checked: the rejected one was the poorer copy of this item
+OLD_YEAR_IN_TITLE 31672408-12c2-46e2-adf6-ddffb0a24b83  # 26.11: "(2000-Ongoing)" is part of the artwork title at Alserkal, dates fine

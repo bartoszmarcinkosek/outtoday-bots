@@ -1,0 +1,161 @@
+{
+ "note": "Przegląd 26.11 przez Claude (codzienny): pending – 3 brunche/ladies night (Hamilton's, Wanderlust, Prime68) zatwierdzone, 2 stare oferty ('Listed 2024/Nov 2025; confirm') odrzucone; auto-zatwierdzone – 'Book Direct' Oceanic Khorfakkan (zwykła zniżka na pokój) odrzucone; spójność – dni tygodnia dla 6 day passów (cena weekday/weekend = codziennie), ucięty tekst Tulum, pisownia miejsc ujednolicona (Stars 'N' Bars, Nuri, HUSHH, WHITE Abu Dhabi, VeraVersilia, ROKA Business Bay); 5 par miejsc i 1 para wydarzeń oznaczone jako różne.",
+ "approve_deal_ids": [
+  "c3688366-78c8-45ae-802c-e89c70e5e5ba",
+  "ce3dfc4b-ea55-48c9-a8df-e3dc76667688",
+  "ac397440-7841-4b04-9ea8-107e9e907c2e"
+ ],
+ "reject_deal_ids": [
+  "4a94da3c-32fd-46f6-ad7a-ec355f9db908",
+  "e10e2736-2d86-4814-9f6f-1c47ed2bca8d",
+  "53cdd254-724f-4455-8b40-a7c0de7b2303"
+ ],
+ "update_event_ids": [
+  {
+   "id": "b084a431-421d-405a-8604-0d28b78723a8",
+   "set": {
+    "venue": "HUSHH"
+   }
+  },
+  {
+   "id": "96d86049-8eed-4e93-9c2b-ce3adfe8942a",
+   "set": {
+    "venue": "WHITE Abu Dhabi"
+   }
+  }
+ ],
+ "update_deal_ids": [
+  {
+   "id": "5a1c170a-ba67-4e4b-ba94-f3b690a1bf6d",
+   "set": {
+    "details": "Redeemable on food and drinks; under-14s free."
+   }
+  },
+  {
+   "id": "28b5dcce-939d-4cf6-8c7c-2ac0c5bc4d06",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "4b5eec81-1cba-4479-9c09-ba24f20e6945",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "744dc045-75e0-4d0f-adb1-b72ad6331706",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "7d5c3424-7ca7-4afe-82f2-f1b41e88aabb",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "be9838c6-3c97-46f5-9ece-4139afda3cbf",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "de30b0d7-4c00-41b4-be53-5d23a6230687",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "94f0c8fa-db9c-49c0-beb3-1a7f635258bd",
+   "set": {
+    "venue": "Stars 'N' Bars"
+   }
+  },
+  {
+   "id": "b81140fd-5732-4dcb-ba52-f44147fade78",
+   "set": {
+    "venue": "Nuri Grill & Bar"
+   }
+  },
+  {
+   "id": "8cf75e32-13fc-47aa-b6fb-257113df429a",
+   "set": {
+    "venue": "VeraVersilia, Kempinski Hotel Mall of the Emirates"
+   }
+  },
+  {
+   "id": "36272fbe-28e7-45f7-ba2e-cbf01e322848",
+   "set": {
+    "venue": "ROKA Business Bay"
+   }
+  },
+  {
+   "id": "3b7ceb0e-8e45-4c66-9d73-706a183584a0",
+   "set": {
+    "venue": "ROKA Business Bay"
+   }
+  },
+  {
+   "id": "9fcb9ccf-08b4-4e85-9fc5-168da66625ee",
+   "set": {
+    "venue": "ROKA Business Bay"
+   }
+  },
+  {
+   "id": "f40484c3-2777-4ecd-84fd-3d9001ff0dae",
+   "set": {
+    "venue": "ROKA Business Bay"
+   }
+  }
+ ]
+}
