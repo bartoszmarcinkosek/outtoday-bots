@@ -162,12 +162,15 @@ for d in {x["id"]: x for x in deals}.values():
     check_link("deal", d["id"], d["title"], d.get("official_url"), False)
     oks += 1
 
+# pary sprawdzone ręcznie: podobne nazwy, ale to różne miejsca (audit/qa_not_dupes.txt: "id1 id2 # opis")
+_nd = os.path.join(os.path.dirname(__file__), "..", "audit", "qa_not_dupes.txt")
+NOT_DUPES = {frozenset(l.split()[:2]) for l in (open(_nd) if os.path.exists(_nd) else []) if len(l.split()) >= 2 and not l.startswith("#")}
 for p in {x["id"]: x for x in places}.values():
     if p["status"] not in ("approved", "pending") or (not SINCE and p["status"] != "approved"):
         continue
     same = _city("places", "id,name", p["city"])
     for o in same:
-        if o["id"] != p["id"] and R.titles_match(o["name"], p["name"]):
+        if o["id"] != p["id"] and frozenset((o["id"], p["id"])) not in NOT_DUPES and R.titles_match(o["name"], p["name"]):
             out("FAIL", "place", p["id"], p["name"], f"możliwy duplikat: {o['id']} '{o['name'][:50]}'")
     check_link("place", p["id"], p["name"], p.get("official_url"), False)
     oks += 1

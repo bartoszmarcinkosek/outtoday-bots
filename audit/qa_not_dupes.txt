@@ -1,0 +1,2 @@
+# Pary pozycji o podobnych nazwach, które są RÓŻNE (kontrola jakości nie zgłasza ich jako duplikatów)
+806bae58-0da8-45c8-b6bc-68e1ab847d91 58999e62-eda0-41cb-9903-216f41cdec90 # Kayaking at Louvre AD ≠ Louvre AD
