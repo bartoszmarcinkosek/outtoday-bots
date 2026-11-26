@@ -1,0 +1,83 @@
+{
+ "note": "Godziny startu odczytane ze stron organizatora/sprzedawcy bilet\u00f3w przegl\u0105dark\u0105 bot\u00f3w (26.11, porcja 1).",
+ "update_event_ids": [
+  {
+   "id": "9ae6aaee-22b3-4f93-a628-96df018d854f",
+   "set": {
+    "start_time": "11:00"
+   }
+  },
+  {
+   "id": "60a85450-4c77-4d1e-a22c-85b56148d37b",
+   "set": {
+    "start_time": "20:30",
+    "end_time": "22:30"
+   }
+  },
+  {
+   "id": "acc951e0-6079-41c5-ac43-983dddee59b9",
+   "set": {
+    "start_time": "19:00",
+    "end_time": "21:30"
+   }
+  },
+  {
+   "id": "ba70d6ea-04f0-4d45-b9dd-c564c4ebf9b3",
+   "set": {
+    "start_time": "13:00",
+    "end_time": "16:00"
+   }
+  },
+  {
+   "id": "0ad0b1f3-5b83-4fbe-980b-5f31f1a220fa",
+   "set": {
+    "start_time": "18:30"
+   }
+  },
+  {
+   "id": "fc1f5a0b-5f02-4a1d-8d01-3c37cc35b175",
+   "set": {
+    "start_time": "22:00"
+   }
+  },
+  {
+   "id": "82453a2c-1f53-4a54-95bd-1c22944c53db",
+   "set": {
+    "start_time": "13:00",
+    "end_time": "17:00"
+   }
+  },
+  {
+   "id": "e9981722-c5a6-459b-93b1-553fc7734e03",
+   "set": {
+    "start_time": "18:30",
+    "end_time": "23:30"
+   }
+  },
+  {
+   "id": "3dc9d077-1c59-4a72-b67a-8dc7d936e4dd",
+   "set": {
+    "start_time": "10:00"
+   }
+  },
+  {
+   "id": "4cfcec72-d7ca-4d29-91ef-ef3a46577f1e",
+   "set": {
+    "start_time": "18:30"
+   }
+  },
+  {
+   "id": "ad3db8f5-4c7b-489f-93e2-e0c1449fba9b",
+   "set": {
+    "start_time": "22:00"
+   }
+  },
+  {
+   "id": "cd00e815-16bf-4d16-bf2b-c782497ec7ac",
+   "set": {
+    "start_time": "19:00",
+    "end_time": "01:00"
+   }
+  }
+ ]
+}
