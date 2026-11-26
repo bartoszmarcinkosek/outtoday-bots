@@ -1,0 +1,34 @@
+{
+ "note": "Godziny ze stron organizatora/sprzedawcy (26.11, porcja 2; drzwi = start, gdy strona podaje tylko otwarcie drzwi). \"Eid Al Etihad Mall Hours\" to godziny otwarcia centrum handlowego, nie wydarzenie \u2013 odrzucone.",
+ "update_event_ids": [
+  {
+   "id": "83927376-5c0b-4ce4-8de3-3955935a56d6",
+   "set": {
+    "start_time": "18:00"
+   }
+  },
+  {
+   "id": "34b0e313-9a94-4d41-85fb-00f3834c3d0f",
+   "set": {
+    "start_time": "18:00"
+   }
+  },
+  {
+   "id": "13ab1da6-00cb-46c2-adca-f0c3cc7359c8",
+   "set": {
+    "start_time": "21:00",
+    "end_time": "05:00"
+   }
+  },
+  {
+   "id": "59bf7033-a109-4ebd-97e4-9e44ef926471",
+   "set": {
+    "start_time": "09:00",
+    "end_time": "18:00"
+   }
+  }
+ ],
+ "reject_event_ids": [
+  "d476f143-df70-42c2-a3b8-fe12c4cff6c9"
+ ]
+}
