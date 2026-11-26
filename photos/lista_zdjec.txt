@@ -1,4 +1,7 @@
 310 | concert-3 | Open-air concert at night seen from the middle of the crowd: silhouettes with raised hands, big stage with colourful beams of light and haze, warm festive mood, no faces visible.
+320 | desert-1 | Golden-red sand dunes with scattered green ghaf trees in a protected desert reserve, low mountains on the horizon, soft late-afternoon light.
+321 | desert-2 | Luxury desert resort villa with a private plunge pool and canvas-style roof among red sand dunes and ghaf trees at sunset.
+322 | desert-3 | Horse riders crossing red sand dunes at golden hour in the Arabian desert, seen from behind, long shadows.
 311 | concert-4 | Band performing on stage in a modern concert hall seen from the audience seats: guitarist, drummer and singer as small backlit figures, blue and amber stage lights, rows of heads in the foreground.
 312 | concert-5 | Intimate acoustic concert in a small venue: a musician with a guitar on a low stage seen from behind the audience, warm spotlights, candles on tables, cosy atmosphere.
 313 | xmas-3 | Tall decorated Christmas tree with warm fairy lights in a resort courtyard at dusk, palm trees and sand-coloured arches in the background, festive garlands, Gulf winter evening.

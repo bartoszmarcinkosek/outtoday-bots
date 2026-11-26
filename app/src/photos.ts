@@ -130,7 +130,8 @@ const RULES: [RegExp, string][] = [
   [/oasis/i, 'farm'],          // zdjęcie 'farm' to gaj palmowy z falajem = oaza
   [/\bfarm\b/i, 'cropfarm'],  // prawdziwa farma: szklarnie, grządki, zwierzęta
   [/al qudra|love lake/i, 'lakes'],
-  [/desert (safari|reserve|conservation|park)|marmoom|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
+  // pustynia (wydmy) – też ośrodki na pustyni, np. Ritz-Carlton Al Wadi Desert (nie góry z 'wadi'; zgłoszenie 26.11)
+  [/desert (safari|reserve|conservation|park|resort|camp|retreat)|al wadi desert|marmoom|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
   [/jebel|hatta|\bwadi\b|mountain|mubazzarah/i, 'daytrips'],
   [/\bbeach\b(?! hotel)/i, 'beaches'],
 ];
