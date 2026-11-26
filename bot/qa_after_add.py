@@ -92,7 +92,8 @@ for e in {x["id"]: x for x in events}.values():
     near = db.get("events", {"select": "id,title,start_date,end_date,venue", "status": "eq.approved", "city": f"eq.{e['city']}",
                              "start_date": f"lte.{ed.isoformat()}", "or": f"(end_date.gte.{sd.isoformat()},and(end_date.is.null,start_date.gte.{sd.isoformat()}))", "limit": "500"})
     for o in near:
-        if o["id"] != e["id"] and R.titles_match(o["title"], e["title"]):
+        # ten sam dzień startu + podobny tytuł = duplikat; inny dzień to zwykle osobny punkt programu festiwalu
+        if o["id"] != e["id"] and o["start_date"] == e["start_date"] and R.titles_match(o["title"], e["title"]):
             out("FAIL", "event", e["id"], e["title"], f"możliwy duplikat: {o['id']} '{o['title'][:50]}' {o['start_date']}")
     check_link("event", e["id"], e["title"], e.get("official_url"), True)
     oks += 1
