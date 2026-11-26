@@ -1,0 +1,67 @@
+{
+ "note": "Linki ręcznie 26.11 (porcja 3): Maritime Heritage Festival i Al Ain Hunting Exhibition potwierdzone na 2026 (20–29.11 i 25–29.11) z danymi organizatora; Abu Dhabi Festival – trzy recitale; Guggenheim – komunikat DCT i ceny; Kevin Bridges – Etihad Arena.",
+ "update_event_ids": [
+  {
+   "id": "f93a8afb-932c-45b9-aef8-fd37b905a868",
+   "set": {
+    "official_url": "https://abudhabiculture.ae/en/cultural-programmes/heritage-festivals/maritime-heritage-festival",
+    "start_date": "2026-11-20",
+    "end_date": "2026-11-29",
+    "start_time": "16:00",
+    "venue": "Abu Dhabi Corniche",
+    "price_text": "Tickets from AED 30",
+    "is_free": false
+   }
+  },
+  {
+   "id": "d51f2e74-23d4-4951-bfd4-d96d10a27602",
+   "set": {
+    "official_url": "https://www.aaihex.com/en",
+    "start_date": "2026-11-25",
+    "end_date": "2026-11-29",
+    "start_time": "10:00",
+    "end_time": "22:00",
+    "venue": "ADNEC Centre Al Ain",
+    "city": "Al Ain",
+    "price_text": null,
+    "is_free": false
+   }
+  },
+  {
+   "id": "51aca5b5-f832-4ba4-9ee0-0a1b73cc89df",
+   "set": {
+    "official_url": "https://www.abudhabifestival.ae/",
+    "venue": "Zayed National Museum"
+   }
+  },
+  {
+   "id": "da544776-c8ef-453b-b0ce-b33a771e93d7",
+   "set": {
+    "official_url": "https://www.abudhabifestival.ae/",
+    "venue": "Cultural Foundation"
+   }
+  },
+  {
+   "id": "9225d7b6-dea3-47e4-9401-2ec248589d57",
+   "set": {
+    "official_url": "https://www.abudhabifestival.ae/",
+    "venue": "Louvre Abu Dhabi"
+   }
+  },
+  {
+   "id": "817798ba-9f85-46e9-b248-c6fb4455e568",
+   "set": {
+    "official_url": "https://www.mediaoffice.abudhabi/en/arts-culture/department-of-culture-and-tourism-abu-dhabi-announces-opening-of-guggenheim-abu-dhabi-on-11-december-2026/",
+    "price_text": "AED 70; free for under-18s, students and over-60s",
+    "is_free": false
+   }
+  },
+  {
+   "id": "bf3280db-68df-4aa5-9aae-d70d8b2f6c4f",
+   "set": {
+    "official_url": "https://www.etihadarena.ae/",
+    "venue": "Etihad Arena"
+   }
+  }
+ ]
+}
