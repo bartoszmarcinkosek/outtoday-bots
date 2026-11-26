@@ -1,0 +1,7 @@
+{
+ "note": "Kontrola jakości: poprzednie adresy dały 404 – podmiana na strony, które istnieją (strona brunchy Jumeirah, strona brunchu Fairmont Bab Al Bahr).",
+ "update_deal_ids": [
+  {"id": "18196ee0-343b-4ca6-8793-8246ce9958e8", "set": {"official_url": "https://www.jumeirah.com/en/article/offers/dubai-brunches"}},
+  {"id": "a09d56dc-0a6f-4a60-80db-25443cc0a630", "set": {"official_url": "https://www.fairmont.com/abu-dhabi/offers/brunch"}}
+ ]
+}
