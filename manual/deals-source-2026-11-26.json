@@ -1,0 +1,27 @@
+{
+ "note": "Oferty porównane ze stronami 26.11 (przeglądarką botów): Ting Irie i Bar du Port potwierdzone, tekst oczyszczony; Bab Al Qasr – nowe ceny ze strony hotelu; Victor's quiz – brak strony i dane z 2024, odrzucone.",
+ "update_deal_ids": [
+  {
+   "id": "0a10fd41-05a6-41c0-9f5b-d09cc30478cb",
+   "set": {
+    "details": "Every other Thursday. Includes two drinks and crispy plantain chips."
+   }
+  },
+  {
+   "id": "17f96b5e-b31f-4fd3-8d29-0e48ce76fdf7",
+   "set": {
+    "price_text": "AED 99 weekdays, AED 149 weekends",
+    "details": "Pool and beach day pass, fully redeemable on food and drinks. Add a 30-minute massage for AED 50."
+   }
+  },
+  {
+   "id": "03a53ea0-8ef5-4c5e-b10d-7e73a040a6c8",
+   "set": {
+    "details": "Wednesdays from 19:00: two hours of drinks with a signature dish and dessert."
+   }
+  }
+ ],
+ "reject_deal_ids": [
+  "e4b521c9-f79f-40fc-a9e3-a299ba0a2a04"
+ ]
+}
