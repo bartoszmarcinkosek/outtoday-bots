@@ -46,3 +46,10 @@ jobs:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           FILES: ${{ steps.f.outputs.files }}
         run: python bot/manual_add.py
+      - name: Kontrola jakości po dodaniu (reguła 26.11.2026)
+        if: ${{ steps.f.outputs.files != '' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          FILES: ${{ steps.f.outputs.files }}
+        run: python bot/qa_after_add.py
