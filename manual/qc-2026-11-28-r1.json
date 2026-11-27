@@ -1,0 +1,199 @@
+{
+ "note": "QC night 1 (28.11.2026): risk batch of 100 + start times of the next 30 days. Descriptions and times taken from the organisers' pages.",
+ "reject_event_ids": [
+  "06f396dd-9b95-4204-becb-064c554422a3"
+ ],
+ "hide_event_ids": [
+  "da0f07b0-3505-4579-a487-3fcb4b398eb9"
+ ],
+ "hide_deal_ids": [
+  "1e52b8af-9d19-44bf-80aa-e68314538c72"
+ ],
+ "update_event_ids": [
+  {
+   "id": "1402fd97-5c5b-4fad-9672-3408d1531e5d",
+   "set": {
+    "description": "Imagine Dragons headline Saturday's after-race concert of the Abu Dhabi Grand Prix at Etihad Live. Entry is with an Abu Dhabi GP ticket; Golden Circle upgrades are sold separately."
+   }
+  },
+  {
+   "id": "34b0e313-9a94-4d41-85fb-00f3834c3d0f",
+   "set": {
+    "title": "Andre Soueid Live at Ilios",
+    "price_text": "From AED 150",
+    "description": "Violinist Andre Soueid mixes live violin with house beats at Ilios Beach Club on Hudayriyat Island. Doors open at 18:00."
+   }
+  },
+  {
+   "id": "b7cbec9a-11c2-4a51-9aa0-3f2f724c340c",
+   "set": {
+    "description": "Annual concert of the Bait Al Oud academy at the Cultural Foundation, led by Dr. Naseer Shamma, with students, graduates and master musicians. Doors 19:00, show 20:00."
+   }
+  },
+  {
+   "id": "3a18fbd9-2c45-4863-992d-8bae75dab16a",
+   "set": {
+    "venue": "New Covent Garden Theatre, Mall of the Emirates",
+    "description": "Festive musical pantomime of Cinderella at New Covent Garden Theatre in Mall of the Emirates. About 2 hours including an interval; ages 3+."
+   }
+  },
+  {
+   "id": "9d84de9a-8810-4583-88f6-d7e649d485cc",
+   "set": {
+    "description": "Family Christmas show in which two elves race to recover Santa's missing Nice List. Shows at 11:00 and 15:00 on 5, 6 and 12 December; about 1 hour 10 minutes, no interval."
+   }
+  },
+  {
+   "id": "18d03a64-e49f-42e9-9f27-a9fdd31d708f",
+   "set": {
+    "description": "A 'no-wedding' Indian sangeet party with DJ sets, live entertainers, non-stop dancing and henna artists. Doors and start at 13:00."
+   }
+  },
+  {
+   "id": "ba96e8d1-4e1f-4bc1-a163-0541955934ee",
+   "set": {
+    "description": "The Elf in the Gulf: an immersive festive adventure by Collab Company with original storytelling and Christmas music. One-hour sessions on 5 December at 11:00, 14:00 and 18:00 at Terra."
+   }
+  },
+  {
+   "id": "834cd1c6-9685-46f8-8544-bfbe683c2d1a",
+   "set": {
+    "price_text": "From AED 15"
+   }
+  },
+  {
+   "id": "21f866b2-ba21-4957-aea6-c85469f6d652",
+   "set": {
+    "title": "Dubai Flea Market – Zabeel Park",
+    "venue": "Zabeel Park (Gates 1 & 2)",
+    "price_text": "Park entry AED 5"
+   }
+  },
+  {
+   "id": "f6f14656-ed10-40be-862b-cb68b0e2530f",
+   "set": {
+    "description": "The 9th Santa Run on West Beach, Palm Jumeirah: 1 km, 3 km and 5 km in Santa suits, with kids' activities and best-dressed prizes. The 5 km starts at 08:30, 3 km at 08:35, 1 km at 08:40."
+   }
+  },
+  {
+   "id": "20c8f1cf-7862-470b-9d08-090386a9000f",
+   "set": {
+    "start_time": "20:00"
+   }
+  },
+  {
+   "id": "b72d2db7-b28b-41ac-a2ff-1c41d48bcfda",
+   "set": {
+    "start_time": "20:00"
+   }
+  },
+  {
+   "id": "e9a9591b-a9d2-492d-9d59-eba186cdfbda",
+   "set": {
+    "start_time": "20:00"
+   }
+  },
+  {
+   "id": "a45ed924-2cae-4177-8f98-7048acf84921",
+   "set": {
+    "start_time": "13:00"
+   }
+  },
+  {
+   "id": "b3b61c6a-f149-4ce5-bc0a-0b1e42014e36",
+   "set": {
+    "start_time": "19:30"
+   }
+  },
+  {
+   "id": "11b9febd-8fe2-4146-a17a-7990bde45830",
+   "set": {
+    "start_time": "20:00"
+   }
+  },
+  {
+   "id": "be48ec09-46a4-40b8-bfb6-0cc5f654d87b",
+   "set": {
+    "start_time": "13:00",
+    "end_time": "17:00"
+   }
+  },
+  {
+   "id": "83f55b78-bc50-4392-a0bb-6d47c65e0015",
+   "set": {
+    "start_time": "20:00"
+   }
+  },
+  {
+   "id": "97342bac-78ba-433a-a5b5-0405189b0c1c",
+   "set": {
+    "start_time": "20:00"
+   }
+  },
+  {
+   "id": "6a193f33-350b-47d8-922f-e61ed4285020",
+   "set": {
+    "start_time": "19:00"
+   }
+  },
+  {
+   "id": "e31d3c8d-a061-425f-b77a-b747c47073bf",
+   "set": {
+    "start_time": "19:00",
+    "end_time": "01:00"
+   }
+  },
+  {
+   "id": "ce2f104e-d609-4aa4-af8e-aa96dd2d38b3",
+   "set": {
+    "start_time": "20:00"
+   }
+  },
+  {
+   "id": "46b1f3e0-1db8-4b4d-889c-ca6581c759b5",
+   "set": {
+    "start_time": "14:00",
+    "end_time": "17:00"
+   }
+  },
+  {
+   "id": "34a704e7-025e-4c27-bbcd-575a42207b2a",
+   "set": {
+    "start_time": "18:00"
+   }
+  }
+ ],
+ "update_deal_ids": [
+  {
+   "id": "22caf23c-75b3-4213-8766-9911610e3b07",
+   "set": {
+    "details": "Day pass to the Yas Beach club on Yas Island, with access to its infinity pool and beach."
+   }
+  },
+  {
+   "id": "20c038a6-0aeb-41b8-957f-4d16646d9737",
+   "set": {
+    "details": "Saturday buffet-style brunch with food and champagne from three of the hotel's restaurants. Advance reservation required."
+   }
+  },
+  {
+   "id": "1957a1ce-8872-4065-9185-2780c22b76c3",
+   "set": {
+    "venue": "McGettigan's JLT",
+    "details": "Weekly Tuesday quiz night from 8 PM. In December it runs as the festive Quizmas edition."
+   }
+  },
+  {
+   "id": "1c42b89f-a201-4797-bc8a-f8e5cf41f6bc",
+   "set": {
+    "venue": "McGettigan's Dubai Production City"
+   }
+  },
+  {
+   "id": "241514ce-c6fb-4167-82fc-93b30a275a24",
+   "set": {
+    "price_text": "Ladies AED 100 · Gents AED 200"
+   }
+  }
+ ]
+}

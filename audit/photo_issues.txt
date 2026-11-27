@@ -5,3 +5,9 @@
 2026-11-26 | place | 1e9f88b3-4235-421d-b6d5-56456db9d39b | Ajman Fish Market | got souk-2 | should show a fish market with stalls of fresh fish
 2026-11-27 | event | 7553c09d-bbe3-4ca9-8d90-ee4506ca5cb0 | Sharjah Desert Theatre Festival | got theatre-1 | should show an open-air stage among desert dunes at night
 2026-11-27 | event | 6c398092-e8f7-42b2-b59a-f597626c3f14 | Al Fursan Eid Al Etihad Airshow at Kite Beach | got flying-1 | should show aerobatic jets with coloured smoke over a beach
+2026-11-28 | event | 02c64c07-4c73-444d-bd42-32d016ce370b | New Year's Eve Celebrations (Mleiha National Park) | got nye-2 | should show an open-air New Year's Eve celebration in the desert
+2026-11-28 | event | fbc3ed68-a33d-43d9-9f1d-6087cf1f74a9 | Indo Warehouse – New Year's Eve at the Penthouse Club | got nye-2 | should show a DJ party on a rooftop club
+2026-11-28 | event | 64850fad-1cb5-4587-acfc-43f4a425ff36 | Bohemia Presents Mita Gami | got concert-4 | should show a DJ at a beach club
+2026-11-28 | event | 84876f6a-256e-4bd2-bb41-e80ffccb4a92 | Run for Everyone by Emirates Bodybuilding & Fitness Federation | got running-3 | should show runners on a coastal track
+2026-11-28 | event | cfe4be7b-6abe-46a1-860e-0f371e1308ab | Wild Winter Camp | got kids-2 | should show children with animals at a safari park
+2026-11-28 | event | ac6dc233-20b2-46c3-8dad-85bc101ebc15 | Sharjah Architecture Triennial: Architecture Otherwise | got lm_p_sharjah_museum_of_islamic_ci-2 | should show an architecture exhibition (several venues)

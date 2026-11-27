@@ -21,4 +21,10 @@ export const PHOTO_OFF = new Set<string>([
   '7553c09d-bbe3-4ca9-8d90-ee4506ca5cb0', // Sharjah Desert Theatre Festival – teatr pod gołym niebem na pustyni, a dostawał salę teatru z czerwoną kurtyną
   '6c398092-e8f7-42b2-b59a-f597626c3f14', // Al Fursan Eid Al Etihad Airshow at Kite Beach – pokaz odrzutowców nad plażą, a dostawał awionetkę nad pustynią
   '2b136d6b-ca50-4fb5-aea3-e9bd258356db', // Pool Day Access, Millennium Plaza (hotel przy Sheikh Zayed Rd) – dostawał plażę z Burj Al Arab (tester A 28.11)
+  '02c64c07-4c73-444d-bd42-32d016ce370b', // New Year's Eve Celebrations (Mleiha National Park) – sylwester na pustyni pod gołym niebem, a dostawał stół sylwestrowy w sali (QC 28.11)
+  'fbc3ed68-a33d-43d9-9f1d-6087cf1f74a9', // Indo Warehouse – New Year's Eve at the Penthouse Club – noc z DJ-em w klubie, a dostawał stół sylwestrowy ze świecami (QC 28.11)
+  '64850fad-1cb5-4587-acfc-43f4a425ff36', // Bohemia Presents Mita Gami – DJ w beach clubie, a dostawał zespół rockowy (QC 28.11)
+  '84876f6a-256e-4bd2-bb41-e80ffccb4a92', // Run for Everyone by Emirates Bodybuilding & Fitness Federation – bieg na wyspie Hudayriyat, a dostawał biegaczy wśród wydm (QC 28.11)
+  'cfe4be7b-6abe-46a1-860e-0f371e1308ab', // Wild Winter Camp – obóz w Dubai Safari Park (zwierzęta), a dostawał krytą salę zabaw z kulkami (QC 28.11)
+  'ac6dc233-20b2-46c3-8dad-85bc101ebc15', // Sharjah Architecture Triennial: Architecture Otherwise – wydarzenie w kilku miejscach, a dostawało zdjęcie jednego muzeum (QC 28.11)
 ]);
