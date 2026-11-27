@@ -46,7 +46,8 @@ for line in open(src, encoding="utf-8"):
         n = 0
         for it in ov.get("results", []):
             lic = (it.get("license") or "").lower()
-            if lic not in ("by", "by-sa", "cc0", "pdm") or (it.get("width") or 0) < 1000:
+            # Flickr blokuje pobieranie przez boty (403) – nie obchodzimy tego, bierzemy tylko źródła, które pozwalają pobrać
+            if lic not in ("by", "by-sa", "cc0", "pdm") or (it.get("width") or 0) < 1000 or "flickr" in (it.get("url") or ""):
                 continue
             name = {"by": "CC BY", "by-sa": "CC BY-SA", "cc0": "CC0", "pdm": "Public domain"}[lic] + (f" {it.get('license_version')}" if lic in ("by", "by-sa") else "")
             THUMB[it["url"]] = it.get("thumbnail")
