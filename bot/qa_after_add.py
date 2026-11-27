@@ -26,6 +26,9 @@ today = R.today_uae()
 fails = warns = oks = 0
 
 
+_CITY_EV = {}  # pamięć: zatwierdzone eventy per miasto (kontrola duplikatów pod innym tytułem)
+
+
 def out(level, kind, ident, title, msg):
     global fails, warns
     fails += level == "FAIL"; warns += level == "WARN"
@@ -214,7 +217,9 @@ for e in {x["id"]: x for x in events}.values():
             t = re.sub(r"\b(20\d\d|the musical|musical|live|in concert|the|in (abu dhabi|dubai|sharjah|al ain|ras al khaimah)|abu dhabi|dubai)\b|&|\band\b", " ", t)
             return re.sub(r"[^a-z0-9]", "", t)
         _vk = lambda v: re.sub(r"[^a-z]", "", (v or "").lower().split(",")[0].split("·")[0])[:12]
-        for o in db.get("events", {"select": "id,title,start_date,end_date,venue", "status": "eq.approved", "city": f"eq.{e['city']}", "limit": "3000"}):
+        if e["city"] not in _CITY_EV:
+            _CITY_EV[e["city"]] = db.get("events", {"select": "id,title,start_date,end_date,venue", "status": "eq.approved", "city": f"eq.{e['city']}", "limit": "3000"})
+        for o in _CITY_EV[e["city"]]:
             if o["id"] == e["id"] or o["start_date"] == e["start_date"] or _vk(o.get("venue")) != _vk(e.get("venue")) or frozenset((o["id"], e["id"])) in NOT_DUPES:
                 continue
             if _norm(o["title"]) and _norm(o["title"]) == _norm(e["title"]):
