@@ -234,6 +234,14 @@ const RULES: [RegExp, string][] = [
 ];
 
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów
+// Czynność w tytule (joga, bieg, warsztaty) wygrywa z miejscem/klimatem w tytule (Time Out Market, targ, plaża):
+// „Yoga with POSTURE at Time Out Market” to joga, nie food trucki (Aga 27.11).
+const ACTIVITY = new Set(['yoga', 'running', 'fitness', 'cycling', 'swimming', 'aquafit', 'padel', 'tennis', 'classes', 'painting',
+  'cooking', 'workshop', 'quiz', 'boardgames', 'cleanup', 'dance', 'dance_ladies', 'sport_ladies', 'trampoline', 'obstacle', 'bodybuilding']);
+function ruleFor(text: string): [RegExp, string] | undefined {
+  return RULES.find(([re, k]) => ACTIVITY.has(k) && re.test(text)) ?? RULES.find(([re]) => re.test(text));
+}
+
 const CAT: Record<string, string[]> = {
   comedy: ['comedy'], music: ['music'], culture: ['culture'], sport: ['sport'], food: ['food'],
   festivals: ['festivals'], festival: ['festivals'], nightlife: ['nightlife'], classes: [], nature: ['nature'],
@@ -311,7 +319,11 @@ const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2', 'lm_dubai_op
   'lm_khorfakkan_amph-1', 'lm_khorfakkan_amph-2',
   // Al Marjan Island: AI narysowało wyspy innego kształtu (zgłoszenie właściciela 27.11)
   'lm_marjan-1']);
-const NIGHT = new Set(['dinner-1', 'dinner-2', 'dinner-9', 'night_out-1', 'night_out-3', 'night_out-4', 'ladies_night-5', 'happy_hour_dubai-1', 'lm_marina-1']);
+const NIGHT = new Set(['dinner-1', 'dinner-2', 'dinner-4', 'dinner-5', 'dinner-9', 'night_out-1', 'night_out-2', 'night_out-3', 'night_out-4',
+  'night_out-5', 'night_out-6', 'ladies_night-1', 'ladies_night-2', 'ladies_night-3', 'ladies_night-5', 'ladies_night-7', 'ladies_night-8',
+  'nightlife-1', 'nightlife-2', 'happy_hour-6', 'happy_hour_dubai-1', 'lm_marina-1', 'food-3', 'food-4', 'food-5', 'food-6', 'market-1', 'market-2',
+  'festivals-1', 'festivals-2', 'festivals-3', 'cinema-1', 'cinema-2', 'xmas-3', 'xmas-4', 'nye-1', 'football-1', 'horse-1', 'motorsport-1',
+  'padel-1', 'candlelight-1', 'candlelight-5', 'lm_p_dubai_garden_glow-1', 'lm_p_dubai_garden_glow-2']);
 function allowed(f: number, item: Item, text: string): boolean {
   const n = PHOTO_NAMES.get(f);
   if (!n) return true;
@@ -376,7 +388,7 @@ function pool(item: Item): number[] {
   // (nazwę samego miejsca wycinamy z tytułu, żeby "Museum of the Future" nie stało się zwykłym "museum")
   const rest = lm ? (item.rawTitle ?? item.title).replace(new RegExp(lm[0].source, 'gi'), ' ') : (item.rawTitle ?? item.title);
   // góry Jais: rodzaj z tytułu (park linowy, taras) NIE wygrywa – to zawsze góry, nie hala wspinaczkowa (wyjątek: sylwester, koncert, festiwal)
-  const typeHit0 = item.kind !== 'deal' && lm ? RULES.find(([re]) => re.test(rest)) : undefined;
+  const typeHit0 = item.kind !== 'deal' && lm ? ruleFor(rest) : undefined;
   // (bez biegu: „festival running from 11 to 31 December” to nie bieg – Winter City, tester A 27.11)
   // event w sali/arenie bez rodzaju w tytule: rodzaj z opisu („Cycles – Boy Blue”: „Nine hip hop dancers…” → taniec, nie kampus NYU; zgłoszenie 27.11)
   const typeHitD = !typeHit0 && item.kind === 'event' && lm && VENUES.has(lm[1]) && item.description
@@ -408,7 +420,7 @@ function pool(item: Item): number[] {
     if (k && PHOTO_FILES[k]) return [...PHOTO_FILES[k]];
   }
   if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
-    const hit = RULES.find(([re]) => re.test((item.rawTitle ?? item.title)));
+    const hit = ruleFor(item.rawTitle ?? item.title);
     if (hit && PHOTO_FILES[hit[1]]) keys = [hit[1]];
     else if (hit && NO_FALLBACK.has(hit[1])) return [];
   }
