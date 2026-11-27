@@ -1,0 +1,33 @@
+{
+ "note": "QC night 27.11, extra run 2, follow-up to the quality check: Kunal Kamra, Sapan Verma (6 Feb 2027) and Connect Pop Up (18-20 Dec) already have a correct entry on the right date, so the wrongly dated copies are rejected. Three Alserkal exhibition titles had a \"|\" separator; cleaned and approved again.",
+ "reject_event_ids": [
+  "c27eb170-71fd-4d0f-86a4-50916331bf65",
+  "b4af9b1d-7092-4463-8aa3-8bc223ccde28",
+  "a5b6f1bf-eb22-47ef-8b95-7a2a0a3fa6e9"
+ ],
+ "update_event_ids": [
+  {
+   "id": "8e5b4bf8-9c4f-43a3-befc-87dd729f1eb3",
+   "set": {
+    "title": "Jack Persekian: Jerusalem – Take II"
+   }
+  },
+  {
+   "id": "87fb1f67-a79f-410d-aaf2-061bb77be747",
+   "set": {
+    "title": "Reynier Llanes: Elsewhere, Within"
+   }
+  },
+  {
+   "id": "c37d8211-269e-47a3-9f80-ab35a755f4b0",
+   "set": {
+    "title": "Rossella Biscotti: Centrifugal Time"
+   }
+  }
+ ],
+ "approve_event_ids": [
+  "8e5b4bf8-9c4f-43a3-befc-87dd729f1eb3",
+  "87fb1f67-a79f-410d-aaf2-061bb77be747",
+  "c37d8211-269e-47a3-9f80-ab35a755f4b0"
+ ]
+}
