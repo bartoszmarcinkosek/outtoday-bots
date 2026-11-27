@@ -1,0 +1,14 @@
+{
+  "note": "Pełna kontrola bazy 27.11: linki do organizatora/sprzedawcy biletów zamiast portalu Yalla; ukryte wydarzenia bez potwierdzenia daty na 2026/2027",
+  "update_event_ids": [
+    {"id": "14ab0fa9-bfa3-46f3-a1e5-fabdcf11c2e4", "set": {"official_url": "https://abu-dhabi.platinumlist.net/event-tickets/104644/charlie-and-the-chocolate-factory"}},
+    {"id": "a21c70bc-c06e-4438-9ab0-99190ec3d836", "set": {"official_url": "https://abu-dhabi.platinumlist.net/event-tickets/103623/cats-the-musical"}},
+    {"id": "fb498157-60dc-4e48-b3f8-5d783c0c8870", "set": {"official_url": "https://www.etihadarena.ae"}},
+    {"id": "6c3119ff-9ea1-4443-b61e-fc3bb7086370", "set": {"official_url": "https://platinumlist.net/artist/4680/ebru-gundes"}},
+    {"id": "3b5f30a9-123e-432f-ada4-68c479b464b5", "set": {"official_url": "https://abu-dhabi.platinumlist.net/event-tickets/106270/faraj-suleiman"}}
+  ],
+  "hide_event_ids": [
+    "68501f40-bb1f-49ea-8a28-ea8f7c9bb152",
+    "9636df89-5ef5-448f-acb9-10641c925cfe"
+  ]
+}

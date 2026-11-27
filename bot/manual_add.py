@@ -204,6 +204,10 @@ def main() -> int:
         for i in data.get("hide_deal_ids", []):
             db.update("deals", {"id": i}, {"status": "pending"})
             print(f"~ deal ukryty do potwierdzenia: {i}")
+        # "hide_event_ids": [...] – ukryj (pending): data niepotwierdzona u organizatora; nie odrzuca na stałe (27.11.2026)
+        for i in data.get("hide_event_ids", []):
+            db.update("events", {"id": i}, {"status": "pending"})
+            print(f"~ event ukryty do potwierdzenia: {i}")
         for r in data.get("update_place_ids", []):
             fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("name", "area", "city", "description", "hours_text", "hours", "official_url", "price_text", "is_free")}
             if fix:
