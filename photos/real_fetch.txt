@@ -1,3 +1,3 @@
 # <nazwa> | <adres obrazka> | <podpis: autor, licencja albo -> | <kadr: center/left/right/0.0–1.0>
-lm_khorfakkan_amph-3 | https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/The_Khor_Fakkan_Amphitheatre.jpg/1600px-The_Khor_Fakkan_Amphitheatre.jpg | Philosographer, CC BY-SA 4.0, Wikimedia Commons | center
-lm_khorfakkan_amph-4 | https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/KFAmphi.jpg/1600px-KFAmphi.jpg | Sherenk1, CC BY-SA 4.0, Wikimedia Commons | center
+lm_khorfakkan_amph-3 | https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/The_Khor_Fakkan_Amphitheatre.jpg/1920px-The_Khor_Fakkan_Amphitheatre.jpg | Philosographer, CC BY-SA 4.0, Wikimedia Commons | center
+lm_khorfakkan_amph-4 | https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/KFAmphi.jpg/1920px-KFAmphi.jpg | Sherenk1, CC BY-SA 4.0, Wikimedia Commons | center
