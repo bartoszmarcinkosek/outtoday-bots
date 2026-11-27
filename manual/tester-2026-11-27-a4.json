@@ -1,0 +1,26 @@
+{
+ "note": "Tester A 27.11.2026 (dzienny przebieg na prośbę właściciela): THE SHOWROOM Festive Edition (pop-up moda i kosmetyki w Galeries Lafayette) to zakupy – odrzucone. Challenge Peak: prawdziwa data 5.12 (nie 12.12) i miejsce Abu Dhabi Cricket & Sports Hub. Masfout X Rowing to wioślarstwo na ergometrach. Uzupełnione brakujące opisy (strony organizatorów; dla stron z zakazem robots i Fever – opisy ogólne z prasy).",
+ "reject_event_ids": ["ac8c3fd7-c322-4be7-aead-7eb1562f663c"],
+ "update_event_ids": [
+  {"id": "a02eac3e-17cb-43c2-bf53-441ade0295ca", "set": {"start_date": "2026-12-05", "end_date": "2026-12-05", "start_time": "07:00", "venue": "Abu Dhabi Cricket & Sports Hub", "description": "Challenge Peak is a time-capped fitness race that tests endurance and strength over a multi-stage course, from the opening run to the final rowing metres. Registration closes on 5 December or when places sell out."}},
+  {"id": "b33ca189-4d37-4f01-8b31-93af61ff5e67", "set": {"title": "Masfout X Indoor Rowing Championship", "description": "Indoor rowing championship on rowing machines, part of the Masfout X events in Masfout, Ajman. Open men's and women's categories; free registration and cash prizes for the top finishers."}},
+  {"id": "eef889f6-2561-48a1-8074-1a0c5df9448f", "set": {"description": "Indian comedy star Aakash Gupta performs his stand-up show Daily Ka Kaam Hai at the New Covent Garden Theatre, with shows at 17:00 and 20:30.", "price_text": "AED 195–325"}},
+  {"id": "f8ca4a51-801d-4f04-94ea-ba5f2af9f2c8", "set": {"description": "Arabian Tale is a kids and family show at TODA in Dubai on Saturday 28 November; doors open at 11:30 and the show starts at noon.", "kid_friendly": true}},
+  {"id": "b7dd2f84-befd-4b24-b392-5a33368bf5d2", "set": {"description": "MOTN winter festival on the Abu Dhabi Corniche: rides, immersive adventures, live music and shows, food from around the world and shopping, daily 4 pm–11:30 pm."}},
+  {"id": "a89ad2c6-7996-4329-bea7-639c7f9e7b02", "set": {"description": "Malayalam rapper Vedan performs live in Abu Dhabi with Kuthanthram, featuring Sushin Shyam; doors open at 4 pm and the concert starts at 6:30 pm."}},
+  {"id": "b4bc229f-33e1-4913-a890-e4e09ab9554a", "set": {"description": "Celebrate Christmas Eve Italian-style at Cinque with a four-course festive dinner from 7 pm."}},
+  {"id": "be48ec09-46a4-40b8-bfb6-0cc5f654d87b", "set": {"description": "Christmas Day brunch at ENVY, Th8 Palm Dubai: a festive beachfront feast with family and friends from 1 pm to 5 pm."}},
+  {"id": "b99b3682-230b-42f3-bb61-c74a3e50ed7e", "set": {"description": "FightGecko Combat Series 4: a night of professional combat-sports fights at W Dubai – The Palm; doors open at 5 pm, first fight at 6 pm."}},
+  {"id": "b5f16798-be63-414b-a808-c402daede4d8", "set": {"description": "Bollywood playback singer Kumar Sanu performs his best-known film songs live at Sheikh Rashid Hall, Dubai World Trade Centre."}},
+  {"id": "d51f2e74-23d4-4951-bfd4-d96d10a27602", "set": {"description": "Second edition of the Al Ain International Hunting & Equestrian Exhibition (AAIHEX) at ADNEC Centre Al Ain: falconry, equestrianism, hunting and outdoor pursuits for enthusiasts and families, 10 am–10 pm."}},
+  {"id": "a2f1a2a1-c338-4e51-8b8c-cb30ae4b19ea", "set": {"description": "Children's Biennale art exhibition, part of the Abu Dhabi Festival, with artworks shown outdoors in Umm Al Emarat Park; free admission (park entry may apply)."}},
+  {"id": "fb5397fd-245e-4f2d-8a04-27098728f7f8", "set": {"description": "Season-long heritage and entertainment festival at Al Wathba with pavilions from around the world, Emirati heritage, shows, car events, food and fireworks."}},
+  {"id": "da95204e-8980-4412-8222-e477e98657fe", "set": {"description": "Speciality coffee brand 22:22 takes over Raffles Salon for a month with a dedicated coffee bar, a curated collection and small coffee-tasting experiences."}},
+  {"id": "bab6e402-b970-4e3b-a035-dd601b26e762", "set": {"description": "Interactive Children's Museum exhibition at Louvre Abu Dhabi about board games from around the world and across 5,000 years, with games to play; included in the museum ticket.", "kid_friendly": true}},
+  {"id": "aeff2c7a-f475-4659-b16c-62b680b43e0d", "set": {"description": "Interactive courtroom show: the audience is the jury, hears the evidence and witnesses in the case of a deadly boat ride, and votes on the verdict."}},
+  {"id": "f93a8afb-932c-45b9-aef8-fd37b905a868", "set": {"description": "Festival on the Abu Dhabi Corniche celebrating Emirati coastal heritage: traditional boats, fishing and pearling crafts, folk performances, traditional games and food."}},
+  {"id": "c7d50768-8ab4-49a1-99e1-12167b6b115c", "set": {"description": "Second Public Art Abu Dhabi Biennial: large outdoor artworks by local and international artists installed across the city and emirate, free to visit."}},
+  {"id": "d2f30bd1-3718-47f1-a2bf-12eab7038682", "set": {"description": "Guided walking tours of the Public Art Abu Dhabi Biennial artworks around Souq Al Mina in Mina Zayed, with a guide explaining the works and artists."}},
+  {"id": "a936a7c2-313e-4474-b1ec-c3230b20f563", "set": {"description": "Candlelight concert at Emirates Palace: live musicians play Coldplay and Imagine Dragons hits by the light of hundreds of candles."}}
+ ]
+}

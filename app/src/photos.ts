@@ -86,7 +86,7 @@ const RULES: [RegExp, string][] = [
   [/face ?paint/i, 'facepaint'],
   // „sculpt” tylko jako zajęcia; wystawa rzeźby (Alfred Basbous: Sculpting the Line) to nie koło garncarskie
   [/ceramic|pottery|sculpt\w* (class|workshop|course|session)|\bclay\b/i, 'studios'],
-  [/painting|paint (and|&) sip|\bpaints?\b|art (class|studio|workshop)|art cent(re|er)|calligraph|drawing|\bdraw\b|sketch|watercolou?r|printmaking|al marsam/i, 'painting'],
+  [/painting|paint (and|&) sip|\bpaints?\b|art (class|studio|workshop)|art cent(re|er)|calligraph|drawing|\beasel\b|\bdraw\b|sketch|watercolou?r|printmaking|al marsam/i, 'painting'],
   [/cooking|chocolate(?! factory)|baking|\bbake\b|gingerbread|culinary|top chef/i, 'cooking'],
   // gry planszowe: własne zdjęcie (stół z grami), do tego czasu ikonka – zdjęcia 'community' pokazywały sprzątanie plaży (zgłoszenie 27.11)
   [/clean[- ]?up|cleanup drive|litter pick|beach clean/i, 'cleanup'],
@@ -104,16 +104,18 @@ const RULES: [RegExp, string][] = [
   [/mangrove|wetland|nature reserve|bird sanctuary|flamingo/i, 'mangrove'],
   // wyścig żaglówek / dhow (Dubai Offshore Sailing Club) – nie paddleboard wśród namorzynów (tester 26.11)
   [/dhow (sailing )?race|sailing race|dhow sailing|offshore sailing|sail ?gp|sail grand prix/i, 'sailing'],  // SailGP: katamarany, nie paddleboard (tester 26.11)
+  // wioślarstwo na ergometrach (Masfout X Indoor Rowing w siłowni) – nie kajaki (tester A 27.11)
+  [/indoor rowing|rowing[\s\S]*\bgym\b|ergometer/i, 'fitness'],
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|regatta|sailing (?!the)|rowing/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|\bbach\b|vivaldi|handel|mozart|beethoven|chopin|tchaikovsky|young maestro|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian|biswa kalyan|max angioni|paul chowdhry|sapan verma|varun grover|gursimran khamba|angad ranyal|bader saleh|paul de saint sernin|trevor noah|max amini|nurlan saburov|whitney cummings|chai with chandan|steve harvey|apurva in emirates/i, 'comedy'],  // znani komicy bez słowa „comedy” w tytule (przegląd 26.11)
-  [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b(?! night| evening| show)|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show|(?<!nitro )circus|acrobat/i, 'theatre'],
+  [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b(?! night| evening| show| fire)|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show|(?<!nitro )circus|acrobat/i, 'theatre'],
   // kino plenerowe (plaża, dach, pod gwiazdami) -> zdjęcie pleneru; zwykły seans w sali -> sala kinowa (albo ikonka, póki zdjęcia nie ma)
   [/(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)\b.*(cinema|film|screening|movie)|(cinema|film|screening|movie).*\b(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)/i, 'cinema'],
   [/comic ?con\b/i, 'expo'],  // Film & Comic Con to targi, nie kino
   [/cinema|film|screening|movie/i, 'cinema_indoor'],
   [/\bjazz\b/i, 'jazz'],
-  [/\bdj\b|techno|afro ?house|\bedm\b|\brave\b|club night|\bat (bohemia|be beach)\b|artbat|black coffee|ushua[iï]a|upperground/i, 'dj'],  // znani DJ-e i kluby DJ (ARTBAT w Ushuaïa, Black Coffee – zespół rockowy/wokalista, tester A 27.11)  // wieczory DJ w beach clubach: nie plaża
+  [/\bdj\b|\btechno\b|afro ?house|\bedm\b|\brave\b|club night|\bat (bohemia|be beach)\b|artbat|black coffee|ushua[iï]a|upperground/i, 'dj'],  // znani DJ-e i kluby DJ (ARTBAT w Ushuaïa, Black Coffee – zespół rockowy/wokalista, tester A 27.11)  // wieczory DJ w beach clubach: nie plaża
   [/arabic music|tarab|\boud\b(?! exhibition| and perfume|.*perfume)|khaleeji|eid concert/i, 'arabic'],
   [/rock republic|climbing|bouldering/i, 'active'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
@@ -148,6 +150,8 @@ const RULES: [RegExp, string][] = [
   [/\bquiz\b/i, 'quiz'],
   [/\bbooks?\b|book (club|fair|launch|presentation)|library|reading|poetry/i, 'books'],
   [/\btalk\b|lecture|panel|in conversation|seminar/i, 'talk'],
+  // wycieczka z przewodnikiem po souku to nie nocny targ z lampionami (Biennial guided walking tours, Souq Al Mina – tester A 27.11)
+  [/guided (walking )?tours?|walking tours?/i, 'walking_tour'],
   [/night market|flea|bazaar|farmers'? market|winter market|christmas market|craft market|food market|urban market|souq|souk/i, 'market'],
   [/workshop|arts (and|&) crafts|craft/i, 'workshop'], // ogólne warsztaty – po tańcu, jodze itd.
   [/frieze|art fair|art week|art dubai|art abu dhabi|abu dhabi art|art exhibition|gallery|alserkal|jameel arts|421 arts|art foundation|art museum|tashkeel/i, 'artfair'],
@@ -160,9 +164,13 @@ const RULES: [RegExp, string][] = [
   [/heritage village|heritage area|old village|pearling village|abandoned village|archaeolog|ruins|mud ?brick|historic (district|site|neighbourhood)|al fahidi|al bastakiya|heart of sharjah|qasr al hosn|(?<!dibba al )\bhisn\b/i, 'heritage'],
   // jedzenie i święta (event: brunch świąteczny, kolacja sylwestrowa) – przed plażą/farmą na końcu
   // koncert kolęd / świąteczne śpiewanie – scena z chórem, nie stół z indykiem (tester 26.11)
-  [/\bcarols?\b|christmas (concert|sing|choir)|festive (concert|choir)|season of wonder/i, 'carols'],
+  // immersyjny spektakl („The Jury Experience: The Deadly Boat Ride”) to nie rejs łódką (tester A 27.11)
+  [/jury experience|murder mystery|immersive (theat|show)/i, 'theatre'],
+  // chór (One Day Choir 'Unwritten') – nie zespół rockowy (tester A 27.11)
+  [/\bcarols?\b|\b(choir|choral)\b[\s\S]*\b(xmas|christmas|festive)\b|christmas (concert|sing|choir)|festive (concert|choir)|season of wonder/i, 'carols'],
+  [/\bchoir\b|choral/i, 'choir'],  // chór bez świąt: własne zdjęcie albo ikonka
   [/new year|\bnye\b|hogmanay/i, 'nye'],
-  [/santa|christmas|xmas/i, 'xmas'],  // brunch z Mikołajem → zdjęcie świąteczne (zgłoszenie 26.11)
+  [/santa|christmas|xmas|\bnatale\b|\bno[eë]l\b/i, 'xmas'],  // brunch z Mikołajem → zdjęcie świąteczne (zgłoszenie 26.11)
   [/\bbrunch\b(?! that burns)/i, 'brunch'],
   [/breakfast/i, 'breakfast'],
   [/dinner|buffet|\blunch\b|sunday roast|\broast\b|tasting menu|by the course|set menu|thanksgiving|turkey|iftar|suhoor/i, 'dinner'],
@@ -204,7 +212,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain']);
+const NO_FALLBACK = new Set(['horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)
@@ -217,6 +225,7 @@ const CITY_ONLY = new Map<number, string>([
 // – kuchnię indyjską albo teppanyaki, każdy day pass – basen wśród wydm (tester 27.11).
 const ONLY_IF = new Map<string, RegExp>([
   ['night_out-5', /karaoke/i],
+  ['ladies_night-9', /karaoke|sing/i],  // panie śpiewają karaoke – nie przy ladies night z DJ-em (HUSHH, tester A 27.11)
   ['night_out-6', /shisha|hookah|arabic|lebanese|levant|majlis|turkish|moroccan|persian|emirati/i],
   ['dinner-7', /indian|biryani|curry|tandoor|desi|pakistani|dawat|punjabi|bhatia|masala|kerala|thali|nepal|sri lankan|mughal/i],
   ['dinner-8', /teppan|japanese|wagyu|hibachi|benihana|yakiniku|omakase|robata/i],
@@ -246,6 +255,9 @@ function allowed(f: number, item: Item, text: string): boolean {
   const n = PHOTO_NAMES.get(f);
   if (!n) return true;
   if (DISABLED.has(n)) return false;
+  // panorama jednego miasta też na ścieżce rodzaju z tytułu (Saturday Run – Khorfakkan Beach dostawał Burj Khalifę – tester A 27.11)
+  const only = CITY_ONLY.get(f);
+  if (only && only !== item.city) return false;
   const re = ONLY_IF.get(n);
   if (re && !re.test(text) && !(item.catKey === 'food' && (n === 'xmas-1' || n === 'xmas-2'))) return false;
   if (SKYLINE_FILES.has(n) && !TOWERS.has(item.city)) return false;

@@ -128,3 +128,6 @@ lm_global_village-1 | Global Village nocą: kanał z łódką, pawilony (arabski
 lm_louvre_in-3 | sala muzeum z antyczną rzeźbą, dwoje ludzi szkicuje na sztalugach
 rally-1 | dwa buggy rajdowe pędzą po wydmach w tumanie piasku, widzowie na grzbiecie
 viewpoint-1 | taras widokowy za szybą wysoko nad Dubajem o zachodzie, Burj Khalifa, ludzie robią zdjęcia
+boat-1 | drewniana łódka abra na spokojnej wodzie, domy z wieżami wiatrowymi, zachód słońca
+horseriding-1 | dziewczyna na koniu prowadzona przez instruktorkę, wydmy i skalista góra (Mleiha)
+ladies_night-9 | trzy kobiety śpiewają karaoke z mikrofonami, koktajle, kolorowe światła (tylko karaoke)
