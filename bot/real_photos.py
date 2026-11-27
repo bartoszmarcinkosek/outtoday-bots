@@ -20,7 +20,13 @@ for line in open(LIST, encoding="utf-8").read().splitlines() if os.path.exists(L
     credit = p[2] if len(p) > 2 and p[2] not in ("", "-") else None
     crop = p[3] if len(p) > 3 and p[3] else "center"
     try:
-        r = requests.get(url, headers=UA, timeout=60); r.raise_for_status()
+        import time
+        for _ in range(4):
+            r = requests.get(url, headers=UA, timeout=60)
+            if r.ok and r.headers.get("content-type", "").startswith("image"):
+                break
+            time.sleep(5)
+        r.raise_for_status()
         im = Image.open(io.BytesIO(r.content)).convert("RGB"); w, h = im.size
         if w / h > 2 / 3:
             nw = round(h * 2 / 3)

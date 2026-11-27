@@ -1,6 +1,7 @@
 """Kandydaci na prawdziwe zdjęcia miejsc z Wikimedia Commons (tylko wolne licencje) i Pexels (gdy jest sekret PEXELS_API_KEY). Czyta audit/real_search.txt: `<klucz> | <zapytanie>`.
 Wypisuje RS|klucz|nr|tytuł|adres 1600px|szer x wys|licencja|autor i zapisuje arkusze /tmp/rs/<klucz>.jpg (artefakt real-search)."""
-import io, os, re
+import io, os, re, time
+THUMB = {}
 import requests
 from PIL import Image, ImageDraw
 UA = {"User-Agent": "OutTodayBot/1.0 (https://outtoday.ae; finding freely licensed photos of UAE landmarks)"}
@@ -48,6 +49,7 @@ for line in open(src, encoding="utf-8"):
             if lic not in ("by", "by-sa", "cc0", "pdm") or (it.get("width") or 0) < 1000:
                 continue
             name = {"by": "CC BY", "by-sa": "CC BY-SA", "cc0": "CC0", "pdm": "Public domain"}[lic] + (f" {it.get('license_version')}" if lic in ("by", "by-sa") else "")
+            THUMB[it["url"]] = it.get("thumbnail")
             cands.append((f"Openverse/{it.get('source', '')}: {(it.get('title') or '')[:70]}".replace("|", "/"), it["url"],
                           f"{it.get('width')}x{it.get('height')}", name, f"{(it.get('creator') or '')[:40]} ({it.get('foreign_landing_url', '')})"))
             n += 1
@@ -61,7 +63,20 @@ for line in open(src, encoding="utf-8"):
     for i, (t, u, sz, lic, art) in enumerate(cands):
         print(f"RS|{key}|{i}|{t}|{u}|{sz}|{lic}|{art}")
         try:
-            im = Image.open(io.BytesIO(requests.get(u, headers=UA, timeout=30).content)).convert("RGB"); im.thumbnail((256, 280))
+            im = None
+            for tu in [THUMB.get(u), u]:
+                if not tu:
+                    continue
+                for _ in range(3):
+                    rr = requests.get(tu, headers=UA, timeout=30)
+                    if rr.ok and rr.headers.get("content-type", "").startswith("image"):
+                        im = Image.open(io.BytesIO(rr.content)).convert("RGB"); break
+                    time.sleep(3)
+                if im:
+                    break
+            if im is None:
+                raise RuntimeError("no image")
+            im.thumbnail((256, 280))
             sheet.paste(im, ((i % 6) * 260, (i // 6) * 300)); d.text(((i % 6) * 260 + 2, (i // 6) * 300 + 282), str(i), fill="red")
         except Exception as e:  # noqa: BLE001
             print(f"RS|{key}|{i}|thumb error {e}")
