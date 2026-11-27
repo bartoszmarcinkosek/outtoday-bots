@@ -49,3 +49,4 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 - Świąteczny posiłek (kolacja, lunch, brunch w restauracji/barze) ze zdjęciem jarmarku albo choinki → ma być świąteczny stół; jarmark tylko dla jarmarków (27.11 Christmas Day, Turtle Bay).
 - Zdjęcie budynku nie wygląda jak prawdziwy budynek (AI narysowało inny kształt) → wyłącz plik w DISABLED (photos.ts) i zgłoś właścicielowi; porównaj z prawdziwym zdjęciem miejsca (27.11 Etihad Arena).
 - Występ w sali (taniec, teatr) ze zdjęciem kampusu/budynku zamiast rodzaju występu → rodzaj z opisu (27.11 Cycles – Boy Blue, NYUAD).
+- Oferta bez strony lokalu, tylko z portalu (Time Out, Yalla…) albo z dopiskiem „confirm before you go” → ukryj (hide_deal_ids), aż potwierdzisz u lokalu (27.11).

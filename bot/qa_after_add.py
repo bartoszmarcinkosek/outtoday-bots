@@ -87,16 +87,16 @@ events = db.get("events", {"select": "id,title,city,venue,start_date,end_date,of
 for e in new_ev:
     events += [r for r in db.get("events", {"select": "id,title,city,venue,start_date,end_date,official_url,status,category,description",
                "title": f"eq.{e['title']}", "start_date": f"eq.{e['start_date']}"})]
-deals = db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status", "id": f"in.({','.join(dl_ids)})"}) if dl_ids else []
+deals = db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status,source_name,details", "id": f"in.({','.join(dl_ids)})"}) if dl_ids else []
 for e in new_dl:
-    deals += db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status", "title": f"eq.{e['title']}", "venue": f"eq.{e.get('venue','')}"})
+    deals += db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status,source_name,details", "title": f"eq.{e['title']}", "venue": f"eq.{e.get('venue','')}"})
 places = db.get("places", {"select": "id,name,city,official_url,status,category,description", "id": f"in.({','.join(pl_ids)})"}) if pl_ids else []
 for p in new_pl:
     places += db.get("places", {"select": "id,name,city,official_url,status,category,description", "name": f"eq.{p['name']}"})
 
 EV_COLS = "id,title,city,venue,start_date,end_date,official_url,status,category,description"
 if SINCE:
-    events, deals, places = changed("events", EV_COLS), changed("deals", "id,title,city,venue,price_text,start_time,official_url,status"), \
+    events, deals, places = changed("events", EV_COLS), changed("deals", "id,title,city,venue,price_text,start_time,official_url,status,source_name,details"), \
         changed("places", "id,name,city,official_url,status,category,description")
     print(f"QA|INFO|tryb SINCE {SINCE}: events {len(events)}, deals {len(deals)}, places {len(places)}")
 
@@ -236,6 +236,10 @@ for d in {x["id"]: x for x in deals}.values():
     for o in same:
         if o["id"] != d["id"] and R.norm(o.get("venue") or "")[:20] == R.norm(d.get("venue") or "")[:20] and R.titles_match(o["title"], d["title"]):
             out("FAIL", "deal", d["id"], d["title"], f"możliwy duplikat: {o['id']} '{o['title'][:50]}'")
+    # oferta tylko z przewodnika/portalu, bez strony lokalu, albo z dopiskiem „confirm before you go” = niepotwierdzona (27.11.2026)
+    if (not (d.get("official_url") or "").strip() and re.search(r"time ?out|yalla|what'?s ?on|the national|kidzapp|best bites|cobone|groupon|curly ?tales", d.get("source_name") or "", re.I)) \
+            or re.search(r"confirm before you go|sources differ|listed (in )?20\d\d", f"{d.get('details') or ''} {d.get('price_text') or ''}", re.I):
+        out("FAIL", "deal", d["id"], d["title"], "niepotwierdzona u lokalu (tylko portal / stara lista) – potwierdź na stronie lub IG lokalu")
     check_link("deal", d["id"], d["title"], d.get("official_url"), False)
     oks += 1
 
