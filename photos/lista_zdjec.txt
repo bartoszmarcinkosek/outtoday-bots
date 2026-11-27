@@ -280,3 +280,6 @@
 3 | lm_burj_al_arab-1 | Burj Al Arab sail-shaped hotel seen from Jumeirah beach at golden hour.
 45 | jazz-2 | Jazz trio with saxophone in a dim lounge, warm light.
 53 | rock-2 | Rock band performing live, guitarist in red stage lights, crowd.
+352 | orchestra-1 | Symphony orchestra performing on a modern concert hall stage, violins and cellos in the foreground, conductor raising baton, warm stage lighting, audience silhouettes, real-looking photo, no text, no logos
+353 | orchestra-2 | Grand piano and violinist performing a classical recital on an elegant stage with warm spotlights, wooden acoustic panels, real-looking photo, no text, no logos
+354 | dolphin-1 | Bottlenose dolphins leaping from the water in an indoor dolphinarium pool, audience seats around, bright clean light, real-looking photo, no text, no logos

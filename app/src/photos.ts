@@ -100,7 +100,8 @@ const RULES: [RegExp, string][] = [
   [/\bjais\b/i, 'lm_jebel_jais'],
   [/bungee/i, 'bungee'],
   // miejsca o konkretnym charakterze: bez własnego zdjęcia lepiej ikonka niż obce (kolejka górska przy akwarium)
-  [/aquarium|dolphin|sea ?world|underwater zoo/i, 'aquarium'],
+  [/dolphin/i, 'dolphin'],  // delfinarium to nie rekiny w akwarium (przegląd 27.11)
+  [/aquarium|sea ?world|underwater zoo/i, 'aquarium'],
   [/\bzoo\b|safari park|sharjah safari|crocodile|wildlife park|green planet|butterfly garden/i, 'zoo'],
   [/water ?park|waterworld|aquaventure|wild wadi|aqua ?park|laguna|montazah/i, 'waterpark'],
   // taras widokowy w wieżowcu (panorama miasta); górskie punkty widokowe (Jais, Hafeet, Hatta) dostają zdjęcie gór, nie miasta
@@ -153,7 +154,12 @@ const RULES: [RegExp, string][] = [
   // wioślarstwo na ergometrach (Masfout X Indoor Rowing w siłowni) – nie kajaki (tester A 27.11)
   [/indoor rowing|rowing[\s\S]*\bgym\b|ergometer/i, 'fitness'],
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|regatta|sailing (?!the)|rowing/i, 'watersports'],
-  [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|\bbach\b|vivaldi|handel|mozart|beethoven|chopin|tchaikovsky|young maestro|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
+  // koncert filmowy (Disney's Frozen Live in Concert, Home Alone 2 in Concert): ekran + orkiestra, nie scena rockowa (przegląd 27.11)
+  [/(disney|home alone|harry potter|film|movie)\b.*\bin concert\b|film concert/i, 'cinema_indoor'],
+  // zdjęcie świec tylko dla koncertów Candlelight; orkiestra, opera, recital: własne zdjęcie (albo ikonka) – przegląd 27.11
+  [/\bcandlelight\b/i, 'candlelight'],
+  [/orchestra|symphon|philharmon|quartet|classical|\bbach\b|vivaldi|handel|mozart|beethoven|chopin|tchaikovsky|young maestro|(?<!of the )opera\b|recital|piano|violin/i, 'orchestra'],
+  [/comedy based on|based on the play/i, 'theatre'],
   [/comedy|stand[- ]?up|comedian|laughter factory|exesanonymous|aakash gupta|mohamed helmy|biswa kalyan|max angioni|paul chowdhry|sapan verma|varun grover|gursimran khamba|angad ranyal|bader saleh|paul de saint sernin|trevor noah|max amini|nurlan saburov|whitney cummings|chai with chandan|steve harvey|apurva in emirates/i, 'comedy'],  // znani komicy bez słowa „comedy” w tytule (przegląd 26.11)
   [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b(?! night| evening| show| fire)|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show|(?<!nitro )circus|acrobat/i, 'theatre'],
   // kino plenerowe (plaża, dach, pod gwiazdami) -> zdjęcie pleneru; zwykły seans w sali -> sala kinowa (albo ikonka, póki zdjęcia nie ma)
@@ -161,7 +167,7 @@ const RULES: [RegExp, string][] = [
   [/comic ?con\b/i, 'expo'],  // Film & Comic Con to targi, nie kino
   [/cinema|film|screening|movie/i, 'cinema_indoor'],
   [/\bjazz\b/i, 'jazz'],
-  [/\bdj\b|\btechno\b|afro ?house|\bedm\b|\brave\b|club night|\bat (bohemia|be beach)\b|artbat|black coffee|ushua[iï]a|upperground/i, 'dj'],  // znani DJ-e i kluby DJ (ARTBAT w Ushuaïa, Black Coffee – zespół rockowy/wokalista, tester A 27.11)  // wieczory DJ w beach clubach: nie plaża
+  [/\bdj\b|\btechno\b|afro ?house|\bedm\b|\brave\b|club night|\bat (bohemia|be beach)\b|artbat|black coffee|ushua[iï]a|upperground|anyma|boris brejcha|sven v[aä]th|nic fanciulli|house rules|music on\b|miguelle|pawsa|blond:ish|camelphat|lost frequencies|shimza|mahmut orhan|east end dubs|sonny fodera/i, 'dj'],  // znani DJ-e i kluby DJ (ARTBAT w Ushuaïa, Black Coffee – zespół rockowy/wokalista, tester A 27.11)  // wieczory DJ w beach clubach: nie plaża
   [/arabic music|tarab|\boud\b(?! exhibition| and perfume|.*perfume)|khaleeji|eid concert/i, 'arabic'],
   [/rock republic|climbing|bouldering/i, 'active'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
@@ -190,7 +196,8 @@ const RULES: [RegExp, string][] = [
   [/classic cars?|vintage cars?|old cars?|masar 71|route 71/i, 'carshow'],
   [/desert challenge|\brally\b|\bbaja\b|dakar rally|rally dakar|off-?road|dune bash|drift(?! beach)/i, 'rally'],
   [/car show|motor show|auto show|car and bike|bike week|custom show|car meet/i, 'carshow'],
-  [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|nitro circus|driving experience/i, 'motorsport'],
+  [/nitro circus|motocross|freestyle ?mx/i, 'rally'],  // pokaz motocross, nie bolid F1 (przegląd 27.11)
+  [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|driving experience/i, 'motorsport'],
   [/\bcamels?\b/i, 'camel'],
   [/karaoke/i, 'night_out'],
   [/\bquiz\b/i, 'quiz'],
@@ -216,6 +223,10 @@ const RULES: [RegExp, string][] = [
   [/\bcarols?\b|\b(choir|choral)\b[\s\S]*\b(xmas|christmas|festive)\b|christmas (concert|sing|choir)|festive (concert|choir)|season of wonder/i, 'carols'],
   [/\bchoir\b|choral/i, 'choir'],  // chór bez świąt: własne zdjęcie albo ikonka
   [/new year|\bnye\b|hogmanay/i, 'nye'],
+  // świąteczny koncert / pokaz magii / warsztaty: rodzaj, nie choinka (przegląd 27.11)
+  [/\bmagic(ian)? show|magic phil/i, 'theatre'],
+  [/\bmakers\b/i, 'classes'],
+  [/(christmas|xmas|festive)\b.*\bconcert\b/i, 'concert'],
   [/santa|christmas|xmas|\bnatale\b|\bno[eë]l\b/i, 'xmas'],  // brunch z Mikołajem → zdjęcie świąteczne (zgłoszenie 26.11)
   [/\bbrunch\b(?! that burns)/i, 'brunch'],
   [/breakfast/i, 'breakfast'],
@@ -239,7 +250,7 @@ const RULES: [RegExp, string][] = [
 // kategoria (events/places/deals) → klucz zdjęć; sport bez rodzaju → pula różnych sportów
 // Czynność w tytule (joga, bieg, warsztaty) wygrywa z miejscem/klimatem w tytule (Time Out Market, targ, plaża):
 // „Yoga with POSTURE at Time Out Market” to joga, nie food trucki (Aga 27.11).
-const ACTIVITY = new Set(['yoga', 'running', 'fitness', 'cycling', 'swimming', 'aquafit', 'padel', 'tennis', 'classes', 'painting',
+const ACTIVITY = new Set(['facepaint', 'yoga', 'running', 'fitness', 'cycling', 'swimming', 'aquafit', 'padel', 'tennis', 'classes', 'painting',
   'cooking', 'workshop', 'quiz', 'boardgames', 'cleanup', 'dance', 'dance_ladies', 'sport_ladies', 'trampoline', 'obstacle', 'bodybuilding']);
 function ruleFor(text: string): [RegExp, string] | undefined {
   return RULES.find(([re, k]) => ACTIVITY.has(k) && re.test(text)) ?? RULES.find(([re]) => re.test(text));
@@ -266,7 +277,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['zipline', 'skydive', 'balloon', 'ropes', 'waxmuseum', 'lm_sharjah_mosque', 'lm_khalifa_mosque', 'lm_al_majaz', 'butterfly', 'crocodile', 'rainforest', 'immersive', 'santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir']);
+const NO_FALLBACK = new Set(['orchestra', 'dolphin', 'zipline', 'skydive', 'balloon', 'ropes', 'waxmuseum', 'lm_sharjah_mosque', 'lm_khalifa_mosque', 'lm_al_majaz', 'butterfly', 'crocodile', 'rainforest', 'immersive', 'santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)
@@ -375,6 +386,7 @@ function pool(item: Item): number[] {
   if (lm && AREAS.has(lm[1]) && item.kind === 'place' && item.catKey !== 'beaches') {
     const t = RULES.find(([re]) => re.test(item.rawTitle ?? item.title));
     if (t && PHOTO_FILES[t[1]]) return [...PHOTO_FILES[t[1]]];
+    if (t && NO_FALLBACK.has(t[1])) return [];  // Skydive Dubai: ikonka, nie nocna Marina (przegląd 27.11)
     if ((CAT[item.catKey] ?? []).some((k) => PHOTO_FILES[k])) lm = undefined;
   }
   if (lm && AREAS.has(lm[1]) && (!PHOTO_FILES[lm[1]] || (item.kind !== 'place' && !hotelDeal))) lm = undefined;
@@ -420,10 +432,13 @@ function pool(item: Item): number[] {
   // oferta, której tytuł mówi o czymś innym niż bar/kolacja (Saturday Run Club, Wellness Morning, Pasta Masterclass, Quiz): zdjęcie tej czynności (kontrola zdjęć 27.11)
   if (item.kind === 'deal') {
     const t = item.rawTitle ?? item.title;
-    const k = /run club|\bparkrun\b|\bcommunity run\b/i.test(t) ? 'running' : /yoga|pilates|wellness morning|sound ?bath|meditation/i.test(t) ? 'yoga'
+    const k = /kids zone|soft play|play area|hours? of play|play (&|and) pamper/i.test(t) ? 'kids'
+      : /horse ?rid(e|ing)/i.test(t) ? 'horseriding' : /water ?park/i.test(t) ? 'waterpark'
+      : /fitness (challenge|session|class)|bootcamp|\bhiit\b/i.test(t) ? 'fitness' : /\bcomedy\b|stand[- ]?up/i.test(t) ? 'comedy'
+      : /run club|\bparkrun\b|\bcommunity run\b/i.test(t) ? 'running' : /yoga|pilates|wellness morning|sound ?bath|meditation/i.test(t) ? 'yoga'
       : /masterclass|cooking class|workshop|decorating|mixology class/i.test(t) ? 'classes' : /\bquiz\b|\bbingo\b/i.test(t) ? 'quiz'
-      : /trampoline|flip (out|junior)|bounce/i.test(t) ? 'trampoline'
-      : item.catKey === 'night_out' && /steak|sushi|bbq|barbecue|wings|pizza|taco|burger|moules|seafood|crab|tapas|pasta|curry|ramen|noodle|roast|tomahawk|brisket|slider|gyoza|grill night|theme night|buffet/i.test(t) ? 'dinner' : undefined;
+      : /trampoline|flip (out|junior)|flipped park|bounce/i.test(t) ? 'trampoline'
+      : /^(night_out|happy_hour|ladies_night)$/.test(item.catKey ?? '') && !/ladies|happy|\bhour\b|sundowner|cocktail/i.test(t) && /steak|sushi|paella|pintxo|patties|mixed grill|greek|italian|arabic night|filipino night|mangal|wine and cheese|charcuterie|bbq|barbecue|wings|pizza|taco|burger|moules|seafood|crab|tapas|pasta|curry|ramen|noodle|roast|tomahawk|brisket|slider|gyoza|grill night|theme night|buffet/i.test(t) ? 'dinner' : undefined;
     if (k && PHOTO_FILES[k]) return [...PHOTO_FILES[k]];
   }
   if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
