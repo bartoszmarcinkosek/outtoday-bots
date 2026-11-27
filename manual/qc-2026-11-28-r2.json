@@ -1,0 +1,178 @@
+{
+ "note": "QC night 2 (28.11.2026). Part A: 100 deals reviewed by risk - 1 duplicate rejected, tidy-ups of raw price/detail text, missing days filled from the venue page. Part B: 40 deals compared with the source page - 18 verified (7 of them corrected), 1 rejected, 9 not confirmed, 12 unreadable.",
+ "reject_deal_ids": [
+  "4cb25c73-830c-4165-a4e4-233f559cd013"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "2c0c8888-5470-43c2-9a41-e1843eb8178a",
+   "set": {
+    "price_text": "From AED 2,532"
+   }
+  },
+  {
+   "id": "2bde99d6-490b-40f6-ba60-9650b93b1081",
+   "set": {
+    "price_text": "From AED 145"
+   }
+  },
+  {
+   "id": "485e17ea-9b1d-418c-a9a1-48fd93bcd13a",
+   "set": {
+    "price_text": null,
+    "details": "Evening happy hour at Ray's Bar, Sunday to Thursday."
+   }
+  },
+  {
+   "id": "3dc8b3d2-ba1a-4c21-8a48-b95b272a7269",
+   "set": {
+    "price_text": null,
+    "details": "Wednesday ladies' night with drinks, a starter and a main."
+   }
+  },
+  {
+   "id": "45e35846-ab01-4179-9903-d50cfcec45d3",
+   "set": {
+    "details": "Champagne Hour at Perlage, Tuesday to Thursday from 8 pm to 10 pm."
+   }
+  },
+  {
+   "id": "4875d9c7-8e52-430a-8d15-4ac78fdeb7f0",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "price_text": "AED 110 for one snack and three house drinks",
+    "details": "Daily all-day ladies' offer: one snack and three selected house drinks."
+   }
+  },
+  {
+   "id": "3f62ec2b-df63-46c9-8f4d-759ba0067d64",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "details": "Steak, chicken or fish with fries and salad for a set price, every evening from 5 pm to 10 pm."
+   }
+  },
+  {
+   "id": "35c4d6f2-bda2-49fb-9c4b-8abb94a0a574",
+   "set": {
+    "price_text": "From AED 320; drink packages at AED 420 and AED 520"
+   }
+  },
+  {
+   "id": "4efa65fc-b0c4-410d-af2e-10a3f00690b4",
+   "set": {
+    "price_text": "AED 79 with a soft drink (regular AED 119)"
+   }
+  },
+  {
+   "id": "2c64b114-68b8-4d5c-b190-aedc6c392b31",
+   "set": {
+    "price_text": "AED 350 soft · AED 450 house · AED 550 prosecco"
+   }
+  },
+  {
+   "id": "3f77985a-d517-4e7c-a728-a451c81400cd",
+   "set": {
+    "price_text": "AED 135 for three courses"
+   }
+  },
+  {
+   "id": "2f1bb8a8-d3be-4aca-a1fd-e11055e04bdf",
+   "set": {
+    "price_text": "AED 109 business lunch set · AED 199 barbecue lunch set"
+   }
+  },
+  {
+   "id": "31763567-ce0e-4364-b5c7-df06732046c3",
+   "set": {
+    "price_text": "AED 99 for unlimited wings and two drinks"
+   }
+  },
+  {
+   "id": "4263aa62-69c4-46c9-b8a5-fe1be368f4e3",
+   "set": {
+    "price_text": "Adult AED 125"
+   }
+  },
+  {
+   "id": "80ee88e9-07db-4fde-9c5a-a82feb5413a1",
+   "set": {
+    "price_text": "Ladies AED 99 · gents AED 169",
+    "details": "Every Tuesday from 5 pm: two hours of free-flow drinks and endless croquettes for ladies; gents get two hours of free-flow drinks."
+   }
+  },
+  {
+   "id": "7625ae2d-303d-4ea0-9a34-37e61a29a4d5",
+   "set": {
+    "official_url": "https://viyagolf.com/saadiyat/promotions/happy-hour-at-hawksbill/",
+    "details": "Selected drinks at AED 25, Monday to Thursday from 4 pm to 7 pm, at Saadiyat Beach Golf Club."
+   }
+  },
+  {
+   "id": "14291540-8df5-4984-8c7b-347592b4b620",
+   "set": {
+    "details": "Hola Cuba ladies' night: unlimited drinks for ladies while dining, with a live Cuban band; AED 199 drinks package for men."
+   }
+  },
+  {
+   "id": "6a0eb9f0-8963-4ecb-965a-98b3ba452865",
+   "set": {
+    "price_text": "Free for ladies while dining; AED 99 from 10 pm",
+    "details": "Unlimited selected drinks for ladies while dining from 7 pm to 11 pm, or unlimited drinks from 10 pm for AED 99."
+   }
+  },
+  {
+   "id": "4875b8d4-d98b-4ccf-ae0e-27732d930824",
+   "set": {
+    "price_text": "AED 200"
+   }
+  },
+  {
+   "id": "2d10b5ef-eeae-42a3-8b73-0e00d4f81164",
+   "set": {
+    "details": "Shinka Sunset: highballs and wines at AED 45 each with live saxophone and DJ, plus 20% off bar bites, daily from 5 pm to 7 pm."
+   }
+  },
+  {
+   "id": "6f255d55-4b4e-4e3a-81c1-947e3c64a029",
+   "set": {
+    "title": "Riviera Brunch at Basilico"
+   }
+  }
+ ],
+ "verified_deal_ids": [
+  "2e9ac5c7-46ac-4b72-8bf9-527b32aa6c84",
+  "0f0a5bae-3455-4daf-b195-edd8822382c9",
+  "3cf6dc9f-3f71-4107-87b0-f145ed0c2a47",
+  "5a1c170a-ba67-4e4b-ba94-f3b690a1bf6d",
+  "7d416844-a8a6-4922-b034-99325f5ba538",
+  "27fed6f2-879a-48b0-9dad-a030567a5132",
+  "16458e2c-c634-474c-91bf-415775a72e94",
+  "3eef09e7-4983-4101-be61-9bcf2ec35d2d",
+  "70c71409-9c27-45e0-aa45-f062dde396b1",
+  "80899fc7-fb3c-4d67-b255-36346a654402",
+  "17f96b5e-b31f-4fd3-8d29-0e48ce76fdf7",
+  "80ee88e9-07db-4fde-9c5a-a82feb5413a1",
+  "7625ae2d-303d-4ea0-9a34-37e61a29a4d5",
+  "14291540-8df5-4984-8c7b-347592b4b620",
+  "6a0eb9f0-8963-4ecb-965a-98b3ba452865",
+  "4875b8d4-d98b-4ccf-ae0e-27732d930824",
+  "2d10b5ef-eeae-42a3-8b73-0e00d4f81164",
+  "6f255d55-4b4e-4e3a-81c1-947e3c64a029"
+ ]
+}

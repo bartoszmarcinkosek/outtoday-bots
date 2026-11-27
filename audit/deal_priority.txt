@@ -1,7 +1,5 @@
 f7dcc306-982f-4d0c-9a4b-87f5da304dc4  # szybkie sprawdzenie 26.11: AX kwoty 199 nie ma na stronie
 4a94da3c-32fd-46f6-ad7a-ec355f9db908  # NOT_FOUND Quiz night: McGettigan's
-4cb25c73-830c-4165-a4e4-233f559cd013  # REDIRECT_HOME Day pass: Al Maya Island & Resort
 a5001735-3faf-42b0-b094-017d3ee9d2c1  # NOT_FOUND Unlimited Breakfast Buffet
 e10e2736-2d86-4814-9f6f-1c47ed2bca8d  # NOT_FOUND Happy hour: Belgian Cafe
 2876eedc-fb38-4b05-b299-34ca0648c19d  # sources differ on price
-4cb25c73-830c-4165-a4e4-233f559cd013  # dead link 26.11 (linkcheck)
