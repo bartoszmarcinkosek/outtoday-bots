@@ -158,7 +158,7 @@ const RULES: [RegExp, string][] = [
   [/\bfarm\b/i, 'cropfarm'],  // prawdziwa farma: szklarnie, grządki, zwierzęta
   [/al qudra|love lake/i, 'lakes'],
   // pustynia (wydmy) – też ośrodki na pustyni, np. Ritz-Carlton Al Wadi Desert (nie góry z 'wadi'; zgłoszenie 26.11)
-  [/desert (safari|reserve|conservation|park|resort|camp|retreat)|al wadi desert|marmoom|sand ?dunes|dune bash|liwa(?!\))/i, 'nature'],
+  [/desert (safari|reserve|conservation|park|resort|camp|retreat)|al wadi desert|marmoom|sand ?dunes|dune bash|liwa(?!\))/i, 'desert'],
   [/jebel|hatta|\bwadi\b|mountain|mubazzarah/i, 'daytrips'],
   [/\bbeach\b(?! hotel)/i, 'beaches'],
 ];
