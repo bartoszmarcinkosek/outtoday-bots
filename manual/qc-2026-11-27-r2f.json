@@ -1,0 +1,184 @@
+{
+ "note": "QC night 27.11, third firing of run 2. Part A: 100 items (32 events, 68 deals). Rejected: Plato's afternoon tea (ordinary menu) and the 3 Dec 'La Barra De Pintxos' event (same offer as the weekly deal Thursdays at Marcella). Hala Mohanlal starts 18:30 per Coca-Cola Arena. Cleaned 'confirm before you go' texts, doubled venue names and raw prices; Kempinski pool access is daily. Part B: 40 deals at source: 34 verified (WET Deck pass is Mon-Sat 12:00-20:00, Ajman Water Park now AED 59, new offer links for Fairmont Ajman day pass and pasta class), 5 unreadable (Bar du Port Abu Dhabi and RAK, Ting Irie comedy night: bot check), 1 not confirmed (Surf and Turf at Ajman Saray: dead link).",
+ "reject_event_ids": [
+  "dbf9a55d-1e89-4424-b2c9-20334d041b9c",
+  "df1c991a-1c1a-4623-b90a-6faefec17c0d"
+ ],
+ "update_event_ids": [
+  {
+   "id": "e1ef4108-d4ce-4a86-aadc-5df16bb3e96e",
+   "set": {
+    "start_time": "18:30:00",
+    "description": "Malayalam stage show headlined by Mohanlal for UAE National Day. Doors open 17:30, show starts 18:30."
+   }
+  },
+  {
+   "id": "d5d1416c-18dd-4d32-a7a1-2f54f3a4da32",
+   "set": {
+    "title": "Sharmila Samant: All That Is Solid Melts Into Waste",
+    "venue": "1x1 Art Gallery, Alserkal Avenue"
+   }
+  }
+ ],
+ "update_deal_ids": [
+  {
+   "id": "02a96273-3793-4b70-bcae-c2e424b3a961",
+   "set": {
+    "details": "Daily happy hour, 15:00 to 21:00."
+   }
+  },
+  {
+   "id": "04d4dd70-8504-4009-8b4d-01caa458e573",
+   "set": {
+    "details": "Daily happy hour, 12:00 to 21:00."
+   }
+  },
+  {
+   "id": "00cfbe6e-ab79-4645-a0b0-20be9ff06298",
+   "set": {
+    "details": "Daily happy hour, 12:00 to 19:00."
+   }
+  },
+  {
+   "id": "0f0a5bae-3455-4daf-b195-edd8822382c9",
+   "set": {
+    "details": "Daily happy hour with 50% off selected drinks, 17:00 to 19:00."
+   }
+  },
+  {
+   "id": "05ad1646-d54a-4445-ab7e-ebe6e819b6b0",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "0feaff62-2346-4396-8f6b-49c5be57ad50",
+   "set": {
+    "venue": "Distillery Dubai Gastropub"
+   }
+  },
+  {
+   "id": "11e2d38b-6c08-4eef-90d2-ca39247a621a",
+   "set": {
+    "venue": "Ting Irie Pon Di Beach, Mamsha Al Saadiyat"
+   }
+  },
+  {
+   "id": "0221c596-1f02-4083-8076-17c61bdf96eb",
+   "set": {
+    "venue": "Ting Irie Pon Di Beach, Mamsha Al Saadiyat"
+   }
+  },
+  {
+   "id": "03fcb784-5b69-4b73-98e2-a9ad38ba38b3",
+   "set": {
+    "price_text": "Drinks from AED 23"
+   }
+  },
+  {
+   "id": "07aa5510-e880-4108-9aa2-5e583898a8f9",
+   "set": {
+    "price_text": "From AED 99"
+   }
+  },
+  {
+   "id": "07897093-9908-4ffc-80f2-5ed0211379ea",
+   "set": {
+    "price_text": "AED 55 per person"
+   }
+  },
+  {
+   "id": "0b1cce7e-10a2-4d0e-b886-1a8a786966fe",
+   "set": {
+    "days_of_week": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "start_time": "12:00:00",
+    "end_time": "20:00:00",
+    "price_text": "AED 150, fully redeemable",
+    "details": "Sunchasers all-day pool access for adults, Monday to Saturday 12:00 to 20:00; the AED 150 is redeemable on food and drinks."
+   }
+  },
+  {
+   "id": "17420161-1b21-488a-b6f8-d7ce4c8bc7d5",
+   "set": {
+    "price_text": "AED 59 per person plus 5% VAT (regular price AED 120)"
+   }
+  },
+  {
+   "id": "9d2223fd-50d7-455d-ac34-38101ca6afd0",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "a5749c35-d0d2-4a10-9bef-d693597d62aa",
+   "set": {
+    "official_url": "https://www.fairmont.com/en/hotels/ajman/fairmont-ajman/offers/Pool-Day-Pass.html"
+   }
+  },
+  {
+   "id": "72d18785-2276-41b8-acc4-b857a941e6dc",
+   "set": {
+    "official_url": "https://www.fairmont.com/en/hotels/ajman/fairmont-ajman/offers/ITALIAN-CLASSICS-Pasta-Masterclass.html"
+   }
+  }
+ ],
+ "verified_deal_ids": [
+  "ee2d990f-78ad-4470-a959-25cd79943976",
+  "424e610e-2a59-46cf-bbe9-597cfdb72359",
+  "9416c0e8-cb97-4ee8-9fa3-fb704fde1668",
+  "3cf823be-9162-4879-a756-64d6f91088ba",
+  "47130cd8-446d-4f78-b0a3-a26a6638268a",
+  "e44ba2f3-88a7-4590-b3ce-fd2d7bde8195",
+  "5b0443a6-b520-4957-bb8b-a6b3d8b22ef5",
+  "581d5656-a06d-489a-a01a-71cce99dcf92",
+  "ac5fff93-a49f-4369-b737-4ed5121471e9",
+  "9d2223fd-50d7-455d-ac34-38101ca6afd0",
+  "853e8890-3206-48da-be0c-dee4fbc71727",
+  "965811c7-823e-4ab0-80c3-54cd89a9c798",
+  "a3c77ce4-510f-4265-862c-423ad383fe61",
+  "a4b24e5b-fa87-48a8-95a4-970c05e79764",
+  "fa7dc844-a8b4-4a6b-8b2c-020b2e19a90f",
+  "a5749c35-d0d2-4a10-9bef-d693597d62aa",
+  "72d18785-2276-41b8-acc4-b857a941e6dc",
+  "cbad09b3-c38f-43ef-aef3-dc67b9c5d58d",
+  "6b9ab1c1-5a9d-4a5c-917a-8ec56958abae",
+  "122af742-8451-4a7d-a9ae-bfce6106f864",
+  "6864c691-278b-4835-a5ad-929e0e40c9b8",
+  "c5c3bc6f-d9dc-4d38-b998-c924d408c4b3",
+  "f8535e00-204f-4a1b-a3fd-830028f0bfc8",
+  "17420161-1b21-488a-b6f8-d7ce4c8bc7d5",
+  "2ab82a9a-d7d6-4b32-b696-efe48486304b",
+  "947c145e-b534-44e7-9d8b-c8fa26c39cbe",
+  "d1d3d7fa-0146-4bda-87d5-65b7a04afc73",
+  "8d0dc0a1-e975-42c2-991b-2959a468c0f0",
+  "8e484e19-6937-4084-94a2-7e6777894d10",
+  "b0b05d58-0931-42e6-9e1f-fb2ac0419d99",
+  "3d8b7f6a-3d9a-4cb4-ac4b-9d1a2e655118",
+  "cb1c81a7-6b72-4639-a558-d6b787feb71f",
+  "03b1c0a5-7e1f-4c40-8d0c-e244eb81e554",
+  "0b1cce7e-10a2-4d0e-b886-1a8a786966fe"
+ ]
+}
