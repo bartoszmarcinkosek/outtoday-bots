@@ -11,3 +11,14 @@ cbd8a965-95c5-4dda-9f33-d95384d145fc | Al Jazeera Al Hamra Heritage Village | op
 109f4919-43b0-47b3-b563-47d34875afe5 | Al Hosn grounds and House of Artisans | official page gives fort hours only, grounds/House of Artisans unclear | 2026-11-26
 6f902435-3e5d-4862-96ab-68cf5e5b2028 | Fujairah Museum | tourism page gives one templated daily range, Friday hours unconfirmed | 2026-11-27
 961ddc5a-39d0-4573-b3aa-8548d7f78317 | Madame Tussauds Dubai | official hours page broken (template text), no weekly hours | 2026-11-27
+0565de41-a83d-4569-9be0-5c193a44e867 | Aquaventure Waterpark | official page conflicts (10–sunset vs 10–18) | 2026-11-28
+b641d552-df4b-4820-8eaf-efd6efc4fee1 | Quranic Park | only source is 2020 news, no current official hours | 2026-11-28
+38fad926-5ca3-4a6f-88ab-fcf3fe94b0bc | Al Montazah Parks | water park closed for season, only Island of Legends hours given | 2026-11-28
+1a2d2e9a-7fc2-48a4-b72d-871f719838c5 | Yas Waterworld | official hours page is JS calendar only, no weekly hours | 2026-11-28
+58f40a05-9870-4c7c-9fac-9a54f8099d1e | SeaWorld Yas Island | official hours page is JS calendar only, no weekly hours | 2026-11-28
+cfc63a0e-28a8-46f9-b61c-373349c7fa2c | Real Madrid World | official DPR park-hours selector only, hours vary | 2026-11-28
+cf59e64c-f665-4f90-9885-2dfc466159a5 | MOTIONGATE Dubai | official DPR park-hours selector only, hours vary | 2026-11-28
+6e702850-4de0-4f5a-ab81-1969c2772b20 | Riverland Dubai | official site: hours per individual venue, no overall hours | 2026-11-28
+c73a7995-0dec-47ea-8044-7580d74d2e56 | Hili Archaeological Park | official/tourism pages give no hours | 2026-11-28
+124e0e93-622f-4591-8d14-7061174c6fc8 | Masdar Park | official page gives no hours | 2026-11-28
+a096643f-552a-4118-8121-df117e7232b8 | Tashkeel | current site lists Alserkal and Nad Al Sheba only, Al Fahidi hours not current | 2026-11-28
