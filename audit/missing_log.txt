@@ -1,0 +1,10 @@
+2026-11-27 | The Nutcracker – Bolshoi Ballet | 2026-12-04..06 | Dubai Opera | źródło dubai_opera czyta tylko stronę główną (brak listy wszystkich spektakli) | dodany URL dubaiopera.com/en/events
+2026-11-27 | Abracadabra | 2026-12-18..19 | Dubai Opera | jw. – strona główna Dubai Opera pokazuje tylko wybrane | dodany URL dubaiopera.com/en/events
+2026-11-27 | Wasla Festival | 2026-11-28 | Jubilee Park, Expo City | Platinumlist Dubai jest źródłem (str. 1-10), wydarzenie z „tickets coming soon” nie trafiło; Expo City events-and-workshops go nie ma | blocked_seen: sprawdzić platinumlist_dxb
+2026-11-27 | ARTBAT presents Upperground | 2026-11-28 | Ushuaïa Dubai Harbour | jw. Platinumlist Dubai; IG ushuaiadubai to inny lokal | blocked_seen: sprawdzić platinumlist_dxb
+2026-11-27 | Yasalam After-Race Concert: The Chainsmokers & The Script | 2026-12-06 | Etihad Live, Yas Island | yasmarinacircuit.com pokazuje treści z 2025; abudhabigp.com nie był źródłem stron | dodane źródło abu_dhabi_gp
+2026-11-27 | Madinat Jumeirah Festive Market | 2026-12-04..27 | Fort Island, Madinat Jumeirah | jumeirah.com tylko w hotels.json (hotele), IG madinatjumeirah bez posta o targu | blocked_seen: rozważyć stronę experiences Madinat
+2026-11-27 | Meet Santa & Snow Park at Ski Dubai | 2026-12-01..25 | Ski Dubai | skidxb.com nie jest źródłem stron, IG bez posta | blocked_seen: rozważyć skidxb.com
+2026-11-27 | JLT Winter Festival | 2026-12-12..20 | JLT Park | jlt.ae nie było źródłem | dodane źródło jlt_whats_on
+2026-11-27 | Meet Santa at Snow Abu Dhabi | 2026-12-04..25 | Snow Abu Dhabi, Reem Mall | skidxb.com nie jest źródłem stron | blocked_seen: rozważyć skidxb.com
+2026-11-27 | Sharjah Architecture Triennial | 2026-11-14..2027-04-14 | kilka miejsc, Szardża | sharjaharchitecture.org blokuje roboty (robots), brak konta IG; wcześniejszy wpis o programie otwarcia odrzucony | blocked_seen: znaleźć oficjalne IG ze strony

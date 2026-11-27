@@ -1,0 +1,5 @@
+2026-11-27 | platinumlist_dxb | Wasla Festival (28.11) i ARTBAT Upperground (28.11) nie trafiły z listy Platinumlist Dubai – sprawdzić, czy lista event/list zawiera wydarzenia „coming soon” i czy 10 stron wystarcza (missing check)
+2026-11-27 | sharjaharchitecture.org | blokuje roboty (robots.txt) – Sharjah Architecture Triennial potrzebuje zastępstwa IG (nazwa konta tylko ze strony oficjalnej) (missing check)
+2026-11-27 | skidxb.com | Ski Dubai / Snow Abu Dhabi „Meet Santa” nie było w apce – brak źródła stron; rozważyć skidxb.com/en-ae/ski-dubai i /snow-abu-dhabi (missing check)
+2026-11-27 | jumeirah.com Madinat Jumeirah | Festive Market nie było w apce – jumeirah.com tylko jako hotele; rozważyć stronę experiences Madinat Jumeirah (missing check)
+2026-11-27 | yasmarinacircuit.com/en | pokazuje treści z 2025 (Yasalam) – dodano abudhabigp.com/en/ jako źródło (missing check)

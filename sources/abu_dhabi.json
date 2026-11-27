@@ -449,6 +449,18 @@
    ],
    "trusted": true,
    "note": "Dodane 25.11.2026 przy poszerzaniu listy źródeł."
+  },
+  {
+   "id": "abu_dhabi_gp",
+   "name": "Abu Dhabi Grand Prix (official)",
+   "city": "Abu Dhabi",
+   "single_venue": false,
+   "urls": [
+    "https://www.abudhabigp.com/en/"
+   ],
+   "default_venue": "Yas Marina Circuit, Yas Island",
+   "trusted": true,
+   "note": "Added 27.11.2026 (missing check): GP concerts/afterparties; yasmarinacircuit.com showed 2025 content."
   }
  ]
 }

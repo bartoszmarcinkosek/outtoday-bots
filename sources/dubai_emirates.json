@@ -18,7 +18,8 @@
    "city": "Dubai",
    "single_venue": true,
    "urls": [
-    "https://www.dubaiopera.com/"
+    "https://www.dubaiopera.com/",
+    "https://www.dubaiopera.com/en/events"
    ],
    "default_venue": "Dubai Opera, Downtown Dubai",
    "trusted": true
@@ -1034,6 +1035,18 @@
    ],
    "trusted": true,
    "note": "Platforma Rządu Dubaju dla społeczności mieszkańców (sport, kultura, hobby). Dodane 25.11.2026."
+  },
+  {
+   "id": "jlt_whats_on",
+   "name": "JLT (DMCC) what's on",
+   "city": "Dubai",
+   "single_venue": false,
+   "urls": [
+    "https://jlt.ae/whats-on"
+   ],
+   "default_venue": "Jumeirah Lake Towers",
+   "trusted": true,
+   "note": "Added 27.11.2026 (missing check): JLT Winter Festival was missing."
   }
  ]
 }
