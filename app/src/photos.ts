@@ -25,8 +25,9 @@ const LANDMARKS: [RegExp, string][] = [
   [/miracle garden/i, 'lm_miracle_garden'],
   // zgłoszenia Agi 27.11: konkretne miejsca dostają własny klucz (prawdziwe zdjęcie albo ikonka), a nie zdjęcie okolicy
   [/twiggy/i, 'day_pass'],
+  [/xline|zip ?line/i, 'zipline'],
   [/madame tussauds|wax museum/i, 'waxmuseum'],
-  [/sheikh mohammed centre for cultural|\bsmccu\b|coffee museum|al fahidi|al bastakiya|bastakiya/i, 'heritage'],
+  [/sheikh mohammed centre for cultural|\bsmccu\b|coffee museum|al fahidi|al bastakiya|bastakiya/i, 'lm_al_fahidi'],
   [/sharjah mosque/i, 'lm_sharjah_mosque'],
   [/sheikh khalifa (bin zayed )?(al nahyan )?mosque|al ain grand mosque/i, 'lm_khalifa_mosque'],
   [/al majaz waterfront/i, 'lm_al_majaz'],
