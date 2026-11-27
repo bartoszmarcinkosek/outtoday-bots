@@ -1,0 +1,34 @@
+{
+ "note": "Tester A 28.11: typy ofert, brakujące opisy/godziny ze stron lokali, ukryta oferta 'confirm before you go'",
+ "update_deal_ids": [
+  {
+   "id": "0b38bfc6-b0c3-4dbb-99fd-7bae6854fd9b",
+   "set": {
+    "deal_type": "dinner"
+   }
+  },
+  {
+   "id": "0a6451ad-048f-4981-8a68-251c46714524",
+   "set": {
+    "deal_type": "lunch"
+   }
+  },
+  {
+   "id": "2100b1b7-2f59-415d-92f4-eafb04df1372",
+   "set": {
+    "details": "Daily deal at McG's Barsha: a burger, fries and a pint of Murphy's for AED 79."
+   }
+  },
+  {
+   "id": "0feaff62-2346-4396-8f6b-49c5be57ad50",
+   "set": {
+    "start_time": "20:00",
+    "end_time": "23:00",
+    "venue": "Distillery Gastropub, Souk Al Manzil, Downtown Dubai"
+   }
+  }
+ ],
+ "hide_deal_ids": [
+  "1a0278a0-bafb-4f42-87ae-43d1756af723"
+ ]
+}

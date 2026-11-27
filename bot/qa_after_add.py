@@ -258,6 +258,10 @@ for d in {x["id"]: x for x in deals}.values():
         out("FAIL", "deal", d["id"], d["title"], "oferta bez ceny i bez godziny")
     if d.get("city") not in CITIES:
         out("FAIL", "deal", d["id"], d["title"], f"miasto spoza listy: {d.get('city')}")
+    # brak miejsca albo urwana nazwa („Dubai Marina)”): karta nie mówi, gdzie to jest (tester A 28.11 – Cargo, Crafty Fox, Nuri)
+    _v = (d.get("venue") or "").strip()
+    if not _v or _v.count("(") != _v.count(")"):
+        out("FAIL" if (SINCE or d["id"] in GATE_IDS) else "WARN", "deal", d["id"], d["title"], f"brak miejsca albo urwana nazwa miejsca: '{_v}'")
     same = _city("deals", "id,title,venue", d["city"])
     for o in same:
         if o["id"] != d["id"] and R.norm(o.get("venue") or "")[:20] == R.norm(d.get("venue") or "")[:20] and R.titles_match(o["title"], d["title"]):

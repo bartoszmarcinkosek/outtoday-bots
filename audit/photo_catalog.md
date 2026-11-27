@@ -215,3 +215,11 @@ lm_al_fahidi-2 | prawdziwe zdjęcie (Wikimedia, EditQ CC0): biała wieża wiatro
 - lm_p_suwaidi_pearl_farm-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
 - lm_p_suwaidi_pearl_farm-2: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
 - lm_p_yas_waterworld-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+lm_camel_race-1 | prawdziwe zdjęcie: wielbłądy wyścigowe w kolorowych derkach przy barierce toru
+lm_p_al_marmoom_desert_conservati-1 | prawdziwe zdjęcie: trzciny nad jeziorem na pustyni, akacje (Al Marmoom)
+lm_museum_future-1 | Museum of the Future nocą (pierścień z kaligrafią), droga ze smugami świateł, wieżowce
+lm_p_heart_of_sharjah-2 | prawdziwe zdjęcie: wieża wiatrowa nad murem z kamienia koralowego, błękitne niebo
+lm_p_yas_waterworld-1 | prawdziwe zdjęcie: zjeżdżalnie Yas Waterworld z góry, rury i baseny
+lm_p_fujairah_fort-2 | prawdziwe zdjęcie: kamienny fort Fudżajra z okrągłymi wieżami, flaga ZEA
+lm_saadiyat-2 | drewniana kładka przez wydmy z trawą na plażę o zachodzie słońca
+day_pass_dubai-2 | plaża z białymi leżakami i parasolami, palmy, Burj Al Arab w tle (tylko hotel przy plaży z tym widokiem)
