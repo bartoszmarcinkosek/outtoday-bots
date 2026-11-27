@@ -416,11 +416,16 @@ function pool(item: Item): number[] {
 }
 
 /** Zdjęcie dla karty albo null (wtedy karta pokazuje ikonkę). `avoid` = zdjęcie poprzedniej karty. */
+const STRICT_PLACE = new Set(['museums', 'attractions', 'parks', 'markets', 'daytrips']);
+
 export function photoFor(item: Item, avoid?: number | null): number | null {
   const row: any = item.event ?? item.deal ?? item.place;
   if (row?.id && PHOTO_OFF.has(String(row.id))) return null;
   const text = `${item.rawTitle ?? item.title} ${item.where ?? ''} ${item.event?.venue ?? ''}`;
-  const p = pool(item).filter((f) => allowed(f, item, text));
+  let p = pool(item).filter((f) => allowed(f, item, text));
+  // KONKRETNE MIEJSCA (muzea, atrakcje, parki, targi, wycieczki): tylko prawdziwe zdjęcie tego miejsca albo zdjęcie okolicy (lm_*),
+  // nigdy ogólne zdjęcie z AI, które udaje to miejsce (Coffee Museum, Al Majaz, meczety, Aventura – zgłoszenia Agi 27.11). Inaczej ikonka.
+  if (item.kind === 'place' && STRICT_PLACE.has(item.catKey)) p = p.filter((f) => (PHOTO_NAMES.get(f) ?? '').startsWith('lm_'));
   if (!p.length) return null;
   let i = hash(item.key) % p.length;
   if (p.length > 1 && p[i] === avoid) i = (i + 1) % p.length;
