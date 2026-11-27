@@ -1,5 +1,40 @@
-lm_sharjah_mosque | Sharjah Mosque
-lm_khalifa_mosque | Sheikh Khalifa bin Zayed Mosque Al Ain
-lm_al_majaz | Al Majaz Waterfront Sharjah
-lm_al_fahidi | Al Fahidi Historical Neighbourhood Dubai
-lm_madame | Madame Tussauds Dubai Bluewaters
+lm_p_al_bidya_mosque | Al Bidya Mosque Fujairah
+lm_p_manarat_al_saadiyat | Manarat Al Saadiyat Abu Dhabi
+lm_p_arte_museum_dubai | ARTE Museum Dubai
+lm_p_shimal_archaeological_site_q | Shimal Archaeological Site & Queen of Sheba's Palace Ras Al Khaimah
+lm_p_al_mahatta_museum | Al Mahatta Museum Sharjah
+lm_p_warner_bros_world_abu_dhabi | Warner Bros. World Abu Dhabi
+lm_p_dhayah_fort | Dhayah Fort Ras Al Khaimah
+lm_p_khor_kalba_fort | Khor Kalba Fort Sharjah
+lm_p_ain_al_madhab_gardens | Ain Al Madhab Gardens Fujairah
+lm_p_masdar_park | Masdar Park Abu Dhabi
+lm_p_al_qudra_lakes | Al Qudra Lakes Dubai
+lm_p_al_marmoom_desert_conservati | Al Marmoom Desert Conservation Reserve Dubai
+lm_p_heart_of_sharjah | Heart of Sharjah
+lm_p_kuwaiti_souq | Kuwaiti Souq Ras Al Khaimah
+lm_p_yas_waterworld | Yas Waterworld Abu Dhabi
+lm_p_fujairah_fort | Fujairah Fort
+lm_p_cultural_foundation | Cultural Foundation Abu Dhabi
+lm_p_reem_central_park | Reem Central Park Abu Dhabi
+lm_p_masafi_friday_market | Masafi Friday Market Fujairah
+lm_p_ajman_fish_market | Ajman Fish Market
+lm_p_img_worlds_of_adventure | IMG Worlds of Adventure Dubai
+lm_p_falaj_al_mualla_fort | Falaj Al Mualla Fort Umm Al Quwain
+lm_p_emirates_bio_farm | Emirates Bio Farm Al Ain
+lm_p_mirfa_public_beach | Mirfa Public Beach Abu Dhabi
+lm_p_al_hayl_castle | Al Hayl Castle Fujairah
+lm_p_museum_of_illusions_dubai | Museum of Illusions Dubai
+lm_p_al_ain_museum | Al Ain Museum
+lm_p_al_safia_park | Al Safia Park Ajman
+lm_p_gold_souk | Gold Souk Dubai
+lm_p_jameel_arts_centre | Jameel Arts Centre Dubai
+lm_p_al_gurm_corniche_park | Al Gurm Corniche Park Abu Dhabi
+lm_p_dubai_garden_glow | Dubai Garden Glow
+lm_p_souk_qaryat_al_beri | Souk Qaryat Al Beri Abu Dhabi
+lm_p_la_perle | La Perle Dubai
+lm_p_souk_al_jami | Souk Al Jami Abu Dhabi
+lm_p_safa_park | Safa Park Dubai
+lm_p_sharjah_maritime_museum | Sharjah Maritime Museum
+lm_p_suwaidi_pearl_farm | Suwaidi Pearl Farm Ras Al Khaimah
+lm_p_al_hefaiyah_mountain_conserv | Al Hefaiyah Mountain Conservation Centre Sharjah
+lm_p_etihad_towers_observation_de | Etihad Towers Observation Deck Abu Dhabi
