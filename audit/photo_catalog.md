@@ -185,3 +185,10 @@ lm_marjan-2 | prawdziwe zdjęcie (Pexels, od właściciela 27.11): Al Marjan Isl
 lm_coca_cola_arena-3 | prawdziwe zdjęcie (Wikimedia, Ninoksha Maria CC BY-SA): okrągła arena z czerwonymi rombami nocą, lasery, Burj Khalifa
 lm_dubai_opera_in-1 | prawdziwe zdjęcie (Wikimedia, heyexplorer.com CC BY): widownia Dubai Opera, czerwone fotele, balkony
 lm_saadiyat-7 | prawdziwe zdjęcie (Wikimedia, Adman Payne CC BY-SA 4.0): wydmy z trawą i plaża Saadiyat
+lm_sharjah_mosque-1 | prawdziwe zdjęcie (Wikimedia, Arrdl CC BY-SA): Sharjah Mosque o zachodzie, plac z kostki
+lm_sharjah_mosque-2 | prawdziwe zdjęcie (Wikimedia, Arrdl CC BY-SA): Sharjah Mosque z minaretem, niebieskie kopuły
+lm_khalifa_mosque-1 | prawdziwe zdjęcie (Wikimedia, Sk ahsan habeeb CC BY-SA): Sheikh Khalifa Mosque Al Ain, złota kopuła, minarety
+lm_al_majaz-1 | prawdziwe zdjęcie (Wikimedia, Wael Mohammed Al-Masri CC BY-SA): Al Majaz Waterfront nocą z góry, park, laguna, wieżowce
+lm_al_majaz-2 | prawdziwe zdjęcie (Wikimedia, Farrah Zakir CC BY-SA): fontanny na lagunie Khalid przy Al Majaz, balustrada
+lm_al_fahidi-1 | prawdziwe zdjęcie (Wikimedia, EditQ CC0): uliczka Al Fahidi z wieżą wiatrową i kaligrafią
+lm_al_fahidi-2 | prawdziwe zdjęcie (Wikimedia, EditQ CC0): biała wieża wiatrowa i dziedziniec w Al Fahidi

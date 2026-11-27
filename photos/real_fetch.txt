@@ -1,2 +1,1 @@
 # <nazwa> | <adres obrazka> | <podpis: autor, licencja albo -> | <kadr: center/left/right/0.0–1.0>
-lm_khalifa_mosque-2 | https://upload.wikimedia.org/wikipedia/commons/7/77/Sheikh_Khalifa_Mosque_Al_Ain.jpg | Xeeboi, CC0, Wikimedia Commons | center
