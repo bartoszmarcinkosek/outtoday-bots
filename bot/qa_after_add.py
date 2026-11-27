@@ -202,6 +202,18 @@ for e in {x["id"]: x for x in events}.values():
                     and abs((dt.date.fromisoformat(o["start_date"]) - sd).days) <= 3):
                 out("FAIL", "event", e["id"], e["title"], f"ten sam spektakl jako osobna karta na każdy termin: {o['id']} {o['start_date']} – połącz w jedną kartę (od–do)")
                 break
+    # ten sam event dwa razy pod trochę innym tytułem i z inną datą w tym samym miejscu („Tony Robbins BREAKTHROUGH” 24.04.2027
+    # i „Tony Robbins Breakthrough 2027” z błędną datą 10–11.12 – tester A 27.11.2026): tytuł bez roku i wielkości liter
+    if e.get("venue"):
+        _norm = lambda t: re.sub(r"\s+", " ", re.sub(r"\b20\d\d\b|[^\w ]", " ", t.lower())).strip()
+        for o in db.get("events", {"select": "id,title,start_date", "status": "eq.approved", "city": f"eq.{e['city']}", "venue": f"eq.{e['venue']}", "limit": "300"}):
+            if o["id"] != e["id"] and o["start_date"] != e["start_date"] and o["title"] != e["title"] and _norm(o["title"]) == _norm(e["title"]) \
+                    and frozenset((o["id"], e["id"])) not in NOT_DUPES:
+                out("WARN", "event", e["id"], e["title"], f"ten sam tytuł (bez roku/wielkości liter) w tym samym miejscu: {o['id']} {o['start_date']} – sprawdź datę, pewnie duplikat")
+                break
+    # słowo WIELKIMI LITERAMI w tytule (BREAKTHROUGH, IMAGINARY … KRASOTA) – tester A 27.11.2026
+    if re.search(r"\b[A-Z]{8,}\b", e["title"]):
+        out("WARN", "event", e["id"], e["title"], "słowo WIELKIMI LITERAMI w tytule – zapisz normalnie")
     # tytuł z wyciętym separatorem (kilka spacji: „Yaw Owusu   Where The Tide Flows”) – stare wpisy sprzed poprawki w run.py (tester 27.11.2026)
     if re.search(r"\S {2,}\S", e["title"]):
         out("FAIL", "event", e["id"], e["title"], "tytuł z kilkoma spacjami (wycięty separator) – wstaw „ – ”")

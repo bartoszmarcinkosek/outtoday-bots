@@ -1,0 +1,20 @@
+{
+ "note": "Tester A 27.11.2026 (2. przebieg): duplikaty z błędną datą (Fe Eid Amina 25.12 – bilet tylko 13.12; Tony Robbins Breakthrough 2027 – prawdziwa data 24.04.2027, druga karta już jest), Abracadabra – strona biletów prowadzi do Dukan Al Alab (ta sama Opera, te same daty, karta już jest), Mini Mix Party – promocja produktu w sklepie. Poprawione: tytuły (separator, WIELKIE LITERY, „Night 2”), miejsce i godzina Rahul Subramanian, data i miejsce Face Aux Murs (12–13.06 NYUAD), cena Imaginary, opis Come on Keralam, Route 71 = parada zabytkowych aut.",
+ "reject_event_ids": [
+  "8277961d-2ab9-477e-9c8c-3fbf7582a3a7",
+  "99143799-9b15-473e-8262-f048b583b0de",
+  "dceb3e9b-731d-4959-968d-56c97cde3117",
+  "76f25db5-e801-45c7-b802-d91214059355"
+ ],
+ "update_event_ids": [
+  {"id": "7cc25572-9559-488e-b83b-16440dd50213", "set": {"title": "Tony Robbins Breakthrough", "official_url": "https://dubai.platinumlist.net/event-tickets/106963/tony-robbins-breakthrough-2027", "price_text": "From AED 2,499", "price_min_aed": 2499}},
+  {"id": "6dc0f4f6-5cf5-4c2e-922e-27d1576c9134", "set": {"title": "Yusuf – Line As Witness"}},
+  {"id": "9b68f046-a81e-4b2c-bbbc-89238032d78a", "set": {"title": "Sawt Al Sahel – Dele Sosimi & Latanya Alberto"}},
+  {"id": "7b8a0a89-b3d2-4a15-b5fb-c37bd2e2c9d8", "set": {"venue": "GEMS Dubai American Academy", "start_time": "20:00", "price_text": "From AED 125", "price_min_aed": 125, "description": "Rahul Subramanian brings his new stand-up show \"Don't Give Your Best\" to Dubai, with fresh jokes and stories after touring his hit show Who Are You?. About 90 minutes; doors open at 19:30."}},
+  {"id": "6db3a792-dfbe-4716-ad46-33290871ec6d", "set": {"venue": "The Red Theater, The Arts Center at NYU Abu Dhabi", "start_date": "2027-06-12", "end_date": "2027-06-13", "price_text": "From AED 52.50", "description": "Acrobatic circus show by Cie Hors Surface (Facing the Walls): six acrobats fly around a towering Plexiglas wall, a story of connection, resilience and starting again."}},
+  {"id": "7fe756c4-5c98-4b84-b79b-71a44db3af00", "set": {"title": "Imaginary Dubai Show at Krasota Restaurant", "start_date": "2026-11-27", "price_text": "From AED 1,500", "price_min_aed": 1500, "description": "Dinner show at Krasota in six chapters: the scientific legacy of the Arab world, pearl divers, desert trade routes, Emirati hospitality, modern Dubai and its future."}},
+  {"id": "9f1f34ba-09c1-47c5-b4a7-7ef2a00a99cd", "set": {"description": "Three-day India–UAE exhibition at Expo Centre Sharjah with exhibitors and traders from India and the Middle East showcasing products and Kerala's culture."}},
+  {"id": "cbdb42d8-ca52-4383-9493-874f1ded0f33", "set": {"title": "Route 71 Rally – Classic Car Parade", "category": "community"}},
+  {"id": "8db1400d-91ed-4270-bc30-adb7f138cd75", "set": {"description": "Russian stand-up comedian Sergey Orlov performs a comedy show at Jafza One Convention Centre in Dubai."}}
+ ]
+}

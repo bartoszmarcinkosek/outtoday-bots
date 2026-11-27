@@ -121,3 +121,10 @@ lm_coca_cola_arena-1 | wnętrze areny: scena w kolorowych światłach, pełna wi
 lm_etihad_arena-2 | budynek Etihad Arena o zmierzchu, złota fasada odbita w wodzie
 lm_madinat-1 | kanał Madinat Jumeirah z abrą, wieże wiatrowe, zachód słońca
 yoga-1 | joga na plaży o wschodzie słońca, kilka osób na matach
+aquarium-1 | wielkie akwarium: rekiny, płaszczka, ławice ryb, rodzina ogląda przez szybę
+fitness-1 | trening grupowy na trawie z kettlebellami o zachodzie, palmy, morze, trener
+lm_coca_cola_arena_in-2 | wnętrze areny z góry: okrągła scena w środku, ekran, pełne trybuny
+lm_global_village-1 | Global Village nocą: kanał z łódką, pawilony (arabski, chiński), diabelski młyn
+lm_louvre_in-3 | sala muzeum z antyczną rzeźbą, dwoje ludzi szkicuje na sztalugach
+rally-1 | dwa buggy rajdowe pędzą po wydmach w tumanie piasku, widzowie na grzbiecie
+viewpoint-1 | taras widokowy za szybą wysoko nad Dubajem o zachodzie, Burj Khalifa, ludzie robią zdjęcia

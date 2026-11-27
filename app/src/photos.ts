@@ -107,13 +107,13 @@ const RULES: [RegExp, string][] = [
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|regatta|sailing (?!the)|rowing/i, 'watersports'],
   [/\bcandlelight\b|orchestra|symphon|philharmon|quartet|classical|\bbach\b|vivaldi|handel|mozart|beethoven|chopin|tchaikovsky|young maestro|(?<!of the )opera\b|recital|piano|violin/i, 'candlelight'],
   [/comedy|stand[- ]?up|comedian|biswa kalyan|max angioni|paul chowdhry|sapan verma|varun grover|gursimran khamba|angad ranyal|bader saleh|paul de saint sernin|trevor noah|max amini|nurlan saburov|whitney cummings|chai with chandan|steve harvey|apurva in emirates/i, 'comedy'],  // znani komicy bez słowa „comedy” w tytule (przegląd 26.11)
-  [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b(?! night| evening| show)|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show/i, 'theatre'],
+  [/theat(re|er)|playhouse|phantom of the opera|chocolate factory|musical\b(?! night| evening| show)|ballet|on ice\b|\bplay\b(?! ?(&|and) feast| area| day)|pantomime|swan lake|nutcracker|kids'? show|storytelling|live on stage|puppet|magic show|(?<!nitro )circus|acrobat/i, 'theatre'],
   // kino plenerowe (plaża, dach, pod gwiazdami) -> zdjęcie pleneru; zwykły seans w sali -> sala kinowa (albo ikonka, póki zdjęcia nie ma)
   [/(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)\b.*(cinema|film|screening|movie)|(cinema|film|screening|movie).*\b(outdoor|open.?air|beach|rooftop|drive.?in|under the stars|garden|park)/i, 'cinema'],
   [/comic ?con\b/i, 'expo'],  // Film & Comic Con to targi, nie kino
   [/cinema|film|screening|movie/i, 'cinema_indoor'],
   [/\bjazz\b/i, 'jazz'],
-  [/\bdj\b|techno|afro ?house|\bedm\b|\brave\b|club night|\bat (bohemia|be beach)\b/i, 'dj'],  // wieczory DJ w beach clubach: nie plaża
+  [/\bdj\b|techno|afro ?house|\bedm\b|\brave\b|club night|\bat (bohemia|be beach)\b|artbat|black coffee|ushua[iï]a|upperground/i, 'dj'],  // znani DJ-e i kluby DJ (ARTBAT w Ushuaïa, Black Coffee – zespół rockowy/wokalista, tester A 27.11)  // wieczory DJ w beach clubach: nie plaża
   [/arabic music|tarab|\boud\b(?! exhibition| and perfume|.*perfume)|khaleeji|eid concert/i, 'arabic'],
   [/rock republic|climbing|bouldering/i, 'active'],
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
@@ -125,8 +125,12 @@ const RULES: [RegExp, string][] = [
   [/swim|triathlon|aquathlon|open water/i, 'swimming'],
   // bieg z przeszkodami (Spartan, Hurricane Heat, Tigers) – nie jezioro z flamingami w Al Qudra (tester 26.11)
   [/spartan|hurricane heat|obstacle (race|run|course)|tough mudder|tigers? obstacle/i, 'obstacle'],
+  // bieg/duathlon w górach (Masfout, Hatta) – nie bieżnia nad morzem (Masfout Trail Run, tester A 27.11)
+  [/\b(trail|duathlon|ultra|sky ?run)\b[\s\S]*\b(masfout|hatta|hajar|mountain|wadi|showka|mleiha)\b|\b(masfout|hatta|hajar|mountain)\b[\s\S]*\b(trail|run|duathlon|ultra)\b/i, 'trail_mountain'],
   [/\brun\b|running|marathon|\b(3|5|10|21)k\b|\d+ ?km\b|parkrun|race run|trail race|relay/i, 'running'],
-  [/tennis|padel|squash|pickleball/i, 'padel'],
+  // tenis to nie padel (Dubai Duty Free Tennis Championships dostawał kort padla – tester A 27.11): własne zdjęcie albo ikonka
+  [/tennis/i, 'tennis'],
+  [/padel|squash|pickleball/i, 'padel'],
   // zawody kulturystyczne na scenie – nie trening na plaży (tester 26.11); po biegach („Run ... Bodybuilding Federation” to bieg)
   [/bodybuilding|physique|mr\.? olympia/i, 'bodybuilding'],
   [/yoga|pilates|meditat(e|ion\b|ing)|breathwork|sound bath|sound healing/i, 'yoga'],
@@ -134,6 +138,8 @@ const RULES: [RegExp, string][] = [
   [/cricket|\bt10\b|\bt20\b|ilt20|knight riders|dubai capitals|desert vipers|gulf giants|mi emirates|sharjah warriorz/i, 'cricket'],
   [/football|soccer|super cup|\bfc\b|pro league|manchester city/i, 'football'],
   [/golf/i, 'golf'],
+  // parada zabytkowych aut (Route 71 / Masar 71 Rally) – nie buggy na wydmach (tester A 27.11)
+  [/classic cars?|vintage cars?|old cars?|masar 71|route 71/i, 'carshow'],
   [/desert challenge|\brally\b|\bbaja\b|dakar rally|rally dakar|off-?road|dune bash|drift(?! beach)/i, 'rally'],
   [/car show|motor show|auto show|car and bike|bike week|custom show|car meet/i, 'carshow'],
   [/grand prix|formula|\bf1\b|motor|karting|kartdrome|autodrome|nitro circus|driving experience/i, 'motorsport'],
@@ -198,7 +204,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink']);
+const NO_FALLBACK = new Set(['horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)
@@ -225,7 +231,7 @@ const ONLY_IF = new Map<string, RegExp>([
   // choinka na dziedzińcu nie dla posiłków – kolacja/lunch/brunch świąteczny dostaje tylko stół (xmas-1, xmas-2)
   ['xmas-4', /market|bazaar|\bfair\b|village|souk|stalls?\b|winter wonderland/i],
   ['xmas-3', /^(?![\s\S]*(brunch|dinner|lunch|feast|roast|turkey|buffet|menu|dining|supper|tea\b|meal|restaurant|grill|kitchen|four[- ]course|set menu))/i],
-  ['concert-5', /^(?![\s\S]*(arena|stadium|festival|beach|park\b|circuit|amphitheat|in concert|district))/i],
+  ['concert-5', /^(?![\s\S]*(arena|stadium|festival|beach|park\b|circuit|amphitheat|in concert|district|yasalam|after[- ]race|etihad (live|park)|harbour))/i],
   ['brunch-10', /asian|japanese|chinese|dim sum|sushi|zuma|thai|korean|vietnam|izakaya|yum cha|baikingu|cantonese|nobu|hakkasan|shanghai|noodle|ramen|sake|nikkei|peking|bao\b/i],
 ]);
 // Zdjęcia z wieżowcami w ogólnej puli: tylko w miastach z wieżowcami (Ain Al Madhab Gardens w Fudżajrze dostawał park z wieżowcami – tester 27.11)
@@ -241,8 +247,10 @@ function allowed(f: number, item: Item, text: string): boolean {
   if (!n) return true;
   if (DISABLED.has(n)) return false;
   const re = ONLY_IF.get(n);
-  if (re && !re.test(text)) return false;
+  if (re && !re.test(text) && !(item.catKey === 'food' && (n === 'xmas-1' || n === 'xmas-2'))) return false;
   if (SKYLINE_FILES.has(n) && !TOWERS.has(item.city)) return false;
+  // świąteczny event z kategorii jedzenie (Christmas Day at Nikki Beach): stół, nie choinka ani jarmark (tester A 27.11)
+  if ((n === 'xmas-3' || n === 'xmas-4') && item.catKey === 'food') return false;
   return true;
 }
 
@@ -291,13 +299,18 @@ function pool(item: Item): number[] {
   const rest = lm ? (item.rawTitle ?? item.title).replace(new RegExp(lm[0].source, 'gi'), ' ') : (item.rawTitle ?? item.title);
   // góry Jais: rodzaj z tytułu (park linowy, taras) NIE wygrywa – to zawsze góry, nie hala wspinaczkowa (wyjątek: sylwester, koncert, festiwal)
   const typeHit0 = item.kind !== 'deal' && lm ? RULES.find(([re]) => re.test(rest)) : undefined;
+  // (bez biegu: „festival running from 11 to 31 December” to nie bieg – Winter City, tester A 27.11)
   // event w sali/arenie bez rodzaju w tytule: rodzaj z opisu („Cycles – Boy Blue”: „Nine hip hop dancers…” → taniec, nie kampus NYU; zgłoszenie 27.11)
   const typeHitD = !typeHit0 && item.kind === 'event' && lm && VENUES.has(lm[1]) && item.description
-    ? RULES.find(([re, k]) => PHOTO_FILES[k] && re.test(item.description!.replace(new RegExp(lm![0].source, 'gi'), ' '))) : undefined;
+    ? RULES.find(([re, k]) => PHOTO_FILES[k] && k !== 'running' && re.test(item.description!.replace(new RegExp(lm![0].source, 'gi'), ' '))) : undefined;
   const typeHit = lm && lm[1] === 'lm_jebel_jais' && typeHit0 && !/^(nye|fireworks|concert|festival)/.test(typeHit0[1]) ? undefined : (typeHit0 ?? typeHitD);
   // świąteczny koncert w arenie (Mariah Carey's Christmastime w Etihad Arena): wnętrze areny, nie stół z indykiem (tester B 27.11)
   if (typeHit && lm && VENUES.has(lm[1]) && /^(xmas|carols)$/.test(typeHit[1]) && PHOTO_FILES[`${lm[1]}_in`]) return [...PHOTO_FILES[`${lm[1]}_in`]];
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
+  // koncert w muzeum / w parku Expo City (Dhafer Youssef w Luwrze, Wasla Festival w Jubilee Park): scena koncertowa,
+  // nie sala z rzeźbami ani kopuła Al Wasl (tester A 27.11)
+  if (lm && item.kind === 'event' && item.catKey === 'music' && PHOTO_FILES.concert
+    && (lm[1] === 'lm_louvre' || lm[1] === 'lm_museum_future' || (lm[1] === 'lm_expo_city' && !/al wasl/i.test(placeText)))) return [...PHOTO_FILES.concert];
   // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
   if (lm && item.kind === 'event' && VENUES.has(lm[1])) {
     // tylko wnętrze, gdy jest: zdjęcia budynku z zewnątrz robione przez AI nie wyglądają jak prawdziwy budynek (Etihad Arena, zgłoszenie 27.11)
@@ -312,6 +325,9 @@ function pool(item: Item): number[] {
   }
   // Event bez rozpoznanego rodzaju z tytułu: ikonka zamiast ogólnego zdjęcia kategorii (to ono dawało złe zdjęcia).
   // wyjątek: event muzyczny bez rodzaju dostaje ogólne zdjęcie sceny koncertowej (gdy już jest)
+  // stand-up bez słowa „comedy” w tytule (Sergey Orlov, „Fe Eid Amina”): rodzaj z opisu, nie scena koncertowa (tester A 27.11)
+  if (!keys && item.kind === 'event' && PHOTO_FILES.comedy && /^(music|comedy|nightlife)$/.test(item.catKey ?? '')
+    && /\b(comedy|stand[- ]?up|comedian)\b/i.test(item.description ?? '') && !/\bplay\b|theat(re|er)/i.test(item.description ?? '')) keys = ['comedy'];
   if (!keys && item.kind === 'event') {
     if (item.catKey === 'music' && PHOTO_FILES.concert) keys = ['concert'];
     else return [];
