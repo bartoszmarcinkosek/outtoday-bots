@@ -81,6 +81,8 @@ const RULES: [RegExp, string][] = [
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|air ?show|flying (lesson|experience)|scenic flight/i, 'flying'],
   // lodowisko to nie stok narciarski (Dubai Ice Rink dostawał Ski Dubai – tester 27.11): własne zdjęcie albo ikonka
   [/ice rink|ice skating|skating rink/i, 'ice_rink'],
+  // spotkanie z Mikołajem: zdjęcie z Mikołajem, nie stok miejsca (zgłoszenie 27.11 „Meet Santa at Snow Abu Dhabi”); do tego czasu ikonka
+  [/meet(ing)? santa|santa'?s? (grotto|house|village|visit|meet)|(with|visit|photos? with) santa|santa claus/i, 'santa'],
   [/\bski\b|ski dubai|snow abu dhabi|snow park/i, 'snow'],
   // twarze malowane dzieciom to nie malowanie na sztalugach (Splash Park Face Painting, tester 26.11)
   [/face ?paint/i, 'facepaint'],
@@ -212,7 +214,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir']);
+const NO_FALLBACK = new Set(['santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)

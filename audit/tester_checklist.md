@@ -62,3 +62,4 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 2026-11-27 | Zdjęcie innej czynności (5) | ladies night z DJ-em → panie śpiewają karaoke; „Jury Experience: Deadly Boat Ride” → łódka abra; wycieczka z przewodnikiem po souku → nocny targ; wioślarstwo na ergometrach → kajaki; chór → zespół rockowy; raper „Musical Fire” → kurtyna teatru | photos.ts: ONLY_IF ladies_night-9 karaoke, jury/immersive → theatre, walking_tour (ikonka), indoor rowing → fitness, choir (ikonka, zdjęcie 344), musical fire ≠ teatr; easel → painting; natale/noël → xmas
 2026-11-27 | Zła data z portalu zapisów | Challenge Peak 12.12 (naprawdę 5.12, Abu Dhabi Cricket & Sports Hub) | poprawione
 2026-11-27 | Pop-up z modą/kosmetykami w domu towarowym jako event | THE SHOWROOM Festive Edition (Galeries Lafayette) | odrzucone
+- Wydarzenie z Mikołajem (Meet Santa, Santa's Grotto) ze zdjęciem miejsca bez Mikołaja → klucz 'santa' (27.11 Meet Santa at Snow Abu Dhabi).

@@ -1,3 +1,5 @@
+342 | santa-1 | Santa Claus in a red suit sitting in a cosy decorated grotto with a Christmas tree and wrapped presents, a smiling young child next to him, warm lights, real-looking photo, no text, no logos
+343 | santa-2 | Santa Claus greeting excited children in an indoor snow park decorated for Christmas, snowflakes, fairy lights, real-looking photo, no text, no logos
 344 | choir-1 | A community choir of men and women in smart casual clothes singing on a small concert stage, conductor from behind, warm stage lights, audience in the foreground, no Christmas decorations, real-looking photo, no text, no logos
 343 | trail_mountain-1 | Trail runners on a rocky mountain path in the Hajar Mountains of the UAE (Masfout / Hatta), dry wadi and jagged brown peaks behind, morning light, race bibs, real-looking photo, no text, no logos
 342 | tennis-1 | Professional tennis match on an outdoor hard court in a stadium at dusk in Dubai, player serving, spectators in the stands, palm trees, real-looking photo, no text, no logos
