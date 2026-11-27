@@ -44,3 +44,5 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 2026-11-27 | Cena = najdroższe miejsce | Max Amini, Coca-Cola Arena (1 795 zamiast od 195 AED) | poprawione ręcznie
 2026-11-27 | Zdjęcie innej czynności (3) | „Kuwaiti Musical Night” → balet; recital Yuja Wang → świece Candlelight; bieg na plaży → wydmy; zapalanie choinki → stół z indykiem; Mariah Carey w arenie → stół z indykiem; Home Alone/Encanto w arenie i festiwal na plaży → kameralny klub | photos.ts: „musical night” ≠ teatr; ONLY_IF candlelight-5, running-3, xmas-1/2, concert-5; święta w arenie → wnętrze areny
 2026-11-27 | Opis obiecuje coś, czego organizator nie podaje (free parking, family-friendly, free entry, live music, unlimited drinks, konkretny artysta/godzina) | – | tester i nocna kontrola 1 porównują opis ze stroną; nie potwierdzone → usunąć z opisu
+- Brak opisu / opis < 40 znaków (nie wiadomo, o co chodzi) → dopisz 1–2 zdania ze strony organizatora (27.11 Ghostly Kisses). Nowe pozycje bez opisu bramka QA trzyma ukryte.
+- Gra planszowa ze zdjęciem sprzątania plaży / zdjęcie z innej czynności → zła reguła w photos.ts (27.11 Board Game Adventure, Luwr).

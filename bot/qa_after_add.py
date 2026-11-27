@@ -83,21 +83,21 @@ for path in files:
     ev_ids -= rejected; dl_ids -= rejected; pl_ids -= rejected
 
 # wiersze z bazy: poprawiane po id, nowe po tytule
-events = db.get("events", {"select": "id,title,city,venue,start_date,end_date,official_url,status,category", "id": f"in.({','.join(ev_ids)})"}) if ev_ids else []
+events = db.get("events", {"select": "id,title,city,venue,start_date,end_date,official_url,status,category,description", "id": f"in.({','.join(ev_ids)})"}) if ev_ids else []
 for e in new_ev:
-    events += [r for r in db.get("events", {"select": "id,title,city,venue,start_date,end_date,official_url,status,category",
+    events += [r for r in db.get("events", {"select": "id,title,city,venue,start_date,end_date,official_url,status,category,description",
                "title": f"eq.{e['title']}", "start_date": f"eq.{e['start_date']}"})]
 deals = db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status", "id": f"in.({','.join(dl_ids)})"}) if dl_ids else []
 for e in new_dl:
     deals += db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status", "title": f"eq.{e['title']}", "venue": f"eq.{e.get('venue','')}"})
-places = db.get("places", {"select": "id,name,city,official_url,status,category", "id": f"in.({','.join(pl_ids)})"}) if pl_ids else []
+places = db.get("places", {"select": "id,name,city,official_url,status,category,description", "id": f"in.({','.join(pl_ids)})"}) if pl_ids else []
 for p in new_pl:
-    places += db.get("places", {"select": "id,name,city,official_url,status,category", "name": f"eq.{p['name']}"})
+    places += db.get("places", {"select": "id,name,city,official_url,status,category,description", "name": f"eq.{p['name']}"})
 
-EV_COLS = "id,title,city,venue,start_date,end_date,official_url,status,category"
+EV_COLS = "id,title,city,venue,start_date,end_date,official_url,status,category,description"
 if SINCE:
     events, deals, places = changed("events", EV_COLS), changed("deals", "id,title,city,venue,price_text,start_time,official_url,status"), \
-        changed("places", "id,name,city,official_url,status,category")
+        changed("places", "id,name,city,official_url,status,category,description")
     print(f"QA|INFO|tryb SINCE {SINCE}: events {len(events)}, deals {len(deals)}, places {len(places)}")
 
 # bramka: nowe pozycje z pliku czekają jako "pending" i są sprawdzane jak zatwierdzone (także link)
@@ -208,6 +208,9 @@ for e in {x["id"]: x for x in events}.values():
     # godzina w tytule („Board game night …, 6 PM”) – godzina należy do pola start_time (tester B 27.11.2026)
     if re.search(r",?\s\d{1,2}(:\d{2})?\s?(am|pm)\s*$", e["title"], re.I):
         out("WARN", "event", e["id"], e["title"], "godzina w tytule – przenieś do start_time")
+    # brak opisu = nie wiadomo, o co chodzi (Ghostly Kisses, zgłoszenie 27.11.2026). Nowe pozycje: FAIL (ukryte do uzupełnienia), stare: WARN
+    if len((e.get("description") or "").strip()) < 40:
+        out("FAIL" if (SINCE or e["id"] in GATE_IDS) else "WARN", "event", e["id"], e["title"], "brak opisu albo za krótki (<40 znaków) – dopisz 1–2 zdania ze strony organizatora")
     # promocje sklepów i centrów handlowych to nie wydarzenia (zasada właściciela; „12-Day Super Sale” w Reem Mall, 26.11.2026)
     if re.search(r"\b(super |mega |big |flash |mid[- ]season |year[- ]end |summer |winter |clearance )?sales?\b|\d+\s?% off|\bdiscounts?\b|\bshopping festival offers?\b", e["title"], re.I) \
             and not re.search(r"book (sale|fair)|garage sale|car boot|yard sale|charity", e["title"], re.I):
