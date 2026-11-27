@@ -1,0 +1,6 @@
+{
+ "note": "Missing check 27.11.2026: Abracadabra held by QA (Platinumlist page 404, tickets not on sale yet) – link changed to the venue, Dubai Opera.",
+ "approve": [
+  {"title": "Abracadabra", "start_date": "2026-12-18", "set": {"official_url": "https://www.dubaiopera.com/en"}}
+ ]
+}
