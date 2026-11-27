@@ -221,6 +221,10 @@ const ONLY_IF = new Map<string, RegExp>([
   ['running-3', /desert|dunes?\b|trail|qudra|wadi|mountain|ultra|sand/i],
   ['xmas-1', /brunch|dinner|lunch|feast|roast|turkey|buffet|menu|dining|supper|tea\b|meal|table|restaurant|grill|kitchen/i],
   ['xmas-2', /brunch|dinner|lunch|feast|roast|turkey|buffet|menu|dining|supper|tea\b|meal|table|restaurant|grill|kitchen/i],
+  // Christmas Day w Turtle Bay Bar & Grill dostał jarmark świąteczny (zgłoszenie 27.11): jarmark tylko dla jarmarków,
+  // choinka na dziedzińcu nie dla posiłków – kolacja/lunch/brunch świąteczny dostaje tylko stół (xmas-1, xmas-2)
+  ['xmas-4', /market|bazaar|\bfair\b|village|souk|stalls?\b|winter wonderland/i],
+  ['xmas-3', /^(?![\s\S]*(brunch|dinner|lunch|feast|roast|turkey|buffet|menu|dining|supper|tea\b|meal|restaurant|grill|kitchen|four[- ]course|set menu))/i],
   ['concert-5', /^(?![\s\S]*(arena|stadium|festival|beach|park\b|circuit|amphitheat|in concert|district))/i],
   ['brunch-10', /asian|japanese|chinese|dim sum|sushi|zuma|thai|korean|vietnam|izakaya|yum cha|baikingu|cantonese|nobu|hakkasan|shanghai|noodle|ramen|sake|nikkei|peking|bao\b/i],
 ]);
