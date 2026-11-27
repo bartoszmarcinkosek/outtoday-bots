@@ -5,9 +5,9 @@ RS|lm_etihad_arena|3|File:Manchester city etihad stadium.jpg|https://thumb.wikim
 RS|lm_etihad_arena|4|File:Etihad Park.jpg|https://upload.wikimedia.org/wikipedia/commons/6/6d/Etihad_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled|1848x1196|CC BY 4.0|Showsdaynite
 RS|lm_etihad_arena|found 5
 RS|lm_khorfakkan_amph|0|Openverse/wikimedia: The Khor Fakkan Amphitheatre|https://upload.wikimedia.org/wikipedia/commons/a/a0/The_Khor_Fakkan_Amphitheatre.jpg|4640x2610|CC BY-SA 4.0|Philosographer (https://commons.wikimedia.org/w/index.php?curid=145064177)
-RS|lm_khorfakkan_amph|0|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53520ae0>
+RS|lm_khorfakkan_amph|0|thumb error no image
 RS|lm_khorfakkan_amph|1|Openverse/wikimedia: KFAmphi|https://upload.wikimedia.org/wikipedia/commons/d/d8/KFAmphi.jpg|5184x3456|CC BY-SA 4.0|Sherenk1 (https://commons.wikimedia.org/w/index.php?curid=100279339)
-RS|lm_khorfakkan_amph|1|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53520ae0>
+RS|lm_khorfakkan_amph|1|thumb error no image
 RS|lm_khorfakkan_amph|found 2
 RS|lm_dubai_opera|0|File:Inside the Dubai Opera.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Inside_the_Dubai_Opera.jpg/1920px-Inside_the_Dubai_Opera.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|2736x3648|CC BY 2.0|heyexplorer.com
 RS|lm_dubai_opera|1|File:UAE Philharmonic Orchestra at Dubai Opera House.jpg|https://upload.wikimedia.org/wikipedia/commons/4/4d/UAE_Philharmonic_Orchestra_at_Dubai_Opera_House.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled|1280x853|CC0|Xenia Baknina
@@ -16,29 +16,23 @@ RS|lm_dubai_opera|3|File:Linea rossa metropolitana di Dubai.png|https://thumb.wi
 RS|lm_dubai_opera|4|File:Tranvia di Dubai.png|https://upload.wikimedia.org/wikipedia/commons/7/76/Tranvia_di_Dubai.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled|1512x1277|CC BY 4.0|L9A8M.
 RS|lm_dubai_opera|5|File:Photomontage (Forggensee Panorama) -2.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Photomontage_%28Forggensee_Panorama%29_-2.jpg/1920px-Photomontage_%28Forggensee_Panorama%29_-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|4569x1770|CC BY-SA 3.0|Photomontage by: Mmxx (talk / email)
 RS|lm_dubai_opera|6|Openverse/flickr: Dubai Opera House|https://live.staticflickr.com/3041/2474132351_f0005b9e27_b.jpg|1000x667|CC BY 2.0|Michael Zero Mayer (https://www.flickr.com/photos/12602671@N04/2474132351)
-RS|lm_dubai_opera|6|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a76480>
 RS|lm_dubai_opera|7|Openverse/flickr: Jaguar MENA and Dubai Opera House Partnership|https://live.staticflickr.com/8326/29172846992_4163c42c7f_b.jpg|1024x740|CC BY 2.0|jaguarmena (https://www.flickr.com/photos/56721991@N06/29172846992)
-RS|lm_dubai_opera|7|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a77a10>
 RS|lm_dubai_opera|8|Openverse/flickr: The Dubai Opera|https://live.staticflickr.com/65535/49110938316_6858d0c3f5_b.jpg|1024x681|CC BY 2.0|Francisco Anzola (https://www.flickr.com/photos/10345599@N03/49110938316)
-RS|lm_dubai_opera|8|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a76750>
 RS|lm_dubai_opera|9|Openverse/flickr: Jaguar MENA and Dubai Opera House Partnership|https://live.staticflickr.com/8442/29173784852_a2cc861667_b.jpg|1024x612|CC BY 2.0|jaguarmena (https://www.flickr.com/photos/56721991@N06/29173784852)
-RS|lm_dubai_opera|9|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a76610>
 RS|lm_dubai_opera|10|Openverse/flickr: Jaguar MENA and Dubai Opera House Partnership|https://live.staticflickr.com/8846/28659293074_283cc05283_b.jpg|1024x740|CC BY 2.0|jaguarmena (https://www.flickr.com/photos/56721991@N06/28659293074)
-RS|lm_dubai_opera|10|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a77ba0>
 RS|lm_dubai_opera|11|Openverse/wikimedia: Inside the Dubai Opera|https://upload.wikimedia.org/wikipedia/commons/4/48/Inside_the_Dubai_Opera.jpg|2736x3648|CC BY 2.0|heyexplorer.com (https://commons.wikimedia.org/w/index.php?curid=114573508)
 RS|lm_dubai_opera|found 12
 RS|lm_yas|0|File:Golf club, Yas island, Abu Dhabi city, UAE.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Golf_club%2C_Yas_island%2C_Abu_Dhabi_city%2C_UAE.jpg/1920px-Golf_club%2C_Yas_island%2C_Abu_Dhabi_city%2C_UAE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|5898x3311|CC BY-SA 4.0|Tashmetova808
 RS|lm_yas|1|File:Staybridge Suites Abu Dhabi Yas Island Studio.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Staybridge_Suites_Abu_Dhabi_Yas_Island_Studio.jpg/1920px-Staybridge_Suites_Abu_Dhabi_Yas_Island_Studio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|4088x6144|CC BY-SA 4.0|Twoduy
-RS|lm_yas|2|File:Yas Bay Waterfront, Yas Island, Abu Dhabi.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Yas_Bay_Waterfront%2C_Yas_Island%2C_Abu_Dhabi.jpg/1920px-Yas_Bay_Waterfront%2C_Yas_Island%2C_Abu_Dhabi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|5712x4284|CC BY-SA 4.0|Oleg Yunakov
-RS|lm_yas|3|File:Etihad Airways Flyover - Yas Island, Abu Dhabi Grand Prix (2).jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Etihad_Airways_Flyover_-_Yas_Island%2C_Abu_Dhabi_Grand_Prix_%282%29.jpg/1920px-Etihad_Airways_Flyover_-_Yas_Island%2C_Abu_Dhabi_Grand_Prix_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|5575x3484|CC BY-SA 4.0|Delta.jpg
+RS|lm_yas|2|File:Etihad Airways Flyover - Yas Island, Abu Dhabi Grand Prix (2).jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Etihad_Airways_Flyover_-_Yas_Island%2C_Abu_Dhabi_Grand_Prix_%282%29.jpg/1920px-Etihad_Airways_Flyover_-_Yas_Island%2C_Abu_Dhabi_Grand_Prix_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|5575x3484|CC BY-SA 4.0|Delta.jpg
+RS|lm_yas|3|File:Yas Bay Waterfront, Yas Island, Abu Dhabi.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Yas_Bay_Waterfront%2C_Yas_Island%2C_Abu_Dhabi.jpg/1920px-Yas_Bay_Waterfront%2C_Yas_Island%2C_Abu_Dhabi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|5712x4284|CC BY-SA 4.0|Oleg Yunakov
 RS|lm_yas|4|File:Yas Island, Abu Dhabi, Abu Dhabi Emirate, United Arab Emirates (2023-06-20-06-16-26 UMBRA-05).tiff|https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Yas_Island%2C_Abu_Dhabi%2C_Abu_Dhabi_Emirate%2C_United_Arab_Emirates_%282023-06-20-06-16-26_UMBRA-05%29.tiff/lossy-page1-1920px-Yas_Island%2C_Abu_Dhabi%2C_Abu_Dhabi_Emirate%2C_United_Arab_Emirates_%282023-06-20-06-16-26_UMBRA-05%29.tiff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|18287x18287|CC BY 4.0|Umbra Lab, Inc.
 RS|lm_yas|5|File:North Grandstand at the Yas Marina circuit in Abu Dhabi.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/North_Grandstand_at_the_Yas_Marina_circuit_in_Abu_Dhabi.jpg/1920px-North_Grandstand_at_the_Yas_Marina_circuit_in_Abu_Dhabi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|4096x3072|CC BY-SA 4.0|TravelPhotosNL
 RS|lm_yas|6|Openverse/flickr: Yas Island Abu Dhabi|https://live.staticflickr.com/8090/8489386550_8aff303d42_b.jpg|1024x768|CC BY 2.0|Best international (https://www.flickr.com/photos/93353071@N07/8489386550)
-RS|lm_yas|6|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b535205e0>
 RS|lm_yas|7|Openverse/wikimedia: Yas Bay Waterfront, Yas Island, Abu Dhabi|https://upload.wikimedia.org/wikipedia/commons/f/f8/Yas_Bay_Waterfront%2C_Yas_Island%2C_Abu_Dhabi.jpg|5712x4284|CC BY-SA 4.0|Oleg Yunakov (https://commons.wikimedia.org/w/index.php?curid=159889067)
 RS|lm_yas|8|Openverse/wikimedia: Etihad Airways Flyover - Yas Island, Abu Dhabi Grand Prix (2)|https://upload.wikimedia.org/wikipedia/commons/0/0f/Etihad_Airways_Flyover_-_Yas_Island%2C_Abu_Dhabi_Grand_Prix_%282%29.jpg|5575x3484|CC BY-SA 4.0|Delta.jpg (https://commons.wikimedia.org/w/index.php?curid=143872478)
 RS|lm_yas|9|Openverse/wikimedia: File:FERRARI WORLD YAS ISLAND ABU DHABI JUNE 2011 (5900656104).jpg|https://upload.wikimedia.org/wikipedia/commons/f/f0/FERRARI_WORLD_YAS_ISLAND_ABU_DHABI_JUNE_2011_%285900656104%29.jpg|2049x2736|CC BY-SA 2.0|calflier001 (https://commons.wikimedia.org/w/index.php?curid=28884304)
-RS|lm_yas|9|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b5466fc90>
+RS|lm_yas|9|thumb error no image
 RS|lm_yas|10|Openverse/wikimedia: Golf club, Yas island, Abu Dhabi city, UAE|https://upload.wikimedia.org/wikipedia/commons/3/3b/Golf_club%2C_Yas_island%2C_Abu_Dhabi_city%2C_UAE.jpg|5898x3311|CC BY-SA 4.0|Tashmetova808 (https://commons.wikimedia.org/w/index.php?curid=148598498)
 RS|lm_yas|11|Openverse/wikimedia: File:E1 BUS OF EMIRATES TRANSPORT OPERATES EVERY 30 MINUTES FROM DUBAI|https://upload.wikimedia.org/wikipedia/commons/7/7a/E1_BUS_OF_EMIRATES_TRANSPORT_OPERATES_EVERY_30_MINUTES_FROM_DUBAI_TO_ABU_DHABI_THEN_BUS_290_TO_FERRARI_WORLD_YAS_ISLAND_ABU_DHABI_INFO_FOR_ANYONE_VISITING._JUNE_2011_%285890509900%29.jpg|3413x2566|CC BY-SA 2.0|calflier001 (https://commons.wikimedia.org/w/index.php?curid=28884311)
 RS|lm_yas|found 12
@@ -47,15 +41,9 @@ RS|lm_saadiyat|1|File:Jumeirah at Saadiyat Resort.jpg|https://thumb.wikimedia.or
 RS|lm_saadiyat|2|File:Tranquility at Jumeirah Saadiyat Island.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Tranquility_at_Jumeirah_Saadiyat_Island.jpg/1920px-Tranquility_at_Jumeirah_Saadiyat_Island.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|5598x4284|CC BY-SA 4.0|Tms2007
 RS|lm_saadiyat|3|File:Saadiyat Beach.jpg|https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Saadiyat_Beach.jpg/1920px-Saadiyat_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail|4032x3024|CC BY-SA 4.0|Adman Payne
 RS|lm_saadiyat|4|Openverse/flickr: Abu Dhabi|https://live.staticflickr.com/65535/48341438347_4ee63f7683_b.jpg|1024x767|CC BY 2.0|sergei.gussev (https://www.flickr.com/photos/133200397@N03/48341438347)
-RS|lm_saadiyat|4|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a762a0>
 RS|lm_saadiyat|5|Openverse/flickr: Abu Dhabi|https://live.staticflickr.com/65535/48344710937_c137156032_b.jpg|1024x767|CC BY 2.0|sergei.gussev (https://www.flickr.com/photos/133200397@N03/48344710937)
-RS|lm_saadiyat|5|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a77420>
 RS|lm_saadiyat|6|Openverse/flickr: Abu Dhabi|https://live.staticflickr.com/65535/48346449977_ed68358f99_b.jpg|1024x1024|CC BY 2.0|sergei.gussev (https://www.flickr.com/photos/133200397@N03/48346449977)
-RS|lm_saadiyat|6|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a76980>
 RS|lm_saadiyat|7|Openverse/flickr: Abu Dhabi|https://live.staticflickr.com/65535/48338272331_3786cf0e43_b.jpg|1024x767|CC BY 2.0|sergei.gussev (https://www.flickr.com/photos/133200397@N03/48338272331)
-RS|lm_saadiyat|7|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a76c00>
 RS|lm_saadiyat|8|Openverse/flickr: Happy hour|https://live.staticflickr.com/8528/8489892105_132020d077_b.jpg|1024x768|CC BY 2.0|Best international (https://www.flickr.com/photos/93353071@N07/8489892105)
-RS|lm_saadiyat|8|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a76a70>
 RS|lm_saadiyat|9|Openverse/flickr: Abu Dhabi|https://live.staticflickr.com/65535/48352412957_929cd2803f_b.jpg|1024x1024|CC BY 2.0|sergei.gussev (https://www.flickr.com/photos/133200397@N03/48352412957)
-RS|lm_saadiyat|9|thumb error cannot identify image file <_io.BytesIO object at 0x7e4b53a76520>
 RS|lm_saadiyat|found 10
