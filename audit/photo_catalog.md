@@ -192,3 +192,26 @@ lm_al_majaz-1 | prawdziwe zdjęcie (Wikimedia, Wael Mohammed Al-Masri CC BY-SA):
 lm_al_majaz-2 | prawdziwe zdjęcie (Wikimedia, Farrah Zakir CC BY-SA): fontanny na lagunie Khalid przy Al Majaz, balustrada
 lm_al_fahidi-1 | prawdziwe zdjęcie (Wikimedia, EditQ CC0): uliczka Al Fahidi z wieżą wiatrową i kaligrafią
 lm_al_fahidi-2 | prawdziwe zdjęcie (Wikimedia, EditQ CC0): biała wieża wiatrowa i dziedziniec w Al Fahidi
+- lm_p_ajman_fish_market-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_ain_museum-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_bidya_mosque-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_hayl_castle-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_hayl_castle-2: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_hefaiyah_mountain_conserv-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_mahatta_museum-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_marmoom_desert_conservati-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_marmoom_desert_conservati-2: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_al_qudra_lakes-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_dhayah_fort-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_dhayah_fort-2: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_dubai_garden_glow-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_dubai_garden_glow-2: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_fujairah_fort-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_fujairah_fort-2: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_gold_souk-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_heart_of_sharjah-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_heart_of_sharjah-2: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_safa_park-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_suwaidi_pearl_farm-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_suwaidi_pearl_farm-2: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
+- lm_p_yas_waterworld-1: prawdziwe zdjęcie miejsca (Wikimedia/Openverse), sprawdzone wizualnie 27.11
