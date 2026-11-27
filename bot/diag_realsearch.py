@@ -1,4 +1,4 @@
-"""Kandydaci na prawdziwe zdjęcia miejsc z Wikimedia Commons (tylko wolne licencje). Czyta audit/real_search.txt: `<klucz> | <zapytanie>`.
+"""Kandydaci na prawdziwe zdjęcia miejsc z Wikimedia Commons (tylko wolne licencje) i Pexels (gdy jest sekret PEXELS_API_KEY). Czyta audit/real_search.txt: `<klucz> | <zapytanie>`.
 Wypisuje RS|klucz|nr|tytuł|adres 1600px|szer x wys|licencja|autor i zapisuje arkusze /tmp/rs/<klucz>.jpg (artefakt real-search)."""
 import io, os, re
 import requests
@@ -24,8 +24,22 @@ for line in open(src, encoding="utf-8"):
         if not OK.search(lic) or ii.get("width", 0) < 1000:
             continue
         cands.append((p["title"], ii.get("thumburl") or ii.get("url"), f"{ii.get('width')}x{ii.get('height')}", lic, art))
-        if len(cands) >= 12:
+        if len(cands) >= 6:
             break
+    # Pexels (licencja Pexels: darmowe użycie, także komercyjne, bez obowiązku podpisu; podpisujemy autora z grzeczności) – decyzja właściciela 27.11.2026
+    pk = os.environ.get("PEXELS_API_KEY", "").strip()
+    if pk:
+        try:
+            pr = requests.get("https://api.pexels.com/v1/search", headers={"Authorization": pk}, timeout=30,
+                              params={"query": q, "per_page": 12, "orientation": "portrait"}).json()
+            for ph in pr.get("photos", [])[:12 - min(len(cands), 6)]:
+                alt = (ph.get("alt") or "").replace("|", "/")[:80]
+                cands.append((f"Pexels: {alt}", ph["src"]["large2x"], f"{ph['width']}x{ph['height']}", "Pexels License",
+                              f"{ph.get('photographer', '')} ({ph.get('url', '')})"))
+        except Exception as e:  # noqa: BLE001
+            print(f"RS|{key}|pexels error {e}")
+    cands = cands[:6] + [c for c in cands[6:] if c[3] == "Pexels License"] if len(cands) > 12 else cands
+    cands = cands[:12]
     sheet = Image.new("RGB", (6 * 260, 2 * 300), "white"); d = ImageDraw.Draw(sheet)
     for i, (t, u, sz, lic, art) in enumerate(cands):
         print(f"RS|{key}|{i}|{t}|{u}|{sz}|{lic}|{art}")
