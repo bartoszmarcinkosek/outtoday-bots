@@ -230,7 +230,6 @@
 136 | parks-4 | Families picnicking on a lawn in a city park at golden hour.
 69 | market-3 | Weekend artisan market with handmade crafts under shade sails.
 137 | market-4 | Evening outdoor market with lanterns, handmade goods and street food.
-138 | lm_coca_cola_arena-3 | Modern indoor arena exterior in Dubai at night with illuminated facade and crowds arriving, no logos.
 139 | sport-1 | Football fans cheering in a stadium at night.
 140 | sport-2 | Basketball game in an indoor arena, players mid-jump.
 141 | sport-3 | Tennis match on a hard court under floodlights.
@@ -239,8 +238,6 @@
 36 | daytrips-2 | 4x4 cars driving through a desert wadi with mountains, adventure day trip.
 143 | comedy-3 | Comedian with microphone in a small comedy club, brick wall, laughing audience.
 144 | comedy-4 | Comedy show audience laughing, view from the stage.
-145 | lm_dubai_opera-3 | Dubai Opera glass facade at night with fountain reflections in Downtown Dubai.
-146 | lm_dubai_opera-4 | Opera house foyer with chandeliers and guests before a show.
 147 | daytrips-3 | Desert safari dune bashing 4x4 at sunset.
 148 | daytrips-4 | Boat trip to a rocky coastline with turquoise bays in Musandam style fjords.
 24 | attractions-2 | Family enjoying a theme park ride in the UAE, bright daylight.
@@ -251,8 +248,6 @@
 151 | beaches-4 | Public beach with lifeguard tower and families swimming, morning.
 152 | attractions-3 | Indoor theme park ride with lights and excited visitors.
 153 | attractions-4 | Aquarium tunnel with sharks and rays swimming above visitors.
-155 | lm_corniche-3 | Abu Dhabi Corniche beach with turquoise water and city towers at midday.
-156 | lm_corniche-4 | Abu Dhabi Corniche at night with illuminated skyline reflected in water.
 25 | books-2 | Cosy book club meeting in a cafe, people with books and coffee.
 157 | books-3 | Book fair hall with stalls and visitors browsing books.
 158 | books-4 | Author reading to a small audience in a cosy bookshop.
@@ -264,12 +259,10 @@
 40 | flying-2 | Paraglider or skydiver over the coastline on a clear day.
 33 | dance-2 | Couples dancing salsa in a lively dance studio, motion and colour.
 60 | watersports-2 | Jet ski and paddleboarders on turquoise water near the beach.
-160 | lm_expo_city-2 | Expo City Dubai gardens and modern pavilions in daylight.
 42 | golf-2 | Golf course fairway with palm trees and lake at golden hour.
 44 | horse-2 | Horse riders galloping along a desert track at sunrise.
 49 | nature-2 | Mangrove kayaking channel, green mangroves and calm water.
 58 | talk-2 | Speaker on stage at a cultural talk, audience in a modern auditorium.
-161 | lm_yas_marina_circuit-2 | Race cars on Yas Marina Circuit at dusk with the marina and yachts.
 29 | cinema-2 | Outdoor cinema on a beach at night, people on beanbags watching a screen.
 51 | padel-2 | Padel match in a glass court under lights.
 61 | yoga-2 | Sunrise yoga class on the beach, people on mats.
