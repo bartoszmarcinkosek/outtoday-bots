@@ -37,4 +37,27 @@ async function all(table: string, select: string, extra = ''): Promise<any[]> {
     if (!since || String(row.created_at ?? '') >= since) console.log(`PA|${i.kind}|${row.id}|${clean(row.city)}|${clean(i.catKey)}|${name}|${clean((i as any).rawTitle ?? i.title)}|${clean(i.where)}`);
   }
   for (const [k, n] of Object.entries(count).sort((a, b) => b[1] - a[1])) console.log(`PC|${k}|${n}`);
+  // Tester: wybór kart do obejrzenia (PT|...) – pomija id obejrzane w ostatnich 7 dniach (audit/tester_seen.json).
+  // Kolejność: (a) dodane w ostatnich 2 dniach, (b) eventy startujące w ciągu 7 dni, (c) reszta – najdawniej oglądane/nigdy najpierw.
+  try {
+    const fs = require('fs');
+    const seen: Record<string, string> = JSON.parse(fs.readFileSync('../audit/tester_seen.json', 'utf8'));
+    const cut = new Date(Date.now() - 7 * 86400000 + 4 * 3600 * 1000).toISOString().slice(0, 10);
+    const new2 = new Date(Date.now() - 2 * 86400000).toISOString();
+    const in7 = new Date(Date.now() + 7 * 86400000 + 4 * 3600 * 1000).toISOString().slice(0, 10);
+    const rows = items.map((i) => ({ i, row: (i.event ?? i.deal ?? i.place ?? {}) as any }))
+      .filter(({ row }) => row.id && !((seen[row.id] ?? '') >= cut));
+    const tier = ({ i, row }: any) => (String(row.created_at ?? '') >= new2 ? 0 : i.kind === 'event' && row.start_date <= in7 ? 1 : 2);
+    rows.sort((a, b) => tier(a) - tier(b) || (seen[a.row.id] ?? '').localeCompare(seen[b.row.id] ?? '') || String(a.row.id).localeCompare(String(b.row.id)));
+    const total = items.length;
+    const covered = items.filter((i) => ((seen[((i.event ?? i.deal ?? i.place ?? {}) as any).id] ?? '') >= cut)).length;
+    console.log(`PS|cards ${total}|seen7d ${covered}|todo ${rows.length}`);
+    for (const { i, row } of rows.slice(0, Number(process.env.PICK || 140))) {
+      const p = photoFor(i) as unknown as string | null;
+      const name = p ? p.replace(/^.*\//, '').replace(/\.jpg$/, '') : '-';
+      const d = [row.start_date, row.end_date].filter(Boolean).join('..');
+      const price = row.is_free ? 'FREE' : clean(row.price_text ?? row.price_min_aed ?? '');
+      console.log(`PT|${tier({ i, row })}|${i.kind}|${row.id}|${clean(row.city)}|${clean(i.catKey)}|${clean(row.deal_type ?? row.category ?? '')}|${name}|${clean((i as any).rawTitle ?? i.title)}|${clean(i.where)}|${d}|${price}|${clean(row.official_url).slice(0, 60)}|${String(row.description ?? row.details ?? '').replace(/[|\n]/g, ' ').slice(0, 140)}`);
+    }
+  } catch (e) { console.log(`PS|error ${e}`); }
 })().catch((e) => { console.error(e); process.exit(1); });
