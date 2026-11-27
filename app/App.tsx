@@ -498,7 +498,8 @@ function Main() {
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipRowIn}>
               <Chip label="Any day" active={dealDay === null} onPress={() => setDealDay(null)} />
               <Chip label="Today" active={dealDay === new Date().getDay()} onPress={() => setDealDay(new Date().getDay())} />
-              {DOW_CHIPS.filter((d) => d.dow !== new Date().getDay()).map((d) => (
+              {/* po „Today” kolejne 6 dni po kolei od jutra (sugestia testerki Karoliny 27.11: w piątek najpierw Sat, Sun…) */}
+              {[1, 2, 3, 4, 5, 6].map((i) => DOW_CHIPS.find((d) => d.dow === (new Date().getDay() + i) % 7)!).map((d) => (
                 <Chip key={d.dow} label={d.label} active={dealDay === d.dow} onPress={() => setDealDay(d.dow)} />
               ))}
             </ScrollView>
@@ -569,8 +570,12 @@ function Main() {
       <SafeAreaView edges={['bottom']} style={styles.tabBar}>
         {TABS.map((t) => (
           <Pressable key={t.key} style={styles.tabBtn} onPress={() => { setTab(t.key); setView('list'); count('tab', t.key, city); }}>
-            <Ionicons name={t.icon} size={26} color={tab === t.key ? colors.primary : colors.muted} />
-            <Text style={[styles.tabText, tab === t.key && { color: colors.primary, fontWeight: '700' }]}>{t.label}</Text>
+            {/* aktywna zakładka wyraźnie: pełna ikonka na kolorowym tle + kreska u góry (sugestia testerki Karoliny 27.11, słabszy wzrok) */}
+            {tab === t.key && <View style={styles.tabMark} />}
+            <View style={[styles.tabPill, tab === t.key && styles.tabPillOn]}>
+              <Ionicons name={(tab === t.key ? t.icon.replace(/-outline$/, '') : t.icon) as typeof t.icon} size={26} color={tab === t.key ? colors.primary : colors.muted} />
+            </View>
+            <Text style={[styles.tabText, tab === t.key && { color: colors.primary, fontWeight: '800' }]}>{t.label}</Text>
           </Pressable>
         ))}
       </SafeAreaView>
@@ -968,6 +973,9 @@ const styles = StyleSheet.create({
   count: { color: colors.muted, fontSize: 13 },
   activeCat: { color: colors.muted, fontSize: 13, paddingHorizontal: 16, marginBottom: 6 },
   list: { paddingHorizontal: 16, paddingBottom: 24, paddingTop: 4 },
+  tabPill: { paddingHorizontal: 18, paddingVertical: 3, borderRadius: 16 },
+  tabPillOn: { backgroundColor: colors.primary + '33' },
+  tabMark: { position: 'absolute', top: 0, width: 40, height: 3, borderRadius: 2, backgroundColor: colors.primary },
   tabBar: { flexDirection: 'row', backgroundColor: colors.surface, borderTopWidth: 1, borderTopColor: colors.border },
   tabBtn: { flex: 1, alignItems: 'center', paddingTop: 5, paddingBottom: 6 },
   tabText: { color: colors.muted, fontSize: 12, marginTop: 2 },
