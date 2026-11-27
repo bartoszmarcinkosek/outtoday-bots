@@ -205,11 +205,22 @@ for e in {x["id"]: x for x in events}.values():
     # ten sam event dwa razy pod trochę innym tytułem i z inną datą w tym samym miejscu („Tony Robbins BREAKTHROUGH” 24.04.2027
     # i „Tony Robbins Breakthrough 2027” z błędną datą 10–11.12 – tester A 27.11.2026): tytuł bez roku i wielkości liter
     if e.get("venue"):
-        _norm = lambda t: re.sub(r"\s+", " ", re.sub(r"\b20\d\d\b|[^\w ]", " ", t.lower())).strip()
-        for o in db.get("events", {"select": "id,title,start_date", "status": "eq.approved", "city": f"eq.{e['city']}", "venue": f"eq.{e['venue']}", "limit": "300"}):
-            if o["id"] != e["id"] and o["start_date"] != e["start_date"] and o["title"] != e["title"] and _norm(o["title"]) == _norm(e["title"]) \
-                    and frozenset((o["id"], e["id"])) not in NOT_DUPES:
-                out("WARN", "event", e["id"], e["title"], f"ten sam tytuł (bez roku/wielkości liter) w tym samym miejscu: {o['id']} {o['start_date']} – sprawdź datę, pewnie duplikat")
+        # pełna kontrola bazy 27.11.2026: „Phantom of the Opera Abu Dhabi” 17.04 vs „Phantom of the Opera” 10.03, „Andre/André Rieu”,
+        # „Charlie and the Chocolate Factory” vs „…: The Musical”, „Youssou N'DOUR/N'Dour” – ten sam event, druga data błędna.
+        # Inny zapis tytułu = inne źródło = duplikat z błędną datą -> FAIL (ukryte do sprawdzenia). Identyczny tytuł = cykl -> tylko WARN.
+        import unicodedata
+        def _norm(t):
+            t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
+            t = re.sub(r"\b(20\d\d|the musical|musical|live|in concert|the|in (abu dhabi|dubai|sharjah|al ain|ras al khaimah)|abu dhabi|dubai)\b|&|\band\b", " ", t)
+            return re.sub(r"[^a-z0-9]", "", t)
+        _vk = lambda v: re.sub(r"[^a-z]", "", (v or "").lower().split(",")[0].split("·")[0])[:12]
+        for o in db.get("events", {"select": "id,title,start_date,end_date,venue", "status": "eq.approved", "city": f"eq.{e['city']}", "limit": "3000"}):
+            if o["id"] == e["id"] or o["start_date"] == e["start_date"] or _vk(o.get("venue")) != _vk(e.get("venue")) or frozenset((o["id"], e["id"])) in NOT_DUPES:
+                continue
+            if _norm(o["title"]) and _norm(o["title"]) == _norm(e["title"]):
+                ov = o["start_date"] <= (e.get("end_date") or e["start_date"]) and e["start_date"] <= (o.get("end_date") or o["start_date"])
+                lvl = "FAIL" if (o["title"].strip() != e["title"].strip() and not ov) else "WARN"
+                out(lvl, "event", e["id"], e["title"], f"ten sam event pod innym zapisem tytułu w tym samym miejscu: {o['id']} '{o['title'][:40]}' {o['start_date']} – jedna z dat jest błędna, sprawdź u organizatora")
                 break
     # słowo WIELKIMI LITERAMI w tytule (BREAKTHROUGH, IMAGINARY … KRASOTA) – tester A 27.11.2026
     if re.search(r"\b[A-Z]{8,}\b", e["title"]):
