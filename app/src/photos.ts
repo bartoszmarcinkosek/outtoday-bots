@@ -98,7 +98,7 @@ const RULES: [RegExp, string][] = [
   // sport dla kobiet (Ladies Football, Women's Cycling): bez mężczyzn na zdjęciu – własne zdjęcie albo ikonka (tester 26.11)
   [/\b(ladies|women'?s?|girls)\b.*\b(football|soccer|cycling|cycle|cricket|basketball|volleyball|padel|tennis|run|running|boxing|swim)|\b(football|soccer|cycling|cricket|basketball|volleyball|padel|boxing)\b.*\b(ladies|women'?s?)\b/i, 'sport_ladies'],
   [/\b(ladies|women)[' ]*only\b.*\b(dance|dancing|heels|zumba|salsa|belly)\b|\b(dance|dancing|heels|zumba|salsa|belly)\b.*\b(ladies|women)[' ]*only\b/i, 'dance_ladies'],
-  [/\bdance\b|dancing|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
+  [/\bdance\b|dancing|\bdancers?\b|breakdanc|hip[- ]?hop (dance|crew|theat)|salsa|bachata|kizomba|tango|heels|twerk|afrobeats dance|hip ?hop class|zumba|belly ?dance|riverdance/i, 'dance'],
   [/aqua ?fit|aqua ?aerobic|aqua ?zumba|water aerobic|aqua ?gym/i, 'aquafit'],
   // namorzyny, mokradła, rezerwaty przyrody: własne zdjęcie (albo ikonka), nigdy miejski park z fontanną
   [/mangrove|wetland|nature reserve|bird sanctuary|flamingo/i, 'mangrove'],
@@ -231,9 +231,13 @@ const ONLY_IF = new Map<string, RegExp>([
 // Zdjęcia z wieżowcami w ogólnej puli: tylko w miastach z wieżowcami (Ain Al Madhab Gardens w Fudżajrze dostawał park z wieżowcami – tester 27.11)
 const TOWERS = new Set(['Dubai', 'Abu Dhabi', 'Sharjah']);
 const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2']);
+// Zdjęcia wyłączone (pliki zostają do decyzji właściciela): AI narysowało inny budynek niż prawdziwy
+// – Etihad Arena ma pofalowaną, poziomo żłobkowaną fasadę, a nie kopułę ani „czaszę” (zgłoszenie 27.11.2026)
+const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2']);
 function allowed(f: number, item: Item, text: string): boolean {
   const n = PHOTO_NAMES.get(f);
   if (!n) return true;
+  if (DISABLED.has(n)) return false;
   const re = ONLY_IF.get(n);
   if (re && !re.test(text)) return false;
   if (SKYLINE_FILES.has(n) && !TOWERS.has(item.city)) return false;
@@ -285,16 +289,20 @@ function pool(item: Item): number[] {
   const rest = lm ? (item.rawTitle ?? item.title).replace(new RegExp(lm[0].source, 'gi'), ' ') : (item.rawTitle ?? item.title);
   // góry Jais: rodzaj z tytułu (park linowy, taras) NIE wygrywa – to zawsze góry, nie hala wspinaczkowa (wyjątek: sylwester, koncert, festiwal)
   const typeHit0 = item.kind !== 'deal' && lm ? RULES.find(([re]) => re.test(rest)) : undefined;
-  const typeHit = lm && lm[1] === 'lm_jebel_jais' && typeHit0 && !/^(nye|fireworks|concert|festival)/.test(typeHit0[1]) ? undefined : typeHit0;
+  // event w sali/arenie bez rodzaju w tytule: rodzaj z opisu („Cycles – Boy Blue”: „Nine hip hop dancers…” → taniec, nie kampus NYU; zgłoszenie 27.11)
+  const typeHitD = !typeHit0 && item.kind === 'event' && lm && VENUES.has(lm[1]) && item.description
+    ? RULES.find(([re, k]) => PHOTO_FILES[k] && re.test(item.description!.replace(new RegExp(lm![0].source, 'gi'), ' '))) : undefined;
+  const typeHit = lm && lm[1] === 'lm_jebel_jais' && typeHit0 && !/^(nye|fireworks|concert|festival)/.test(typeHit0[1]) ? undefined : (typeHit0 ?? typeHitD);
   // świąteczny koncert w arenie (Mariah Carey's Christmastime w Etihad Arena): wnętrze areny, nie stół z indykiem (tester B 27.11)
   if (typeHit && lm && VENUES.has(lm[1]) && /^(xmas|carols)$/.test(typeHit[1]) && PHOTO_FILES[`${lm[1]}_in`]) return [...PHOTO_FILES[`${lm[1]}_in`]];
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
   // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
   if (lm && item.kind === 'event' && VENUES.has(lm[1])) {
-    const both = [...(PHOTO_FILES[`${lm[1]}_in`] ?? []), ...(PHOTO_FILES[lm[1]] ?? [])];
-    return both;
+    // tylko wnętrze, gdy jest: zdjęcia budynku z zewnątrz robione przez AI nie wyglądają jak prawdziwy budynek (Etihad Arena, zgłoszenie 27.11)
+    const inside = PHOTO_FILES[`${lm[1]}_in`] ?? [];
+    return inside.length ? [...inside] : [...(PHOTO_FILES[lm[1]] ?? [])];
   }
-  if (lm) return PHOTO_FILES[lm[1]] ? [...PHOTO_FILES[lm[1]]] : []; // znane miejsce bez zdjęcia: ikonka, nie obce zdjęcie
+  if (lm) return [...(PHOTO_FILES[lm[1]] ?? []), ...(VENUES.has(lm[1]) ? PHOTO_FILES[`${lm[1]}_in`] ?? [] : [])]; // znane miejsce bez zdjęcia: ikonka, nie obce zdjęcie
   if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
     const hit = RULES.find(([re]) => re.test((item.rawTitle ?? item.title)));
     if (hit && PHOTO_FILES[hit[1]]) keys = [hit[1]];
