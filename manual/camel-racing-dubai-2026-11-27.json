@@ -1,0 +1,19 @@
+{
+  "note": "Aga 27.11: wyścigi wielbłądów w Dubaju (Al Marmoom)",
+  "places": [
+    {
+      "name": "Al Marmoom Camel Racetrack",
+      "category": "attractions",
+      "area": "Al Marmoom",
+      "city": "Dubai",
+      "description": "Dubai's main camel racing track on the Dubai–Al Ain Road (E66), run by the Dubai Camel Racing Club. Races with robot jockeys are held on early mornings in the October–April season, with owners following in 4x4s; watching from the stands is free. Check the club's schedule before driving out.",
+      "is_indoor": false,
+      "is_free": true,
+      "kid_friendly": true,
+      "hours_text": "Race mornings Oct–Apr, roughly 06:00–09:00 (check schedule)",
+      "official_url": "https://www.dubaicrc.ae",
+      "status": "approved",
+      "source_name": "dubaicrc.ae"
+    }
+  ]
+}
