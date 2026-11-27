@@ -224,7 +224,9 @@ for e in {x["id"]: x for x in events}.values():
                 continue
             if _norm(o["title"]) and _norm(o["title"]) == _norm(e["title"]):
                 ov = o["start_date"] <= (e.get("end_date") or e["start_date"]) and e["start_date"] <= (o.get("end_date") or o["start_date"])
-                lvl = "FAIL" if (o["title"].strip() != e["title"].strip() and not ov) else "WARN"
+                gap = abs((dt.date.fromisoformat(o["start_date"]) - dt.date.fromisoformat(e["start_date"])).days)
+                weekly = gap % 7 == 0  # cotygodniowe spotkania (Saturday Run, Sunday Padel) – osobne karty na każdy tydzień są OK
+                lvl = "FAIL" if (o["title"].strip() != e["title"].strip() and not ov and not weekly) else "WARN"
                 out(lvl, "event", e["id"], e["title"], f"ten sam event pod innym zapisem tytułu w tym samym miejscu: {o['id']} '{o['title'][:40]}' {o['start_date']} – jedna z dat jest błędna, sprawdź u organizatora")
                 break
     # słowo WIELKIMI LITERAMI w tytule (BREAKTHROUGH, IMAGINARY … KRASOTA) – tester A 27.11.2026

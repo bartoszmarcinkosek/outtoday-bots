@@ -1,0 +1,14 @@
+{
+ "note": "Pełna kontrola 28.11: tytuły z „|” → „ – ”; ukryte: wyprzedaże (nie wydarzenia), martwe strony biletów (Virgin 404), duplikat oferty SmokeBreakers, oferta z nieistniejącą domeną",
+ "update_event_ids": [],
+ "hide_event_ids": [
+  "b55326a2-d951-4829-919d-13ccd6c97f5a",
+  "dc363c52-bccb-4a97-8d31-e0f9c95bc234",
+  "a62f6d1c-2f99-4ebb-9f5a-2ab0cb149442",
+  "d9907180-7b52-479e-8ae0-0c4c7a8bf745"
+ ],
+ "hide_deal_ids": [
+  "2a9ff285-b871-43a9-95c5-ed9e3309b96e",
+  "65986a71-7485-4fd6-bc7f-cab79b8da19c"
+ ]
+}
