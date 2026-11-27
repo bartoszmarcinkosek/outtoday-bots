@@ -11,6 +11,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 import run as R  # noqa: E402
 import geocode as G  # noqa: E402
 
+import re
+BIG = re.compile(r"expo city|adnec|convention|exhibition cent|world trade|park|beach|island|corniche|oasis|souk|village|stadium|arena|festival|resort|mall|marina|waterfront|creek|desert|mountain|jebel|wadi|alserkal", re.I)
 BLOCK = os.path.join(os.path.dirname(__file__), "..", "sources", "pin_blocked.json")
 
 
@@ -43,7 +45,9 @@ def main() -> int:
             osm = G.lookup(full, cache)
             ggl = G.lookup_google(full, cache)
             near = lambda p, m: bool(p) and G.km(p, pin) * 1000 <= m  # noqa: E731
-            if osm and ggl and G.km(osm, ggl) * 1000 <= 400 and (near(osm, 500) or near(ggl, 500)):
+            big = bool(BIG.search(venue))  # duże tereny (Expo City, ADNEC, park, plaża, wyspa): punkty źródeł mogą się różnić
+            tol = 1500 if big else 600
+            if osm and ggl and G.km(osm, ggl) * 1000 <= (2000 if big else 1000) and (near(osm, tol) or near(ggl, tol)):
                 why = None
             elif ggl and near(ggl, 300):
                 why = None
