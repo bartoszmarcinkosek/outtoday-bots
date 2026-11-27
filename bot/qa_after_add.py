@@ -41,6 +41,9 @@ def link_state(u):
 
 
 def check_link(kind, ident, title, u, need):
+    # link do artykułu-listy („Top 20 things to do…”) zamiast strony tej pozycji (Al Jazirah Aviation Club, zgłoszenie 27.11.2026)
+    if u and re.search(r"/blog/[^?#]*(top-?\d+|things-to-do|best-|-guide|adventures|sightseeing)|top-\d+-things", u, re.I):
+        out("FAIL", kind, ident, title, f"link do artykułu-listy, nie do strony tej pozycji: {u}")
     if SINCE and STATUS.get(ident) != "approved":
         if u and AGGR.search(urlparse(u).netloc):
             out("FAIL", kind, ident, title, f"link do agregatora: {u}")

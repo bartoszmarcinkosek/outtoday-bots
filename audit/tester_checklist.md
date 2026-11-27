@@ -50,3 +50,4 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 - Zdjęcie budynku nie wygląda jak prawdziwy budynek (AI narysowało inny kształt) → wyłącz plik w DISABLED (photos.ts) i zgłoś właścicielowi; porównaj z prawdziwym zdjęciem miejsca (27.11 Etihad Arena).
 - Występ w sali (taniec, teatr) ze zdjęciem kampusu/budynku zamiast rodzaju występu → rodzaj z opisu (27.11 Cycles – Boy Blue, NYUAD).
 - Oferta bez strony lokalu, tylko z portalu (Time Out, Yalla…) albo z dopiskiem „confirm before you go” → ukryj (hide_deal_ids), aż potwierdzisz u lokalu (27.11).
+- Link prowadzi do artykułu-listy („Top 20 things to do”, „best beginner adventures”) zamiast do strony tej pozycji → podmień na stronę miejsca albo usuń link (27.11 Al Jazirah Aviation Club).

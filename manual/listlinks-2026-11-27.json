@@ -1,0 +1,8 @@
+{"note":"Linki do artykułów-list zamiast strony miejsca (zgłoszenie 27.11: Al Jazirah Aviation Club → „Top 20 things to do”)",
+ "update_place_ids":[
+  {"id":"5febcc62-4a00-4689-a738-e9c0148baced","set":{"official_url":"https://visitrasalkhaimah.com/discover/activities/al-jazirah-aviation-club/","hours_text":"Wed–Mon 08:00–18:00, closed Tuesday","hours":{"0":[["08:00","18:00"]],"1":[["08:00","18:00"]],"3":[["08:00","18:00"]],"4":[["08:00","18:00"]],"5":[["08:00","18:00"]],"6":[["08:00","18:00"]]},"price_text":"Introductory flights from AED 500 (20 min)"}},
+  {"id":"32b6fa1a-9e54-4c14-b9f2-436ce6809e14","set":{"official_url":"https://visitabudhabi.ae/en/where-to-go/sports-clubs/al-wathba-cycle-track"}},
+  {"id":"8adde3f6-2757-47a6-9421-bea2c79216bb","set":{"official_url":"https://visitrasalkhaimah.com/location/place/mangrove-coastline/"}},
+  {"id":"184f7149-e3e9-4cbd-af50-20d1bec7686f","set":{"official_url":null}}
+ ],
+ "hide_deal_ids":["a78c31f9-da89-4970-883e-27de810aa24a"]}
