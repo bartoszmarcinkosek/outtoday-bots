@@ -46,3 +46,4 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 2026-11-27 | Opis obiecuje coś, czego organizator nie podaje (free parking, family-friendly, free entry, live music, unlimited drinks, konkretny artysta/godzina) | – | tester i nocna kontrola 1 porównują opis ze stroną; nie potwierdzone → usunąć z opisu
 - Brak opisu / opis < 40 znaków (nie wiadomo, o co chodzi) → dopisz 1–2 zdania ze strony organizatora (27.11 Ghostly Kisses). Nowe pozycje bez opisu bramka QA trzyma ukryte.
 - Gra planszowa ze zdjęciem sprzątania plaży / zdjęcie z innej czynności → zła reguła w photos.ts (27.11 Board Game Adventure, Luwr).
+- Świąteczny posiłek (kolacja, lunch, brunch w restauracji/barze) ze zdjęciem jarmarku albo choinki → ma być świąteczny stół; jarmark tylko dla jarmarków (27.11 Christmas Day, Turtle Bay).
