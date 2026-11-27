@@ -16,6 +16,14 @@ import { PHOTO_FILES, PHOTO_NAMES } from './photos.gen';
   (PHOTO_FILES as Record<string, number[]>).boardgames ??= byName(/^community-1$/);
   (PHOTO_FILES as Record<string, number[]>).community = (PHOTO_FILES.community ?? []).filter((f) => !clean.has(f));
 }
+// Tester A 28.11: pojedyncze pliki z puli jako własne klucze (oferty z konkretnym jedzeniem dostawały zdjęcie innego dania)
+{
+  const pick = (key: string, re: RegExp) => Object.values(PHOTO_FILES).flat().filter((f) => re.test(PHOTO_NAMES.get(f) ?? ''));
+  const F = PHOTO_FILES as Record<string, number[]>;
+  F.pubfood ??= [...new Set(pick('happy_hour', /^happy_hour-7$/))];   // piwo i skrzydełka w pubie: wings, burgery, slidery
+  F.seafood ??= [...new Set(pick('dinner', /^dinner-3$/))];          // owoce morza na tarasie
+  F.brunch_asian ??= [...new Set(pick('brunch', /^brunch-10$/))];    // azjatycki brunch (dim sum)
+}
 
 // Konkretne miejsca (najważniejsze): event/miejsce/oferta w tym miejscu dostaje zdjęcie tego miejsca (klucz lm_*).
 // Sprawdzane w tytule i w miejscu. Działa dopiero, gdy jest plik assets/photos/lm_<nazwa>-<n>.jpg.
@@ -185,6 +193,8 @@ const RULES: [RegExp, string][] = [
   [/dhow (sailing )?race|sailing race|dhow sailing|offshore sailing|sail ?gp|sail grand prix/i, 'sailing'],  // SailGP: katamarany, nie paddleboard (tester 26.11)
   // wioślarstwo na ergometrach (Masfout X Indoor Rowing w siłowni) – nie kajaki (tester A 27.11)
   [/indoor rowing|rowing[\s\S]*\bgym\b|ergometer/i, 'fitness'],
+  // fala w basenie (Surf Abu Dhabi): nie paddleboard wśród namorzynów (tester A 28.11) – ikonka do czasu zdjęcia
+  [/surf abu dhabi|surf (park|house)|wave (pool|park)/i, 'surfpark'],
   [/kayak|paddle ?board|\bsup\b|jet ?ski|wakeboard|kite ?surf|\bsurf(ing|board)?\b(?! club)|scuba|diving|deep dive|snorkel|flyboard|regatta|sailing (?!the)|rowing/i, 'watersports'],
   // koncert filmowy (Disney's Frozen Live in Concert, Home Alone 2 in Concert): ekran + orkiestra, nie scena rockowa (przegląd 27.11)
   [/(disney|home alone|harry potter|film|movie)\b.*\bin concert\b|film concert/i, 'cinema_indoor'],
@@ -309,7 +319,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['orchestra', 'dolphin', 'zipline', 'skydive', 'balloon', 'ropes', 'waxmuseum', 'lm_sharjah_mosque', 'lm_khalifa_mosque', 'lm_al_majaz', 'butterfly', 'crocodile', 'rainforest', 'immersive', 'santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir']);
+const NO_FALLBACK = new Set(['orchestra', 'dolphin', 'zipline', 'skydive', 'balloon', 'ropes', 'waxmuseum', 'lm_sharjah_mosque', 'lm_khalifa_mosque', 'lm_al_majaz', 'butterfly', 'crocodile', 'rainforest', 'immersive', 'santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir', 'surfpark', 'roast']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)
@@ -325,7 +335,8 @@ const ONLY_IF = new Map<string, RegExp>([
   // ludzie szkicujący rzeźbę: tylko zajęcia rysunku, nie wystawy (Spices and Wonders, zgłoszenie Agi 27.11)
   ['lm_louvre_in-3', /draw|sketch|art class|workshop|life drawing|atelier/i],
   // kontrola doboru zdjęć 27.11: zdjęcia z konkretną kuchnią / czynnością tylko dla pasujących kart
-  ['night_out-1', /karaoke|open mic|live (music|band|dj)|\bdj\b|band|singer|gig|party|after ?dark|night shift|raise a mic/i],
+  // panie śpiewające na scenie: nie dla after party z DJ-em (Mama's Brunch After Party – tester A 28.11)
+  ['night_out-1', /karaoke|open mic|live (music|band)|band|singer|gig|after ?dark|night shift|raise a mic/i],
   ['dinner-5', /arab|leban|mezze|emirati|turkish|shawarma|middle east|oriental|syrian|iftar|sultan|levant|majlis|persian|moroccan|dawat|journey to the orient/i],
   ['dinner-6', /italian|pizza|pasta|trattoria|tuscan|paparazzi|serata/i],
   ['lunch-5', /dim sum|chinese|cantonese|yum cha|asian|teahouse/i],
@@ -351,11 +362,14 @@ const ONLY_IF = new Map<string, RegExp>([
   ['xmas-4', /market|bazaar|\bfair\b|village|souk|stalls?\b|winter wonderland/i],
   ['xmas-3', /^(?![\s\S]*(brunch|dinner|lunch|feast|roast|turkey|buffet|menu|dining|supper|tea\b|meal|restaurant|grill|kitchen|four[- ]course|set menu))/i],
   ['concert-5', /^(?![\s\S]*(arena|stadium|festival|beach|park\b|circuit|amphitheat|in concert|district|yasalam|after[- ]race|etihad (live|park)|harbour))/i],
+  // kryty basen hotelowy: nie dla klubu plażowego / leżaka na plaży (Yas Beach, Soluna – tester A 28.11)
+  ['day_pass-7', /^(?![\s\S]*(beach|sun ?lounger|sunbed))/i],
   ['brunch-10', /asian|japanese|chinese|dim sum|sushi|zuma|thai|korean|vietnam|izakaya|yum cha|baikingu|cantonese|nobu|hakkasan|shanghai|noodle|ramen|sake|nikkei|peking|bao\b/i],
 ]);
 // Zdjęcia z wieżowcami w ogólnej puli: tylko w miastach z wieżowcami (Ain Al Madhab Gardens w Fudżajrze dostawał park z wieżowcami – tester 27.11)
 const TOWERS = new Set(['Dubai', 'Abu Dhabi', 'Sharjah']);
-const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2']);
+// tester A 28.11: śniadanie w łóżku z oknem na wieżowce (Anantara Mina RAK), koktajle z panoramą wieżowców (Bar du Port, RAK)
+const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2', 'staycation-6', 'happy_hour-6']);
 // Zdjęcia wyłączone (pliki zostają do decyzji właściciela): AI narysowało inny budynek niż prawdziwy
 // – Etihad Arena ma pofalowaną, poziomo żłobkowaną fasadę, a nie kopułę ani „czaszę” (zgłoszenie 27.11.2026)
 // przegląd 27.11 (Coca-Cola Arena-2 przywrócone: prawdziwa arena JEST okrągła z rombami – zdjęcie z Wikimedia); Opera ma kształt dhow, nie muszli;
@@ -469,13 +483,19 @@ function pool(item: Item): number[] {
   if (item.kind === 'deal') {
     const t = item.rawTitle ?? item.title;
     const k = /kids zone|soft play|play area|hours? of play|play (&|and) pamper/i.test(t) ? 'kids'
-      : /horse ?rid(e|ing)/i.test(t) ? 'horseriding' : /water ?park/i.test(t) ? 'waterpark'
+      : /horse ?rid(e|ing)/i.test(t) ? 'horseriding' : /water ?park/i.test(`${t} ${item.where ?? ''}`) ? 'waterpark'
+      // tester A 28.11: roast → ikonka do zdjęcia (dostawał bowl z awokado, rybę, fontannę czekolady); wings/burgery → pub; owoce morza; azjatycki brunch
+      : /sunday roast|\broast\b|carvery/i.test(t) && !/brunch|day pass|staycation/i.test(item.catKey ?? '') ? 'roast'
+      : /\bwings?\b|sliders?\b|burgers?\b|patties|\bpint\b/i.test(t) && !/^(brunch|staycation|day_pass)$/.test(item.catKey ?? '') ? 'pubfood'
+      : /seafood|\bfish\b|lobster|\bcrab|oyster|prawn/i.test(t) && !/^(brunch|staycation|day_pass)$/.test(item.catKey ?? '') ? 'seafood'
+      : item.catKey === 'brunch' && /dim sum|cantonese|yum cha|chinese|japanese|asian|sushi|thai|korean/i.test(t) ? 'brunch_asian'
       : /fitness (challenge|session|class)|bootcamp|\bhiit\b/i.test(t) ? 'fitness' : /\bcomedy\b|stand[- ]?up/i.test(t) ? 'comedy'
       : /run club|\bparkrun\b|\bcommunity run\b/i.test(t) ? 'running' : /yoga|pilates|wellness morning|sound ?bath|meditation/i.test(t) ? 'yoga'
       : /masterclass|cooking class|workshop|decorating|mixology class/i.test(t) ? 'classes' : /\bquiz\b|\bbingo\b/i.test(t) ? 'quiz'
       : /trampoline|flip (out|junior)|flipped park|bounce/i.test(t) ? 'trampoline'
       : /^(night_out|happy_hour|ladies_night)$/.test(item.catKey ?? '') && !/ladies|happy|\bhour\b|sundowner|cocktail/i.test(t) && /steak|sushi|paella|pintxo|patties|mixed grill|greek|italian|arabic night|filipino night|mangal|wine and cheese|charcuterie|bbq|barbecue|wings|pizza|taco|burger|moules|seafood|crab|tapas|pasta|curry|ramen|noodle|roast|tomahawk|brisket|slider|gyoza|grill night|theme night|buffet/i.test(t) ? 'dinner' : undefined;
-    if (k && PHOTO_FILES[k]) return [...PHOTO_FILES[k]];
+    if (k && PHOTO_FILES[k]?.length) return [...PHOTO_FILES[k]];
+    if (k && NO_FALLBACK.has(k)) return [];
   }
   if (item.kind !== 'deal' || !item.catKey || item.catKey === 'other') {
     const hit = ruleFor(item.rawTitle ?? item.title);

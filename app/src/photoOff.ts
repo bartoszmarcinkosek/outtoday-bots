@@ -20,4 +20,5 @@ export const PHOTO_OFF = new Set<string>([
   '04e99c0b-3477-47f3-bd64-c5dfd02f20e8', // ARTE Museum Dubai – cyfrowe projekcje (immersive), a dostawało salę z amforą (tester 27.11)
   '7553c09d-bbe3-4ca9-8d90-ee4506ca5cb0', // Sharjah Desert Theatre Festival – teatr pod gołym niebem na pustyni, a dostawał salę teatru z czerwoną kurtyną
   '6c398092-e8f7-42b2-b59a-f597626c3f14', // Al Fursan Eid Al Etihad Airshow at Kite Beach – pokaz odrzutowców nad plażą, a dostawał awionetkę nad pustynią
+  '2b136d6b-ca50-4fb5-aea3-e9bd258356db', // Pool Day Access, Millennium Plaza (hotel przy Sheikh Zayed Rd) – dostawał plażę z Burj Al Arab (tester A 28.11)
 ]);
