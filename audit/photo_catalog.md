@@ -131,3 +131,5 @@ viewpoint-1 | taras widokowy za szybą wysoko nad Dubajem o zachodzie, Burj Khal
 boat-1 | drewniana łódka abra na spokojnej wodzie, domy z wieżami wiatrowymi, zachód słońca
 horseriding-1 | dziewczyna na koniu prowadzona przez instruktorkę, wydmy i skalista góra (Mleiha)
 ladies_night-9 | trzy kobiety śpiewają karaoke z mikrofonami, koktajle, kolorowe światła (tylko karaoke)
+lm_rak_museum-1 | prawdziwe zdjęcie (Aga 27.11): wejście do National Museum of Ras Al Khaimah, drewniane drzwi, napis
+lm_jazeera_hamra-1 | prawdziwe zdjęcie (Aga 27.11): chaty barasti z liści palmowych, baner Al Jazeera Al Hamra Heritage Village

@@ -45,6 +45,9 @@ const LANDMARKS: [RegExp, string][] = [
   [/ain dubai/i, 'lm_ain_dubai'],
   [/jebel jais|\bjais\b/i, 'lm_jebel_jais'],
   [/khor ?fakkan amphitheat|khor ?fakkan waterfall/i, 'lm_khorfakkan_amph'],
+  // prawdziwe zdjęcia od testerki Agi (27.11.2026)
+  [/jaz[ie]+ra(h)? al hamra heritage|al jazeera al hamra|jazirat al hamra (heritage|village)|abandoned (pearling )?village/i, 'lm_jazeera_hamra'],
+  [/national museum of ras al khaimah|ras al khaimah national museum|rak national museum/i, 'lm_rak_museum'],
   [/al suhub/i, 'lm_suhub'],
   [/al rafisah/i, 'lm_rafisah'],
   [/khor ?fakkan beach/i, 'lm_khorfakkan_beach'],
@@ -252,7 +255,9 @@ const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2'])
 // – Etihad Arena ma pofalowaną, poziomo żłobkowaną fasadę, a nie kopułę ani „czaszę” (zgłoszenie 27.11.2026)
 // przegląd 27.11: Coca-Cola Arena to prostopadłościan, nie okrągła „latarnia”; Opera ma kształt dhow, nie muszli;
 // lm_saadiyat-4 i lm_yas-1 pokazują wymyślone budynki (na Yas – ta sama „czasza” co fałszywa Etihad Arena)
-const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2', 'lm_coca_cola_arena-2', 'lm_dubai_opera-1', 'lm_saadiyat-4', 'lm_yas-1']);
+const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2', 'lm_coca_cola_arena-2', 'lm_dubai_opera-1', 'lm_saadiyat-4', 'lm_yas-1',
+  // amfiteatr Khor Fakkan: AI dorysowało wodospad i inną bryłę (zgłoszenie Agi 27.11)
+  'lm_khorfakkan_amph-1', 'lm_khorfakkan_amph-2']);
 function allowed(f: number, item: Item, text: string): boolean {
   const n = PHOTO_NAMES.get(f);
   if (!n) return true;
