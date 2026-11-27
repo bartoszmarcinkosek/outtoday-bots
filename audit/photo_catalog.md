@@ -133,3 +133,51 @@ horseriding-1 | dziewczyna na koniu prowadzona przez instruktorkę, wydmy i skal
 ladies_night-9 | trzy kobiety śpiewają karaoke z mikrofonami, koktajle, kolorowe światła (tylko karaoke)
 lm_rak_museum-1 | prawdziwe zdjęcie (Aga 27.11): wejście do National Museum of Ras Al Khaimah, drewniane drzwi, napis
 lm_jazeera_hamra-1 | prawdziwe zdjęcie (Aga 27.11): chaty barasti z liści palmowych, baner Al Jazeera Al Hamra Heritage Village
+night_out-1 | kobiety śpiewają na scenie z kolorowymi światłami (karaoke / open mic)
+night_out-3 | przyjaciele przy stoliku w barze z cegły, koktajle, świeca
+night_out-4 | zespół gra na żywo w pubie z cegły, widzowie od tyłu
+day_pass-7 | kryty basen hotelowy z leżakami, wieczorne światło
+dinner-5 | arabskie mezze: szaszłyki, hummus, chlebki, lampiony
+ladies_night-5 | kobiety tańczą pod kulą disco w klubie
+quiz-1 | kartki quizu, piwo, prowadzący z mikrofonem w pubie
+ladies_night-1 | cztery kobiety wznoszą kolorowe koktajle w barze
+brunch-8 | brunch na tarasie z zespołem na żywo, toast mimozami
+happy_hour-6 | koktajle na tarasie z nocną panoramą wieżowców
+day_pass-2 | basen infinity nad morzem z leżakami i parasolami
+happy_hour-8 | wino i deska serów w ciemnej winiarni
+day_pass-4 | basen z barem pod strzechą wśród palm, ludzie
+lunch-2 | lekki lunch: ryba, pierogi, sałatka na stole w ogrodzie
+ladies_night-6 | kobiety przy stole na tarasie o zachodzie, panorama
+happy_hour-4 | spritz i przekąski na tarasie nad morzem o zachodzie, ludzie
+day_pass-3 | plaża z leżakami i parasolami, w tle wieżowce
+brunch-9 | stół brunchowy: wypieki, owoce, lemoniada w ogrodzie
+dinner-6 | pizza, makaron i czerwone wino na tarasie nad starym miastem (kuchnia włoska)
+happy_hour-2 | kolorowe koktajle i piwo na plaży o zachodzie
+lunch-5 | dim sum w bambusowych koszyczkach i herbata (kuchnia chińska)
+lunch-4 | zdrowy bowl z awokado i sałatka, zielony sok
+kids-2 | kryta sala zabaw: basen z kulkami, zjeżdżalnie, małe dzieci
+dinner-3 | owoce morza i wino na tarasie nad plażą o zachodzie
+happy_hour-10 | kibice z piwem w pubie, mecz na ekranach
+zoo-1 | żyrafy i antylopy na sawannie, samochód safari z rodziną
+carols-1 | chór z świecami w kościele, choinka
+golf-1 | golfista na polu golfowym o zachodzie, góry
+staycation-6 | śniadanie na tacy w łóżku, okno na wieżowce
+desert-2 | basen ośrodka pustynnego z namiotem, wydmy o zachodzie
+trampoline-1 | park trampolin z basenem z gąbkami, skaczące dzieci
+lm_marina-1 | Dubai Marina nocą: jachty, wieżowce, basen na pierwszym planie
+camel-1 | wyścig wielbłądów na pustyni, dżokej
+breakfast-5 | jajka Benedykta, tost z awokado, sok, okno na miasto
+breakfast-1 | jajka Benedykta, rogaliki, owoce na marmurowym stole
+happy_hour_dubai-2 | koktajle na tarasie z widokiem na Burj Khalifę o zachodzie
+ladies_night-3 | trzy kobiety z koktajlami przy barze
+lm_jebel_jais-2 | taras widokowy Jebel Jais nad górami
+kids-1 | sala zabaw z drabinkami i zjeżdżalniami, dzieci
+mangrove-1 | drewniana kładka wśród namorzynów
+boat-2 | tradycyjny dhow z żaglem przy klifach (Musandam)
+active-1 | ścianka wspinaczkowa i trampoliny w hali
+breakfast-6 | arabskie śniadanie: fasola, falafel, chleby, herbata
+sailing-2 | katamarany SailGP na tle wieżowców
+desert-3 | karawana jeźdźców na koniach na wydmach o zachodzie
+ruins-1 | ruiny fortu na skalistym wzgórzu nad oazą
+lm_jebel_jais-3 | serpentyny drogi na Jebel Jais z góry
+cropfarm-1 | szklarnia i grządki warzyw na pustyni, panele słoneczne

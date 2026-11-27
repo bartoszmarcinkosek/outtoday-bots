@@ -1,3 +1,8 @@
+346 | butterfly-1 | Colourful butterflies resting on flowers inside a bright glass butterfly house with a child watching, real-looking photo, no text, no logos
+347 | crocodile-1 | Large Nile crocodile resting on the bank of a pond in a wildlife park, visitors behind a glass barrier, real-looking photo, no text, no logos
+348 | rainforest-1 | Indoor tropical rainforest biodome with tall trees, waterfall and a sloth hanging from a branch, visitors on a walkway, real-looking photo, no text, no logos
+344 | immersive-1 | Visitors walking through a dark immersive digital art room, walls and floor covered with flowing projected colours and light patterns, silhouettes, real-looking photo, no text, no logos
+345 | immersive-2 | Family standing in a room of hanging light strands and mirrors reflecting colourful lights, immersive art exhibition, real-looking photo, no text, no logos
 342 | santa-1 | Santa Claus in a red suit sitting in a cosy decorated grotto with a Christmas tree and wrapped presents, a smiling young child next to him, warm lights, real-looking photo, no text, no logos
 343 | santa-2 | Santa Claus greeting excited children in an indoor snow park decorated for Christmas, snowflakes, fairy lights, real-looking photo, no text, no logos
 344 | choir-1 | A community choir of men and women in smart casual clothes singing on a small concert stage, conductor from behind, warm stage lights, audience in the foreground, no Christmas decorations, real-looking photo, no text, no logos
