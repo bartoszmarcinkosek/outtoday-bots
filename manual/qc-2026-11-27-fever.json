@@ -1,0 +1,59 @@
+{
+ "note": "Pe\u0142na kontrola 27.11: Candlelight Abu Dhabi \u2013 link do strony serii/wydarzenia u organizatora (Fever) zamiast strony g\u0142\u00f3wnej miasta",
+ "update_event_ids": [
+  {
+   "id": "435b2a06-8cb3-43a6-b7dd-3d75fef549ee",
+   "set": {
+    "official_url": "https://feverup.com/en/abu-dhabi/candlelight"
+   }
+  },
+  {
+   "id": "48adb447-5b80-4087-a9f3-b53c69d1a77a",
+   "set": {
+    "official_url": "https://feverup.com/m/678059"
+   }
+  },
+  {
+   "id": "617c271b-cf07-43a2-94b5-f7d98be74285",
+   "set": {
+    "official_url": "https://feverup.com/en/abu-dhabi/candlelight"
+   }
+  },
+  {
+   "id": "664243fa-c0e8-424f-83a6-c81c2a6d6666",
+   "set": {
+    "official_url": "https://feverup.com/en/abu-dhabi/candlelight"
+   }
+  },
+  {
+   "id": "a936a7c2-313e-4474-b1ec-c3230b20f563",
+   "set": {
+    "official_url": "https://feverup.com/en/abu-dhabi/candlelight"
+   }
+  },
+  {
+   "id": "c592ee13-cc7e-416a-8369-d0d44a543333",
+   "set": {
+    "official_url": "https://feverup.com/en/abu-dhabi/candlelight"
+   }
+  },
+  {
+   "id": "c7772950-3765-42ac-b36c-ab8f13ac405f",
+   "set": {
+    "official_url": "https://feverup.com/en/abu-dhabi/candlelight"
+   }
+  },
+  {
+   "id": "e2a18e3c-bd67-4fa8-80c1-59b6f241bf8e",
+   "set": {
+    "official_url": "https://feverup.com/en/abu-dhabi/candlelight"
+   }
+  },
+  {
+   "id": "fd01ef91-4dda-4a38-aa13-6378833719df",
+   "set": {
+    "official_url": "https://feverup.com/en/abu-dhabi/candlelight"
+   }
+  }
+ ]
+}
