@@ -9,6 +9,10 @@ on:
         description: "Usuwać niepotwierdzone pinezki (true/false)"
         type: string
         default: "true"
+      script:
+        description: "pin_verify albo pin_recover"
+        type: string
+        default: "pin_verify"
 permissions:
   contents: write
 concurrency:
@@ -31,7 +35,7 @@ jobs:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           GOOGLE_GEOCODE_KEY: ${{ secrets.GOOGLE_GEOCODE_KEY }}
           APPLY: ${{ inputs.apply || 'true' }}
-        run: python bot/pin_verify.py $([ "$APPLY" = "true" ] && echo --apply)
+        run: python bot/${{ inputs.script || 'pin_verify' }}.py $([ "$APPLY" = "true" ] && echo --apply)
       - name: Zapis
         if: always()
         run: |

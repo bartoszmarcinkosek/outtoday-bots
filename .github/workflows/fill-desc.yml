@@ -5,6 +5,9 @@ on:
       from:
         type: string
         default: ""
+      table:
+        type: string
+        default: "events"
       dry:
         type: string
         default: ""
@@ -24,6 +27,7 @@ jobs:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DRY: ${{ github.event.inputs.dry }}
+          TABLE: ${{ github.event.inputs.table }}
           FROM: ${{ github.event.inputs.from || '2026-11-27' }}
       - name: Bramka jakości – lista nowych pozycji do sprawdzenia (QA after bots)
         if: always()
