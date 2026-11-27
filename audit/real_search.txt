@@ -1,0 +1,6 @@
+# <klucz> | <zapytanie do Wikimedia Commons>  (diag_realsearch)
+lm_etihad_arena | Etihad Arena Yas Island
+lm_coca_cola_arena | Coca-Cola Arena Dubai
+lm_dubai_opera | Dubai Opera building
+lm_khorfakkan_amph | Khor Fakkan Amphitheatre
+lm_marjan | Al Marjan Island

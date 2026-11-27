@@ -1,0 +1,19 @@
+name: Real photos
+on:
+  push:
+    branches: [main]
+    paths: ["photos/real_fetch.txt"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  r:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests pillow
+      - run: python bot/real_photos.py
+      - run: |
+          git config user.name "OutToday Bot"; git config user.email "bot@outtoday.local"
+          git add -A app/assets/photos app/src/photos.gen.ts photos/credits.json photos/real_fetch.txt
+          git diff --cached --quiet || (git commit -m "photos: real photos" && (git push || (git pull --rebase && git push)))

@@ -1,0 +1,1 @@
+# <nazwa> | <adres obrazka> | <podpis: autor, licencja albo -> | <kadr: center/left/right/0.0–1.0>

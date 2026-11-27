@@ -20,5 +20,14 @@ out.append('export const PHOTO_NAMES = new Map<number, string>([')
 for f in files:
     out.append(f"  [require('../assets/photos/{f}'), '{f[:-4]}'],")
 out.append(']);')
+# Podpisy autorów prawdziwych zdjęć (Wikimedia Commons wymaga podpisu przy CC BY / CC BY-SA)
+import json as _json
+_cp = os.path.join(root, '..', 'photos', 'credits.json')
+_cred = _json.load(open(_cp)) if os.path.exists(_cp) else {}
+out.append('export const PHOTO_CREDIT = new Map<number, string>([')
+for f in files:
+    if f[:-4] in _cred:
+        out.append(f"  [require('../assets/photos/{f}'), {_json.dumps(_cred[f[:-4]], ensure_ascii=False)}],")
+out.append(']);')
 open(os.path.join(root, 'src/photos.gen.ts'), 'w').write('\n'.join(out) + '\n')
 print(len(files), 'zdjęć,', len(g), 'kluczy')

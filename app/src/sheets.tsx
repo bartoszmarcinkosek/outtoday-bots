@@ -5,7 +5,7 @@ import { Image, Linking, Platform, Pressable, Share, StyleSheet, Text, View } fr
 import { sendSuggestion } from './api';
 import { fmtDate } from './dates';
 import { IconName, Item, todayIso } from './logic';
-import { PHOTO_FULL } from './photos.gen';
+import { PHOTO_FULL, PHOTO_CREDIT } from './photos.gen';
 import { count } from './stats';
 import { colors } from './theme';
 import { Pill, Sheet, badgesFor } from './ui';
@@ -232,6 +232,10 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
           <Image source={PHOTO_FULL.get(props.photo) ?? props.photo} resizeMode="cover"
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
         </View>
+      )}
+      {/* podpis autora prawdziwego zdjęcia (licencja Wikimedia Commons) */}
+      {!!props.photo && PHOTO_CREDIT.has(props.photo) && (
+        <Text style={{ color: colors.muted, fontSize: 11, textAlign: 'center', marginTop: -6, marginBottom: 8 }}>Photo: {PHOTO_CREDIT.get(props.photo)}</Text>
       )}
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 8 }}>
         <Pill text={c.label} color={c.accent} />

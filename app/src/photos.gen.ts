@@ -700,3 +700,5 @@ export const PHOTO_NAMES = new Map<number, string>([
   [require('../assets/photos/yoga-1.jpg'), 'yoga-1'],
   [require('../assets/photos/zoo-1.jpg'), 'zoo-1'],
 ]);
+export const PHOTO_CREDIT = new Map<number, string>([
+]);
