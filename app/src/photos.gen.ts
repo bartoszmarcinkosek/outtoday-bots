@@ -93,7 +93,7 @@ export const PHOTO_FILES: Record<string, number[]> = {
   'lm_rak_museum': [require('../assets/photos/lm_rak_museum-1.jpg')],
   'lm_rams': [require('../assets/photos/lm_rams-1.jpg'), require('../assets/photos/lm_rams-2.jpg')],
   'lm_reem': [require('../assets/photos/lm_reem-2.jpg')],
-  'lm_saadiyat': [require('../assets/photos/lm_saadiyat-1.jpg'), require('../assets/photos/lm_saadiyat-2.jpg'), require('../assets/photos/lm_saadiyat-3.jpg'), require('../assets/photos/lm_saadiyat-4.jpg'), require('../assets/photos/lm_saadiyat-5.jpg'), require('../assets/photos/lm_saadiyat-6.jpg')],
+  'lm_saadiyat': [require('../assets/photos/lm_saadiyat-1.jpg'), require('../assets/photos/lm_saadiyat-2.jpg'), require('../assets/photos/lm_saadiyat-3.jpg'), require('../assets/photos/lm_saadiyat-4.jpg'), require('../assets/photos/lm_saadiyat-5.jpg'), require('../assets/photos/lm_saadiyat-6.jpg'), require('../assets/photos/lm_saadiyat-7.jpg')],
   'lm_sharjah_water': [require('../assets/photos/lm_sharjah_water-1.jpg')],
   'lm_suhub': [require('../assets/photos/lm_suhub-1.jpg')],
   'lm_yas': [require('../assets/photos/lm_yas-1.jpg'), require('../assets/photos/lm_yas-2.jpg')],
@@ -346,6 +346,7 @@ export const PHOTO_FULL = new Map<number, number>([
   [require('../assets/photos/lm_saadiyat-4.jpg'), require('../assets/photos/full/lm_saadiyat-4.jpg')],
   [require('../assets/photos/lm_saadiyat-5.jpg'), require('../assets/photos/full/lm_saadiyat-5.jpg')],
   [require('../assets/photos/lm_saadiyat-6.jpg'), require('../assets/photos/full/lm_saadiyat-6.jpg')],
+  [require('../assets/photos/lm_saadiyat-7.jpg'), require('../assets/photos/full/lm_saadiyat-7.jpg')],
   [require('../assets/photos/lm_sharjah_water-1.jpg'), require('../assets/photos/full/lm_sharjah_water-1.jpg')],
   [require('../assets/photos/lm_suhub-1.jpg'), require('../assets/photos/full/lm_suhub-1.jpg')],
   [require('../assets/photos/lm_yas-1.jpg'), require('../assets/photos/full/lm_yas-1.jpg')],
@@ -632,6 +633,7 @@ export const PHOTO_NAMES = new Map<number, string>([
   [require('../assets/photos/lm_saadiyat-4.jpg'), 'lm_saadiyat-4'],
   [require('../assets/photos/lm_saadiyat-5.jpg'), 'lm_saadiyat-5'],
   [require('../assets/photos/lm_saadiyat-6.jpg'), 'lm_saadiyat-6'],
+  [require('../assets/photos/lm_saadiyat-7.jpg'), 'lm_saadiyat-7'],
   [require('../assets/photos/lm_sharjah_water-1.jpg'), 'lm_sharjah_water-1'],
   [require('../assets/photos/lm_suhub-1.jpg'), 'lm_suhub-1'],
   [require('../assets/photos/lm_yas-1.jpg'), 'lm_yas-1'],
@@ -708,4 +710,5 @@ export const PHOTO_NAMES = new Map<number, string>([
 export const PHOTO_CREDIT = new Map<number, string>([
   [require('../assets/photos/lm_coca_cola_arena-3.jpg'), "Ninoksha Maria, CC BY-SA 4.0, Wikimedia Commons"],
   [require('../assets/photos/lm_dubai_opera_in-1.jpg'), "heyexplorer.com, CC BY 2.0, Wikimedia Commons"],
+  [require('../assets/photos/lm_saadiyat-7.jpg'), "Adman Payne, CC BY-SA 4.0, Wikimedia Commons"],
 ]);
