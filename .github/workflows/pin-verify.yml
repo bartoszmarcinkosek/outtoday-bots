@@ -1,0 +1,42 @@
+name: Weryfikacja pinezek (co tydzień)
+# Pinezka zostaje tylko, gdy potwierdzają ją niezależne źródła (OpenStreetMap + Google); reszta znika, a mapy szukają po nazwie.
+on:
+  schedule:
+    - cron: "41 22 * * 2"   # środa 02:41 Dubaj
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Usuwać niepotwierdzone pinezki (true/false)"
+        type: string
+        default: "true"
+permissions:
+  contents: write
+concurrency:
+  group: geocode
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Weryfikacja
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          GOOGLE_GEOCODE_KEY: ${{ secrets.GOOGLE_GEOCODE_KEY }}
+          APPLY: ${{ inputs.apply || 'true' }}
+        run: python bot/pin_verify.py $([ "$APPLY" = "true" ] && echo --apply)
+      - name: Zapis
+        if: always()
+        run: |
+          git config user.name "outtoday-bot"
+          git config user.email "outtoday-bot@users.noreply.github.com"
+          git add sources/geo_cache.json sources/pin_blocked.json 2>/dev/null || true
+          git commit -m "pin verify" || exit 0
+          git pull --rebase origin main && git push origin HEAD:main

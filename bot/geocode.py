@@ -89,6 +89,8 @@ def lookup(q: str, cache: dict) -> list | None:
     return cache[q]
 
 
+_BL = os.path.join(os.path.dirname(__file__), "..", "sources", "pin_blocked.json")
+BLOCKED = json.load(open(_BL, encoding="utf-8")) if os.path.exists(_BL) else {}
 GKEY = os.environ.get("GOOGLE_GEOCODE_KEY", "").strip()
 G_MAX = int(os.environ.get("G_MAX", "1500"))  # bezpiecznik: darmowe 10 000 zapytań miesięcznie
 _g_used = 0
@@ -139,6 +141,9 @@ def main() -> int:
     print(f"Bez współrzędnych: {len(jobs)}")
     done = miss = 0
     for table, rid, venue, city in jobs[: a.limit]:
+        if f"{venue.strip()}|{city}" in BLOCKED:  # pinezka odrzucona przez pin_verify.py – nie wpisujemy jej znowu
+            miss += 1
+            continue
         if not venue or VAGUE.search(venue.strip()) or city not in CITY:
             miss += 1
             continue
