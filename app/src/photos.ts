@@ -32,6 +32,7 @@ const LANDMARKS: [RegExp, string][] = [
   [/aura sky ?pool/i, 'lm_aura'],  // basen na 50. piętrze, nie plaża (zgłoszenie 26.11); bez zdjęcia = ikonka
   [/palm jumeirah|\bthe palm\b|atlantis/i, 'lm_palm'],
   [/arts cent(er|re).*nyu|nyuad arts|(blue hall|red theat(er|re)|black box|east plaza).*nyu/i, 'lm_nyuad'],
+  [/teamlab/i, 'immersive'],  // teamLab na Saadiyat: sztuka cyfrowa, nie plaża Saadiyat (kontrola zdjęć 27.11)
   [/saadiyat/i, 'lm_saadiyat'],
   [/polonia (polish|restaurant)|poloniadubai/i, 'lm_polonia'],
   [/reem island|\bal reem\b|reem mall|shams abu dhabi|gate towers|reem central park/i, 'lm_reem'],

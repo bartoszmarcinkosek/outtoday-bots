@@ -64,3 +64,4 @@ Format: data | rodzaj błędu | przykład | jak naprawione (reguła / plik)
 2026-11-27 | Pop-up z modą/kosmetykami w domu towarowym jako event | THE SHOWROOM Festive Edition (Galeries Lafayette) | odrzucone
 - Wydarzenie z Mikołajem (Meet Santa, Santa's Grotto) ze zdjęciem miejsca bez Mikołaja → klucz 'santa' (27.11 Meet Santa at Snow Abu Dhabi).
 - Zdjęcie konkretnego zabytku/miejsca wygenerowane przez AI wygląda inaczej niż w rzeczywistości (wieże wiatrowe w Al Jazeera Al Hamra, wodospad przy amfiteatrze Khor Fakkan) → wyłącz w DISABLED; prawdziwe zdjęcie od testera → app/assets/photos/lm_<miejsce>-1.jpg + reguła w LANDMARKS (27.11).
+- Kontrola doboru zdjęć (27.11): sztuka cyfrowa (teamLab, ToDA) ≠ muzeum/teatr; pokaz taneczny ≠ para salsy; mecz w arenie ≠ koncert; noc ze stekiem/sushi ≠ bar; Run Club/joga/warsztaty w ofertach → zdjęcie tej czynności; kuchnia na zdjęciu (arabska, włoska, chińska) tylko dla tej kuchni; motyle/krokodyle ≠ sawanna.
