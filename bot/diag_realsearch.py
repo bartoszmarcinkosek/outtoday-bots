@@ -38,9 +38,26 @@ for line in open(src, encoding="utf-8"):
                               f"{ph.get('photographer', '')} ({ph.get('url', '')})"))
         except Exception as e:  # noqa: BLE001
             print(f"RS|{key}|pexels error {e}")
-    cands = cands[:6] + [c for c in cands[6:] if c[3] == "Pexels License"] if len(cands) > 12 else cands
-    cands = cands[:12]
-    sheet = Image.new("RGB", (6 * 260, 2 * 300), "white"); d = ImageDraw.Draw(sheet)
+    # Openverse (bez klucza): zdjęcia na wolnych licencjach z Flickra i innych serwisów – zamiast Pexels (Pexels wstrzymał nowe klucze API, 27.11.2026)
+    try:
+        ov = requests.get("https://api.openverse.org/v1/images/", headers=UA, timeout=30, params={
+            "q": q, "license_type": "commercial", "page_size": 20, "mature": "false"}).json()
+        n = 0
+        for it in ov.get("results", []):
+            lic = (it.get("license") or "").lower()
+            if lic not in ("by", "by-sa", "cc0", "pdm") or (it.get("width") or 0) < 1000:
+                continue
+            name = {"by": "CC BY", "by-sa": "CC BY-SA", "cc0": "CC0", "pdm": "Public domain"}[lic] + (f" {it.get('license_version')}" if lic in ("by", "by-sa") else "")
+            cands.append((f"Openverse/{it.get('source', '')}: {(it.get('title') or '')[:70]}".replace("|", "/"), it["url"],
+                          f"{it.get('width')}x{it.get('height')}", name, f"{(it.get('creator') or '')[:40]} ({it.get('foreign_landing_url', '')})"))
+            n += 1
+            if n >= 6:
+                break
+    except Exception as e:  # noqa: BLE001
+        print(f"RS|{key}|openverse error {e}")
+    cands = cands[:6] + [c for c in cands[6:] ] if len(cands) > 12 else cands
+    cands = cands[:18]
+    sheet = Image.new("RGB", (6 * 260, 3 * 300), "white"); d = ImageDraw.Draw(sheet)
     for i, (t, u, sz, lic, art) in enumerate(cands):
         print(f"RS|{key}|{i}|{t}|{u}|{sz}|{lic}|{art}")
         try:
