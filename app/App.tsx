@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppData, fetchAll, loadCached } from './src/api';
+import { reportError } from './src/errors';
 import { photoFor } from './src/photos';
 import { count } from './src/stats';
 import { DOW_CHIPS, fmtDate, inRange, rangeFor } from './src/dates';
@@ -141,6 +142,7 @@ function Main() {
       setError(null);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
+      if (!/network|fetch|timeout|abort/i.test(String(e))) reportError('load', e); // brak sieci to nie błąd apki
     }
   }, []);
 
