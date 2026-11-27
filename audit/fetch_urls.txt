@@ -1,7 +1,3 @@
-https://www.jumeirah.com/en/offers/category-offers/dine/jumeirah-al-qasr-pai-thai/rite-of-siam
-https://www.jumeirah.com/en/stay/dubai/jumeirah-mina-a-salam/dining/mina-a-salam-cala-vista
-https://www.fairmont.com/en/hotels/abu-dhabi/fairmont-bab-al-bahr/offers.html
-https://www.fairmont.com/en/hotels/fujairah/fairmont-fujairah-beach-resort/offers/lets-flow.html
-https://www.vidahotels.com/en/offers/festive-afternoon-tea-2
-https://www.vidahotels.com/en/hotels/vida-beach-resort-umm-al-quwain/offers
-https://armadaavenuehotel.com/
+https://www.jumeirah.com/en/stay/dubai/jumeirah-mina-al-salam/exclusive-offers/offer/dine/vista-brunch
+https://www.jumeirah.com/en/stay/dubai/jumeirah-al-qasr/exclusive-offers/offer/dine/rite-of-siam-brunch
+https://www.jumeirah.com/en/stay/dubai/jumeirah-al-qasr/dining/pai-thai
