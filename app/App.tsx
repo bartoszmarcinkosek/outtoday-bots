@@ -728,7 +728,8 @@ function Main() {
 
       <DetailSheet item={showFavs || showSearch || showNew ? null : selected} fav={!!selected && favs.includes(selected.key)}
         onFav={() => selected && toggleFav(selected.key)} photo={selPhoto} onClose={() => setSelected(null)}
-            nearby={nearDeals} onPick={(n) => { setSelPhoto(photoFor(n)); setSelected(n); }} />
+            nearby={nearDeals} onPick={(n) => { setSelPhoto(photoFor(n)); setSelected(n); }}
+        pickedDate={day === 'today' || day === 'any' ? null : rangeFor(day as Parameters<typeof rangeFor>[0])[0]} />
     </SafeAreaView>
   );
 }

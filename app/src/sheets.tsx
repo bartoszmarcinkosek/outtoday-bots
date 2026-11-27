@@ -128,15 +128,19 @@ function open(url: string) {
   Linking.openURL(url).catch(() => undefined);
 }
 
-async function addToCalendar(item: Item) {
+// Przypomnienie na dzień, który użytkownik wybrał w kalendarzu „Pick a date” (zgłoszenie testerki 27.11.2026:
+// przy wydarzeniach trwających kilka dni ustawiało się zawsze na dziś). Godziny wydarzeń są czasem UAE (UTC+4),
+// więc telefon w innej strefie (np. w Polsce) dostaje właściwą chwilę w swoim czasie.
+async function addToCalendar(item: Item, picked?: string | null) {
   const e = item.event;
   if (!e) return;
   const today = todayIso();
-  const day = e.start_date >= today ? e.start_date : today;
+  let day = e.start_date >= today ? e.start_date : today;
+  if (picked && picked > day && picked <= (e.end_date ?? e.start_date)) day = picked;
   const [y, m, d] = day.split('-').map(Number);
   const at = (t: string | null, fallbackHour: number) => {
     const [h, min] = (t ?? `${fallbackHour}:00`).split(':').map(Number);
-    return new Date(y, m - 1, d, h, min);
+    return t ? new Date(Date.UTC(y, m - 1, d, h - 4, min)) : new Date(y, m - 1, d, h, min);
   };
   const start = at(e.start_time, 9);
   const end = e.end_time ? at(e.end_time, 10) : new Date(start.getTime() + 2 * 3600 * 1000);
@@ -180,7 +184,7 @@ function linkIcon(url: string): any {
   return SOCIAL.find(([re]) => re.test(url))?.[2] ?? 'open-outline';
 }
 
-export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void; nearby?: Item[]; onPick?: (i: Item) => void }) {
+export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void; nearby?: Item[]; onPick?: (i: Item) => void; pickedDate?: string | null }) {
   const [reporting, setReporting] = useState<'closed' | 'open' | 'sending' | 'sent'>('closed');
   const [reportFor, setReportFor] = useState<string | null>(null);
   const item = props.item;
@@ -249,7 +253,7 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
         <Action icon="share-outline" label="Share" onPress={share} />
         <Action icon="map-outline" label="Google Maps" onPress={() => { count('map', `gmaps:${item.kind}`, item.city); open(`https://www.google.com/maps/dir/?api=1&destination=${item.geo ? `${item.geo[0]},${item.geo[1]}` : q}`); }} />
         <Action icon="navigate-outline" label="Waze" onPress={() => { count('map', `waze:${item.kind}`, item.city); open(item.geo ? `https://waze.com/ul?ll=${item.geo[0]},${item.geo[1]}&navigate=yes` : `https://waze.com/ul?q=${q}&navigate=yes`); }} />
-        {item.kind === 'event' && <Action icon="alarm-outline" label="Remind me" onPress={() => addToCalendar(item)} />}
+        {item.kind === 'event' && <Action icon="alarm-outline" label="Remind me" onPress={() => addToCalendar(item, props.pickedDate)} />}
         {!!digits && <Action icon="call-outline" label="Call" onPress={() => { count('map', `call:${item.kind}`, item.city); open(`tel:${digits}`); }} />}
         {!!digits && <Action icon="logo-whatsapp" label="WhatsApp" onPress={() => open(`https://wa.me/${digits.replace('+', '')}`)} />}
       </View>
