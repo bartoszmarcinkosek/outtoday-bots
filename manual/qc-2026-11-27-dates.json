@@ -1,0 +1,18 @@
+{
+ "note": "Pełna kontrola 27.11: duplikaty z błędną datą (Phantom – faktycznie 10–28.03.2027; Charlie – 14–23.05.2027; André Rieu – 17.04.2027; Youssou N'Dour – 7.12.2026) ukryte; Julien's – daty wg komunikatu organizatora 7–9.12",
+ "hide_event_ids": [
+  "4dd9ffe9-1e37-4ddf-a58a-2da6f5b56472",
+  "87bcf94b-5974-4826-958f-72de9fd6ec42",
+  "dda586fa-78bf-40d9-a0bc-ec7a2b726f76",
+  "6dc67fee-efaf-41bc-a445-149f09a0dda8"
+ ],
+ "update_event_ids": [
+  {
+   "id": "9a82760b-db8c-49bb-8336-5973f4f4ba6d",
+   "set": {
+    "start_date": "2026-12-07",
+    "end_date": "2026-12-09"
+   }
+  }
+ ]
+}
