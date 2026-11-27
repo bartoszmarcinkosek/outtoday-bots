@@ -93,9 +93,9 @@ events = db.get("events", {"select": "id,title,city,venue,start_date,end_date,of
 for e in new_ev:
     events += [r for r in db.get("events", {"select": "id,title,city,venue,start_date,end_date,official_url,status,category,description",
                "title": f"eq.{e['title']}", "start_date": f"eq.{e['start_date']}"})]
-deals = db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status,source_name,details", "id": f"in.({','.join(dl_ids)})"}) if dl_ids else []
+deals = db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status,source_name,details,valid_until", "id": f"in.({','.join(dl_ids)})"}) if dl_ids else []
 for e in new_dl:
-    deals += db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status,source_name,details", "title": f"eq.{e['title']}", "venue": f"eq.{e.get('venue','')}"})
+    deals += db.get("deals", {"select": "id,title,city,venue,price_text,start_time,official_url,status,source_name,details,valid_until", "title": f"eq.{e['title']}", "venue": f"eq.{e.get('venue','')}"})
 places = db.get("places", {"select": "id,name,city,official_url,status,category,description", "id": f"in.({','.join(pl_ids)})"}) if pl_ids else []
 for p in new_pl:
     places += db.get("places", {"select": "id,name,city,official_url,status,category,description", "name": f"eq.{p['name']}"})
@@ -277,6 +277,10 @@ for d in {x["id"]: x for x in deals}.values():
     if (not (d.get("official_url") or "").strip() and re.search(r"time ?out|yalla|what'?s ?on|the national|kidzapp|best bites|cobone|groupon|curly ?tales", d.get("source_name") or "", re.I)) \
             or re.search(r"confirm before you go|sources differ|listed (in )?20\d\d", f"{d.get('details') or ''} {d.get('price_text') or ''}", re.I):
         out("FAIL", "deal", d["id"], d["title"], "niepotwierdzona u lokalu (tylko portal / stara lista) – potwierdź na stronie lub IG lokalu")
+    # oferta sezonowa (miesiąc / pora roku w tytule) bez daty końca – zostanie po sezonie (tester B 28.11: „October & November Family Staycation”)
+    if re.search(r"\b(january|february|march|april|may|june|july|august|september|october|november|december|summer|winter|spring|autumn)\b", d["title"], re.I) \
+            and "valid_until" in d and not d.get("valid_until"):
+        out("WARN", "deal", d["id"], d["title"], "oferta sezonowa bez daty końca (valid_until) – sprawdź, do kiedy obowiązuje")
     check_link("deal", d["id"], d["title"], d.get("official_url"), False)
     oks += 1
 
