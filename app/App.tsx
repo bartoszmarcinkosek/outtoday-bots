@@ -276,6 +276,13 @@ function Main() {
     [all, city, zones],
   );
 
+  // obejrzane „nowe” znikają: zamknięcie listy = nowa data ostatniej wizyty (zgłoszenie właściciela 27.11.2026)
+  const closeNew = () => {
+    setShowNew(false);
+    const now = Date.now();
+    setPrevVisit(now);
+    AsyncStorage.setItem(VISIT_KEY, String(now)).catch(() => undefined);
+  };
   const newItems = useMemo(
     () => (prevVisit ? local.filter((i) => i.created && Date.parse(i.created) > prevVisit) : []),
     [local, prevVisit],
@@ -696,12 +703,12 @@ function Main() {
 
       <InterestsSheet visible={showInterests && !!data} initial={interests ?? []} onSave={saveInterests} />
 
-      <Modal visible={showNew} animationType="slide" onRequestClose={() => setShowNew(false)}>
+      <Modal visible={showNew} animationType="slide" onRequestClose={closeNew}>
         <SafeAreaProvider>
           <SafeAreaView style={styles.screen}>
             <View style={styles.header}>
               <Text style={[styles.brand, { flex: 1 }]}>New for you</Text>
-              <Pressable onPress={() => setShowNew(false)} hitSlop={10}>
+              <Pressable onPress={closeNew} hitSlop={10}>
                 <Ionicons name="close" size={26} color={colors.text} />
               </Pressable>
             </View>
