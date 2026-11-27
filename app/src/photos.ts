@@ -7,6 +7,16 @@ import { Item } from './logic';
 import { PHOTO_OFF } from './photoOff';
 import { PHOTO_FILES, PHOTO_NAMES } from './photos.gen';
 
+// Klucz 'community' miesza zdjęcia: gra planszowa / spotkanie w kawiarni oraz sprzątanie plaży (community-2, -4).
+// Sprzątanie tylko dla akcji sprzątania; gry planszowe tylko zdjęcie z grą (zgłoszenie 27.11.2026: sprzątanie plaży przy grach w Luwrze).
+{
+  const byName = (re: RegExp) => (PHOTO_FILES.community ?? []).filter((f) => re.test(PHOTO_NAMES.get(f) ?? ''));
+  const clean = new Set([...byName(/^community-(2|4)$/)]);
+  (PHOTO_FILES as Record<string, number[]>).cleanup = [...clean];
+  (PHOTO_FILES as Record<string, number[]>).boardgames ??= byName(/^community-1$/);
+  (PHOTO_FILES as Record<string, number[]>).community = (PHOTO_FILES.community ?? []).filter((f) => !clean.has(f));
+}
+
 // Konkretne miejsca (najważniejsze): event/miejsce/oferta w tym miejscu dostaje zdjęcie tego miejsca (klucz lm_*).
 // Sprawdzane w tytule i w miejscu. Działa dopiero, gdy jest plik assets/photos/lm_<nazwa>-<n>.jpg.
 const LANDMARKS: [RegExp, string][] = [
@@ -78,7 +88,10 @@ const RULES: [RegExp, string][] = [
   [/ceramic|pottery|sculpt\w* (class|workshop|course|session)|\bclay\b/i, 'studios'],
   [/painting|paint (and|&) sip|\bpaints?\b|art (class|studio|workshop)|art cent(re|er)|calligraph|drawing|\bdraw\b|sketch|watercolou?r|printmaking|al marsam/i, 'painting'],
   [/cooking|chocolate(?! factory)|baking|\bbake\b|gingerbread|culinary|top chef/i, 'cooking'],
-  [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower|polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
+  // gry planszowe: własne zdjęcie (stół z grami), do tego czasu ikonka – zdjęcia 'community' pokazywały sprzątanie plaży (zgłoszenie 27.11)
+  [/clean[- ]?up|cleanup drive|litter pick|beach clean/i, 'cleanup'],
+  [/board ?gam|boardgam|game night|\bchess\b|mahjong|scrabble|clocktower/i, 'boardgames'],
+  [/polyglot|language exchange|language & culture|conversation (club|meetup|café|cafe)|conversations over coffee/i, 'community'],
   // ladies-only taniec: bez par z mężczyznami na zdjęciu (zgłoszenie testerki 26.11.2026) – własne zdjęcie albo ikonka
   // ladies night jako wydarzenie (duet w restauracji): zdjęcie ladies night, nie tłum na festiwalu (tester 26.11)
   [/ladies'? ?night/i, 'ladies_night'],
