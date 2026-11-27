@@ -1,5 +1,40 @@
-lm_p_al_marmoom_camel | Al Marmoom camel racetrack Dubai
-lm_p_al_marmoom_camel | camel race robot jockey Dubai
-lm_p_al_sawan_camel | camel race Ras Al Khaimah
-lm_p_al_labsah_camel | camel racing Umm Al Quwain
-lm_p_al_ain_camel_market | Al Ain camel market
+lm_p_jebel_hafit | Jebel Hafit Al Ain
+lm_p_dubai_butterfly_garden | Dubai Butterfly Garden
+lm_p_bida_bint_saud | Bida Bint Saud Al Ain
+lm_p_khalidiyah_park | Khalidiyah Park Abu Dhabi
+lm_p_seaworld_yas_island | SeaWorld Yas Island Abu Dhabi
+lm_p_rain_room_sharjah | Rain Room Sharjah
+lm_p_al_ain_oasis | Al Ain Oasis
+lm_p_jebel_hafit_desert_park | Jebel Hafit Desert Park Al Ain
+lm_p_aljada | Aljada Sharjah
+lm_p_kalba_hanging_gardens | Kalba Hanging Gardens Sharjah
+lm_p_the_national_aquarium_abu_dh | The National Aquarium Abu Dhabi
+lm_p_souq_al_qattara | Souq Al Qattara Al Ain
+lm_p_sheikha_fatima_park | Sheikha Fatima Park Abu Dhabi
+lm_p_al_labsah_camel_racetrack | Al Labsah Camel Racetrack Umm Al Quwain
+lm_p_platinum_heritage | Platinum Heritage Dubai
+lm_p_al_khor_waterfront | Al Khor Waterfront Umm Al Quwain
+lm_p_kalba_corniche | Kalba Corniche Sharjah
+lm_p_riverland_dubai | Riverland Dubai
+lm_p_time_out_market_dubai | Time Out Market Dubai
+lm_p_fujairah_museum | Fujairah Museum
+lm_p_khorfakkan_amphitheatre_and_ | Khorfakkan Amphitheatre and Waterfall Sharjah
+lm_p_old_souk | Old Souk Abu Dhabi
+lm_p_najd_al_maqsar_heritage_vill | Najd Al Maqsar Heritage Village Sharjah
+lm_p_carpet_souk | Carpet Souk Abu Dhabi
+lm_p_waterfront_market | Waterfront Market Dubai
+lm_p_mleiha_national_park | Mleiha National Park Sharjah
+lm_p_central_souk_blue_souk | Central Souk (Blue Souk) Sharjah
+lm_p_khor_kalba_mangrove_centre | Khor Kalba Mangrove Centre Sharjah
+lm_p_the_view_at_the_palm | The View at The Palm Dubai
+lm_p_al_qasimia_school_museum_of_ | Al Qasimia School – Museum of Education Sharjah
+lm_p_sharjah_archaeology_museum | Sharjah Archaeology Museum
+lm_p_al_qawasim_corniche | Al Qawasim Corniche Ras Al Khaimah
+lm_p_mushrif_park | Mushrif Park Dubai
+lm_p_spice_souk | Spice Souk Dubai
+lm_p_emirates_park_zoo | Emirates Park Zoo Abu Dhabi
+lm_p_hero_balloon_flights | Hero Balloon Flights Dubai
+lm_p_snow_abu_dhabi | Snow Abu Dhabi
+lm_p_bassam_freiha_art_foundation | Bassam Freiha Art Foundation Abu Dhabi
+lm_p_marsa_ajman | Marsa Ajman
+lm_p_hatta | Hatta Dubai
