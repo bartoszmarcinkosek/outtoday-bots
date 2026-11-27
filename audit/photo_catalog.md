@@ -181,3 +181,4 @@ desert-3 | karawana jeźdźców na koniach na wydmach o zachodzie
 ruins-1 | ruiny fortu na skalistym wzgórzu nad oazą
 lm_jebel_jais-3 | serpentyny drogi na Jebel Jais z góry
 cropfarm-1 | szklarnia i grządki warzyw na pustyni, panele słoneczne
+lm_marjan-2 | prawdziwe zdjęcie (Pexels, od właściciela 27.11): Al Marjan Island z góry – zatoka z plażą, molo, hotele, basen
