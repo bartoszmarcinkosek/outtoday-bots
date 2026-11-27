@@ -1,0 +1,3 @@
+{"note":"Abracadabra: link bez numeru wydarzenia dawał 404 w kontroli; poprawny link sprzedawcy biletów (Platinumlist, oficjalny sprzedawca Dubai Opera)",
+ "update_event_ids":[{"id":"dceb3e9b-731d-4959-968d-56c97cde3117","set":{"official_url":"https://dubai.platinumlist.net/event-tickets/107897/abracadabra-at-dubai-opera"}}],
+ "approve_event_ids":["dceb3e9b-731d-4959-968d-56c97cde3117"]}
