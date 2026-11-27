@@ -1,0 +1,24 @@
+{
+ "note": "Pełna kontrola bazy 27.11: oferty, których strona lokalu zwraca 404 (oferta zdjęta) – ukryte do potwierdzenia; nowy link Mita Gami (strona Virgin 404, bilety na Platinumlist)",
+ "hide_deal_ids": [
+  "2ac0a44f-8685-42a7-856d-f5f3f80afc34",
+  "736c79ac-1376-4219-bcbf-3b55c2e4dfe6",
+  "ac397440-7841-4b04-9ea8-107e9e907c2e",
+  "ce3dfc4b-ea55-48c9-a8df-e3dc76667688",
+  "0112778b-3108-4f1c-b288-92fd10ea3564",
+  "2116d217-46e8-4406-94fb-7d59eb85fb4f",
+  "84ffdd90-5a94-4929-9571-b90df55f8638",
+  "c3688366-78c8-45ae-802c-e89c70e5e5ba",
+  "db744180-ce5a-406d-843a-315434e994d7",
+  "979d6f9f-9da5-4e97-ba1c-0b034ad10ab5",
+  "cad49a3a-a126-4082-928c-89d5f9320d40"
+ ],
+ "update_event_ids": [
+  {
+   "id": "64850fad-1cb5-4587-acfc-43f4a425ff36",
+   "set": {
+    "official_url": "https://dubai.platinumlist.net/event-tickets/109563/bohemia-presents-mita-gami"
+   }
+  }
+ ]
+}
