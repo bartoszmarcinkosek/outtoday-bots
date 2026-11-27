@@ -49,7 +49,7 @@ def main() -> int:
             tol = 1500 if big else 600
             if osm and ggl and G.km(osm, ggl) * 1000 <= (2000 if big else 1000) and (near(osm, tol) or near(ggl, tol)):
                 why = None
-            elif ggl and near(ggl, 300):
+            elif ggl and near(ggl, 1500 if big else 300):
                 why = None
             elif ggl is None and osm and near(osm, 300):
                 why = None  # Google niedostępny (limit) – na razie wystarczy OSM dla pełnej nazwy
