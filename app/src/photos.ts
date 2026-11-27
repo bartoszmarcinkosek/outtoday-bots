@@ -416,6 +416,8 @@ function pool(item: Item): number[] {
   // świąteczny koncert w arenie (Mariah Carey's Christmastime w Etihad Arena): wnętrze areny, nie stół z indykiem (tester B 27.11)
   if (typeHit && lm && VENUES.has(lm[1]) && /^(xmas|carols)$/.test(typeHit[1]) && PHOTO_FILES[`${lm[1]}_in`]) return [...PHOTO_FILES[`${lm[1]}_in`]];
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
+  // rodzaj rozpoznany, ale zdjęcia jeszcze brak (orkiestra w Expo City / Luwrze): wnętrze sali, jeśli jest – inaczej ikonka, nie scena rockowa
+  if (typeHit && NO_FALLBACK.has(typeHit[1]) && !(lm && VENUES.has(lm[1]) && PHOTO_FILES[`${lm[1]}_in`])) return [];
   // koncert w muzeum / w parku Expo City (Dhafer Youssef w Luwrze, Wasla Festival w Jubilee Park): scena koncertowa,
   // nie sala z rzeźbami ani kopuła Al Wasl (tester A 27.11)
   if (lm && item.kind === 'event' && item.catKey === 'music' && PHOTO_FILES.concert
