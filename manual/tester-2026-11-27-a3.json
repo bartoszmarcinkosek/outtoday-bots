@@ -1,0 +1,4 @@
+{
+ "note": "Tester A 27.11.2026: Face Aux Murs (6db3a792, zła data 22–23.05) to duplikat karty 3cf05b0e z prawdziwą datą 12–13.06.2027 – odrzucony.",
+ "reject_event_ids": ["6db3a792-dfbe-4716-ad46-33290871ec6d"]
+}
