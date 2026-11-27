@@ -391,7 +391,8 @@ function pool(item: Item): number[] {
   // (nazwę samego miejsca wycinamy z tytułu, żeby "Museum of the Future" nie stało się zwykłym "museum")
   const rest = lm ? (item.rawTitle ?? item.title).replace(new RegExp(lm[0].source, 'gi'), ' ') : (item.rawTitle ?? item.title);
   // góry Jais: rodzaj z tytułu (park linowy, taras) NIE wygrywa – to zawsze góry, nie hala wspinaczkowa (wyjątek: sylwester, koncert, festiwal)
-  const typeHit0 = item.kind !== 'deal' && lm ? ruleFor(rest) : undefined;
+  // konkretne miejsce (muzeum, atrakcja, park…) ze swoim prawdziwym zdjęciem: zostaje przy nim – „Al Marmoom Camel Racetrack” to tor, nie pustynia
+  const typeHit0 = item.kind !== 'deal' && lm && !(item.kind === 'place' && STRICT_PLACE.has(item.catKey) && PHOTO_FILES[lm[1]]) ? ruleFor(rest) : undefined;
   // (bez biegu: „festival running from 11 to 31 December” to nie bieg – Winter City, tester A 27.11)
   // event w sali/arenie bez rodzaju w tytule: rodzaj z opisu („Cycles – Boy Blue”: „Nine hip hop dancers…” → taniec, nie kampus NYU; zgłoszenie 27.11)
   const typeHitD = !typeHit0 && item.kind === 'event' && lm && VENUES.has(lm[1]) && item.description
