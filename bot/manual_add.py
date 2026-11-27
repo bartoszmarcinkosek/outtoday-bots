@@ -123,6 +123,14 @@ def main() -> int:
             for row in db.get("deals", {"select": "id,title", "title": f"eq.{r['title']}", "venue": f"eq.{r['venue']}"}):
                 db.update("deals", {"id": row["id"]}, fix)
                 print(f"~ deal poprawiony: {row['title']} {fix}")
+        # "approve_place_ids" / "approve_event_ids": ["uuid", ...] – przywraca do apki pozycje ukryte (pending), np. po fałszywym
+        # alarmie bramki jakości (Time Out Market Dubai, 26.11.2026 – wcześniej nie było jak zatwierdzić miejsca przez plik).
+        for tbl, key, nm in (("places", "approve_place_ids", "name"), ("events", "approve_event_ids", "title")):
+            for pid in data.get(key, []):
+                for row in db.get(tbl, {"select": f"id,{nm},status", "id": f"eq.{pid}"}):
+                    if row["status"] == "pending":
+                        db.update(tbl, {"id": pid}, {"status": "approved"})
+                        print(f"✓ {tbl} zatwierdzone: {row[nm]}")
         # "approve_deal_ids": ["uuid" lub {"id": ..., "set": {...}}] – zatwierdza oczekujące oferty (opcjonalnie z poprawką).
         for r in data.get("approve_deal_ids", []):
             did, fix = (r, {}) if isinstance(r, str) else (r["id"], r.get("set") or {})
