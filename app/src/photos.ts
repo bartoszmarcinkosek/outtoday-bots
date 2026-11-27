@@ -126,6 +126,8 @@ const AREAS = new Set(['lm_rams', 'lm_palm', 'lm_saadiyat', 'lm_corniche', 'lm_r
 const VENUES = new Set(['lm_etihad_arena', 'lm_coca_cola_arena', 'lm_dubai_opera', 'lm_nyuad', 'lm_expo_city', 'lm_louvre', 'lm_museum_future']);
 
 const RULES: [RegExp, string][] = [
+  // obóz dla dzieci (Expo City Winter Camp): dzieci, nie scena teatralna z opisu (przegląd 28.11)
+  [/\b(winter|summer|spring|holiday|kids'?|children'?s) camp\b/i, 'kids'],
   // wszystko na Jebel Jais (park linowy, taras, tyrolka, sanki) pokazuje góry Jais, nie halę wspinaczkową ani miasto
   [/\bjais\b/i, 'lm_jebel_jais'],
   [/bungee/i, 'bungee'],
@@ -405,6 +407,8 @@ function pool(item: Item): number[] {
   // konkretne miejsce (muzeum, atrakcja, park…): zdjęcie znanego miejsca tylko gdy to miejsce jest w NAZWIE – nie dlatego, że leży obok
   // (Sharjah Art Museum w „Heart of Sharjah” nie dostaje zdjęcia innego budynku, Souk Al Jami nie dostaje meczetu; kontrola 27.11)
   if (lm && item.kind === 'place' && STRICT_PLACE.has(item.catKey) && !lm[0].test(item.rawTitle ?? item.title)) lm = undefined;
+  // prawdziwe zdjęcie konkretnego miejsca (lm_p_*) tylko dla tego miejsca – „The Jam Jar” w Alserkal nie dostaje zdjęcia alei (28.11)
+  if (lm && item.kind === 'place' && lm[1].startsWith('lm_p_') && !lm[0].test(item.rawTitle ?? item.title)) lm = undefined;
   // zdjęcia Corniche i Wielkiego Meczetu to Abu Dhabi – „Ajman Corniche” czy meczet Szejka Zajeda w Fudżajrze ich nie dostają
   if (lm && (lm[1] === 'lm_corniche' || lm[1] === 'lm_grand_mosque') && item.city !== 'Abu Dhabi') lm = undefined;
   // Całe dzielnice/wyspy (Palm, Saadiyat, Corniche, Reem): ich zdjęcie tylko dla miejsc. Event albo oferta w hotelu
