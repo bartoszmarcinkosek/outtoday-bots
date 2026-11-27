@@ -1,0 +1,269 @@
+{
+ "note": "QC night 27.11, extra run 2 (second firing). Part A: 100 events reviewed. Organiser pages: Sapan Verma and Kunal Kamra shows are on 6 Feb 2027 (not this week), Connect Pop Up at ADNEC is 18-20 Dec, MadCat Speakeasy comedy is only 29 Nov, Atif Aslam starts 21:00, Bocelli sold out. Rejected: Marina dinner cruise (product), Peacock Alley afternoon tea (ordinary menu), Topgolf festive season (promotion without a programme). Cleaned venues of Alserkal galleries and raw Platinumlist prices. Part B: 40 deals at source: 20 verified (hours added for Dutty Wine Brunch, Queen's Night, Armada lunch, COCO business lunch; new links for Vista Brunch and Let's Flow), 1 rejected (Weekend Roast listed twice at Armada Avenue Hotel), 3 not confirmed (Rite of Siam, Fairmont Bab Al Bahr day pass, Vida UAQ festive tea), 16 unreadable (Hilton, IHG, Radisson, Hotel Ajman, Dubai Golf, Instagram).",
+ "reject_event_ids": [
+  "729b2f2d-06ba-4d10-b6ff-c1542df08be2",
+  "774bcbe5-9aff-41e0-b6b7-0feb131db117",
+  "9e74d951-8152-4502-b189-bcec5f2817f6"
+ ],
+ "update_event_ids": [
+  {
+   "id": "b4af9b1d-7092-4463-8aa3-8bc223ccde28",
+   "set": {
+    "start_date": "2027-02-06",
+    "end_date": "2027-02-06",
+    "price_text": "From AED 90",
+    "description": "Solo stand-up show by Sapan Verma, half in Hindi and half in English. Ages 14+. Doors open 19:00."
+   }
+  },
+  {
+   "id": "c27eb170-71fd-4d0f-86a4-50916331bf65",
+   "set": {
+    "start_date": "2027-02-06",
+    "end_date": "2027-02-06",
+    "price_text": "From AED 175",
+    "description": "Kunal Kamra's stand-up show Standing Up, in Hindi. Ages 16+. Doors open 18:30."
+   }
+  },
+  {
+   "id": "acc951e0-6079-41c5-ac43-983dddee59b9",
+   "set": {
+    "start_date": "2026-11-29",
+    "end_date": "2026-11-29",
+    "end_time": "21:30:00",
+    "price_text": "AED 85",
+    "description": "Stand-up comedy night by MadCat Comedy with a rotating line-up of local comedians at Moon Bar by Sana, Jumeirah Mina Al Salam. One drink included."
+   }
+  },
+  {
+   "id": "a5b6f1bf-eb22-47ef-8b95-7a2a0a3fa6e9",
+   "set": {
+    "start_date": "2026-12-18",
+    "end_date": "2026-12-20",
+    "start_time": "16:00:00",
+    "end_time": "00:00:00",
+    "description": "Community market and lifestyle pop-up with local businesses, food vendors and creative entrepreneurs, 18 to 20 December in Hall 3 at ADNEC Centre Abu Dhabi, 16:00 to midnight."
+   }
+  },
+  {
+   "id": "771ce5b1-c6b9-45a4-950a-ed83a7b11f30",
+   "set": {
+    "start_time": "21:00:00",
+    "price_text": "From AED 250",
+    "description": "Concert by Atif Aslam. Doors open 19:00, show starts 21:00."
+   }
+  },
+  {
+   "id": "83927376-5c0b-4ce4-8de3-3955935a56d6",
+   "set": {
+    "price_text": "Sold out",
+    "description": "Andrea Bocelli performs live in concert at Etihad Arena on Yas Island, Abu Dhabi, as part of the Yasalam Classics series and his 30th Anniversary Roma Doors open 18:00."
+   }
+  },
+  {
+   "id": "71bb6f6e-d09d-478a-97b4-3f2a7e623944",
+   "set": {
+    "end_time": "21:00:00"
+   }
+  },
+  {
+   "id": "cbdb42d8-ca52-4383-9493-874f1ded0f33",
+   "set": {
+    "end_time": "18:00:00"
+   }
+  },
+  {
+   "id": "ac464fee-e8c3-4d8f-baf5-d1b8099f8ee9",
+   "set": {
+    "title": "Wadi Abadillah Beginner Hike"
+   }
+  },
+  {
+   "id": "8e5b4bf8-9c4f-43a3-befc-87dd729f1eb3",
+   "set": {
+    "venue": "Zawyeh Gallery, WH 27, Alserkal Avenue"
+   }
+  },
+  {
+   "id": "87fb1f67-a79f-410d-aaf2-061bb77be747",
+   "set": {
+    "venue": "Firetti Contemporary, WH 29, Alserkal Avenue"
+   }
+  },
+  {
+   "id": "c37d8211-269e-47a3-9f80-ab35a755f4b0",
+   "set": {
+    "venue": "Green Art Gallery, WH 28, Alserkal Avenue"
+   }
+  },
+  {
+   "id": "9ae6aaee-22b3-4f93-a628-96df018d854f",
+   "set": {
+    "venue": "The Yard, Alserkal Avenue"
+   }
+  },
+  {
+   "id": "ba70d6ea-04f0-4d45-b9dd-c564c4ebf9b3",
+   "set": {
+    "price_text": "AED 99"
+   }
+  },
+  {
+   "id": "877d7b78-b10e-4bd4-9f43-201b1639b8bd",
+   "set": {
+    "price_text": "AED 195"
+   }
+  },
+  {
+   "id": "7fe756c4-5c98-4b84-b79b-71a44db3af00",
+   "set": {
+    "price_text": "AED 1,200"
+   }
+  },
+  {
+   "id": "8d51f6a2-c46b-43b0-a18b-885bef1099cd",
+   "set": {
+    "price_text": "AED 180"
+   }
+  },
+  {
+   "id": "c67467c2-ce19-4c27-8f9c-a20cdd52e847",
+   "set": {
+    "price_text": "AED 355"
+   }
+  },
+  {
+   "id": "8b563f46-38f4-4691-9bbf-dbd18fe14927",
+   "set": {
+    "price_text": "AED 150"
+   }
+  },
+  {
+   "id": "b084a431-421d-405a-8604-0d28b78723a8",
+   "set": {
+    "price_text": "AED 49"
+   }
+  },
+  {
+   "id": "a9fef8a2-2d42-48c0-9748-e8d7a33ae2a5",
+   "set": {
+    "price_text": "AED 20"
+   }
+  },
+  {
+   "id": "82453a2c-1f53-4a54-95bd-1c22944c53db",
+   "set": {
+    "price_text": "AED 427.50"
+   }
+  },
+  {
+   "id": "9c3a9ca9-24d4-40f7-82e8-a2ff09751a31",
+   "set": {
+    "price_text": "AED 35"
+   }
+  },
+  {
+   "id": "85bf1c35-041f-4e08-9568-fb0cd9ea8120",
+   "set": {
+    "price_text": "AED 250"
+   }
+  },
+  {
+   "id": "87224852-48fa-4d47-9bcc-14d7112f4ce1",
+   "set": {
+    "price_text": "AED 50"
+   }
+  },
+  {
+   "id": "a8e3bf28-d5be-425f-be23-287c85efcf74",
+   "set": {
+    "price_text": "AED 10"
+   }
+  }
+ ],
+ "reject_deal_ids": [
+  "570d61b9-0dba-44e7-8871-1a1e69c7dc74"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "003c5342-f4d9-48d3-a42f-e9414c106b1f",
+   "set": {
+    "start_time": "14:00:00",
+    "end_time": "18:30:00"
+   }
+  },
+  {
+   "id": "62cde5be-3673-48c8-81d6-c42793a35b77",
+   "set": {
+    "end_time": "00:00:00"
+   }
+  },
+  {
+   "id": "078cd498-0552-4352-b576-ec4e647a5127",
+   "set": {
+    "start_time": "12:00:00",
+    "end_time": "17:00:00",
+    "price_text": "Set lunch from AED 52"
+   }
+  },
+  {
+   "id": "148e6b15-f105-4f9e-914a-782235f0daaa",
+   "set": {
+    "price_text": "Free coffee and beignets until 18:00, then 4 cocktails and 50% off food",
+    "details": "Tuesdays from noon to midnight: coffee and beignets on the house until 18:00, then four cocktails and 50% off the food bill. For groups of ladies dining."
+   }
+  },
+  {
+   "id": "93c72c71-6f63-4d7b-9506-79209f73afcb",
+   "set": {
+    "days_of_week": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "start_time": "12:00:00",
+    "end_time": "17:00:00",
+    "price_text": "From AED 75",
+    "details": "Two or three course business lunch, Monday to Friday 12:00 to 17:00."
+   }
+  },
+  {
+   "id": "edea336d-e013-455c-a503-e9dd8daf3f04",
+   "set": {
+    "official_url": "https://www.fairmont.com/en/hotels/fujairah/fairmont-fujairah-beach-resort/offers/lets-flow.html"
+   }
+  },
+  {
+   "id": "875f88fd-ea39-4789-b2d3-2ab51d0eec2e",
+   "set": {
+    "official_url": "https://www.jumeirah.com/en/stay/dubai/jumeirah-mina-al-salam/exclusive-offers/offer/dine/vista-brunch",
+    "start_time": "12:30:00",
+    "end_time": "16:00:00",
+    "details": "Italian sharing brunch with Burj Al Arab views and live entertainment, Sundays 12:30 to 16:00. Children aged 4 to 11: AED 190. Offer valid until 31 December 2026."
+   }
+  }
+ ],
+ "verified_deal_ids": [
+  "f31bd7ab-2c33-40be-a9e3-8230e982be2e",
+  "29175c15-e8d0-4d52-849b-03111cc3a1d8",
+  "5df48abe-a77a-4c52-8cb1-8504e13aff36",
+  "ed7b7f41-58fb-4423-80fa-3b9381ad16a6",
+  "e1b75605-8cf2-4166-9d78-ef2901283dc8",
+  "96fa1c8f-aaa3-4950-a36d-559ce50676f7",
+  "c5c0cf71-fcc6-4604-b187-a2fd6a31e0d3",
+  "003c5342-f4d9-48d3-a42f-e9414c106b1f",
+  "ea9bfd4a-7f96-40f8-89d9-9d9254a3946f",
+  "62cde5be-3673-48c8-81d6-c42793a35b77",
+  "078cd498-0552-4352-b576-ec4e647a5127",
+  "148e6b15-f105-4f9e-914a-782235f0daaa",
+  "f59d97d8-463a-49c9-88fa-55f2ce6aca6d",
+  "03fcb784-5b69-4b73-98e2-a9ad38ba38b3",
+  "07e8be30-8d90-4346-a725-cecc7a8f6862",
+  "93c72c71-6f63-4d7b-9506-79209f73afcb",
+  "83c2db52-af77-4281-a19f-0c82145674ed",
+  "52345d63-0ed2-4c89-97d4-5d5068e30cbc",
+  "edea336d-e013-455c-a503-e9dd8daf3f04",
+  "875f88fd-ea39-4789-b2d3-2ab51d0eec2e"
+ ]
+}
