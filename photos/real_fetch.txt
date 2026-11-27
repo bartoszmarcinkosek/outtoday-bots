@@ -1,1 +1,5 @@
 # <nazwa> | <adres obrazka> | <podpis: autor, licencja albo -> | <kadr: center/left/right/0.0–1.0>
+lm_dubai_opera-3 | https://live.staticflickr.com/65535/49110938316_6858d0c3f5_b.jpg | Francisco Anzola, CC BY 2.0, Flickr | 0.45
+lm_saadiyat-7 | https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Saadiyat_Beach.jpg/1920px-Saadiyat_Beach.jpg | Adman Payne, CC BY-SA 4.0, Wikimedia Commons | center
+lm_khorfakkan_amph-3 | https://commons.wikimedia.org/w/index.php?title=Special:FilePath/The_Khor_Fakkan_Amphitheatre.jpg&width=1600 | Philosographer, CC BY-SA 4.0, Wikimedia Commons | center
+lm_khorfakkan_amph-4 | https://commons.wikimedia.org/w/index.php?title=Special:FilePath/KFAmphi.jpg&width=1600 | Sherenk1, CC BY-SA 4.0, Wikimedia Commons | center
