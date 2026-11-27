@@ -259,4 +259,6 @@ for tbl, ids in GATE.items():
             print(f"QA|PASSED|{tbl}|{i}|przeszło kontrolę – widoczne w apce")
 print(f"QA|SUMMARY|checked {oks}|fail {fails}|warn {warns}|back to pending {len(fixed)}")
 # w trybie botów błąd już naprawiony (pozycja ukryta) – run nie jest czerwony; ręczne dodanie – czerwony, poprawiam od razu
-sys.exit(1 if fails and not (SINCE and FIX) else 0)
+# zatrzymane przez kontrolę (ukryte do poprawy) to nie awaria – bez czerwonego wyniku i e-maila (decyzja właściciela 27.11.2026);
+# czerwono tylko, gdy błąd został, a nic go nie ukryło (przegląd bez QA_FIX)
+sys.exit(1 if fails and not FIX else 0)
