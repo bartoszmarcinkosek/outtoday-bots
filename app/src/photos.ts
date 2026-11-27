@@ -233,7 +233,9 @@ const TOWERS = new Set(['Dubai', 'Abu Dhabi', 'Sharjah']);
 const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2']);
 // Zdjęcia wyłączone (pliki zostają do decyzji właściciela): AI narysowało inny budynek niż prawdziwy
 // – Etihad Arena ma pofalowaną, poziomo żłobkowaną fasadę, a nie kopułę ani „czaszę” (zgłoszenie 27.11.2026)
-const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2']);
+// przegląd 27.11: Coca-Cola Arena to prostopadłościan, nie okrągła „latarnia”; Opera ma kształt dhow, nie muszli;
+// lm_saadiyat-4 i lm_yas-1 pokazują wymyślone budynki (na Yas – ta sama „czasza” co fałszywa Etihad Arena)
+const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2', 'lm_coca_cola_arena-2', 'lm_dubai_opera-1', 'lm_saadiyat-4', 'lm_yas-1']);
 function allowed(f: number, item: Item, text: string): boolean {
   const n = PHOTO_NAMES.get(f);
   if (!n) return true;
