@@ -361,6 +361,9 @@ function pool(item: Item): number[] {
     return item.kind === 'place' ? [...(PHOTO_FILES.lm_polonia ?? []), ...PHOTO_FILES.polish_food] : [...PHOTO_FILES.polish_food];
   }
   let lm = LANDMARKS.find(([re]) => re.test(placeText));
+  // konkretne miejsce (muzeum, atrakcja, park…): zdjęcie znanego miejsca tylko gdy to miejsce jest w NAZWIE – nie dlatego, że leży obok
+  // (Sharjah Art Museum w „Heart of Sharjah” nie dostaje zdjęcia innego budynku, Souk Al Jami nie dostaje meczetu; kontrola 27.11)
+  if (lm && item.kind === 'place' && STRICT_PLACE.has(item.catKey) && !lm[0].test(item.rawTitle ?? item.title)) lm = undefined;
   // zdjęcia Corniche i Wielkiego Meczetu to Abu Dhabi – „Ajman Corniche” czy meczet Szejka Zajeda w Fudżajrze ich nie dostają
   if (lm && (lm[1] === 'lm_corniche' || lm[1] === 'lm_grand_mosque') && item.city !== 'Abu Dhabi') lm = undefined;
   // Całe dzielnice/wyspy (Palm, Saadiyat, Corniche, Reem): ich zdjęcie tylko dla miejsc. Event albo oferta w hotelu
