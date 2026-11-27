@@ -24,6 +24,9 @@ const LANDMARKS: [RegExp, string][] = [
   [/louvre/i, 'lm_louvre'],
   [/miracle garden/i, 'lm_miracle_garden'],
   // prawdziwe zdjęcia konkretnych miejsc (Wikimedia/Openverse, 27.11)
+  // tory wyścigów wielbłądów (Al Marmoom, Al Sawan, Al Labsah): prawdziwe zdjęcie startu wyścigu z wielbłądami – nie konie (Aga 27.11)
+  [/camel (race ?track|racetrack|racing (track|club))|camel races?\b/i, 'lm_camel_race'],
+  [/al ain camel market/i, 'lm_p_al_ain_camel_market'],
   [/Al\ Bidya\ Mosque/i, 'lm_p_al_bidya_mosque'],
   [/Al\ Mahatta\ Museum/i, 'lm_p_al_mahatta_museum'],
   [/Dhayah\ Fort/i, 'lm_p_dhayah_fort'],
