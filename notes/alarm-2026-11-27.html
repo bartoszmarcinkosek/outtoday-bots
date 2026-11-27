@@ -1,0 +1,9 @@
+<!doctype html><html lang="pl"><meta charset="utf-8"><body style="font-family:sans-serif;max-width:600px">
+<h2>OutToday: coś nie działa (27.11.2026)</h2>
+<p><b>1. Poprawka nie dociera do bazy – miejsce „Time Out Market Dubai” jest ukryte.</b><br>
+Od 26.11 ok. 18:00 (czasu Dubaju) miejsce jest niewidoczne w apce (status pending). Bramka jakości ukryła je przez fałszywy alarm „agregator” (timeoutmarket.com), a plik naprawczy <code>manual/qa-fix-tom-2026-11-26.json</code> próbował je przywrócić polem <code>status</code> w <code>update_place_ids</code>. Skrypt <code>bot/manual_add.py</code> tego pola nie przyjmuje, a pliki nie mają żadnego klucza do zatwierdzenia miejsca – więc poprawka po cichu nic nie zrobiła (wykryła to dzisiejsza kontrola odczytu). Sam wzorzec agregatora jest już poprawiony.<br>
+Czego trzeba: w następnej rozmowie z Claude poproś o dodanie do <code>manual_add.py</code> klucza <code>approve_place_ids</code> (albo pola status w update_place_ids) i ponowne przywrócenie tego miejsca. Sama z siebie codzienna kontrola nie może zmieniać kodu.</p>
+<p><b>2. Codzienne odświeżanie strony WWW nie ruszyło.</b><br>
+To zadanie nie ma dostępu do repozytorium <code>outtodayapp/outtodayapp.github.io</code>, więc nie mogło uruchomić <code>pages.yml</code>. Inne zadania (testery, sprawdzenie weekendu) mogą mieć ten sam problem. Czego trzeba: w nowej rozmowie na claude.ai poproś Claude o dodanie do zadania „OutToday – codzienne boty i e-mail” wszystkich potrzebnych repozytoriów (outtoday-bots i outtodayapp.github.io) i zastąpienie zadania nowym.</p>
+<p>Reszta działa: nieudane przebiegi z ostatniej doby to bramka jakości, która celowo zatrzymała pozycje, oraz dwa przejściowe błędy instalacji pakietów w diag, które przy następnym przebiegu przeszły.</p>
+</body></html>
