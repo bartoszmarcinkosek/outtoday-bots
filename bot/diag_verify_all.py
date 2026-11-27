@@ -38,8 +38,8 @@ FULL = ["january", "february", "march", "april", "may", "june", "july", "august"
 def date_pats(d: dt.date) -> list[str]:
     m, mf, day = MON[d.month - 1], FULL[d.month - 1], d.day
     sfx = r"(st|nd|rd|th)?"
-    return [rf"\b{day}{sfx}\s*(of\s*)?({mf}|{m})\b", rf"\b({mf}|{m})\.?\s*{day}{sfx}\b", rf"\b0?{day}[/.\-]0?{d.month}[/.\-](20)?\d\d\b",
-            rf"\b{d.isoformat()}\b", rf"\b{day}\s*[-–]\s*\d{{1,2}}\s*({mf}|{m})\b", rf"\b\d{{1,2}}\s*[-–]\s*{day}\s*({mf}|{m})\b"]
+    return [rf"\b0?{day}{sfx}\s*(of\s*)?({mf}|{m})\b", rf"\b({mf}|{m})\.?\s*0?{day}{sfx}\b", rf"\b0?{day}[/.\-]0?{d.month}[/.\-](20)?\d\d\b",
+            rf"\b{d.isoformat()}\b", rf"\b0?{day}\s*[-–]\s*\d{{1,2}}\s*({mf}|{m})\b", rf"\b\d{{1,2}}\s*[-–]\s*0?{day}\s*({mf}|{m})\b"]
 
 
 def date_ok(text: str, s, e) -> bool:
@@ -135,7 +135,13 @@ for it in items:
         nh = round(name_hit(txt, name), 2)
         if code == -1 or (isinstance(code, int) and code >= 400):
             v = "DEAD"
-        elif any(a in host for a in R.AGGREGATORS):
+        elif host.startswith("queue.") or "protectallsite" in fin:
+            v = "BLOCKED"  # kolejka antybotowa sprzedawcy – nie da się sprawdzić automatycznie
+        elif any(a in host for a in ("instagram.com", "facebook.com", "tiktok.com", "x.com", "twitter.com")):
+            v = "SOCIAL"
+        elif urlparse(fin).path.strip("/").lower() in ("", "en", "en/abu-dhabi", "en/dubai", "abu-dhabi", "dubai", "en/events", "events", "event/list"):
+            v = "GENERIC"  # link do strony głównej / listy, nie do tego wydarzenia
+        elif any(a in host for a in R.AGGREGATORS) and not any(t in host for t in ("platinumlist", "feverup")):
             v = "AGGR"
         elif nh >= 0.5 and dok:
             v = "OK"
