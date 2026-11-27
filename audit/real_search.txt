@@ -1,6 +1,5 @@
-# <klucz> | <zapytanie>  (Wikimedia Commons + Openverse/Flickr; Pexels gdy będzie klucz)
-lm_etihad_arena | Etihad Arena Abu Dhabi
-lm_khorfakkan_amph | Khor Fakkan amphitheatre
-lm_dubai_opera | Dubai Opera
-lm_yas | Yas Island Abu Dhabi
-lm_saadiyat | Saadiyat beach Abu Dhabi
+lm_sharjah_mosque | Sharjah Mosque
+lm_khalifa_mosque | Sheikh Khalifa bin Zayed Mosque Al Ain
+lm_al_majaz | Al Majaz Waterfront Sharjah
+lm_al_fahidi | Al Fahidi Historical Neighbourhood Dubai
+lm_madame | Madame Tussauds Dubai Bluewaters

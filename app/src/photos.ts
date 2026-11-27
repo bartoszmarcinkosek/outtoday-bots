@@ -23,6 +23,13 @@ const LANDMARKS: [RegExp, string][] = [
   [/burj khalifa|at the top\b|dubai fountain/i, 'lm_burj_khalifa'],
   [/louvre/i, 'lm_louvre'],
   [/miracle garden/i, 'lm_miracle_garden'],
+  // zgłoszenia Agi 27.11: konkretne miejsca dostają własny klucz (prawdziwe zdjęcie albo ikonka), a nie zdjęcie okolicy
+  [/twiggy/i, 'day_pass'],
+  [/madame tussauds|wax museum/i, 'waxmuseum'],
+  [/sheikh mohammed centre for cultural|\bsmccu\b|coffee museum|al fahidi|al bastakiya|bastakiya/i, 'heritage'],
+  [/sharjah mosque/i, 'lm_sharjah_mosque'],
+  [/sheikh khalifa (bin zayed )?(al nahyan )?mosque|al ain grand mosque/i, 'lm_khalifa_mosque'],
+  [/al majaz waterfront/i, 'lm_al_majaz'],
   [/grand mosque|sheikh zayed mosque/i, 'lm_grand_mosque'],
   [/etihad arena/i, 'lm_etihad_arena'],
   [/coca[- ]?cola arena/i, 'lm_coca_cola_arena'],
@@ -81,7 +88,12 @@ const RULES: [RegExp, string][] = [
   [/legoland/i, 'legoland'],
   [/warner bros|img worlds|ferrari world|motiongate|theme park|real madrid world/i, 'attractions'],
   [/trampoline|bounce|flip ?out|flipped park|air maniax/i, 'trampoline'],  // Flip Junior (Flipped Park RAK) dostawał basen na pustyni (tester 27.11)
-  [/ninja|tepfactor|ropes course|aventura|high ropes/i, 'active'],
+  [/aventura|ropes course|high ropes|treetop|tree top/i, 'ropes'],  // park linowy na drzewach, nie hala (Aga 27.11)
+  [/ninja|tepfactor/i, 'active'],
+  // zjazd na linie i skoki to nie samolot nad wydmami (XLine Dubai Marina – Aga 27.11)
+  [/zip ?line|xline|jais flight|jais sledder/i, 'zipline'],
+  [/skydiv|\bifly\b|indoor skydiving|parachut/i, 'skydive'],
+  [/hot air balloon|balloon (flight|ride)/i, 'balloon'],
   [/aviation|skydiv|parachut|paraglid|paramotor|gyrocopter|balloon flight|hot air balloon|seaplane|helicopter|microlight|zip ?line|xline|\bifly\b|jais flight|aerobatic|air ?show|flying (lesson|experience)|scenic flight/i, 'flying'],
   // lodowisko to nie stok narciarski (Dubai Ice Rink dostawał Ski Dubai – tester 27.11): własne zdjęcie albo ikonka
   [/ice rink|ice skating|skating rink/i, 'ice_rink'],
@@ -225,7 +237,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['butterfly', 'crocodile', 'rainforest', 'immersive', 'santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir']);
+const NO_FALLBACK = new Set(['zipline', 'skydive', 'balloon', 'ropes', 'waxmuseum', 'lm_sharjah_mosque', 'lm_khalifa_mosque', 'lm_al_majaz', 'butterfly', 'crocodile', 'rainforest', 'immersive', 'santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)
@@ -237,6 +249,7 @@ const CITY_ONLY = new Map<number, string>([
 // tylko dla kart, których tytuł/miejsce do nich pasuje. Inaczej każda „night out” miała karaoke, każda kolacja
 // – kuchnię indyjską albo teppanyaki, każdy day pass – basen wśród wydm (tester 27.11).
 const ONLY_IF = new Map<string, RegExp>([
+  ['mosque-1', /old|historic|heritage|al bidya|village|small|ancient|mud|al badiyah/i],
   // ludzie szkicujący rzeźbę: tylko zajęcia rysunku, nie wystawy (Spices and Wonders, zgłoszenie Agi 27.11)
   ['lm_louvre_in-3', /draw|sketch|art class|workshop|life drawing|atelier/i],
   // kontrola doboru zdjęć 27.11: zdjęcia z konkretną kuchnią / czynnością tylko dla pasujących kart
@@ -280,10 +293,16 @@ const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2', 'lm_dubai_op
   'lm_khorfakkan_amph-1', 'lm_khorfakkan_amph-2',
   // Al Marjan Island: AI narysowało wyspy innego kształtu (zgłoszenie właściciela 27.11)
   'lm_marjan-1']);
+const NIGHT = new Set(['dinner-1', 'dinner-2', 'dinner-9', 'night_out-1', 'night_out-3', 'night_out-4', 'ladies_night-5', 'happy_hour_dubai-1', 'lm_marina-1']);
 function allowed(f: number, item: Item, text: string): boolean {
   const n = PHOTO_NAMES.get(f);
   if (!n) return true;
   if (DISABLED.has(n)) return false;
+  // zdjęcie nocne przy wydarzeniu/ofercie w dzień (Sunday Roast od 12:30 z księżycem na zdjęciu – zgłoszenie Agi 27.11)
+  if (NIGHT.has(n)) {
+    const t = /(\d{1,2}):\d{2}/.exec(item.whenFull ?? item.when ?? '');
+    if (t && Number(t[1]) >= 6 && Number(t[1]) < 16) return false;
+  }
   // panorama jednego miasta też na ścieżce rodzaju z tytułu (Saturday Run – Khorfakkan Beach dostawał Burj Khalifę – tester A 27.11)
   const only = CITY_ONLY.get(f);
   if (only && only !== item.city) return false;

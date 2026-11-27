@@ -1,3 +1,7 @@
+349 | zipline-1 | Person in a harness flying down a long urban zipline high between modern skyscrapers above a marina with yachts, real-looking photo, no text, no logos
+350 | ropes-1 | Children and adults on an outdoor treetop ropes course with rope bridges and platforms between ghaf trees in a park, helmets and harnesses, daylight, real-looking photo, no text, no logos
+351 | skydive-1 | Tandem skydivers in free fall above a palm-shaped island and coastline, blue sky, real-looking photo, no text, no logos
+352 | balloon-1 | Several hot air balloons floating over red desert dunes at sunrise, real-looking photo, no text, no logos
 346 | butterfly-1 | Colourful butterflies resting on flowers inside a bright glass butterfly house with a child watching, real-looking photo, no text, no logos
 347 | crocodile-1 | Large Nile crocodile resting on the bank of a pond in a wildlife park, visitors behind a glass barrier, real-looking photo, no text, no logos
 348 | rainforest-1 | Indoor tropical rainforest biodome with tall trees, waterfall and a sloth hanging from a branch, visitors on a walkway, real-looking photo, no text, no logos
