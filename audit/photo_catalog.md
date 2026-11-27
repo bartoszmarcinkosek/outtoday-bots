@@ -184,3 +184,4 @@ cropfarm-1 | szklarnia i grządki warzyw na pustyni, panele słoneczne
 lm_marjan-2 | prawdziwe zdjęcie (Pexels, od właściciela 27.11): Al Marjan Island z góry – zatoka z plażą, molo, hotele, basen
 lm_coca_cola_arena-3 | prawdziwe zdjęcie (Wikimedia, Ninoksha Maria CC BY-SA): okrągła arena z czerwonymi rombami nocą, lasery, Burj Khalifa
 lm_dubai_opera_in-1 | prawdziwe zdjęcie (Wikimedia, heyexplorer.com CC BY): widownia Dubai Opera, czerwone fotele, balkony
+lm_saadiyat-7 | prawdziwe zdjęcie (Wikimedia, Adman Payne CC BY-SA 4.0): wydmy z trawą i plaża Saadiyat
