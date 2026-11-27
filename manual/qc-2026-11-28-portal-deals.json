@@ -1,0 +1,20 @@
+{
+ "note": "Pe\u0142na kontrola 28.11: zatwierdzone oferty potwierdzone tylko w portalu (nie u lokalu) \u2013 ukryte do potwierdzenia (regu\u0142a z 27.11)",
+ "hide_deal_ids": [
+  "1a0278a0-bafb-4f42-87ae-43d1756af723",
+  "3b4fb9bf-a835-40ab-8803-f8d5e81cf57f",
+  "3d42b7e8-90d7-4152-a366-f9c97b7161e1",
+  "53bd37e0-c5a1-4cb5-b2be-f416c5a76d75",
+  "614cfca0-55f6-4d25-abee-1462c23e90df",
+  "6a520c07-cbe2-427a-a36d-af3ca14c619d",
+  "6c6f857e-f3ae-4262-8d23-1e883c4aad41",
+  "7e9cc1fa-f509-4d04-9424-4f901554e325",
+  "83283d55-0687-40d6-989d-9cccfa96ad25",
+  "979d6f9f-9da5-4e97-ba1c-0b034ad10ab5",
+  "af406d22-11f7-4680-aba7-fdfcf4501f33",
+  "b24c8c1b-fd0b-45bb-95a7-57be0e4c5938",
+  "f7a88860-7e40-4b3f-8a15-5e94cb1669f7",
+  "f8a20e59-4c5a-4439-ba02-d1cf0055cd50",
+  "f90c7d1c-adb6-4c3e-a49f-0945de8dc246"
+ ]
+}
