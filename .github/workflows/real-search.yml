@@ -1,0 +1,16 @@
+name: Real photo search
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  s:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests pillow
+      - run: python bot/diag_realsearch.py | tee /tmp/rs.log
+      - run: |
+          mkdir -p audit/real_search && rm -f audit/real_search/*.jpg && cp /tmp/rs/*.jpg audit/real_search/ && grep -oE "RS\|.*" /tmp/rs.log > audit/real_search/candidates.txt
+          git config user.name "OutToday Bot"; git config user.email "bot@outtoday.local"
+          git add -A audit/real_search && (git diff --cached --quiet || (git commit -m "real photo candidates" && (git push || (git pull --rebase && git push))))
