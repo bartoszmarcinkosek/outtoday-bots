@@ -1,0 +1,119 @@
+{
+ "note": "Pełna kontrola 28.11: tytuły z „|” → „ – ”",
+ "update_event_ids": [
+  {
+   "id": "0f0d3a54-5f55-4564-8dbf-31074d531381",
+   "set": {
+    "title": "Richa Syal with Maureen Daly, Reem Mohammed & Reinilda Dernison – What"
+   }
+  },
+  {
+   "id": "14a9b3a3-c96d-44a5-9b1d-ce5ecf8fc5a2",
+   "set": {
+    "title": "Hekayah – The Story – Eid al Etihad Celebration"
+   }
+  },
+  {
+   "id": "178d479d-49f5-4617-94c2-989faa2cea53",
+   "set": {
+    "title": "Her Padel Series – Open C Tournament"
+   }
+  },
+  {
+   "id": "230683ef-f60c-45c4-b6e7-9d7e76e6d21c",
+   "set": {
+    "title": "Knot - Afra Al Dhaheri & Dovydas Stramaitis – Just One Tile - Islam El"
+   }
+  },
+  {
+   "id": "2509c99c-ef8c-4149-9b19-b598302277b3",
+   "set": {
+    "title": "Wafa Al Falahi – Feathers In The Reeds, Milk In The Mud"
+   }
+  },
+  {
+   "id": "5322a4c7-64f5-4172-bff0-a1a7a708f955",
+   "set": {
+    "title": "Wild 2000s – Headliner: Otpetye Moshenniki at Harat's Republic in Duba"
+   }
+  },
+  {
+   "id": "58db45af-d2cb-4f64-9c63-9c7b35724f5a",
+   "set": {
+    "title": "Nada Elkalaawy – The Butterfly’s Burden"
+   }
+  },
+  {
+   "id": "775bc0ee-80a3-4d77-ad02-9e41a5826da4",
+   "set": {
+    "title": "Speak Your First Arabic: Beginner Workshop at Dubai Mall"
+   }
+  },
+  {
+   "id": "7a2e794d-a407-4527-813e-1cf00503250b",
+   "set": {
+    "title": "Rana Begum – Taking Form"
+   }
+  },
+  {
+   "id": "98dbf501-c6e4-470c-b31b-f4ad15ba8a14",
+   "set": {
+    "title": "Leonids Meteor Shower Night – Stars above , Souls around"
+   }
+  },
+  {
+   "id": "a89eb67b-9127-44b6-80f9-22efcde532a5",
+   "set": {
+    "title": "Reem Farah – Slow Art Walk"
+   }
+  },
+  {
+   "id": "b3a2e3e5-bc4f-4f79-918e-87b0c7945f1a",
+   "set": {
+    "title": "Sasha Altaf – Slow Art Walk"
+   }
+  },
+  {
+   "id": "c9e0f241-2e3e-4db0-baf2-d3cbe676c36e",
+   "set": {
+    "title": "Peybak – Abrakan Self Devouring"
+   }
+  },
+  {
+   "id": "cb11d4d2-7faa-4386-b7f0-8f0d847df0db",
+   "set": {
+    "title": "Tooba Shahbaz – Slow Art Walk"
+   }
+  },
+  {
+   "id": "d33e2ea9-d06f-4f92-997f-dac1e3cdb4fc",
+   "set": {
+    "title": "Arab Group Show – The Land Remembers: A Shared Language Across The Ara"
+   }
+  },
+  {
+   "id": "dd5570ab-683a-4281-94af-0faaa1f70337",
+   "set": {
+    "title": "Road To Awareness 2026 – Edition UAE"
+   }
+  },
+  {
+   "id": "f8ef0846-2d1b-43e3-90ba-d34e925633c4",
+   "set": {
+    "title": "Shaima Shamsi – Slow Art Walk"
+   }
+  },
+  {
+   "id": "fb0756fd-b87e-4e76-bf1e-3a089c38bcbb",
+   "set": {
+    "title": "Bookends Business Book Club: Talk Human – Meet the Author Luca Allam 📚"
+   }
+  },
+  {
+   "id": "fb8d5642-3591-4715-8549-870662a3c909",
+   "set": {
+    "title": "Ran Hwang – Poetic Reveries"
+   }
+  }
+ ]
+}
