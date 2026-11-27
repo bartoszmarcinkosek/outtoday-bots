@@ -237,6 +237,8 @@ const CITY_ONLY = new Map<number, string>([
 // tylko dla kart, których tytuł/miejsce do nich pasuje. Inaczej każda „night out” miała karaoke, każda kolacja
 // – kuchnię indyjską albo teppanyaki, każdy day pass – basen wśród wydm (tester 27.11).
 const ONLY_IF = new Map<string, RegExp>([
+  // ludzie szkicujący rzeźbę: tylko zajęcia rysunku, nie wystawy (Spices and Wonders, zgłoszenie Agi 27.11)
+  ['lm_louvre_in-3', /draw|sketch|art class|workshop|life drawing|atelier/i],
   // kontrola doboru zdjęć 27.11: zdjęcia z konkretną kuchnią / czynnością tylko dla pasujących kart
   ['night_out-1', /karaoke|open mic|live (music|band|dj)|\bdj\b|band|singer|gig|party|after ?dark|night shift|raise a mic/i],
   ['dinner-5', /arab|leban|mezze|emirati|turkish|shawarma|middle east|oriental|syrian|iftar|sultan|levant|majlis|persian|moroccan|dawat|journey to the orient/i],
