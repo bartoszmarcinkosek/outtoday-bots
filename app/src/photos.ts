@@ -23,6 +23,11 @@ import { PHOTO_FILES, PHOTO_NAMES } from './photos.gen';
   F.pubfood ??= [...new Set(pick('happy_hour', /^happy_hour-7$/))];   // piwo i skrzydełka w pubie: wings, burgery, slidery
   F.seafood ??= [...new Set(pick('dinner', /^dinner-3$/))];          // owoce morza na tarasie
   F.brunch_asian ??= [...new Set(pick('brunch', /^brunch-10$/))];    // azjatycki brunch (dim sum)
+  // tester B 28.11: Mixology Class (Ritz-Carlton) dostawała biuro z laptopami (classes-2) – lekcja drinków = bar z koktajlami
+  F.day_pass_desert ??= [...new Set(pick('day_pass', /^day_pass-8$/))]; // basen wśród wydm
+  F.cocktails ??= [...new Set(pick('happy_hour', /^happy_hour-1$/))];
+  F.japanese ??= [...new Set(pick('dinner', /^dinner-8$/))];         // sushi / bento (Sushi Sunday w Cargo dostawał stek z makaronem)
+  F.indian ??= [...new Set(pick('dinner', /^dinner-7$/))];           // Indian Lunch (Centro Sharjah) dostawał rybę
 }
 
 // Konkretne miejsca (najważniejsze): event/miejsce/oferta w tym miejscu dostaje zdjęcie tego miejsca (klucz lm_*).
@@ -343,6 +348,8 @@ const NO_FALLBACK = new Set(['orchestra', 'dolphin', 'zipline', 'skydive', 'ball
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)
 const CITY_ONLY = new Map<number, string>([
   [PHOTO_FILES.running?.[1], 'Dubai'],  // running-2
+  // bungee-1 to Dubai Marina z wieżowcami – nie dla Bungee at Yas Bay (Abu Zabi, tester B 28.11)
+  ...(PHOTO_FILES.bungee ?? []).filter((f) => PHOTO_NAMES.get(f) === 'bungee-1').map((f) => [f, 'Dubai'] as [number, string]),
 ].filter(([f]) => f != null) as [number, string][]);
 
 // Zdjęcia o bardzo konkretnej treści w ogólnej puli kategorii (oferty biorą zdjęcie z puli typu oferty):
@@ -367,7 +374,7 @@ const ONLY_IF = new Map<string, RegExp>([
   ['ladies_night-9', /karaoke|sing/i],  // panie śpiewają karaoke – nie przy ladies night z DJ-em (HUSHH, tester A 27.11)
   ['night_out-6', /shisha|hookah|arabic|lebanese|levant|majlis|turkish|moroccan|persian|emirati/i],
   ['dinner-7', /indian|biryani|curry|tandoor|desi|pakistani|dawat|punjabi|bhatia|masala|kerala|thali|nepal|sri lankan|mughal/i],
-  ['dinner-8', /teppan|japanese|wagyu|hibachi|benihana|yakiniku|omakase|robata/i],
+  ['dinner-8', /sushi|bento|sashimi|\bmaki\b|teppan|japanese|wagyu|hibachi|benihana|yakiniku|omakase|robata/i],
   ['day_pass-8', /desert|bab al shams|al maha|qasr al sarab|telal|mleiha|al wadi|liwa|dunes?\b/i],
   // tester B 27.11: świece Candlelight przy recitalu Yuja Wang; wydmy przy biegu na plaży Al Heera i w Ripe Market;
   // stół z indykiem przy zapalaniu choinki; kameralny klub z gitarą przy koncertach w arenie (Home Alone, Encanto) i festiwalu na plaży
@@ -382,12 +389,15 @@ const ONLY_IF = new Map<string, RegExp>([
   ['concert-5', /^(?![\s\S]*(arena|stadium|festival|beach|park\b|circuit|amphitheat|in concert|district|yasalam|after[- ]race|etihad (live|park)|harbour))/i],
   // kryty basen hotelowy: nie dla klubu plażowego / leżaka na plaży (Yas Beach, Soluna – tester A 28.11)
   ['day_pass-7', /^(?![\s\S]*(beach|sun ?lounger|sunbed))/i],
+  // pancakes i kawa: nie dla brunchu wieczornego (Bella's Friday Late Brunch od 18:30 – tester B 28.11)
+  ['brunch-2', /^(?![\s\S]*(late brunch|after dark|evening|night|aperitivo|sundowner|\bpm\b))/i],
   ['brunch-10', /asian|japanese|chinese|dim sum|sushi|zuma|thai|korean|vietnam|izakaya|yum cha|baikingu|cantonese|nobu|hakkasan|shanghai|noodle|ramen|sake|nikkei|peking|bao\b/i],
 ]);
 // Zdjęcia z wieżowcami w ogólnej puli: tylko w miastach z wieżowcami (Ain Al Madhab Gardens w Fudżajrze dostawał park z wieżowcami – tester 27.11)
 const TOWERS = new Set(['Dubai', 'Abu Dhabi', 'Sharjah']);
 // tester A 28.11: śniadanie w łóżku z oknem na wieżowce (Anantara Mina RAK), koktajle z panoramą wieżowców (Bar du Port, RAK)
-const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2', 'staycation-6', 'happy_hour-6']);
+// tester B 28.11: plaża z wieżowcami (day_pass-3) przy Vida Beach Resort Umm Al Quwain
+const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2', 'staycation-6', 'happy_hour-6', 'day_pass-3']);
 // Zdjęcia wyłączone (pliki zostają do decyzji właściciela): AI narysowało inny budynek niż prawdziwy
 // – Etihad Arena ma pofalowaną, poziomo żłobkowaną fasadę, a nie kopułę ani „czaszę” (zgłoszenie 27.11.2026)
 // przegląd 27.11 (Coca-Cola Arena-2 przywrócone: prawdziwa arena JEST okrągła z rombami – zdjęcie z Wikimedia); Opera ma kształt dhow, nie muszli;
@@ -401,12 +411,14 @@ const NIGHT = new Set(['dinner-1', 'dinner-2', 'dinner-4', 'dinner-5', 'dinner-9
   'night_out-5', 'night_out-6', 'ladies_night-1', 'ladies_night-2', 'ladies_night-3', 'ladies_night-5', 'ladies_night-7', 'ladies_night-8',
   'nightlife-1', 'nightlife-2', 'happy_hour-6', 'happy_hour_dubai-1', 'lm_marina-1', 'food-3', 'food-4', 'food-5', 'food-6', 'market-1', 'market-2',
   'festivals-1', 'festivals-2', 'festivals-3', 'cinema-1', 'cinema-2', 'xmas-3', 'xmas-4', 'nye-1', 'football-1', 'horse-1', 'motorsport-1',
-  'padel-1', 'candlelight-1', 'candlelight-5', 'lm_p_dubai_garden_glow-1', 'lm_p_dubai_garden_glow-2']);
+  'padel-1', 'candlelight-1', 'candlelight-5', 'lm_p_dubai_garden_glow-1', 'lm_p_dubai_garden_glow-2', 'lm_palm-4', 'lm_marina-1', 'happy_hour-6']);
 function allowed(f: number, item: Item, text: string): boolean {
   const n = PHOTO_NAMES.get(f);
   if (!n) return true;
   if (DISABLED.has(n)) return false;
   // zdjęcie nocne przy wydarzeniu/ofercie w dzień (Sunday Roast od 12:30 z księżycem na zdjęciu – zgłoszenie Agi 27.11)
+  // day pass / basen to zawsze dzień: nocne zdjęcie Palmy z lotu ptaka przy Weekend Day Pass w Anantara (tester B 28.11)
+  if (NIGHT.has(n) && item.kind === 'deal' && item.catKey === 'day_pass') return false;
   if (NIGHT.has(n)) {
     const t = /(\d{1,2}):\d{2}/.exec(item.whenFull ?? item.when ?? '');
     if (t && Number(t[1]) >= 6 && Number(t[1]) < 16) return false;
@@ -507,12 +519,19 @@ function pool(item: Item): number[] {
       // tester A 28.11: roast → ikonka do zdjęcia (dostawał bowl z awokado, rybę, fontannę czekolady); wings/burgery → pub; owoce morza; azjatycki brunch
       : /sunday roast|\broast\b|carvery/i.test(t) && !/brunch|day pass|staycation/i.test(item.catKey ?? '') ? 'roast'
       : /\bwings?\b|sliders?\b|burgers?\b|patties|\bpint\b/i.test(t) && !/^(brunch|staycation|day_pass)$/.test(item.catKey ?? '') ? 'pubfood'
+      // brunch w lokalu ze skrzydełkami (Buffalo Wings & Rings: „unlimited wings”) dostawał wypieki w ogrodzie (tester B 28.11)
+      : item.catKey === 'brunch' && /\bwings\b/i.test(`${t} ${item.where ?? ''} ${(item.deal as any)?.venue ?? ''}`) ? 'pubfood'
       : /seafood|\bfish\b|lobster|\bcrab|oyster|prawn/i.test(t) && !/^(brunch|staycation|day_pass)$/.test(item.catKey ?? '') ? 'seafood'
       : item.catKey === 'brunch' && /dim sum|cantonese|yum cha|chinese|japanese|asian|sushi|thai|korean/i.test(t) ? 'brunch_asian'
       : /fitness (challenge|session|class)|bootcamp|\bhiit\b/i.test(t) ? 'fitness' : /\bcomedy\b|stand[- ]?up/i.test(t) ? 'comedy'
       : /run club|\bparkrun\b|\bcommunity run\b/i.test(t) ? 'running' : /yoga|pilates|wellness morning|sound ?bath|meditation/i.test(t) ? 'yoga'
-      : /masterclass|cooking class|workshop|decorating|mixology class/i.test(t) ? 'classes' : /\bquiz\b|\bbingo\b/i.test(t) ? 'quiz'
+      : /mixology|cocktail (class|masterclass)/i.test(t) && PHOTO_FILES.cocktails?.length ? 'cocktails'
+      : /\bsushi\b|\bbento\b|japanese/i.test(t) && item.catKey !== 'brunch' ? 'japanese'
+      : /\bindian\b|biryani|\bcurry\b|tandoor/i.test(t) && /^(lunch|dinner|night_out)$/.test(item.catKey ?? '') ? 'indian'
+      : /masterclass|cooking class|workshop|decorating/i.test(t) ? 'classes' : /\bquiz\b|\bbingo\b/i.test(t) ? 'quiz'
       : /trampoline|flip (out|junior)|flipped park|bounce/i.test(t) ? 'trampoline'
+      // day pass w pustynnym resorcie (Al Wathba Desert Resort) dostawał basen nad morzem (tester B 28.11)
+      : item.catKey === 'day_pass' && /desert (resort|spa|camp|retreat)|bab al shams|al maha|qasr al sarab|telal/i.test(`${t} ${item.where ?? ''} ${(item.deal as any)?.venue ?? ''}`) ? 'day_pass_desert'
       : /^(night_out|happy_hour|ladies_night)$/.test(item.catKey ?? '') && !/ladies|happy|\bhour\b|sundowner|cocktail/i.test(t) && /steak|sushi|paella|pintxo|patties|mixed grill|greek|italian|arabic night|filipino night|mangal|wine and cheese|charcuterie|bbq|barbecue|wings|pizza|taco|burger|moules|seafood|crab|tapas|pasta|curry|ramen|noodle|roast|tomahawk|brisket|slider|gyoza|grill night|theme night|buffet/i.test(t) ? 'dinner' : undefined;
     if (k && PHOTO_FILES[k]?.length) return [...PHOTO_FILES[k]];
     if (k && NO_FALLBACK.has(k)) return [];

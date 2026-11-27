@@ -223,3 +223,13 @@ lm_p_yas_waterworld-1 | prawdziwe zdjęcie: zjeżdżalnie Yas Waterworld z góry
 lm_p_fujairah_fort-2 | prawdziwe zdjęcie: kamienny fort Fudżajra z okrągłymi wieżami, flaga ZEA
 lm_saadiyat-2 | drewniana kładka przez wydmy z trawą na plażę o zachodzie słońca
 day_pass_dubai-2 | plaża z białymi leżakami i parasolami, palmy, Burj Al Arab w tle (tylko hotel przy plaży z tym widokiem)
+bungee-1 | skoczek na bungee nad Dubai Marina: jachty, wieżowce, zachód słońca (tylko Dubaj)
+classes-2 | warsztaty w biurze: ludzie z laptopami przy stole, prowadząca (nie koktajle, nie gotowanie)
+day_pass_dubai-1 | basen infinity z leżakami, za zatoką panorama Dubaju z Burj Khalifą
+lm_p_al_ain_museum-1 | fasada Al Ain Museum z łukami i napisem (prawdziwe zdjęcie)
+lm_p_al_hayl_castle-1 | kamienna wieża Al Hayl Castle z flagą ZEA na skalistym wzgórzu (prawdziwe)
+lm_p_dubai_garden_glow-2 | podświetlony motyl i tulipany nocą (Dubai Garden Glow)
+lm_p_gold_souk-1 | zadaszona uliczka suku z drewnianym dachem, przechodnie (Gold Souk, Deira)
+lm_p_safa_park-1 | park: fontanna w czerwonej niecce, drzewa, alejka (Safa Park)
+lm_p_suwaidi_pearl_farm-1 | pływający dom farmy pereł z flagą, boje na spokojnej wodzie (Suwaidi)
+lm_palm-4 | Palm Jumeirah z lotu ptaka NOCĄ, oświetlone gałęzie wyspy (nie dla day passu)

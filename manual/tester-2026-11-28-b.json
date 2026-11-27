@@ -1,0 +1,17 @@
+{
+ "note": "Tester B 28.11: opisy brakujące, zdania 'confirm before you go' przy sukach, oferta jesienna do 30.11, ukryte: quiz z artykułu z 2023 (oddział Bray, Irlandia), oferta bez strony lokalu",
+ "update_deal_ids": [
+  {"id": "3292a0d3-454e-4b23-a533-fd6836e3ac1f", "set": {"valid_until": "2026-11-30", "details": "Family staycation in October or November from AED 700 per night for 2 adults and 2 children up to 12, with dining included and a balcony suite upgrade subject to availability. Sunday to Thursday only."}}
+ ],
+ "hide_deal_ids": [
+  "4303154b-b92d-4ace-867b-7ba74e1df98e",
+  "44fb4216-8d51-469c-9811-6933676ac313"
+ ],
+ "update_place_ids": [
+  {"id": "3339794c-db3e-47f2-b468-97e4c0882334", "set": {"description": "60-minute sightseeing boat tour along the Abu Dhabi Corniche, past Emirates Palace and around Lulu Island."}},
+  {"id": "440018e3-39f3-4a10-833b-b163332cd093", "set": {"description": "Esports and gaming hub at Al Qana with gaming PCs, consoles, VR experiences and racing simulators."}},
+  {"id": "4e72a832-7977-4ac5-bf22-c2d352033660", "set": {"description": "Observation Deck at 300 on the 74th floor of Etihad Towers, with views over the Corniche and the Gulf, coffee and afternoon tea."}},
+  {"id": "419b1b74-bcd1-4495-a691-fdfe081c1848", "set": {"description": "Waterfront souk on the Khor Al Maqta canals with oud, perfume and fashion shops, cafés and restaurants, and abra rides."}},
+  {"id": "46a345ab-300e-4dc0-8c8b-687baf2ce0b0", "set": {"description": "Souvenirs, perfumes, dates and jewellery in the visitor centre beside the Sheikh Zayed Grand Mosque."}}
+ ]
+}

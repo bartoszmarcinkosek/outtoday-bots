@@ -196,7 +196,7 @@ def main() -> int:
                 print(f"✓ {tbl} sprawdzone u źródła: {len(data[key])}")
         # "update_deal_ids" / "update_place_ids": [{"id":..., "set": {...}}] – poprawki nazw i miejsc
         for r in data.get("update_deal_ids", []):
-            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("title", "venue", "city", "details", "price_text", "deal_type", "days_of_week", "start_time", "end_time", "official_url")}
+            fix = {k: v for k, v in (r.get("set") or {}).items() if k in ("title", "venue", "city", "details", "price_text", "deal_type", "days_of_week", "start_time", "end_time", "official_url", "valid_until")}
             if fix:
                 db.update("deals", {"id": r["id"]}, fix)
                 print(f"~ deal poprawiony: {r['id']} {fix}")
