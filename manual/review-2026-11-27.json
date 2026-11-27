@@ -1,0 +1,142 @@
+{
+ "note": "Daily review 27.11.2026: pending (7 approved, rest rejected: past dates, Meetup socials, book clubs at cafes, school/ceremony items, an event in Washington, a Croatian hike, last year's Open Masters Games, Arabian Days concert already covered by the festival entry, Wet Cherry ladies day as a 3-month event); self-approved check (generic sessions, mall spend promotion, regular buffets/brunches as long events, duplicates of Cinque Christmas brunch and Shimza at Bohemia, Abu Dhabi Festival 2026 item filed under 2027); sanity fixes (venue spellings, is_free, category). Saadiyat Beach Club Ladies' Day left pending for the owner.",
+ "approve_event_ids": [
+  {
+   "id": "69b5d0c7-97e9-4e06-b1d0-60d704a04a2e",
+   "set": {
+    "venue": "Bassam Freiha Art Foundation"
+   }
+  },
+  {
+   "id": "6bf27259-baae-44fc-8988-13d74c74c3cc",
+   "set": {
+    "venue": "Bassam Freiha Art Foundation"
+   }
+  },
+  "cbdb42d8-ca52-4383-9493-874f1ded0f33",
+  {
+   "id": "5ccaba6d-f54c-4762-93a7-a2a4a90080b1",
+   "set": {
+    "venue": "Bassam Freiha Art Foundation"
+   }
+  },
+  "b8248f0f-db56-4129-803e-91ffc69f0135",
+  {
+   "id": "f1640aee-9cb9-4e12-80b8-401a06c3efd2",
+   "set": {
+    "venue": "Bassam Freiha Art Foundation"
+   }
+  },
+  {
+   "id": "5b2f5fb0-f669-450c-917f-d4a459e6f75e",
+   "set": {
+    "venue": "Heart of Sharjah"
+   }
+  }
+ ],
+ "reject_event_ids": [
+  "264b74fc-cb93-4f9c-933d-84145c42da88",
+  "efae3202-5bb1-4cfc-9197-5fdedb68060d",
+  "20144783-3a3d-4ae4-8224-82c6da88b65a",
+  "25a98e94-3659-4831-bd92-be6fcf94778f",
+  "da8664eb-c3c0-4f3e-86be-366f58eecbde",
+  "5134a330-3c3d-4f02-bde6-4de1c08a7e74",
+  "bade39d6-e0e9-4d88-9f0a-29d07f2d881b",
+  "5117e440-ccc5-4ce7-9207-950c145e7965",
+  "560fb2bb-d9cc-4832-bbb4-837fd799f184",
+  "8972ce65-580c-4dc3-81a6-3b598172b108",
+  "13753211-45bc-46c3-bf48-984247e98015",
+  "68991ceb-4da8-4a21-850e-035a58646369",
+  "73be052e-668b-410f-b11e-d2b09841718b",
+  "d919c21f-faea-45f9-9e86-7aa67d273e80",
+  "9f059916-2680-4598-86fa-1d0d5ef7c4d0",
+  "a3f7d8f9-f6fc-4928-a7b5-c5e5cfe82cc3",
+  "65cd9617-1664-45ab-ad37-962d18d4b9f6",
+  "b45d6672-4254-43ca-b342-6563ca2ae12d",
+  "7144c0cc-362c-43e6-8ee8-0d68b3232af7",
+  "cde965ac-5d49-4b9c-b873-4e6e5e993491",
+  "1071675b-26f4-4cb6-9a6c-2b4ca7f2b264",
+  "fd992480-192e-47d6-a90e-88a7a22f7dff",
+  "93f6fef2-f058-476e-b3c3-f19d8ce1d6c2",
+  "f19dbc83-f5c7-4603-bb27-6d2539fa68d2",
+  "b4a9b5f4-2c2e-4ef9-bedb-5f966a03a0b0",
+  "3561d2f8-13c8-4ae3-ac39-3cae55528006",
+  "8fa41cb5-fef2-4e45-b586-611b156c911e",
+  "91d2a301-0cad-4f63-b47b-a78187e29068",
+  "f6fbb587-7ef4-4ae4-9072-a22e01ea0605",
+  "b6c71362-9b32-4d03-970b-0148a43c917f",
+  "9779517f-f84e-4329-bcf1-f8030bc2675f",
+  "5a28dade-4d6c-4341-b980-c9fe90ac9cc4",
+  "eb586717-4d98-4170-af6b-485d6f4d8928",
+  "49332a74-3545-49cd-9074-6f0e6e6958c4",
+  "0b856ac1-ffc1-4c26-8e76-2f2fc93633b1",
+  "043ebbc2-e561-489a-95d5-55c91cb77813",
+  "3f4c3923-9627-43e1-b51a-00457c929aa3",
+  "c802b4a9-2fd9-4b98-af70-d2588e5e2a15",
+  "be22c659-5c77-4159-ba94-1cac07d7f504",
+  "a5569694-b6e3-4b89-8d70-254f356a5b41",
+  "3a3a8cb4-b50f-4297-9515-2a1e63bcee12",
+  "6ead1591-a706-48af-89f0-99856f937b26",
+  "dfd26dae-7e61-4dde-abab-fd24981e2a1a",
+  "9bdfe572-5bf0-43f8-8496-5c181ff26992",
+  "a7910d43-d8f9-4072-806c-e60492c44ea2",
+  "c0d4018e-1288-4c72-adaf-c55e6e0c5e0f",
+  "c560fec4-60a8-44e7-a227-61c0975d5684",
+  "28b64cbc-ae5d-4b61-a4b4-011c9b067444",
+  "6f304e35-fd0d-41e6-aacc-153d085ea2de",
+  "62746c5f-09c9-492e-96e8-71ca6fed6306",
+  "be6e000f-ab2d-4502-9255-ba8c4c54fcbe",
+  "06dfdb94-db83-4ee8-a0d8-8cca269cab67",
+  "6702f1c0-02a9-4b37-ab83-52b8da2b6f1e",
+  "1c48f950-8e45-46e0-a6e1-4faead2caae5"
+ ],
+ "approve_deal_ids": [
+  "2116d217-46e8-4406-94fb-7d59eb85fb4f",
+  "0112778b-3108-4f1c-b288-92fd10ea3564",
+  "875f88fd-ea39-4789-b2d3-2ab51d0eec2e"
+ ],
+ "update_event_ids": [
+  {
+   "id": "34b0e313-9a94-4d41-85fb-00f3834c3d0f",
+   "set": {
+    "category": "music"
+   }
+  },
+  {
+   "id": "4d5e671b-749e-4e37-846b-8355c5e69612",
+   "set": {
+    "venue": "Alliance Française Dubai, Oud Metha"
+   }
+  },
+  {
+   "id": "6598c402-7edc-42ba-8b3c-d13b5562928f",
+   "set": {
+    "venue": "Alliance Française Dubai, Oud Metha"
+   }
+  },
+  {
+   "id": "c719799e-acf5-4c9e-832c-034f22b80a07",
+   "set": {
+    "is_free": true
+   }
+  },
+  {
+   "id": "3eea7803-b7bf-4b4b-aac6-a31c24c09f62",
+   "set": {
+    "venue": "Cultural Foundation Abu Dhabi"
+   }
+  },
+  {
+   "id": "60a85450-4c77-4d1e-a22c-85b56148d37b",
+   "set": {
+    "venue": "Skafos, Canopy by Hilton Dubai Al Seef"
+   }
+  },
+  {
+   "id": "673cb373-5e80-4bb6-8206-fe1bdf0f3c70",
+   "set": {
+    "venue": "Cargo (Pier 7, Dubai Marina)"
+   }
+  }
+ ]
+}
