@@ -152,6 +152,8 @@ const LANDMARKS: [RegExp, string][] = [
   [/ferrari world/i, 'lm_p_ferrari_world_abu_dhabi'],
   [/img worlds/i, 'lm_p_img_worlds_of_adventure'],
   [/fujairah heritage village/i, 'lm_p_fujairah_heritage_village'],
+  // Abu Dhabi Heritage Village (Breakwater) – prawdziwe zdjęcie stało w ogólnej puli „heritage” i trafiało do Hamriyah w Szardży (Aga 28.11)
+  [/abu dhabi heritage village|heritage village[^.]{0,40}\b(breakwater|marina mall)\b/i, 'lm_heritage_village_ad'],
   [/seaworld|sea world/i, 'lm_p_seaworld_yas_island'],
   // partia 6 (druga próba krótszymi nazwami, 28.11)
   [/al hosn grounds|house of artisans/i, 'lm_p_al_hosn_grounds_and_house_of_artisans'],
