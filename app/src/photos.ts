@@ -416,6 +416,9 @@ const ONLY_IF = new Map<string, RegExp>([
   ['daytrips-3', /safari|dune|desert|4x4|off.?road/i],
   ['football-2', /amateur|social|casual|pick.?up|futsal|5.?a.?side|7.?a.?side|kick.?about|league night|beginners?/i],
   ['yoga-2', /beach|sunrise|sea\b|shore/i],
+  // kryty basen spa nocą i basen wśród wydm – tylko gdy oferta jest o spa / pustynnym kurorcie (Al Maya, Hilton Yas dostawały spa, 28.11)
+  ['day_pass-7', /\bspa\b|indoor|wellness|hammam/i],
+  ['day_pass-8', /desert|dune|bab al shams|qasr al sarab|al wadi|telal|mleiha|liwa/i],
   ['mosque-1', /old|historic|heritage|al bidya|village|small|ancient|mud|al badiyah/i],
   // ludzie szkicujący rzeźbę: tylko zajęcia rysunku, nie wystawy (Spices and Wonders, zgłoszenie Agi 27.11)
   ['lm_louvre_in-3', /draw|sketch|art class|workshop|life drawing|atelier/i],

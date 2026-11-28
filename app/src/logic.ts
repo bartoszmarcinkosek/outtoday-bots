@@ -226,6 +226,14 @@ export function buildItems(data: AppData, me: [number, number] | null, now: Date
       endsSoon: !!d.valid_until && d.valid_until >= today && d.valid_until <= soon, booking: false, deal: d,
     });
   }
+  // Kilka ofert jednego miejsca o ogólnych nazwach dawało identyczne karty („Al Maya Island & Resort” ×3, zgłoszenie 28.11):
+  // wtedy na karcie zostaje też nazwa oferty – „Al Maya Island & Resort · Saturday Day Pass”.
+  const seen = new Map<string, number>();
+  for (const i of out) if (i.kind === 'deal') seen.set(i.title, (seen.get(i.title) ?? 0) + 1);
+  for (const i of out) {
+    if (i.kind !== 'deal' || (seen.get(i.title) ?? 0) < 2 || !i.deal || i.title === i.deal.title) continue;
+    i.title = `${i.title} · ${i.deal.title}`;
+  }
   return out;
 }
 
