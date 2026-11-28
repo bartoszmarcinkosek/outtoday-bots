@@ -215,10 +215,7 @@
 48 | museums-2 | Visitors in a modern art museum gallery with large installations.
 66 | family-3 | Parents and children having a picnic in a green park.
 123 | cricket-3 | Cricket stadium at night under floodlights, bowler running in.
-124 | cricket-4 | Fans cheering in a cricket stadium stand with flags (no logos).
 125 | family-4 | Family playing at a beach park with kids flying a kite.
-126 | museums-3 | Children looking at dinosaur skeleton in a natural history museum hall.
-127 | museums-4 | Museum gallery with ancient artefacts in glass cases, soft lighting.
 26 | breakfast-2 | Hotel breakfast table by the pool, coffee, fruit and pastries, morning sun.
 65 | nightlife-3 | Busy beach club at sunset with music and people dancing.
 128 | nightlife-4 | Nightclub dance floor with lasers and DJ booth, crowd dancing.
@@ -237,51 +234,36 @@
 69 | market-3 | Weekend artisan market with handmade crafts under shade sails.
 137 | market-4 | Evening outdoor market with lanterns, handmade goods and street food.
 139 | sport-1 | Football fans cheering in a stadium at night.
-140 | sport-2 | Basketball game in an indoor arena, players mid-jump.
 141 | sport-3 | Tennis match on a hard court under floodlights.
-142 | sport-4 | Boxing or MMA event, ring under spotlights, crowd in the dark.
 2 | lm_dubai_opera-1 | Dubai Opera building shaped like a dhow, Downtown Dubai at blue hour.
 36 | daytrips-2 | 4x4 cars driving through a desert wadi with mountains, adventure day trip.
 143 | comedy-3 | Comedian with microphone in a small comedy club, brick wall, laughing audience.
 144 | comedy-4 | Comedy show audience laughing, view from the stage.
 147 | daytrips-3 | Desert safari dune bashing 4x4 at sunset.
-148 | daytrips-4 | Boat trip to a rocky coastline with turquoise bays in Musandam style fjords.
 24 | attractions-2 | Family enjoying a theme park ride in the UAE, bright daylight.
 59 | theatre-2 | Theatre stage with actors in costume under spotlights, audience silhouettes.
 72 | beaches-3 | Quiet public beach with families, umbrellas and clear water.
 149 | theatre-3 | Musical theatre stage with dancers in colourful costumes.
-150 | theatre-4 | Theatre audience seated in red velvet seats facing the stage.
 151 | beaches-4 | Public beach with lifeguard tower and families swimming, morning.
 152 | attractions-3 | Indoor theme park ride with lights and excited visitors.
-153 | attractions-4 | Aquarium tunnel with sharks and rays swimming above visitors.
 25 | books-2 | Cosy book club meeting in a cafe, people with books and coffee.
-157 | books-3 | Book fair hall with stalls and visitors browsing books.
 158 | books-4 | Author reading to a small audience in a cosy bookshop.
 52 | quiz-2 | Pub quiz night, teams at tables writing answers, cheerful mood.
-43 | heritage-2 | Traditional Emirati heritage village with mud-brick houses and falconry display.
-56 | studios-2 | Pottery or painting workshop, hands shaping clay on a wheel.
 22 | active-2 | Group of friends at an indoor climbing or trampoline park, energetic.
 47 | motorsport-2 | Race cars on a track at speed, motion blur, grandstand.
 40 | flying-2 | Paraglider or skydiver over the coastline on a clear day.
-33 | dance-2 | Couples dancing salsa in a lively dance studio, motion and colour.
 60 | watersports-2 | Jet ski and paddleboarders on turquoise water near the beach.
 42 | golf-2 | Golf course fairway with palm trees and lake at golden hour.
 44 | horse-2 | Horse riders galloping along a desert track at sunrise.
 49 | nature-2 | Mangrove kayaking channel, green mangroves and calm water.
 58 | talk-2 | Speaker on stage at a cultural talk, audience in a modern auditorium.
 29 | cinema-2 | Outdoor cinema on a beach at night, people on beanbags watching a screen.
-51 | padel-2 | Padel match in a glass court under lights.
-61 | yoga-2 | Sunrise yoga class on the beach, people on mats.
 4 | lm_museum_future-1 | Museum of the Future in Dubai, silver torus building with Arabic calligraphy windows, at night (calligraphy as pattern, not readable text).
 41 | football-2 | Amateur football match on a floodlit pitch at night.
-54 | snow-2 | People skiing and sledging on an indoor snow slope.
 57 | swimming-2 | Open-water swimmers in calm sea at sunrise.
-23 | arabic-2 | Arabic music performance with oud player on stage, warm stage lights.
-27 | camel-2 | Camel caravan walking across red desert dunes at sunset.
 38 | dj-2 | DJ behind decks at a rooftop party at night, hands up crowd, lights.
 3 | lm_burj_al_arab-1 | Burj Al Arab sail-shaped hotel seen from Jumeirah beach at golden hour.
 45 | jazz-2 | Jazz trio with saxophone in a dim lounge, warm light.
-53 | rock-2 | Rock band performing live, guitarist in red stage lights, crowd.
-352 | orchestra-1 | Symphony orchestra performing on a modern concert hall stage, violins and cellos in the foreground, conductor raising baton, warm stage lighting, audience silhouettes, real-looking photo, no text, no logos
-353 | orchestra-2 | Grand piano and violinist performing a classical recital on an elegant stage with warm spotlights, wooden acoustic panels, real-looking photo, no text, no logos
 354 | dolphin-1 | Bottlenose dolphins leaping from the water in an indoor dolphinarium pool, audience seats around, bright clean light, real-looking photo, no text, no logos
+355 | sport-4 | Boxing or MMA event, ring under spotlights, crowd in the dark, real-looking photo, no text, no logos
+356 | arabic-2 | Arabic music performance with oud player on stage, warm stage lights, real-looking photo, no text, no logos
