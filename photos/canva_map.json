@@ -231,7 +231,8 @@
     "breakfast-2": "MAHcLPgSKuU",
     "nightlife-3": "MAHcLcyvg7A",
     "breakfast-4": "MAHcLfRGgEo",
-    "staycation-2": "MAHcLkWQIL4"
+    "staycation-2": "MAHcLkWQIL4",
+    "staycation-4": "MAHcLoKaXQA"
   },
   "in_app": [
     "afternoon_tea-1",
@@ -456,5 +457,5 @@
     "zipline-1",
     "zoo-1"
   ],
-  "last_at": "2026-11-28T06:07:39Z"
+  "last_at": "2026-11-28T06:37:41Z"
 }
