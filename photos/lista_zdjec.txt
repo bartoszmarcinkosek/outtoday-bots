@@ -247,3 +247,9 @@
 3 | lm_burj_al_arab-1 | Burj Al Arab sail-shaped hotel seen from Jumeirah beach at golden hour.
 355 | sport-4 | Boxing or MMA event, ring under spotlights, crowd in the dark, real-looking photo, no text, no logos
 356 | arabic-2 | Arabic music performance with oud player on stage, warm stage lights, real-looking photo, no text, no logos
+357 | cooking-1 | Hands-on cooking class in a bright restaurant kitchen: a few adults in aprons rolling fresh pasta on a floured wooden counter, chef demonstrating, daylight, real-looking photo, no text, no logos
+357 | indoor_skydive-1 | Person in a jumpsuit and helmet floating in a tall glass indoor wind tunnel (indoor skydiving), instructor beside, bright interior lights, real-looking photo, no text, no logos
+357 | diving-1 | Scuba diver exploring a deep indoor diving pool with sunken city ruins and soft blue lighting, bubbles, real-looking photo, no text, no logos
+357 | kitesurf-1 | Kitesurfer jumping over turquoise waves near a sandy beach, colourful kite in a clear sky, sunny day, real-looking photo, no text, no logos
+357 | science-1 | Families with children at interactive exhibits in a bright science museum: planets model, hands-on experiments, glowing displays, real-looking photo, no text, no logos
+357 | workshop-1 | Children and parents at a long table making festive paper crafts and ornaments with glue, glitter and coloured paper, bright room, real-looking photo, no text, no logos
