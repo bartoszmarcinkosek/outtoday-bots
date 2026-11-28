@@ -1,0 +1,10 @@
+{
+ "places": [
+  {"name": "UAE Flower Farm", "category": "daytrips", "area": "Wadi Asimah", "city": "Ras Al Khaimah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "An open-field flower farm in the mountains of Wadi Asimah with tens of thousands of blooms: sunflowers, snapdragons, gladioli and lavender. Open seasonally, roughly late December to March; small entry fee, and you can pick and buy your own bouquet.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/uae_flower_farm/"},
+  {"name": "Cactus Farm Asimah", "category": "daytrips", "area": "Wadi Asimah", "city": "Ras Al Khaimah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "The UAE's largest cactus collection: more than 5,000 cacti and succulents of over 1,000 species in greenhouses and outdoor beds, grown by Emirati collector Obaid Al Mazroui. Open to visitors; easy to combine with the flower farm in the same valley.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=Cactus+Farm+Asimah+Ras+Al+Khaimah"}
+ ]
+}
