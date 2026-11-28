@@ -387,6 +387,8 @@ const RULES: [RegExp, string][] = [
 const ACTIVITY = new Set(['facepaint', 'yoga', 'running', 'fitness', 'cycling', 'swimming', 'aquafit', 'padel', 'tennis', 'classes', 'painting',
   'cooking', 'workshop', 'quiz', 'boardgames', 'cleanup', 'dance', 'dance_ladies', 'sport_ladies', 'trampoline', 'obstacle', 'bodybuilding']);
 function ruleFor(text: string): [RegExp, string] | undefined {
+  // dekorowanie domków z piernika to święta, nie warsztat garncarski ani kuchnia (Aga 28.11)
+  if (/gingerbread/i.test(text)) return [/gingerbread/i, 'xmas'];
   return RULES.find(([re, k]) => ACTIVITY.has(k) && re.test(text)) ?? RULES.find(([re]) => re.test(text));
 }
 
@@ -584,7 +586,7 @@ function pool(item: Item): number[] {
   // koncert w muzeum / w parku Expo City (Dhafer Youssef w Luwrze, Wasla Festival w Jubilee Park): scena koncertowa,
   // nie sala z rzeźbami ani kopuła Al Wasl (tester A 27.11)
   if (lm && item.kind === 'event' && item.catKey === 'music' && PHOTO_FILES.concert
-    && (lm[1] === 'lm_louvre' || lm[1] === 'lm_museum_future' || (lm[1] === 'lm_expo_city' && !/al wasl/i.test(placeText)))) return [...PHOTO_FILES.concert];
+    && (lm[1] === 'lm_louvre' || lm[1] === 'lm_museum_future' || lm[1] === 'lm_nyuad' || (lm[1] === 'lm_expo_city' && !/al wasl/i.test(placeText)))) return [...PHOTO_FILES.concert];
   // event w arenie bez rozpoznanego rodzaju: wnętrze tej areny (lm_<arena>_in) + jej zdjęcia z zewnątrz
   if (lm && item.kind === 'event' && VENUES.has(lm[1])) {
     // mecz / walka w arenie (koszykówka, boks, darts): nie wnętrze z koncertu (kontrola zdjęć 27.11)
@@ -611,6 +613,7 @@ function pool(item: Item): number[] {
       : /mixology|cocktail (class|masterclass)/i.test(t) && PHOTO_FILES.cocktails?.length ? 'cocktails'
       : /\bsushi\b|\bbento\b|japanese/i.test(t) && item.catKey !== 'brunch' ? 'japanese'
       : /\bindian\b|biryani|\bcurry\b|tandoor/i.test(t) && /^(lunch|dinner|night_out)$/.test(item.catKey ?? '') ? 'indian'
+      : /gingerbread/i.test(t) ? 'xmas'
       : /masterclass|cooking class|workshop|decorating/i.test(t) ? 'classes' : /\bquiz\b|\bbingo\b/i.test(t) ? 'quiz'
       : /trampoline|flip (out|junior)|flipped park|bounce/i.test(t) ? 'trampoline'
       // day pass w pustynnym resorcie (Al Wathba Desert Resort) dostawał basen nad morzem (tester B 28.11)
