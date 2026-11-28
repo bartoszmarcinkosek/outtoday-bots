@@ -13,13 +13,17 @@ for line in open(os.path.join(ROOT, "photos", "unsplash.txt"), encoding="utf-8")
         continue
     parts = [x.strip() for x in line.split("|")]
     rows.append((parts[0], parts[1], (parts[2] if len(parts) > 2 and parts[2] else "entropy")))
-budget = 40
+budget = 46  # limit demo 50/h; reszta przy następnym uruchomieniu
 for name, pid, _ in rows:
     if pid in cache:
         continue
     if not KEY or budget < 2:
         print(f"UP|{name}|{pid}|later (limit)"); continue
     r = requests.get(f"https://api.unsplash.com/photos/{pid}", headers=H, timeout=30); budget -= 1
+    rem = r.headers.get("X-Ratelimit-Remaining")
+    if rem is not None and rem.isdigit(): budget = min(budget, int(rem))
+    if r.status_code == 403 and "Rate Limit" in r.text:
+        print(f"UP|{name}|{pid}|later (limit)"); budget = 0; continue
     if not r.ok:
         print(f"UP|{name}|{pid}|ERROR {r.status_code}"); continue
     j = r.json()
