@@ -1,0 +1,19 @@
+{
+ "places": [
+  {"name": "Hive Board Game Cafe", "category": "attractions", "area": "The Greens (Onyx Tower 1)", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "Board-game café with 500+ games, shelves of books and comfort food, plus regular game nights and workshops. Open late; staff help you pick and learn a game.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/hiveboardgamecafe/"},
+  {"name": "Kefi Books, Board Games & Coffee", "category": "attractions", "area": "Al Mamzar", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "A library café in Al Mamzar with 200+ board games, thousands of books, speciality coffee and a co-working corner. Hosts game nights; students and children get special rates.",
+   "source_name": "kefi.ae", "official_url": "https://www.kefi.ae"},
+  {"name": "Pots & Paints Cafe", "category": "studios", "area": "Wasl Vita Mall, Jumeirah", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "Paint-your-own-pottery café: choose a mug, vase or trinket box, decorate it over a coffee and collect it after firing. Good for kids, dates and small groups.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/potsnpaints_cafe/"},
+  {"name": "The Workshop", "category": "attractions", "area": "Jumeirah 2, Al Wasl Road", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "Café in a two-storey Jumeirah villa with board games to borrow and an escape-room experience, plus a relaxed all-day menu.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/theworkshopdubai/"},
+  {"name": "Moon Lake (Crescent Lake)", "category": "daytrips", "area": "Al Qudra desert", "city": "Dubai", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A crescent-shaped man-made lake deep in the Al Qudra dunes, near Love Lake, with oryx and gazelles around. There is no paved road – you need a 4x4 to reach it. Best at sunrise or sunset; bring water and avoid summer midday heat.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=24.7874218,55.3065662"}
+ ]
+}
