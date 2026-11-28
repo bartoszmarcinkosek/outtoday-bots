@@ -65,3 +65,6 @@ lm_v_conrad_etihad-11 | ijwjHeCCGOE | entropy
 lm_v_conrad_etihad-12 | idKM1NgoolI | entropy
 # 28.11 wieczór – Emirates Palace z lotu ptaka (audit/real_search)
 lm_p_emirates_palace_public_areas-1 | VfJfCwhg-5U | entropy
+# 28.11 – schroniska dla psów (zgłoszenie Agi; audit/real_search/shelter.jpg nr 2 i 3)
+shelter-1 | 9oYVq7vCoXg | center
+shelter-2 | BLaXAI922FI | center
