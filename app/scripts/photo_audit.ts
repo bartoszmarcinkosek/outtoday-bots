@@ -2,6 +2,7 @@
 // Linie: PA|rodzaj|id|miasto|kategoria|zdjęcie|tytuł|miejsce   oraz   PC|zdjęcie|ile kart   (zdjęcie "-" = ikonka)
 import { buildItems } from '../src/logic';
 import { photoFor } from '../src/photos';
+import { PHOTO_NAMES } from '../src/photos.gen';
 import { SUPABASE_KEY, SUPABASE_URL } from '../src/config';
 
 async function all(table: string, select: string, extra = ''): Promise<any[]> {
@@ -17,6 +18,9 @@ async function all(table: string, select: string, extra = ''): Promise<any[]> {
   }
 }
 
+// zdjęcia z Unsplash mają numery (900001+), zdjęcia z paczki – ścieżki plików
+const nameOf = (p: unknown): string => (p == null ? '-' : typeof p === 'number' ? `${PHOTO_NAMES.get(p) ?? p}` : String(p).replace(/^.*\//, '').replace(/\.jpg$/, ''));
+
 (async () => {
   const today = new Date(Date.now() + 4 * 3600 * 1000).toISOString().slice(0, 10);
   const data: any = process.env.SAMPLE ? JSON.parse(process.env.SAMPLE) : {
@@ -31,7 +35,7 @@ async function all(table: string, select: string, extra = ''): Promise<any[]> {
   const clean = (s: unknown) => String(s ?? '').replace(/[|\n]/g, ' ').slice(0, 70);
   for (const i of items) {
     const p = photoFor(i) as unknown as string | null;
-    const name = p ? p.replace(/^.*\//, '').replace(/\.jpg$/, '') : '-';
+    const name = nameOf(p);
     count[name] = (count[name] ?? 0) + 1;
     const row: any = i.event ?? i.deal ?? i.place ?? {};
     if (!since || String(row.created_at ?? '') >= since) console.log(`PA|${i.kind}|${row.id}|${clean(row.city)}|${clean(i.catKey)}|${name}|${clean((i as any).rawTitle ?? i.title)}|${clean(i.where)}`);
@@ -54,7 +58,7 @@ async function all(table: string, select: string, extra = ''): Promise<any[]> {
     console.log(`PS|cards ${total}|seen7d ${covered}|todo ${rows.length}`);
     for (const { i, row } of rows.slice(0, Number(process.env.PICK || 140))) {
       const p = photoFor(i) as unknown as string | null;
-      const name = p ? p.replace(/^.*\//, '').replace(/\.jpg$/, '') : '-';
+      const name = nameOf(p);
       const d = [row.start_date, row.end_date].filter(Boolean).join('..');
       const price = row.is_free ? 'FREE' : clean(row.price_text ?? row.price_min_aed ?? '');
       console.log(`PT|${tier({ i, row })}|${i.kind}|${row.id}|${clean(row.city)}|${clean(i.catKey)}|${clean(row.deal_type ?? row.category ?? '')}|${name}|${clean((i as any).rawTitle ?? i.title)}|${clean(i.where)}|${d}|${price}|${clean(row.official_url).slice(0, 60)}|${String(row.description ?? row.details ?? '').replace(/[|\n]/g, ' ').slice(0, 140)}`);
