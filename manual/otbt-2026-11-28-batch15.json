@@ -1,0 +1,113 @@
+{
+ "note": "OTBT, zrzuty właściciela 28.11 z koordynatami (OTBT = 1 potwierdzenie, Google Maps plus code = 2.)",
+ "places": [
+  {
+   "name": "Flag Fort (Tayybah)",
+   "category": "daytrips",
+   "area": "Tayybah",
+   "city": "Fujairah",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "A small fort-style building in Tayybah village, built in 2014, with seven UAE flags on top for the seven emirates. Free to visit; a short photo stop on the way through the Fujairah mountains.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=25.4132576,56.1674922"
+  },
+  {
+   "name": "UAQ Ghost Village",
+   "category": "daytrips",
+   "area": "Old town, King Faisal St",
+   "city": "Umm Al Quwain",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "An old quarter of Umm Al Quwain where abandoned houses stand next to homes people still live in. Park nearby and walk around for photos; take care inside the ruins and respect the residents' privacy.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=25.5860112,55.5751921"
+  },
+  {
+   "name": "Sharia Rest Area (Hatta)",
+   "category": "parks",
+   "area": "Next to Hatta Heritage Village, Hatta",
+   "city": "Dubai",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "A shady spot under palm trees with small date farms, a traditional falaj water channel and covered huts for sitting. It's next to Hatta Heritage Village, below Al Hajarain restaurant.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=24.7971865,56.1189442"
+  },
+  {
+   "name": "Al Sharia Rest Area (Masfut)",
+   "category": "parks",
+   "area": "Masfut",
+   "city": "Ajman",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "A rest area with two ponds and a falaj water channel, shaded by trees. You can walk down to it from Al Boma Tower and walk on to Al Waraa lake along a path.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=24.8183585,56.0988300"
+  },
+  {
+   "name": "Al Boma Tower (Masfut)",
+   "category": "daytrips",
+   "area": "Masfut",
+   "city": "Ajman",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "A historical watchtower on a rocky hill in Masfut, reached by a short climb up stairs, with a viewpoint and rest area over the village. Its name means 'owl', after the guards who made owl calls to warn of danger.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=24.8179286,56.1010418"
+  },
+  {
+   "name": "Muzaira'a Dam",
+   "category": "daytrips",
+   "area": "Sayh Mudayrah, Masfut",
+   "city": "Ajman",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "One of several dams around Masfut, with a lake against a mountain backdrop. Best after the winter rains when it fills up; there are no facilities.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=24.8180322,56.0477852"
+  },
+  {
+   "name": "Al Waraa Lake (Masfut)",
+   "category": "parks",
+   "area": "Masfut",
+   "city": "Ajman",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "A small artificial lake with trees next to the Al Sharia rest area in Masfut. You can walk down to it from Al Boma Tower; there's a rest area by the water.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=24.8163639,56.1040536"
+  },
+  {
+   "name": "Buraq Dam",
+   "category": "daytrips",
+   "area": "Al Khari",
+   "city": "Ras Al Khaimah",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "A dam in the mountain foothills; when it holds water, the trees standing in the lake make a striking photo. It's often dry, so go after the winter rains.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=25.0055439,55.9827655"
+  },
+  {
+   "name": "Kalba Dam",
+   "category": "daytrips",
+   "area": "Kalba",
+   "city": "Sharjah",
+   "is_indoor": false,
+   "status": "approved",
+   "kid_friendly": true,
+   "description": "A dam lake in the hills outside Kalba with ducks on the water, a quiet stopover. The Kalba Al Ghail hiking trail starts here.",
+   "source_name": "google.com/maps",
+   "official_url": "https://www.google.com/maps/search/?api=1&query=25.0083089,56.3191257"
+  }
+ ]
+}
