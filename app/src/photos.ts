@@ -412,7 +412,7 @@ const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2', 'lm_dubai_op
   'lm_khorfakkan_amph-1', 'lm_khorfakkan_amph-2',
   // Al Marjan Island: AI narysowało wyspy innego kształtu (zgłoszenie właściciela 27.11)
   'lm_marjan-1']);
-const NIGHT = new Set(['sport_ladies-1', 'tennis-1', 'cricket-2', 'dinner-1', 'dinner-2', 'dinner-4', 'dinner-5', 'dinner-9', 'night_out-1', 'night_out-2', 'night_out-3', 'night_out-4',
+const NIGHT = new Set(['nightlife-4', 'market-4', 'sport-1', 'football-2', 'sport_ladies-1', 'tennis-1', 'cricket-2', 'dinner-1', 'dinner-2', 'dinner-4', 'dinner-5', 'dinner-9', 'night_out-1', 'night_out-2', 'night_out-3', 'night_out-4',
   'night_out-5', 'night_out-6', 'ladies_night-1', 'ladies_night-2', 'ladies_night-3', 'ladies_night-5', 'ladies_night-7', 'ladies_night-8',
   'nightlife-1', 'nightlife-2', 'happy_hour-6', 'happy_hour_dubai-1', 'lm_marina-1', 'food-3', 'food-4', 'food-5', 'food-6', 'market-1', 'market-2',
   'festivals-1', 'festivals-2', 'festivals-3', 'cinema-1', 'cinema-2', 'xmas-3', 'xmas-4', 'nye-1', 'football-1', 'horse-1', 'motorsport-1',
