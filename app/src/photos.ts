@@ -540,7 +540,10 @@ const SKYLINE_FILES = new Set(['parks-1', 'lunch-3', 'dinner-2', 'night_out-2', 
 // – Etihad Arena ma pofalowaną, poziomo żłobkowaną fasadę, a nie kopułę ani „czaszę” (zgłoszenie 27.11.2026)
 // przegląd 27.11 (Coca-Cola Arena-2 przywrócone: prawdziwa arena JEST okrągła z rombami – zdjęcie z Wikimedia); Opera ma kształt dhow, nie muszli;
 // lm_saadiyat-4 i lm_yas-1 pokazują wymyślone budynki (na Yas – ta sama „czasza” co fałszywa Etihad Arena)
-const DISABLED = new Set(['lm_etihad_arena-1', 'lm_etihad_arena-2', 'lm_dubai_opera-1', 'lm_saadiyat-4', 'lm_yas-1',
+const DISABLED = new Set([
+  // happy hour: europejskie miasteczka na wzgórzu nad morzem (wygląda jak Włochy, nie UAE) – zgłoszenie właściciela 28.11
+  'happy_hour-3', 'happy_hour-4',
+  'lm_etihad_arena-1', 'lm_etihad_arena-2', 'lm_dubai_opera-1', 'lm_saadiyat-4', 'lm_yas-1',
   // amfiteatr Khor Fakkan: AI dorysowało wodospad i inną bryłę (zgłoszenie Agi 27.11)
   'lm_khorfakkan_amph-1', 'lm_khorfakkan_amph-2',
   // Al Marjan Island: AI narysowało wyspy innego kształtu (zgłoszenie właściciela 27.11)

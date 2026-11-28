@@ -39,7 +39,9 @@ NO_FALLBACK = set(re.findall(r"'(\w+)'", ts[ts.index("const NO_FALLBACK"):].spli
 CITY_SUFFIX = {"Dubai": "dubai", "Abu Dhabi": "abudhabi", "Sharjah": "sharjah", "Ras Al Khaimah": "rak"}
 
 photo_dir = os.path.join(ROOT, "app/assets/photos")
-files = sorted(f for f in os.listdir(photo_dir) if f.endswith(".jpg"))
+_dis = ts[ts.index("const DISABLED"):]
+DISABLED = set(re.findall(r"'([\w-]+)'", _dis[:_dis.index("]);")]))  # jak w apce: wyłączone zdjęcia
+files = sorted(f for f in os.listdir(photo_dir) if f.endswith(".jpg") and f[:-4] not in DISABLED)
 FILES: dict[str, list[str]] = {}
 for f in files:
     FILES.setdefault(re.sub(r"-\d+\.jpg$", "", f), []).append(f)
