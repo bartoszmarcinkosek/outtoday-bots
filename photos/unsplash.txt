@@ -60,3 +60,6 @@ lm_yas_marina_circuit-12 | okSXYgEY8pY | entropy
 lm_yas_marina_circuit-13 | itXjWSr4-dE | entropy
 lm_jebel_jais-11 | 4ohQMOn1pXU | entropy
 lm_jebel_jais-12 | nc-B4mVFgSQ | entropy
+# 28.11 hotele z day pass (zgłoszenie właściciela)
+lm_v_conrad_etihad-11 | ijwjHeCCGOE | entropy
+lm_v_conrad_etihad-12 | idKM1NgoolI | entropy

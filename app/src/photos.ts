@@ -607,10 +607,24 @@ function pool(item: Item): number[] {
 
 /** Zdjęcie dla karty albo null (wtedy karta pokazuje ikonkę). `avoid` = zdjęcie poprzedniej karty. */
 const STRICT_PLACE = new Set(['museums', 'attractions', 'parks', 'markets', 'daytrips']);
+const VENUE_PHOTO: [RegExp, string][] = [
+  [/conrad abu dhabi|etihad towers/i, 'lm_v_conrad_etihad'],
+  [/bab al qasr/i, 'lm_v_bab_al_qasr'],
+];
 
 export function photoFor(item: Item, avoid?: number | null): number | null {
   const row: any = item.event ?? item.deal ?? item.place;
   if (row?.id && PHOTO_OFF.has(String(row.id))) return null;
+  // Hotel z ofertą (day pass, happy hour…): prawdziwe zdjęcie tego hotelu, także dla ofert (zgłoszenie właściciela 28.11).
+  const vtext = `${item.rawTitle ?? item.title} ${item.where ?? ''} ${item.deal?.venue ?? ''} ${item.event?.venue ?? ''}`;
+  for (const [re, key] of VENUE_PHOTO) {
+    const vp = PHOTO_FILES[key];
+    if (re.test(vtext) && vp?.length) {
+      let j = hash(item.key) % vp.length;
+      if (vp.length > 1 && vp[j] === avoid) j = (j + 1) % vp.length;
+      return vp[j];
+    }
+  }
   // + miejsce oferty: day pass w Telal Resort (Al Ain, puste „where”) tracił zdjęcie pustyni (tester B 28.11)
   const text = `${item.rawTitle ?? item.title} ${item.where ?? ''} ${item.event?.venue ?? ''} ${item.deal?.venue ?? ''}`;
   let p = pool(item).filter((f) => allowed(f, item, text));
