@@ -176,6 +176,15 @@ const LANDMARKS: [RegExp, string][] = [
   [/wadi wurayah/i, 'lm_p_wadi_wurayah_national_park'],
   [/al qawasim corniche/i, 'lm_p_al_qawasim_corniche'],
   [/al gurm corniche/i, 'lm_p_al_gurm_corniche_park'],
+  // partia 7 (Wikimedia/Unsplash, 28.11 wieczór)
+  [/warner bros\.? world/i, 'lm_p_warner_bros_world_abu_dhabi'],
+  [/hindu temple/i, 'lm_p_hindu_temple_dubai'],
+  [/al madam (buried|ghost)|madam ghost/i, 'lm_p_al_madam_buried_village'],
+  [/al dhaid fort|dhaid fort/i, 'lm_p_al_dhaid_fort'],
+  [/love lake/i, 'lm_p_love_lake'],
+  [/fossil dunes/i, 'lm_p_al_wathba_fossil_dunes'],
+  [/wasit (nature reserve|wetland)/i, 'lm_p_wasit_nature_reserve'],
+  [/emirates palace public|^emirates palace$/i, 'lm_p_emirates_palace_public_areas'],
   // zgłoszenia Agi 27.11: konkretne miejsca dostają własny klucz (prawdziwe zdjęcie albo ikonka), a nie zdjęcie okolicy
   [/twiggy/i, 'day_pass'],
   [/xline|zip ?line/i, 'zipline'],

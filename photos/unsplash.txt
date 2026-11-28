@@ -63,3 +63,5 @@ lm_jebel_jais-12 | nc-B4mVFgSQ | entropy
 # 28.11 hotele z day pass (zgłoszenie właściciela)
 lm_v_conrad_etihad-11 | ijwjHeCCGOE | entropy
 lm_v_conrad_etihad-12 | idKM1NgoolI | entropy
+# 28.11 wieczór – Emirates Palace z lotu ptaka (audit/real_search)
+lm_p_emirates_palace_public_areas-1 | VfJfCwhg-5U | entropy
