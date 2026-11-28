@@ -1,37 +1,6 @@
-# Prawdziwe zdjęcia znanych miejsc zamiast zdjęć z AI (prośba właściciela 28.11) – partia 1
-lm_museum_future | Museum of the Future Dubai
-lm_burj_khalifa | Burj Khalifa
-lm_burj_al_arab | Burj Al Arab
-lm_dubai_frame | Dubai Frame
-lm_ain_dubai | Ain Dubai Bluewaters
-lm_louvre | Louvre Abu Dhabi
-lm_grand_mosque | Sheikh Zayed Grand Mosque
-lm_qasr_al_watan | Qasr Al Watan
-lm_palm | Palm Jumeirah
-lm_marina | Dubai Marina
-lm_downtown | Downtown Dubai
-lm_madinat | Madinat Jumeirah
-lm_dubai_opera | Dubai Opera
-lm_global_village | Global Village Dubai
-lm_miracle_garden | Dubai Miracle Garden
-lm_expo_city | Expo City Dubai Al Wasl
-lm_creek | Dubai Creek abra
-lm_corniche | Abu Dhabi Corniche
-lm_yas | Yas Island Abu Dhabi
-lm_yas_marina_circuit | Yas Marina Circuit
-lm_etihad_arena | Etihad Arena Yas
-lm_maryah | Al Maryah Island
-lm_reem | Al Reem Island
-lm_jebel_jais | Jebel Jais
-lm_jebel_hafeet | Jebel Hafeet
-lm_jazeera_hamra | Al Jazirat Al Hamra
-lm_marjan | Al Marjan Island
-lm_khorfakkan_beach | Khor Fakkan beach
-lm_khorfakkan_amph | Khor Fakkan amphitheatre
-lm_sharjah_water | Al Noor Island Sharjah
-lm_rafisah | Al Rafisah Dam
-lm_suhub | Al Suhub Rest Area Khor Fakkan
-lm_nyuad | NYU Abu Dhabi campus
-lm_aura | Aura Skypool Dubai
-lm_rak_museum | National Museum of Ras Al Khaimah
-lm_rams | Al Rams Ras Al Khaimah
+# Hotele z ofertami day pass (zgłoszenie właściciela 28.11)
+lm_v_conrad_etihad | Etihad Towers Abu Dhabi
+lm_v_bab_al_qasr | Bab Al Qasr Abu Dhabi
+lm_v_hilton_yas | Hilton Abu Dhabi Yas Island
+lm_v_bab_al_nojoum_hudayriyat | Bab Al Nojoum Hudayriyat
+lm_v_hudayriyat | Hudayriyat Island Abu Dhabi beach
