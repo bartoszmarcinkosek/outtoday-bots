@@ -1,38 +1,37 @@
-h_nightclub | nightclub dance floor lights crowd
-h_beachclub | beach club sunset party
-h_breakfast | breakfast eggs benedict cafe
-h_arabic_breakfast | Middle Eastern breakfast table
-h_hotel_room | hotel room sea view balcony
-h_pool_villa | resort villa private pool
-h_science_kids | children science museum hands-on
-h_city_park | city park lake palm trees
-h_picnic | family picnic park lawn
-h_artisan_market | artisan craft market stalls
-h_night_market | night market lanterns food stalls
-h_football_crowd | football stadium crowd night
-h_tennis | tennis match hard court
-h_dune_bashing | dune bashing desert safari
-h_offroad_wadi | 4x4 off-road wadi Oman mountains
-h_comedy | stand-up comedian microphone stage
-h_theme_park | theme park roller coaster
-h_theatre_stage | theatre stage actors costume
-h_musical | musical theatre dancers stage
-h_beach_family | public beach umbrellas families
-h_book_club | book club reading group
-h_bookshop_reading | author reading bookshop
-h_pub_quiz | pub quiz night
-h_climbing | indoor climbing wall
-h_race_cars | motor racing cars circuit
-h_paraglider | paragliding coast
-h_paddleboard | stand up paddleboard sea
-h_golf_course | golf course fairway palm
-h_horse_desert | horse riding desert
-h_kayak_mangrove | kayaking mangroves
-h_lecture | speaker on stage auditorium audience
-h_amateur_football | amateur football match floodlights
-h_open_water_swim | open water swimming race sea
-h_dj | DJ mixing decks party
-h_jazz | jazz band saxophone club
-h_dolphins | dolphins jumping show
-h_boxing_ring | boxing ring arena lights
-h_oud | oud musician performance
+# Prawdziwe zdjęcia znanych miejsc zamiast zdjęć z AI (prośba właściciela 28.11) – partia 1
+lm_museum_future | Museum of the Future Dubai
+lm_burj_khalifa | Burj Khalifa
+lm_burj_al_arab | Burj Al Arab
+lm_dubai_frame | Dubai Frame
+lm_ain_dubai | Ain Dubai Bluewaters
+lm_louvre | Louvre Abu Dhabi
+lm_grand_mosque | Sheikh Zayed Grand Mosque
+lm_qasr_al_watan | Qasr Al Watan
+lm_palm | Palm Jumeirah
+lm_marina | Dubai Marina
+lm_downtown | Downtown Dubai
+lm_madinat | Madinat Jumeirah
+lm_dubai_opera | Dubai Opera
+lm_global_village | Global Village Dubai
+lm_miracle_garden | Dubai Miracle Garden
+lm_expo_city | Expo City Dubai Al Wasl
+lm_creek | Dubai Creek abra
+lm_corniche | Abu Dhabi Corniche
+lm_yas | Yas Island Abu Dhabi
+lm_yas_marina_circuit | Yas Marina Circuit
+lm_etihad_arena | Etihad Arena Yas
+lm_maryah | Al Maryah Island
+lm_reem | Al Reem Island
+lm_jebel_jais | Jebel Jais
+lm_jebel_hafeet | Jebel Hafeet
+lm_jazeera_hamra | Al Jazirat Al Hamra
+lm_marjan | Al Marjan Island
+lm_khorfakkan_beach | Khor Fakkan beach
+lm_khorfakkan_amph | Khor Fakkan amphitheatre
+lm_sharjah_water | Al Noor Island Sharjah
+lm_rafisah | Al Rafisah Dam
+lm_suhub | Al Suhub Rest Area Khor Fakkan
+lm_nyuad | NYU Abu Dhabi campus
+lm_aura | Aura Skypool Dubai
+lm_rak_museum | National Museum of Ras Al Khaimah
+lm_rams | Al Rams Ras Al Khaimah

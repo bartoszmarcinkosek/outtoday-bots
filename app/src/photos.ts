@@ -6,6 +6,38 @@
 import { Item } from './logic';
 import { PHOTO_OFF } from './photoOff';
 import { PHOTO_FILES, PHOTO_NAMES } from './photos.gen';
+import { REMOTE_PHOTOS, RemotePhoto } from './photos_remote.gen';
+
+// Zdjęcia z Unsplash (photos/unsplash.txt): aplikacja ładuje je z Unsplash, nie z paczki (wymóg Unsplash API).
+// Dostają numery od 900001, więc działają z tymi samymi zasadami co zdjęcia w paczce (nazwa = klucz-numer).
+// Konkretne miejsca (lm_*): gdy jest prawdziwe zdjęcie z Unsplash, zdjęcia z AI tego miejsca nie są już pokazywane.
+export const REMOTE = new Map<number, RemotePhoto>();
+{
+  const F = PHOTO_FILES as Record<string, number[]>;
+  const fresh = new Set<string>();
+  REMOTE_PHOTOS.forEach((r, i) => {
+    const id = 900001 + i;
+    const key = r.name.replace(/-\d+$/, '');
+    REMOTE.set(id, r);
+    PHOTO_NAMES.set(id, r.name);
+    if (key.startsWith('lm_') && !fresh.has(key)) { F[key] = []; fresh.add(key); }
+    (F[key] ??= []).push(id);
+  });
+}
+
+const UTM = 'utm_source=outtoday&utm_medium=referral';
+/** Źródło obrazka dla <Image>: plik z paczki albo adres Unsplash (mała wersja na kartę, duża w szczegółach). */
+export function photoSource(photo: number, big: boolean): number | { uri: string } {
+  const r = REMOTE.get(photo);
+  if (!r) return photo;
+  const crop = r.crop === 'center' ? '' : `&crop=${r.crop}`;
+  return { uri: big ? `${r.raw}&w=1080&q=80&fm=jpg&fit=max` : `${r.raw}&w=200&h=300&fit=crop${crop}&q=70&fm=jpg` };
+}
+/** Podpis zdjęcia z Unsplash z linkami (wymóg Unsplash): autor i strona Unsplash. */
+export function remoteCredit(photo: number): { author: string; authorUrl: string; unsplashUrl: string } | null {
+  const r = REMOTE.get(photo);
+  return r ? { author: r.author, authorUrl: `${r.authorUrl}?${UTM}`, unsplashUrl: `https://unsplash.com/?${UTM}` } : null;
+}
 
 // Klucz 'community' miesza zdjęcia: gra planszowa / spotkanie w kawiarni oraz sprzątanie plaży (community-2, -4).
 // Sprzątanie tylko dla akcji sprzątania; gry planszowe tylko zdjęcie z grą (zgłoszenie 27.11.2026: sprzątanie plaży przy grach w Luwrze).

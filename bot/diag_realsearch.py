@@ -2,6 +2,7 @@
 Wypisuje RS|klucz|nr|tytuł|adres 1600px|szer x wys|licencja|autor i zapisuje arkusze /tmp/rs/<klucz>.jpg (artefakt real-search)."""
 import io, os, re, time
 THUMB = {}
+US_LEFT = [45]  # zapas pod limit 50/h
 import requests
 from PIL import Image, ImageDraw
 UA = {"User-Agent": "OutTodayBot/1.0 (https://outtoday.ae; finding freely licensed photos of UAE landmarks)"}
@@ -39,6 +40,23 @@ for line in open(src, encoding="utf-8"):
                               f"{ph.get('photographer', '')} ({ph.get('url', '')})"))
         except Exception as e:  # noqa: BLE001
             print(f"RS|{key}|pexels error {e}")
+    # Unsplash (sekret UNSPLASH_KEY, decyzja właściciela 28.11.2026): zdjęcia NIE są kopiowane do aplikacji – aplikacja ładuje je z Unsplash
+    # (wymóg API), wybrane wpisujemy do photos/unsplash.txt jako `nazwa | id`. Tu tylko miniatury do przeglądu. Limit demo: 50 zapytań/h.
+    uk = os.environ.get("UNSPLASH_KEY", "").strip()
+    if uk and US_LEFT[0] > 0:
+        US_LEFT[0] -= 1
+        try:
+            ur = requests.get("https://api.unsplash.com/search/photos", timeout=30,
+                              headers={"Authorization": f"Client-ID {uk}", "Accept-Version": "v1"},
+                              params={"query": q, "per_page": 6, "content_filter": "high"}).json()
+            for ph in ur.get("results", [])[:6]:
+                u = f"unsplash:{ph['id']}"
+                THUMB[u] = ph["urls"]["small"]
+                alt = (ph.get("alt_description") or ph.get("description") or "").replace("|", "/")[:70]
+                cands.append((f"Unsplash: {alt}", u, f"{ph['width']}x{ph['height']}", "Unsplash License",
+                              f"{ph['user']['name']} ({ph['user']['links']['html']})".replace("|", "/")))
+        except Exception as e:  # noqa: BLE001
+            print(f"RS|{key}|unsplash error {e}")
     # Openverse (bez klucza): zdjęcia na wolnych licencjach z Flickra i innych serwisów – zamiast Pexels (Pexels wstrzymał nowe klucze API, 27.11.2026)
     try:
         ov = requests.get("https://api.openverse.org/v1/images/", headers=UA, timeout=30, params={
@@ -59,13 +77,13 @@ for line in open(src, encoding="utf-8"):
     except Exception as e:  # noqa: BLE001
         print(f"RS|{key}|openverse error {e}")
     cands = cands[:6] + [c for c in cands[6:] ] if len(cands) > 12 else cands
-    cands = cands[:18]
-    sheet = Image.new("RGB", (6 * 260, 3 * 300), "white"); d = ImageDraw.Draw(sheet)
+    cands = cands[:24]
+    sheet = Image.new("RGB", (6 * 260, 4 * 300), "white"); d = ImageDraw.Draw(sheet)
     for i, (t, u, sz, lic, art) in enumerate(cands):
         print(f"RS|{key}|{i}|{t}|{u}|{sz}|{lic}|{art}")
         try:
             im = None
-            for tu in [THUMB.get(u), u]:
+            for tu in [THUMB.get(u)] + ([] if u.startswith('unsplash:') else [u]):
                 if not tu:
                     continue
                 for _ in range(3):

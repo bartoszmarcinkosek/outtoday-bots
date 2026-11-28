@@ -1,0 +1,3 @@
+# Zdjęcia z Unsplash ładowane przez aplikację prosto z Unsplash (wymóg API: hotlink, podpis autora, zgłoszenie pobrania).
+# <nazwa jak w photos, np. lm_museum_future-2> | <id zdjęcia z Unsplash> | <kadr karty: entropy/center/top/bottom/left/right, domyślnie entropy>
+# Linię dopisujemy dopiero po obejrzeniu zdjęcia (arkusz audit/real_search/<klucz>.jpg).

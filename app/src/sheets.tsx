@@ -1,11 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as Calendar from 'expo-calendar/legacy';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, Linking, Platform, Pressable, Share, StyleSheet, Text, View } from 'react-native';
 import { sendSuggestion } from './api';
 import { fmtDate } from './dates';
 import { IconName, Item, todayIso } from './logic';
 import { PHOTO_FULL, PHOTO_CREDIT } from './photos.gen';
+import { REMOTE, photoSource, remoteCredit } from './photos';
 import { count } from './stats';
 import { colors } from './theme';
 import { Pill, Sheet, badgesFor } from './ui';
@@ -157,8 +158,10 @@ async function addToCalendar(item: Item, picked?: string | null) {
 }
 
 // proporcje dużego zdjęcia (kwadrat albo 2:3 dla wysokich budynków, np. Burj Khalifa)
-function ratioOf(src: number): number {
-  const a = Image.resolveAssetSource(src);
+function ratioOf(photo: number): number {
+  const r = REMOTE.get(photo);
+  if (r) return r.ratio < 0.8 ? 2 / 3 : r.ratio > 1.2 ? 1 : r.ratio;
+  const a = Image.resolveAssetSource(PHOTO_FULL.get(photo) ?? photo);
   return a && a.width && a.height ? a.width / a.height : 1;
 }
 
@@ -187,6 +190,9 @@ function linkIcon(url: string): any {
 export function DetailSheet(props: { item: Item | null; photo?: number | null; fav: boolean; onFav: () => void; onClose: () => void; nearby?: Item[]; onPick?: (i: Item) => void; pickedDate?: string | null }) {
   const [reporting, setReporting] = useState<'closed' | 'open' | 'sending' | 'sent'>('closed');
   const [reportFor, setReportFor] = useState<string | null>(null);
+  // zdjęcie z Unsplash bez internetu → bez zdjęcia (nie pusty prostokąt)
+  const [photoFailed, setPhotoFailed] = useState(false);
+  useEffect(() => setPhotoFailed(false), [props.photo]);
   const item = props.item;
   if (!item) return null;
   if (reportFor !== item.key && reporting !== 'closed') { setReporting('closed'); }
@@ -227,16 +233,27 @@ export function DetailSheet(props: { item: Item | null; photo?: number | null; f
   ];
   return (
     <Sheet visible onClose={props.onClose} title={item.title}>
-      {!!props.photo && (
-        <View style={[styles.bigPhoto, { aspectRatio: ratioOf(PHOTO_FULL.get(props.photo) ?? props.photo) }, ratioOf(PHOTO_FULL.get(props.photo) ?? props.photo) < 1 && { width: '70%' }]}>
-          <Image source={PHOTO_FULL.get(props.photo) ?? props.photo} resizeMode="cover"
+      {!!props.photo && !photoFailed && (
+        <View style={[styles.bigPhoto, { aspectRatio: ratioOf(props.photo) }, ratioOf(props.photo) < 1 && { width: '70%' }]}>
+          <Image source={REMOTE.has(props.photo) ? photoSource(props.photo, true) : PHOTO_FULL.get(props.photo) ?? props.photo} resizeMode="cover"
+            onError={() => setPhotoFailed(true)}
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
         </View>
       )}
       {/* podpis autora prawdziwego zdjęcia (licencja Wikimedia Commons) */}
-      {!!props.photo && PHOTO_CREDIT.has(props.photo) && (
+      {!!props.photo && !photoFailed && PHOTO_CREDIT.has(props.photo) && (
         <Text style={{ color: colors.muted, fontSize: 11, textAlign: 'center', marginTop: -6, marginBottom: 8 }}>Photo: {PHOTO_CREDIT.get(props.photo)}</Text>
       )}
+      {/* Unsplash: „Photo by X on Unsplash” z linkami do autora i do Unsplash (wymóg Unsplash API) */}
+      {!!props.photo && !photoFailed && (() => {
+        const rc = remoteCredit(props.photo);
+        return rc ? (
+          <Text style={{ color: colors.muted, fontSize: 11, textAlign: 'center', marginTop: -6, marginBottom: 8 }}>
+            Photo by <Text style={{ textDecorationLine: 'underline' }} onPress={() => Linking.openURL(rc.authorUrl)}>{rc.author}</Text> on{' '}
+            <Text style={{ textDecorationLine: 'underline' }} onPress={() => Linking.openURL(rc.unsplashUrl)}>Unsplash</Text>
+          </Text>
+        ) : null;
+      })()}
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 8 }}>
         <Pill text={c.label} color={c.accent} />
         {item.free && <Pill text="FREE" color={colors.free} solid />}

@@ -1,8 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { IconName, Item, dealEndedToday, dealOnDay, dealOnNow, placeOpen } from './logic';
 import { colors } from './theme';
+import { photoSource } from './photos';
 
 export function Chip(props: { label: string; active: boolean; onPress: () => void; color?: string; icon?: IconName }) {
   const tint = props.color ?? colors.primary;
@@ -47,12 +48,15 @@ export function ItemCard(props: { item: Item; photo?: number | null; fav: boolea
   const { item } = props;
   const c = item.look;
   const badges = badgesFor(item);
+  // zdjęcie z internetu (Unsplash) bez sieci → ikonka zamiast pustego pola
+  const [failed, setFailed] = useState(false);
+  useEffect(() => setFailed(false), [props.photo]);
   const meta = [item.where, item.km != null ? `~${Math.max(1, Math.round(item.km))} km` : null].filter(Boolean).join(' · ');
   return (
     <Pressable onPress={props.onPress} style={[styles.card, { backgroundColor: c.card }]}>
-      {props.photo ? (
+      {props.photo && !failed ? (
         <View style={styles.photoBox}>
-          <Image source={props.photo} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} resizeMode="cover" />
+          <Image source={photoSource(props.photo, false)} onError={() => setFailed(true)} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} resizeMode="cover" />
         </View>
       ) : (
         <View style={[styles.iconBox, { backgroundColor: 'rgba(0,0,0,0.22)' }]}>

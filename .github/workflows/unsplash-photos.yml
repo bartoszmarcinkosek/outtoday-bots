@@ -1,0 +1,21 @@
+name: Unsplash photos
+on:
+  push:
+    branches: [main]
+    paths: ["photos/unsplash.txt"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  u:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests
+      - run: python bot/unsplash_photos.py
+        env:
+          UNSPLASH_KEY: ${{ secrets.UNSPLASH_KEY }}
+      - run: |
+          git config user.name "OutToday Bot"; git config user.email "bot@outtoday.local"
+          git add -A app/src/photos_remote.gen.ts photos/unsplash_cache.json
+          git diff --cached --quiet || (git commit -m "photos: Unsplash" && (git push || (git pull --rebase && git push)))
