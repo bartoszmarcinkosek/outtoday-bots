@@ -1,5 +1,2 @@
 # miasto | kandydat | miejsce – sesja 4 (25.11.2026), nazwy ze stron oficjalnych i z wyszukiwarki
 # sesja 28.11.2026 – lokale z materiałów WhatsApp RAK (nazwy potwierdzone przez Graph API: bio i posty)
-Ras Al Khaimah | alhamraresidence | Al Hamra Residence
-Ras Al Khaimah | threebiteslater | Three Bites Later, Al Hamra
-Ras Al Khaimah | rixosbabalbahr | Rixos Bab Al Bahr
