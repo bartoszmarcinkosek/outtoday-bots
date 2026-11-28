@@ -1,0 +1,16 @@
+{
+ "places": [
+  {"name": "Masfout Oasis", "category": "daytrips", "area": "Masfout", "city": "Ajman", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A green farming oasis in Ajman's Masfout enclave, fed by water from the Hajar Mountains, with palms, trees and crops between rocky hills. Cooler than the coast and a good base for easy hikes; about 90 minutes from Ajman city, near Hatta.",
+   "source_name": "visit-ajman.ae", "official_url": "https://visit-ajman.ae/en/ajman-attractions/masfout-oasis"},
+  {"name": "Flamingo Beach", "category": "beaches", "area": "Al Qawasim Corniche", "city": "Ras Al Khaimah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "Free public beach on the RAK corniche, recognisable by two giant flamingo statues at the entrance. Calm, shallow water good for small children, plus kayaking, paddleboarding, a floodlit beach-volleyball court, cafés and easy parking.",
+   "source_name": "visitrasalkhaimah.com", "official_url": "https://visitrasalkhaimah.com/blog/the-4-best-beaches-in-ras-al-khaimah/"},
+  {"name": "RAK Nature's Treasures", "category": "kids", "area": "Ras Al Khaimah", "city": "Ras Al Khaimah", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "Private natural-history museum with more than 2,500 gemstones, fossils, shells, insects and taxidermy, plus a cactus garden, salt room, reptile room, greenhouse, turtle and fish ponds, flamingo wetland and a petting zoo with miniature goats.",
+   "source_name": "visitrasalkhaimah.com", "official_url": "https://visitrasalkhaimah.com/discover/attractions/rak-natures-treasures/"},
+  {"name": "Al Hili Oasis", "category": "parks", "area": "Al Hili", "city": "Al Ain", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "The northernmost oasis of Al Ain, part of the UNESCO sites: about 40,000 date palms on 252 farmed plots, an old falaj irrigation channel, two watchtowers and an early-1800s fortified house. Shaded paths for a quiet walk and photos.",
+   "source_name": "visitabudhabi.ae", "official_url": "https://visitabudhabi.ae/en/things-to-do/nature-and-wildlife/natural-wonders/al-hili-oasis"}
+ ]
+}
