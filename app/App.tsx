@@ -835,6 +835,13 @@ function TodayScreen(props: {
     section('Free today', freeToday, 4, () => props.jump({ tab: 'events', day: 'today', free: true })),
     section('Deals today', dealsSorted, 5, () => props.jump({ tab: 'deals', dealDay: now.getDay() })),
   ].filter(Boolean);
+  // 28.11.2026: gdy dziś nie ma żadnych wydarzeń ani ofert (np. Hatta), zamiast pustego ekranu pokazujemy miejsca z tego rejonu (otwarte teraz najpierw).
+  if (onToday.length === 0 && tonight.length === 0 && dealsSorted.length === 0) {
+    const openRank = (i: Item) => { const o = placeOpen(i.place); return o?.open === true ? 0 : o?.open === false ? 2 : 1; };
+    const places = byInterest(sortItems(props.local.filter((i) => i.kind === 'place'), 'default').sort((a, b) => openRank(a) - openRank(b)));
+    const sec = section('Places to visit', places, 6, () => props.jump({ tab: 'places' }));
+    if (sec) blocks.push(sec);
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.list} refreshControl={props.refreshControl}>
