@@ -1,0 +1,24 @@
+{
+ "update_place_ids": [
+  {"id": "c96cb8d8-780a-4364-836f-a4bbd542ae42", "set": {"official_url": "https://www.instagram.com/hindutempledubai/", "source_name": "instagram.com",
+    "description": "Dubai's Hindu temple, opened in 2022 in the Jebel Ali worship village next to churches and the Gurudwara. Lord Shiva is the main deity among 16; the design mixes Indian and Arabic architecture. Open daily early morning to evening; modest dress required."}},
+  {"id": "403eaf44-7620-410c-af80-00d810111166", "set": {"status": "pending"}}
+ ],
+ "places": [
+  {"name": "Sport Society Ice Rink", "category": "active", "area": "Sport Society, Mirdif", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "A full-size ice rink inside the Sport Society complex next to Mirdif City Centre, with public skating sessions, lessons for all ages, themed disco nights and ice hockey. Session times change weekly, so check before you go.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/sportsocietydxb/"},
+  {"name": "Stray Dogs Center UAQ", "category": "kids", "area": "Umm Al Quwain", "city": "Umm Al Quwain", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "The UAE's largest dog shelter, a non-profit no-kill rescue caring for well over a thousand dogs plus donkeys and cats. Visit to volunteer, walk dogs or meet dogs for adoption; visits are by appointment only.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/straydogscenter/"},
+  {"name": "RAK Animal Welfare Centre", "category": "kids", "area": "Ras Al Khaimah", "city": "Ras Al Khaimah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "Government-supported animal shelter in Ras Al Khaimah, running since 2010, rehoming cats and dogs. Volunteers can help with animal care and join dog walks and hikes; open Saturday to Thursday, morning and afternoon sessions.",
+   "source_name": "rakawc.com", "official_url": "http://www.rakawc.com"},
+  {"name": "Art House Cafe & Etihad Modern Art Gallery", "category": "museums", "area": "Al Bateen", "city": "Abu Dhabi", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "A quirky cafe in a villa behind Al Bateen Mall, attached to the Etihad Modern Art Gallery and decorated with upcycled furniture and local art. Browse the gallery, then stay for all-day food in the garden or one of several themed rooms.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/arthousecafead/"},
+  {"name": "Reem Flora Flower Market", "category": "markets", "area": "Al Quoz 2", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "A wholesale fresh-flower shop in Al Quoz that also sells to walk-in customers: buckets of roses and seasonal blooms at wholesale prices, good for making your own bouquets or table flowers.",
+   "source_name": "reemflora.com", "official_url": "http://reemflora.com/"}
+ ]
+}
