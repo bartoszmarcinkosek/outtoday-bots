@@ -1,0 +1,16 @@
+{
+ "places": [
+  {"name": "Wadi Al Amardi Farm", "category": "daytrips", "area": "Wadi Al Amardi, Al Khawaneej", "city": "Dubai", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A family-run organic farm in Al Khawaneej, running since 1996, where you can see fruit and vegetables grown without chemicals and feed goats, rabbits and camels. Best in the cooler months, late afternoon to sunset.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/wadi.alamardi/"},
+  {"name": "Hatta Strawberry Farm", "category": "daytrips", "area": "Hatta Dam Road, Hatta", "city": "Dubai", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A local farm on the road to Hatta Dam where you can pick your own strawberries in season (roughly winter to spring); entry is free and you pay for what you pick.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/hatta.strawberry/"},
+  {"name": "Musical Road", "category": "attractions", "area": "Sheikh Khalifa Street, Fujairah", "city": "Fujairah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A 750 m stretch of Sheikh Khalifa Street at the entrance to Fujairah city with rumble strips that play part of Beethoven's Ninth Symphony when you drive over them at a steady speed. Created by the Fujairah Fine Arts Academy; drive safely and keep to the limit.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=Musical+Road+Sheikh+Khalifa+Street+Fujairah"},
+  {"name": "Hindu Temple Dubai", "category": "museums", "area": "Worship Village, Jebel Ali", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "Dubai's large Hindu temple, opened in 2022 in the Jebel Ali worship village next to churches and the Gurudwara. Lord Shiva is the main deity among 16; the design mixes Indian and Arabic architecture. Visitors welcome; dress modestly and check prayer times.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=Hindu+Temple+Dubai+Jebel+Ali"}
+ ]
+}
