@@ -1,0 +1,13 @@
+{
+ "places": [
+  {"name": "Picasso Artists", "category": "studios", "area": "Alserkal Avenue, Al Quoz", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "An art studio in Alserkal Avenue running painting classes and creative workshops for kids and adults, from total beginners to experienced painters. Check their Instagram for the class schedule and booking.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/picassoartists/"},
+  {"name": "Snow Cinema at Ski Dubai", "category": "attractions", "area": "Ski Dubai, Mall of the Emirates", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "A small cinema set up on the snow inside Ski Dubai, run with VOX Cinemas: lounge seating, blankets and warm gear for watching a film surrounded by real snow. Arrive about 40 minutes early and dress in layers.",
+   "source_name": "skidxb.com", "official_url": "https://www.skidxb.com/en/snow-cinema"},
+  {"name": "Brown Bear Magic Cafe & Shop", "category": "kids", "area": "Jumeirah 1", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "A small magic-themed cafe and shop run by the people behind the region's biggest online magic shop: coffee and snacks, card tricks, puzzles and magic kits for sale, and occasional live close-up magic.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/brownbearmagicshop/"}
+ ]
+}
