@@ -169,7 +169,6 @@ const LANDMARKS: [RegExp, string][] = [
   [/wadi wurayah/i, 'lm_p_wadi_wurayah_national_park'],
   [/al qawasim corniche/i, 'lm_p_al_qawasim_corniche'],
   [/al gurm corniche/i, 'lm_p_al_gurm_corniche_park'],
-  [/reem central park/i, 'lm_p_reem_central_park'],
   // zgłoszenia Agi 27.11: konkretne miejsca dostają własny klucz (prawdziwe zdjęcie albo ikonka), a nie zdjęcie okolicy
   [/twiggy/i, 'day_pass'],
   [/xline|zip ?line/i, 'zipline'],
