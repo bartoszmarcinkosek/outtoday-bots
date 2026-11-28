@@ -508,7 +508,14 @@ const ONLY_IF = new Map<string, RegExp>([
   // piwo i skrzydełka tylko przy pubie; zespół w pubie nie przy DJ/after party/karaoke; pełna orkiestra nie przy recitalu;
   // dhow tylko przy wyścigu dhow, katamaran SailGP tylko przy SailGP
   ['happy_hour-10', /sport|\bpub\b|tavern|mcgettigan|irish|tap ?house|match|game|screens?|brew|beer|pint|guinness|bingo/i],
-  ['happy_hour-5', /^(?![\s\S]*(aperitivo|ap[ée]ro|aperol|ros[ée]|champagne|prosecco|spritz|beach))/i],
+  ['happy_hour-5', /^(?![\s\S]*(aperitivo|ap[ée]ro|aperol|ros[ée]|champagne|prosecco|spritz|beach|pool|piscine|cocktail|sunset|sundown|rooftop))/i],
+  // pub w środku (happy_hour-1, -8) nie przy zachodzie słońca / basenie / dachu; taras nad morzem o zachodzie (-2, -3, -4, -9) nie przy pubie
+  ['happy_hour-1', /^(?![\s\S]*(sunset|sundown|beach|pool|piscine|rooftop|terrace|sky))/i],
+  ['happy_hour-8', /^(?![\s\S]*(sunset|sundown|beach|pool|piscine|rooftop|terrace|sky))/i],
+  ['happy_hour-2', /^(?![\s\S]*(\bpub\b|tavern|gastropub|irish|mcgettigan|sports bar|distillery))/i],
+  ['happy_hour-3', /^(?![\s\S]*(\bpub\b|tavern|gastropub|irish|mcgettigan|sports bar|distillery))/i],
+  ['happy_hour-4', /^(?![\s\S]*(\bpub\b|tavern|gastropub|irish|mcgettigan|sports bar|distillery))/i],
+  ['happy_hour-9', /^(?![\s\S]*(\bpub\b|tavern|gastropub|irish|mcgettigan|sports bar|distillery))/i],
   ['happy_hour-7', /wings?\b|burger|slider|patties|pint|beer|\bpub\b|sports? bar|mcgettigan|bingo|quiz|bedrock|tap ?house|gastropub/i],
   ['night_out-4', /^(?![\s\S]*(\bdj\b|after ?party|afterparty|karaoke|ap[ée]ro))/i],
   ['orchestra-1', /^(?![\s\S]*(recital|piano|violin|\bsolo\b))/i],
