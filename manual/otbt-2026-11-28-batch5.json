@@ -1,0 +1,10 @@
+{
+ "places": [
+  {"name": "Abra Creek Crossing", "category": "attractions", "area": "Bur Dubai – Deira", "city": "Dubai", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "Cross Dubai Creek between Bur Dubai and the Deira souks on a traditional wooden abra holding about 20 people. AED 1 per crossing (AED 2 air-conditioned), boats every few minutes from 6am; a private abra along the creek is about AED 120 per hour.",
+   "source_name": "visitdubai.com", "official_url": "https://www.visitdubai.com/en/places-to-visit/abra-creek-crossing"},
+  {"name": "DEWA Sustainability and Innovation Centre", "category": "museums", "area": "Mohammed bin Rashid Al Maktoum Solar Park", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "Interactive centre at the world's largest single-site solar park: exhibits on clean energy, wind and desalination, drone and hologram shows, a virtual tour of the solar park and an autonomous bus ride. Tickets on the centre's website or app.",
+   "source_name": "dewa.gov.ae", "official_url": "https://www.dewa.gov.ae/en/about-us/media-publications/latest-news/2022/12/visitors-to-innovation-centre-at-mohammed-bin-rashid-al-maktoum-solar-park-can-explore"}
+ ]
+}
