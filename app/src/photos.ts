@@ -631,6 +631,9 @@ function pool(item: Item): number[] {
     if (item.catKey === 'music' && PHOTO_FILES.concert) keys = ['concert'];
     else return [];
   }
+  // Miejsce „kids” bez placu zabaw w nazwie/opisie (muzeum przyrody, farma, mini zoo) nie dostaje zdjęcia sali zabaw (Aga 28.11: RAK Nature's Treasures)
+  if (!keys && item.kind === 'place' && item.catKey === 'kids'
+    && !/soft play|play ?(area|zone|land|centre|center|ground)|indoor play|kids zone|jungle gym|climbing frame/i.test(`${item.rawTitle ?? item.title} ${item.description ?? ''}`)) return [];
   if (!keys) keys = CAT[item.catKey] ?? [];
   const zones = SKYLINE_ZONES[item.city];
   const suf = zones === null || (zones && item.zone && zones.has(item.zone)) ? CITY_SUFFIX[item.city] : undefined;
