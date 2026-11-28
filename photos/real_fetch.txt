@@ -1,2 +1,1 @@
 # <nazwa> | <adres obrazka> | <podpis: autor, licencja albo -> | <kadr: center/left/right/0.0–1.0>
-lm_v_conrad_etihad-1 | https://upload.wikimedia.org/wikipedia/commons/0/09/Etihad_Towers_%40_Abu_Dhabi_%2816043333902%29.jpg | Guilhem Vellut, CC BY 2.0, Wikimedia Commons | center
