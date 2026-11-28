@@ -1,14 +1,2 @@
 # <nazwa> | <adres obrazka> | <podpis: autor, licencja albo -> | <kadr: center/left/right/0.0–1.0>
 # 28.11 wieczór – partia 7 (obejrzane na arkuszach audit/real_search)
-lm_p_warner_bros_world_abu_dhabi-1 | https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Warner_Bros._World_Abu_Dhabi_03.jpg/1920px-Warner_Bros._World_Abu_Dhabi_03.jpg | Dasomm, CC0, Wikimedia Commons | center
-lm_p_hindu_temple_dubai-1 | https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Jebel_Ali_Hindu_temple%2C_Dubai.jpg/1920px-Jebel_Ali_Hindu_temple%2C_Dubai.jpg | Rohitshiv, CC BY-SA 4.0, Wikimedia Commons | center
-lm_p_al_madam_buried_village-1 | https://upload.wikimedia.org/wikipedia/commons/9/9f/Madam_Ghost_Town.jpg | Alexandermcnabb, CC BY-SA 4.0, Wikimedia Commons | center
-lm_p_al_madam_buried_village-2 | https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Sand_Filled_%28Al_Madam%2C_UAE%29.jpg/1920px-Sand_Filled_%28Al_Madam%2C_UAE%29.jpg | James Kerwin Photographic, CC BY 2.0, Wikimedia Commons | center
-lm_p_al_dhaid_fort-1 | https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/AlDhaid-Fort.jpg/1920px-AlDhaid-Fort.jpg | Sajisahadevan, CC BY-SA 4.0, Wikimedia Commons | center
-lm_p_al_dhaid_fort-2 | https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Dhaid_Fort.jpg/1920px-Dhaid_Fort.jpg | Alexandermcnabb, CC BY-SA 4.0, Wikimedia Commons | 0.35
-lm_p_love_lake-1 | https://upload.wikimedia.org/wikipedia/commons/d/df/Love_lake.jpg | Lowai Alkawarit, CC BY-SA 4.0, Wikimedia Commons | center
-lm_p_love_lake-2 | https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Love_Lake_-_Al_Qudra_-_Dubai.jpg/1920px-Love_Lake_-_Al_Qudra_-_Dubai.jpg | Nihad Nitz, CC BY-SA 4.0, Wikimedia Commons | center
-lm_p_al_wathba_fossil_dunes-1 | https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Al_Wathba_Fossil_Dune_Formations_3.jpg/1920px-Al_Wathba_Fossil_Dune_Formations_3.jpg | Florian Kriechbaumer, CC BY-SA 4.0, Wikimedia Commons | center
-lm_p_al_wathba_fossil_dunes-2 | https://upload.wikimedia.org/wikipedia/commons/1/12/Abu_Dhabi_Fossil_Dunes_04.jpg | Tam Muthu, CC BY-SA 4.0, Wikimedia Commons | center
-lm_p_wasit_nature_reserve-1 | https://upload.wikimedia.org/wikipedia/commons/a/a0/Wasit_Wetland_Centre_01.jpg | Ouremiratesjourney, CC BY-SA 4.0, Wikimedia Commons | center
-lm_p_wasit_nature_reserve-2 | https://upload.wikimedia.org/wikipedia/commons/d/d9/Wasit_Wetland_Centre_03.jpg | Ouremiratesjourney, CC BY-SA 4.0, Wikimedia Commons | center
