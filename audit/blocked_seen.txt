@@ -3,3 +3,16 @@
 2026-11-27 | skidxb.com | Ski Dubai / Snow Abu Dhabi „Meet Santa” nie było w apce – brak źródła stron; rozważyć skidxb.com/en-ae/ski-dubai i /snow-abu-dhabi (missing check)
 2026-11-27 | jumeirah.com Madinat Jumeirah | Festive Market nie było w apce – jumeirah.com tylko jako hotele; rozważyć stronę experiences Madinat Jumeirah (missing check)
 2026-11-27 | yasmarinacircuit.com/en | pokazuje treści z 2025 (Yasalam) – dodano abudhabigp.com/en/ jako źródło (missing check)
+2026-11-28 | Al Ain Raceway | HTTP 200, 0 znaków (pusta lub błąd)
+2026-11-28 | Al Qasba events | robots.txt nie odpowiada, dziś pomijam
+2026-11-28 | Dubai Creek Striders Half Marathon (official) | robots.txt nie odpowiada, dziś pomijam
+2026-11-28 | Expo Centre Sharjah | HTTP 200, 51 znaków (pusta lub błąd)
+2026-11-28 | Global Village | błąd pobierania: TimeoutError
+2026-11-28 | Global Village – Eid Al Etihad | błąd pobierania: TimeoutError
+2026-11-28 | Madinat Theatre | robots.txt nie odpowiada, dziś pomijam
+2026-11-28 | Mall of the Emirates events | robots.txt nie odpowiada, dziś pomijam
+2026-11-28 | Mleiha National Park | HTTP 404, 634 znaków (pusta lub błąd)
+2026-11-28 | Super Sports Run Series | HTTP 403, 100 znaków (pusta lub błąd)
+2026-11-28 | The Galleria Al Maryah Island | HTTP 200, 51 znaków (pusta lub błąd)
+2026-11-28 | Ticketmaster UAE | HTTP 403, 0 znaków (pusta lub błąd)
+2026-11-28 | Warehouse421 | robots.txt błąd serwera (522), dziś pomijam
