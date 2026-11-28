@@ -1,0 +1,10 @@
+{
+ "places": [
+  {"name": "Dalma Island", "category": "daytrips", "area": "Al Dhafra (ferry from Jebel Dhanna)", "city": "Abu Dhabi", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A quiet island off Abu Dhabi's western coast, once one of the Gulf's main pearl-diving centres, with the Delma Museum and old heritage houses. Getting there takes planning: drive to Jebel Dhanna, then take the Abu Dhabi Maritime ferry and check the return times, because once the last boat leaves you stay overnight.",
+   "source_name": "visitabudhabi.ae", "official_url": "https://visitabudhabi.ae/en/where-to-go/islands/dalma-island"},
+  {"name": "Wadi Dahir Sulphur Pools", "category": "daytrips", "area": "Dahir, Fujairah", "city": "Fujairah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A short wadi hike in the Hajar Mountains past pale-blue sulphur pools with small fish, starting from the Fujairah Adventures Al Dahir trailhead. The first stretch to the pools is easy enough for families; the full loop is longer and hot, so start early and bring water. How much water there is depends on recent rain.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=Fujairah+Adventures+Al+Dahir+Hiking+Trail"}
+ ]
+}
