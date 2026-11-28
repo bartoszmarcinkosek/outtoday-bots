@@ -250,6 +250,8 @@ const RULES: [RegExp, string][] = [
   [/\bjais\b/i, 'lm_jebel_jais'],
   [/bungee/i, 'bungee'],
   // miejsca o konkretnym charakterze: bez własnego zdjęcia lepiej ikonka niż obce (kolejka górska przy akwarium)
+  // schroniska dla zwierząt (Stray Dogs Center UAQ, RAK Animal Welfare): psy w schronisku, nie sala zabaw z kategorii kids (Aga 28.11)
+  [/stray dogs|animal welfare|animal shelter|dog shelter|\bshelter\b.*\b(dogs?|cats?|animals?)\b/i, 'shelter'],
   [/dolphin/i, 'dolphin'],  // delfinarium to nie rekiny w akwarium (przegląd 27.11)
   [/aquarium|sea ?world|underwater zoo/i, 'aquarium'],
   [/\bzoo\b|safari park|sharjah safari|crocodile|wildlife park|green planet|butterfly garden/i, 'zoo'],
@@ -448,7 +450,7 @@ const SKYLINE_ZONES: Record<string, Set<string> | null> = {
 };
 
 // Gdy wpis pasuje do tych rodzajów, a zdjęcia jeszcze nie ma: lepiej ikonka niż obce zdjęcie z kategorii.
-const NO_FALLBACK = new Set(['orchestra', 'dolphin', 'zipline', 'skydive', 'balloon', 'ropes', 'waxmuseum', 'lm_sharjah_mosque', 'lm_khalifa_mosque', 'lm_al_majaz', 'butterfly', 'crocodile', 'rainforest', 'immersive', 'santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir', 'surfpark', 'roast', 'indoor_skydive', 'diving', 'kitesurf', 'science', 'awards']);
+const NO_FALLBACK = new Set(['shelter', 'orchestra', 'dolphin', 'zipline', 'skydive', 'balloon', 'ropes', 'waxmuseum', 'lm_sharjah_mosque', 'lm_khalifa_mosque', 'lm_al_majaz', 'butterfly', 'crocodile', 'rainforest', 'immersive', 'santa', 'horseriding', 'ruins', 'carols', 'facepaint', 'sport_ladies', 'sailing', 'obstacle', 'bodybuilding', 'dance_ladies', 'afternoon_tea', 'fort', 'cropfarm', 'pearl', 'boat', 'mangrove', 'cinema_indoor', 'legoland', 'trampoline', 'lakes', 'rally', 'carshow', 'aquafit', 'painting', 'cooking', 'workshop', 'aquarium', 'zoo', 'waterpark', 'viewpoint', 'mosque', 'farm', 'bungee', 'flying', 'watersports', 'heritage', 'dance', 'snow', 'ice_rink', 'tennis', 'trail_mountain', 'walking_tour', 'choir', 'surfpark', 'roast', 'indoor_skydive', 'diving', 'kitesurf', 'science', 'awards']);
 
 // Pojedyncze pliki z widokiem konkretnego miasta w ogólnej puli (running-2 ma Burj Khalifę): tylko dla tego miasta.
 // (Sharjah Half Marathon i bieg w Abu Zabi dostawały panoramę Dubaju – tester 26.11)

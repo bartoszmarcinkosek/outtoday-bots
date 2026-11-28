@@ -1,11 +1,2 @@
-# Partia 7 (28.11 wieczór): miejsca z ikonką, jeszcze nieszukane
-lm_p_warner_bros_world_abu_dhabi | Warner Bros World Abu Dhabi
-lm_p_natural_history_museum_abu_dhabi | Natural History Museum Abu Dhabi
-lm_p_hindu_temple_dubai | Hindu temple Jebel Ali Dubai
-lm_p_al_madam_buried_village | Al Madam ghost village
-lm_p_al_dhaid_fort | Al Dhaid fort
-lm_p_love_lake | Love Lake Al Qudra
-lm_p_al_wathba_fossil_dunes | Al Wathba fossil dunes
-lm_p_wasit_nature_reserve | Wasit wetland Sharjah
-lm_p_emirates_palace_public_areas | Emirates Palace Abu Dhabi
-lm_p_sharjah_archaeology_museum | Sharjah Archaeology Museum
+# Partia 8 (28.11): schroniska dla psów (Stray Dogs Center UAQ, RAK Animal Welfare) – zgłoszenie Agi
+shelter | dogs in animal shelter kennel
