@@ -1,4 +1,1 @@
 # <nazwa> | <adres obrazka> | <podpis: autor, licencja albo -> | <kadr: center/left/right/0.0–1.0>
-lm_louvre_in-11 | https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/LouvreAD_cuneiform.jpg/1920px-LouvreAD_cuneiform.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail | Boubloub, CC BY-SA 4.0, Wikimedia Commons | center
-lm_louvre_in-12 | https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/LouvreAD_water.jpg/1920px-LouvreAD_water.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail | Boubloub, CC BY-SA 4.0, Wikimedia Commons | center
-lm_louvre_in-13 | https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Terrace_%28250155753%29.jpeg/1920px-Terrace_%28250155753%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail | Francisco Anzola, CC BY 3.0, Wikimedia Commons | center
