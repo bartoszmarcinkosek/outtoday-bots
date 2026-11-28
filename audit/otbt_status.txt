@@ -28,7 +28,6 @@ Flower Farm Abu Dhabi | Abu Dhabi
 Flower Farm Al Hiyar | Al Ain
 Al Samhah Greenhouse | Abu Dhabi
 Kayak Jubail | Abu Dhabi
-Kayaking Eastern Mangroves | Abu Dhabi
 ULA Al Marjan Island | RAK
 RAK Fine Arts Festival | RAK (wydarzenie, nie miejsce)
 # Miejsca w terenie (Google Maps, potrzebne koordynaty ze zrzutu OTBT):
@@ -50,3 +49,10 @@ King Hamad bin Isa park | Abu Dhabi
 Ghaf Tree Forest | RAK
 A lovely camping spot | RAK
 # Odrzucone wcześniej (zostają): Treelane, Chill Out Lounge, Mountain Bike Academy, Costa Azzurra, Ailuromania, Mini Train Al Ain, Sketch Art Cafe.
+
+# 28.11 16:20 – wynik sprawdzenia firm:
+ADCRC Camel Riding / ADCRC Swimming | DUPLIKAT – jest Arabian Desert Camel Riding Centre
+ULA Al Marjan Island | restauracja (Mövenpick) – tylko oferty, nie Places
+Mikoko UAQ | restauracja/kawiarnia – tylko oferty, nie Places
+Flower Farm Abu Dhabi (Ajban) | IG the.flowerfarm.ad – do sprawdzenia w API
+Touch of Clay, Montys Rowing, Kayak Aquatech, Al Samhah Greenhouse, Sustainable City farm | brak oficjalnej strony/IG – czekają

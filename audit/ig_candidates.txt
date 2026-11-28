@@ -1,2 +1,3 @@
 # miasto | kandydat | miejsce – sesja 4 (25.11.2026), nazwy ze stron oficjalnych i z wyszukiwarki
 # sesja 28.11.2026 – lokale z materiałów WhatsApp RAK (nazwy potwierdzone przez Graph API: bio i posty)
+Abu Dhabi | the.flowerfarm.ad | The Flower Farm Ajban
