@@ -233,3 +233,32 @@ lm_p_gold_souk-1 | zadaszona uliczka suku z drewnianym dachem, przechodnie (Gold
 lm_p_safa_park-1 | park: fontanna w czerwonej niecce, drzewa, alejka (Safa Park)
 lm_p_suwaidi_pearl_farm-1 | pływający dom farmy pereł z flagą, boje na spokojnej wodzie (Suwaidi)
 lm_palm-4 | Palm Jumeirah z lotu ptaka NOCĄ, oświetlone gałęzie wyspy (nie dla day passu)
+afternoon_tea-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+afternoon_tea-2 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+balloon-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+boardgames-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+boardgames-2 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+bodybuilding-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+butterfly-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+choir-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+community-3 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+community-4 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+cricket-2 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+crocodile-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+dance_ladies-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+dance_ladies-2 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+facepaint-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+museums-2 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+obstacle-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+roast-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+ropes-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+sailing-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+santa-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+santa-2 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+skydive-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+sport_ladies-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+sport_ladies-2 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+surfpark-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+tennis-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+trail_mountain-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
+zipline-1 | Canva 28.11, sprawdzone wizualnie – pasuje do klucza
