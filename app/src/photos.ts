@@ -569,7 +569,8 @@ function pool(item: Item): number[] {
   if (/polonia|polish (cuisine|restaurant|food)|pierogi/i.test(placeText) && PHOTO_FILES.polish_food) {
     return item.kind === 'place' ? [...(PHOTO_FILES.lm_polonia ?? []), ...PHOTO_FILES.polish_food] : [...PHOTO_FILES.polish_food];
   }
-  let lm = LANDMARKS.find(([re]) => re.test(placeText));
+  // nazwy z ^…$ (Hatta, Jebel Hafit, Al Qasba) sprawdzamy też na samym tytule – w tekście z miejscem nigdy nie pasowały (kontrola 28.11)
+  let lm = LANDMARKS.find(([re]) => re.test(placeText) || re.test(item.rawTitle ?? item.title));
   // konkretne miejsce (muzeum, atrakcja, park…): zdjęcie znanego miejsca tylko gdy to miejsce jest w NAZWIE – nie dlatego, że leży obok
   // (Sharjah Art Museum w „Heart of Sharjah” nie dostaje zdjęcia innego budynku, Souk Al Jami nie dostaje meczetu; kontrola 27.11)
   if (lm && item.kind === 'place' && STRICT_PLACE.has(item.catKey) && !lm[0].test(item.rawTitle ?? item.title)) lm = undefined;
