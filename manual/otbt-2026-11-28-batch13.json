@@ -1,0 +1,13 @@
+{
+ "places": [
+  {"name": "Hindi Lane", "category": "markets", "area": "Bur Dubai (behind the Grand Mosque)", "city": "Dubai", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A narrow, colourful alley behind the Bur Dubai Grand Mosque, near the Creek, leading to the old Shiva and Krishna temples and a Sikh gurdwara. Stalls sell flower garlands, fruit offerings, bindis and incense. Visitors are welcome; take your shoes off before entering a temple.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=Hindi+Lane+Bur+Dubai"},
+  {"name": "Kalba Clock Tower", "category": "attractions", "area": "Clock Tower Square, Kalba Corniche", "city": "Sharjah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A 60-metre clock tower in Islamic style with a gilded mosaic dome, opened in 2022 on Kalba's corniche. Two viewing decks give views over the whole coastal town, and a tunnel with murals of local history leads to the tower. Free parking along the corniche.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=Kalba+Clock+Tower+Square"},
+  {"name": "Ajman Murals", "category": "attractions", "area": "Al Bustan & city centre", "city": "Ajman", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "Large street-art murals painted on Ajman buildings by local and international artists for the municipality's murals project, including eL Seed's calligraffiti tower at Badr and Al Ittihad streets and Ajman Stud horse murals. More murals of traditional life fill the Ajman Heritage District nearby.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=eL+Seed+mural+Badr+Street+Al+Ittihad+Street+Ajman"}
+ ]
+}
