@@ -9,6 +9,8 @@ UA = {"User-Agent": "OutTodayBot/1.0 (https://outtoday.ae; finding freely licens
 OK = re.compile(r"^(CC0|CC BY(-SA)? [234]\.0|CC BY(-SA)? 2\.5|Public domain|PD)", re.I)
 os.makedirs("/tmp/rs", exist_ok=True)
 src = os.path.join(os.path.dirname(__file__), "..", "audit", "real_search.txt")
+if "# nounsplash" in open(src, encoding="utf-8").read():  # partia bez Unsplash – limit 50/h zostaje na import zdjęć
+    US_LEFT[0] = 0
 for line in open(src, encoding="utf-8"):
     if "|" not in line or line.startswith("#"):
         continue
