@@ -1,32 +1,38 @@
-g_orchestra | symphony orchestra concert hall performance
-g_recital | piano violin recital stage
-g_dolphin | bottlenose dolphins dolphinarium show
-g_cricket_fans | cricket stadium crowd Dubai
-g_dinosaur | dinosaur skeleton museum hall
-g_artefacts | museum archaeology artefacts display case
-g_arabic_breakfast | Arabic breakfast labneh zaatar
-g_craft_market | handicraft market stalls UAE
-g_basketball | basketball game arena
-g_boxing | boxing match ring arena
-g_desert_safari | desert safari 4x4 dunes Dubai
-g_wadi_4x4 | wadi offroad 4x4 mountains UAE
-g_musandam | Musandam dhow fjord
-g_aquarium_tunnel | aquarium tunnel sharks
-g_book_fair | Sharjah International Book Fair
-g_heritage_village | heritage village Abu Dhabi
-g_pottery | pottery wheel workshop hands
-g_yas_circuit | Yas Marina Circuit race cars
-g_jetski | jet ski Dubai beach
-g_golf | golf course Dubai palm trees
-g_mangrove_kayak | mangrove kayaking Abu Dhabi
-g_ski_dubai | Ski Dubai indoor slope
-g_open_water | open water swimming sea race
-g_oud | oud player concert
-g_camel_caravan | camel caravan desert dunes
-g_jazz | jazz trio saxophone club
-g_rock | rock band concert stage guitarist
-g_padel | padel tennis court
-g_theatre_seats | theatre auditorium red seats stage
-g_salsa | salsa dancing couple
-g_beach_yoga | yoga on the beach group
-g_lifeguard | public beach lifeguard tower Dubai
+h_nightclub | nightclub dance floor lights crowd
+h_beachclub | beach club sunset party
+h_breakfast | breakfast eggs benedict cafe
+h_arabic_breakfast | Middle Eastern breakfast table
+h_hotel_room | hotel room sea view balcony
+h_pool_villa | resort villa private pool
+h_science_kids | children science museum hands-on
+h_city_park | city park lake palm trees
+h_picnic | family picnic park lawn
+h_artisan_market | artisan craft market stalls
+h_night_market | night market lanterns food stalls
+h_football_crowd | football stadium crowd night
+h_tennis | tennis match hard court
+h_dune_bashing | dune bashing desert safari
+h_offroad_wadi | 4x4 off-road wadi Oman mountains
+h_comedy | stand-up comedian microphone stage
+h_theme_park | theme park roller coaster
+h_theatre_stage | theatre stage actors costume
+h_musical | musical theatre dancers stage
+h_beach_family | public beach umbrellas families
+h_book_club | book club reading group
+h_bookshop_reading | author reading bookshop
+h_pub_quiz | pub quiz night
+h_climbing | indoor climbing wall
+h_race_cars | motor racing cars circuit
+h_paraglider | paragliding coast
+h_paddleboard | stand up paddleboard sea
+h_golf_course | golf course fairway palm
+h_horse_desert | horse riding desert
+h_kayak_mangrove | kayaking mangroves
+h_lecture | speaker on stage auditorium audience
+h_amateur_football | amateur football match floodlights
+h_open_water_swim | open water swimming race sea
+h_dj | DJ mixing decks party
+h_jazz | jazz band saxophone club
+h_dolphins | dolphins jumping show
+h_boxing_ring | boxing ring arena lights
+h_oud | oud musician performance
