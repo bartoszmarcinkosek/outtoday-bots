@@ -1,2 +1,7 @@
 # miasto | kandydat | miejsce – sesja 4 (25.11.2026), nazwy ze stron oficjalnych i z wyszukiwarki
 # sesja 28.11.2026 – lokale z materiałów WhatsApp RAK (nazwy potwierdzone przez Graph API: bio i posty)
+Abu Dhabi | guggenheimabudhabi | Guggenheim Abu Dhabi
+Abu Dhabi | fitze.ae | fitze
+Abu Dhabi | fitze | fitze
+Abu Dhabi | louvreabudhabi | Louvre Abu Dhabi
+Abu Dhabi | alwahdamall | Al Wahda Mall
