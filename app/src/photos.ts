@@ -270,6 +270,7 @@ const RULES: [RegExp, string][] = [
   [/\brock\b|\bmetal\b|\bpunk\b/i, 'rock'],
   [/hunting (&|and) equestrian|hunting exhibition|adihex|aaihex/i, 'expo'],  // targi łowieckie, nie wyścigi konne
   // nauka jazdy konnej (Horse Riding Training Course w Mleiha) – nie wyścigi konne (tester 26.11)
+  [/hatta horses|horse (trail|trek)s?\b/i, 'horseriding'], // stajnia z przejażdżkami bez słowa „riding” w nazwie (zgłoszenie 28.11)
   [/horse ?riding (lesson|course|training|class|session|experience)|riding (lesson|school|course)|horse ?back rid|horse riding\b(?!.*(race|cup|championship))/i, 'horseriding'],
   [/horse|equestrian|racecourse|endurance ride|show jumping|polo\b/i, 'horse'],
   [/cycling|cyclist|cycle (track|race|ride)|\bbike ride|\bbicycle|velo\b/i, 'cycling'],  // nie „Cycles” (spektakl)
