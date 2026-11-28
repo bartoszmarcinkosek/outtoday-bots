@@ -1,40 +1,32 @@
-lm_p_teamlab_phenomena_abu_dhabi | teamLab Phenomena Abu Dhabi
-lm_p_saqr_park | Saqr Park Ras Al Khaimah
-lm_p_al_jahili_fort | Al Jahili Fort Al Ain
-lm_p_dolphin_park | Dolphin Park Abu Dhabi
-lm_p_eastern_mangroves_boardwalk | Eastern Mangroves boardwalk Abu Dhabi
-lm_p_abra_in_ras_al_khaimah_creek | Abra in Ras Al Khaimah Creek
-lm_p_dubai_desert_conservation_re | Dubai Desert Conservation Reserve
-lm_p_hili_archaeological_park | Hili Archaeological Park Al Ain
-lm_p_al_ain_palace_museum | Al Ain Palace Museum
-lm_p_manama_museum | Manama Museum Ajman
-lm_p_nyu_abu_dhabi_art_gallery | NYU Abu Dhabi Art Gallery
-lm_p_al_barsha_pond_park | Al Barsha Pond Park Dubai
-lm_p_crossroads_of_civilizations_ | Crossroads of Civilizations Museum Dubai
-lm_p_motiongate_dubai | MOTIONGATE Dubai
-lm_p_sharjah_fort_al_hisn | Sharjah Fort (Al Hisn)
-lm_p_real_madrid_world | Real Madrid World Dubai
-lm_p_ras_al_khor_wildlife_sanctua | Ras Al Khor Wildlife Sanctuary Dubai
-lm_p_quiz_room_abu_dhabi | Quiz Room Abu Dhabi
-lm_p_masfout_castle | Masfout Castle Ajman
-lm_p_infinity_des_lumi_res | Infinity des Lumières Dubai
-lm_p_al_ain_camel_market | Al Ain Camel Market
-lm_p_al_ain_zoo | Al Ain Zoo
-lm_p_souq_al_zafarana | Souq Al Zafarana Al Ain
-lm_p_kalba_bird_of_prey_centre | Kalba Bird of Prey Centre Sharjah
-lm_p_al_fay_park | Al Fay Park Abu Dhabi
-lm_p_natural_history_museum_abu_d | Natural History Museum Abu Dhabi
-lm_p_green_mubazzarah | Green Mubazzarah Al Ain
-lm_p_dibba_al_hisn_fort | Dibba Al Hisn Fort Sharjah
-lm_p_souk_al_bahar | Souk Al Bahar Dubai
-lm_p_bait_sheikh_saeed_bin_hamad_ | Bait Sheikh Saeed Bin Hamad Al Qasimi Sharjah
-lm_p_the_ritz_carlton_ras_al_khai | The Ritz-Carlton Ras Al Khaimah, Al Wadi Desert
-lm_p_dubai_aquarium_underwater_zo | Dubai Aquarium & Underwater Zoo
-lm_p_mohammed_bin_rashid_library | Mohammed Bin Rashid Library Dubai
-lm_p_jubail_mangrove_park | Jubail Mangrove Park Abu Dhabi
-lm_p_hisn_khor_fakkan | Hisn Khor Fakkan Sharjah
-lm_p_sharjah_art_museum | Sharjah Art Museum
-lm_p_sharjah_calligraphy_museum | Sharjah Calligraphy Museum
-lm_p_al_shindagha_museum | Al Shindagha Museum Dubai
-lm_p_al_ain_souk | Al Ain Souk
-lm_p_shees_park | Shees Park Sharjah
+g_orchestra | symphony orchestra concert hall performance
+g_recital | piano violin recital stage
+g_dolphin | bottlenose dolphins dolphinarium show
+g_cricket_fans | cricket stadium crowd Dubai
+g_dinosaur | dinosaur skeleton museum hall
+g_artefacts | museum archaeology artefacts display case
+g_arabic_breakfast | Arabic breakfast labneh zaatar
+g_craft_market | handicraft market stalls UAE
+g_basketball | basketball game arena
+g_boxing | boxing match ring arena
+g_desert_safari | desert safari 4x4 dunes Dubai
+g_wadi_4x4 | wadi offroad 4x4 mountains UAE
+g_musandam | Musandam dhow fjord
+g_aquarium_tunnel | aquarium tunnel sharks
+g_book_fair | Sharjah International Book Fair
+g_heritage_village | heritage village Abu Dhabi
+g_pottery | pottery wheel workshop hands
+g_yas_circuit | Yas Marina Circuit race cars
+g_jetski | jet ski Dubai beach
+g_golf | golf course Dubai palm trees
+g_mangrove_kayak | mangrove kayaking Abu Dhabi
+g_ski_dubai | Ski Dubai indoor slope
+g_open_water | open water swimming sea race
+g_oud | oud player concert
+g_camel_caravan | camel caravan desert dunes
+g_jazz | jazz trio saxophone club
+g_rock | rock band concert stage guitarist
+g_padel | padel tennis court
+g_theatre_seats | theatre auditorium red seats stage
+g_salsa | salsa dancing couple
+g_beach_yoga | yoga on the beach group
+g_lifeguard | public beach lifeguard tower Dubai
