@@ -5,7 +5,7 @@
 // 5) sąsiednie karty dostają różne wersje, gdy jest z czego wybierać.
 import { Item } from './logic';
 import { PHOTO_OFF } from './photoOff';
-import { PHOTO_FILES, PHOTO_NAMES } from './photos.gen';
+import { PHOTO_CREDIT, PHOTO_FILES, PHOTO_NAMES } from './photos.gen';
 import { REMOTE_PHOTOS, RemotePhoto } from './photos_remote.gen';
 
 // Zdjęcia z Unsplash (photos/unsplash.txt): aplikacja ładuje je z Unsplash, nie z paczki (wymóg Unsplash API).
@@ -23,6 +23,13 @@ export const REMOTE = new Map<number, RemotePhoto>();
     if (key.startsWith('lm_') && !fresh.has(key)) { F[key] = []; fresh.add(key); }
     (F[key] ??= []).push(id);
   });
+  // Konkretne miejsca (lm_*): gdy jest choć jedno prawdziwe zdjęcie (Wikimedia/Openverse z podpisem albo Unsplash),
+  // zdjęcia z AI tego miejsca nie są pokazywane (zgłoszenie Agi 28.11: Luwr dostawał wymyśloną galerię z obrazami olejnymi).
+  for (const key of Object.keys(F)) {
+    if (!key.startsWith('lm_')) continue;
+    const real = F[key].filter((f) => PHOTO_CREDIT.has(f) || REMOTE.has(f));
+    if (real.length && real.length < F[key].length) F[key] = real;
+  }
 }
 
 const UTM = 'utm_source=outtoday&utm_medium=referral';
