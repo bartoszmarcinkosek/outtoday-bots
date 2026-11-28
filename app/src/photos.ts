@@ -360,6 +360,10 @@ const ONLY_IF = new Map<string, RegExp>([
   ['museums-3', /natural history|dinosaur|fossil/i],
   ['museums-4', /archaeolog|heritage|histor|artefact|artifact|ancient|antiquit/i],
   ['daytrips-4', /musandam|khasab|dhow|boat|cruise|fjord/i],
+  // pustynne safari 4x4 tylko przy safari/wydmach – wędrówka po wadi to nie dune bashing; boisko amatorskie tylko przy grze amatorskiej, nie przy meczu ligi (28.11)
+  ['daytrips-2', /safari|dune|desert|4x4|off.?road/i],
+  ['daytrips-3', /safari|dune|desert|4x4|off.?road/i],
+  ['football-2', /amateur|social|casual|pick.?up|futsal|5.?a.?side|7.?a.?side|kick.?about|league night|beginners?/i],
   ['yoga-2', /beach|sunrise|sea\b|shore/i],
   ['mosque-1', /old|historic|heritage|al bidya|village|small|ancient|mud|al badiyah/i],
   // ludzie szkicujący rzeźbę: tylko zajęcia rysunku, nie wystawy (Spices and Wonders, zgłoszenie Agi 27.11)
