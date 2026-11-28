@@ -12,7 +12,6 @@ Classic Car Museum | Fujairah
 Farm cafe (The farm cafe and a...) | Fujairah
 Santorini | Fujairah
 Kayak Questforadventure | Ajman
-Masfut Museum | Ajman
 Mikoko | UAQ
 ADCRC Swimming (camels) | UAQ
 ADCRC Camel Riding | Dubai
@@ -42,7 +41,6 @@ Farm walk Khorfakkan | Sharjah
 Al Dhaid Oasis | Sharjah
 Ruins Fujairah | Fujairah
 Al Bidyah Mosque | Fujairah
-Masfut Gate | Ajman
 Masfut Oasis | Ajman
 Abandoned Souqs UAQ | UAQ
 Suhaila Dam | Dubai (Hatta)
@@ -54,8 +52,6 @@ Sunrise Beach | Dubai
 Expo Lake | Dubai
 Flamingo Lake | Dubai
 King Hamad bin Isa park | Abu Dhabi
-Al Jimi Oasis | Al Ain
-Qattara Oasis | Al Ain
 Ghaf Tree Forest | RAK
 A lovely camping spot | RAK
 # Odrzucone wcześniej (zostają): Treelane, Chill Out Lounge, Mountain Bike Academy, Costa Azzurra, Ailuromania, Mini Train Al Ain, Sketch Art Cafe.

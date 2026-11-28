@@ -1,0 +1,14 @@
+{"places":[
+{"name":"Al Jimi Oasis","category":"daytrips","area":"Al Jimi","city":"Al Ain","is_indoor":false,"status":"approved","kid_friendly":true,
+"description":"One of Al Ain's UNESCO-listed oases: shaded palm gardens watered by a traditional falaj, with more than a dozen historic mud-brick buildings including mosques, fortified houses and watchtowers. A 1 km cultural trail links five of the historic buildings and connects to Al Qattara Oasis just to the north; entry is free.",
+"source_name":"visitabudhabi.ae","official_url":"https://visitabudhabi.ae/en/things-to-do/nature-and-wildlife/natural-wonders/al-jimi-oasis"},
+{"name":"Al Qattara Oasis","category":"daytrips","area":"Al Qattara","city":"Al Ain","is_indoor":false,"status":"approved","kid_friendly":true,
+"description":"A UNESCO-listed palm oasis in Al Ain, farmed for around three centuries, with a falaj irrigation channel, old fortified houses and mosques, and a 4,000-year-old tomb found nearby. Combine it with Al Qattara Arts Centre and Souq Al Qattara on its edge; it's pleasant to walk or drive through in the cooler months.",
+"source_name":"visitabudhabi.ae","official_url":"https://visitabudhabi.ae/en/things-to-do/nature-and-wildlife/natural-wonders/al-qattara-oasis"},
+{"name":"Masfout Gate","category":"daytrips","area":"Masfout","city":"Ajman","is_indoor":false,"status":"approved","kid_friendly":true,
+"description":"The new landmark entrance to Masfout, Ajman's mountain enclave near Hatta, opened in February 2026 and linking Masfout Museum with Al Boma Tower. Masfout was named one of UN Tourism's Best Tourism Villages 2025; come for the views, the cooler air and the hiking trails around the village.",
+"source_name":"visit-ajman.ae","official_url":"https://visit-ajman.ae/en/destinations/masfout/masfout-gate"},
+{"name":"Masfout Museum","category":"museums","area":"Masfout","city":"Ajman","is_indoor":true,"status":"approved","kid_friendly":true,
+"description":"A small museum in a restored fortified tower house, one of the oldest surviving buildings of the emirate of Ajman, which once served as a defensive post and the area's administrative seat. Pair it with a walk to Al Boma Tower and the rest areas around Masfout.",
+"source_name":"visit-ajman.ae","official_url":"https://visit-ajman.ae/en/destinations/masfout/masfout-museum"}
+]}
