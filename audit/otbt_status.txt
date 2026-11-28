@@ -8,7 +8,6 @@ Oferty (deals) w ok. 155 restauracjach z listy OTBT | nie zaczęte
 # Pozycje bez koordynatów z wcześniejszych zrzutów: lista nie została zapisana (28.11) – sprawdzić przy kolejnej paczce zrzutów.
 # 28.11 15:30 – porównanie pełnej listy OTBT (zip 12.30.31, 77 zrzutów) z bazą. BRAKUJE:
 # Firmy / atrakcje z właścicielem (link: oficjalna strona lub IG):
-Classic Car Museum | Fujairah
 Farm cafe (The farm cafe and a...) | Fujairah
 Santorini | Fujairah
 Kayak Questforadventure | Ajman
@@ -22,13 +21,11 @@ Sustainable City animal farm | Dubai
 Roll DXB | Dubai
 Montys Rowing & Paddle | Dubai
 Kayak Aquatech | Dubai
-Hotel Indigo Art Tour | Dubai
 Beekeepers Sustainable... | Dubai
 Mountain Biking Mushrif | Dubai
 The Royal Stables | Abu Dhabi
 Flower Farm Abu Dhabi | Abu Dhabi
 Flower Farm Al Hiyar | Al Ain
-Mazaara Farm Visit | Abu Dhabi
 Al Samhah Greenhouse | Abu Dhabi
 Kayak Jubail | Abu Dhabi
 Kayaking Eastern Mangroves | Abu Dhabi
