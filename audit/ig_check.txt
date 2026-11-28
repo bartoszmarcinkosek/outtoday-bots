@@ -1,12 +1,11 @@
-Treelane | treelane.farm
-Bookends | bookendsae
-Costa Azzurra | costaazzurra.ae
-Chill Out Lounge | chill.out_lounge
-Mini Train Al Ain | mini_train_9727
-Fun World Boats | funworldboats
-MTB Academy a | _mtb_academy
-MTB Academy b | mtb.academy
-MTB Academy c | academy_mtb
-MTB Academy d | mtb_academy
-Ailuromania | ailuromaniacafe
-Sketch Art Cafe | sketchartcafedubai
+Winter Garden | marjanrak | winter garden
+Winter Garden b | almarjanisland | winter garden
+Al Maha shisha | almaha.residence | ladies
+Al Maha spa | almaha.residence | spa
+Masala ladies | masalabysocialsrak | ladies
+Socials ladies | socialsrak | ladies
+Sofitel Al Hamra | sofitelalhamra | tree
+InterContinental RAK | intercontinentalrasalkhaimah | tree
+Al Hamra Residence | alhamraresidence | tree
+Three Bites Later | threebiteslater | jingle
+Rixos BAB | rixosbabalbahr | tree
