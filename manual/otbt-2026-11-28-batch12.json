@@ -1,0 +1,10 @@
+{
+ "places": [
+  {"name": "Bookends Preloved Bookshop", "category": "markets", "area": "Dubai (several stores)", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "The UAE's largest marketplace for second-hand books: shelves of preloved novels, children's books and non-fiction at low prices, and you can sell or swap your own books. Shop online or visit one of their stores.",
+   "source_name": "bookends.ae", "official_url": "https://bookends.ae/"},
+  {"name": "Fun World Boats", "category": "active", "area": "Al Majaz Waterfront & Al Qasba", "city": "Sharjah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "Self-drive small electric boats on the lakes at Al Majaz Waterfront and Al Qasba in Sharjah, no licence needed. Best at sunset or after dark when the waterfront lights up; open late afternoon until about 1am.",
+   "source_name": "instagram.com", "official_url": "https://www.instagram.com/funworldboats/"}
+ ]
+}
