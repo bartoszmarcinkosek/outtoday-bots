@@ -1,0 +1,16 @@
+{
+ "update_place_ids": [
+  {"id": "e0e95d4f-8153-4afb-950c-a76f1f0dacaf", "set": {"official_url": "https://visitrasalkhaimah.com/discover/attractions/flamingo-beach/", "status": "approved"}}
+ ],
+ "places": [
+  {"name": "Bin Sultan Mosque", "category": "museums", "area": "Masfout", "city": "Ajman", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "Ajman's oldest mosque, built around 1815 from clay and plaster with a roof of woven palm fronds, at the foot of the Masfout Castle hill. A small, simple example of traditional Emirati building, about 90 minutes from Ajman city.",
+   "source_name": "visit-ajman.ae", "official_url": "https://visit-ajman.ae/en/destinations/masfout/bin-sultan-mosque/"},
+  {"name": "The Dubai Balloon", "category": "attractions", "area": "Atlantis, The Palm", "city": "Dubai", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A tethered balloon at Atlantis, The Palm that lifts you high above Palm Jumeirah for wide views of the Palm, the sea and the Dubai skyline. The ride takes about 10 minutes and suits all ages.",
+   "source_name": "visitdubai.com", "official_url": "https://www.visitdubai.com/en/places-to-visit/the-dubai-balloon"},
+  {"name": "RollDXB", "category": "active", "area": "Dubai Maritime City, Port Rashid", "city": "Dubai", "is_indoor": true, "status": "approved", "kid_friendly": true,
+   "description": "Dubai's indoor roller-skating rink in a warehouse at Port Rashid, with a retro disco look, DJs, skate jams and lessons for beginners to advanced. One-hour sessions; skates can be rented; minimum age 5.",
+   "source_name": "platinumlist.net", "official_url": "https://dubai.platinumlist.net/event-tickets/roll-dxb"}
+ ]
+}
