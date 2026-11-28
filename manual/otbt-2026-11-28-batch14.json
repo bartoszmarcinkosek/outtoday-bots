@@ -1,0 +1,13 @@
+{
+ "places": [
+  {"name": "Fujairah Sea View (Dibba coast)", "category": "daytrips", "area": "Sheikh Zayed bin Sultan Rd, Dibba", "city": "Fujairah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A rocky stretch of coast next to the Dibba coast road with open views over the Gulf of Oman and the Hajar Mountains. A quick photo stop when you're in the area; nothing to buy, so bring water.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=25.6022281,56.3323595"},
+  {"name": "Abandoned Masjid Dibba", "category": "daytrips", "area": "Dibba Al Fujairah", "city": "Fujairah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "An old abandoned mosque with a white minaret among the ruins of a former neighbourhood in Dibba, popular for photography. It may be demolished at some point, so check before driving out specially; respect the site.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=25.6062780,56.2952119"},
+  {"name": "Lake Dibba (Al Rakbi Dam)", "category": "daytrips", "area": "Dibba Al Fujairah", "city": "Fujairah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A small lake behind Al Rakbi dam outside Dibba, surrounded by mountains. Accessible by any car; a short scenic stopover rather than a full outing, best after the winter rains when there's more water.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=25.5898493,56.3112430"}
+ ]
+}
