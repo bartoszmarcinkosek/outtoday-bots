@@ -507,7 +507,7 @@ const ONLY_IF = new Map<string, RegExp>([
   // kontrola 28.11: bar sportowy z ekranami tylko dla pubów/sportu (nie „Rosé Piscine” na plaży); kran z piwem nie przy aperitivo;
   // piwo i skrzydełka tylko przy pubie; zespół w pubie nie przy DJ/after party/karaoke; pełna orkiestra nie przy recitalu;
   // dhow tylko przy wyścigu dhow, katamaran SailGP tylko przy SailGP
-  ['happy_hour-10', /sport|\bpub\b|tavern|mcgettigan|irish|tap ?house|match|game|screens?|brew|beer|pint|guinness|bingo/i],
+  ['happy_hour-10', /^(?![\s\S]*(beach|sunset|sundown|golden hour|pool|piscine|rooftop))[\s\S]*(sport|\bpub\b|tavern|mcgettigan|irish|tap ?house|match|game|screens?|brew|beer|pint|guinness|bingo)/i],
   ['happy_hour-5', /^(?![\s\S]*(aperitivo|ap[ée]ro|aperol|ros[ée]|champagne|prosecco|spritz|beach|pool|piscine|cocktail|sunset|sundown|rooftop))/i],
   // pub w środku (happy_hour-1, -8) nie przy zachodzie słońca / basenie / dachu; taras nad morzem o zachodzie (-2, -3, -4, -9) nie przy pubie
   ['happy_hour-1', /^(?![\s\S]*(sunset|sundown|beach|pool|piscine|rooftop|terrace|sky))/i],
