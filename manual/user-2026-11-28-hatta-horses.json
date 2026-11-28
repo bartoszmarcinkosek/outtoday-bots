@@ -1,0 +1,16 @@
+{
+ "places": [
+  {
+   "name": "Hatta Horses at Wadi Hub",
+   "category": "active",
+   "area": "Hatta Wadi Hub, Hatta",
+   "city": "Dubai",
+   "description": "Guided horse rides from Hatta Wadi Hub along mountain trails, through trees and past the lakes, for beginners and experienced riders. Rides of 30 minutes to 2 hours; the longest passes two lakes. Mornings 6:30–11:00 and afternoons 3:30–6:30. Riders from 5 years, up to 100 kg; book with Hatta Horses.",
+   "is_indoor": false,
+   "status": "approved",
+   "source_name": "visithatta.com",
+   "official_url": "https://www.visithatta.com/en/play/horse-riding",
+   "kid_friendly": true
+  }
+ ]
+}
