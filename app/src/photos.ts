@@ -135,6 +135,17 @@ const LANDMARKS: [RegExp, string][] = [
   [/Safa\ Park/i, 'lm_p_safa_park'],
   [/Suwaidi\ Pearl\ Farm/i, 'lm_p_suwaidi_pearl_farm'],
   [/Al\ Hefaiyah\ Mountain\ Conservation\ Centre/i, 'lm_p_al_hefaiyah_mountain_conserv'],
+  // partia 5 (Wikimedia, 28.11 – pełne przeszukanie miejsc z ikonką)
+  [/zayed national museum/i, 'lm_p_zayed_national_museum'],
+  [/green planet/i, 'lm_p_the_green_planet'],
+  [/crocodile park/i, 'lm_p_dubai_crocodile_park'],
+  [/bithnah fort/i, 'lm_p_bithnah_fort'],
+  [/sheikh zayed mosque fujairah|fujairah.*sheikh zayed (grand )?mosque/i, 'lm_p_sheikh_zayed_mosque_fujairah'],
+  [/^jebel hafit$|hafit tombs|beehive tombs/i, 'lm_p_jebel_hafit'],
+  [/ferrari world/i, 'lm_p_ferrari_world_abu_dhabi'],
+  [/img worlds/i, 'lm_p_img_worlds_of_adventure'],
+  [/fujairah heritage village/i, 'lm_p_fujairah_heritage_village'],
+  [/seaworld|sea world/i, 'lm_p_seaworld_yas_island'],
   // zgłoszenia Agi 27.11: konkretne miejsca dostają własny klucz (prawdziwe zdjęcie albo ikonka), a nie zdjęcie okolicy
   [/twiggy/i, 'day_pass'],
   [/xline|zip ?line/i, 'zipline'],
