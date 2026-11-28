@@ -64,3 +64,6 @@ PRICE_SAYS_FREE a37cd247-47aa-4a8d-bbee-442926a6c07a  # 27.11: Meetup standard t
 PRICE_SAYS_FREE caf60e83-119a-4d4c-9903-23699d88cbbb  # 27.11: Meetup standard text, venue/activity costs may apply – not free
 PRICE_SAYS_FREE de28ead0-7a9f-44a7-a9b7-54b4960199be  # 27.11: Meetup standard text, venue/activity costs may apply – not free
 PRICE_SAYS_FREE e3896129-423d-45dc-9ef7-4bbff17b1476  # 27.11: Meetup standard text, venue/activity costs may apply – not free
+CAME_BACK 12d00efb-637d-46b0-8442-6dd6bf8ada12  # 28.11: rejected copy had the wrong date; this is the correct 18-20 Dec entry
+CAME_BACK e80420bf-e531-4194-924d-113dfbdd01fa  # 28.11: rejected one was the duplicate of this Cinque Christmas brunch
+CAME_BACK f57ebfb8-fe79-4df1-a270-66d4350da8c1  # 28.11: rejected concert entry is covered by this festival entry

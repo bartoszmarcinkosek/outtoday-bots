@@ -1,0 +1,202 @@
+{
+ "note": "Daily review 28.11.2026: pending – past events (Jumbo sale, Arabic workshop, Leonids night, Bookends club) and the Big Shopper Sale rejected; Faraj Suleiman (Platinumlist, 26.03.2027 19:30) and MEFCC 2027 (mefcc.com, 2-4.04.2027) approved with details; deals: Time Out day passes/brunches/ladies' nights and official-site brunches approved, year-old portal listings (Listed Nov 2025 / 2024) and deals without price or time rejected; unclear Yalla/What's On/blog items left for the owner. Self-approved check: duplicates (Al Siyoh/Al Seyouh park, Hamriyah heritage village, Nutcracker twice, Traders Fight Night, Nurlan Saburov, JLT Winterfest twice), generic Meetup social and an F1 hospitality ticket rejected; clumsy title and price text cleaned. Sanity: days filled from deal texts, Hawksbill venue corrected (Saadiyat Beach Golf Club, not Abu Dhabi Golf Club).",
+ "approve_event_ids": [
+  "3b5f30a9-123e-432f-ada4-68c479b464b5",
+  "9636df89-5ef5-448f-acb9-10641c925cfe"
+ ],
+ "reject_event_ids": [
+  "b55326a2-d951-4829-919d-13ccd6c97f5a",
+  "775bc0ee-80a3-4d77-ad02-9e41a5826da4",
+  "98dbf501-c6e4-470c-b31b-f4ad15ba8a14",
+  "fb0756fd-b87e-4e76-bf1e-3a089c38bcbb",
+  "dc363c52-bccb-4a97-8d31-e0f9c95bc234",
+  "ae0982e8-e41f-4796-a704-b058f5d2a43e",
+  "61119de1-c7ae-4b38-b520-0a26091e91ff",
+  "2e821709-0cac-4a6a-944e-b509ed17266a",
+  "b2c68334-009c-40a2-b287-548007b1977f",
+  "85f4d79b-d8fd-4655-bfb2-56d99fc2a751",
+  "622031ca-4574-43e4-b5e3-0369e63d5c92",
+  "e08fe3a3-e832-4eb4-b067-9825e6808a68",
+  "402f2a34-cb1c-4b58-bb57-0075276ec8e4"
+ ],
+ "update_event_ids": [
+  {
+   "id": "3b5f30a9-123e-432f-ada4-68c479b464b5",
+   "set": {
+    "title": "Tribute to Ziad Rahbani – Faraj Suleiman",
+    "venue": "The Red Theater, NYU Abu Dhabi",
+    "start_time": "19:30",
+    "price_text": "From AED 79",
+    "price_min_aed": 79,
+    "is_free": false,
+    "official_url": "https://abu-dhabi.platinumlist.net/event-tickets/106270/faraj-suleiman",
+    "description": "Palestinian pianist and composer Faraj Suleiman performs a concert dedicated to the music of Ziad Rahbani at The Arts Center at NYU Abu Dhabi. Doors open at 19:00."
+   }
+  },
+  {
+   "id": "9636df89-5ef5-448f-acb9-10641c925cfe",
+   "set": {
+    "official_url": "https://www.mefcc.com",
+    "description": "The region's big pop-culture festival returns to ADNEC Centre Abu Dhabi for three days of comics, film and TV guests, cosplay, gaming and fan zones."
+   }
+  },
+  {
+   "id": "f8b94f6d-b94b-4357-a590-e7edb07c29c6",
+   "set": {
+    "official_url": "https://www.dubaiopera.com/en/events/ballet/the-nutcracker"
+   }
+  },
+  {
+   "id": "3b19e934-ea04-4496-844c-372d27adba7f",
+   "set": {
+    "price_text": "Free (online registration)",
+    "description": "A free community winter festival in JLT Park with festive lights, music and family activities. Open 16:00 to 21:00 on weekdays and until 22:00 at weekends; register online."
+   }
+  },
+  {
+   "id": "71be1942-edc0-4d31-b7c4-db1093177fbc",
+   "set": {
+    "title": "Old School R&B Night at WHITE Abu Dhabi (Race Weekend)"
+   }
+  },
+  {
+   "id": "89fb95ae-5293-4dec-9d0b-e4e772defa3a",
+   "set": {
+    "price_text": "AED 65 per class (cash only)",
+    "price_min_aed": 65,
+    "is_free": false
+   }
+  }
+ ],
+ "approve_deal_ids": [
+  "84ffdd90-5a94-4929-9571-b90df55f8638",
+  "2876eedc-fb38-4b05-b299-34ca0648c19d",
+  "2116d217-46e8-4406-94fb-7d59eb85fb4f",
+  "b3321c50-15a3-4a6f-a0bf-cc78960a7e00",
+  "e91eb6af-d2f1-4e22-a14c-6adf1890097f",
+  "db744180-ce5a-406d-843a-315434e994d7",
+  "683d6e6f-8a56-425b-8f9f-95c1f3fd60cd",
+  "2ac0a44f-8685-42a7-856d-f5f3f80afc34",
+  "cad49a3a-a126-4082-928c-89d5f9320d40",
+  "4e47ebc5-94c4-4b2f-a8c6-3e948bdfdae3",
+  "8c6c74fc-bf18-40d3-9bc8-5cf840ea0f56",
+  "a5760f0c-f8fa-401b-abce-6bffb6ed0acc",
+  "c3688366-78c8-45ae-802c-e89c70e5e5ba",
+  "05402ca0-06f2-4afa-a4ba-1a9ece5bdaf6",
+  "209f6e8a-b4a3-4871-8ae9-c9e758b79f6b",
+  "262003f0-d074-4b4e-a358-e49d116bfa04",
+  "d678bd9f-d6d3-4e77-89d7-4e28c2669df9",
+  "477d6ab2-1de3-405d-8121-6d5a30412f8b",
+  "4303154b-b92d-4ace-867b-7ba74e1df98e",
+  "ce3dfc4b-ea55-48c9-a8df-e3dc76667688",
+  "ac397440-7841-4b04-9ea8-107e9e907c2e",
+  "736c79ac-1376-4219-bcbf-3b55c2e4dfe6",
+  "a78c31f9-da89-4970-883e-27de810aa24a",
+  "65986a71-7485-4fd6-bc7f-cab79b8da19c"
+ ],
+ "reject_deal_ids": [
+  "614cfca0-55f6-4d25-abee-1462c23e90df",
+  "7e9cc1fa-f509-4d04-9424-4f901554e325",
+  "af406d22-11f7-4680-aba7-fdfcf4501f33",
+  "f7a88860-7e40-4b3f-8a15-5e94cb1669f7",
+  "6a520c07-cbe2-427a-a36d-af3ca14c619d",
+  "6c6f857e-f3ae-4262-8d23-1e883c4aad41",
+  "83283d55-0687-40d6-989d-9cccfa96ad25",
+  "a87a5335-b38b-4009-b313-88495b69514c",
+  "f4b379e6-04bf-4b03-a773-1e56c428700b",
+  "3a366e17-181f-466f-8422-1b8a227bd8f7",
+  "979d6f9f-9da5-4e97-ba1c-0b034ad10ab5",
+  "f8a20e59-4c5a-4439-ba02-d1cf0055cd50",
+  "f90c7d1c-adb6-4c3e-a49f-0945de8dc246",
+  "9717c02b-e8ad-4c36-90d0-4843d54e1da8",
+  "3b4fb9bf-a835-40ab-8803-f8d5e81cf57f",
+  "1a0278a0-bafb-4f42-87ae-43d1756af723",
+  "53bd37e0-c5a1-4cb5-b2be-f416c5a76d75",
+  "3d42b7e8-90d7-4152-a366-f9c97b7161e1",
+  "e4a81583-672b-4fe3-a9d4-d5004ba36987",
+  "cd3a18ea-8384-4c5b-b030-1c6915b0961b",
+  "1e52b8af-9d19-44bf-80aa-e68314538c72"
+ ],
+ "update_deal_ids": [
+  {
+   "id": "2876eedc-fb38-4b05-b299-34ca0648c19d",
+   "set": {
+    "details": "Day pass with pool and beach access; AED 200 of the fee is redeemable on food and drinks."
+   }
+  },
+  {
+   "id": "4303154b-b92d-4ace-867b-7ba74e1df98e",
+   "set": {
+    "venue": "McGettigan's Souk Madinat"
+   }
+  },
+  {
+   "id": "736c79ac-1376-4219-bcbf-3b55c2e4dfe6",
+   "set": {
+    "title": "Business Lunch at Jumeirah Al Qasr"
+   }
+  },
+  {
+   "id": "65986a71-7485-4fd6-bc7f-cab79b8da19c",
+   "set": {
+    "official_url": null
+   }
+  },
+  {
+   "id": "05a2ff08-8e06-416a-8fbc-51533030eb1c",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "2100b1b7-2f59-415d-92f4-eafb04df1372",
+   "set": {
+    "days_of_week": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  {
+   "id": "894fa971-1439-4468-8971-580a641ec3a1",
+   "set": {
+    "days_of_week": [
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "id": "cf1aa1b2-37b9-4299-b59e-defb920e37af",
+   "set": {
+    "days_of_week": [
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "id": "b005db24-11b2-4498-8204-bfc3a3c0b0d2",
+   "set": {
+    "venue": "Hawksbill, Saadiyat Beach Golf Club"
+   }
+  }
+ ]
+}
