@@ -1,0 +1,13 @@
+{
+ "note": "Abu Dhabi, paczka WhatsApp 28.11 (34 zdjęcia). Reszta była już w bazie albo już się odbyła. Pominięte: kurs medytacji online, oferta firmowa COBA na National Day, Community Padel Day (kończy się dziś o 18:00).",
+ "events": [
+  {"title": "Art Appears: Samia Halaby's Yellow Spiral at Louvre Abu Dhabi Park", "category": "culture", "start_date": "2026-11-27", "end_date": "2026-11-29", "start_time": "16:00", "end_time": "20:00",
+   "venue": "Louvre Abu Dhabi Park, Saadiyat Island", "city": "Abu Dhabi",
+   "description": "Guggenheim Abu Dhabi brings Samia Halaby's painting Yellow Spiral (1970) to Louvre Abu Dhabi Park for three days of short talks about the artist, a spiral-collage workshop inspired by her use of colour, and a contemporary art quiz. Register through the link in Guggenheim Abu Dhabi's Instagram bio.",
+   "kid_friendly": true, "status": "approved", "source_name": "instagram.com/guggenheimabudhabi", "official_url": "https://www.instagram.com/guggenheimabudhabi/"},
+  {"title": "fitze x JACK & JONES Social Run + Guinness World Records ceremony", "category": "sport", "start_date": "2026-11-29",
+   "venue": "Al Wahda Mall", "city": "Abu Dhabi",
+   "description": "A free community walk/run at Al Wahda Mall to close Dubai Fitness Challenge 2026, followed by fitze's official Guinness World Records ceremony for the most participants in a virtual walk/run event in a month. Run registration on fitze's page is now closed, but you can still come and watch the ceremony. The start time is not published, so check fitze's channels before going.",
+   "is_free": true, "kid_friendly": true, "status": "approved", "source_name": "fitze.ae", "official_url": "https://www.fitze.ae/web/jack-jones-runs-al-wahda/"}
+ ]
+}
