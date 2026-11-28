@@ -1,0 +1,10 @@
+{
+ "places": [
+  {"name": "Rumailah Farm", "category": "kids", "area": "Rumailah", "city": "Fujairah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "The UAE's first Jersey cow dairy farm, with a herd of several hundred cows. Guided tours show the cows, milking and production, finish with an ice cream tasting, and can be followed by breakfast at the farm. Book a tour in advance.",
+   "source_name": "rumailahfarms.com", "official_url": "https://rumailahfarms.com/"},
+  {"name": "Wadi Al Helo", "category": "daytrips", "area": "Sharjah–Kalba Road (E102)", "city": "Sharjah", "is_indoor": false, "status": "approved", "kid_friendly": true,
+   "description": "A green mountain valley in the Hajar Mountains on the road to Kalba, with farms, a small heritage village and fort, and Bronze Age copper-mining and rock-art sites. Good for a scenic drive, short walks and photography in the cooler months.",
+   "source_name": "google.com/maps", "official_url": "https://www.google.com/maps/search/?api=1&query=24.9425,56.20556"}
+ ]
+}
