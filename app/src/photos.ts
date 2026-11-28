@@ -356,6 +356,11 @@ const CITY_ONLY = new Map<number, string>([
 // tylko dla kart, których tytuł/miejsce do nich pasuje. Inaczej każda „night out” miała karaoke, każda kolacja
 // – kuchnię indyjską albo teppanyaki, każdy day pass – basen wśród wydm (tester 27.11).
 const ONLY_IF = new Map<string, RegExp>([
+  // prawdziwe zdjęcia ogólne z 28.11 – tylko gdy pasują do treści (Biennale to nie dinozaury, wędrówka po wadi to nie rejs dhow)
+  ['museums-3', /natural history|dinosaur|fossil/i],
+  ['museums-4', /archaeolog|heritage|histor|artefact|artifact|ancient|antiquit/i],
+  ['daytrips-4', /musandam|khasab|dhow|boat|cruise|fjord/i],
+  ['yoga-2', /beach|sunrise|sea\b|shore/i],
   ['mosque-1', /old|historic|heritage|al bidya|village|small|ancient|mud|al badiyah/i],
   // ludzie szkicujący rzeźbę: tylko zajęcia rysunku, nie wystawy (Spices and Wonders, zgłoszenie Agi 27.11)
   ['lm_louvre_in-3', /draw|sketch|art class|workshop|life drawing|atelier/i],
@@ -495,6 +500,8 @@ function pool(item: Item): number[] {
   const typeHit = lm && lm[1] === 'lm_jebel_jais' && typeHit0 && !/^(nye|fireworks|concert|festival)/.test(typeHit0[1]) ? undefined : (typeHit0 ?? typeHitD);
   // świąteczny koncert w arenie (Mariah Carey's Christmastime w Etihad Arena): wnętrze areny, nie stół z indykiem (tester B 27.11)
   if (typeHit && lm && VENUES.has(lm[1]) && /^(xmas|carols)$/.test(typeHit[1]) && PHOTO_FILES[`${lm[1]}_in`]) return [...PHOTO_FILES[`${lm[1]}_in`]];
+  // koncert klasyczny w sali z prawdziwym zdjęciem wnętrza (Dubai Opera, Etihad Arena): wnętrze tej sali, nie ogólna orkiestra (28.11)
+  if (typeHit && ['orchestra', 'theatre'].includes(typeHit[1]) && lm && VENUES.has(lm[1]) && PHOTO_FILES[`${lm[1]}_in`]) return [...PHOTO_FILES[`${lm[1]}_in`]];
   if (typeHit && PHOTO_FILES[typeHit[1]]) return [...PHOTO_FILES[typeHit[1]]];
   // rodzaj rozpoznany, ale zdjęcia jeszcze brak (orkiestra w Expo City / Luwrze): wnętrze sali, jeśli jest – inaczej ikonka, nie scena rockowa
   if (typeHit && NO_FALLBACK.has(typeHit[1]) && !(lm && VENUES.has(lm[1]) && PHOTO_FILES[`${lm[1]}_in`])) return [];
